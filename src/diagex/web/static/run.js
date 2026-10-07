@@ -50,6 +50,21 @@ function inspect(category, index) {
     dl.append(el("dt","识别状态"),el("dd",diagnostic.label));
     if (diagnostic.reference_status) dl.append(el("dt","参考使用情况"),el("dd",diagnostic.reference_status));
   }
+  const failure = row.request_failure;
+  if (failure) {
+    const fields = [["请求错误",failure.label],["错误详情",failure.error],["图块",failure.tile_id],
+      ["请求总时限（秒）",failure.time_budget_s],["实际耗时（秒）",failure.elapsed_s?.toFixed(2)],
+      ["发送次数",failure.attempts],["最多尝试次数",failure.max_attempts],
+      ["首个流事件（秒）",failure.first_event_s?.toFixed(2)],
+      ["首个内容片段（秒）",failure.first_content_s?.toFixed(2)],
+      ["收到的流事件数",failure.stream_events],["收到的内容片段数",failure.content_deltas],
+      ["输入图片数",failure.image_count],["输入文本字符数",failure.text_characters],
+      ["提供的图例条目数",failure.legend_entry_count],["服务响应编号",failure.response_id],
+      ["重试情况",({budget_exhausted:"总时限耗尽，未继续重试",attempts_exhausted:"已达到尝试次数上限",retry_delay_exceeds_budget:"重试等待将超过剩余时限",cooldown_exceeds_budget:"限流等待将超过时限",non_retryable_http_status:"服务返回不可重试错误",retry_pending:"计划重试"})[failure.retry_reason]]];
+    for (const [label,value] of fields) if (value != null) dl.append(el("dt",label),el("dd",String(value)));
+    if (failure.first_event_s === undefined) dl.append(el("dt","流进度"),el("dd","旧日志未记录，无法判断是否已开始返回内容。"));
+    else if (failure.first_content_s === null) dl.append(el("dt","流进度"),el("dd","未记录到内容片段；连接事件不等于识别结果。"));
+  }
   panel.append(dl);
   const origin = data.evidence_origins?.[category]?.[index];
   if (origin) {

@@ -17,6 +17,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator, model_valida
 from diagex.config import SymbolPerceptionConfig
 from diagex.llm.client import LLMClient, is_malformed_tool_json_error, is_non_retryable_api_error
 from diagex.llm.cost import CostTracker
+from diagex.llm.diagnostics import request_summary, safe_error
 from diagex.llm.prompts.output_language import CHINESE_EXPLANATIONS
 from diagex.ui.progress import ProgressReporter
 from diagex.vision.encode import encode_image_block
@@ -791,7 +792,7 @@ def _perceive_tile(
             "max_attempts": policy.transport_attempts,
         }
         if on_diagnostic is not None:
-            on_diagnostic({"attempt": attempt, "phase": "request", "request": _request_diagnostic(request)})
+            on_diagnostic({"attempt": attempt, "phase": "request", "request": _request_diagnostic(request), "summary": request_summary(request)})
         if on_attempt is not None:
             on_attempt()
         try:
@@ -805,7 +806,7 @@ def _perceive_tile(
             )
         except Exception as exc:
             if on_diagnostic is not None:
-                on_diagnostic({"attempt": attempt, "phase": "request_error", "error": str(exc)})
+                on_diagnostic({"attempt": attempt, "phase": "request_error", "error": safe_error(exc), "error_type": type(exc).__name__})
             if initial is not None and not is_non_retryable_api_error(exc):
                 invalid_responses.append(
                     {

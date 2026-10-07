@@ -17,6 +17,7 @@ def test_request_deadline_stops_active_stream_without_retry(monkeypatch):
     now = [100.0]
     monkeypatch.setattr("diagex.llm.client.time.monotonic", lambda: now[0])
     calls = []
+    events = []
 
     class Stream:
         def __enter__(self):
@@ -41,9 +42,15 @@ def test_request_deadline_stops_active_stream_without_retry(monkeypatch):
 
     monkeypatch.setattr(client._client.messages, "stream", stream)
     with pytest.raises(TimeoutError, match="stream exceeded"):
-        client.messages_create(system="test", messages=[], max_tokens=100, time_budget_s=3, max_attempts=2)
+        client.messages_create(system="test", messages=[], max_tokens=100, time_budget_s=3, max_attempts=2, on_transport_event=events.append)
     assert len(calls) == 1 and client.retries_total == 0
     assert calls[0]["timeout"].read == 3
+    last = events[-1]
+    assert last["error_code"] == "request_deadline"
+    assert last["stream_events"] == 3 and last["first_event_s"] == 1
+    assert last["content_deltas"] == 0 and last["first_content_s"] is None
+    assert last["time_budget_s"] == 3 and last["max_attempts"] == 2
+    assert last["retry_reason"] == "budget_exhausted"
     client._client.close()
 
 

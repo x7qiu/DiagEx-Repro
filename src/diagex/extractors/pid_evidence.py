@@ -33,6 +33,7 @@ from diagex.extractors.pid import (
 )
 from diagex.llm.client import LLMClient, is_non_retryable_api_error
 from diagex.llm.cost import CostTracker
+from diagex.llm.diagnostics import failure_summary, safe_error
 from diagex.vision.connection_inference import (
     PageGraphResult,
     PageLineEvidence,
@@ -52,6 +53,7 @@ from diagex.vision.evidence import (
 )
 from diagex.vision.fusion import assemble_graph, fuse_objects
 from diagex.vision.instance_matching import FUSION_DEPENDENT_STAGES, FUSION_VERSION
+from diagex.vision.legend_coverage import LEGEND_GATE_VERSION, legend_coverage_findings
 from diagex.vision.legend_models import LegendPack, SymbolStandard
 from diagex.vision.line_detection import LINE_DETECTION_VERSION, LineDetectionResult, detect_lines
 from diagex.vision.native_text import build_native_text_inventory
@@ -387,6 +389,11 @@ def run_pid_evidence_extract(
     _checkpoint_cost(run_dir, prior_cost, cost)
 
     legend_failure = _legend_prerequisite_error(legend_pack, legend_source)
+    if run_dir is not None:
+        atomic_write_json(run_dir / "legend.warnings.json", {
+            "gate_version": LEGEND_GATE_VERSION,
+            "findings": legend_coverage_findings(legend_pack),
+        })
     if store is not None:
         store.manifest.errors = [e for e in store.manifest.errors if e.stage != "legend"]
         if legend_failure:
@@ -1037,7 +1044,7 @@ def _inspect_pages(
 
 
 def _legend_prerequisite_error(pack, source):
-    failed = [c for c in pack.coverage if c.status != "complete" and c.failure_kind != "ambiguity"]
+    failed = [c for c in legend_coverage_findings(pack) if c["blocks_symbol_extraction"]]
     if failed:
         return f"Symbol extraction paused: {len(failed)} source legend rows/regions were not successfully inspected. Completed legend rows are saved; retry the unresolved rows before symbol extraction."
     if source.startswith("fallback_builtin(error="):
@@ -1075,11 +1082,15 @@ def _run_perception(
     page_view_counts: dict[int, int] = {page.page_index: 0 for page in pid_pages}
     call_counts = {"submit_pid_objects": 0}
     perception_reviews: list[dict[str, Any]] = []
+    request_failures: list[dict[str, Any]] = []
     guard = PerceptionRunGuard(cfg.symbol_perception)
     deadline = time.monotonic() + cfg.symbol_perception.run_timeout_s
     stop_reason: str | None = prerequisite_error
     if run_dir is not None:
         (run_dir / "perception.stop.json").unlink(missing_ok=True)
+        atomic_write_json(run_dir / "request.errors.json", {
+            "schema_version": "1.0.0", "scope": "current_execution", "failures": [],
+        })
     if store is not None:
         store.manifest.errors = [
             e
@@ -1278,20 +1289,30 @@ def _run_perception(
                 except Exception as exc:  # noqa: BLE001 - preserve other tiles and resume later
                     failed = True
                     page_error_counts[evidence.page_index] += 1
+                    failure = {**failure_summary(diagnostic_events, exc),
+                               "page_index": evidence.page_index, "tile_id": current_tile.id,
+                               "timestamp": time.time()}
+                    request_failures.append(failure)
+                    if run_dir is not None:
+                        atomic_write_json(run_dir / "request.errors.json", {
+                            "schema_version": "1.0.0", "scope": "current_execution",
+                            "failures": request_failures,
+                        })
+                    from diagex.vision.symbol_interpretation import _bbox_center_is_owned
+                    failed_core = ownership_core(current_tile, fixed_tiles)
+                    perception_reviews.extend({
+                        "candidate_id": c.id, "page_index": evidence.page_index,
+                        "bbox": c.bbox.model_dump(mode="json"), "source_path_ids": c.source_path_ids,
+                        "tile_id": current_tile.id, "status": "unreviewed",
+                        "reason": failure["label"], "request_failure": failure,
+                    } for c in candidates if _bbox_center_is_owned(c.bbox, failed_core, evidence))
                     if store is not None:
-                        diagnostics = getattr(exc, "diagnostics", None)
-                        if diagnostics:
-                            atomic_write_json(
-                                store.artifact_path("perception_errors", item),
-                                {
-                                    "error": str(exc),
-                                    "attempts": getattr(exc, "attempts", 1),
-                                    "invalid_responses": diagnostics,
-                                },
-                            )
-                        store.mark_error("perception", item, repr(exc))
+                        atomic_write_json(store.artifact_path("perception_errors", item), {
+                            **failure, "invalid_responses": getattr(exc, "diagnostics", []),
+                        })
+                        store.mark_error("perception", item, safe_error(exc))
                     _checkpoint_cost(run_dir, prior_cost, cost)
-                    reporter.on_phase_item_end(detail=repr(exc), is_error=True)
+                    reporter.on_phase_item_end(detail=f"{failure['label']} · {failure['error']}", is_error=True)
                     if is_non_retryable_api_error(exc):
                         raise
                 stop_reason = guard.observe(failed)
@@ -1328,7 +1349,9 @@ def _run_perception(
                     "bbox": c.bbox.model_dump(mode="json"),
                     "source_path_ids": c.source_path_ids,
                     "status": "unreviewed",
-                    "reason": stop_reason,
+                    "reason": "运行已停止，此候选尚未处理。",
+                    "processing_status": "not_processed",
+                    "run_stop_reason": stop_reason,
                 }
                 for c in detect_symbols(page=page).native_candidates
                 if c.id not in assessed

@@ -68,7 +68,12 @@ def recognition_diagnostic(row):
     attrs = row.get("attributes") or {}
     status = row.get("saved_status") or row.get("status")
     reason = row.get("reason") or row.get("saved_reason") or ""
-    if "contradict" in reason or "geometry" in reason:
+    failure = row.get("request_failure")
+    if failure:
+        code, label = failure["code"], failure["label"]
+    elif row.get("processing_status") == "not_processed":
+        code, label = "not_processed", "运行已停止，此候选尚未处理"
+    elif "contradict" in reason or "geometry" in reason:
         code, label = "validation_rejected", "校验未通过，已保留为待核查项"
     elif row.get("candidate_only") or status in {"uncertain", "unresolved", "unreviewed"}:
         code, label = "uncertain", "候选已定位，但类型尚未确定"
@@ -85,5 +90,4 @@ def recognition_diagnostic(row):
     else:
         reference_status = "此项未记录已提供的知识库参考"
     return {"code": code, "label": label, "reference_status": reference_status}
-
 

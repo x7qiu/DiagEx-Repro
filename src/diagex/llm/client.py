@@ -19,6 +19,7 @@ the behaviour is configurable and re-projectable from config.
 from __future__ import annotations
 
 import json
+import logging
 import random
 import re
 import sys
@@ -36,6 +37,7 @@ import httpx
 from diagex.config import LLMConfig, RuntimeBudgets
 from diagex.llm.billing import AccountedSpendingLedger
 from diagex.llm.budget import BudgetExceeded, SpendingLedger
+from diagex.llm.diagnostics import error_code, safe_error
 from diagex.llm.model_policy import validate_production_models
 
 
@@ -463,13 +465,39 @@ class LLMClient:
         )
         if attempts < 1:
             raise ValueError("max_attempts must be positive")
-        self._wait_for_rate_limit_cooldown(deadline=deadline)
+
+        def emit(event):
+            event = {"time_budget_s": time_budget_s, "max_attempts": attempts,
+                     "model": self.config.model, **event}
+            if "error" in event:
+                event["error"] = safe_error(event["error"])
+                event["error_code"] = error_code(event["error"], event.get("error_type", ""), event.get("status_code"))
+                logging.getLogger(__name__).warning("LLM request failure: %s", json.dumps(event, ensure_ascii=False))
+            if on_transport_event is not None:
+                on_transport_event(event)
+
+        try:
+            self._wait_for_rate_limit_cooldown(deadline=deadline)
+        except TimeoutError as exc:
+            emit({"event": "deadline", "attempt": 0, "error": str(exc),
+                  "error_type": type(exc).__name__, "retry_reason": "cooldown_exceeds_budget"})
+            raise
         last_exc: Exception | None = None
         for attempt in range(attempts):
             attempt_started = time.monotonic()
+            stream_state = {"stream_events": 0, "content_deltas": 0,
+                            "first_event_s": None, "first_content_s": None, "response_id": None}
+
+            def failure_event(exc, event="error", number=attempt + 1, started=attempt_started, state=stream_state, **extra):
+                emit({"event": event, "attempt": number,
+                      "elapsed_s": time.monotonic() - started,
+                      "remaining_budget_s": max(0, deadline - time.monotonic()) if deadline else None,
+                      "error": self._exception_detail(exc), "error_type": type(exc).__name__,
+                      "status_code": getattr(exc, "status_code", None), **state, **extra})
             if deadline is not None:
                 remaining = deadline - time.monotonic()
                 if remaining <= 0:
+                    failure_event(TimeoutError("request time budget exhausted"), "deadline", retry_reason="budget_exhausted")
                     raise TimeoutError("request time budget exhausted") from last_exc
                 # The deadline is checked while consuming events. A stalled read
                 # is bounded separately, including when no visible delta is emitted.
@@ -478,11 +506,25 @@ class LLMClient:
             rate_limit_cooldown: float | None = None
             reservation = self.spending.reserve(self.config.model, max_tokens) if self.spending else None
             try:
-                if on_transport_event is not None:
-                    on_transport_event({"event": "dispatch", "attempt": attempt + 1, "started_at": time.time(), "model": self.config.model, "thinking": kwargs.get("thinking"), "max_tokens": max_tokens})
+                emit({"event": "dispatch", "attempt": attempt + 1, "started_at": time.time(),
+                      "thinking": kwargs.get("thinking"), "max_tokens": max_tokens,
+                      "remaining_budget_s": remaining if deadline else None,
+                      "read_timeout_s": min(remaining, 15.0) if deadline else None})
                 with self._client.messages.stream(**kwargs) as stream:
-                    if on_stream_delta is not None or deadline is not None or isinstance(self.spending, AccountedSpendingLedger):
+                    if on_stream_delta is not None or on_transport_event is not None or deadline is not None or isinstance(self.spending, AccountedSpendingLedger):
                         for event in stream:
+                            elapsed = time.monotonic() - attempt_started
+                            stream_state["stream_events"] += 1
+                            if stream_state["first_event_s"] is None:
+                                stream_state["first_event_s"] = elapsed
+                            event_type = event.get("type") if isinstance(event, dict) else getattr(event, "type", None)
+                            if event_type == "content_block_delta":
+                                stream_state["content_deltas"] += 1
+                                if stream_state["first_content_s"] is None:
+                                    stream_state["first_content_s"] = elapsed
+                            if event_type == "message_start":
+                                msg = event.get("message") if isinstance(event, dict) else getattr(event, "message", None)
+                                stream_state["response_id"] = msg.get("id") if isinstance(msg, dict) else getattr(msg, "id", None)
                             if reservation and isinstance(self.spending, AccountedSpendingLedger):
                                 self.spending.observe_stream_event(reservation, event)
                             if deadline is not None and time.monotonic() >= deadline:
@@ -495,8 +537,8 @@ class LLMClient:
                     if deadline is not None and time.monotonic() >= deadline:
                         raise TimeoutError("response exceeded request time budget")
                     self._record_success_after_rate_limit()
-                    if on_transport_event is not None:
-                        on_transport_event({"event": "response", "attempt": attempt + 1, "elapsed_s": time.monotonic() - attempt_started})
+                    emit({"event": "response", "attempt": attempt + 1,
+                          "elapsed_s": time.monotonic() - attempt_started, **stream_state})
                     return message
             except anthropic.APIStatusError as exc:
                 if reservation and isinstance(self.spending, AccountedSpendingLedger):
@@ -504,6 +546,7 @@ class LLMClient:
                 status = getattr(exc, "status_code", None)
                 # 4xx (except 429) = validation/auth/policy → surface immediately.
                 if is_non_retryable_api_error(exc):
+                    failure_event(exc, retry_reason="non_retryable_http_status")
                     raise
                 last_exc = exc
                 if status in {429, 503}:
@@ -519,15 +562,13 @@ class LLMClient:
                 # chunked reads and raw protocol resets are still transient.
                 last_exc = exc
             except TimeoutError as exc:
-                if on_transport_event is not None:
-                    on_transport_event({"event": "deadline", "attempt": attempt + 1, "elapsed_s": time.monotonic() - attempt_started, "error": str(exc)})
+                failure_event(exc, "deadline", retry_reason="budget_exhausted")
                 raise
             finally:
                 if reservation and isinstance(self.spending, AccountedSpendingLedger):
                     self.spending.finish_attempt(reservation)
 
-            if on_transport_event is not None:
-                on_transport_event({"event": "error", "attempt": attempt + 1, "elapsed_s": time.monotonic() - attempt_started, "error": self._exception_detail(last_exc)})
+            failure_event(last_exc, retry_reason="attempts_exhausted" if attempt == attempts - 1 else "retry_pending")
 
             if attempt == attempts - 1:
                 break
@@ -539,10 +580,10 @@ class LLMClient:
                 rate_limit_cooldown or 0.0,
             )
             if deadline is not None and time.monotonic() + delay >= deadline:
+                failure_event(TimeoutError("retry delay exceeds remaining request time budget"), "deadline", retry_reason="retry_delay_exceeds_budget")
                 raise TimeoutError("retry delay exceeds remaining request time budget") from last_exc
             self.retries_total += 1
-            if on_transport_event is not None:
-                on_transport_event({"event": "retry_wait", "attempt": attempt + 1, "seconds": delay})
+            emit({"event": "retry_wait", "attempt": attempt + 1, "seconds": delay})
             notes: list[str] = []
             if retry_after is not None:
                 notes.append(f"Retry-After={retry_after:.1f}s")
@@ -551,7 +592,7 @@ class LLMClient:
             ):
                 notes.append(f"rate-limit cooldown={rate_limit_cooldown:.1f}s")
             retry_note = f"; {'; '.join(notes)}" if notes else ""
-            error_detail = self._exception_detail(last_exc)
+            error_detail = safe_error(self._exception_detail(last_exc))
             print(
                 f"[diagex.llm] transient failure ({error_detail}); "
                 f"retry {attempt + 1}/{attempts} in {delay:.1f}s"

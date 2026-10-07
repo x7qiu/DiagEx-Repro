@@ -6,12 +6,13 @@ import json
 from pathlib import Path
 
 from diagex.knowledge.sources import SOURCES
+from diagex.llm.diagnostics import failure_summary
 
 from .evidence_origin import evidence_origin, recognition_diagnostic
 
 ARTIFACTS = (
-    "graph.json", "detection.json", "legend.json", "result.json", "cost.json",
-    "quality.report.json", "hypotheses.json", "knowledge.stages.json",
+    "graph.json", "detection.json", "legend.json", "legend.warnings.json", "result.json", "cost.json",
+    "quality.report.json", "hypotheses.json", "knowledge.stages.json", "request.errors.json",
     "pid.dexpi.json", "pid.dexpi.xml", "pid.drawio", "pid.svg", "debug_report.md",
     "review/graph.reviewed.json",
 )
@@ -91,6 +92,30 @@ def details(workbench, value, version="extraction"):
     state = read(run, "review/state.json")
     saved_detection = read(run, "review/detection.json")
     saved_graph = read(run, "review/graph.reviewed.json") or state.get("graph", {})
+    # Older runs recorded request failures separately and put the generic run
+    # stop reason on candidates. Recover the specific cause without rewriting
+    # their artifacts or changing successful detections.
+    failures_by_candidate = {}
+    request_failures = []
+    for path in sorted((run / "checkpoints" / "perception_diagnostics").glob("*.json")):
+        try:
+            diagnostic = read(run, str(path.relative_to(run)))
+        except (ValueError, OSError):
+            continue
+        events = diagnostic.get("events", [])
+        if not any(e.get("phase") == "request_error" for e in events):
+            continue
+        failure = {**failure_summary(events), "tile_id": diagnostic.get("tile_id")}
+        request_failures.append(failure)
+        for cid in failure.get("candidate_ids", []):
+            failures_by_candidate[cid] = failure
+    reviews = []
+    for row in detection.get("reviews", []):
+        row = dict(row)
+        failure = row.get("request_failure") or failures_by_candidate.get(row.get("candidate_id"))
+        if failure and row.get("status") == "unreviewed":
+            row.update(request_failure=failure, original_reason=row.get("reason"), reason=failure["label"])
+        reviews.append(row)
     versions = [{"id": "extraction", "label": "原始提取"}]
     if saved_graph or saved_detection:
         versions.append({"id": "saved", "label": "历史保存的修改"})
@@ -112,7 +137,7 @@ def details(workbench, value, version="extraction"):
                               for row in saved_detection.get("legends", []) if row.get("entry")]}
     elif not graph:
         nodes = list(detection.get("detections", []))
-        for index, row in enumerate(detection.get("reviews", [])):
+        for index, row in enumerate(reviews):
             if row.get("promoted_detection_id"):
                 continue
             if row.get("bbox") and row.get("object"):
@@ -123,7 +148,7 @@ def details(workbench, value, version="extraction"):
                               "source_candidate_absent": not bool(row.get("candidate_id"))})
             elif row.get("status") in {"unreviewed", "uncertain", "unresolved"}:
                 findings.append(row)
-        reviews_by_candidate = {r.get("candidate_id"): r for r in detection.get("reviews", []) if r.get("candidate_id")}
+        reviews_by_candidate = {r.get("candidate_id"): r for r in reviews if r.get("candidate_id")}
         represented = {n.get("attributes", {}).get("symbol_candidate_id") for n in nodes}
         for candidate in detection.get("candidates", []):
             if candidate.get("id") not in represented:
@@ -131,6 +156,8 @@ def details(workbench, value, version="extraction"):
                               "kind": "candidate", "candidate_only": True,
                               "saved_status": reviews_by_candidate.get(candidate["id"], {}).get("status"),
                               "reason": reviews_by_candidate.get(candidate["id"], {}).get("reason"),
+                              "request_failure": reviews_by_candidate.get(candidate["id"], {}).get("request_failure"),
+                              "processing_status": reviews_by_candidate.get(candidate["id"], {}).get("processing_status"),
                               "supplied_knowledge": reviews_by_candidate.get(candidate["id"], {}).get("supplied_knowledge")})
     if version == "saved" and saved_detection.get("legends"):
         legend = {"entries": [{**row["entry"], "saved_status": row.get("status")}
@@ -143,6 +170,7 @@ def details(workbench, value, version="extraction"):
     findings.extend(hypotheses)
     findings.extend(result.get("dexpi_issues", []))
     findings.extend(result.get("validation_issues", []))
+    findings.extend(read(run, "legend.warnings.json").get("findings", []))
     if result.get("stop_reason"):
         findings.insert(0, {"type": "extraction_stopped", "reason": result["stop_reason"]})
     # Without source geometry, expose values but never pretend guessed dimensions are exact.
@@ -158,6 +186,7 @@ def details(workbench, value, version="extraction"):
         "source_filename": source.name if source else None,
         "pages": sorted(pages, key=lambda p: p["page_index"]), "nodes": nodes, "edges": edges,
         "legend": legend.get("entries", []), "findings": findings, "quality": quality,
+        "request_failures": request_failures,
         "diagnostics": {"nodes": [recognition_diagnostic(n) for n in nodes],
                         "findings": [recognition_diagnostic(n) if isinstance(n, dict) else None for n in findings]},
         "evidence_origins": {"nodes": [evidence_origin(n) for n in nodes],

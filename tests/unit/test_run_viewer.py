@@ -62,6 +62,40 @@ def test_graph_source_and_download_are_read_only(saved_run):
     assert fingerprint(run) == before
 
 
+def test_unresolved_legend_explanations_are_visible_and_downloadable(saved_run):
+    workbench, run, _ = saved_run
+    warning = {"type": "legend_coverage", "label": "说明性内容待核查",
+               "reason": "复核未完成，不阻止其他符号提取。", "page_index": 2,
+               "blocks_symbol_extraction": False, "status": "partial"}
+    put(run, "legend.warnings.json", {"gate_version": "1.0.0", "findings": [warning]})
+    before = fingerprint(run)
+    data = run_viewer.details(workbench, str(run))
+    assert warning in data["findings"]
+    payload, name = run_viewer.download(workbench, str(run), "legend.warnings.json")
+    assert name == "legend.warnings.json" and json.loads(payload)["findings"] == [warning]
+    assert fingerprint(run) == before
+
+
+def test_historical_timeout_is_attached_only_to_unreviewed_candidate(saved_run):
+    from tests.unit.test_request_diagnostics import saved_events
+
+    workbench, run, _ = saved_run
+    (run / "graph.json").unlink()
+    put(run, "detection.json", {
+        "candidates": [{"id": "pi201", "page_index": 3, "bbox": {"x": 1,"y": 2,"w": 3,"h": 4}}],
+        "detections": [{"id": "pi202", "label": "PI00202", "page_index": 3}],
+        "reviews": [{"candidate_id": "pi201", "status": "unreviewed", "reason": "generic stop"}],
+    })
+    put(run, "checkpoints/perception_diagnostics/p0004__tile.json", {"tile_id": "tile", "events": saved_events()})
+    before = fingerprint(run)
+    data = run_viewer.details(workbench, str(run))
+    assert data["nodes"][1]["request_failure"]["code"] == "request_deadline"
+    assert "request_failure" not in data["nodes"][0]
+    assert data["diagnostics"]["nodes"][1]["code"] == "request_deadline"
+    assert data["request_failures"][0]["elapsed_s"] == 47.7
+    assert fingerprint(run) == before
+
+
 def test_detection_only_legend_and_candidates_without_source(saved_run):
     workbench, run, _ = saved_run
     (run / "graph.json").unlink()
