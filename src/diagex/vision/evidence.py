@@ -42,7 +42,7 @@ class TextEvidence(BaseModel):
     id: str
     text: str
     bbox: BBox
-    origin: Literal["pdf_text"] = "pdf_text"
+    origin: Literal["pdf_text", "raster_ocr", "raster_vlm"] = "pdf_text"
     block_index: int | None = None
     line_index: int | None = None
     word_index: int | None = None
@@ -263,35 +263,6 @@ def _bbox_from_floats(
     return BBox(x=left, y=top, w=max(1, right - left), h=max(1, bottom - top))
 
 
-def _extract_text(pdf_page: fitz.Page, page: DiagramPage) -> list[TextEvidence]:
-    sx, sy = _scale_factors(pdf_page, page)
-    out: list[TextEvidence] = []
-    words = pdf_page.get_text("words", sort=True) or []
-    for raw in words:
-        if len(raw) < 5:
-            continue
-        x0, y0, x1, y1 = (float(raw[idx]) for idx in range(4))
-        text = str(raw[4]).strip()
-        if not text:
-            continue
-        block = int(raw[5]) if len(raw) > 5 else None
-        line = int(raw[6]) if len(raw) > 6 else None
-        word = int(raw[7]) if len(raw) > 7 else None
-        rotated = fitz.Rect(x0, y0, x1, y1) * pdf_page.rotation_matrix
-        bbox = _bbox_from_floats(*rotated, sx=sx, sy=sy)
-        out.append(
-            TextEvidence(
-                id=stable_evidence_id(
-                    "txt", page.page_index, block, line, word, text, bbox.model_dump_json()
-                ),
-                text=text,
-                bbox=bbox,
-                block_index=block,
-                line_index=line,
-                word_index=word,
-            )
-        )
-    return out
 
 
 def _point_xy(value: Any) -> tuple[float, float]:
@@ -454,3 +425,9 @@ def text_spans_intersecting(page: PageEvidence, bbox: BBox) -> list[TextEvidence
         and span.bbox.y < bbox.y2
         and span.bbox.y2 > bbox.y
     ]
+
+
+def _extract_text(pdf_page: fitz.Page, page: DiagramPage) -> list[TextEvidence]:
+    # Lazy import keeps source record types independent of the recognition backend.
+    from diagex.vision.text_detection import extract_pdf_text
+    return extract_pdf_text(pdf_page, page)

@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.compressors.axial-compressor
+version: 2
+concept: Axial Compressor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Axial Compressor
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Axial Compressor’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Axial Compressor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Axial Compressor’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Axial Compressor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#compressors-pid-symbols
+  section: Compressors P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Axial Compressor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.compressors.axial-compressor.png
+  sha256: edef2429ebcc567c32fa3e3d92127f7a0799c6855861ff35825f7ff6350f3d2c
+  width: 50
+  height: 43
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/axial_compressor.DBtJsc4I_Z2nAu6D.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: bd56993c7e65a6fe9118ada1a789e9408648b5f21f9376c3a4916c1857154355
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

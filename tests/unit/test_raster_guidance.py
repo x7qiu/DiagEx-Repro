@@ -173,7 +173,8 @@ def test_broad_mode_and_semantic_source_are_part_of_cache_identity(source, monke
 
 
 @pytest.mark.parametrize("semantic_failure", [False, True])
-def test_production_broad_recognition_runs_semantics_and_preserves_pending_inventory(source, tmp_path, semantic_failure):
+@pytest.mark.parametrize("semantic_basis", ["legend", "source"])
+def test_production_broad_recognition_emits_only_validated_semantics(source, tmp_path, semantic_failure, semantic_basis):
     from anthropic.types import Message
 
     image, path, _ = source
@@ -194,6 +195,12 @@ def test_production_broad_recognition_runs_semantics_and_preserves_pending_inven
                 raise RuntimeError("provider unavailable")
             payload = {"results": [{"symbol_id": "symbol-0", "decision": "interpreted", "reason": "Matches the gate legend",
                 "legend_entry_ids": ["gate"], "symbol": {"kind": "equipment", "valve_type": "gate"}}]}
+            if semantic_basis == "source":
+                payload["results"][0].update(
+                    reason="Visible valve body; detailed subtype is not established.",
+                    source_evidence="Two opposed triangles share a center on the pipe; no tag enclosure or leader.",
+                    legend_entry_ids=[], symbol={"kind": "equipment", "equipment_class": "valve"},
+                )
         else:
             raise AssertionError(name)
         return Message.model_validate({"id": "gen-" + name, "type": "message", "role": "assistant", "model": "test",
@@ -205,10 +212,21 @@ def test_production_broad_recognition_runs_semantics_and_preserves_pending_inven
     detections, statuses, counts, stopped = pid_evidence._run_perception(
         source=diagram, pages=[page], cfg=cfg, client=SimpleNamespace(messages_create=respond), cost=cost,
         reporter=NullReporter(), store=None, run_dir=output, prior_cost={},
-        legend_summary=[{"source_row_id": "gate", "kind": "valve", "label": "Gate valve", "symbol_class": "gate_valve", "attributes": {"row_status": "accept"}}],
+        legend_summary=[{"source_row_id": "gate", "kind": "valve", "label": "Gate valve", "symbol_class": "gate_valve", "attributes": {"row_status": "accept"}}] if semantic_basis == "legend" else [],
     )
     assert calls == ["submit_raster_symbols", "submit_raster_semantics"]
-    assert not detections and stopped is None
+    assert stopped is None
+    assert len(detections) == (0 if semantic_failure else 1)
+    if detections:
+        if semantic_basis == "legend":
+            assert detections[0].attributes["valve_type"] == "gate"
+        else:
+            assert detections[0].attributes["equipment_class"] == "valve"
+            assert "valve_type" not in detections[0].attributes
+            assert detections[0].attributes["legend_entry_ids"] == []
+            assert "knowledge_match" not in detections[0].attributes
+        assert detections[0].attributes["semantic_validation"] == f"{semantic_basis}_supported_model_classification"
+        assert not detections[0].attributes["requires_legend_interpretation"]
     assert counts == {"submit_pid_objects": 0, "submit_raster_symbols": 1, "submit_raster_semantics": 1}
     assert len(cost.steps) == (1 if semantic_failure else 2)
     reviews = json.loads((output / "perception.review.json").read_text())["reviews"]
@@ -230,64 +248,32 @@ def test_broad_routing_preserves_native_candidates_without_raster_calls(monkeypa
     assert seen[0]["candidates"] is native
 
 
-def test_broad_public_workflow_stops_before_graph_and_builds_only_reviewed_instances(source, tmp_path, monkeypatch):
-    from diagex.extractors.evidence_checkpoint import atomic_write_json
-    from diagex.review.detection import DetectionReviewStore
-    from diagex.vision.fusion import fuse_objects as real_fuse
-    from diagex.vision.legend_models import LegendEntry, LegendPack
-
+def test_broad_public_workflow_reaches_graph_without_manual_approval(source, tmp_path, monkeypatch):
+    from diagex.vision.legend_models import LegendPack
+    from diagex.vision.symbol_interpretation import DetectionRecord
     image, path, _ = source
     cfg = Config(runs_dir=tmp_path / "runs", raster_proposals=load_guidance(path, image), raster_symbol_mode="broad_review")
     rendered = next(iter_pages(load(image, cfg.tiling, cfg.scan)))
     page = extract_page_evidence(page=rendered, source_path=image)
     page.role = "pid"
-    pack = LegendPack(entries=[LegendEntry(label="Gate valve", kind="valve", symbol_class="gate_valve", source_row_id="gate")])
-    def inspect(**kw):
-        atomic_write_json(kw["run_dir"] / "evidence" / "page-0000.json", page.model_dump(mode="json"))
-        return [page], []
-    monkeypatch.setattr(pid_evidence, "_inspect_pages", inspect)
+    monkeypatch.setattr(pid_evidence, "_inspect_pages", lambda **kw: ([page], []))
     monkeypatch.setattr("diagex.extractors.pid_legend.resolve_evidence_legend",
-        lambda **kw: SimpleNamespace(resolution=SimpleNamespace(pack=pack, source="test")))
+        lambda **kw: SimpleNamespace(resolution=SimpleNamespace(pack=LegendPack(), source="none")))
     monkeypatch.setattr(pid_evidence, "LLMClient", lambda *a, **kw: SimpleNamespace(retries_total=0, reset_retry_counter=lambda: None))
-    def perception(**kw):
-        atomic_write_json(kw["run_dir"] / "perception.review.json", {"reviews": [{
-            "page_index": 0, "tile_id": "t1", "status": "uncertain", "bbox": {"x": 20, "y": 10, "w": 40, "h": 20},
-            "object": {"kind": "raster_symbol", "confidence": "high", "attributes": {
-                "broad_category": "valve", "requires_legend_interpretation": True}},
-            "legend_interpretation": {"symbol_id": "symbol-0", "decision": "interpreted", "reason": "Matches gate legend",
-                "legend_entry_ids": ["gate"], "symbol": {"kind": "equipment", "valve_type": "gate"}},
-        }]})
-        return [], {0: "ok"}, {}, None
-    monkeypatch.setattr(pid_evidence, "_run_perception", perception)
-    def forbidden(**kw):
-        raise AssertionError("Unreviewed semantics must stop before graph construction")
-    monkeypatch.setattr(pid_evidence, "fuse_objects", forbidden)
-    options = dict(diagram=image, symbol_standard="none", legend_path=None, legend_pages=None, legend_region=None,
-        no_legend=True, legend_key=None, effort="medium", config=cfg, persist=True, fresh=True,
-        out_path=None, confidence_report_path=None, console=None)
-    result = pid_evidence.run_pid_evidence_extract(**options)
-    assert result.workflow_stage == "detection" and result.quality_status == "needs_review"
-    assert not (result.run_dir / "graph.json").exists()
-    store = DetectionReviewStore(result.run_dir)
-    def apply(action, **kw):
-        store.apply({"action": action, "revision": store.read()["revision"], "rater": "Test agent",
-            "actor_type": "agent", "evidence_refs": ["drawing.png", "gate"], **kw})
-    apply("confirm_legends", ids=["legend-0"])
-    row = store.read()["symbols"][0]
-    apply("save_symbol", id=row["id"], detection=row["detection"])
-    apply("coverage", page_index=0, checked=True)
-    snapshot = store.snapshot(store.read()["revision"])
-    monkeypatch.setattr(pid_evidence, "fuse_objects", real_fuse)
-    monkeypatch.setattr(pid_evidence, "_run_perception", forbidden)
-    monkeypatch.setattr("diagex.extractors.pid_legend.resolve_evidence_legend", forbidden)
-    monkeypatch.setattr(pid_evidence, "_run_contextual_resolution", forbidden)
+    detection = DetectionRecord(id="machine-1", page_index=0, tile_id="t1", kind="equipment", label="V-1",
+        bbox={"x":20,"y":10,"w":40,"h":20}, confidence="medium", attributes={"valve_type":"gate"})
+    monkeypatch.setattr(pid_evidence, "_run_perception", lambda **kw: ([detection], {0:"ok"}, {}, None))
+    monkeypatch.setattr(pid_evidence, "_run_contextual_resolution", lambda **kw: ([],0))
     monkeypatch.setattr(pid_evidence, "_run_topology", lambda **kw: [])
-    monkeypatch.setattr(pid_evidence, "_run_line_evidence", lambda **kw: ([], 0))
-    monkeypatch.setattr(pid_evidence, "_run_page_graphs", lambda **kw: ([], 0))
-    built = pid_evidence.run_pid_evidence_extract(**options, reviewed_inputs=snapshot)
-    assert len(built.graph.nodes) == 1 and built.graph.nodes[0].attributes["valve_type"] == "gate"
-    assert built.graph.nodes[0].bbox_global.model_dump() == row["detection"]["bbox"]
-    assert built.graph.nodes[0].attributes["human_reviewed"] is False
+    monkeypatch.setattr(pid_evidence, "_run_line_evidence", lambda **kw: ([],0))
+    monkeypatch.setattr(pid_evidence, "_run_page_graphs", lambda **kw: ([],0))
+    result = pid_evidence.run_pid_evidence_extract(diagram=image, symbol_standard="none", legend_path=None,
+        legend_pages=None, legend_region=None, no_legend=True, legend_key=None, effort="medium",
+        config=cfg, persist=True, fresh=True, out_path=None, confidence_report_path=None, console=None)
+    assert result.workflow_stage == "graph"
+    assert len(result.graph.nodes) == 1 and result.graph.nodes[0].attributes["valve_type"] == "gate"
+    assert (result.run_dir / "graph.json").exists()
+    assert not (result.run_dir / "review").exists()
 
 
 @pytest.mark.parametrize("unsupported", ["deskew", "adaptive", "wrong_image"])

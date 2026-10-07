@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.motors-generators-and-turbines.motor-02
+version: 1
+concept: Motor 02
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Motor 02
+  interpretation: Projectmaterials labels this illustration ‘Motor 02’ (Motors, Generators,
+    and Turbines P&ID Symbols).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Motor 02
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Motor 02’ (Motors, Generators,
+  and Turbines P&ID Symbols).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Motors, Generators, and Turbines P&ID Symbols
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Motor 02
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#motors-generators-and-turbines-pid-symbols
+  section: Motors, Generators, and Turbines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Motor 02
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.motors-generators-and-turbines.motor-02.png
+  sha256: 8abe4742a108ac0dc4ec35b85e143f45f7ffeccc593cfb4e6d3512c16e2fcf34
+  width: 18
+  height: 52
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/motor_02.DdxaJwrb_1HISu4.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 99f3fa446672495b33e3ec160786ef694124c2c3058d125a78f7a4b3f56859ca
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

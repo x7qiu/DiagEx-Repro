@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.boiler
+version: 2
+concept: Boiler
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Boiler
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Boiler’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Boiler
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Boiler’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Boiler
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Boiler
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.boiler.png
+  sha256: 0db03083c138b4f2d1bc6ba83c1018c93c3ac555135b64901d7e1685fedee6e9
+  width: 43
+  height: 47
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/boiler.C0Q2L1kd_Z1VSGNU.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 5dc0ea7133f7810a623e590b47f1e775307994964e92a57d48a0ec782067c053
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

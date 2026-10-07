@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.diamond
+version: 2
+concept: Diamond
+catalog:
+  role: background
+  category: instruments
+  short_name: Diamond
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Diamond’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Diamond
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Diamond’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Diamond
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Diamond
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.diamond.png
+  sha256: c003c2a1694a5d51a16b1a7f950dc8f8af2ff0cbd81f24047509e11aa15fa3c6
+  width: 50
+  height: 46
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/diamond.BAVEzXlt_1R3Oz2.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: a3ac874f84e49446b8a96d0445cf2a4fe250acb47bf23dbc34bbe7f5d977f8e8
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

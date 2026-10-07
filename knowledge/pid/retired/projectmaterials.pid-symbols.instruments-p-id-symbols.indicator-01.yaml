@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.indicator-01
+version: 1
+concept: Indicator 01
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Indicator 01
+  interpretation: Projectmaterials labels this illustration ‘Indicator 01’ (Instruments
+    (P&ID Symbols)).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Indicator 01
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Indicator 01’ (Instruments
+  (P&ID Symbols)).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Instruments (P&ID Symbols)
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Indicator 01
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Indicator 01
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.indicator-01.png
+  sha256: d8399b86f44895818d3673c51ea885fb06d07cbc37f2ca9ff02b5c9345b7228f
+  width: 45
+  height: 43
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/indicator_01.DWhxISqD_1MycaM.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 7d24bcfd5c4bdb31255a80ab71d898665a534984190368c2086f4ec1660fd0bc
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

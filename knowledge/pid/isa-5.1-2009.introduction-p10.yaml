@@ -1,0 +1,194 @@
+id: isa-5.1-2009.introduction-p10
+version: 2
+concept: Introduction and interpretation background (page 10)
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'the process industries.
+
+
+  (10) The extensive examples in previous versions of this standard that illustrated
+  identification and
+
+  symbolization definitions and methods have been removed and will be moved to technical
+  reports that will
+
+  be prepared after publication of this revised standard.
+
+
+  (11) The symbols and identification methods contained in this standard have evolved
+  by the consensus
+
+  method and are intended for wide application throughout all industries. The symbols
+  and designations
+
+  are used as conceptualizing aids, as design tools, as teaching devices, and as a
+  concise and specific
+
+  means of communication in all types and kinds of technical, engineering, procurement,
+  construction,
+
+  and maintenance documents, and not just piping and instrumentation diagrams (P&IDs).
+
+
+  (12) Previous versions of this standard have been flexible enough to serve all of
+  the uses just described,
+
+  and it must continue to do so into the future. To this end, this revision clarifies
+  the definitions of symbols,
+
+  identification, and definitions for concepts that were previously described, such
+  as, for example, shared
+
+  display/control, distributed control, and programmable control.   It also adds definitions
+  for new symbols
+
+  required for functional diagramming of instruments and simple electrical circuit
+  diagrams.
+
+
+  (13) This revision extensively changes the format of ANSI/ISA-5.1-1984 (R 1992).
+  Clauses 1, 2, and 3
+
+  are essentially the same as previously written with some additions and modifications.
+  Clauses 4, 5 and 6
+
+  and informative Annexes A and B are new or extensively revised.
+
+
+  (14) Clause 4, “Identification letter tables,” was previously Clause 5, “Tables.”   It
+  is almost the same as
+
+  the previous version and deals only with Table 4.1, “Identification letters,” which
+  was previously Table 1,
+
+  “Identification letters.”
+
+
+  (15) Clause 5, “Graphic symbol tables,” is a new clause that contains new symbols
+  and the symbols that
+
+  were previously in Clause 6, “Drawings,” presented in a table format that includes
+  text describing the
+
+  application of the symbols but no examples of their use.
+
+
+  (16) Clause 6, “Graphic symbol dimension tables,” is a new clause that establishes
+  minimum mandatory
+
+  dimensions for the symbols shown in the tables in Clause 5 when used in the preparation
+  of full-size
+
+  engineering drawings.
+
+
+  (17) Annex A, “Identification system guidelines (Informative),” was previously Clause
+  4, “Outline of the
+
+  Identification System,” and presents the most commonly used instrumentation and
+  function identification
+
+  methods.  Included are expanded “Allowable loop and function letter combination”
+  tables and added
+
+  “Allowable loop letter scheme” tables.
+
+
+  (18) Annex B, “Graphic symbol guidelines” (Informative), is a new informative clause
+  that replaces the
+
+  examples formerly given in Clause 6, “Drawings,” to provide some limited assistance
+  in the application of
+
+  the symbols in Clause 5.
+
+
+  (19) Definitions for identification letters and symbols are now mandatory to reduce
+  the confusion caused
+
+  by giving meanings to identification and symbols not intended by this standard.  At
+  the same time, the
+
+  number of symbology and tagging bubbles required to depict a measurement or control
+  scheme was
+
+  allowed  to  range  from  “everything must be shown”  to  the “minimum  required  to
+  convey  the
+
+  instrumentation and  functionality  required.”   Guidelines are intended  to  aid  in
+  the  application  of
+
+  identification and symbology and to include some of the known methods as alternate
+  usages.
+
+
+  (20) The meanings of ‘shared display, shared control,’ and ‘programmable logic control’
+  have been
+
+  clarified and expanded because of changes in technology and usage since their inception
+  in ISA-5.3-
+
+  1983, “Graphic Symbols for Distributed Control/Shared Display Instrumentation, Logic
+  and Computer
+
+  Systems.” The commonly assumed meanings of ‘circle-in-square’ as distributed control
+  system (DCS)
+
+  functions and of ‘diamond-in-square’ as programmable logic controller (PLC) functions
+  are no longer'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags: []
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '10'
+  pdf_page: 10
+  table: null
+  item: null
+  passage: null
+  image: illustrations/isa-5.1-2009/complete/page-10.png
+assets:
+- id: page-10
+  role: context
+  label: Complete technical content on page 10
+  path: illustrations/isa-5.1-2009/complete/page-10.png
+  sha256: e2e792a8024cf7328b40132931046a3f3a4441afa1e8fb9a24f4b3853f6d1044
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 10
+    printed_page: '10'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

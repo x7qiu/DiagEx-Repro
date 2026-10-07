@@ -26,6 +26,7 @@ from diagex.vision.evidence import (
     stable_evidence_id,
 )
 from diagex.vision.legend_models import LegendEntry, LegendPack
+from diagex.vision.line_detection import LineDetectionResult, detect_lines, extract_raster_paths
 from diagex.vision.models import BBox, LineType, ReconciledEdge, ReconciledNode
 from diagex.vision.vector_geometry import (
     SCENE_VERSION,
@@ -184,18 +185,15 @@ def build_page_topology(
     raster_image: Any | None = None,
     legend_line_profile: LegendLineProfile | None = None,
     requested_pairs: set[frozenset[str]] | None = None,
+    detected_lines: LineDetectionResult | None = None,
 ) -> TopologyResult:
-    paths = sorted(page.paths, key=lambda path: path.id)
-    warnings: list[str] = []
-    raster_used = False
-    native_line_count = sum(path.primitive == "line" for path in paths)
-    if page.is_scanned or native_line_count < 5:
-        raster_paths, raster_warning = extract_raster_paths(page=page, image=raster_image)
-        if raster_paths:
-            paths.extend(raster_paths)
-            raster_used = True
-        if raster_warning:
-            warnings.append(raster_warning)
+    detected_lines = detected_lines or detect_lines(
+        page=page, image=raster_image, raster_extractor=extract_raster_paths)
+    if detected_lines.page_index != page.page_index:
+        raise ValueError("Line evidence belongs to a different page")
+    paths = detected_lines.paths
+    warnings = list(detected_lines.warnings)
+    raster_used = detected_lines.raster_fallback_used
 
     connectable = sorted(
         (
@@ -1492,59 +1490,6 @@ def _proper_intersection(left: _Segment, right: _Segment) -> tuple[float, float]
     return x1 + t * (x2 - x1), y1 + t * (y2 - y1)
 
 
-def extract_raster_paths(
-    *, page: PageEvidence, image: Any | None
-) -> tuple[list[PathEvidence], str | None]:
-    if image is None:
-        return [], "raster fallback requested but no rendered page image is available"
-    try:
-        import cv2  # type: ignore[import-not-found]
-        import numpy as np
-    except ImportError:
-        return [], (
-            "raster line extraction skipped; install the optional 'vision' extra "
-            "for opencv-python-headless"
-        )
-
-    array = np.asarray(image.convert("L"))
-    inverted = cv2.bitwise_not(array)
-    _, binary = cv2.threshold(inverted, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    minimum = max(20, int(min(page.width, page.height) * 0.015))
-    lines = cv2.HoughLinesP(
-        binary,
-        rho=1,
-        theta=math.pi / 180,
-        threshold=max(25, minimum // 2),
-        minLineLength=minimum,
-        maxLineGap=max(6, minimum // 4),
-    )
-    if lines is None:
-        return [], "OpenCV raster fallback found no candidate lines"
-
-    out: list[PathEvidence] = []
-    # OpenCV builds expose either (N, 1, 4) or (N, 4). Normalize the
-    # singleton dimension before applying the candidate limit.
-    for index, raw in enumerate(np.asarray(lines).reshape(-1, 4)[:5000]):
-        x1, y1, x2, y2 = (int(value) for value in raw)
-        points = [(x1, y1), (x2, y2)]
-        bbox = BBox(
-            x=min(x1, x2),
-            y=min(y1, y2),
-            w=max(1, abs(x2 - x1)),
-            h=max(1, abs(y2 - y1)),
-        )
-        out.append(
-            PathEvidence(
-                id=stable_evidence_id("ras", page.page_index, index, points),
-                page_index=page.page_index,
-                points=points,
-                bbox=bbox,
-                origin="raster_cv",
-                primitive="raster_line",
-                stroke_width=1.0,
-            )
-        )
-    return out, None
 
 
 def route_evidence_failures(edge: ReconciledEdge, page: PageEvidence) -> list[str]:

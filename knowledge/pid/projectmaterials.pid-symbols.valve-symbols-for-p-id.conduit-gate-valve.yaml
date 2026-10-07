@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.valve-symbols-for-p-id.conduit-gate-valve
+version: 2
+concept: Conduit Gate Valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Conduit Gate Valve
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Conduit Gate Valve’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Conduit Gate Valve
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Conduit Gate Valve’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Conduit Gate Valve
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#valve-symbols-for-pid
+  section: Valve Symbols for P&ID
+assets:
+- id: symbol
+  role: variant
+  label: Conduit Gate Valve
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.valve-symbols-for-p-id.conduit-gate-valve.png
+  sha256: d70edba51766e997b6cd7a30b446c7b2120a1b23c42a1e35b23e761afa1d72c5
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/CONDUIT-GATE-VALVE-150x150.Czbs5r97_Z1QFa0F.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 8cd8c5b12272da8a476b302219c679ab0b6711fc9dec080baaaea3d62491a069
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -289,6 +289,8 @@ def test_model_selects_candidate_in_existing_single_call_without_regressing_coor
         candidates=cs,
     )
     assert len(calls) == 1 and outcome.detections[0].bbox == cs[0].bbox
+    assert "简体中文" in calls[0]["system"]
+    assert outcome.detections[0].label == "PI-1"
     assert image.getextrema() == ((255, 255), (255, 255), (255, 255))
     assert outcome.batch.candidate_reviews[0]["status"] == "selected"
 

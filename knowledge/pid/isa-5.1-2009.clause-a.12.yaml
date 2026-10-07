@@ -1,0 +1,289 @@
+id: isa-5.1-2009.clause-a.12
+version: 2
+concept: A.12 — Multivariable, multifunction, and multipoint loops
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.12 Multivariable, multifunction, and multipoint loops
+
+  A.12.1 Loops that have more than one input and/or output are classified as:
+
+  a) Multivariable: when two or more Measured/Initiating Variables of the same or
+  different
+
+  kinds generate one Output/Active Function and one or more Readout/Passive Functions.
+
+  b) Multifunction: when one Measured/Initiating Variable generates two or more
+
+  Output/Active or Readout/Passive Functions.
+
+  c) Multivariable/multifunction: when two or more Measured/Initiating Variables of
+  the same
+
+  or different kinds generates two or more Output/Active or Readout/Passive Functions..
+
+  d) Multipoint: when two or more Measured/Initiating Variables of the same or different
+  kinds
+
+  generate two or more Readout/Passive Functions.
+
+  A.12.2 Multivariable Loop Number assignments using pressure [P-*07], temperature
+  [T-*03], and speed
+
+  [S-*02] loops, for example, should be either:
+
+  a) Alphabetically ordered Measured/Initiating Variables with Loop Number numerals
+  the
+
+  same as or different from the leading Measured/Initiating Variable: [PTS-*07] or
+  [PTS-*10].
+
+  b) Multivariable Measured/Initiating Variable [U]: [U-*01]
+
+  A.12.3 Multivariable Loop components should be assigned Instrument/Tag Numbers as
+  an example for:
+
+  a) Inputs: [PT-*07], [TT-*03], and [ST-*02].
+
+  b) Output: either [PTSV*07], [PTSV-*10], or [UV-*01].
+
+  A.12.4 Multifunction Instrument/Tag Number assignments using a flow [F] loop with
+  indicating [I],
+
+  controlling [C], and switching [S] functions, for example, should be either [FICS-*05].or
+  [FU-*05].
+
+  A.12.5 Multivariable/multifunction Loop Number assignments using flow [F-*05], pressure
+  [P-*07],
+
+  temperature [T-*03], and speed [S-*02] loops, for example, should be either:
+
+  a) Alphabetically ordered Measured/Initiating Variables with Loop Number numerals
+  the
+
+  same as or different from the leading Measured/Initiating Variable: [FPTS-*05] or
+  [FPTS-*10].
+
+  b) Multivariable Measured/Initiating Variable [U]: [U-*01]
+
+  A.12.6 Multivariable/Multifunction Loop components should be assigned Instrument/Tag
+  Numbers as an
+
+  example for:
+
+  a) Inputs: [FT-*05], [PT-*07], [TT-*03], and [ST-*02].
+
+  b) Output: either [PTSV*07] or [PTSV-*10], and [FV-*05], or [UV-*01A] and [UV-*01B].
+
+  A.12.7 Multipoint Loop and Instrument/Tag Number identification letter assignments
+  for :
+
+  a) Single Measured/Initiating Variable, using temperature [T] as an example, should
+  be:
+
+  1) Loop Number: [T-*11].
+
+  2) Input: [TE-*11-01], [TE-*11-02], etc. or [TJE]-*11-01, [TJE-*11-02], etc.
+
+  3) Readout: [TI-*11] or [TJI-*11]
+
+  4) Readout point; [TI-*11-01], [TI-*11-02], etc. [TJI-*11-01], [TJI-*11-02], etc.
+
+  b) Multiple Measured/Initiating Variables, using pressure [P] and temperature [T]
+  as an
+
+  example, should be:
+
+  1) Loop Number: [PT-*11] or [U-*01].
+
+  2) Input: [PT-*11-01], [TE-*11-02], etc. or [PJT-*11-01], [TJE-*11-02], etc.
+
+  3) Readout: [PTI-*11] or [PTJI-01] or [UI-*01] or [UJI-*01].
+
+  4) Readout point: [PI-11-01], [TI-11-02], etc. or [PJI-11-01], [TJI-11-02], etc.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Multivariable, multifunction, and multipoint loops
+- A.12
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 92, 93, 94
+  pdf_page: 92
+  table: null
+  item: null
+  passage: Clause A.12
+  image: illustrations/isa-5.1-2009/complete/clause-a.12-p92.png
+assets:
+- id: clause-a.12-p92
+  role: context
+  label: Clause A.12, page 92
+  path: illustrations/isa-5.1-2009/complete/clause-a.12-p92.png
+  sha256: b7825320eed3aa8a6af504755ab94415a6da9a07e35d35a2907a0dcecad28695
+  width: 2010
+  height: 627
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 92
+    printed_page: '92'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 576.9312
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-92
+  role: context
+  label: Complete technical content on page 92
+  path: illustrations/isa-5.1-2009/complete/page-92.png
+  sha256: 75f815b1ca66c29ca255376c54fdfb77fbb28c463aca95b30c4f5c6aa07a6760
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 92
+    printed_page: '92'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.12-p93
+  role: context
+  label: Clause A.12, page 93
+  path: illustrations/isa-5.1-2009/complete/clause-a.12-p93.png
+  sha256: 6ba967e7ea1a0e0a3d84fc377121fec9dfe47affd8601f50109a3530788e41da
+  width: 2010
+  height: 2738
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 93
+    printed_page: '93'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-93
+  role: context
+  label: Complete technical content on page 93
+  path: illustrations/isa-5.1-2009/complete/page-93.png
+  sha256: 218bacb18e49b00aa7c92c597f762fbba4eea79189a223ef22f3f90386d0cc09
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 93
+    printed_page: '93'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.12-p94
+  role: context
+  label: Clause A.12, page 94
+  path: illustrations/isa-5.1-2009/complete/clause-a.12-p94.png
+  sha256: a01a5167c6cd0d6290dd7a371f2a4c1e4d252d18f8a27f7984f23f847ced380d
+  width: 2010
+  height: 197
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 94
+    printed_page: '94'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 117.1516
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-94
+  role: context
+  label: Complete technical content on page 94
+  path: illustrations/isa-5.1-2009/complete/page-94.png
+  sha256: 9158f728baa663af0fc51aa23ab03f679f417890f70c8e076c8621ecaa24a6c4
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 94
+    printed_page: '94'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

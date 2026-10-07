@@ -1,0 +1,310 @@
+id: isa-5.1-2009.t5.3.2-15
+version: 3
+concept: Communication link between a device and a remote calibration adjustment device
+  or system
+aliases: []
+reference_type: line_style
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Communication link between a device and a remote calibration adjustment
+  device or system. • Link from and to “smart” devices.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'Line symbols: instrument-to-instrument connections'
+- 5.3.2
+- Communication link between a device and a remote calibration adjustment device or
+  system
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '46'
+  pdf_page: 46
+  table: 5.3.2
+  item: '15'
+  passage: 'Table 5.3.2, item 15: • Communication link between a device and a remote
+    calibration adjustment device or system. • Link from and to “smart” devices.'
+  image: illustrations/isa-5.1-2009/complete/t5.3.2-15-context.png
+assets:
+- id: t5.3.2-15-context
+  role: context
+  label: 'Complete row: Table 5.3.2, item 15'
+  path: illustrations/isa-5.1-2009/complete/t5.3.2-15-context.png
+  sha256: e93dbc14e4df6c8cca8a0d855e7e59e95f8b265b9d99a093a3d1dc4063697687
+  width: 1960
+  height: 169
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: 5.3.2
+    item: '15'
+    rect:
+    - 70.8125
+    - 675.56
+    - 541.1275
+    - 715.84
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-46
+  role: context
+  label: Complete technical content on page 46
+  path: illustrations/isa-5.1-2009/complete/page-46.png
+  sha256: 98c3174bee7f386b11be360d7e6edcdf06140695374a6f8d1c1324a33a53b517
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.3.2-15-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.3.2-15-panel-1.png
+  sha256: e3d912c0a9dd2d0187b0f634c76eb317cd3f59da5b87e1e5c5aa86e7d0f4faa2
+  width: 445
+  height: 154
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: 5.3.2
+    item: '15'
+    rect:
+    - 108.68
+    - 677.36
+    - 215.14
+    - 714.04
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.3-p33
+  role: note
+  label: Clause 5.3.3, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.3-p33.png
+  sha256: de79abf0334898ef01fd5c2907db502340dcd9d510fac339e1d4bacc563097c2
+  width: 2010
+  height: 447
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 620.1298
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.3-p34
+  role: note
+  label: Clause 5.3.3, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.3-p34.png
+  sha256: 371509e218f1a8c8b4a2b9c033fe079c94320edc2c6bc9d6b5a5cded281f5e4c
+  width: 2010
+  height: 1070
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 326.671
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.3.2-15-variants.png
+  sha256: 43fd013e5bc7133e0c5190181cc0823bbb931df36f3cb375cdccd3df3b2288c5
+  width: 1000
+  height: 219
+  derived_from:
+  - t5.3.2-15-panel-1
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.3.2-15-panel-1
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.3.2-15.catalog-t5.3.2-15-panel-1.png
+  sha256: 1101e5ae40088c7c8fcd6048dda53ed4d0edc9e9079e473582bb4232282735cf
+  width: 320
+  height: 42
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: 5.3.2
+    item: '15'
+    rect:
+    - 125.75999999999999
+    - 693.3599999999999
+    - 202.55999999999997
+    - 703.4399999999999
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations:
+    - text: (7)
+      rect:
+      - 110.039794921875
+      - 679.8685913085938
+      - 119.76581573486328
+      - 687.8486328125
+      reason: source_note_reference
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.3.2-15.sheet.png
+  sha256: 507f1864f2a4a49332e953f878ee7c510d0dbdace8c516f17b6b97bc8f1c3614
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.3.2-15-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 33, 34
+    pdf_page: 33
+    table: null
+    item: null
+    passage: Clause 5.3.3
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.3-p33.png
+  explanation: '5.3.3 Tables 5.3.1 and 5.3.2 — Line symbols:
+
+    (1) Power supplies shall be shown when:
+
+    (a) Different from those normally used, e.g., 120 Vdc when normal is 24 Vdc.
+
+    (b) When a device requires an independent power supply.
+
+    (c) Affected by controller or switch actions.
+
+    (2) Arrows shall be used if needed to clarify direction of signal flow.
+
+    (3) Users engineering and design standards, practices and/or guidelines shall
+    document which
+
+    symbol has been selected.
+
+    (4) The line symbols connect devices and functions that are integral parts of
+    dedicated systems,
+
+    such as distributed control systems (DCS), programmable logic controllers (PLC),
+    personal computer
+
+    systems (PC), and computer control systems (CCS) over a dedicated communication
+    link.
+
+    (5) The line symbols connect independent microprocessor-based and computer-based
+    systems to
+
+    each other over a dedicated communications link, using but not limited to the
+    RS232 protocol.
+
+    (6) The line symbols connect “intelligent” devices, such as microprocessor-based
+    transmitters and
+
+    control valve positioners that contain control functionality, to other such devices
+    and to the
+
+    instrumentation system, using but not limited to Ethernet fieldbus protocols.
+
+    (7) The line symbols connect “smart” devices, such as transmitters, to instrumentation
+    system input
+
+    signal terminals and provide a superimposed digital signal that is used for instrument
+    diagnostics and
+
+    calibration.'
+  asset_id: clause-5.3.3-p33
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+- Distinguish process connections, instrument signals, and line crossings using the
+  stated application and drawing legend.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.3
+  explanation: 'Explanatory notes for Table 5.3.2: clause 5.3.3.'
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: Remote calibration link
+  interpretation: Communication link between a device and a remote calibration adjustment
+    device or system. Link from and to “smart” devices.
+  displayed_asset_ids:
+  - catalog-t5.3.2-15-panel-1
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.3

@@ -1,0 +1,203 @@
+id: isa-5.1-2009.clause-2.8
+version: 2
+concept: 2.8 — Inclusion and modification of this standard in User engineering and
+  design documents
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '2.8 Inclusion and modification of this standard in User engineering
+  and design documents
+
+  2.8.1 This standard may be used and, if used, shall be credited by a User/Owner
+  in the preparation of
+
+  engineering, design, or project standards, guidelines, and specifications, either
+  without exception or with
+
+  exception per the following:
+
+  a) Without exception, in which case this standard in its entirety shall be mandatory
+  with
+
+  respect to:
+
+  1) Letters assigned a specific meaning in Table 4.1.
+
+  2) Symbols and their assigned meanings in Tables.5.1 through 5.8.
+
+  3) Symbol dimensions in Tables 6.1 through 6.8.
+
+  b) With exceptions, in which case the parts of this standard for which exception
+  is:
+
+  1) Taken shall be fully described and detailed in the User/Owner standards,
+
+  guidelines, or specifications and in drawing cover sheet legends and notes.
+
+  2) Not taken shall be mandatory.
+
+  2.8.2 Symbols different from those given in this standard and User’s choice letters
+  when used, shall be
+
+  fully described and detailed in the User/Owner’s standards, guidelines, or specifications
+  and in drawing
+
+  cover sheet legends and notes.
+
+  2.8.3 A User must choose a numbering scheme, graphic symbol, and other choices where
+  required,
+
+  and document those choices.
+
+  2.8.4 When a previous issue of this standard is included by reference with or without
+  exception in
+
+  User/Owner’s engineering and design standards, guidelines or specifications, that
+  standard in part or in
+
+  its entirety shall be mandatory until such time as the User/Owner’s guidelines or
+  standards are revised.
+
+  2.8.5 Symbols and the meanings of letters and symbols from previous versions of
+  this standard that are
+
+  different from those contained in this version may continue to be used provided
+  they are clearly
+
+  referenced in the User’s engineering and design standards, practices, and/or guidelines.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Inclusion and modification of this standard in User engineering and design documents
+- '2.8'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 16, 17
+  pdf_page: 16
+  table: null
+  item: null
+  passage: Clause 2.8
+  image: illustrations/isa-5.1-2009/complete/clause-2.8-p16.png
+assets:
+- id: clause-2.8-p16
+  role: context
+  label: Clause 2.8, page 16
+  path: illustrations/isa-5.1-2009/complete/clause-2.8-p16.png
+  sha256: 7e8fad8bf35bd7db90a1e59a321d6c18365fdc85cb2dc58a3c6e07d0299ded28
+  width: 2010
+  height: 1619
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 16
+    printed_page: '16'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 338.6709
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-16
+  role: context
+  label: Complete technical content on page 16
+  path: illustrations/isa-5.1-2009/complete/page-16.png
+  sha256: e090245364a2c9fa7d985a00c851d3e7bf3f0ffb0948cf97b4b2d234f8895bb0
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 16
+    printed_page: '16'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-2.8-p17
+  role: context
+  label: Clause 2.8, page 17
+  path: illustrations/isa-5.1-2009/complete/clause-2.8-p17.png
+  sha256: a2e0e0d7e3ac8c664c1115554d44b59882eac505d228d33530b5668c0942aa3f
+  width: 2010
+  height: 293
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 17
+    printed_page: '17'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 140.32
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-17
+  role: context
+  label: Complete technical content on page 17
+  path: illustrations/isa-5.1-2009/complete/page-17.png
+  sha256: 1276453e2f11fb2ce9993952712207e32a1a79d5bee02eb44bab0d8d420cd953
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 17
+    printed_page: '17'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

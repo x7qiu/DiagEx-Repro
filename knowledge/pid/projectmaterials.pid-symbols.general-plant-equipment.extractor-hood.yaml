@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.extractor-hood
+version: 2
+concept: Extractor Hood
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Extractor Hood
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Extractor Hood’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Extractor Hood
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Extractor Hood’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Extractor Hood
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Extractor Hood
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.extractor-hood.png
+  sha256: b634d38fdb42e1d2543c821f450fe8f8238318b27f251a3c6cd696a11d4b94e8
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Extractor-Hood-PID-Symbol-150x150.CMNuq5jf_ZqjSwd.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 3c5d711e70febd0fd0629ba1c7e2f298c6e7dbc1a97e33665257b090407e03b2
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

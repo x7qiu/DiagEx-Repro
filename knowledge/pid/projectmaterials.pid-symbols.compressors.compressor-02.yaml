@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.compressors.compressor-02
+version: 2
+concept: Compressor 02
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Compressor 02
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Compressor 02’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Compressor 02
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Compressor 02’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Compressor 02
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#compressors-pid-symbols
+  section: Compressors P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Compressor 02
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.compressors.compressor-02.png
+  sha256: 7bc8f903fd925929799b8ba09aba6da8e53744ce377f72c615c214ee9d724d81
+  width: 41
+  height: 40
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/compressor_02.BQv3ggJb_1AoLgU.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: fe0795144550c8f7261fa273979bdefd44b329e648c04d0ee9a285e39d100835
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

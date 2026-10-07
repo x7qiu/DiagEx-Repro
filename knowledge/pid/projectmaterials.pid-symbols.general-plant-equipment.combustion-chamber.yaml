@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.combustion-chamber
+version: 2
+concept: Combustion Chamber
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Combustion Chamber
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Combustion Chamber’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Combustion Chamber
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Combustion Chamber’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Combustion Chamber
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Combustion Chamber
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.combustion-chamber.png
+  sha256: 1130b1b3b2ebefa392ac2014c6b05cae0158863dc463d44d1c44501bbb4c6ea3
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Combustion-Chamber-PID-Symbol-150x150.BuzVnrDe_Z1E6qN0.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 040ac7b6bcc6fe987f2afb55dbd1da7253334b45d152017594fdfcca0fa356df
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

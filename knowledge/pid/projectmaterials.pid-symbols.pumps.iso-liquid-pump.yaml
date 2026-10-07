@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.pumps.iso-liquid-pump
+version: 2
+concept: ISO Liquid Pump
+catalog:
+  role: catalog
+  category: equipment
+  short_name: ISO Liquid Pump
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘ISO Liquid Pump’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- ISO Liquid Pump
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘ISO Liquid Pump’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: ISO Liquid Pump
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#pumps-pid-symbols
+  section: Pumps P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: ISO Liquid Pump
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.pumps.iso-liquid-pump.png
+  sha256: 1442b846ade7b1a0c5d7cdf5a59c2e36eabcc8e9e6daa18ae95eab42065584c5
+  width: 41
+  height: 42
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/iso_liquid_pump.DkrPxqEl_Zw2J5E.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: a6eb8e92e81537ec09ea0678cddc4d6c1937d6fca93594abec5e16827db5bef1
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

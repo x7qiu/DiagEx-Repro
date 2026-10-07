@@ -1,0 +1,130 @@
+id: isa-5.1-2009.clause-b.5
+version: 2
+concept: B.5 — Device and function symbols
+aliases: []
+reference_type: assembly_pattern
+kind: possible_arrangement
+curation: source_transcribed
+source_status: informative
+explanation: 'B.5 Device and function symbols
+
+  B.5.1 Instrumentation devices and functions are constructed for sketches, drawings,
+  and diagrams by
+
+  the use of the generic bubble and other geometric symbols and specific graphic symbols
+  found in
+
+  Clause 5.
+
+  B.5.2 It is not necessary to show a symbol or a bubble for every device or function
+  required by a loop if
+
+  the need for the device or function or its tag number is clearly understood; for
+  example:
+
+  a) Symbols are not required, but may be used, for control valve positioners and
+  stream
+
+  sample conditioner components.
+
+  b) Bubbles are not required, but may be used, for orifice plate, thermocouple, and
+  control
+
+  valve graphic symbols.
+
+  B.5.3 When “smart” drawings, such as computer-generated P&IDs, that are linked to
+  instrument
+
+  indexes or data sheets are used, a bubble or graphic symbol to which an instrument
+  tag number
+
+  is attached should be used for all devices and functions that are to be indexed
+  or require data
+
+  sheets.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Device and function symbols
+- B.5
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '113'
+  pdf_page: 113
+  table: null
+  item: null
+  passage: Clause B.5
+  image: illustrations/isa-5.1-2009/complete/clause-b.5-p113.png
+assets:
+- id: clause-b.5-p113
+  role: context
+  label: Clause B.5, page 113
+  path: illustrations/isa-5.1-2009/complete/clause-b.5-p113.png
+  sha256: 7606faffe6e9cd5c63e65b7f29973513e846d599fe7f1b80d55a48ee533516a2
+  width: 2010
+  height: 1070
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 113
+    printed_page: '113'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 326.671
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-113
+  role: context
+  label: Complete technical content on page 113
+  path: illustrations/isa-5.1-2009/complete/page-113.png
+  sha256: 92cc8ef202d91b9138eb208ebf932677b5ee115fb832d01004ba0d6638bccc3e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 113
+    printed_page: '113'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

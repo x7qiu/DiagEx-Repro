@@ -1,0 +1,63 @@
+id: projectmaterials.pid-symbols.lines.slope
+version: 2
+concept: Slope
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: Slope
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Slope’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Slope
+reference_type: line_style
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Slope’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+- line_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Slope
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#lines-pid-symbols
+  section: Lines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Slope
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.lines.slope.png
+  sha256: f78e34535a6d8a4767e6b46ac9696fee10834ba16abd47a4dd9df26e3d19d6f3
+  width: 150
+  height: 60
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/SLOPE-PID-SYMBOL-150x60.agVvdSHe_Z2hLquL.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 4c9499e1de5cec8abd1d78d313d642f6395613153ca587ec5abeb356ff9e572f
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

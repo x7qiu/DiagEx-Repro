@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.13-21
+version: 1
+concept: 热基础罐 / Tank with heated foundation
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 热基础罐
+  interpretation: '热基础罐 / Tank with heated foundation. Defined by SH/T 3101:2017, Table 4.13, item 21. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 热基础罐
+- Tank with heated foundation
+reference_type: symbol
+kind: definition
+explanation: '热基础罐 / Tank with heated foundation. Defined by SH/T 3101:2017, Table 4.13, item 21. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 热基础罐
+- Tank with heated foundation
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '22'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.13-21/context.png
+  document_id: sht-3101-2017
+  pdf_page: 26
+  table: '4.13'
+  item: '21'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.13-21/context.png
+  sha256: 8ab22b717ec84573707844bc448eccb087cac97e2bb214dd923e438fcb5163b0
+  width: 912
+  height: 160
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 26
+    printed_page: '22'
+    table: '4.13'
+    item: '21'
+    rect:
+    - 144.0
+    - 1279.0
+    - 1056.0
+    - 1439.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.13-21/primary.png
+  sha256: 7e2a030fa2965a1ceb2c6ad5a600ad0cfa04440a2901151a198f57459bdb5c12
+  width: 121
+  height: 108
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 26
+    printed_page: '22'
+    table: '4.13'
+    item: '21'
+    rect:
+    - 587.0
+    - 1308.0
+    - 708.0
+    - 1416.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.13-21/variants.png
+  sha256: 5142282fcd87eac85c9c5750f316ea4cf2a9a1b4c5e25f6324ea4db0e23a72cf
+  width: 220
+  height: 158
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

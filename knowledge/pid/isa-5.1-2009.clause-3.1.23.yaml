@@ -1,0 +1,108 @@
+id: isa-5.1-2009.clause-3.1.23
+version: 2
+concept: datalink
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.23 datalink:
+
+  a wire, cable, or electromagnetic network or bus system that connects field-located
+  devices with
+
+  dedicated microprocessors so that they share a common database and communicate according
+  to a rigid
+
+  protocol in a hierarchical and/or peer-to-peer relationship to other such devices
+  and/or compatible
+
+  microprocessor-based systems; see also communication link.
+
+  a) wire or cable networks may be twisted pair, coaxial, telephone, or fiber optic.
+
+  b) electromagnetic networks may be radio or microwave.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'datalink:'
+- 3.1.23
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '20'
+  pdf_page: 20
+  table: null
+  item: null
+  passage: Clause 3.1.23
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.23-p20.png
+assets:
+- id: clause-3.1.23-p20
+  role: context
+  label: Clause 3.1.23, page 20
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.23-p20.png
+  sha256: 20c8c18dd1a81f0a553f36094770032478452bdfded8d8bb962431c009eb6308
+  width: 2010
+  height: 536
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 20
+    printed_page: '20'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 105.1516
+    - 547.0
+    - 233.6713
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-20
+  role: context
+  label: Complete technical content on page 20
+  path: illustrations/isa-5.1-2009/complete/page-20.png
+  sha256: d4cd7f5e954b0255d976d148c73a79dcddb0c3b0215545529fe97d180358f3de
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 20
+    printed_page: '20'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

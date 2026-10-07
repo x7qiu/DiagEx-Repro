@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.double-wall-tank
+version: 2
+concept: Double Wall Tank
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Double Wall Tank
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Double Wall Tank’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Double Wall Tank
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Double Wall Tank’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Double Wall Tank
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Double Wall Tank
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.double-wall-tank.png
+  sha256: 597840a248d8dcecaca049193b2eeb3c0b64e428e5e845312b3f7a32bf0ed5f1
+  width: 51
+  height: 38
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/double_wall_tank.D8igZzHN_HTERW.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 8674d105f5ad9d172a44622206efffff03c19443039ca8edc65d0b9118a752a0
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

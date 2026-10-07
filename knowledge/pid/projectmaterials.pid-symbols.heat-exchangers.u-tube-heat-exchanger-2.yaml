@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.heat-exchangers.u-tube-heat-exchanger-2
+version: 2
+concept: U-Tube Heat Exchanger 2
+catalog:
+  role: catalog
+  category: equipment
+  short_name: U-Tube Heat Exchanger 2
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: Projectmaterials labels this illustration ‘U-Tube Heat Exchanger 2’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- U-Tube Heat Exchanger 2
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘U-Tube Heat Exchanger 2’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: U-Tube Heat Exchanger 2
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#heat-exchangers-pid-symbols
+  section: Heat Exchangers P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: U-Tube Heat Exchanger 2
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.heat-exchangers.u-tube-heat-exchanger-2.png
+  sha256: a4c52e8f89a9593a7a443044f193f2ba4f89a676df6e0cecf9f1984edb821ded
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/49_UTube-Heat-Exchanger-2-PID-Symbol-150x150.D9tZkfn__z23PL.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 67636e147f5842a7493e70adfd938708e607361c9e71ce9ca40d2eaf7c279e3b
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

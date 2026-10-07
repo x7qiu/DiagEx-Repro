@@ -1,0 +1,197 @@
+id: isa-5.1-2009.introduction-p9
+version: 2
+concept: Introduction and interpretation background (page 9)
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: '                            Introduction (informative)
+
+
+  (1) This introduction, as well as any footnotes, endnotes, and informative annexes,  is
+  included for
+
+  information purposes and as background on the evolution of this standard and not
+  as a normative part of
+
+  ANSI/ISA-5.1-2009.
+
+
+  (2) The instrumentation symbolism and identification systems described in this standard
+  accommodate
+
+  advances in technology and reflect the collective industrial experience gained since
+  the original ISA
+
+  Recommended Practice RP-5.1, published in 1949, was revised, affirmed, and subsequently
+  published as
+
+  ANSI/ISA-5.1-1984, and then reaffirmed in 1992.
+
+
+  (3) This 2009 version attempts to strengthen this standard in its role as a communication
+  tool in all
+
+  industries  that depend on measurement and  control  systems  to  operate and  safeguard  their
+
+  manufacturing processes, machines, and  other equipment.   Communication presupposes
+  and  is
+
+  facilitated by a common language. This 2009 version of the standard continues to
+  build on the foundation
+
+  for that common language.
+
+
+  (4) When integrated into a system, the designations and symbols presented here form
+  a dedicated
+
+  language that communicates concepts, facts, intent, instructions, and knowledge
+  about measurement and
+
+  control systems in all industries.
+
+
+  (5) The 1949 recommended practice and the 1984 standard were published as non-mandatory
+  rather
+
+  than as mandatory consensus documents. As such, they had many of the strengths and
+  the weaknesses
+
+  of such standards.  Their primary strength was that they could be used in widespread,
+  interdisciplinary
+
+  ways. Their main weakness was that they were not specific enough, in some cases,
+  to satisfy the special
+
+  requirements of particular interest groups.
+
+
+  (6) This revision is published as a consensus standard and contains both mandatory
+  and non-mandatory
+
+  statements that have been reviewed and approved by a large group of practitioners
+  in the field of
+
+  instrumentation and control. This group was well versed in the use of identification
+  and symbol systems
+
+  as a means of communicating the intent of measurement and control systems to all
+  that need such
+
+  information.  It is hoped that the consensus reached by this group regarding what
+  is mandatory and what
+
+  is not will enhance the strengths and lessen the weaknesses of the previous issues.
+
+
+  (7) Versions of this standard have been in use for more than fifty years, and most
+  of the identification
+
+  letter and symbol meanings or definitions that were contained in ISA-RP5.1-1949
+  and ISA-5.1-1984
+
+  (R 1992), have taken on a proprietary nature and have become accepted industry practice
+  and assumed
+
+  to be mandatory. The meanings and definitions of new symbols will be mandatory.
+  This action is being
+
+  taken in response to questions and comments that occur frequently because of unclear
+  definitions.
+
+
+  (8) Mandatory definitions or meanings for letters used in identification and for
+  symbols used in graphic
+
+  depiction of measurement and control devices and functions are given.  Mandatory
+  minimum symbol
+
+  dimensions are  given.   Informative  identification and graphic symbol guidelines  include  alternate
+
+  identification and symbol definitions and usage methods.  Consistency is the one
+  criterion that should
+
+  govern the selection and application of identification and graphic schemes.
+
+
+  (9) This standard has been viewed in the past as being oriented to the  oil and
+  chemical process
+
+  industries. This perception, while not intended, resulted from the fact that people
+  who wrote the original
+
+  and previous revisions were mainly working in those industries.  It is the intent
+  of the ISA5 committee that
+
+  ISA Technical Reports will be used to address this type of problem.  It is hoped
+  that the technical report
+
+  format will be specific enough to satisfy the special requirements of particular
+  interest groups by providing
+
+  examples and guidelines for use of the identification and symbolization methods
+  for specific industries.
+
+  These industries include, but are not limited to, metal refining, power generation,
+  pulp and paper, and
+
+  discrete parts manufacturing.  The technical report format presents the best approach
+  for making this
+
+  standard applicable to industries that may have many usages and accepted practices
+  that are not used in'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags: []
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '9'
+  pdf_page: 9
+  table: null
+  item: null
+  passage: null
+  image: illustrations/isa-5.1-2009/complete/page-9.png
+assets:
+- id: page-9
+  role: context
+  label: Complete technical content on page 9
+  path: illustrations/isa-5.1-2009/complete/page-9.png
+  sha256: 33691d7579fcca69300015b27ba01c6ef1036745e58e4b4e6c425a452476bdac
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 9
+    printed_page: '9'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

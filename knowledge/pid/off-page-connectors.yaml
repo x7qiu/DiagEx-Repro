@@ -1,0 +1,44 @@
+id: opc.placement-exceptions
+version: 2
+concept: Off-page connector placement and direction exceptions
+kind: possible_arrangement
+explanation: The supplied teaching illustration shows incoming and outgoing off-page
+  connectors. Interior and vertical connectors are described as acceptable in some
+  companies for utility streams; vertical connectors may also occur on other network
+  streams. Inspect the outline, attached line, nearby text and continuation reference.
+  Placement or orientation alone does not establish or disprove connector identity.
+exceptions:
+- The example qualifies these arrangements as company-dependent, not universal.
+- Reverse-facing connectors can reflect upstream or downstream routing.
+- An ordinary flow arrow or annotation is not an off-page connector merely because
+  it is inside a drawing.
+applicability: {}
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- opc
+- connector
+- arrow
+- continuation
+- utility
+- utilities
+- 公用工程
+- 跨页
+source:
+  document: null
+  page: null
+  edition: null
+  image: illustrations/off-page-connectors.png
+  passage: User-supplied book illustration; bibliographic identity and page not provided.
+behavior: inspect_connector_exception
+catalog:
+  role: supporting
+  interpretation: The supplied teaching illustration shows incoming and outgoing off-page
+    connectors. Interior and vertical connectors are described as acceptable in some
+    companies for utility streams; vertical connectors may also occur on other network
+    streams. Inspect the outline, attached line, nearby text and continuation reference.
+    Placement or orientation alone does not establish or disprove connector identity.

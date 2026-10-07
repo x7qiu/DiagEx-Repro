@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.heat-exchangers.straight-tubes-hx
+version: 2
+concept: Straight Tubes HX
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Straight Tubes HX
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: Projectmaterials labels this illustration ‘Straight Tubes HX’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Straight Tubes HX
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Straight Tubes HX’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Straight Tubes HX
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#heat-exchangers-pid-symbols
+  section: Heat Exchangers P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Straight Tubes HX
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.heat-exchangers.straight-tubes-hx.png
+  sha256: a58f7331d01666ac4466d9ec272cfac5c20324191d5ffa32b26a79cb38924b55
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/33_Straight-Tubes-and-Heat-Exchanger-PID-Symbol-150x150.HYwefklH_ZgOIW0.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: d04a75b866a09d5b388c9dd1a03ffad5c93c76f1271e8e0d636c605d7854f7fe
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

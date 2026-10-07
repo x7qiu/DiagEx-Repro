@@ -1,0 +1,682 @@
+id: isa-5.1-2009.ta.4-p109
+version: 2
+concept: Table A.4 — Loop and Identification Tag Number suffixes (1) (2) (page 109)
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: informative
+explanation: Loop and Identification Tag Number suffixes (1) (2). Use the source table
+  with its column headings and linked explanatory notes. Blank or merged cells must
+  not be interpreted as new definitions.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- text_assignment
+- symbol_interpretation
+- review
+tags:
+- Loop and Identification Tag Number suffixes (1) (2)
+- A.4
+- identification
+- tag
+- letters
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '109'
+  pdf_page: 109
+  table: A.4
+  item: null
+  passage: "        Table A.4 — Loop and Identification Tag Number suffixes (1) (2)\n\
+    \n\nNote: Numbers in parentheses refer to explanatory notes in Clause A.16.4.\n\
+    \n     Loop Identification Number\n                                          \
+    \                Identification/Tag Number suffixes (Bold-Underlined)\n      \
+    \     Suffixes(Bold-Italic)\n\n                                              \
+    \       Case 1 — Different services (3)\n     First       After loop    After\
+    \ first\n                                Two devices with loop suffix after  \
+    \    Four devices with loop suffix after Loop Suffix   numbers       letters\n\
+    \                                   None     Numbers      Letters      None  \
+    \   Numbers      Letters\n                                                   \
+    \                                       FV*01-1A\n                           \
+    \                      FV*01-1\n                                             \
+    \                                             FV*01-1B\n   None              F*01\n\
+    \                                                                            \
+    \              FV*01-2A\n                                                 FV*01-2\n\
+    \                                                                            \
+    \              FV*01-2B\n                                                    \
+    \                                                FV*01A-1A     FV-A-*01-1A\n \
+    \                                                            FV*01A-1      FV-A-*01-1\n\
+    \                                                                            \
+    \                        FV*01A-1B     FV-A-*01-1B\n                         \
+    \                                                                           FV*01A-2A\
+    \     FV-A-*01-2A\n                                                          \
+    \   FV*01A-2      FV-A-*01-2\n                                               \
+    \                                                     FV*01A-2B     FV-A-*01-2B\n\
+    \   Alpha         F*01A          F-A-*01\n                                   \
+    \                                                                 FV*01B-1A  \
+    \   FV-B-*01-1A\n                                                            \
+    \ FV*01B-1      FV-B-*01-1\n                                                 \
+    \                                                   FV*01B-1B     FV-B-*01-1B\n\
+    \                                                                            \
+    \                        FV*01B-2A     FV-B-*01-2A\n                         \
+    \                                    FV*01B-2      FV-B-*01-2\n              \
+    \                                                                            \
+    \          FV*01B-2B     FV-B-*01-2B\n                                       \
+    \                                                                     FV*01-1-1A\
+    \     FV-1-*01-1A\n                                                          \
+    \        FV*01-1-1       FV-1-*01-1\n                                        \
+    \                                                                    FV*01-1-1B\
+    \     FV-1-*01-1B\n                                                          \
+    \                                                  FV*01-1-2A     FV-1-*01-2A\n\
+    \                                                                  FV*01-1-2 \
+    \      FV-1-*01-2\n                                                          \
+    \                                                  FV*01-1-2B     FV-1-*01-2B\n\
+    \  Numeric        F*01-1          F-1-*01\n                                  \
+    \                                                                          FV*01-2-1A\
+    \     FV-2-*01-1A\n                                                          \
+    \        FV*01-2-1       FV-2-*01-1\n                                        \
+    \                                                                    FV*01-2-1B\
+    \     FV-2-*01-1B\n                                                          \
+    \                                                  FV*01-2-2A     FV-2-*01-2A\n\
+    \                                                                  FV*01-2-2 \
+    \      FV-2-*01-2\n                                                          \
+    \                                                  FV*01-2-2B     FV-2-*01-2B\n\
+    \                                                       Case 2 — Same service\
+    \ (3)\n\n                                Two devices with loop suffix after  \
+    \    Four devices with loop suffix after\n\n                                 \
+    \  None     Numbers      Letters      None     Numbers      Letters\n        \
+    \                                                                            \
+    \      FV*01-A1\n                                               FV*01-A\n    \
+    \                                                                            \
+    \          FV*01-B1\n   None\n                                               \
+    \                                           FV*01-A2\n                       \
+    \                        FV*01-B\n                                           \
+    \                                               FV*01-B2\n                   \
+    \                                                                            \
+    \     FV*01A-A1     FV-A-*01-A1\n                                            \
+    \               FV*01A-A      FV-A-*01-A\n                                   \
+    \                                                                 FV*01A-A2  \
+    \   FV-A-*01-A2\n                                                            \
+    \                                        FV*01A-B1     FV-A-*01-B1\n         \
+    \                                                  FV*01A-B      FV-A-*01-B\n\
+    \                                                                            \
+    \                        FV*01A-B2     FV-A-*01-B2\n   Alpha\n               \
+    \                                                                            \
+    \         FV*01B-A1     FV-B-*01-A1\n                                        \
+    \                   FV*01B-A      FV-B-*01-A\n                               \
+    \                                                                     FV*01B-A2\
+    \     FV-B-*01-A2\n                                                          \
+    \                                          FV*01B-B1     FV-B-*01-B1\n       \
+    \                                                    FV*01B-B      FV-B-*01-B\n\
+    \                                                                            \
+    \                        FV*01B-B2     FV-B-*01-B2\n                         \
+    \                                                                            \
+    \       FV*01-1-A1     FV-1-*01-A1\n                                         \
+    \                       FV*01-1-A      FV-1-*01-A\n                          \
+    \                                                                            \
+    \      FV*01-1-A2     FV-1-*01-A2\n                                          \
+    \                                                                  FV*01-1-B1\
+    \     FV-1-*01-B1\n                                                          \
+    \      FV*01-1-B      FV-1-*01-B\n                                           \
+    \                                                                 FV*01-1-B2 \
+    \    FV-1-*01-B2\n  Numeric\n                                                \
+    \                                                            FV*01-2-A1     FV-2-*01-A1\n\
+    \                                                                FV*01-2-A   \
+    \   FV-2-*01-A\n                                                             \
+    \                                               FV*01-2-A2     FV-2-*01-A2\n \
+    \                                                                            \
+    \                               FV*01-2-B1     FV-2-*01-B1\n                 \
+    \                                               FV*01-2-B      FV-2-*01-B\n  \
+    \                                                                            \
+    \                              FV*01-2-B2     FV-2-*01-B2"
+  image: illustrations/isa-5.1-2009/complete/page-109.png
+assets:
+- id: page-109
+  role: context
+  label: Complete technical content on page 109
+  path: illustrations/isa-5.1-2009/complete/page-109.png
+  sha256: 783532a3649d620ee560667bafe662099fa87442fb9a4aa1bb6a3dc05bf85a0a
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 109
+    printed_page: '109'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.4-p98
+  role: note
+  label: Clause A.16.4, page 98
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.4-p98.png
+  sha256: a112f4fe4c2ae6dff3ca93df354c1fe800f9f27d2cf93b7b1def3a8d0d370d8e
+  width: 2010
+  height: 2544
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 98
+    printed_page: '98'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 116.6716
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.4-p111
+  role: note
+  label: Clause A.16.4, page 111
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.4-p111.png
+  sha256: e973057fc9ee08d948f14086813e54ff7180bfbe2a8560656a0ae83258eb022a
+  width: 2010
+  height: 108
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 111
+    printed_page: '111'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 81.82
+    - 547.0
+    - 107.4919
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 98, 111
+    pdf_page: 98
+    table: null
+    item: null
+    passage: Clause A.16.4
+    image: illustrations/isa-5.1-2009/complete/clause-a.16.4-p98.png
+  explanation: 'A.16.4 Table A.4 — Loop and Identification Tag Number suffixes
+
+    (1) Replace asterisk in Loop Numbers with any digit from 0 to 9 or any combination
+    of numerals.
+
+    (2) Punctuation shown is recommended.
+
+    (3) Case 1 and Case 2 may be reversed or a single case may be used for all applications.
+
+    Annex B Graphic symbol guidelines (informative annex)'
+  asset_id: clause-a.16.4-p98
+text_slots: []
+interpretation:
+- Table cells are source transcriptions; retain headers and merged-cell context when
+  interpreting them. Use the image to resolve superscripts or extraction ambiguity.
+- Example tags and numbering schemes illustrate conventions; never copy them as actual
+  drawing identifiers.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-a.16.4
+  explanation: 'Explanatory notes for Table A.4: clause A.16.4.'
+table_data:
+- - - 'Loop Identification Number
+
+      Suffixes(Bold-Italic)'
+    - null
+    - null
+    - Identification/Tag Number suffixes (Bold-Underlined)
+    - null
+    - null
+    - null
+    - null
+    - null
+  - - 'First
+
+      Loop Suffix'
+    - 'After loop
+
+      numbers'
+    - 'After first
+
+      letters'
+    - Case 1 — Different services (3)
+    - null
+    - null
+    - null
+    - null
+    - null
+  - - null
+    - null
+    - null
+    - Two devices with loop suffix after
+    - null
+    - null
+    - Four devices with loop suffix after
+    - null
+    - null
+  - - null
+    - null
+    - null
+    - None
+    - Numbers
+    - Letters
+    - None
+    - Numbers
+    - Letters
+  - - None
+    - F*01
+    - null
+    - FV*01-1
+    - ''
+    - ''
+    - FV*01-1A
+    - ''
+    - ''
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-1B
+    - null
+    - null
+  - - null
+    - null
+    - null
+    - FV*01-2
+    - null
+    - null
+    - FV*01-2A
+    - null
+    - null
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-2B
+    - null
+    - null
+  - - Alpha
+    - F*01A
+    - F-A-*01
+    - ''
+    - FV*01A-1
+    - FV-A-*01-1
+    - ''
+    - FV*01A-1A
+    - FV-A-*01-1A
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01A-1B
+    - FV-A-*01-1B
+  - - null
+    - null
+    - null
+    - null
+    - FV*01A-2
+    - FV-A-*01-2
+    - null
+    - FV*01A-2A
+    - FV-A-*01-2A
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01A-2B
+    - FV-A-*01-2B
+  - - null
+    - null
+    - null
+    - null
+    - FV*01B-1
+    - FV-B-*01-1
+    - null
+    - FV*01B-1A
+    - FV-B-*01-1A
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01B-1B
+    - FV-B-*01-1B
+  - - null
+    - null
+    - null
+    - null
+    - FV*01B-2
+    - FV-B-*01-2
+    - null
+    - FV*01B-2A
+    - FV-B-*01-2A
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01B-2B
+    - FV-B-*01-2B
+  - - Numeric
+    - F*01-1
+    - F-1-*01
+    - ''
+    - FV*01-1-1
+    - FV-1-*01-1
+    - ''
+    - FV*01-1-1A
+    - FV-1-*01-1A
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-1-1B
+    - FV-1-*01-1B
+  - - null
+    - null
+    - null
+    - null
+    - FV*01-1-2
+    - FV-1-*01-2
+    - null
+    - FV*01-1-2A
+    - FV-1-*01-2A
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-1-2B
+    - FV-1-*01-2B
+  - - null
+    - null
+    - null
+    - null
+    - FV*01-2-1
+    - FV-2-*01-1
+    - null
+    - FV*01-2-1A
+    - FV-2-*01-1A
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-2-1B
+    - FV-2-*01-1B
+  - - null
+    - null
+    - null
+    - null
+    - FV*01-2-2
+    - FV-2-*01-2
+    - null
+    - FV*01-2-2A
+    - FV-2-*01-2A
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-2-2B
+    - FV-2-*01-2B
+  - - ''
+    - ''
+    - ''
+    - Case 2 — Same service (3)
+    - null
+    - null
+    - null
+    - null
+    - null
+  - - null
+    - null
+    - null
+    - Two devices with loop suffix after
+    - null
+    - null
+    - Four devices with loop suffix after
+    - null
+    - null
+  - - null
+    - null
+    - null
+    - None
+    - Numbers
+    - Letters
+    - None
+    - Numbers
+    - Letters
+  - - None
+    - ''
+    - ''
+    - FV*01-A
+    - ''
+    - ''
+    - FV*01-A1
+    - ''
+    - ''
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-B1
+    - null
+    - null
+  - - null
+    - null
+    - null
+    - FV*01-B
+    - null
+    - null
+    - FV*01-A2
+    - null
+    - null
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-B2
+    - null
+    - null
+  - - Alpha
+    - ''
+    - ''
+    - ''
+    - FV*01A-A
+    - FV-A-*01-A
+    - ''
+    - FV*01A-A1
+    - FV-A-*01-A1
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01A-A2
+    - FV-A-*01-A2
+  - - null
+    - null
+    - null
+    - null
+    - FV*01A-B
+    - FV-A-*01-B
+    - null
+    - FV*01A-B1
+    - FV-A-*01-B1
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01A-B2
+    - FV-A-*01-B2
+  - - null
+    - null
+    - null
+    - null
+    - FV*01B-A
+    - FV-B-*01-A
+    - null
+    - FV*01B-A1
+    - FV-B-*01-A1
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01B-A2
+    - FV-B-*01-A2
+  - - null
+    - null
+    - null
+    - null
+    - FV*01B-B
+    - FV-B-*01-B
+    - null
+    - FV*01B-B1
+    - FV-B-*01-B1
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01B-B2
+    - FV-B-*01-B2
+  - - Numeric
+    - ''
+    - ''
+    - ''
+    - FV*01-1-A
+    - FV-1-*01-A
+    - ''
+    - FV*01-1-A1
+    - FV-1-*01-A1
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-1-A2
+    - FV-1-*01-A2
+  - - null
+    - null
+    - null
+    - null
+    - FV*01-1-B
+    - FV-1-*01-B
+    - null
+    - FV*01-1-B1
+    - FV-1-*01-B1
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-1-B2
+    - FV-1-*01-B2
+  - - null
+    - null
+    - null
+    - null
+    - FV*01-2-A
+    - FV-2-*01-A
+    - null
+    - FV*01-2-A1
+    - FV-2-*01-A1
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-2-A2
+    - FV-2-*01-A2
+  - - null
+    - null
+    - null
+    - null
+    - FV*01-2-B
+    - FV-2-*01-B
+    - null
+    - FV*01-2-B1
+    - FV-2-*01-B1
+  - - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - FV*01-2-B2
+    - FV-2-*01-B2
+catalog:
+  role: background

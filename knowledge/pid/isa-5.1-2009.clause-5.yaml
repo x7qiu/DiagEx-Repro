@@ -1,0 +1,93 @@
+id: isa-5.1-2009.clause-5
+version: 2
+concept: 5 — Graphic symbol tables
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: 5 Graphic symbol tables
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Graphic symbol tables
+- '5'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '31'
+  pdf_page: 31
+  table: null
+  item: null
+  passage: Clause 5
+  image: illustrations/isa-5.1-2009/complete/clause-5-p31.png
+assets:
+- id: clause-5-p31
+  role: context
+  label: Clause 5, page 31
+  path: illustrations/isa-5.1-2009/complete/clause-5-p31.png
+  sha256: 6782d4c923035ab4f218daf125c36dbca1db4bb4c7055371ec117dd68f51c957
+  width: 2010
+  height: 108
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 31
+    printed_page: '31'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.3
+    - 547.0
+    - 95.9719
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-31
+  role: context
+  label: Complete technical content on page 31
+  path: illustrations/isa-5.1-2009/complete/page-31.png
+  sha256: 56f4ff5958d0706ae529d2735fd8bf69fc2d3d48b4c89d7c2097d70016007b1e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 31
+    printed_page: '31'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

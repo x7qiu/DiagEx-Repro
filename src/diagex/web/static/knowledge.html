@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>符号知识库 · DiagEx</title>
+  <link rel="stylesheet" href="/static/knowledge.css">
+  <script src="/static/catalog-search.js" defer></script>
+  <script src="/static/knowledge.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="/">D <span>DiagEx</span></a><a href="/">返回提取</a></header>
+  <main>
+    <div class="intro"><p class="eyebrow">知识库</p>
+      <h1>符号目录</h1>
+      <p>查找符号，点击查看含义与其他画法。</p>
+    </div>
+    <div class="filters">
+      <label>搜索<input id="search" type="search" placeholder="名称、别名或类别"></label>
+      <label>集合<select id="viewFilter"><option value="catalog">符号目录</option><option value="letters">字母含义表</option><option value="full">全部参考</option></select></label>
+    </div>
+    <label class="search-expansion"><input id="searchDescriptions" type="checkbox">同时搜索说明与来源注释</label>
+    <nav id="categories" class="categories" aria-label="符号分类"></nav>
+    <details class="filter-details"><summary>来源筛选</summary><div class="filters">
+      <label>来源<select id="sourceFilter"><option value="">全部来源</option></select></label>
+      <label>标准与版本<select id="standardFilter"><option value="">全部标准</option></select></label>
+      <label id="typeLabel" hidden>参考类型<select id="typeFilter"><option value="">全部类型</option></select></label>
+    </div></details>
+    <p id="libraryStatus" role="status">正在加载…</p>
+    <div id="entries" aria-label="知识参考条目"></div>
+    <p class="hint">浏览不会更改图纸背景或适用标准。</p>
+  </main>
+  <dialog id="detailDialog" aria-labelledby="detailTitle"><div class="dialog-heading"><span>知识库</span><button id="closeDetail" type="button">关闭</button></div><article id="detail"></article></dialog>
+  <dialog id="imageDialog" aria-labelledby="imageTitle"><div class="dialog-heading"><h2 id="imageTitle"></h2><button id="closeImage" type="button">关闭</button></div><div class="image-scroll"><img id="largeImage" alt=""></div></dialog>
+</body>
+</html>

@@ -1,0 +1,189 @@
+id: isa-5.1-2009.clause-a.10
+version: 2
+concept: A.10 — Loop number and instrument/tag number suffixes
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.10 Loop number and instrument/tag number suffixes
+
+  A.10.1 A Loop Number Suffix may be added to a Loop Number to identify identical
+  loops on identical
+
+  equipment in the same processing unit when the service or equipment is assigned
+  the same
+
+  equipment identification number with a suffix, such as reactors, heat exchangers,
+  and pumps.
+
+  A.10.2 A Loop Suffix may use alphabetic or numeric characters according to User/Owner
+  established
+
+  practice and should be located after the Loop Identification Number as illustrated
+  in Table A.1.
+
+  A.10.3 A Loop Suffix may be located after the Loop Letters when user, owner, computer,
+  or
+
+  microprocessor information systems will not allow alphabetic or additional numeric
+  characters in
+
+  the numerical part of an identification number:
+
+  A.10.4 An Identification/Tag Number Suffix should be added to Instrument Identification/Tag
+  Numbers in
+
+  the loop to designate two or more similar devices or functions:
+
+  a) Case 1 – in different services, such as control valves that direct flow to different
+  places,
+
+  or auxiliary devices, such as those that perform different functions.
+
+  b) Case 2 – in the same service, such as control valves that direct flow to the
+  same place,
+
+  or auxiliary devices, such as those that perform the same function.
+
+  A.10.5 Additional Identification/Tag Number Suffixes should be added when two or
+  more similar devices
+
+  or functions are also duplicated, using alternating alpha/numeric characters.
+
+  A.10.6 For examples of Loop Number and Instrument/Tag Number Suffixes, see Table
+  A.4.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Loop number and instrument/tag number suffixes
+- A.10
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 91, 92
+  pdf_page: 91
+  table: null
+  item: null
+  passage: Clause A.10
+  image: illustrations/isa-5.1-2009/complete/clause-a.10-p91.png
+assets:
+- id: clause-a.10-p91
+  role: context
+  label: Clause A.10, page 91
+  path: illustrations/isa-5.1-2009/complete/clause-a.10-p91.png
+  sha256: f6efd0a496e3f29137d0cf56ffca204632aa357aa93ba28c789b9a3bcf5ba7bb
+  width: 2010
+  height: 1230
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 91
+    printed_page: '91'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 432.1506
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-91
+  role: context
+  label: Complete technical content on page 91
+  path: illustrations/isa-5.1-2009/complete/page-91.png
+  sha256: 1e2f71c0e00161defcee1ac1631d9b9d8eea2da0cd670aa01145a4ccb5fd688a
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 91
+    printed_page: '91'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.10-p92
+  role: context
+  label: Clause A.10, page 92
+  path: illustrations/isa-5.1-2009/complete/clause-a.10-p92.png
+  sha256: 384833e68583fad9a9e274fe42689589a7049172c79073379735074c76f1f86c
+  width: 2010
+  height: 197
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 92
+    printed_page: '92'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 117.1516
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-92
+  role: context
+  label: Complete technical content on page 92
+  path: illustrations/isa-5.1-2009/complete/page-92.png
+  sha256: 75f815b1ca66c29ca255376c54fdfb77fbb28c463aca95b30c4f5c6aa07a6760
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 92
+    printed_page: '92'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

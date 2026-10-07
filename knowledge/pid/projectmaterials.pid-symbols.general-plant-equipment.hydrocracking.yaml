@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.hydrocracking
+version: 2
+concept: Hydrocracking
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Hydrocracking
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Hydrocracking’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Hydrocracking
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Hydrocracking’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Hydrocracking
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Hydrocracking
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.hydrocracking.png
+  sha256: fc8b633dfc4119e4f4d2dbd4e07e7f8e64b52b3775025219b50b42ea4274fcab
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Hydrocracking-PID-Symbol-150x150.ZwOxx9vP_Z1oWWf1.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: f595b81d2caddf6b296ef0e4e5cac9ed6218656f486ccc592707c7d66c68240d
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

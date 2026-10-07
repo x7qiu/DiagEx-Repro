@@ -25,6 +25,7 @@ def test_budget_stop_preserves_attempted_tile_but_leaves_untouched_tile_resumabl
     ledger = tmp_path / "ledger.json"
     save_new(ledger, {"requests": []})
     monkeypatch.setenv("OPENROUTER_API_KEY", "offline-test")
+    monkeypatch.setenv("DIAGEX_MODEL", "m")
     monkeypatch.setattr(runner, "configure_connection_accounting", lambda client: None)
 
     class Client:

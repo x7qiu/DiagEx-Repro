@@ -1,0 +1,273 @@
+id: isa-5.1-2009.t5.4.3-4
+version: 3
+concept: Flow sight glass
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Flow sight glass. • Type shall be noted if more than one type used.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Self-actuated final control element symbol
+- 5.4.3
+- Flow sight glass
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '52'
+  pdf_page: 52
+  table: 5.4.3
+  item: '4'
+  passage: 'Table 5.4.3, item 4: • Flow sight glass. • Type shall be noted if more
+    than one type used.'
+  image: illustrations/isa-5.1-2009/complete/t5.4.3-4-context.png
+assets:
+- id: t5.4.3-4-context
+  role: context
+  label: 'Complete row: Table 5.4.3, item 4'
+  path: illustrations/isa-5.1-2009/complete/t5.4.3-4-context.png
+  sha256: eefebe832bae619613654b1d89dc7e45d15e4d887b20cb266e453083da5fbeeb
+  width: 1960
+  height: 254
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 52
+    printed_page: '52'
+    table: 5.4.3
+    item: '4'
+    rect:
+    - 70.988
+    - 329.18
+    - 541.012
+    - 389.98
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-52
+  role: context
+  label: Complete technical content on page 52
+  path: illustrations/isa-5.1-2009/complete/page-52.png
+  sha256: fed4edd59b59b4a48975fb359e99c030ab470d6a04bc30ee9eb9d48cd81a080e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 52
+    printed_page: '52'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.4.3-4-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.4.3-4-panel-1.png
+  sha256: 6044f7efe646cd339f8818d4b490ae09951c117b965c31201ea4727d9880c8c4
+  width: 444
+  height: 239
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 52
+    printed_page: '52'
+    table: 5.4.3
+    item: '4'
+    rect:
+    - 108.8
+    - 330.98
+    - 215.2
+    - 388.18
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.4-p34
+  role: note
+  label: Clause 5.3.4, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  sha256: 22398fd3ece7505715c4362491d0de8902648bfba29cb21750251ccb42c738ab
+  width: 2010
+  height: 1461
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 326.671
+    - 547.0
+    - 677.1295
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.4.3-4-variants.png
+  sha256: 6492df3de45a0473be881b176b1c3f765da074b39d987ebbd6febc07ffa5119a
+  width: 1000
+  height: 304
+  derived_from:
+  - t5.4.3-4-panel-1
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.4.3-4-panel-1
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.3-4.catalog-t5.4.3-4-panel-1.png
+  sha256: 853b5699cc0007b2354e16f39da84e9aa7432c49fe4ca6f5ccda44e2f726946d
+  width: 301
+  height: 154
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 52
+    printed_page: '52'
+    table: 5.4.3
+    item: '4'
+    rect:
+    - 127.91999999999999
+    - 342.0
+    - 200.16
+    - 378.96
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.3-4.sheet.png
+  sha256: 03e229e650aa0da9bc266d162d2ef9ca9f73212c328a4047494becd627e74c8e
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.4.3-4-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '34'
+    pdf_page: 34
+    table: null
+    item: null
+    passage: Clause 5.3.4
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  explanation: '5.3.4 Tables 5.4.1, 5.4.2, 5.4.3 and 5.4.4 — Final control element
+    symbols:
+
+    (1) Users engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    symbols have been selected.
+
+    (2) Element symbols 1 through 14, when combined with actuator symbols 1 through
+    16, represent
+
+    process control valves.
+
+    (3) Element symbol 2, when combined with actuator symbols 20 and 21, represent
+    pressure safety
+
+    valves.
+
+    (4) Element symbols 15 through 19, when combined with actuator symbols 13, 14,
+    and 15, represent
+
+    on-off solenoid valves.
+
+    (5) Element symbol 21, when combined with actuator symbols 1 through 16, represents
+    a variable
+
+    speed control unit.
+
+    (6) Element symbol 21 represents a motor that manipulates or controls a process
+    variable.
+
+    (7) Actuator symbols 1 through 16, when combined with element symbols 1 through
+    14, represent
+
+    process control valves and with element symbol 21 represents a variable speed
+    control unit.
+
+    (8) Actuator symbols 17, 18, and 19, when combined with element symbols 15 through
+    19, represent
+
+    on-off solenoid valves.
+
+    (9) Actuator symbols 20 and 21, when combined with element symbol 2, represent
+    pressure safety
+
+    valves.
+
+    (10) The symbols are applicable to all types of control valves and actuators.'
+  asset_id: clause-5.3.4-p34
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.4
+  explanation: 'Explanatory notes for Table 5.4.3: clause 5.3.4.'
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Flow sight glass
+  interpretation: Flow sight glass. Type shall be noted if more than one type used.
+  displayed_asset_ids:
+  - catalog-t5.4.3-4-panel-1
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.4

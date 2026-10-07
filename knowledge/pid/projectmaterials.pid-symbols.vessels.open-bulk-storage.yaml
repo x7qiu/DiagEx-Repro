@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.open-bulk-storage
+version: 2
+concept: Open Bulk Storage
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Open Bulk Storage
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Open Bulk Storage’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Open Bulk Storage
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Open Bulk Storage’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Open Bulk Storage
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Open Bulk Storage
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.open-bulk-storage.png
+  sha256: 0b41a75af4bee49dd96fd33d178ec99e69ec77f95bc5872ee304b259e6bfabab
+  width: 60
+  height: 33
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/open_bulk_storage.g0YaUEHM_2hHvdV.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 363d785059fd2a8f8d966114232a4e811105c8c45cfc3f8412a6fd97d96607eb
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,215 @@
+id: isa-5.1-2009.clause-b.3
+version: 2
+concept: B.3 — Examples of graphic symbols with assigned instrument/tag numbers
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'B.3 Examples of graphic symbols with assigned instrument/tag numbers
+
+  B.3.1 Instrument bubble symbols should use the upper half of each symbol for Functional
+  Identification
+
+  Letters and the lower half of each symbol for Loop Numbers:
+
+  a) Five (5) characters or less:
+
+  ABCDE
+
+  98765
+
+  b) Six (6) characters or more, relieve sides of bubble or enlarge bubble as required:
+
+  ABCDEFGHJKLM
+
+  ABCDEFGHJKLM
+
+  9876543210
+
+  9876543210
+
+  B.3.2 Functional diagramming, binary logic, and electrical schematic symbols should
+  be tagged at
+
+  either (A), (B), (C), or (D):
+
+  (A)
+
+  (A)
+
+  (A)
+
+  (A) (B)
+
+  A
+
+  (B) (A) (C)
+
+  K
+
+  ∆
+
+  A
+
+  B
+
+  (B) (A)
+
+  (B)
+
+  ∆ N
+
+  ∫ C O
+
+  D I
+
+  P D
+
+  (C)
+
+  d/dt
+
+  (B) (B) (D)
+
+  X
+
+  (D) (D) (A) (C)
+
+  (B)'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Examples of graphic symbols with assigned instrument/tag numbers
+- B.3
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 111, 112
+  pdf_page: 111
+  table: null
+  item: null
+  passage: Clause B.3
+  image: illustrations/isa-5.1-2009/complete/clause-b.3-p111.png
+assets:
+- id: clause-b.3-p111
+  role: context
+  label: Clause B.3, page 111
+  path: illustrations/isa-5.1-2009/complete/clause-b.3-p111.png
+  sha256: c96bfa09d8f72b4bc8a910b7ec447400b2528b17ad9239427e2f3e0095603254
+  width: 2010
+  height: 635
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 111
+    printed_page: '111'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 574.9502
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-111
+  role: context
+  label: Complete technical content on page 111
+  path: illustrations/isa-5.1-2009/complete/page-111.png
+  sha256: 3aad1f587a1152292276321cc8ecdae0cbf61cb3ccaa2e62bd71f586e6e0b70f
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 111
+    printed_page: '111'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.3-p112
+  role: context
+  label: Clause B.3, page 112
+  path: illustrations/isa-5.1-2009/complete/clause-b.3-p112.png
+  sha256: 750a39a5ac230e0635c966e771122ddc9cc17ffee04e4c07357470c76a7c6866
+  width: 2010
+  height: 834
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 112
+    printed_page: '112'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 85.0987
+    - 547.0
+    - 285.0319
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-112
+  role: context
+  label: Complete technical content on page 112
+  path: illustrations/isa-5.1-2009/complete/page-112.png
+  sha256: 9036194737a0f57b56a1d4ad9b6762b2300d6936ee59e5adb5d651de5c441769
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 112
+    printed_page: '112'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

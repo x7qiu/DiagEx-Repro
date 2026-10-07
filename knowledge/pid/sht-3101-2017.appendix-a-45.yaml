@@ -1,0 +1,69 @@
+id: sht-3101-2017.appendix-a-45
+version: 1
+concept: 仪表典型安装示例 / Typical instrument arrangements (page 41)
+catalog:
+  role: background
+  short_name: 仪表典型安装示例 / Typical instrument arrangements (page 41)
+  interpretation: Source material retained for browsing, outside the focused P&ID catalog. Full panels
+    are not individual symbols and are not supplied to extraction.
+  displayed_asset_ids: []
+  supporting_reference_ids: []
+curation: curated
+source_status: informative
+table_data: []
+aliases: []
+reference_type: assembly_pattern
+kind: definition
+explanation: Source material retained for browsing, outside the focused P&ID catalog. Full panels are
+  not individual symbols and are not supplied to extraction.
+exceptions: []
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags: []
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '41'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/appendix-a-45/context.png
+  document_id: sht-3101-2017
+  pdf_page: 45
+  table: Appendix A
+assets:
+- id: context
+  role: context
+  label: Source context
+  path: illustrations/sht-3101-2017/appendix-a-45/context.png
+  sha256: c76f8b95f37093a3fcea7ae0b506e86aa636d9b2fdb8c96722c2bb5472ab13ad
+  width: 970
+  height: 1340
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 45
+    printed_page: '41'
+    table: Appendix A
+    rect:
+    - 110.0
+    - 210.0
+    - 1080.0
+    - 1550.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []

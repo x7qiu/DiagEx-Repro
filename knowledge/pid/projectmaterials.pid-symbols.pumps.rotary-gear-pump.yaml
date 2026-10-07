@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.pumps.rotary-gear-pump
+version: 2
+concept: Rotary Gear Pump
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Rotary Gear Pump
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Rotary Gear Pump’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Rotary Gear Pump
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Rotary Gear Pump’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Rotary Gear Pump
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#pumps-pid-symbols
+  section: Pumps P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Rotary Gear Pump
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.pumps.rotary-gear-pump.png
+  sha256: 09dc8cac37c3b6cf3bb1affb75a841d76d17186e873e6edf2a22d48a951334fd
+  width: 52
+  height: 43
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/rotary_gear_pump.DzOT-Tye_riRJv.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: bd9aa8c7b0cbd95527e6e11761be72fc579b9fda004ca9dc92f0f7cc8491ae63
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

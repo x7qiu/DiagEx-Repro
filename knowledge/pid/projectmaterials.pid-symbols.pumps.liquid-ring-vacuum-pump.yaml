@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.pumps.liquid-ring-vacuum-pump
+version: 2
+concept: Liquid Ring Vacuum Pump
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Liquid Ring Vacuum Pump
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Liquid Ring Vacuum Pump’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Liquid Ring Vacuum Pump
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Liquid Ring Vacuum Pump’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Liquid Ring Vacuum Pump
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#pumps-pid-symbols
+  section: Pumps P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Liquid Ring Vacuum Pump
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.pumps.liquid-ring-vacuum-pump.png
+  sha256: e3cec452b6972bd63ce6cd2a828b9f1c41e8aa6a405a9001149c70f67c43376c
+  width: 47
+  height: 74
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/liquid_ring_vacuum_pump.CS-MqTub_ZcTIWn.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: ca6a45e5b92c43df5468d9fa1dd12a1f61121a45f1b788fb0d9f0d89768b5529
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

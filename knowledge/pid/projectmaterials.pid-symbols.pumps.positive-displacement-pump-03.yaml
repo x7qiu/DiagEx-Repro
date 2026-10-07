@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.pumps.positive-displacement-pump-03
+version: 2
+concept: Positive Displacement Pump 03
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Positive Displacement Pump 03
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Positive Displacement Pump 03’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Positive Displacement Pump 03
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Positive Displacement Pump 03’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Positive Displacement Pump 03
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#pumps-pid-symbols
+  section: Pumps P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Positive Displacement Pump 03
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.pumps.positive-displacement-pump-03.png
+  sha256: 0e4c16102f2e7444d98e33df617bd61fb04370523373638e9dfe9c7e807d0d85
+  width: 58
+  height: 41
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/positive_displacement_pump_03.7K9RXqy5_ZFrgfx.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 29194ea1ba429d8868e1b856d4cda676d6eada44f9981d28c3ebdd2229bb6ac6
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

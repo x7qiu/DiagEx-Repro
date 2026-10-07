@@ -1,0 +1,139 @@
+id: sht-3101-2017.t4.15-1
+version: 1
+concept: 除沫网 / Demister
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 除沫网
+  interpretation: 除沫网 / Demister. Defined by SH/T 3101:2017, Table 4.15, item 1. An equipment internal
+    or accessory. Its presence must be observed inside or attached to actual equipment; do not create
+    a separate vessel or infer unseen internals from this reference.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 除沫网
+- Demister
+reference_type: symbol
+kind: definition
+explanation: 除沫网 / Demister. Defined by SH/T 3101:2017, Table 4.15, item 1. An equipment internal or accessory.
+  Its presence must be observed inside or attached to actual equipment; do not create a separate vessel
+  or infer unseen internals from this reference.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 除沫网
+- Demister
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '24'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.15-1/context.png
+  document_id: sht-3101-2017
+  pdf_page: 28
+  table: '4.15'
+  item: '1'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.15-1/context.png
+  sha256: 99fb754f3979048639877acc7778e0706c3b0f790cca68ba13b4fb496870686f
+  width: 912
+  height: 72
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 28
+    printed_page: '24'
+    table: '4.15'
+    item: '1'
+    rect:
+    - 147.0
+    - 352.0
+    - 1059.0
+    - 424.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.15-1/primary.png
+  sha256: 1754d5d95dabc9dc4b9c25232c9228dcebe2192e396d09447b80cc06a36167f6
+  width: 163
+  height: 49
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 28
+    printed_page: '24'
+    table: '4.15'
+    item: '1'
+    rect:
+    - 526.0
+    - 360.0
+    - 689.0
+    - 409.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.15-1/variants.png
+  sha256: 797d9e17c4ab1ca300fadcf269311791a1bf82bc297448c52c7b86d5db73b20f
+  width: 220
+  height: 99
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '24'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 28
+    table: '4.15'
+    item: '1'
+  explanation: An equipment internal or accessory. Its presence must be observed inside or attached to
+    actual equipment; do not create a separate vessel or infer unseen internals from this reference.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- An equipment internal or accessory. Its presence must be observed inside or attached to actual equipment;
+  do not create a separate vessel or infer unseen internals from this reference.
+relations: []

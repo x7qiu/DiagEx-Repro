@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.centrifugal-compressor-3
+version: 2
+concept: Centrifugal Compressor 3
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Centrifugal Compressor 3
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Centrifugal Compressor 3’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Centrifugal Compressor 3
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Centrifugal Compressor 3’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Centrifugal Compressor 3
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Centrifugal Compressor 3
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.centrifugal-compressor-3.png
+  sha256: dfd21a2432593f7f84672ee22525681ea721d34a7f60cb8509022153f3cd0f56
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Centrifugal-Compressor-3-PID-Symbol-150x150.39yfq8tL_Z1jpI29.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: a493d8ae00495b2fa41c21e46a32dad27d98c24011fa48b5845d2c5355154720
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

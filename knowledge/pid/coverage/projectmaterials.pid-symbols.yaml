@@ -1,0 +1,34 @@
+source: projectmaterials.pid-symbols
+source_sha256: 8ee03c3d00896d8932bf2f8bab288092cb52bea8d4f2aa8e86b9b858f5cf23e7
+imported: 406
+active: 315
+replaced_by_isa: 91
+roles:
+  catalog: 308
+  background: 7
+sections:
+  Piping P&ID Symbols: 26
+  Valve Symbols for P&ID: 44
+  Strainers P&ID Symbols: 8
+  Lines P&ID Symbols: 15
+  General Plant Equipment P&ID Symbols: 67
+  Pumps P&ID Symbols: 34
+  Compressors P&ID Symbols: 28
+  Heat Exchangers P&ID Symbols: 46
+  Vessels P&ID Symbols: 41
+  Motors, Generators, and Turbines P&ID Symbols: 16
+  Instruments (P&ID Symbols): 81
+excluded_overview_images:
+- section: Lines P&ID Symbols
+  url: https://blog.projectmaterials.com/_astro/PID-symbols-for-lines.BLa14hIy_Zge9NB.webp
+- section: Heat Exchangers P&ID Symbols
+  url: https://blog.projectmaterials.com/_astro/heat-exchangers-PID-symbols-3.BwVqZJAs_Z2nF8RW.webp
+- section: Filters P&ID Symbols
+  url: https://blog.projectmaterials.com/_astro/filter-PID-symbols-1.Db6hMkM__2iEhEn.webp
+notes:
+- Individual table-cell images only; article prose and composite charts are not symbol
+  entries.
+- Publisher advertises 407 symbols; this snapshot contains 406 individual table-cell
+  images.
+- Original pixel dimensions retained; PNG conversion does not restore detail lost
+  in source WebP images.

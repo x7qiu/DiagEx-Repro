@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-34
+version: 1
+concept: 带防雨帽的排吸气管 / Open vent with hood
+catalog:
+  role: catalog
+  category: piping
+  short_name: 带防雨帽的排吸气管
+  interpretation: '带防雨帽的排吸气管 / Open vent with hood. Defined by SH/T 3101:2017, Table 4.2, item 34. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 带防雨帽的排吸气管
+- Open vent with hood
+reference_type: symbol
+kind: definition
+explanation: '带防雨帽的排吸气管 / Open vent with hood. Defined by SH/T 3101:2017, Table 4.2, item 34. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 带防雨帽的排吸气管
+- Open vent with hood
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '6'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-34/context.png
+  document_id: sht-3101-2017
+  pdf_page: 10
+  table: '4.2'
+  item: '34'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-34/context.png
+  sha256: 15ee4c1ce4bab36e0f9cce9e3ce521d37c6b5d0dc97ecbd454d29c8bd2cb0644
+  width: 912
+  height: 89
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '34'
+    rect:
+    - 127.0
+    - 443.0
+    - 1039.0
+    - 532.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-34/primary.png
+  sha256: b3d16ba292f59dcc78f2b558845439a0b95af67c5358ef83fdcf040086ed3dca
+  width: 53
+  height: 75
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '34'
+    rect:
+    - 605.0
+    - 450.0
+    - 658.0
+    - 525.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-34/variants.png
+  sha256: 86a91fc500491d06a8062f96ecd74959d00b1be2e3ca67b7866ab889433f067e
+  width: 220
+  height: 125
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

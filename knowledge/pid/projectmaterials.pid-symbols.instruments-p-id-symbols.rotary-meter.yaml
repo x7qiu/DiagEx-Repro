@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.rotary-meter
+version: 2
+concept: Rotary Meter
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Rotary Meter
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Rotary Meter’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Rotary Meter
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Rotary Meter’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Rotary Meter
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Rotary Meter
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.rotary-meter.png
+  sha256: 9a215e872b04bf72a3a053686b40cbb928c0d284779ccf7d4e2aaffbfa76607b
+  width: 55
+  height: 32
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/rotary_meter.BnyUZQYg_1Owcgd.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: cbdcc1944f39d9d11f0675a3c4e6ddab96bcaf023a1f1c03d61c25e794ce9224
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

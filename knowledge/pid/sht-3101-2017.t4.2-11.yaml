@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-11
+version: 1
+concept: 焊接式管封头 / Welded cap
+catalog:
+  role: catalog
+  category: piping
+  short_name: 焊接式管封头
+  interpretation: '焊接式管封头 / Welded cap. Defined by SH/T 3101:2017, Table 4.2, item 11. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 焊接式管封头
+- Welded cap
+reference_type: symbol
+kind: definition
+explanation: '焊接式管封头 / Welded cap. Defined by SH/T 3101:2017, Table 4.2, item 11. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 焊接式管封头
+- Welded cap
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '4'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-11/context.png
+  document_id: sht-3101-2017
+  pdf_page: 8
+  table: '4.2'
+  item: '11'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-11/context.png
+  sha256: bc8fddf8b735a3573e23d2fb44af0030918e2aff7ce17e80e40edacb15bdefd5
+  width: 912
+  height: 71
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 8
+    printed_page: '4'
+    table: '4.2'
+    item: '11'
+    rect:
+    - 123.0
+    - 825.0
+    - 1035.0
+    - 896.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-11/primary.png
+  sha256: 4d2e3cbb430ca85c5a4ffc6c85f955428e2d08ce685a2553bd6450c680f9dbb0
+  width: 100
+  height: 37
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 8
+    printed_page: '4'
+    table: '4.2'
+    item: '11'
+    rect:
+    - 578.0
+    - 844.0
+    - 678.0
+    - 881.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-11/variants.png
+  sha256: b8fb6d18c7055938bf2769b15dd264294ce892df3f7318e4bf21a3bdf524c7b2
+  width: 220
+  height: 87
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

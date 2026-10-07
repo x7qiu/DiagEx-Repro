@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.20-10
+version: 1
+concept: 喷雾干燥机 / Spray dryer
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 喷雾干燥机
+  interpretation: '喷雾干燥机 / Spray dryer. Defined by SH/T 3101:2017, Table 4.20, item 10. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 喷雾干燥机
+- Spray dryer
+reference_type: symbol
+kind: definition
+explanation: '喷雾干燥机 / Spray dryer. Defined by SH/T 3101:2017, Table 4.20, item 10. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 喷雾干燥机
+- Spray dryer
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '33'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.20-10/context.png
+  document_id: sht-3101-2017
+  pdf_page: 37
+  table: '4.20'
+  item: '10'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.20-10/context.png
+  sha256: b04ed9a2c994145b27bcd9cfcb1d6329933a1a3080e818106934511aadd5ec00
+  width: 909
+  height: 133
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '10'
+    rect:
+    - 151.0
+    - 900.0
+    - 1060.0
+    - 1033.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.20-10/primary.png
+  sha256: b73622fb35b02fc828d09af3a197880e269d4668f138b3305fa07819e9417903
+  width: 141
+  height: 106
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '10'
+    rect:
+    - 565.0
+    - 921.0
+    - 706.0
+    - 1027.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.20-10/variants.png
+  sha256: a40534c90ece7fa0909beff9a11f8e9186c650f535c28658f65898a8cbaa5b43
+  width: 220
+  height: 156
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

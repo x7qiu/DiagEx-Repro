@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.motors-generators-and-turbines.motor-driven-turbine
+version: 2
+concept: Motor Driven Turbine
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Motor Driven Turbine
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Motor Driven Turbine’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Motor Driven Turbine
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Motor Driven Turbine’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Motor Driven Turbine
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#motors-generators-and-turbines-pid-symbols
+  section: Motors, Generators, and Turbines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Motor Driven Turbine
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.motors-generators-and-turbines.motor-driven-turbine.png
+  sha256: 5240f8fbcea8fe1cb49c14ecd6b33a03c8d07647fde9a720a2a75aa1ab435ffc
+  width: 37
+  height: 37
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/motor_driven_turbine.CzfeFvbJ_72GOn.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 20d56d48aa3a33d72919d678d719bd72c1aa1f2555e0cc3940ed6a4fcd5edd3b
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

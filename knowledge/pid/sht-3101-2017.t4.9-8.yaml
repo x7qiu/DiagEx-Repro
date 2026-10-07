@@ -1,0 +1,140 @@
+id: sht-3101-2017.t4.9-8
+version: 1
+concept: 内藏孔板 / Integral orifice
+catalog:
+  role: catalog
+  category: measurement
+  short_name: 内藏孔板
+  interpretation: 内藏孔板 / Integral orifice. Defined by SH/T 3101:2017, Table 4.9, item 8. Interpret this
+    as a primary measurement element in context. Internal letters such as M, C, ΔT or FI describe the
+    illustrated function, not actual instrument tag numbers.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids:
+  - sht-3101-2017.letter-rules
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 内藏孔板
+- Integral orifice
+reference_type: symbol
+kind: definition
+explanation: 内藏孔板 / Integral orifice. Defined by SH/T 3101:2017, Table 4.9, item 8. Interpret this as
+  a primary measurement element in context. Internal letters such as M, C, ΔT or FI describe the illustrated
+  function, not actual instrument tag numbers.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 内藏孔板
+- Integral orifice
+- measurement
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '15'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.9-8/context.png
+  document_id: sht-3101-2017
+  pdf_page: 19
+  table: '4.9'
+  item: '8'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.9-8/context.png
+  sha256: c4c2b9d9cffccbd637cc7e25b9c5e6d34fcd0612665026639f76250a79c283ff
+  width: 910
+  height: 108
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 19
+    printed_page: '15'
+    table: '4.9'
+    item: '8'
+    rect:
+    - 151.0
+    - 1031.0
+    - 1061.0
+    - 1139.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.9-8/primary.png
+  sha256: 8aa04eea0cb0b2ff7f049ab5ee1f4a72a4b0c0ffe1bf40887e454a5a7de2c89e
+  width: 179
+  height: 93
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 19
+    printed_page: '15'
+    table: '4.9'
+    item: '8'
+    rect:
+    - 481.0
+    - 1038.0
+    - 660.0
+    - 1131.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.9-8/variants.png
+  sha256: d2b5fbe053fb18b86f0e15df9e9e2a9c0a8e0eddfc476356da7a657a4b319d4b
+  width: 220
+  height: 143
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '15'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 19
+    table: '4.9'
+    item: '8'
+  explanation: Interpret this as a primary measurement element in context. Internal letters such as M,
+    C, ΔT or FI describe the illustrated function, not actual instrument tag numbers.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- Interpret this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI
+  describe the illustrated function, not actual instrument tag numbers.
+relations: []

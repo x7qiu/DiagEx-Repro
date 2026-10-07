@@ -1,0 +1,124 @@
+id: sht-3101-2017.t4.1-6
+version: 1
+concept: 自流 / Gravity free draining
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: 自流
+  interpretation: '自流 / Gravity free draining. Defined by SH/T 3101:2017, Table 4.1, item 6. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 自流
+- Gravity free draining
+reference_type: line_style
+kind: definition
+explanation: '自流 / Gravity free draining. Defined by SH/T 3101:2017, Table 4.1, item 6. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 自流
+- Gravity free draining
+- lines_signals
+- line_style
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '2'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.1-6/context.png
+  document_id: sht-3101-2017
+  pdf_page: 6
+  table: '4.1'
+  item: '6'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.1-6/context.png
+  sha256: c6154e4ebb6f730d4da5381bf57daeada9ad2cec401479fe5191adb851f8250f
+  width: 913
+  height: 94
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '6'
+    rect:
+    - 125.0
+    - 726.0
+    - 1038.0
+    - 820.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.1-6/primary.png
+  sha256: 3db569803202769cba19cd99c5154a6a14612adf5332b40e876e3887807e8673
+  width: 207
+  height: 70
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '6'
+    rect:
+    - 504.0
+    - 733.0
+    - 711.0
+    - 803.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.1-6/variants.png
+  sha256: bd45822de67274b8c25a06fb977fcb5f5cfdd022232923097836246f91407a6d
+  width: 231
+  height: 120
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

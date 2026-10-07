@@ -1,0 +1,137 @@
+id: sht-3101-2017.t4.1-10
+version: 1
+concept: 装置边界线 / Battery limit
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: 装置边界线
+  interpretation: 装置边界线 / Battery limit. Defined by SH/T 3101:2017, Table 4.1, item 10. This line marks
+    a unit battery limit, not a process-flow connection.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 装置边界线
+- Battery limit
+reference_type: scope_boundary
+kind: definition
+explanation: 装置边界线 / Battery limit. Defined by SH/T 3101:2017, Table 4.1, item 10. This line marks a unit
+  battery limit, not a process-flow connection.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 装置边界线
+- Battery limit
+- lines_signals
+- scope_boundary
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '2'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.1-10/context.png
+  document_id: sht-3101-2017
+  pdf_page: 6
+  table: '4.1'
+  item: '10'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.1-10/context.png
+  sha256: 95873fcd3e53ea2ac5c2b085aaf95241c0dae4f8fa18fa9262810742af41127e
+  width: 913
+  height: 97
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '10'
+    rect:
+    - 125.0
+    - 1122.0
+    - 1038.0
+    - 1219.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.1-10/primary.png
+  sha256: 55e244ea8a192746737215f48967d800cb9e87ad0a12d8422d23619d37150270
+  width: 159
+  height: 20
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '10'
+    rect:
+    - 554.0
+    - 1159.0
+    - 713.0
+    - 1179.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.1-10/variants.png
+  sha256: e18790a24089f0a4251aab837b531499f2181c99d6b26b81f10c64df79de15be
+  width: 220
+  height: 70
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '2'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 6
+    table: '4.1'
+    item: '10'
+  explanation: This line marks a unit battery limit, not a process-flow connection.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- This line marks a unit battery limit, not a process-flow connection.
+relations: []

@@ -1,0 +1,32 @@
+- id: fixture.signal-line
+  version: 1
+  concept: Example signal line style
+  reference_type: line_style
+  kind: definition
+  explanation: Schema fixture only; does not establish any standard convention.
+  tasks: [line_interpretation]
+  source: {}
+- id: fixture.control-assembly
+  version: 1
+  concept: Example component assembly
+  reference_type: assembly_pattern
+  kind: possible_arrangement
+  explanation: Groups references without creating drawing occurrences or connections.
+  tasks: [symbol_interpretation]
+  source: {}
+  relations:
+    - relation: related
+      reference_id: fixture.signal-line
+      explanation: Example association, not an inferred connection.
+- id: fixture.vendor-boundary
+  version: 1
+  concept: Example vendor scope boundary
+  reference_type: scope_boundary
+  kind: definition
+  explanation: Scope membership does not assign all enclosed text to the boundary.
+  tasks: [text_assignment]
+  source: {}
+  relations:
+    - relation: scope_convention
+      reference_id: fixture.control-assembly
+      explanation: An assembly can lie within a scope; it is not the boundary itself.

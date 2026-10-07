@@ -1,0 +1,279 @@
+id: isa-5.1-2009.t5.4.2-13
+version: 3
+concept: Manual actuator
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Manual actuator. • Hand actuator.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Final control element actuator symbols
+- 5.4.2
+- Manual actuator
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '51'
+  pdf_page: 51
+  table: 5.4.2
+  item: '13'
+  passage: 'Table 5.4.2, item 13: • Manual actuator. • Hand actuator.'
+  image: illustrations/isa-5.1-2009/complete/t5.4.2-13-context.png
+assets:
+- id: t5.4.2-13-context
+  role: context
+  label: 'Complete row: Table 5.4.2, item 13'
+  path: illustrations/isa-5.1-2009/complete/t5.4.2-13-context.png
+  sha256: 0cc8c97f19bdb76d6c9eb21a9f7679bfb08e217e270200764e5c50357d4c2a6a
+  width: 1961
+  height: 217
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 51
+    printed_page: '51'
+    table: 5.4.2
+    item: '13'
+    rect:
+    - 70.9891
+    - 175.04
+    - 541.2509
+    - 226.84
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-51
+  role: context
+  label: Complete technical content on page 51
+  path: illustrations/isa-5.1-2009/complete/page-51.png
+  sha256: dc0e9b872f876e8fd6a8f70924651964f7003077c55f95a2161ebecd9547d96d
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 51
+    printed_page: '51'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.4.2-13-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.4.2-13-panel-1.png
+  sha256: d2a0834e528b894d425d82d0d33cab4a62cded1ed5216157d587bf36d016bc33
+  width: 445
+  height: 202
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 51
+    printed_page: '51'
+    table: 5.4.2
+    item: '13'
+    rect:
+    - 108.86
+    - 176.84
+    - 215.32
+    - 225.04
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.4-p34
+  role: note
+  label: Clause 5.3.4, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  sha256: 22398fd3ece7505715c4362491d0de8902648bfba29cb21750251ccb42c738ab
+  width: 2010
+  height: 1461
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 326.671
+    - 547.0
+    - 677.1295
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.4.2-13-variants.png
+  sha256: 412d015d6f1e28ff3dc6b88954901dcf68142993f723876389bc635cb56319c8
+  width: 1000
+  height: 267
+  derived_from:
+  - t5.4.2-13-panel-1
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.4.2-13-panel-1
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.2-13.catalog-t5.4.2-13-panel-1.png
+  sha256: a03bdffbd2961912b6f82e4e86244b76e198cd790d2aec0aeeef271882acf5e3
+  width: 59
+  height: 78
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 51
+    printed_page: '51'
+    table: 5.4.2
+    item: '13'
+    rect:
+    - 155.28
+    - 189.83999999999997
+    - 169.44
+    - 208.55999999999997
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations:
+    - text: (7)
+      rect:
+      - 110.21979522705078
+      - 179.3483428955078
+      - 119.94581604003906
+      - 187.32833862304688
+      reason: source_note_reference
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.2-13.sheet.png
+  sha256: e87d7897163d35ccbfdd47061101aab802ecd2faec3d0758994e7d982b7a1815
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.4.2-13-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '34'
+    pdf_page: 34
+    table: null
+    item: null
+    passage: Clause 5.3.4
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  explanation: '5.3.4 Tables 5.4.1, 5.4.2, 5.4.3 and 5.4.4 — Final control element
+    symbols:
+
+    (1) Users engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    symbols have been selected.
+
+    (2) Element symbols 1 through 14, when combined with actuator symbols 1 through
+    16, represent
+
+    process control valves.
+
+    (3) Element symbol 2, when combined with actuator symbols 20 and 21, represent
+    pressure safety
+
+    valves.
+
+    (4) Element symbols 15 through 19, when combined with actuator symbols 13, 14,
+    and 15, represent
+
+    on-off solenoid valves.
+
+    (5) Element symbol 21, when combined with actuator symbols 1 through 16, represents
+    a variable
+
+    speed control unit.
+
+    (6) Element symbol 21 represents a motor that manipulates or controls a process
+    variable.
+
+    (7) Actuator symbols 1 through 16, when combined with element symbols 1 through
+    14, represent
+
+    process control valves and with element symbol 21 represents a variable speed
+    control unit.
+
+    (8) Actuator symbols 17, 18, and 19, when combined with element symbols 15 through
+    19, represent
+
+    on-off solenoid valves.
+
+    (9) Actuator symbols 20 and 21, when combined with element symbol 2, represent
+    pressure safety
+
+    valves.
+
+    (10) The symbols are applicable to all types of control valves and actuators.'
+  asset_id: clause-5.3.4-p34
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.4
+  explanation: 'Explanatory notes for Table 5.4.2: clause 5.3.4.'
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Manual actuator
+  interpretation: Manual actuator. Hand actuator.
+  displayed_asset_ids:
+  - catalog-t5.4.2-13-panel-1
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.4

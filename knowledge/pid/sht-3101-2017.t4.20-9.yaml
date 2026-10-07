@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.20-9
+version: 1
+concept: 转鼓干燥机 / Rotary drum dryer
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 转鼓干燥机
+  interpretation: '转鼓干燥机 / Rotary drum dryer. Defined by SH/T 3101:2017, Table 4.20, item 9. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 转鼓干燥机
+- Rotary drum dryer
+reference_type: symbol
+kind: definition
+explanation: '转鼓干燥机 / Rotary drum dryer. Defined by SH/T 3101:2017, Table 4.20, item 9. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 转鼓干燥机
+- Rotary drum dryer
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '33'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.20-9/context.png
+  document_id: sht-3101-2017
+  pdf_page: 37
+  table: '4.20'
+  item: '9'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.20-9/context.png
+  sha256: b089daa022fd921b9e9fad509b81a157868388be34b4185a5317fad8390e83b2
+  width: 909
+  height: 119
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '9'
+    rect:
+    - 151.0
+    - 791.0
+    - 1060.0
+    - 910.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.20-9/primary.png
+  sha256: 9af033b55e9ca9b8b1d6acc198fa137023a649ffd632b67fdc916e2edf83ec46
+  width: 194
+  height: 91
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '9'
+    rect:
+    - 586.0
+    - 799.0
+    - 780.0
+    - 890.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.20-9/variants.png
+  sha256: b6a701febdaedc665ef7481fa075a921cacf55e6929a13e6dae52392d25b47d4
+  width: 220
+  height: 141
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

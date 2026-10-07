@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.compressors.rotary-compressor-02
+version: 2
+concept: Rotary Compressor 02
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Rotary Compressor 02
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Rotary Compressor 02’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Rotary Compressor 02
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Rotary Compressor 02’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Rotary Compressor 02
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#compressors-pid-symbols
+  section: Compressors P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Rotary Compressor 02
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.compressors.rotary-compressor-02.png
+  sha256: a9c681e975a9e889fa5c297899a324e76ed8de9790cb3d2143feb85b70854a64
+  width: 54
+  height: 44
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/rotary_compressors_02.Bzn8gDEf_Z22OE2h.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: c4a7667b531368cf4fc56555d4fa1f64f10d655ccd2b9c1524a050d0aff0d7ca
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

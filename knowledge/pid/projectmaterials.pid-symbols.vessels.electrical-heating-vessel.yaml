@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.electrical-heating-vessel
+version: 2
+concept: Electrical Heating Vessel
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Electrical Heating Vessel
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Electrical Heating Vessel’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Electrical Heating Vessel
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Electrical Heating Vessel’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Electrical Heating Vessel
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Electrical Heating Vessel
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.electrical-heating-vessel.png
+  sha256: fc67aa6154836fee0bc838ba3a2374889bb11794df5b1041292ae437c227b650
+  width: 42
+  height: 58
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/electrical_heating_vessel.CxhscMhA_Z1P3jhy.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 89a94d359369ed32ea8d69aaacbe1454d01c15633290a6ca54e093bec6b9579b
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

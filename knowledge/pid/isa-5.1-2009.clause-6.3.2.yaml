@@ -1,0 +1,151 @@
+id: isa-5.1-2009.clause-6.3.2
+version: 2
+concept: '6.3.2 — Table 6.2 — Dimensions for measurement symbols: primary elements
+  and transmitters, Tables'
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: informative
+explanation: '6.3.2 Table 6.2 — Dimensions for measurement symbols: primary elements
+  and transmitters, Tables
+
+  5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5
+
+  (1) Dimension in parentheses is for 1/2-inch (12-millimeter) option for generic
+  circle symbol.
+
+  (2) Size as required by size of vessel as drawn or depth of application.
+
+  (3) Dip tube shown, show as required for other devices.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- 'Table 6.2 — Dimensions for measurement symbols: primary elements and transmitters,
+  Tables'
+- 6.3.2
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 76, 77
+  pdf_page: 76
+  table: null
+  item: null
+  passage: Clause 6.3.2
+  image: illustrations/isa-5.1-2009/complete/clause-6.3.2-p76.png
+assets:
+- id: clause-6.3.2-p76
+  role: context
+  label: Clause 6.3.2, page 76
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.2-p76.png
+  sha256: bfa9fea4cb8a2036d2233b630a541dd306312817d08700c02eaf0594d18b471c
+  width: 2010
+  height: 387
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 76
+    printed_page: '76'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 634.4699
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-76
+  role: context
+  label: Complete technical content on page 76
+  path: illustrations/isa-5.1-2009/complete/page-76.png
+  sha256: d8338f3ea713aff3d124b3388817175127439148d1cb3608a532ccb35dc1ab2b
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 76
+    printed_page: '76'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-6.3.2-p77
+  role: context
+  label: Clause 6.3.2, page 77
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.2-p77.png
+  sha256: 97ca363c0004814e7bc6312cb8e8eb21b928c628cdae2018ce01c13f0aaf55ce
+  width: 2010
+  height: 99
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 93.6917
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-77
+  role: context
+  label: Complete technical content on page 77
+  path: illustrations/isa-5.1-2009/complete/page-77.png
+  sha256: 9399e445b5169885912f8143eea91ba0683a87325296cd0e97df2efb7121a3fb
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

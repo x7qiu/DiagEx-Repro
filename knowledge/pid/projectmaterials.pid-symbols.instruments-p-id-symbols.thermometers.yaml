@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.thermometers
+version: 2
+concept: Thermometers
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Thermometers
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Thermometers’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Thermometers
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Thermometers’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Thermometers
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Thermometers
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.thermometers.png
+  sha256: a98e5fb54a1373ed34655a67c264c63764bd68532376607a5b7c5d0698220edd
+  width: 56
+  height: 35
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/thermometers.niKf0l4X_Z1QflhN.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 54b57441e4270dd9b9c52ec6b05c8f8dacc8cfc91302fbd50661264956d3c916
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

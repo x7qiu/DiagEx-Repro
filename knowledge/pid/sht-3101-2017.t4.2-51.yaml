@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-51
+version: 1
+concept: 呼吸人孔 / Breathing manway
+catalog:
+  role: catalog
+  category: piping
+  short_name: 呼吸人孔
+  interpretation: '呼吸人孔 / Breathing manway. Defined by SH/T 3101:2017, Table 4.2, item 51. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 呼吸人孔
+- Breathing manway
+reference_type: symbol
+kind: definition
+explanation: '呼吸人孔 / Breathing manway. Defined by SH/T 3101:2017, Table 4.2, item 51. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 呼吸人孔
+- Breathing manway
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '7'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-51/context.png
+  document_id: sht-3101-2017
+  pdf_page: 11
+  table: '4.2'
+  item: '51'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-51/context.png
+  sha256: c3276866ed8572f7d3a3278783980c1c14b35316a319098c1c47e0423f21e8d0
+  width: 911
+  height: 71
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.2'
+    item: '51'
+    rect:
+    - 159.0
+    - 614.0
+    - 1070.0
+    - 685.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-51/primary.png
+  sha256: f453d76701baf877bade96f47ad2564fe7a68dfeb0bb6cd6ec21ea12f85d9dc7
+  width: 57
+  height: 45
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.2'
+    item: '51'
+    rect:
+    - 636.0
+    - 628.0
+    - 693.0
+    - 673.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-51/variants.png
+  sha256: 808037273c8f9647e074f02c7184698d16f2bbb6a6b25ca7a2792c5ed3ea0556
+  width: 220
+  height: 95
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

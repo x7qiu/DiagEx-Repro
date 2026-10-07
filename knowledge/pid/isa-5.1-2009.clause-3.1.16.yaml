@@ -1,0 +1,98 @@
+id: isa-5.1-2009.clause-3.1.16
+version: 2
+concept: computing relay
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.16 computing relay:
+
+  an alternate term for a device that performs one or more calculations or logic operations,
+  or both, and
+
+  transmits one or more resultant output signals; see also computing device.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'computing relay:'
+- 3.1.16
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '19'
+  pdf_page: 19
+  table: null
+  item: null
+  passage: Clause 3.1.16
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.16-p19.png
+assets:
+- id: clause-3.1.16-p19
+  role: context
+  label: Clause 3.1.16, page 19
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.16-p19.png
+  sha256: 2344918e4252c34b7a8f400d5d6ef47d8ee193046246f70af242a4e5011cbb92
+  width: 2010
+  height: 245
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 19
+    printed_page: '19'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 128.6716
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-19
+  role: context
+  label: Complete technical content on page 19
+  path: illustrations/isa-5.1-2009/complete/page-19.png
+  sha256: 55f045ca7b6c548db0d31e1f9a21c3d9c8b16d42a3e9d57e15cf150fabba3ade
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 19
+    printed_page: '19'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

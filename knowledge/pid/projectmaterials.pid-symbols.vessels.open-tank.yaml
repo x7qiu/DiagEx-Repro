@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.open-tank
+version: 2
+concept: Open Tank
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Open Tank
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Open Tank’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Open Tank
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Open Tank’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Open Tank
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Open Tank
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.open-tank.png
+  sha256: 6018a90e761e44edd672ea8f44605f2396edc7c8ccfb98bcd09d2fc046280af5
+  width: 51
+  height: 43
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/open_tank.C6v92Mpj_Z2lI9X3.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 66f91b2b83e3e8559dc87d2c773d2ca684f391704a83743e6170da77ba18dc49
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

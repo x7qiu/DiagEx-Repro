@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.14-4
+version: 1
+concept: 流化床反应器 / Fluidized-bed reactor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 流化床反应器
+  interpretation: '流化床反应器 / Fluidized-bed reactor. Defined by SH/T 3101:2017, Table 4.14, item 4. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 流化床反应器
+- Fluidized-bed reactor
+reference_type: symbol
+kind: definition
+explanation: '流化床反应器 / Fluidized-bed reactor. Defined by SH/T 3101:2017, Table 4.14, item 4. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 流化床反应器
+- Fluidized-bed reactor
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '23'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.14-4/context.png
+  document_id: sht-3101-2017
+  pdf_page: 27
+  table: '4.14'
+  item: '4'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.14-4/context.png
+  sha256: fec43a0a4a51ad6e246017cb594c34a60e2d80e7cbeefe6ed301509a9e01277b
+  width: 910
+  height: 151
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 27
+    printed_page: '23'
+    table: '4.14'
+    item: '4'
+    rect:
+    - 140.0
+    - 890.0
+    - 1050.0
+    - 1041.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.14-4/primary.png
+  sha256: 34b7bd3d792d72ea3e39c7c602e7cfec62f915cb492f7d0c6dd60c065a7080b0
+  width: 155
+  height: 137
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 27
+    printed_page: '23'
+    table: '4.14'
+    item: '4'
+    rect:
+    - 518.0
+    - 898.0
+    - 673.0
+    - 1035.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.14-4/variants.png
+  sha256: 3cf7f58d45b1b5a2a12507fc24ee9220ebe833bb7b0cda29ee74f6c44b6cf609
+  width: 220
+  height: 187
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

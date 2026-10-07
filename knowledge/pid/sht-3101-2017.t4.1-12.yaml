@@ -1,0 +1,129 @@
+id: sht-3101-2017.t4.1-12
+version: 1
+concept: 管道等级分界符 / Piping specification break
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: 管道等级分界符
+  interpretation: '管道等级分界符 / Piping specification break. Defined by SH/T 3101:2017, Table 4.1, item 12. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 管道等级分界符
+- Piping specification break
+reference_type: convention
+kind: definition
+explanation: '管道等级分界符 / Piping specification break. Defined by SH/T 3101:2017, Table 4.1, item 12. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 管道等级分界符
+- Piping specification break
+- lines_signals
+- convention
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '2'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.1-12/context.png
+  document_id: sht-3101-2017
+  pdf_page: 6
+  table: '4.1'
+  item: '12'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.1-12/context.png
+  sha256: 2a4b6d9b03be02868b4fc052b2454b2ca7e48c88be66959574cec757d4250288
+  width: 913
+  height: 123
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '12'
+    rect:
+    - 125.0
+    - 1293.0
+    - 1038.0
+    - 1416.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.1-12/primary.png
+  sha256: 1f6a148eff48677b39a293a2911f48f96211f8e93a8775f0bf1adac148f0014c
+  width: 214
+  height: 52
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '12'
+    rect:
+    - 528.0
+    - 1340.0
+    - 742.0
+    - 1392.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.1-12/variants.png
+  sha256: f7246424413b5da32788f5eeb619a0ecd01fe6a634af9a7d69f537378137bfa1
+  width: 238
+  height: 102
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots:
+- role: specification
+  example_marker: 管道等级1 / 管道等级2
+  location: either side of the break
+  meaning: The two specifications. The boundary may also represent insulation/tracing classes or above/below-ground
+    changes.
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

@@ -1,0 +1,123 @@
+id: sht-3101-2017.t4.16-13
+version: 1
+concept: 刮板薄膜蒸发器 / Scraped thin-film evaporator
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 刮板薄膜蒸发器
+  interpretation: '刮板薄膜蒸发器 / Scraped thin-film evaporator. Defined by SH/T 3101:2017, Table 4.16, item
+    13. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 刮板薄膜蒸发器
+- Scraped thin-film evaporator
+reference_type: symbol
+kind: definition
+explanation: '刮板薄膜蒸发器 / Scraped thin-film evaporator. Defined by SH/T 3101:2017, Table 4.16, item 13. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 刮板薄膜蒸发器
+- Scraped thin-film evaporator
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '26'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.16-13/context.png
+  document_id: sht-3101-2017
+  pdf_page: 30
+  table: '4.16'
+  item: '13'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.16-13/context.png
+  sha256: 124c997f01bd9220408cbc053e5eec44e8b038d74d6b93426f704cec8d865323
+  width: 913
+  height: 203
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 30
+    printed_page: '26'
+    table: '4.16'
+    item: '13'
+    rect:
+    - 132.0
+    - 1127.0
+    - 1045.0
+    - 1330.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.16-13/primary.png
+  sha256: f82f4345a0ff574a7a9caa2e6e817012a912a2d4787d949a2dc09fe4dac1701c
+  width: 66
+  height: 161
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 30
+    printed_page: '26'
+    table: '4.16'
+    item: '13'
+    rect:
+    - 606.0
+    - 1151.0
+    - 672.0
+    - 1312.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.16-13/variants.png
+  sha256: 4511d7f4c3bba1166b5634c36782a71d2f02122af11d8ce435283411f264b50d
+  width: 220
+  height: 211
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

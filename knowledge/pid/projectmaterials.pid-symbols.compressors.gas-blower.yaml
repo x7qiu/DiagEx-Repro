@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.compressors.gas-blower
+version: 2
+concept: Gas Blower
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Gas Blower
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Gas Blower’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Gas Blower
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Gas Blower’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Gas Blower
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#compressors-pid-symbols
+  section: Compressors P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Gas Blower
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.compressors.gas-blower.png
+  sha256: 7230cd1e5d17e1be717fa6549abbeae4e7fbe7eaca89cd5d1a33ea17db2b9539
+  width: 47
+  height: 44
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/gas_blower.Bow9nepB_X2grP.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 14ec7ba923acc83e02f87ed368cb3fa6a346a6e2776fada9ecef1813f077e4bb
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

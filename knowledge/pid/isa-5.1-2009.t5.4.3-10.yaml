@@ -1,0 +1,273 @@
+id: isa-5.1-2009.t5.4.3-10
+version: 3
+concept: Pressure-reducing regulator
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Pressure-reducing regulator. • Internal pressure tap.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Self-actuated final control element symbol
+- 5.4.3
+- Pressure-reducing regulator
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '53'
+  pdf_page: 53
+  table: 5.4.3
+  item: '10'
+  passage: 'Table 5.4.3, item 10: • Pressure-reducing regulator. • Internal pressure
+    tap.'
+  image: illustrations/isa-5.1-2009/complete/t5.4.3-10-context.png
+assets:
+- id: t5.4.3-10-context
+  role: context
+  label: 'Complete row: Table 5.4.3, item 10'
+  path: illustrations/isa-5.1-2009/complete/t5.4.3-10-context.png
+  sha256: 7f88e0f0de3a19658b9f0c7a1b6c1332981cc1340aaac4e0dd9f4ba655cbab36
+  width: 1960
+  height: 254
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 53
+    printed_page: '53'
+    table: 5.4.3
+    item: '10'
+    rect:
+    - 70.9891
+    - 125.6
+    - 541.0109
+    - 186.4
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-53
+  role: context
+  label: Complete technical content on page 53
+  path: illustrations/isa-5.1-2009/complete/page-53.png
+  sha256: 9106bb2cc167ac1e3c04d53e8958149837ef783f072292abeafb0b1c69b5f232
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 53
+    printed_page: '53'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.4.3-10-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.4.3-10-panel-1.png
+  sha256: 5efdc15ee5dfac10b341208caa5660bb466e2981328d5578eec7004cfa80ba57
+  width: 444
+  height: 240
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 53
+    printed_page: '53'
+    table: 5.4.3
+    item: '10'
+    rect:
+    - 108.8
+    - 127.4
+    - 215.2
+    - 184.6
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.4-p34
+  role: note
+  label: Clause 5.3.4, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  sha256: 22398fd3ece7505715c4362491d0de8902648bfba29cb21750251ccb42c738ab
+  width: 2010
+  height: 1461
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 326.671
+    - 547.0
+    - 677.1295
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.4.3-10-variants.png
+  sha256: 680f7bff1115297a38c13a42b76d2dd3a208f789427e237320aeaad453889294
+  width: 1000
+  height: 305
+  derived_from:
+  - t5.4.3-10-panel-1
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.4.3-10-panel-1
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.3-10.catalog-t5.4.3-10-panel-1.png
+  sha256: d2a3940023968658bc1a45102418b725fb62569b18aa440f20a5a4956fc9ca97
+  width: 246
+  height: 155
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 53
+    printed_page: '53'
+    table: 5.4.3
+    item: '10'
+    rect:
+    - 134.16
+    - 137.04
+    - 193.2
+    - 174.23999999999998
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.3-10.sheet.png
+  sha256: c9d69eecb35d8a729a27179189f5f85dae3f7cce1df6d67f8e20ed18486be0bb
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.4.3-10-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '34'
+    pdf_page: 34
+    table: null
+    item: null
+    passage: Clause 5.3.4
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  explanation: '5.3.4 Tables 5.4.1, 5.4.2, 5.4.3 and 5.4.4 — Final control element
+    symbols:
+
+    (1) Users engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    symbols have been selected.
+
+    (2) Element symbols 1 through 14, when combined with actuator symbols 1 through
+    16, represent
+
+    process control valves.
+
+    (3) Element symbol 2, when combined with actuator symbols 20 and 21, represent
+    pressure safety
+
+    valves.
+
+    (4) Element symbols 15 through 19, when combined with actuator symbols 13, 14,
+    and 15, represent
+
+    on-off solenoid valves.
+
+    (5) Element symbol 21, when combined with actuator symbols 1 through 16, represents
+    a variable
+
+    speed control unit.
+
+    (6) Element symbol 21 represents a motor that manipulates or controls a process
+    variable.
+
+    (7) Actuator symbols 1 through 16, when combined with element symbols 1 through
+    14, represent
+
+    process control valves and with element symbol 21 represents a variable speed
+    control unit.
+
+    (8) Actuator symbols 17, 18, and 19, when combined with element symbols 15 through
+    19, represent
+
+    on-off solenoid valves.
+
+    (9) Actuator symbols 20 and 21, when combined with element symbol 2, represent
+    pressure safety
+
+    valves.
+
+    (10) The symbols are applicable to all types of control valves and actuators.'
+  asset_id: clause-5.3.4-p34
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.4
+  explanation: 'Explanatory notes for Table 5.4.3: clause 5.3.4.'
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Pressure-reducing regulator
+  interpretation: Pressure-reducing regulator. Internal pressure tap.
+  displayed_asset_ids:
+  - catalog-t5.4.3-10-panel-1
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.4

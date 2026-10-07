@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.pumps.proportionating-pump
+version: 2
+concept: Proportionating Pump
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Proportionating Pump
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Proportionating Pump’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Proportionating Pump
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Proportionating Pump’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Proportionating Pump
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#pumps-pid-symbols
+  section: Pumps P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Proportionating Pump
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.pumps.proportionating-pump.png
+  sha256: 4f0b0390d6e9238c0962afac8684fce3963a130c5de1f17225192225b13636b7
+  width: 49
+  height: 40
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/proportionating_pump.e3qdna6m_Zq5V4z.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: c9d03d5bc2debd05c060cb1e5be374e27a8ec32b995ef74319693e1437f7c864
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.20-12
+version: 1
+concept: 套管结晶器 / Double-pipe crystallizer
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 套管结晶器
+  interpretation: '套管结晶器 / Double-pipe crystallizer. Defined by SH/T 3101:2017, Table 4.20, item 12. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 套管结晶器
+- Double-pipe crystallizer
+reference_type: symbol
+kind: definition
+explanation: '套管结晶器 / Double-pipe crystallizer. Defined by SH/T 3101:2017, Table 4.20, item 12. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 套管结晶器
+- Double-pipe crystallizer
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '33'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.20-12/context.png
+  document_id: sht-3101-2017
+  pdf_page: 37
+  table: '4.20'
+  item: '12'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.20-12/context.png
+  sha256: 27c135488070583bf41cf961b3cee11b8a153e67130bb5b49b4b24572920895a
+  width: 909
+  height: 174
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '12'
+    rect:
+    - 151.0
+    - 1129.0
+    - 1060.0
+    - 1303.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.20-12/primary.png
+  sha256: a2bdd9ce8ec0fcc9a18efb0c71e53b501cb732fd40941a03f5183e1b92f180c2
+  width: 111
+  height: 137
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '12'
+    rect:
+    - 588.0
+    - 1148.0
+    - 699.0
+    - 1285.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.20-12/variants.png
+  sha256: aa56e2f4892a30c3775e24e33d2b9fd17f441b772552e28e0db0ddbf2cd6eb61
+  width: 220
+  height: 187
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

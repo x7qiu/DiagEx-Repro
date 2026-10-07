@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.motors-generators-and-turbines.ac-motor
+version: 2
+concept: AC Motor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: AC Motor
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘AC Motor’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- AC Motor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘AC Motor’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: AC Motor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#motors-generators-and-turbines-pid-symbols
+  section: Motors, Generators, and Turbines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: AC Motor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.motors-generators-and-turbines.ac-motor.png
+  sha256: 6758485825478df2d30780ea7523f926b5dacb6e36718fcf11f43098d7f876f9
+  width: 33
+  height: 36
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/ac_motor.4sVBCf9c_Z1tWG8k.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: be75b9d7d7d922780cce4d0551f71fa90e5e9de108b91662d85b69f8d69fac6a
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

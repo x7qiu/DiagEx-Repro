@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.motors-generators-and-turbines.gear
+version: 2
+concept: Gear
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Gear
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Gear’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Gear
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Gear’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Gear
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#motors-generators-and-turbines-pid-symbols
+  section: Motors, Generators, and Turbines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Gear
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.motors-generators-and-turbines.gear.png
+  sha256: 574fd2d172015b268033d2ef41b13b2c7aa17766740785c32a5d05a73b1930e2
+  width: 36
+  height: 36
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/gear.BVFaeud9_1CLlpz.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 8e022faf38926d0219c596e595c81a4acba4d80d7dbcb1aa6521a779493de9a2
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

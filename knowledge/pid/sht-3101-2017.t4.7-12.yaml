@@ -1,0 +1,176 @@
+id: sht-3101-2017.t4.7-12
+version: 1
+concept: 现场复位开关型电磁执行机构 / Resettable on-off solenoid actuator
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 现场复位开关型电磁执行机构
+  interpretation: 现场复位开关型电磁执行机构 / Resettable on-off solenoid actuator. Defined by SH/T 3101:2017, Table
+    4.7, item 12. The table note specifies actuator instrument-circle diameter 6–8 mm in the original
+    drafting convention; do not apply that as a pixel-size filter to scanned drawings.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 现场复位开关型电磁执行机构
+- Resettable on-off solenoid actuator
+reference_type: symbol
+kind: definition
+explanation: 现场复位开关型电磁执行机构 / Resettable on-off solenoid actuator. Defined by SH/T 3101:2017, Table 4.7,
+  item 12. The table note specifies actuator instrument-circle diameter 6–8 mm in the original drafting
+  convention; do not apply that as a pixel-size filter to scanned drawings.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 现场复位开关型电磁执行机构
+- Resettable on-off solenoid actuator
+- valves_actuators
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '13'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.7-12/context.png
+  document_id: sht-3101-2017
+  pdf_page: 17
+  table: '4.7'
+  item: '12'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.7-12/context.png
+  sha256: a0155c17e2020fe553e3e5db2b23755e288ee263d31eaf863357220ff25f50b3
+  width: 911
+  height: 96
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 17
+    printed_page: '13'
+    table: '4.7'
+    item: '12'
+    rect:
+    - 149.0
+    - 1278.0
+    - 1060.0
+    - 1374.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.7-12/primary.png
+  sha256: a7b078779c5714d2efd8540e1653fa2974e025c0edac7330154c50f0eda63731
+  width: 88
+  height: 80
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 17
+    printed_page: '13'
+    table: '4.7'
+    item: '12'
+    rect:
+    - 632.0
+    - 1287.0
+    - 720.0
+    - 1367.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.7-12/variants.png
+  sha256: 667a58814936c4afd445e69307e22bc2f8fe07c91c7934bae8c880715626d1f3
+  width: 220
+  height: 130
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+- id: actuator-note
+  role: note
+  label: Actuator-circle diameter note
+  path: illustrations/sht-3101-2017/t4.7-12/actuator-note.png
+  sha256: 611342f887156d7a615f06a2ae5134fa024fc734ecac39f206657a230ff83170
+  width: 906
+  height: 34
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 18
+    printed_page: '14'
+    table: '4.7'
+    rect:
+    - 118.0
+    - 675.0
+    - 1024.0
+    - 709.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '13'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 17
+    table: '4.7'
+    item: '12'
+  explanation: The table note specifies actuator instrument-circle diameter 6–8 mm in the original drafting
+    convention; do not apply that as a pixel-size filter to scanned drawings.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '14'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 18
+    table: '4.7'
+  explanation: The table note specifies actuator instrument-circle diameter 6–8 mm in the original drafting
+    convention; do not apply that as a pixel-size filter to scanned drawings.
+  asset_id: actuator-note
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- The table note specifies actuator instrument-circle diameter 6–8 mm in the original drafting convention;
+  do not apply that as a pixel-size filter to scanned drawings.
+relations: []

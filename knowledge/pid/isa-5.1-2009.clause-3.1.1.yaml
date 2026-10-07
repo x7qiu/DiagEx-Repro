@@ -1,0 +1,101 @@
+id: isa-5.1-2009.clause-3.1.1
+version: 2
+concept: accessible
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.1 accessible:
+
+  a feature of a device or function, a feature of an interactive shared system function,
+  or a feature that can
+
+  be used or seen by an operator for the purpose of performing control operations,
+  such as setpoint
+
+  changes, auto-manual transfer, or on-off operations.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'accessible:'
+- 3.1.1
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '17'
+  pdf_page: 17
+  table: null
+  item: null
+  passage: Clause 3.1.1
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.1-p17.png
+assets:
+- id: clause-3.1.1-p17
+  role: context
+  label: Clause 3.1.1, page 17
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.1-p17.png
+  sha256: 05427f84fe68af24fed6ec4498263c6b0abef28dd81490166163a05a5a59c194
+  width: 2010
+  height: 292
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 17
+    printed_page: '17'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 247.4716
+    - 547.0
+    - 317.4313
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-17
+  role: context
+  label: Complete technical content on page 17
+  path: illustrations/isa-5.1-2009/complete/page-17.png
+  sha256: 1276453e2f11fb2ce9993952712207e32a1a79d5bee02eb44bab0d8d420cd953
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 17
+    printed_page: '17'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

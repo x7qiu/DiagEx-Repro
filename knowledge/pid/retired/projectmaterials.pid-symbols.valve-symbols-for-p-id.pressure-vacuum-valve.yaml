@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.valve-symbols-for-p-id.pressure-vacuum-valve
+version: 1
+concept: Pressure Vacuum Valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Pressure Vacuum Valve
+  interpretation: Projectmaterials labels this illustration ‘Pressure Vacuum Valve’
+    (Valve Symbols for P&ID).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Pressure Vacuum Valve
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Pressure Vacuum Valve’ (Valve
+  Symbols for P&ID).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Valve Symbols for P&ID
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Pressure Vacuum Valve
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#valve-symbols-for-pid
+  section: Valve Symbols for P&ID
+assets:
+- id: symbol
+  role: variant
+  label: Pressure Vacuum Valve
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.valve-symbols-for-p-id.pressure-vacuum-valve.png
+  sha256: 8f73c16968fb70d769475528c2156de906cbb5709cf570773e834fe714b39ed9
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/PRESSURE-VACUUM-VALVE-150x150.BbB_5g2g_ZyUhdb.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 7f0261f5d111c33640b46941e38e6291afc59872e0d551a26d04f14c0a2e35b2
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

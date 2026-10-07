@@ -1,0 +1,183 @@
+id: sht-3101-2017.t4.13-6
+version: 1
+concept: 内浮顶罐 / Internal floating-roof tank
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 内浮顶罐
+  interpretation: 内浮顶罐 / Internal floating-roof tank. Defined by SH/T 3101:2017, Table 4.13, item 6. Select
+    the alternative corresponding to the actual equipment form. Alternatives represent separate possible
+    depictions, not connected equipment. Each labeled alternative is a separate reference depiction, not
+    an additional object to instantiate.
+  displayed_asset_ids:
+  - variant-1
+  - variant-2
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 内浮顶罐
+- Internal floating-roof tank
+reference_type: symbol
+kind: definition
+explanation: 内浮顶罐 / Internal floating-roof tank. Defined by SH/T 3101:2017, Table 4.13, item 6. Select
+  the alternative corresponding to the actual equipment form. Alternatives represent separate possible
+  depictions, not connected equipment. Each labeled alternative is a separate reference depiction, not
+  an additional object to instantiate.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 内浮顶罐
+- Internal floating-roof tank
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '20'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.13-6/context.png
+  document_id: sht-3101-2017
+  pdf_page: 24
+  table: '4.13'
+  item: '6'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.13-6/context.png
+  sha256: 7321134c18f613870b47a340c0a9c5cfb4f68a1b39521bc819caacc25cb068b5
+  width: 914
+  height: 247
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 24
+    printed_page: '20'
+    table: '4.13'
+    item: '6'
+    rect:
+    - 156.0
+    - 1160.0
+    - 1070.0
+    - 1407.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variant-1
+  role: variant
+  label: Alternative 1
+  path: illustrations/sht-3101-2017/t4.13-6/variant-1.png
+  sha256: 211b6483be2fa46d4c9c40d97190781bf3c7206d5c70ea466f559920039d2f73
+  width: 120
+  height: 98
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 24
+    printed_page: '20'
+    table: '4.13'
+    item: '6'
+    rect:
+    - 605.0
+    - 1180.0
+    - 725.0
+    - 1278.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-2
+  role: variant
+  label: Alternative 2
+  path: illustrations/sht-3101-2017/t4.13-6/variant-2.png
+  sha256: 5cd6acd5e9eec98de96c670a87bf052172b9afc24e74cdfc9023c16844aca2d2
+  width: 124
+  height: 106
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 24
+    printed_page: '20'
+    table: '4.13'
+    item: '6'
+    rect:
+    - 604.0
+    - 1283.0
+    - 728.0
+    - 1389.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.13-6/variants.png
+  sha256: de716582e2cccd64d4e1783ca929560aa3344c81d1c85feec3760e1df24fabb4
+  width: 440
+  height: 156
+  derived_from:
+  - variant-1
+  - variant-2
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '20'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 24
+    table: '4.13'
+    item: '6'
+  explanation: Select the alternative corresponding to the actual equipment form. Alternatives represent
+    separate possible depictions, not connected equipment.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '20'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 24
+    table: '4.13'
+    item: '6'
+  explanation: Each labeled alternative is a separate reference depiction, not an additional object to
+    instantiate.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- Select the alternative corresponding to the actual equipment form. Alternatives represent separate possible
+  depictions, not connected equipment.
+- Each labeled alternative is a separate reference depiction, not an additional object to instantiate.
+relations: []

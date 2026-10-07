@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.motors-generators-and-turbines.generator
+version: 2
+concept: Generator
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Generator
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Generator’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Generator
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Generator’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Generator
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#motors-generators-and-turbines-pid-symbols
+  section: Motors, Generators, and Turbines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Generator
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.motors-generators-and-turbines.generator.png
+  sha256: a4434ef8a249f86fc7f7dbcec3c3aa2e67f782226a0c0296055a111859e49948
+  width: 38
+  height: 36
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/generator.WKGBjCiv_Y8sXN.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 5c0b1624b236157f6ec04d0456028fa32475b717c8dcf03b4c6829481f3020dd
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.heat-exchangers.single-pass-heat
+version: 2
+concept: Single Pass Heat
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Single Pass Heat
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: Projectmaterials labels this illustration ‘Single Pass Heat’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Single Pass Heat
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Single Pass Heat’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Single Pass Heat
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#heat-exchangers-pid-symbols
+  section: Heat Exchangers P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Single Pass Heat
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.heat-exchangers.single-pass-heat.png
+  sha256: 7196d2e1566318639c1085914627368e3d7808d17a5e35d706cf9f95889651ea
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/20_Single-Pass-Heat-PID-Symbol22031014150658803-150x150.DTfRomLN_Z78fXk.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: d82f8629dba5745d16ded023d84e78e513faf0a7d5629a1b8b0596a71aaf0d25
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

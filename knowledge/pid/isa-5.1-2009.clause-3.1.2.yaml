@@ -1,0 +1,108 @@
+id: isa-5.1-2009.clause-3.1.2
+version: 2
+concept: alarm
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.2 alarm:
+
+  an indicating device or function that provides a visible and/or audible indication
+  if and when the value of a
+
+  measured or initiating variable is outside of set limits, has changed from a safe
+  to an unsafe condition, or
+
+  has changed from a normal to an abnormal operating state or condition.
+
+  a) actuation may be by a binary or analog device or function.
+
+  b) indication may be by any or all of the following: annunciator panels, flashing
+  lights, printers,
+
+  buzzers, bells, horns, sirens, or shared graphic display systems.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'alarm:'
+- 3.1.2
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '17'
+  pdf_page: 17
+  table: null
+  item: null
+  passage: Clause 3.1.2
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.2-p17.png
+assets:
+- id: clause-3.1.2-p17
+  role: context
+  label: Clause 3.1.2, page 17
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.2-p17.png
+  sha256: ca609c0246fe64b2b51e7f39fea0e72b550bd77dd4b96d46bf1f86466b0c47dd
+  width: 2010
+  height: 537
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 17
+    printed_page: '17'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 317.4313
+    - 547.0
+    - 445.9509
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-17
+  role: context
+  label: Complete technical content on page 17
+  path: illustrations/isa-5.1-2009/complete/page-17.png
+  sha256: 1276453e2f11fb2ce9993952712207e32a1a79d5bee02eb44bab0d8d420cd953
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 17
+    printed_page: '17'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

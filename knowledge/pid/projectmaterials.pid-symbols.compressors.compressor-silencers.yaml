@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.compressors.compressor-silencers
+version: 2
+concept: Compressor Silencers
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Compressor Silencers
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Compressor Silencers’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Compressor Silencers
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Compressor Silencers’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Compressor Silencers
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#compressors-pid-symbols
+  section: Compressors P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Compressor Silencers
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.compressors.compressor-silencers.png
+  sha256: 8396d423156211b7f31b1640ffb02e54f616a9e9ab89e25960239c03176296c0
+  width: 55
+  height: 34
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/compressor_silencers.B1-Bcwwf_BMKnj.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 7b212eff93811530189025179d22d6e22cc03efb0ad7962519713cd8a419d809
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

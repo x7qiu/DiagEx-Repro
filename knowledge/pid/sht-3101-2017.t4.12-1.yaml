@@ -1,0 +1,205 @@
+id: sht-3101-2017.t4.12-1
+version: 1
+concept: 板式塔 / Tray column
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 板式塔
+  interpretation: 板式塔 / Tray column. Defined by SH/T 3101:2017, Table 4.12, item 1. The lower illustration
+    includes circled source-note numbers and leaders. These are explanatory annotations, not symbol geometry
+    or equipment tags; the upper crop is used for model comparison. Tray numbering may run bottom-to-top
+    or top-to-bottom. The detailed example calls out ① oil collector, ② demister, ③ central downflow and
+    ④ side downflow double-flow trays; shown tray numbers are illustrative, not tags. Each labeled alternative
+    is a separate reference depiction, not an additional object to instantiate.
+  displayed_asset_ids:
+  - variant-1
+  - variant-2
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 板式塔
+- Tray column
+reference_type: symbol
+kind: definition
+explanation: 板式塔 / Tray column. Defined by SH/T 3101:2017, Table 4.12, item 1. The lower illustration
+  includes circled source-note numbers and leaders. These are explanatory annotations, not symbol geometry
+  or equipment tags; the upper crop is used for model comparison. Tray numbering may run bottom-to-top
+  or top-to-bottom. The detailed example calls out ① oil collector, ② demister, ③ central downflow and
+  ④ side downflow double-flow trays; shown tray numbers are illustrative, not tags. Each labeled alternative
+  is a separate reference depiction, not an additional object to instantiate.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 板式塔
+- Tray column
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '19'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.12-1/context.png
+  document_id: sht-3101-2017
+  pdf_page: 23
+  table: '4.12'
+  item: '1'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.12-1/context.png
+  sha256: 2f860899921f5c7289445d7991380661edf18bff284b89beb14258ae5370b94d
+  width: 909
+  height: 464
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 23
+    printed_page: '19'
+    table: '4.12'
+    item: '1'
+    rect:
+    - 161.0
+    - 651.0
+    - 1070.0
+    - 1115.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variant-1
+  role: variant
+  label: Alternative 1
+  path: illustrations/sht-3101-2017/t4.12-1/variant-1.png
+  sha256: db408c94f3a04264aa6f65acedeabe8efec01a716a3d8a600d7d15258bf993fb
+  width: 153
+  height: 203
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 23
+    printed_page: '19'
+    table: '4.12'
+    item: '1'
+    rect:
+    - 539.0
+    - 672.0
+    - 692.0
+    - 875.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-2
+  role: variant
+  label: Alternative 2
+  path: illustrations/sht-3101-2017/t4.12-1/variant-2.png
+  sha256: 33b9920942b70a74f68e9b5e079ef2c8456176a7ddd7afb031fc6eba05cd5c0b
+  width: 159
+  height: 224
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 23
+    printed_page: '19'
+    table: '4.12'
+    item: '1'
+    rect:
+    - 537.0
+    - 875.0
+    - 696.0
+    - 1099.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.12-1/variants.png
+  sha256: f71f427e39f4d0da76fd13815d55e82209f0436848eb6aa87faa826fefe20b07
+  width: 220
+  height: 253
+  derived_from:
+  - variant-1
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '19'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 23
+    table: '4.12'
+    item: '1'
+  explanation: The lower illustration includes circled source-note numbers and leaders. These are explanatory
+    annotations, not symbol geometry or equipment tags; the upper crop is used for model comparison.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '19'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 23
+    table: '4.12'
+    item: '1'
+  explanation: Tray numbering may run bottom-to-top or top-to-bottom. The detailed example calls out ①
+    oil collector, ② demister, ③ central downflow and ④ side downflow double-flow trays; shown tray numbers
+    are illustrative, not tags.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '19'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 23
+    table: '4.12'
+    item: '1'
+  explanation: Each labeled alternative is a separate reference depiction, not an additional object to
+    instantiate.
+  asset_id: context
+text_slots:
+- role: tray_number
+  example_marker: 1 … n (24 shown as an example)
+  location: inside the illustrated column
+  meaning: Illustrative tray numbering, not an equipment tag. Read actual tray numbers only from the drawing.
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- The lower illustration includes circled source-note numbers and leaders. These are explanatory annotations,
+  not symbol geometry or equipment tags; the upper crop is used for model comparison.
+- Tray numbering may run bottom-to-top or top-to-bottom. The detailed example calls out ① oil collector,
+  ② demister, ③ central downflow and ④ side downflow double-flow trays; shown tray numbers are illustrative,
+  not tags.
+- Each labeled alternative is a separate reference depiction, not an additional object to instantiate.
+relations: []

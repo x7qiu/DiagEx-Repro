@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.piping.flange-blind
+version: 2
+concept: Flange Blind
+catalog:
+  role: catalog
+  category: piping
+  short_name: Flange Blind
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Flange Blind’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Flange Blind
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Flange Blind’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Flange Blind
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#piping-pid-symbols
+  section: Piping P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Flange Blind
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.piping.flange-blind.png
+  sha256: 6bc181414a509569fe7e665c10aeeb8b634256b6ae79ac67a4f9f9dcb60f3258
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Flange-Blind-PID-SYMBOL-150x150.DQGiyumW_Z1MnSas.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 0091f9562a79bfe44d062c924000dd0ab000c0554a2102069eccb3eca1a06d34
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

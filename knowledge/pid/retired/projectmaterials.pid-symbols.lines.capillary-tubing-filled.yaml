@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.lines.capillary-tubing-filled
+version: 1
+concept: Capillary Tubing (Filled)
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: Capillary Tubing (Filled)
+  interpretation: Projectmaterials labels this illustration ‘Capillary Tubing (Filled)’
+    (Lines P&ID Symbols).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Capillary Tubing
+reference_type: line_style
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Capillary Tubing (Filled)’
+  (Lines P&ID Symbols).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+- line_interpretation
+tags:
+- Lines P&ID Symbols
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Capillary Tubing (Filled)
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#lines-pid-symbols
+  section: Lines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Capillary Tubing (Filled)
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.lines.capillary-tubing-filled.png
+  sha256: bfbac2ab48ab113da939e6f8a8cf69c9dabd1415c65c501421431468bcbcd0a8
+  width: 150
+  height: 60
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/INSTRUMENT-CAPILLARY-TUBING-FILLED-PID-SYMBOL-150x60.CtnGot9T_Z2v1LNo.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: dede8689d141653c4f80d2c9d854dd483870090bd61d85a40486dec4c148e033
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

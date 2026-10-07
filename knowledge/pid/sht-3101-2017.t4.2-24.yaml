@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-24
+version: 1
+concept: 空气过滤器 / Air filter with hood
+catalog:
+  role: catalog
+  category: piping
+  short_name: 空气过滤器
+  interpretation: '空气过滤器 / Air filter with hood. Defined by SH/T 3101:2017, Table 4.2, item 24. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 空气过滤器
+- Air filter with hood
+reference_type: symbol
+kind: definition
+explanation: '空气过滤器 / Air filter with hood. Defined by SH/T 3101:2017, Table 4.2, item 24. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 空气过滤器
+- Air filter with hood
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '5'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-24/context.png
+  document_id: sht-3101-2017
+  pdf_page: 9
+  table: '4.2'
+  item: '24'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-24/context.png
+  sha256: c4b90c0320d0b88075e99e2f62e682118857d23605d4b80eccfcb3f273ceca0f
+  width: 910
+  height: 113
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 9
+    printed_page: '5'
+    table: '4.2'
+    item: '24'
+    rect:
+    - 157.0
+    - 694.0
+    - 1067.0
+    - 807.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-24/primary.png
+  sha256: 6667f6bd48343a99967f93fac48dcee1186c58b242aa2d40b8f7882495d17166
+  width: 70
+  height: 73
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 9
+    printed_page: '5'
+    table: '4.2'
+    item: '24'
+    rect:
+    - 628.0
+    - 715.0
+    - 698.0
+    - 788.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-24/variants.png
+  sha256: 5cdc0ce1f9d02a4489dcd6cbe5792357de4a1c416abae2d2f38051daa91653a3
+  width: 220
+  height: 123
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

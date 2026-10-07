@@ -1,0 +1,112 @@
+id: isa-5.1-2009.t6.6-p82
+version: 2
+concept: Table 6.6 — Dimensions for Table 5.6 (page 82)
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: normative
+explanation: Dimension recommendations for signal processing function blocks. Table
+  6.6 is the lower panel on page 82; the upper panel belongs to Table 6.5.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- dimensions
+- signal processing
+- function blocks
+- '6.6'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '82'
+  pdf_page: 82
+  table: '6.6'
+  item: null
+  passage: Table 6.6, lower panel; explanatory notes in clause 6.3.6.
+  image: illustrations/isa-5.1-2009/complete/page-82.png
+assets:
+- id: page-82
+  role: context
+  label: Complete technical content on page 82
+  path: illustrations/isa-5.1-2009/complete/page-82.png
+  sha256: cefcc4f49641697bdedf17a423c97ea8eb30d45e75b5c8db59dd7e3727bc2416
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 82
+    printed_page: '82'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-6.3.6-p77
+  role: note
+  label: Clause 6.3.6, page 77
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.6-p77.png
+  sha256: ca9fcd11d4078bf0554f708f3c140d4d9aa078324e57bc001427147b8f2fe91e
+  width: 2010
+  height: 295
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 328.6508
+    - 547.0
+    - 399.1506
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '77'
+    pdf_page: 77
+    table: null
+    item: null
+    passage: Clause 6.3.6
+    image: illustrations/isa-5.1-2009/complete/clause-6.3.6-p77.png
+  explanation: '6.3.6 Table 6.6 — Dimensions for signal processing function block
+    symbols, Table 5.6
+
+    (1) Small square graphic is used with graphics from Table 6.1.
+
+    (2) Large rectangular graphic is used with graphics from Table 6.5.'
+  asset_id: clause-6.3.6-p77
+text_slots: []
+interpretation: []
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-6.3.6
+  explanation: 'Explanatory notes for Table 6.6: clause 6.3.6.'
+catalog:
+  role: background

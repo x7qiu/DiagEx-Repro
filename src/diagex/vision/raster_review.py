@@ -9,7 +9,7 @@ import copy
 from collections import defaultdict
 
 from diagex.llm.client import LLMClient
-from diagex.vision.perception import PerceivedObject
+from diagex.vision.symbol_interpretation import PerceivedObject
 
 INSTRUCTION = """
 Additional raster review contract: raster_proposal_guidance contains fallible
@@ -139,7 +139,7 @@ class RasterReviewClient(LLMClient):
 
 def perceive_with_raster_review(**kwargs):
     """Keep reviewed raster hints out of the native/graph detection inventory."""
-    from diagex.vision.perception import perceive_tile
+    from diagex.vision.symbol_interpretation import perceive_tile
 
     outcome = perceive_tile(**kwargs)
     objects = {o.attributes.get("raster_proposal_id"): o for o in outcome.batch.objects

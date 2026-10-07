@@ -1,0 +1,126 @@
+id: sht-3101-2017.t4.16-17
+version: 2
+concept: 喷淋式换热器 / Spray-type exchanger
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 喷淋式换热器
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: '喷淋式换热器 / Spray-type exchanger. Defined by SH/T 3101:2017, Table 4.16, item 17. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 喷淋式换热器
+- Spray-type exchanger
+reference_type: symbol
+kind: definition
+explanation: '喷淋式换热器 / Spray-type exchanger. Defined by SH/T 3101:2017, Table 4.16, item 17. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 喷淋式换热器
+- Spray-type exchanger
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '27'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.16-17/context.png
+  document_id: sht-3101-2017
+  pdf_page: 31
+  table: '4.16'
+  item: '17'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.16-17/context.png
+  sha256: 26ca059aa850a57e16b547cbf1f3e53a2f899e395cdb66ca83324554c63cb814
+  width: 908
+  height: 149
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 31
+    printed_page: '27'
+    table: '4.16'
+    item: '17'
+    rect:
+    - 160.0
+    - 563.0
+    - 1068.0
+    - 712.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.16-17/primary.png
+  sha256: fdfe88a8bb42d90e6062f3c42ef0e9d16563f61dc9ffda553f93a5b1181847c5
+  width: 129
+  height: 69
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 31
+    printed_page: '27'
+    table: '4.16'
+    item: '17'
+    rect:
+    - 598.0
+    - 604.0
+    - 727.0
+    - 673.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.16-17/variants.png
+  sha256: 3f975ca108cf118b04d007213cb5756c31fdde292ccf77de1bdf11a4a2342ce4
+  width: 220
+  height: 119
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

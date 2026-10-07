@@ -1,0 +1,135 @@
+id: isa-5.1-2009.clause-a.14
+version: 2
+concept: A.14 — System identification
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.14 System identification
+
+  A.14.1 Instrumentation is often assembled into systems for various reasons, such
+  as ease of purchase,
+
+  ease of application, and compatibility, and these systems may need to be identified
+  on drawings
+
+  and in text.
+
+  A.14.2 Some of the more common instrumentation systems and the system codes often
+  used to identify
+
+  them are:
+
+  a) ACS = Analyzer Control System
+
+  b) BMS = Burner Management System
+
+  c) CCS = Computer Control System
+
+  d) CEMS = Continuous Emissions Monitoring System
+
+  e) DCS = Distributed Control System
+
+  f) MMS = Machine Monitoring System
+
+  g) PCCS = Personal Computer Control System
+
+  h) PLC = Programmable Logic Controller
+
+  i) SIS = Safety Instrumented System
+
+  j) VMS = Vibration Monitoring System
+
+  A.14.3 Suffixes may be added to the instrumentation system codes [SC]:
+
+  a) [SC 1, SC 2], etc., when more than one system is used in a complex.
+
+  b) [SC-M, SC-L], when main and local systems are used in a unit.
+
+  c) [SC-‘unit identifier’], when system is dedicated to a single unit in a multi-unit
+  facility.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- System identification
+- A.14
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '95'
+  pdf_page: 95
+  table: null
+  item: null
+  passage: Clause A.14
+  image: illustrations/isa-5.1-2009/complete/clause-a.14-p95.png
+assets:
+- id: clause-a.14-p95
+  role: context
+  label: Clause A.14, page 95
+  path: illustrations/isa-5.1-2009/complete/clause-a.14-p95.png
+  sha256: 2ca2e48bdf9819612644d639e60de96f0cbb90e65770fa801de278d2d2328356
+  width: 2010
+  height: 1908
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 95
+    printed_page: '95'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 175.6514
+    - 547.0
+    - 633.1498
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-95
+  role: context
+  label: Complete technical content on page 95
+  path: illustrations/isa-5.1-2009/complete/page-95.png
+  sha256: 486b77099d5589f8bfa27f648565c65e3ac9bb9ded8dd8ac16e1ef2d5bc3b5fc
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 95
+    printed_page: '95'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

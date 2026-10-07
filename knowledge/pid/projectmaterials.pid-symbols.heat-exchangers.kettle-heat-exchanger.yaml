@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.heat-exchangers.kettle-heat-exchanger
+version: 2
+concept: Kettle Heat Exchanger
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Kettle Heat Exchanger
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: Projectmaterials labels this illustration ‘Kettle Heat Exchanger’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Kettle Heat Exchanger
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Kettle Heat Exchanger’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Kettle Heat Exchanger
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#heat-exchangers-pid-symbols
+  section: Heat Exchangers P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Kettle Heat Exchanger
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.heat-exchangers.kettle-heat-exchanger.png
+  sha256: 3f733c19739d2420e4e26201aaa9d9ffa0d5976223f4bd4d00e3a044c43a42cc
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/22_Kettle-Heat-Exchanger-PID-Symbol22031014134082103-150x150.CoCd47jL_Z1uAILA.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: b296f7e25ed01bd6288142c208298212a41da569873a7b0fde1868005e59eee1
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

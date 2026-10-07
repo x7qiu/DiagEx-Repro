@@ -20,7 +20,6 @@ from diagex.extractors.evidence_checkpoint import (
 )
 from diagex.extractors.pid_evidence import _native_line_legend_images, run_pid_evidence_extract
 from diagex.llm.cost import CostTracker
-from diagex.review.core import ReviewStore
 from diagex.ui.progress import NullReporter
 from diagex.vision.evidence import (
     PageEvidence,
@@ -2794,13 +2793,7 @@ def test_evidence_v2_end_to_end_with_stateless_fake_model(
     page_graph_content = page_graph_request[2]["messages"][0]["content"]
     assert [block["type"] for block in page_graph_content] == ["text"]
     assert all(edge.from_node != edge.to_node for edge in result.graph.edges)
-    review = ReviewStore.open(
-        result.run_dir,
-        source_path=pdf,
-        rater="Verifier",
-        out_dir=tmp_path / "review",
-    )
-    assert len(review.public_state()["graph"]["nodes"]) == 2
+    assert not (result.run_dir / "review").exists()
 
 
 @pytest.mark.parametrize(

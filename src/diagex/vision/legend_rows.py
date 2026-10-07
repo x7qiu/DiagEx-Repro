@@ -12,7 +12,7 @@ from statistics import median
 
 from pydantic import BaseModel
 
-from diagex.vision.evidence import PageEvidence, stable_evidence_id
+from diagex.vision.evidence import PageEvidence, PathEvidence, stable_evidence_id
 from diagex.vision.models import BBox
 from diagex.vision.vector_geometry import path_vertices
 
@@ -34,6 +34,43 @@ def union_boxes(boxes: list[BBox]) -> BBox:
 
 def _gap(a: BBox, b: BBox) -> tuple[float, float]:
     return max(0, a.x - b.x2, b.x - a.x2), max(0, a.y - b.y2, b.y - a.y2)
+
+
+def _anchored_paths(
+    clusters: list[list[PathEvidence]], label: BBox, h: float
+) -> list[PathEvidence]:
+    """Exclude distant border-like clusters dominated by a local row glyph.
+
+    Sharing a label is insufficient evidence for joining disconnected ink.
+    Preserve nearby parts and aligned alternatives, but reject a much farther
+    cluster when an intervening glyph fits the label and the far cluster is
+    either a tall, poorly aligned panel or a thin rule outside the label band.
+    Nothing is removed from page evidence; this only limits this row's crop.
+    """
+    boxes = [union_boxes([p.bbox for p in cluster]) for cluster in clusters]
+    label_cy = label.y + label.h / 2
+    retained = []
+    for i, far in enumerate(boxes):
+        far_dx, far_dy = _gap(far, label)
+        far_error = abs(far.y + far.h / 2 - label_cy)
+        dominated = False
+        for j, near in enumerate(boxes):
+            if i == j or _gap(far, near)[0] <= 2 * h:
+                continue
+            near_dx, near_dy = _gap(near, label)
+            near_error = abs(near.y + near.h / 2 - label_cy)
+            if near_dx + 2 * h >= far_dx or near_dy > 0:
+                continue
+            if near_error > max(h, near.h / 2):
+                continue
+            tall_panel = far.h > max(3 * h, 2 * near.h) and far_error > near_error + h / 2
+            off_row_rule = far.h <= h * 0.15 and far.w >= 2 * h and far_dy > 0
+            if tall_panel or off_row_rule:
+                dominated = True
+                break
+        if not dominated:
+            retained.extend(clusters[i])
+    return retained
 
 
 def native_legend_rows(page: PageEvidence, region: BBox | None = None) -> list[NativeLegendRow]:
@@ -130,13 +167,14 @@ def native_legend_rows(page: PageEvidence, region: BBox | None = None) -> list[N
         votes = direction_votes[column]
         majority = 1 if votes.count(1) >= votes.count(-1) else -1
         _, _, _, side, label = min((c for c in choices if c[3] == majority), default=min(choices))
-        anchored[(label.id, side)].extend(ps)
+        anchored[(label.id, side)].append(ps)
     rows = []
-    for (tid, side), ps in anchored.items():
+    for (tid, side), clusters in anchored.items():
+        anchor = next(t for t in page.text_spans if t.id == tid)
+        ps = _anchored_paths(clusters, anchor.bbox, h)
         b = union_boxes([p.bbox for p in ps])
         if max(b.w, b.h) > 22 * h or min(b.w, b.h) > 15 * h:
             continue
-        anchor = next(t for t in page.text_spans if t.id == tid)
         texts = [
             t
             for t in page.text_spans

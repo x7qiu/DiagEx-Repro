@@ -1,0 +1,98 @@
+id: isa-5.1-2009.clause-3.1.31
+version: 2
+concept: final control element
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.31 final control element:
+
+  a device, such as a control valve, that directly controls the value of the manipulated
+  variable of a control
+
+  loop.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'final control element:'
+- 3.1.31
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '20'
+  pdf_page: 20
+  table: null
+  item: null
+  passage: Clause 3.1.31
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.31-p20.png
+assets:
+- id: clause-3.1.31-p20
+  role: context
+  label: Clause 3.1.31, page 20
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.31-p20.png
+  sha256: b1f56d22e546c79d22b7d7a211635541a0076e60aaf0e605ac8cc9e34afd0cbc
+  width: 2010
+  height: 253
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 20
+    printed_page: '20'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 666.6317
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-20
+  role: context
+  label: Complete technical content on page 20
+  path: illustrations/isa-5.1-2009/complete/page-20.png
+  sha256: d4cd7f5e954b0255d976d148c73a79dcddb0c3b0215545529fe97d180358f3de
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 20
+    printed_page: '20'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

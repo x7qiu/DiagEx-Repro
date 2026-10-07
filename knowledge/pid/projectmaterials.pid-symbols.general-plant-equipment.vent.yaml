@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.vent
+version: 2
+concept: Vent
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Vent
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Vent’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Vent
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Vent’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Vent
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Vent
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.vent.png
+  sha256: a215825514868e38638949c5b6b00540e01ae5c00a16b8d794f62dd48a4f161a
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Vent-PID-Symbol-150x150.Cucyia8T_2hvWDA.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: d6dea133c658715aaab5eb1fade16cc720f7a7461f191d2b28a8f8422f78e4b7
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

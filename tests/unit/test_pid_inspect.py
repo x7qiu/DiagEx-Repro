@@ -90,7 +90,7 @@ def test_pid_evidence_inspection_auto_detects_legend_and_stops_before_perception
     assert (result.run_dir / "legend.learned.md").is_file()
     assert (result.run_dir / "legend.learned.json").is_file()
     assert (result.run_dir / "legend.abbreviations.json").is_file()
-    assert (result.run_dir / "legend.review.html").is_file()
+    assert not (result.run_dir / "legend.review.html").exists()
     assert not (result.run_dir / "graph.json").exists()
     assert not list(result.run_dir.glob("*.dexpi.json"))
 

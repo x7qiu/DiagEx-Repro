@@ -1,0 +1,144 @@
+id: isa-5.1-2009.clause-6.3.8
+version: 2
+concept: 6.3.8 — Table 6.8 — Dimensions for electrical schematic symbols, Table 5.8
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: informative
+explanation: '6.3.8 Table 6.8 — Dimensions for electrical schematic symbols, Table
+  5.8
+
+  (1) Table does not require any additional notes.
+
+  Annex A Identification system guidelines (informative annex)'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- Table 6.8 — Dimensions for electrical schematic symbols, Table 5.8
+- 6.3.8
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 77, 85
+  pdf_page: 77
+  table: null
+  item: null
+  passage: Clause 6.3.8
+  image: illustrations/isa-5.1-2009/complete/clause-6.3.8-p77.png
+assets:
+- id: clause-6.3.8-p77
+  role: context
+  label: Clause 6.3.8, page 77
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.8-p77.png
+  sha256: 379166e3aa800af07f1ca6965b78efb6e8fcb008bfc3cb3af9c0fe863538ddf5
+  width: 2010
+  height: 584
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 587.1298
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-77
+  role: context
+  label: Complete technical content on page 77
+  path: illustrations/isa-5.1-2009/complete/page-77.png
+  sha256: 9399e445b5169885912f8143eea91ba0683a87325296cd0e97df2efb7121a3fb
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-6.3.8-p85
+  role: context
+  label: Clause 6.3.8, page 85
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.8-p85.png
+  sha256: 312bac7824637d05e3ab266fb8aa4851e013eda42b097b08b83b43551a735e02
+  width: 2010
+  height: 108
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 85
+    printed_page: '85'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 81.82
+    - 547.0
+    - 107.4919
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-85
+  role: context
+  label: Complete technical content on page 85
+  path: illustrations/isa-5.1-2009/complete/page-85.png
+  sha256: 941cd677709cc07483c799e20de6bfb414e5d24eb0489c382a8edb20056295c4
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 85
+    printed_page: '85'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

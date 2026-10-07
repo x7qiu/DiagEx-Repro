@@ -17,7 +17,7 @@ from diagex.vision.evidence import PageEvidence, stable_evidence_id
 from diagex.vision.models import BBox
 from diagex.vision.vector_geometry import NativeSymbol, native_symbols, path_vertices, segment_key
 
-SYMBOL_PERCEPTION_VERSION = "2.3.0"
+SYMBOL_PERCEPTION_VERSION = "2.5.0"
 _INSTRUMENT_TEXT = re.compile(r"(?:[PTFLAY][A-Z]{0,4}|I|M)(?:[- ]?\d+)?")
 PERCEPTION_DEPENDENT_STAGES = (
     "perception",
@@ -446,13 +446,102 @@ def _contacted_frame(page: PageEvidence, symbol: NativeSymbol, scale: float) -> 
     return False
 
 
+def _open_inline_valves(page):
+    """Propose a diagonal between two end bars, with external pipe contacts.
+
+    This is only a glyph proposal. Neither service text nor a reference creates
+    a valve. Two-sided pipe contacts distinguish it from a bare slash/break mark.
+    Work in both orientations and exclude the pipe from the symbol bounds.
+    """
+    scale = min(page.width, page.height)
+    tolerance = max(1.0, scale * 0.0003)
+    segments = []
+    for path in page.paths:
+        if path.origin != "pdf_vector" or path.visual_style != "solid":
+            continue
+        points = path_vertices(path)
+        for a, b in zip(points, points[1:], strict=False):
+            if math.dist(a, b) >= scale * 0.001:
+                segments.append((a, b, segment_key(path.id, a, b)))
+    result, seen = [], set()
+    for vertical in (False, True):
+
+        def xy(p, vertical=vertical):
+            return (p[1], p[0]) if vertical else p
+
+        rows = [(xy(a), xy(b), key) for a, b, key in segments]
+        bars = []
+        for a, b, key in rows:
+            if abs(a[0] - b[0]) <= tolerance and scale * 0.002 <= abs(a[1] - b[1]) <= scale * 0.025:
+                bars.append(((a[0] + b[0]) / 2, min(a[1], b[1]), max(a[1], b[1]), key))
+        # Spatial lookup avoids comparing every path against every end bar.
+        bins = defaultdict(list)
+        for bar in bars:
+            bins[round(bar[0] / tolerance)].append(bar)
+
+        def at(x, bins=bins):
+            k = round(x / tolerance)
+            return [
+                bar for i in (k - 1, k, k + 1) for bar in bins[i] if abs(bar[0] - x) <= tolerance
+            ]
+
+        for a, b, diagonal in rows:
+            if a[0] > b[0]:
+                a, b = b, a
+            w, h = b[0] - a[0], abs(b[1] - a[1])
+            if not (scale * 0.002 <= h <= scale * 0.025 and 0.8 <= w / max(h, 1) <= 3):
+                continue
+            for left in at(a[0]):
+                for right in at(b[0]):
+                    if max(abs(left[1] - right[1]), abs(left[2] - right[2])) > tolerance:
+                        continue
+                    if (
+                        min(
+                            abs(a[1] - left[1]) + abs(b[1] - right[2]),
+                            abs(a[1] - left[2]) + abs(b[1] - right[1]),
+                        )
+                        > 2 * tolerance
+                    ):
+                        continue
+                    # Closed rectangular panels are not this open inline glyph.
+                    if any(
+                        abs(c[1] - d[1]) <= tolerance
+                        and min(abs(c[1] - left[1]), abs(c[1] - left[2])) <= tolerance
+                        and abs(min(c[0], d[0]) - left[0]) <= tolerance
+                        and abs(max(c[0], d[0]) - right[0]) <= tolerance
+                        for c, d, _ in rows
+                    ):
+                        continue
+                    y = (left[1] + left[2]) / 2
+
+                    def contact(x, direction, y=y, h=h, rows=rows):
+                        return any(
+                            abs(c[1] - y) <= tolerance
+                            and abs(d[1] - y) <= tolerance
+                            and min(abs(c[0] - x), abs(d[0] - x)) <= tolerance
+                            and max(direction * (c[0] - x), direction * (d[0] - x)) >= h * 0.35
+                            for c, d, _ in rows
+                        )
+
+                    if not contact(left[0], -1) or not contact(right[0], 1):
+                        continue
+                    keys = {left[3], right[3], diagonal}
+                    signature = frozenset(keys)
+                    if signature in seen:
+                        continue
+                    seen.add(signature)
+                    corners = [(left[0], left[1]), (right[0], right[2])]
+                    result.append(("open_inline_valve", _box([xy(p) for p in corners]), keys))
+    return result
+
+
 def symbol_candidates(page: PageEvidence) -> list[SymbolCandidate]:
     """Propose separately located native glyphs without consulting detections."""
     if page.is_scanned or page.role != "pid":
         return []
     scale = min(page.width, page.height)
     symbols = native_symbols(page)
-    rows: list[tuple[str, BBox, set]] = _crossed_valves(page, symbols)
+    rows: list[tuple[str, BBox, set]] = [*_crossed_valves(page, symbols), *_open_inline_valves(page)]
     byvertex: dict[tuple, list] = defaultdict(list)
     for s in symbols:
         points = _corners(s.points, max(0.25, scale * 0.00006))
@@ -522,6 +611,9 @@ def symbol_candidates(page: PageEvidence) -> list[SymbolCandidate]:
             )
         )
     ]
+    # An X contains two diagonals, but remains one bow-tie proposal.
+    rows = [r for r in rows if not (r[0] == "open_inline_valve" and
+            any(v[0] == "valve_body" and r[1].iou(v[1]) > .82 for v in rows))]
     # A contacted seat is part of its valve body, not another symbol instance.
     rows = [
         r

@@ -1,0 +1,135 @@
+id: sht-3101-2017.t4.3-3
+version: 1
+concept: 球阀 / Ball valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 球阀
+  interpretation: 球阀 / Ball valve. Defined by SH/T 3101:2017, Table 4.3, item 3. A full-bore ball valve
+    is marked FB below the valve in this standard.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 球阀
+- Ball valve
+reference_type: symbol
+kind: definition
+explanation: 球阀 / Ball valve. Defined by SH/T 3101:2017, Table 4.3, item 3. A full-bore ball valve is
+  marked FB below the valve in this standard.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 球阀
+- Ball valve
+- valves_actuators
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '7'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.3-3/context.png
+  document_id: sht-3101-2017
+  pdf_page: 11
+  table: '4.3'
+  item: '3'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.3-3/context.png
+  sha256: 60bd3b13f858d83694ab91791ff08b3ed26909ff6b68a90b5bf2eba98c54c33e
+  width: 911
+  height: 85
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.3'
+    item: '3'
+    rect:
+    - 159.0
+    - 1156.0
+    - 1070.0
+    - 1241.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.3-3/primary.png
+  sha256: fceee11f173ff98db9df805792678b105d5306fb427e70f44a0bc2479e95f576
+  width: 122
+  height: 47
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.3'
+    item: '3'
+    rect:
+    - 602.0
+    - 1166.0
+    - 724.0
+    - 1213.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.3-3/variants.png
+  sha256: 78c5a3e4a732bc89f89efdb0f3ed974c6422510ceec75c24fc2e1f62125fa133
+  width: 220
+  height: 97
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '7'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 11
+    table: '4.3'
+    item: '3'
+  explanation: A full-bore ball valve is marked FB below the valve in this standard.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- A full-bore ball valve is marked FB below the valve in this standard.
+relations: []

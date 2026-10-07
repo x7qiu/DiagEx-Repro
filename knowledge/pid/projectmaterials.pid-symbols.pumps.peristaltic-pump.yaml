@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.pumps.peristaltic-pump
+version: 2
+concept: Peristaltic Pump
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Peristaltic Pump
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Peristaltic Pump’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Peristaltic Pump
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Peristaltic Pump’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Peristaltic Pump
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#pumps-pid-symbols
+  section: Pumps P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Peristaltic Pump
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.pumps.peristaltic-pump.png
+  sha256: 401f26c691e08bca10a496534f4632f6300809b155ba59353265f97059527019
+  width: 42
+  height: 48
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/peristaltic_pump.kQvfu5w6_EdX6C.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 380fcdd853db24dfa351e347f94e5dd79daa5806ec19cf39ff464ad533194723
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

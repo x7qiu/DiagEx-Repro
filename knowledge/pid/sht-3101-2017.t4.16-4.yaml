@@ -1,0 +1,337 @@
+id: sht-3101-2017.t4.16-4
+version: 2
+concept: 管壳式换热器 / Shell-and-tube heat exchanger
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 管壳式换热器
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: 管壳式换热器 / Shell-and-tube heat exchanger. Defined by SH/T 3101:2017, Table 4.16, item
+    4. The source explicitly assigns these seven alternatives to P&IDs and says to select the actual equipment
+    form. Do not infer an exchanger subtype, nozzles or connections beyond visible evidence. Each labeled
+    alternative is a separate reference depiction, not an additional object to instantiate.
+  displayed_asset_ids:
+  - variant-1
+  - variant-2
+  - variant-3
+  - variant-4
+  - variant-5
+  - variant-6
+  - variant-7
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 管壳式换热器
+- Shell-and-tube heat exchanger
+reference_type: symbol
+kind: definition
+explanation: 管壳式换热器 / Shell-and-tube heat exchanger. Defined by SH/T 3101:2017, Table 4.16, item 4. The
+  source explicitly assigns these seven alternatives to P&IDs and says to select the actual equipment
+  form. Do not infer an exchanger subtype, nozzles or connections beyond visible evidence. Each labeled
+  alternative is a separate reference depiction, not an additional object to instantiate.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 管壳式换热器
+- Shell-and-tube heat exchanger
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '25'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.16-4/context.png
+  document_id: sht-3101-2017
+  pdf_page: 29
+  table: '4.16'
+  item: '4'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.16-4/context.png
+  sha256: 2294a5833cd4055fc065d7d1d231104c73bd91cea3d8b28b5ed87134301bc69d
+  width: 908
+  height: 496
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '4'
+    rect:
+    - 163.0
+    - 828.0
+    - 1071.0
+    - 1324.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variant-1
+  role: variant
+  label: Alternative 1
+  path: illustrations/sht-3101-2017/t4.16-4/variant-1.png
+  sha256: f45eb4fc5745ff269149be795a81768b8cc9bcb703d3d927dce0745ff6338041
+  width: 227
+  height: 56
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '4'
+    rect:
+    - 549.0
+    - 851.0
+    - 776.0
+    - 907.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-2
+  role: variant
+  label: Alternative 2
+  path: illustrations/sht-3101-2017/t4.16-4/variant-2.png
+  sha256: 0749165fdec6a9a9acde0da50fa385d14678e95f0a7ad809468ed8c9ede1a409
+  width: 204
+  height: 59
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '4'
+    rect:
+    - 585.0
+    - 915.0
+    - 789.0
+    - 974.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-3
+  role: variant
+  label: Alternative 3
+  path: illustrations/sht-3101-2017/t4.16-4/variant-3.png
+  sha256: 1769a352c4006edb5a93c887edafab762ac6e3bc3e3f7ca0318bfef3a8a13a9c
+  width: 203
+  height: 62
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '4'
+    rect:
+    - 539.0
+    - 980.0
+    - 742.0
+    - 1042.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-4
+  role: variant
+  label: Alternative 4
+  path: illustrations/sht-3101-2017/t4.16-4/variant-4.png
+  sha256: 08330688e94c90e1a5e390e1ce8a34f47d0c8cc39721269c98c5ff83fbe4dc1e
+  width: 161
+  height: 66
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '4'
+    rect:
+    - 585.0
+    - 1051.0
+    - 746.0
+    - 1117.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-5
+  role: variant
+  label: Alternative 5
+  path: illustrations/sht-3101-2017/t4.16-4/variant-5.png
+  sha256: 1a30f08668dfddb251f7731ce1a7d72b9110adbbbfa2c124fec9cae9aefe6042
+  width: 209
+  height: 65
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '4'
+    rect:
+    - 539.0
+    - 1117.0
+    - 748.0
+    - 1182.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-6
+  role: variant
+  label: Alternative 6
+  path: illustrations/sht-3101-2017/t4.16-4/variant-6.png
+  sha256: f3160e73db8bb26de786082b7a4d7fc04b29836ead6ca185dbd871fd108abaeb
+  width: 161
+  height: 52
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '4'
+    rect:
+    - 591.0
+    - 1185.0
+    - 752.0
+    - 1237.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-7
+  role: variant
+  label: Alternative 7
+  path: illustrations/sht-3101-2017/t4.16-4/variant-7.png
+  sha256: 2cd520413610594011429ed8f994b9de7463a182d1b4e79b223e5830e614c656
+  width: 160
+  height: 57
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '4'
+    rect:
+    - 590.0
+    - 1249.0
+    - 750.0
+    - 1306.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.16-4/variants.png
+  sha256: 71a5d813f0aa2fabc2a484af9f0eabe36e33c301210885966c0695a2aed01274
+  width: 502
+  height: 464
+  derived_from:
+  - variant-1
+  - variant-2
+  - variant-3
+  - variant-4
+  - variant-5
+  - variant-6
+  - variant-7
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '25'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 29
+    table: '4.16'
+    item: '4'
+  explanation: The source explicitly assigns these seven alternatives to P&IDs and says to select the
+    actual equipment form. Do not infer an exchanger subtype, nozzles or connections beyond visible evidence.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '25'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 29
+    table: '4.16'
+    item: '4'
+  explanation: Each labeled alternative is a separate reference depiction, not an additional object to
+    instantiate.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- The source explicitly assigns these seven alternatives to P&IDs and says to select the actual equipment
+  form. Do not infer an exchanger subtype, nozzles or connections beyond visible evidence.
+- Each labeled alternative is a separate reference depiction, not an additional object to instantiate.
+relations: []

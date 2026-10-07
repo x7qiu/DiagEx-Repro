@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.heat-exchangers.hairpin-exchanger-2
+version: 2
+concept: Hairpin Exchanger 2
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Hairpin Exchanger 2
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: Projectmaterials labels this illustration ‘Hairpin Exchanger 2’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Hairpin Exchanger 2
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Hairpin Exchanger 2’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Hairpin Exchanger 2
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#heat-exchangers-pid-symbols
+  section: Heat Exchangers P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Hairpin Exchanger 2
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.heat-exchangers.hairpin-exchanger-2.png
+  sha256: 4e44f5a337b9ce61d9cd4d216fc0dde89a66e2a94cc832a1d4ffb685f7875f40
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/26_Hairpin-Exchanger-2-PID-Symbol22031014130273603-150x150.BbVmVcIV_29QWh0.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 22ad2d7c8f33c59f274b466d7cf39e6d63a5d5c62d916fcfe2f6db0c200a740d
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

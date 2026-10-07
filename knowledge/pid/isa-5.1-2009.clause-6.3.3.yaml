@@ -1,0 +1,97 @@
+id: isa-5.1-2009.clause-6.3.3
+version: 2
+concept: 6.3.3 — Table 6.3 — Dimensions for line symbols, Tables 5.3.1 and 5.3.2
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: informative
+explanation: '6.3.3 Table 6.3 — Dimensions for line symbols, Tables 5.3.1 and 5.3.2
+
+  (1) Recommended maximum signal line thickness.
+
+  (a) Signal lines are never thicker than process and equipment lines.
+
+  (2) Recommended minimum process and equipment line thickness for instrument sketches.
+
+  (3) Clearance around symbol shall be equal to half the width of the symbol.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- Table 6.3 — Dimensions for line symbols, Tables 5.3.1 and 5.3.2
+- 6.3.3
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '77'
+  pdf_page: 77
+  table: null
+  item: null
+  passage: Clause 6.3.3
+  image: illustrations/isa-5.1-2009/complete/clause-6.3.3-p77.png
+assets:
+- id: clause-6.3.3-p77
+  role: context
+  label: Clause 6.3.3, page 77
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.3-p77.png
+  sha256: 9a0ce670f89879ce6d25ba1560032c06458a7974a61209fcc38bab5a9994d62d
+  width: 2010
+  height: 490
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 93.6917
+    - 547.0
+    - 211.1713
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-77
+  role: context
+  label: Complete technical content on page 77
+  path: illustrations/isa-5.1-2009/complete/page-77.png
+  sha256: 9399e445b5169885912f8143eea91ba0683a87325296cd0e97df2efb7121a3fb
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

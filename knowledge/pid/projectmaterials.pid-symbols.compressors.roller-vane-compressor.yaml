@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.compressors.roller-vane-compressor
+version: 2
+concept: Roller Vane Compressor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Roller Vane Compressor
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Roller Vane Compressor’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Roller Vane Compressor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Roller Vane Compressor’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Roller Vane Compressor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#compressors-pid-symbols
+  section: Compressors P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Roller Vane Compressor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.compressors.roller-vane-compressor.png
+  sha256: 269138f59f8f0366f8762833e6af891a64a375276d83b6ce6b5119e8e566d233
+  width: 39
+  height: 42
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/roller_vane_compressor.u2x-2NWU_Zfoxqn.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: a4738b6d80c03be6986a17acee9777759f44ecb95048d4daef85aef9259a201a
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

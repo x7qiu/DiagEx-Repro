@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.induced-draft-cooling-tower
+version: 2
+concept: Induced Draft Cooling Tower
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Induced Draft Cooling Tower
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Induced Draft Cooling Tower’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Induced Draft Cooling Tower
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Induced Draft Cooling Tower’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Induced Draft Cooling Tower
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Induced Draft Cooling Tower
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.induced-draft-cooling-tower.png
+  sha256: 3625ab66c2cd5a447dd3b47e95113311bd7980892c8a93800c0f26b1c990572e
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Induced-Draft-Cooling-Tower-PID-Symbol--150x150.B0fS0iHR_Z2gpvVU.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: a61a0e4ee2e441e98e846d35059f2af8377e19a9a0acead60e2a027238077a45
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

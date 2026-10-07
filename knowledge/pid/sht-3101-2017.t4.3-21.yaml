@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.3-21
+version: 1
+concept: 三通旋塞阀 / Three-way plug valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 三通旋塞阀
+  interpretation: '三通旋塞阀 / Three-way plug valve. Defined by SH/T 3101:2017, Table 4.3, item 21. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 三通旋塞阀
+- Three-way plug valve
+reference_type: symbol
+kind: definition
+explanation: '三通旋塞阀 / Three-way plug valve. Defined by SH/T 3101:2017, Table 4.3, item 21. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 三通旋塞阀
+- Three-way plug valve
+- valves_actuators
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '8'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.3-21/context.png
+  document_id: sht-3101-2017
+  pdf_page: 12
+  table: '4.3'
+  item: '21'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.3-21/context.png
+  sha256: 5b20e706397a0d871a78d856640ee22e8352ef2043631620032272c51cacce1e
+  width: 911
+  height: 78
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '21'
+    rect:
+    - 123.0
+    - 1293.0
+    - 1034.0
+    - 1371.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.3-21/primary.png
+  sha256: fbbc8d37c83cd7cd6f8c2e814c0b4aaeaa2e77aa45fcc1e9dd8d1089465f5f0f
+  width: 122
+  height: 58
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '21'
+    rect:
+    - 577.0
+    - 1306.0
+    - 699.0
+    - 1364.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.3-21/variants.png
+  sha256: 5d1371e6d1fb0752daf33c60fe78a3fd8b821f01125cc55130f78ed867eb262f
+  width: 220
+  height: 108
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

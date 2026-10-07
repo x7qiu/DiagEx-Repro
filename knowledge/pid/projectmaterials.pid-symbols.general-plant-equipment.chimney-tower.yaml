@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.chimney-tower
+version: 2
+concept: Chimney Tower
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Chimney Tower
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Chimney Tower’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Chimney Tower
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Chimney Tower’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Chimney Tower
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Chimney Tower
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.chimney-tower.png
+  sha256: aa04261f544200053abf33c9a3ec8d5f370440c131b968e8b23c6c321dd4d575
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Chimney-Tower-PID-Symbol-150x150.BfOcJa0W_N08OW.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 285a5e37ab6aa7498d8d75b9cb13dd3c13e78d756f37f4064cb41e3e86455c39
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

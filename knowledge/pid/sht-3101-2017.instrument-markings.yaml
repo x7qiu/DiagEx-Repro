@@ -1,0 +1,77 @@
+id: sht-3101-2017.instrument-markings
+version: 1
+concept: 仪表系统、位置与文字 / Instrument system, location and text conventions
+catalog:
+  role: supporting
+  short_name: 仪表系统、位置与文字 / Instrument system, location and text conventions
+  interpretation: Table 4.6 distinguishes DCS (circle in square), SIS (diamond in square), third-party
+    systems (diamond in square with system-type text), and individual instruments (circle). Horizontal
+    solid/dashed and single/double lines encode installation/display location as specified by each row.
+    *** is a system-type placeholder, not symbol geometry. When a tag cannot fit, the instrument frame
+    may be broken or extended. Example letters and digits in these notes are not actual tags. The drafting
+    diameter is 10–12 mm, not a pixel threshold.
+  displayed_asset_ids: []
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases: []
+reference_type: convention
+kind: definition
+explanation: Table 4.6 distinguishes DCS (circle in square), SIS (diamond in square), third-party systems
+  (diamond in square with system-type text), and individual instruments (circle). Horizontal solid/dashed
+  and single/double lines encode installation/display location as specified by each row. *** is a system-type
+  placeholder, not symbol geometry. When a tag cannot fit, the instrument frame may be broken or extended.
+  Example letters and digits in these notes are not actual tags. The drafting diameter is 10–12 mm, not
+  a pixel threshold.
+exceptions: []
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags: []
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '12'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/instrument-markings/context.png
+  document_id: sht-3101-2017
+  pdf_page: 16
+  table: '4.6'
+assets:
+- id: context
+  role: context
+  label: Source context
+  path: illustrations/sht-3101-2017/instrument-markings/context.png
+  sha256: 32971db268bf2cb3d4a88fc196c84578217286a182513c35cc8b039d201f6789
+  width: 902
+  height: 316
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 16
+    printed_page: '12'
+    table: '4.6'
+    rect:
+    - 143.0
+    - 1225.0
+    - 1045.0
+    - 1541.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []

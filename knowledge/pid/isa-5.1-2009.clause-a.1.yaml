@@ -1,0 +1,263 @@
+id: isa-5.1-2009.clause-a.1
+version: 2
+concept: A.1 — Identification system
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.1 Identification system
+
+  A.1.1 This informative annex to the standard describes a common and almost universally
+  used
+
+  Identification System for monitoring and control instrument devices and functions
+  that is logical,
+
+  unique, and consistent in application with a minimum of exceptions, special uses,
+  or
+
+  requirements.
+
+  A.1.2 An identification system is required to identify instrumentation in text and
+  in sketches and
+
+  drawings when used with graphic symbols as described in Annex B.
+
+  A.1.3 The Identification System provides methods for identifying instrumentation
+  required to monitor,
+
+  control, and operate a processing plant, unit operation, boiler, machine, or any
+  other system that
+
+  requires measurement, detection, indication, control, modulation, and/or switching
+  of variables or
+
+  states.
+
+  A.1.4 The methods shown are based on the most common ones now in use in the chemical
+  and
+
+  refining process industries.
+
+  A.1.5 Any different methods in use in these industries should be:
+
+  a) Revised to conform to this annex.
+
+  b) Submitted to ISA (email to standards@isa.org) to determine if they are to be:
+
+  1) Included in the next revision of this standard.
+
+  A.1.6 ISA should be advised of differences that are normal practice in other industries
+  so that these
+
+  methods can be incorporated into the next revision of this standard.
+
+  A.1.7 A multi-component monitor or control loop consists of some or all of the following
+  (as indicated):
+
+  a) Measurement or detection of process variable or state (monitor and control):
+
+  1) Measurement element, such as an orifice plate or thermocouple.
+
+  2) Measurement transmitter or indicator:
+
+  a) With an integral-measuring element, such as a pressure-actuated
+
+  transmitter or gauge.
+
+  b) With a non-integral-measuring element, such as a thermocouple-
+
+  actuated temperature transmitter or gauge.
+
+  b) Conditioning of measurement or input signal (monitor and control):
+
+  1) Calculating devices.
+
+  2) Calculating functions.
+
+  c) Monitoring of process variable (monitor):
+
+  1) Indicating or recording device.
+
+  2) Application software display function.
+
+  d) Controlling of process variable (control):
+
+  1) Indicating or recording control device.
+
+  2) Application software control function.
+
+  e) Conditioning of controller or output signal (control):
+
+  1) Calculating devices.
+
+  2) Calculating functions.
+
+  f) Modulation of controlled variable (control):
+
+  1) Control valve modulation or on-off action.
+
+  2) Resetting another control loop setpoint.
+
+  3) Limiting another control loop output signal.
+
+  A.1.8 A loop number is assigned to each group of components required to perform
+  the desired function
+
+  of the monitor or control scheme.
+
+  A.1.9 A single component monitor or control loop consists of some or all of the
+  following:
+
+  a) Self-acting measuring and control devices, such as pressure or temperature control
+
+  valves.
+
+  b) Self-acting measuring and control devices, such as pressure or temperature safety
+
+  valves.
+
+  c) Single point monitoring devices, such as pressure or temperature gauges.
+
+  A.1.10 Each single component may be assigned:
+
+  a) A unique loop number, indexed with the plant instrumentation.
+
+  b) An instrument tag number, indexed separate from the primary plant instrumentation.
+
+  c) A coded type number.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Identification system
+- A.1
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 85, 86
+  pdf_page: 85
+  table: null
+  item: null
+  passage: Clause A.1
+  image: illustrations/isa-5.1-2009/complete/clause-a.1-p85.png
+assets:
+- id: clause-a.1-p85
+  role: context
+  label: Clause A.1, page 85
+  path: illustrations/isa-5.1-2009/complete/clause-a.1-p85.png
+  sha256: a49e94f0e7c53c78f3954dc9f3578f20ed3ddc07322a4ff86de2d00d68d1ba90
+  width: 2010
+  height: 2583
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 85
+    printed_page: '85'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 107.4919
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-85
+  role: context
+  label: Complete technical content on page 85
+  path: illustrations/isa-5.1-2009/complete/page-85.png
+  sha256: 941cd677709cc07483c799e20de6bfb414e5d24eb0489c382a8edb20056295c4
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 85
+    printed_page: '85'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.1-p86
+  role: context
+  label: Clause A.1, page 86
+  path: illustrations/isa-5.1-2009/complete/clause-a.1-p86.png
+  sha256: 5f64cdba0c073f4623a9cb72d4b555be30c28f1be02beff8c3680a1101f828be
+  width: 2010
+  height: 2201
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 86
+    printed_page: '86'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 598.1698
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-86
+  role: context
+  label: Complete technical content on page 86
+  path: illustrations/isa-5.1-2009/complete/page-86.png
+  sha256: b22797fe1b7f8534084ed418f8bfa7e37fc36480548379dbbfaa9ed2a906e3d4
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 86
+    printed_page: '86'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

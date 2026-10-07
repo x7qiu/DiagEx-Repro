@@ -1,0 +1,228 @@
+id: isa-5.1-2009.clause-b.8
+version: 2
+concept: B.8 — Final control elements
+aliases: []
+reference_type: assembly_pattern
+kind: possible_arrangement
+curation: source_transcribed
+source_status: informative
+explanation: 'B.8 Final control elements
+
+  B.8.1 Final control elements installed in pipelines and equipment modulate or manipulate
+  the process
+
+  stream or equipment to affect the loop measured variable.
+
+  B.8.2 Final control elements include, but are not limited to, control valves, solenoid
+  valves, louvers,
+
+  dampers, motors, variable speed drives, and machine components.
+
+  B.8.3 Control valves are generally pneumatically operated and furnished with positioners
+  that may:
+
+  a) Be actuated by a pneumatic or an electronic signal.
+
+  b) Not be shown if all control valves are furnished with positioners.
+
+  B.8.4 Control valves with pneumatic or electronic signal:
+
+  a) Without positioner: I/P
+
+  FY
+
+  *01
+
+  FV FV
+
+  *01 *01
+
+  b) With positioner:
+
+  1) Cross-hatches from positioner to actuator are optional.
+
+  c) With tripping solenoid, with and without positioner:
+
+  LSL LSL
+
+  S S
+
+  *11 *11
+
+  FV
+
+  FV
+
+  *01
+
+  *01
+
+  B.8.5 Instrumentation with integral components that:
+
+  a) Measure process variables and transmit control and other functions as an integral
+  part of
+
+  a transmitter:
+
+  FC
+
+  *01
+
+  FC FT
+
+  *01 *01
+
+  b) Manipulates control valves as an integral part of a control valve positioner:
+
+  FC
+
+  *017
+
+  c) Is an integral assembly that contains a transmitter, a controller, and a control
+  valve:
+
+  FC
+
+  101
+
+  FV FT
+
+  101 101
+
+  24VDC 24VDC'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Final control elements
+- B.8
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 116, 117
+  pdf_page: 116
+  table: null
+  item: null
+  passage: Clause B.8
+  image: illustrations/isa-5.1-2009/complete/clause-b.8-p116.png
+assets:
+- id: clause-b.8-p116
+  role: context
+  label: Clause B.8, page 116
+  path: illustrations/isa-5.1-2009/complete/clause-b.8-p116.png
+  sha256: 2a7749062c751e5e7c99f00e34aa898dc634cd4f5b6a0029f29f83a3ab3ac4dd
+  width: 2010
+  height: 1992
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 116
+    printed_page: '116'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 249.2719
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-116
+  role: context
+  label: Complete technical content on page 116
+  path: illustrations/isa-5.1-2009/complete/page-116.png
+  sha256: 0674ff48f8717fb6e26fa1a809809b80a17cfe9bdfb953d2fac1d71d862ccb65
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 116
+    printed_page: '116'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.8-p117
+  role: context
+  label: Clause B.8, page 117
+  path: illustrations/isa-5.1-2009/complete/clause-b.8-p117.png
+  sha256: 4321dfc8e2ec36659d0e07f8cb728a64f68e8c6596e12a8731f59aec1c3113e9
+  width: 2010
+  height: 2208
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 117
+    printed_page: '117'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 599.8519
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-117
+  role: context
+  label: Complete technical content on page 117
+  path: illustrations/isa-5.1-2009/complete/page-117.png
+  sha256: 37ffd718abb5e0f3aa0403c97adedbf69a084df1041843728c9926e367a3b783
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 117
+    printed_page: '117'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

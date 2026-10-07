@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.electric-motor
+version: 1
+concept: Electric Motor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Electric Motor
+  interpretation: Projectmaterials labels this illustration ‘Electric Motor’ (General
+    Plant Equipment P&ID Symbols).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Electric Motor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Electric Motor’ (General Plant
+  Equipment P&ID Symbols).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- General Plant Equipment P&ID Symbols
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Electric Motor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Electric Motor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.electric-motor.png
+  sha256: 3cd83de6c6af47bbc6ac5ed0d1c6c0bb8e392030679f2daa7e4a500362d08765
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Electric-Motor-PID-Symbol-150x150.B3qi4g3x_Z1zNqpE.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: de6b082ab78913be5c389e221cb93c9f7b662bb245b5c35c1c9653a7da8059ba
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

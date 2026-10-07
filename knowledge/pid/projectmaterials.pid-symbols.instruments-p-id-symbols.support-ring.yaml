@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.support-ring
+version: 2
+concept: Support Ring
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Support Ring
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Support Ring’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Support Ring
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Support Ring’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Support Ring
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Support Ring
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.support-ring.png
+  sha256: 6eb406f44e366cbad4e32cbf3d6df0be6e3cab4dda1d1aa3841edafa5342d339
+  width: 24
+  height: 52
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/support_ring.CwPs11u-_1nhRBO.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: cf3a5f4e6c6c1f2e924341e9bd2986c4e790fddcc30b0a38250e6a366196d944
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

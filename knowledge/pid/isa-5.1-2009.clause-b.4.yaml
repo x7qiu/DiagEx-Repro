@@ -1,0 +1,135 @@
+id: isa-5.1-2009.clause-b.4
+version: 2
+concept: B.4 — Graphic symbol applications
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'B.4 Graphic symbol applications
+
+  B.4.1 Graphic symbols provide representations of the instrumentation and functions
+  required for
+
+  process, machine, or equipment measurement, indication, control, modulation, and
+  switching of
+
+  variables by any or all of the following applications:
+
+  a) Instrument diagrams
+
+  b) Functional diagrams
+
+  c) Binary logic diagrams
+
+  d) Electrical schematics
+
+  B.4.2 The most common uses for:
+
+  a) Instrument diagrams are process flow diagrams (PFDs), piping and instrumentation
+
+  diagrams (P&IDs), engineering flow diagrams (EFDs), and mechanical flow diagrams
+
+  (MFDs).
+
+  b) Functional diagrams are instrument loop device and function details and application
+
+  software details for microprocessor-based control and monitoring systems.
+
+  c) Binary logic diagrams are complex, interlocking, and stepwise logic programming
+  and
+
+  application software for microprocessor-based binary logic systems.
+
+  d) Electrical schematics are electrical diagrams for motor and other on-off control.
+
+  B.4.3 All of the applications may be used to prepare sketches and drawings for books,
+  magazines,
+
+  journals, and instruction and maintenance manuals.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Graphic symbol applications
+- B.4
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '112'
+  pdf_page: 112
+  table: null
+  item: null
+  passage: Clause B.4
+  image: illustrations/isa-5.1-2009/complete/clause-b.4-p112.png
+assets:
+- id: clause-b.4-p112
+  role: context
+  label: Clause B.4, page 112
+  path: illustrations/isa-5.1-2009/complete/clause-b.4-p112.png
+  sha256: df747b708fe848bf785534d32088c18fee182a457d25135210930724e33e22d8
+  width: 2010
+  height: 1843
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 112
+    printed_page: '112'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 285.0319
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-112
+  role: context
+  label: Complete technical content on page 112
+  path: illustrations/isa-5.1-2009/complete/page-112.png
+  sha256: 9036194737a0f57b56a1d4ad9b6762b2300d6936ee59e5adb5d651de5c441769
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 112
+    printed_page: '112'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

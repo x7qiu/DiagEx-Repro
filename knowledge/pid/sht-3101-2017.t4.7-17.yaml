@@ -1,0 +1,197 @@
+id: sht-3101-2017.t4.7-17
+version: 1
+concept: 带定位器和电磁阀的调节阀典型气路 / Control-valve assembly with solenoid and positioner
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 带定位器和电磁阀的调节阀典型气路
+  interpretation: 带定位器和电磁阀的调节阀典型气路 / Control-valve assembly with solenoid and positioner. Defined by SH/T
+    3101:2017, Table 4.7, item 17. The table note specifies actuator instrument-circle diameter 6–8 mm
+    in the original drafting convention; do not apply that as a pixel-size filter to scanned drawings.
+    This is a typical pneumatic arrangement containing a control valve, actuator, positioner and solenoid
+    valve. It is an assembly pattern, not one atomic symbol. Reference lines and FC annotation are illustrative
+    and cannot establish drawing objects, fail state or connections.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 带定位器和电磁阀的调节阀典型气路
+- Control-valve assembly with solenoid and positioner
+reference_type: assembly_pattern
+kind: definition
+explanation: 带定位器和电磁阀的调节阀典型气路 / Control-valve assembly with solenoid and positioner. Defined by SH/T 3101:2017,
+  Table 4.7, item 17. The table note specifies actuator instrument-circle diameter 6–8 mm in the original
+  drafting convention; do not apply that as a pixel-size filter to scanned drawings. This is a typical
+  pneumatic arrangement containing a control valve, actuator, positioner and solenoid valve. It is an
+  assembly pattern, not one atomic symbol. Reference lines and FC annotation are illustrative and cannot
+  establish drawing objects, fail state or connections.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 带定位器和电磁阀的调节阀典型气路
+- Control-valve assembly with solenoid and positioner
+- valves_actuators
+- assembly_pattern
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '14'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.7-17/context.png
+  document_id: sht-3101-2017
+  pdf_page: 18
+  table: '4.7'
+  item: '17'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.7-17/context.png
+  sha256: c9a77257beeac997d00fd39cc27a9f078f07c294107fc14a3d4daa3356c8e367
+  width: 915
+  height: 237
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 18
+    printed_page: '14'
+    table: '4.7'
+    item: '17'
+    rect:
+    - 114.0
+    - 442.0
+    - 1029.0
+    - 679.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.7-17/primary.png
+  sha256: cb1866948ed7527bf3020b6ecbd170e1fe22189ed06473f492ea0d7fec24ae1a
+  width: 217
+  height: 208
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 18
+    printed_page: '14'
+    table: '4.7'
+    item: '17'
+    rect:
+    - 530.0
+    - 464.0
+    - 747.0
+    - 672.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.7-17/variants.png
+  sha256: e629a70d6f281e542790713f81f6e83f7b958a27e1f72d1c25cfc19f083c64ca
+  width: 241
+  height: 258
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+- id: actuator-note
+  role: note
+  label: Actuator-circle diameter note
+  path: illustrations/sht-3101-2017/t4.7-17/actuator-note.png
+  sha256: 611342f887156d7a615f06a2ae5134fa024fc734ecac39f206657a230ff83170
+  width: 906
+  height: 34
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 18
+    printed_page: '14'
+    table: '4.7'
+    rect:
+    - 118.0
+    - 675.0
+    - 1024.0
+    - 709.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '14'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 18
+    table: '4.7'
+    item: '17'
+  explanation: The table note specifies actuator instrument-circle diameter 6–8 mm in the original drafting
+    convention; do not apply that as a pixel-size filter to scanned drawings.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '14'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 18
+    table: '4.7'
+    item: '17'
+  explanation: This is a typical pneumatic arrangement containing a control valve, actuator, positioner
+    and solenoid valve. It is an assembly pattern, not one atomic symbol. Reference lines and FC annotation
+    are illustrative and cannot establish drawing objects, fail state or connections.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '14'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 18
+    table: '4.7'
+  explanation: The table note specifies actuator instrument-circle diameter 6–8 mm in the original drafting
+    convention; do not apply that as a pixel-size filter to scanned drawings.
+  asset_id: actuator-note
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- The table note specifies actuator instrument-circle diameter 6–8 mm in the original drafting convention;
+  do not apply that as a pixel-size filter to scanned drawings.
+- This is a typical pneumatic arrangement containing a control valve, actuator, positioner and solenoid
+  valve. It is an assembly pattern, not one atomic symbol. Reference lines and FC annotation are illustrative
+  and cannot establish drawing objects, fail state or connections.
+relations: []

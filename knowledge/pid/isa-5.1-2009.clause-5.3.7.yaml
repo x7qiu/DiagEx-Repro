@@ -1,0 +1,103 @@
+id: isa-5.1-2009.clause-5.3.7
+version: 2
+concept: '5.3.7 — Table 5.7 — Binary logic symbols:'
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: informative
+explanation: '5.3.7 Table 5.7 — Binary logic symbols:
+
+  (1) True signals are equal to binary one, and false signals are equal to binary
+  zero.
+
+  (2) Alternate symbols shall be used only for “AND’ and “OR” gates.
+
+  (3) Users engineering and design standards, practices and/or guidelines shall document
+  which
+
+  symbol has been selected.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'Table 5.7 — Binary logic symbols:'
+- 5.3.7
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '35'
+  pdf_page: 35
+  table: null
+  item: null
+  passage: Clause 5.3.7
+  image: illustrations/isa-5.1-2009/complete/clause-5.3.7-p35.png
+assets:
+- id: clause-5.3.7-p35
+  role: context
+  label: Clause 5.3.7, page 35
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.7-p35.png
+  sha256: 3be3bab470d708de5e86ff0004a879197f0a48d752a9f74cdd21ff5376ffeb8e
+  width: 2010
+  height: 441
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 35
+    printed_page: '35'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 246.1511
+    - 547.0
+    - 351.6307
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-35
+  role: context
+  label: Complete technical content on page 35
+  path: illustrations/isa-5.1-2009/complete/page-35.png
+  sha256: 5aa9b6f658efff359bbb6dee34c8641fb287ebd266f048917532633d14e7ec9e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 35
+    printed_page: '35'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

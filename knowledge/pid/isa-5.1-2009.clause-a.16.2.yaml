@@ -1,0 +1,212 @@
+id: isa-5.1-2009.clause-a.16.2
+version: 2
+concept: A.16.2 — Table A.2 — Allowable letter/number combinations for loop numbering
+  schemes.
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.16.2 Table A.2 — Allowable letter/number combinations for loop numbering
+  schemes.
+
+  (1) First Letters do not include all possibilities.
+
+  (2) Replace asterisk in Loop Number with any digit from 0 to 9 or any combination
+  of numerals.
+
+  (3) Variable Modifier safety instrumented system [Z] is technically not a direct-measured
+  variable but
+
+  is used to identify loops in a Safety Instrumented System. And because of the critical
+  nature of
+
+  such loops, any Measured/Initiating Variable followed by [Z], such as [FZ], [PZ],
+  and [TZ], should
+
+  be considered as Measured/ Initiating Variables in all Loop Identification Number
+  construction
+
+  schemes
+
+  (a) An alternate method for identifying Safety Instrumented System loops is to append
+  [(SIS)]
+
+  outside the bubbles of Safety Instrumented System loops and as a prefix or suffix
+  to the Loop
+
+  Number when used in text. For example, Loop Numbers for pressure and temperature
+  loops in an
+
+  SIS may be [(SIS)PZ-*01] or [TZ-*09(SIS)].
+
+  (4) Users should assign, as needed, meanings to:
+
+  (a) Users Choice Measured/Initiating Variable letters [C], [D], [G], [M], [N], and
+  [O].
+
+  (b) Variable Modifier letter blanks [A], [B], [C], [E], [G], [H], [I], [L], [M],
+  [N], [O], [P], [R], [T],
+
+  [U], [V], and [W].
+
+  (5) Variable Modifier safety [S] is technically not a direct-measured variable but
+  is used to identify
+
+  self-actuated emergency protective primary and final control elements only when
+  used in
+
+  conjunction with Measured/Initiating Variables flow [F], pressure [P] or temperature
+  [T]. And
+
+  because of the critical nature of such devices, [FS], [PS], and [TS] should be considered
+  as
+
+  Measured/ Initiating Variables in all Loop Identification Number construction schemes:
+
+  (a) Shall not be used to identify Safety Instrumented Systems and components.
+
+  (6) Measured/Initiating Variables [V], [W], or [Z] when used in a Safety Instrumented
+  System and:
+
+  (a) Not axially oriented should use [VZ], [WZ], and [ZZ] as Measured/Initiating
+  Variables.
+
+  (b) Axially oriented should use [VZX], [VZY], [VZZ], and [WZX], [WZY], [WZZ] and
+  [ZZX],
+
+  [ZZY], [ZZZ] as Measured/Initiating Variables.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Table A.2 — Allowable letter/number combinations for loop numbering schemes.
+- A.16.2
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 96, 97
+  pdf_page: 96
+  table: null
+  item: null
+  passage: Clause A.16.2
+  image: illustrations/isa-5.1-2009/complete/clause-a.16.2-p96.png
+assets:
+- id: clause-a.16.2-p96
+  role: context
+  label: Clause A.16.2, page 96
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.2-p96.png
+  sha256: 954467bb26c07d187cda76ab062fc2f1daa7661782dde7e0e320f40707eb1b4c
+  width: 2010
+  height: 1859
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 96
+    printed_page: '96'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 281.1911
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-96
+  role: context
+  label: Complete technical content on page 96
+  path: illustrations/isa-5.1-2009/complete/page-96.png
+  sha256: 15303720486b4d97d4f1847e0aa3acc96780e358efc9266fa2899d42677236f9
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 96
+    printed_page: '96'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.2-p97
+  role: context
+  label: Clause A.16.2, page 97
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.2-p97.png
+  sha256: 8ca6c40542ff87c1204f154668d28c90032903c332558aa37dfda8e42747db9d
+  width: 2010
+  height: 147
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 97
+    printed_page: '97'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 105.1516
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-97
+  role: context
+  label: Complete technical content on page 97
+  path: illustrations/isa-5.1-2009/complete/page-97.png
+  sha256: 5e30d1910b35e4a55fb80f70ca7a693f7b1fdee7e6d394c15d8255ae21747706
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 97
+    printed_page: '97'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

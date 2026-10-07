@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.counterflow-natural-draft
+version: 2
+concept: Counterflow Natural Draft
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Counterflow Natural Draft
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Counterflow Natural Draft’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Counterflow Natural Draft
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Counterflow Natural Draft’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Counterflow Natural Draft
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Counterflow Natural Draft
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.counterflow-natural-draft.png
+  sha256: 1be91ad2a290dfa633c178ca2436c59339342aec1304fbd25abd1aa4c5d1841a
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Counterflow-Natural-Draft-PID-Symbol-150x150.CF5NiYSi_Z2i1kNM.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 92754b7950b4cdf95430782a3d4965a990349f583b560dc6a62bd938279cd01c
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

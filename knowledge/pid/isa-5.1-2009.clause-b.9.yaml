@@ -1,0 +1,442 @@
+id: isa-5.1-2009.clause-b.9
+version: 2
+concept: B.9 — Common instrument-to-instrument signal connections
+aliases: []
+reference_type: assembly_pattern
+kind: possible_arrangement
+curation: source_transcribed
+source_status: informative
+explanation: 'B.9 Common instrument-to-instrument signal connections
+
+  B.9.1 Pneumatic discrete instrumentation:
+
+  FRC FT
+
+  FV *01
+
+  *01
+
+  *01
+
+  B.9.2 Electronic discrete instrumentation:
+
+  FRC FT
+
+  FV
+
+  *01 *01
+
+  *01
+
+  B.9.3 Shared display, shared control instrumentation:
+
+  FT FRC
+
+  FV
+
+  *01 *01
+
+  *01
+
+  B.9.4 Shared display, shared control instrumentation, with diagnostic and calibration
+  bus on field wiring:
+
+  FT FRC
+
+  FV
+
+  *01 *01
+
+  *01
+
+  B.9.5 Shared display, shared control and wireless instrumentation:
+
+  FT FRC
+
+  FV
+
+  *01 *01
+
+  *01
+
+  B.9.6 Shared display, shared control instrumentation, primary and alternate systems,
+  no inter-bus
+
+  communication:
+
+  FT FRC
+
+  FV
+
+  *01 *01
+
+  DCS-1
+
+  *01
+
+  FT FRC
+
+  FV
+
+  *11 *11
+
+  DCS-2
+
+  *01
+
+  B.9.7 Shared display, shared control, primary and alternate systems, with inter-bus
+  communication:
+
+  FI
+
+  *11
+
+  DCS-2
+
+  FT FC
+
+  FV
+
+  *01 *01
+
+  DCS-1
+
+  *01
+
+  FI
+
+  *11
+
+  DCS-1
+
+  FT FC
+
+  FV
+
+  *11 *11
+
+  DCS-2
+
+  *01
+
+  B.9.8 Shared display, shared control and fieldbus instrumentation, inter-bus communication:
+
+  a) Fieldbus transmitter/controller and electronic valve positioner:
+
+  FK FI
+
+  SP
+
+  *01 *01
+
+  FC
+
+  FV
+
+  *01
+
+  *01
+
+  b) Fieldbus valve positioner/controller and electronic transmitter:
+
+  FI FK SP
+
+  *01 *01
+
+  FC
+
+  FT
+
+  *01
+
+  FV
+
+  *01
+
+  *01
+
+  c) Fieldbus transmitter and valve positioner/controller:
+
+  FI FK SP
+
+  *01 *01
+
+  FC
+
+  *01 FT
+
+  FV
+
+  *01
+
+  *01
+
+  B.9.9 Fieldbus valve positioner/controller, transmitter, and indicator:
+
+  FI
+
+  *01
+
+  FC
+
+  *01 FT
+
+  FV
+
+  *01
+
+  *01
+
+  B.9.10 Fieldbus integral transmitter, controller, and valve positioner:
+
+  FI FK
+
+  101 101
+
+  FC
+
+  101
+
+  24VDC
+
+  B.9.11 Instrument and functional diagrams should not be used to specifically identify
+  signal tubing,
+
+  wiring, and bus construction methods used to implement a monitoring and control
+  system.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Common instrument-to-instrument signal connections
+- B.9
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 117, 118, 119, 120
+  pdf_page: 117
+  table: null
+  item: null
+  passage: Clause B.9
+  image: illustrations/isa-5.1-2009/complete/clause-b.9-p117.png
+assets:
+- id: clause-b.9-p117
+  role: context
+  label: Clause B.9, page 117
+  path: illustrations/isa-5.1-2009/complete/clause-b.9-p117.png
+  sha256: ebcb1b715f4d185cb1402af020db140eb9ff08188a348b34a3227edd027ff906
+  width: 2010
+  height: 531
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 117
+    printed_page: '117'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 599.8519
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-117
+  role: context
+  label: Complete technical content on page 117
+  path: illustrations/isa-5.1-2009/complete/page-117.png
+  sha256: 37ffd718abb5e0f3aa0403c97adedbf69a084df1041843728c9926e367a3b783
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 117
+    printed_page: '117'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.9-p118
+  role: context
+  label: Clause B.9, page 118
+  path: illustrations/isa-5.1-2009/complete/clause-b.9-p118.png
+  sha256: 0a57e29763c6455c8c4c02caaba852ebde0d1f4f2c170803a2368a71c4b9f5d4
+  width: 2010
+  height: 2738
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 118
+    printed_page: '118'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-118
+  role: context
+  label: Complete technical content on page 118
+  path: illustrations/isa-5.1-2009/complete/page-118.png
+  sha256: b95231556b3f9c736a69600666604a8475bf41f480e067644ba2597b7c6ea13f
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 118
+    printed_page: '118'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.9-p119
+  role: context
+  label: Clause B.9, page 119
+  path: illustrations/isa-5.1-2009/complete/clause-b.9-p119.png
+  sha256: 5d5500fbd11c2057562e387eae387db5241e8288c0c810ec2fc98f08d09c36d7
+  width: 2010
+  height: 2738
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 119
+    printed_page: '119'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-119
+  role: context
+  label: Complete technical content on page 119
+  path: illustrations/isa-5.1-2009/complete/page-119.png
+  sha256: 59b05418ba2ec5833e5f3336c5038da5fae86fa5e0dab8676853574169f71564
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 119
+    printed_page: '119'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.9-p120
+  role: context
+  label: Clause B.9, page 120
+  path: illustrations/isa-5.1-2009/complete/clause-b.9-p120.png
+  sha256: c9f35b6661e00c2fe603d3930a25f0cbc4644a7a6608534276971b14e5f4f860
+  width: 2010
+  height: 1535
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 120
+    printed_page: '120'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 438.3315
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-120
+  role: context
+  label: Complete technical content on page 120
+  path: illustrations/isa-5.1-2009/complete/page-120.png
+  sha256: c0bf88c2982dc39d32ed083292c6061515c0cac991bb12bcdc5ee8a1250b7e9d
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 120
+    printed_page: '120'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

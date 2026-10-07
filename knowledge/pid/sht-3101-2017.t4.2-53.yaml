@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-53
+version: 1
+concept: 减温器 / Desuperheater
+catalog:
+  role: catalog
+  category: piping
+  short_name: 减温器
+  interpretation: '减温器 / Desuperheater. Defined by SH/T 3101:2017, Table 4.2, item 53. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 减温器
+- Desuperheater
+reference_type: symbol
+kind: definition
+explanation: '减温器 / Desuperheater. Defined by SH/T 3101:2017, Table 4.2, item 53. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 减温器
+- Desuperheater
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '7'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-53/context.png
+  document_id: sht-3101-2017
+  pdf_page: 11
+  table: '4.2'
+  item: '53'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-53/context.png
+  sha256: e765dc1c1d4df1c3c9d1c8d72a78ece6801327e98f990e29da4e2ef4daa16010
+  width: 911
+  height: 84
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.2'
+    item: '53'
+    rect:
+    - 159.0
+    - 736.0
+    - 1070.0
+    - 820.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-53/primary.png
+  sha256: c6b2951448e92261c30c780e8d0b691356f591d6004ef4a591bf5b1b5fc7cc92
+  width: 127
+  height: 69
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.2'
+    item: '53'
+    rect:
+    - 600.0
+    - 745.0
+    - 727.0
+    - 814.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-53/variants.png
+  sha256: a17b2706e6c1a851c82336ee54c8eae4be2645aba8fe594e5a732b45f9f7e590
+  width: 220
+  height: 119
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

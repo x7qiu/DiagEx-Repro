@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.light-water-station
+version: 2
+concept: Light Water Station
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Light Water Station
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Light Water Station’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Light Water Station
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Light Water Station’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Light Water Station
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Light Water Station
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.light-water-station.png
+  sha256: 3ae22d62ce13221a019bdbf8a1cfbcd8c11687c98a4684dd85d80916eed38a2e
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Light-Water-Station-PID-Symbol--150x150.DQP0UTBX_ZAskTD.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 7a962436979f8f633052fd7bbde021029a46d19fc6439e954613fc2c1532e3a1
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

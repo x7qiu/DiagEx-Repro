@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.3-23
+version: 1
+concept: 疏水阀 / Steam trap
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 疏水阀
+  interpretation: '疏水阀 / Steam trap. Defined by SH/T 3101:2017, Table 4.3, item 23. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 疏水阀
+- Steam trap
+reference_type: symbol
+kind: definition
+explanation: '疏水阀 / Steam trap. Defined by SH/T 3101:2017, Table 4.3, item 23. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 疏水阀
+- Steam trap
+- valves_actuators
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '8'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.3-23/context.png
+  document_id: sht-3101-2017
+  pdf_page: 12
+  table: '4.3'
+  item: '23'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.3-23/context.png
+  sha256: e2821f20d04fa73e0de3e4b820c6d16125d8f937fe09691d5a16ea8a880832d6
+  width: 911
+  height: 96
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '23'
+    rect:
+    - 123.0
+    - 1445.0
+    - 1034.0
+    - 1541.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.3-23/primary.png
+  sha256: b981a7c8105cb96a80e804671fec0ec96d8dbc65af6cad63aba62e2f5f8e2fcc
+  width: 197
+  height: 59
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '23'
+    rect:
+    - 501.0
+    - 1453.0
+    - 698.0
+    - 1512.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.3-23/variants.png
+  sha256: db38d78a831906adfc65fdeb58dc280ef81fb15bf2947d92b74188aa3277f071
+  width: 221
+  height: 109
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

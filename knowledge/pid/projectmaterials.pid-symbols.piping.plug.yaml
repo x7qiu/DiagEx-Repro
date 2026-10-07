@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.piping.plug
+version: 2
+concept: Plug
+catalog:
+  role: catalog
+  category: piping
+  short_name: Plug
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Plug’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Plug
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Plug’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Plug
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#piping-pid-symbols
+  section: Piping P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Plug
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.piping.plug.png
+  sha256: 02d94d4234940dc05a2ba20eaaffbeac77a941cab8303f2df28048f26ac885bd
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/PLUG-PID-SYMBOL-150x150.NlSHZjJ-_Z2g6U2k.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: ae1ee182b0610836fcc6b3948ffd28a7c72f44969d63c1afb881ff1103940aba
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

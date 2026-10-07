@@ -1,0 +1,120 @@
+id: isa-5.1-2009.clause-5.3.2
+version: 2
+concept: 5.3.2 — Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 — Measurement symbols
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: informative
+explanation: '5.3.2 Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 — Measurement symbols
+
+  (1) Measurements are depicted by:
+
+  (a) Bubbles only.
+
+  (b) Bubbles and graphics.
+
+  (2) These symbols shall be used for process or equipment measurements if:
+
+  (a) A graphic symbol does not exist.
+
+  (b) The user does not use graphic symbols.
+
+  (3) Transmitter [T] may be controller [C], indicator [I], recorder [R], or switch
+  [S].
+
+  (4) User engineering and design standards, practices, and/or guidelines shall document
+  which
+
+  choices are selected.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 — Measurement symbols
+- 5.3.2
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '33'
+  pdf_page: 33
+  table: null
+  item: null
+  passage: Clause 5.3.2
+  image: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+assets:
+- id: clause-5.3.2-p33
+  role: context
+  label: Clause 5.3.2, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  sha256: d2f5ace70e1c2b4cd4aad60f721e55f09798bdc8204c96571e3303a71de825df
+  width: 2010
+  height: 930
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 397.1707
+    - 547.0
+    - 620.1298
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-33
+  role: context
+  label: Complete technical content on page 33
+  path: illustrations/isa-5.1-2009/complete/page-33.png
+  sha256: 166f3a571205f89ea2f32cc4805bdfd18242cb649d26067980aae1af4d9cfc84
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: supporting
+  short_name: Measurement element notation
+  interpretation: Measurements may use bubbles alone or bubbles with graphics. Bubble
+    notation is used when a graphic is unavailable or the project does not use graphics.
+    The transmitter function T in examples may instead be controller C, indicator
+    I, recorder R, or switch S as supported by the drawing. The project documents
+    its selected conventions. A depicted transmitter and primary element may be multiple
+    components, not one object bounding box.

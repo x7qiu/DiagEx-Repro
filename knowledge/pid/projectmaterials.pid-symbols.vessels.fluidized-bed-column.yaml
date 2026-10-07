@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.fluidized-bed-column
+version: 2
+concept: Fluidized Bed Column
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Fluidized Bed Column
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Fluidized Bed Column’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Fluidized Bed Column
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Fluidized Bed Column’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Fluidized Bed Column
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Fluidized Bed Column
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.fluidized-bed-column.png
+  sha256: 39990a73a13a73cdc8eeb6e96b85e0ae842a001290d6af93c238e2512fde2860
+  width: 26
+  height: 66
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/fluidized_bed_column.DvXZwIdi_Z1JgbI1.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 0ab2a9c72d639f83fbd469d36376fbcc0aeee1b321afdf3f89377402e43fd111
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

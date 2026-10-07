@@ -1,0 +1,482 @@
+id: isa-5.1-2009.ta.2-p102
+version: 2
+concept: Table A.2 — Allowable letter/number combinations for loop numbering schemes
+  (page 102)
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: informative
+explanation: Allowable letter/number combinations for loop numbering schemes. Use
+  the source table with its column headings and linked explanatory notes. Blank or
+  merged cells must not be interpreted as new definitions.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+- The printed heading points to clause A.16.3, while clause A.16.2 explicitly discusses
+  Table A.2. Both references are retained.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- text_assignment
+- symbol_interpretation
+- review
+tags:
+- Allowable letter/number combinations for loop numbering schemes
+- A.2
+- identification
+- tag
+- letters
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '102'
+  pdf_page: 102
+  table: A.2
+  item: null
+  passage: "               Table A.2 — Allowable letter/number combinations for loop\
+    \ numbering schemes\n\n\nNote: Numbers in parentheses refer to explanatory notes\
+    \ in Clause A.16.3.\n               First Letters (1)            Scheme 1   Scheme\
+    \ 2   Scheme 3   Scheme 4   Scheme 5   Scheme 6        Scheme 7             Scheme\
+    \ 8             Scheme 9\n                                                   \
+    \           Parallel (2)                                 Serial (2)          \
+    \         Parallel (2)    Serial (2)    Parallel (2)    Serial (2)    Parallel\
+    \ (2)    Serial (2)\n       Measured/Initiating Variables         Meas / Init\
+    \ Variable                 Meas / Init Variable                              \
+    \ Measured/Initiating Variable                                               \
+    \                               First Letters                                First\
+    \ Letters                                                                    \
+    \  First Letters\n        w/ and w/o Modifiers (4b)          w/o Mod.     w/Mod.\
+    \                 w/o Mod.     w/Mod.                     w/o Modifiers      \
+    \        w/Modifiers\n ZDY        Position Difference Y Axis                 \
+    \  ZDY-*11     ZDY-*01                 ZDY-*87     ZDY-*87                   \
+    \                      ZDY-*63                 ZDY-*63\n  ZDZ        Position\
+    \ Difference Z Axis                   ZDZ-*12     ZDZ-*01                 ZDZ-*88\
+    \     ZDZ-*88                                         ZDZ-*64                \
+    \ ZDZ-*64"
+  image: illustrations/isa-5.1-2009/complete/page-102.png
+assets:
+- id: page-102
+  role: context
+  label: Complete technical content on page 102
+  path: illustrations/isa-5.1-2009/complete/page-102.png
+  sha256: f80c1d3ee53a21652c581cb8c2881d135d2ab4a1d07e90c47bb37b37b147470d
+  width: 2800
+  height: 2030
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 102
+    printed_page: '102'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 547.0
+    - 732.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 90
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.2-p96
+  role: note
+  label: Clause A.16.2, page 96
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.2-p96.png
+  sha256: 954467bb26c07d187cda76ab062fc2f1daa7661782dde7e0e320f40707eb1b4c
+  width: 2010
+  height: 1859
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 96
+    printed_page: '96'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 281.1911
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.2-p97
+  role: note
+  label: Clause A.16.2, page 97
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.2-p97.png
+  sha256: 8ca6c40542ff87c1204f154668d28c90032903c332558aa37dfda8e42747db9d
+  width: 2010
+  height: 147
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 97
+    printed_page: '97'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 105.1516
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p97
+  role: note
+  label: Clause A.16.3, page 97
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  sha256: b7ec4cfea46cb1b9444d0b4ffb603531b7529d52c9089278a2196523f43c1730
+  width: 2010
+  height: 2592
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 97
+    printed_page: '97'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 105.1516
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p98
+  role: note
+  label: Clause A.16.3, page 98
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p98.png
+  sha256: 0cd9d653b9062fc95e4155ae84249a1f0aeb22953a24b928162727a860100442
+  width: 2010
+  height: 195
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 98
+    printed_page: '98'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 116.6716
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 96, 97
+    pdf_page: 96
+    table: null
+    item: null
+    passage: Clause A.16.2
+    image: illustrations/isa-5.1-2009/complete/clause-a.16.2-p96.png
+  explanation: 'A.16.2 Table A.2 — Allowable letter/number combinations for loop numbering
+    schemes.
+
+    (1) First Letters do not include all possibilities.
+
+    (2) Replace asterisk in Loop Number with any digit from 0 to 9 or any combination
+    of numerals.
+
+    (3) Variable Modifier safety instrumented system [Z] is technically not a direct-measured
+    variable but
+
+    is used to identify loops in a Safety Instrumented System. And because of the
+    critical nature of
+
+    such loops, any Measured/Initiating Variable followed by [Z], such as [FZ], [PZ],
+    and [TZ], should
+
+    be considered as Measured/ Initiating Variables in all Loop Identification Number
+    construction
+
+    schemes
+
+    (a) An alternate method for identifying Safety Instrumented System loops is to
+    append [(SIS)]
+
+    outside the bubbles of Safety Instrumented System loops and as a prefix or suffix
+    to the Loop
+
+    Number when used in text. For example, Loop Numbers for pressure and temperature
+    loops in an
+
+    SIS may be [(SIS)PZ-*01] or [TZ-*09(SIS)].
+
+    (4) Users should assign, as needed, meanings to:
+
+    (a) Users Choice Measured/Initiating Variable letters [C], [D], [G], [M], [N],
+    and [O].
+
+    (b) Variable Modifier letter blanks [A], [B], [C], [E], [G], [H], [I], [L], [M],
+    [N], [O], [P], [R], [T],
+
+    [U], [V], and [W].
+
+    (5) Variable Modifier safety [S] is technically not a direct-measured variable
+    but is used to identify
+
+    self-actuated emergency protective primary and final control elements only when
+    used in
+
+    conjunction with Measured/Initiating Variables flow [F], pressure [P] or temperature
+    [T]. And
+
+    because of the critical nature of such devices, [FS], [PS], and [TS] should be
+    considered as
+
+    Measured/ Initiating Variables in all Loop Identification Number construction
+    schemes:
+
+    (a) Shall not be used to identify Safety Instrumented Systems and components.
+
+    (6) Measured/Initiating Variables [V], [W], or [Z] when used in a Safety Instrumented
+    System and:
+
+    (a) Not axially oriented should use [VZ], [WZ], and [ZZ] as Measured/Initiating
+    Variables.
+
+    (b) Axially oriented should use [VZX], [VZY], [VZZ], and [WZX], [WZY], [WZZ] and
+    [ZZX],
+
+    [ZZY], [ZZZ] as Measured/Initiating Variables.'
+  asset_id: clause-a.16.2-p96
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 97, 98
+    pdf_page: 97
+    table: null
+    item: null
+    passage: Clause A.16.3
+    image: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  explanation: 'A.16.3 Tables A.3.1 and A.3.2 — Allowable succeeding letter combinations
+    for readout/passive and
+
+    output/active function letters and first-letters.
+
+    (1) Cells marked NA indicate not allowable combinations.
+
+    (2) First Letters are assigned according to Table A.2.
+
+    (3) Function Modifiers are added where indicated to right of alarm function combinations.
+
+    (4) Users should assign, as needed, meanings to:
+
+    (a) Users Choice Function letters [B] and [N].
+
+    (b) Readout/Passive Function blanks [C], [D], [F], [H], [J], [K], [M], [S], [T],
+    [V], [Y], and [Z].
+
+    (c) Output/Active Function blanks [A], [D], [E], [F], [G], [H], [I], [J], [L],
+    [M], [O], [P], [Q], [R],
+
+    and [W].
+
+    (d) Function Modifier blanks [A], [E], [F], [G], [I], [J], [K], [P], [Q], [T],
+    [U], [V], [W], [Y], and [Z].
+
+    (5) Readout/Passive Function [G] (glass, gauge) is used for local direct connected
+    devices, such as
+
+    flow sight glasses, level glasses, pressure gauges, thermometers weigh scales
+    and position
+
+    indicators. These devices provide a simple view of a process condition.
+
+    (a) Readout/Passive Function [I] (indicate) may continue to be used in facilities
+    where it is
+
+    currently used.
+
+    (6) Pressure rupture disc [PSE] and fusible link [TSE] apply to all sensors or
+    primary elements
+
+    intended to protect against emergency pressure or temperature conditions.
+
+    (7) The combinations in the [C] column are used for:
+
+    (a) Discrete single case instruments that do not have operator-visible indication
+    of measured
+
+    variable, setpoint, or output signal.
+
+    (b) Controller functions configured in shared display, shared control systems
+    where
+
+    indication and recording are configurable functions available on demand.
+
+    (8) The combinations in the [IC] and [RC] columns indicate the order to be followed
+    in forming the
+
+    Functional Identification of a controller device or function that also provides
+    indication or
+
+    recording.
+
+    (9) The combinations in the [CV] column indicate the order to be followed in forming
+    the Functional
+
+    Identification for self-actuated control valves.
+
+    (10) Flow safety valve [FSV] applies to valves intended to protect against an
+    emergency excess flow
+
+    or loss of flow condition. Pressure safety valve [PSV], and temperature safety
+    valve [TSV] apply
+
+    to valves intended to protect against emergency pressure and temperature conditions
+
+    (11) A self-actuated pressure valve that prevents operation of a fluid system
+    at a higher-than-desired
+
+    pressure by bleeding fluid from the system is a backpressure control valve [PCV],
+    even if the
+
+    valve is not normally used.
+
+    (a) This valve should be designated a pressure safety valve [PSV] if it protects
+    against
+
+    emergency conditions hazardous to personnel and/or equipment that are not expected
+    to arise
+
+    normally.'
+  asset_id: clause-a.16.2-p96
+text_slots: []
+interpretation:
+- Table cells are source transcriptions; retain headers and merged-cell context when
+  interpreting them. Use the image to resolve superscripts or extraction ambiguity.
+- Example tags and numbering schemes illustrate conventions; never copy them as actual
+  drawing identifiers.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-a.16.2
+  explanation: 'Explanatory notes for Table A.2: clause A.16.2.'
+- relation: related
+  reference_id: isa-5.1-2009.clause-a.16.3
+  explanation: 'Explanatory notes for Table A.2: clause A.16.3.'
+table_data:
+- - - 'First Letters (1)
+
+      Measured/Initiating Variables
+
+      w/ and w/o Modifiers (4b)'
+    - null
+    - Scheme 1
+    - Scheme 2
+    - Scheme 3
+    - Scheme 4
+    - Scheme 5
+    - Scheme 6
+    - Scheme 7
+    - null
+    - Scheme 8
+    - null
+    - Scheme 9
+    - null
+  - - null
+    - null
+    - Parallel (2)
+    - null
+    - null
+    - Serial (2)
+    - null
+    - null
+    - Parallel (2)
+    - Serial (2)
+    - Parallel (2)
+    - Serial (2)
+    - Parallel (2)
+    - Serial (2)
+  - - null
+    - null
+    - Meas / Init Variable
+    - null
+    - First Letters
+    - Meas / Init Variable
+    - null
+    - First Letters
+    - Measured/Initiating Variable
+    - null
+    - null
+    - null
+    - 'First Letters
+
+      ZDY-*63
+
+      ZDZ-*64'
+    - null
+  - - null
+    - null
+    - w/o Mod.
+    - w/Mod.
+    - null
+    - w/o Mod.
+    - w/Mod.
+    - null
+    - w/o Modifiers
+    - null
+    - w/Modifiers
+    - null
+    - null
+    - null
+  - - ZDY
+    - Position Difference Y Axis
+    - ''
+    - 'ZDY-*11
+
+      ZDZ-*12'
+    - ZDY-*01
+    - ''
+    - ZDY-*87
+    - ZDY-*87
+    - ''
+    - ''
+    - ''
+    - ZDY-*63
+    - null
+    - ZDY-*63
+  - - ZDZ
+    - Position Difference Z Axis
+    - null
+    - null
+    - ZDZ-*01
+    - null
+    - ZDZ-*88
+    - ZDZ-*88
+    - null
+    - null
+    - null
+    - ZDZ-*64
+    - null
+    - ZDZ-*64
+catalog:
+  role: background

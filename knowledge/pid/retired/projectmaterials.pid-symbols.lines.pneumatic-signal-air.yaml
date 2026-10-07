@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.lines.pneumatic-signal-air
+version: 1
+concept: Pneumatic Signal (Air)
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: Pneumatic Signal (Air)
+  interpretation: Projectmaterials labels this illustration ‘Pneumatic Signal (Air)’
+    (Lines P&ID Symbols).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Pneumatic Signal Air
+reference_type: line_style
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Pneumatic Signal (Air)’ (Lines
+  P&ID Symbols).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+- line_interpretation
+tags:
+- Lines P&ID Symbols
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Pneumatic Signal (Air)
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#lines-pid-symbols
+  section: Lines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Pneumatic Signal (Air)
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.lines.pneumatic-signal-air.png
+  sha256: d3414f675d635eb41cf569eb62478e2c1203ef441c53ba0bf93eb69a8a5fbf15
+  width: 150
+  height: 60
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/PNEUMATIC-SIGNAL-PID-SYMBOL-air-150x60.F-NzLpgF_25eUaz.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 786d911975f40fd0d70a9372d7148ba089f9e8e880dc740f451a3e008a223554
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

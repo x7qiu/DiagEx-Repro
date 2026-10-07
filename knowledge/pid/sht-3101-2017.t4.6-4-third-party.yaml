@@ -1,0 +1,133 @@
+id: sht-3101-2017.t4.6-4-third-party
+version: 1
+concept: '第三方控制系统：现场控制盘面显示 / Third-party control system: local control-panel/console/display'
+catalog:
+  role: catalog
+  category: instruments
+  short_name: 第三方控制系统：现场控制盘面显示
+  interpretation: Third-party control system, local control-panel/console/display. These SH/T families
+    distinguish DCS, SIS, third-party systems and individual instruments; do not substitute ISA primary/alternate-control
+    meanings.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids:
+  - sht-3101-2017.instrument-markings
+  - sht-3101-2017.letter-rules
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 第三方控制系统：现场控制盘面显示
+- 'Third-party control system: local control-panel/console/display'
+reference_type: symbol
+kind: definition
+explanation: Third-party control system, local control-panel/console/display. These SH/T families distinguish
+  DCS, SIS, third-party systems and individual instruments; do not substitute ISA primary/alternate-control
+  meanings.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 第三方控制系统：现场控制盘面显示
+- 'Third-party control system: local control-panel/console/display'
+- instruments
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '12'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.6-4-third-party/context.png
+  document_id: sht-3101-2017
+  pdf_page: 16
+  table: '4.6'
+  item: 4-third-party
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.6-4-third-party/context.png
+  sha256: 1bfb9eff9f47f987c5e2772a51e9032b6c851a4c3fa3604a82d31aff5e4a19bc
+  width: 912
+  height: 180
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 16
+    printed_page: '12'
+    table: '4.6'
+    item: 4-third-party
+    rect:
+    - 139.0
+    - 881.0
+    - 1051.0
+    - 1061.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Third-party control system
+  path: illustrations/sht-3101-2017/t4.6-4-third-party/primary.png
+  sha256: fe188c6c4d17429955c280a2a3c8f9d366b7287a3db32139dd219aace6bf1a6b
+  width: 132
+  height: 105
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 16
+    printed_page: '12'
+    table: '4.6'
+    item: 4-third-party
+    rect:
+    - 522.0
+    - 925.0
+    - 654.0
+    - 1030.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.6-4-third-party/variants.png
+  sha256: 75c0e8f6a61443e45b56773ccfa489b7cbddc6b73f7b965f6c32983042e473b4
+  width: 220
+  height: 155
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots:
+- role: control_system_type
+  example_marker: '***'
+  location: upper right outside the frame
+  meaning: Placeholder for the third-party system type, such as PLC, FGS (GDS), CCS, MMS or SCADA; not
+    a tag or three-star geometry.
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

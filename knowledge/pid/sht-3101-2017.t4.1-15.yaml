@@ -1,0 +1,149 @@
+id: sht-3101-2017.t4.1-15
+version: 1
+concept: 装置内图纸连接符 / Continuation arrow within unit
+catalog:
+  role: catalog
+  category: connectors
+  short_name: 装置内图纸连接符
+  interpretation: 装置内图纸连接符 / Continuation arrow within unit. Defined by SH/T 3101:2017, Table 4.1, item
+    15. This is process-piping continuation within a unit. Match actual drawing references and line evidence
+    before establishing cross-sheet connectivity.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 装置内图纸连接符
+- Continuation arrow within unit
+reference_type: symbol
+kind: definition
+explanation: 装置内图纸连接符 / Continuation arrow within unit. Defined by SH/T 3101:2017, Table 4.1, item 15.
+  This is process-piping continuation within a unit. Match actual drawing references and line evidence
+  before establishing cross-sheet connectivity.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 装置内图纸连接符
+- Continuation arrow within unit
+- connectors
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '3'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.1-15/context.png
+  document_id: sht-3101-2017
+  pdf_page: 7
+  table: '4.1'
+  item: '15'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.1-15/context.png
+  sha256: e2eb96d1e6548879f11dee1d78d4e2102e98dcddbf35ede6b6d50a4d96edf0ac
+  width: 908
+  height: 112
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 7
+    printed_page: '3'
+    table: '4.1'
+    item: '15'
+    rect:
+    - 158.0
+    - 470.0
+    - 1066.0
+    - 582.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.1-15/primary.png
+  sha256: de9bf888fa636ad3fe6ac24eb033798023722a53c93dfeab91a53f9ab0a7d18e
+  width: 193
+  height: 69
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 7
+    printed_page: '3'
+    table: '4.1'
+    item: '15'
+    rect:
+    - 594.0
+    - 478.0
+    - 787.0
+    - 547.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.1-15/variants.png
+  sha256: 14e218000dbb378c2c174a4b568fb34eb6dd38859be058d49aa604e8c91f2eaa
+  width: 220
+  height: 119
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '3'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 7
+    table: '4.1'
+    item: '15'
+  explanation: This is process-piping continuation within a unit. Match actual drawing references and
+    line evidence before establishing cross-sheet connectivity.
+  asset_id: context
+text_slots:
+- role: drawing_reference
+  example_marker: T1
+  location: arrow compartment
+  meaning: Drawing number of the continuation.
+- role: drawing_location
+  example_marker: T2
+  location: rear compartment
+  meaning: Drawing coordinate or other connection-location identifier; this field is optional.
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- This is process-piping continuation within a unit. Match actual drawing references and line evidence
+  before establishing cross-sheet connectivity.
+relations: []

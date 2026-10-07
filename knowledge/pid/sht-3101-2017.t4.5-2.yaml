@@ -1,0 +1,176 @@
+id: sht-3101-2017.t4.5-2
+version: 1
+concept: 气动信号 / Pneumatic signal
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: 气动信号
+  interpretation: 气动信号 / Pneumatic signal. Defined by SH/T 3101:2017, Table 4.5, item 2. An arrow may
+    be added to indicate signal direction. This signal convention does not imply a process-fluid connection.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 气动信号
+- Pneumatic signal
+reference_type: line_style
+kind: definition
+explanation: 气动信号 / Pneumatic signal. Defined by SH/T 3101:2017, Table 4.5, item 2. An arrow may be added
+  to indicate signal direction. This signal convention does not imply a process-fluid connection.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 气动信号
+- Pneumatic signal
+- lines_signals
+- line_style
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '11'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.5-2/context.png
+  document_id: sht-3101-2017
+  pdf_page: 15
+  table: '4.5'
+  item: '2'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.5-2/context.png
+  sha256: 6c8249a6118e00a7d4942ec5f02dfe93ee17668e0df0ff367bac6a1b70a645ed
+  width: 910
+  height: 60
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 15
+    printed_page: '11'
+    table: '4.5'
+    item: '2'
+    rect:
+    - 158.0
+    - 976.0
+    - 1068.0
+    - 1036.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.5-2/primary.png
+  sha256: 10433cb38ea065d258020e286b1704d791e29964ff23dc564582e6b3fca8adaf
+  width: 186
+  height: 37
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 15
+    printed_page: '11'
+    table: '4.5'
+    item: '2'
+    rect:
+    - 526.0
+    - 993.0
+    - 712.0
+    - 1030.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.5-2/variants.png
+  sha256: f090327b3e14763b3a9992d5debc7fa2f8c1186fa815c2b32ad702e801c2a9d5
+  width: 220
+  height: 87
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+- id: table-note
+  role: note
+  label: Table footnote
+  path: illustrations/sht-3101-2017/t4.5-2/table-note.png
+  sha256: 74b487a30ac8f397a7b93062e0c60cdd2514e008fa7e5ab2fe919e7a1c88172a
+  width: 902
+  height: 31
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 15
+    printed_page: '11'
+    table: '4.5'
+    rect:
+    - 162.0
+    - 1508.0
+    - 1064.0
+    - 1539.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '11'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 15
+    table: '4.5'
+    item: '2'
+  explanation: An arrow may be added to indicate signal direction. This signal convention does not imply
+    a process-fluid connection.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '11'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 15
+    table: '4.5'
+  explanation: An arrow may be added to indicate signal direction. This signal convention does not imply
+    a process-fluid connection.
+  asset_id: table-note
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- An arrow may be added to indicate signal direction. This signal convention does not imply a process-fluid
+  connection.
+relations: []

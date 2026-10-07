@@ -1,0 +1,230 @@
+id: isa-5.1-2009.clause-b.10
+version: 2
+concept: B.10 — Function block symbols
+aliases: []
+reference_type: assembly_pattern
+kind: possible_arrangement
+curation: source_transcribed
+source_status: informative
+explanation: 'B.10 Function block symbols
+
+  B.10.1 Signal processing functions should be identified by a function block symbol
+  from Table 7.6 that is:
+
+  a) Appended to a bubble if an Instrument/Tag Number is required:
+
+  Σ
+
+  FY
+
+  *012
+
+  b) Attached tangentially to the affected bubble and in line with the signal if the
+  function is an
+
+  integral part of the affected bubble:
+
+  FI
+
+  Σ
+
+  *012
+
+  B.10.2 An example of a common application is the calculation of mass flow with an
+  orifice plate primary
+
+  element:
+
+  a) Separate devices or functions that require separate bubbles and tag numbers:
+
+  FT PT TT
+
+  *01 *01 *01
+
+  ÷
+
+  X
+
+  √⎯
+
+  FY FY FY FI
+
+  *01-C *01-B *01-A *01
+
+  b) Separate devices or application software functions that do not require separate
+  bubbles
+
+  or tag numbers for each function:
+
+  TT
+
+  *01
+
+  FI
+
+  PT ÷
+
+  X
+
+  √⎯
+
+  *01
+
+  *01
+
+  FT
+
+  *01
+
+  c) Integral devices or application software functions that do not require separate
+  bubbles or
+
+  tag numbers for each function:
+
+  TT
+
+  *01
+
+  FI PT FT
+
+  *01 *01 *01
+
+  MASS
+
+  FLOW'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Function block symbols
+- B.10
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 120, 121
+  pdf_page: 120
+  table: null
+  item: null
+  passage: Clause B.10
+  image: illustrations/isa-5.1-2009/complete/clause-b.10-p120.png
+assets:
+- id: clause-b.10-p120
+  role: context
+  label: Clause B.10, page 120
+  path: illustrations/isa-5.1-2009/complete/clause-b.10-p120.png
+  sha256: bb57a5ddb3f276ed0e086c161ed83392b5c6c3b74880103054f33520a79d0c32
+  width: 2010
+  height: 1204
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 120
+    printed_page: '120'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 438.3315
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-120
+  role: context
+  label: Complete technical content on page 120
+  path: illustrations/isa-5.1-2009/complete/page-120.png
+  sha256: c0bf88c2982dc39d32ed083292c6061515c0cac991bb12bcdc5ee8a1250b7e9d
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 120
+    printed_page: '120'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.10-p121
+  role: context
+  label: Clause B.10, page 121
+  path: illustrations/isa-5.1-2009/complete/clause-b.10-p121.png
+  sha256: 5d0a29eeeaea50f0d65cd5260989b39da96444f22b48625e2014277ef83b63d4
+  width: 2010
+  height: 1839
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 121
+    printed_page: '121'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 511.4117
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-121
+  role: context
+  label: Complete technical content on page 121
+  path: illustrations/isa-5.1-2009/complete/page-121.png
+  sha256: 77dab1572940ed3beeb9ca410f9074efab1651fa37a23f7b6b23e418b704f6c6
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 121
+    printed_page: '121'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

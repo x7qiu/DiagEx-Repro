@@ -1,0 +1,282 @@
+id: isa-5.1-2009.t5.4.1-4
+version: 3
+concept: Generic four-way valve
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Generic four-way valve. • Four-way four-ported plug or ball valve.
+  • Arrows indicates failure or unactuated flow paths.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Final control element symbols
+- 5.4.1
+- Generic four-way valve
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '48'
+  pdf_page: 48
+  table: 5.4.1
+  item: '4'
+  passage: 'Table 5.4.1, item 4: • Generic four-way valve. • Four-way four-ported
+    plug or ball valve. • Arrows indicates failure or unactuated flow paths.'
+  image: illustrations/isa-5.1-2009/complete/t5.4.1-4-context.png
+assets:
+- id: t5.4.1-4-context
+  role: context
+  label: 'Complete row: Table 5.4.1, item 4'
+  path: illustrations/isa-5.1-2009/complete/t5.4.1-4-context.png
+  sha256: 8f818aecdbcdc6e0a89ba20d0f462f552303305c17d19364048be9beb6f34af2
+  width: 1960
+  height: 179
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 48
+    printed_page: '48'
+    table: 5.4.1
+    item: '4'
+    rect:
+    - 70.992
+    - 259.76
+    - 541.008
+    - 302.56
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-48
+  role: context
+  label: Complete technical content on page 48
+  path: illustrations/isa-5.1-2009/complete/page-48.png
+  sha256: c0bc49b8c0404c44ebcd2abd1eba90f975ddd06cf05e08a61c7849c340fa0cd0
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 48
+    printed_page: '48'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.4.1-4-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.4.1-4-panel-1.png
+  sha256: c69c5ee0c805206714dcc4143eeb58debcef0fbfaea7305c16a23374475fc77f
+  width: 444
+  height: 165
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 48
+    printed_page: '48'
+    table: 5.4.1
+    item: '4'
+    rect:
+    - 108.8
+    - 261.56
+    - 215.2
+    - 300.76
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.4-p34
+  role: note
+  label: Clause 5.3.4, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  sha256: 22398fd3ece7505715c4362491d0de8902648bfba29cb21750251ccb42c738ab
+  width: 2010
+  height: 1461
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 326.671
+    - 547.0
+    - 677.1295
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.4.1-4-variants.png
+  sha256: ed2c4823d4b4ee9115b09dae6bd99d954414bf23a8044aa61295e07fd4b136cf
+  width: 1000
+  height: 230
+  derived_from:
+  - t5.4.1-4-panel-1
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.4.1-4-panel-1
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.1-4.catalog-t5.4.1-4-panel-1.png
+  sha256: 117a42c30303d4bf5d3c0bb1e6a5cbb36f1c760a291236944707b093fd794f07
+  width: 324
+  height: 153
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 48
+    printed_page: '48'
+    table: 5.4.1
+    item: '4'
+    rect:
+    - 123.11999999999999
+    - 262.08
+    - 200.88
+    - 298.79999999999995
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations:
+    - text: (2)
+      rect:
+      - 110.159912109375
+      - 264.0684509277344
+      - 119.88593292236328
+      - 272.0484313964844
+      reason: source_note_reference
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.1-4.sheet.png
+  sha256: a2c7b7269d264df10322d01bb280775765339ccd49686cdf9f2ff07750ca61ef
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.4.1-4-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '34'
+    pdf_page: 34
+    table: null
+    item: null
+    passage: Clause 5.3.4
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  explanation: '5.3.4 Tables 5.4.1, 5.4.2, 5.4.3 and 5.4.4 — Final control element
+    symbols:
+
+    (1) Users engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    symbols have been selected.
+
+    (2) Element symbols 1 through 14, when combined with actuator symbols 1 through
+    16, represent
+
+    process control valves.
+
+    (3) Element symbol 2, when combined with actuator symbols 20 and 21, represent
+    pressure safety
+
+    valves.
+
+    (4) Element symbols 15 through 19, when combined with actuator symbols 13, 14,
+    and 15, represent
+
+    on-off solenoid valves.
+
+    (5) Element symbol 21, when combined with actuator symbols 1 through 16, represents
+    a variable
+
+    speed control unit.
+
+    (6) Element symbol 21 represents a motor that manipulates or controls a process
+    variable.
+
+    (7) Actuator symbols 1 through 16, when combined with element symbols 1 through
+    14, represent
+
+    process control valves and with element symbol 21 represents a variable speed
+    control unit.
+
+    (8) Actuator symbols 17, 18, and 19, when combined with element symbols 15 through
+    19, represent
+
+    on-off solenoid valves.
+
+    (9) Actuator symbols 20 and 21, when combined with element symbol 2, represent
+    pressure safety
+
+    valves.
+
+    (10) The symbols are applicable to all types of control valves and actuators.'
+  asset_id: clause-5.3.4-p34
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.4
+  explanation: 'Explanatory notes for Table 5.4.1: clause 5.3.4.'
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Generic four-way valve
+  interpretation: Generic four-way valve. Four-way four-ported plug or ball valve.
+    Arrows indicates failure or unactuated flow paths.
+  displayed_asset_ids:
+  - catalog-t5.4.1-4-panel-1
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.4

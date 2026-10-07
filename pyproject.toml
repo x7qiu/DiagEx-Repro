@@ -67,3 +67,6 @@ testpaths = ["tests"]
 addopts = "-q"
 # Make eval/ importable from tests/unit/test_eval_*.py without a PYTHONPATH dance.
 pythonpath = ["."]
+
+[tool.hatch.build.targets.wheel.force-include]
+"knowledge/pid" = "diagex/knowledge/pid"

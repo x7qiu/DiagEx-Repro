@@ -1,0 +1,203 @@
+id: isa-5.1-2009.t5.8-15
+version: 2
+concept: Flow switch actuator
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Flow switch actuator.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Electrical schematic symbols
+- '5.8'
+- Flow switch actuator
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '73'
+  pdf_page: 73
+  table: '5.8'
+  item: '15'
+  passage: 'Table 5.8, item 15: • Flow switch actuator.'
+  image: illustrations/isa-5.1-2009/complete/t5.8-15-context.png
+assets:
+- id: t5.8-15-context
+  role: context
+  label: 'Complete row: Table 5.8, item 15'
+  path: illustrations/isa-5.1-2009/complete/t5.8-15-context.png
+  sha256: f0ef7e492d182b55028594c530b436c353bfbf54f2773dc152f6c0ace9cb6bc5
+  width: 1960
+  height: 243
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 73
+    printed_page: '73'
+    table: '5.8'
+    item: '15'
+    rect:
+    - 70.9891
+    - 350.18
+    - 541.0109
+    - 408.34
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-73
+  role: context
+  label: Complete technical content on page 73
+  path: illustrations/isa-5.1-2009/complete/page-73.png
+  sha256: 80852deb3bc70fb5640ae9f8a9be343060e52a2185310148672d55570e6d8baa
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 73
+    printed_page: '73'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.8-15-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.8-15-panel-1.png
+  sha256: 30f00a6f173cfa72d8d54719693ded2757ef15c540a8c8a69a3cce0cc88a9f3d
+  width: 444
+  height: 228
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 73
+    printed_page: '73'
+    table: '5.8'
+    item: '15'
+    rect:
+    - 108.8
+    - 351.98
+    - 215.2
+    - 406.54
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.8-p35
+  role: note
+  label: Clause 5.3.8, page 35
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.8-p35.png
+  sha256: 7b409c88ca929c3ff4708ec70452d637a3821e022a8fc5609421e057f842448f
+  width: 2010
+  height: 1565
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 35
+    printed_page: '35'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 351.6307
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.8-15-variants.png
+  sha256: 41d96accbc1800a2ff7d95d909aa275827164d63c2220d24ca1e9f131e7801b3
+  width: 1000
+  height: 293
+  derived_from:
+  - t5.8-15-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '35'
+    pdf_page: 35
+    table: null
+    item: null
+    passage: Clause 5.3.8
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.8-p35.png
+  explanation: '5.3.8 Table 5 8 — Electrical schematic symbols
+
+    (1) All devices are shown in the unactuated or de-energized condition.
+
+    (2) Switch contacts 2, 3, and 4 shall be actuated by:
+
+    (a) Hand.
+
+    (b) Actuator symbols 5 and 6.
+
+    (3) Actuator symbols 5 and 6 shall actuate switch symbols 2, 3, and 4.
+
+    (4) Switch symbols 7, 8, and 9.shall be actuated by:
+
+    (a) Hand.
+
+    (b) Actuator symbols 11 through 16.
+
+    (c) Bubble symbol for device or function assigned to actuate the switch symbol.
+
+    (5) Actuator symbols 11 through 16 shall actuate switch symbols 7, 8, and 9.
+
+    (6) Users engineering and design standards, practices and/or guidelines shall
+    document which
+
+    symbol has been selected.'
+  asset_id: clause-5.3.8-p35
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.8
+  explanation: 'Explanatory notes for Table 5.8: clause 5.3.8.'
+catalog:
+  role: background

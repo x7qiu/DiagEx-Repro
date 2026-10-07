@@ -168,14 +168,12 @@ def run_pid_evidence_inspection(
     cost_summary["retries"] = client.retries_total
     source_hash = _sha256_file(diagram)
 
-    from diagex.extractors.legend_review import write_abbreviation_review
-
-    abbreviation_json, abbreviation_review = write_abbreviation_review(
-        run_dir=run_dir,
-        source=source,
-        inventory=abbreviation_inventory,
-        source_hash=source_hash,
-    )
+    abbreviation_json = run_dir / "legend.abbreviations.json"
+    atomic_write_json(abbreviation_json, {
+        "schema_version": "1.0.0", "source_sha256": source_hash,
+        "summary": abbreviation_inventory.summary, "sections": abbreviation_inventory.sections,
+        "rows": [row.model_dump(mode="json") for row in abbreviation_inventory.rows],
+    })
     elapsed_s = round(time.perf_counter() - started, 3)
 
     atomic_write_text(run_dir / "legend.json", legend_pack.model_dump_json(indent=2))
@@ -246,7 +244,6 @@ def run_pid_evidence_inspection(
             "merged_entry_count": len(legend_pack.entries),
             "abbreviation_inventory": abbreviation_inventory.summary,
             "abbreviation_json": abbreviation_json.name,
-            "abbreviation_review": abbreviation_review.name,
             "native_text_inventory": inventory.summary,
             "model": vision_model,
             "cost": cost_summary,

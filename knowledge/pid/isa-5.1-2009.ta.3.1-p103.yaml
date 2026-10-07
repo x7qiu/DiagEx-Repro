@@ -1,0 +1,1182 @@
+id: isa-5.1-2009.ta.3.1-p103
+version: 2
+concept: Table A.3.1 — Allowable succeeding letter combinations for readout/passive
+  functions (1) (4b) (page 103)
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: informative
+explanation: Allowable succeeding letter combinations for readout/passive functions
+  (1) (4b). Use the source table with its column headings and linked explanatory notes.
+  Blank or merged cells must not be interpreted as new definitions.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- text_assignment
+- symbol_interpretation
+- review
+tags:
+- Allowable succeeding letter combinations for readout/passive functions (1) (4b)
+- A.3.1
+- identification
+- tag
+- letters
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '103'
+  pdf_page: 103
+  table: A.3.1
+  item: null
+  passage: "         Table A.3.1 — Allowable succeeding letter combinations for readout/passive\
+    \ functions (1) (4b)\n\n\nNote: Numbers in parentheses refer to explanatory notes\
+    \ in Clause A.16.3.\n         First Letters (2)                 A            \
+    \  B       E      G                  I        L       N      O       P      Q\
+    \       R     W       X\n                              Absolute  Function  Deviation\
+    \    User’s                                                 User’s    Orifice,\
+    \   Point                                                                    \
+    \    Primary  Gauge,                                                    Integrate,\
+    \            Well,   Unclass-\n Measured/Initiating Variables    Alarm     Modifier\
+    \    Alarm    Choice                      Indicate   Light    Choice   Restrict-\
+    \   (Test           Record                                                   \
+    \                  Element   Glass                                           \
+    \         Total            Probe     ified\n     w/ and w/o Modifiers       A\
+    \        [*] (3) (4d)   AD         (4a)                                      \
+    \                     (4a)      ion    Conn.)\n  A            Analysis       \
+    \      AA[*]           [*] =      AAD[*]             AE      NA         AI   \
+    \    AL              NA      AP      NA      AR     AW      AX\n AZ        Analysis(SIS))\
+    \         AZA[*]     Alarm     NA               AZE      NA        AZI      AZL\
+    \              NA      AZP      NA      AZR     AZW     NA\n  B      Burner, Combustion\
+    \        BA[*]    and other    BAD[*]             BE      BG         BI      \
+    \ BL              NA      BP      NA      BR     BW      BX\n BZ      Burner,\
+    \ Comb(SIS)       BZA[*]     Function    NA               BZE      NA        BZI\
+    \      BZL              NA      BZP      NA      BZR     BZW     NA\n C      \
+    \   User’s Choice                      Modifier\n D         User’s Choice\n  E\
+    \            Voltage              EA[[*]     None      EAD[*]             EE \
+    \     EG         EI       EL              EO      EP      NA      ER      NA \
+    \     EX\n EZ         Voltage(SIS)          EZA[*]             NA            \
+    \   EZE      NA        EZI      EZL              NA      EZP      NA      EZR\
+    \     EZW     NA\n  F        Flow, Flow Rate          FA[*]     High-High    FAD[*]\
+    \              FE      FG          FI        FL              FO       FP     \
+    \ FQ      FR      NA       FX\n FF         Flow Ratio           FFA[*     HH \
+    \     FFAD[*]             FFE      NA        FFI      NA              NA     \
+    \ NA      NA      FFR      NA      FFX\n FQ         Flow Total          FQA[*]\
+    \      High     FQAD[*]            FQE      NA       FQI      NA             \
+    \ NA      NA      NA     FQR     NA      FQX\n FS        Flow Safety        NA\
+    \      H       NA              NA      NA      NA      NA      NA      NA    \
+    \  NA      NA      NA      NA      NA\n FZ          Flow(SIS)            FZA[*]\
+    \     Middle     NA               FZE      NA        FZI       FZL           \
+    \   NA      FZP      NA      FZR     FZW     NA\n G         User’s Choice    \
+    \         M\n H          Hand              HA[*]      Low      NA            \
+    \  NA      NA         HI      NA              NA      NA      NA      HR     \
+    \ NA      HX\n HZ         Hand(SIS)           HZA[*]       L       NA        \
+    \      NA      NA      NA      NA              NA      NA      NA      HZR   \
+    \   NA      NA\n    I            Current                 IA[*]     Low-Low   \
+    \  IAD[*]                    IE         IG                 II            IL  \
+    \                 IO          IP      NA         IR      NA         IX\n  IZ \
+    \        Current(SIS)            IZA[*]             NA                   IZE \
+    \     NA           IZI         IZL              NA        IZP      NA      BZR\
+    \     BZW     NA                                         LL\n  J          Power\
+    \                JA[*]                  JAD[*]                JE       JG    \
+    \        JI         JL                JO       JP       JQ       JR      NA  \
+    \     JX\n JQ      Power Totalize         JQA[*]             NA              \
+    \   JE      NA        JQI                      NA       JP      NA      JQR  \
+    \    NA      JQX                                     Open\n JZ         Power(SIS)\
+    \           JZA[*]             NA                JZE      NA         JZI     \
+    \  JZL              NA       JZP      NA      JZR      NA      NA            \
+    \                  O\n  K        Time, Schedule          KA[*]               \
+    \  KAD[*]             NA      KG         KI       KL              NA      NA \
+    \     KQ      KR      NA      KX                                            Close\n\
+    \ KQ       Time Totalize         KQA[*]             NA              NA     KQG\
+    \      KQI      KQL              NA      NA      NA     KQR     NA     KQX   \
+    \                             C\n  L             Level                LA[*]  \
+    \                LAD[*]               LE      LG           LI        LL      \
+    \        NA       LP      NA       LR      LW       LX\n LZ          Level(SIS)\
+    \            LZA[*]             NA                LZE      NA         LZI    \
+    \   LZL              NA      LZP      NA      BZR     BZW     NA             \
+    \                        Run\n M         User’s Choice                       \
+    \         R N         User’s Choice\n                                        \
+    \    Stop O         User’s Choice\n                                   S  P   \
+    \        Pressure             PA[*]                 PAD[*]             PE    \
+    \ PG (5)        PI       PL              NA      PP      NA      PR      NA  \
+    \    PX\n PD     Pressure Differential      PDA[*]               PDAD[*]     \
+    \       PDE    PDG (5)     PDI      PDL              NA      NA      NA     PDR\
+    \     NA      PDX\n                                              Unclassified\
+    \ PF       Pressure Ratio         PFA[*]               PFAD[*]             PE\
+    \      NA        PFI      NA              NA      NA      NA      PFR      NA\
+    \      PFX\n                                   X PJ       Pressure Scan      \
+    \   PJA[*]             NA               PE      NA      NA      NA           \
+    \   NA      NA      NA      PJR      NA      NA\n PK   Pressure Rate of Change\
+    \    PKA[*]               PKAD[*]             PE      NA        PKI      PKL \
+    \             NA      NA      NA      PKR      NA      PKX\n PS       Pressure\
+    \ Safety       NA              NA             PSE (6)     NA      NA      NA \
+    \     NA      NA      NA      NA      NA      NA      NA\n PZ        Pressure(SIS)\
+    \         PZA[*]             NA               PZE      NA        PZI      PZL\
+    \              NA      PZP      NA      BZR     BZW     NA\n Q            Quantity\
+    \             QA[*]                QAD[*]            QE      NA        QI    \
+    \   QL              NA      NA     QQ     QR      NA      QX\n QQ       Quantity\
+    \ Totalize       QQA[*]             NA             QE      NA       QQI     QQL\
+    \              NA      NA      NA     QQR     NA     QQX\n R           Radiation\
+    \            RA[*]                 RAD[*]             RE      RG         RI  \
+    \     RL              NA      RP      RQ      RR      NA      RX\n RQ      Radiation\
+    \ Totalize       RQA[*]             NA              RE      NA       RQI     RQL\
+    \              NA      NA      NA     RQR     NA     RQX\n RZ        Radiation(SIS)\
+    \         RZA[*]             NA              RZE      NA        RZI      RZL \
+    \             NA      RZP      NA      BZR     BZW     NA\n  S      Speed, Frequency\
+    \        SA[*]                 SAD[*]             SE      SG         SI      \
+    \ SL              NA      SP      NA      SR      NA      SX\n SZ        Speed(SIS)\
+    \          SZA[*]             NA               SZE      NA        SZI      SZL\
+    \              NA      SZP      NA      BZR     BZW     NA"
+  image: illustrations/isa-5.1-2009/complete/page-103.png
+assets:
+- id: page-103
+  role: context
+  label: Complete technical content on page 103
+  path: illustrations/isa-5.1-2009/complete/page-103.png
+  sha256: 706befcc561616f4954a7aceb40ec7066b0fb209737b7f6662473a2325db31e8
+  width: 2800
+  height: 2030
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 103
+    printed_page: '103'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 547.0
+    - 732.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 90
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p97
+  role: note
+  label: Clause A.16.3, page 97
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  sha256: b7ec4cfea46cb1b9444d0b4ffb603531b7529d52c9089278a2196523f43c1730
+  width: 2010
+  height: 2592
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 97
+    printed_page: '97'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 105.1516
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p98
+  role: note
+  label: Clause A.16.3, page 98
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p98.png
+  sha256: 0cd9d653b9062fc95e4155ae84249a1f0aeb22953a24b928162727a860100442
+  width: 2010
+  height: 195
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 98
+    printed_page: '98'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 116.6716
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 97, 98
+    pdf_page: 97
+    table: null
+    item: null
+    passage: Clause A.16.3
+    image: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  explanation: 'A.16.3 Tables A.3.1 and A.3.2 — Allowable succeeding letter combinations
+    for readout/passive and
+
+    output/active function letters and first-letters.
+
+    (1) Cells marked NA indicate not allowable combinations.
+
+    (2) First Letters are assigned according to Table A.2.
+
+    (3) Function Modifiers are added where indicated to right of alarm function combinations.
+
+    (4) Users should assign, as needed, meanings to:
+
+    (a) Users Choice Function letters [B] and [N].
+
+    (b) Readout/Passive Function blanks [C], [D], [F], [H], [J], [K], [M], [S], [T],
+    [V], [Y], and [Z].
+
+    (c) Output/Active Function blanks [A], [D], [E], [F], [G], [H], [I], [J], [L],
+    [M], [O], [P], [Q], [R],
+
+    and [W].
+
+    (d) Function Modifier blanks [A], [E], [F], [G], [I], [J], [K], [P], [Q], [T],
+    [U], [V], [W], [Y], and [Z].
+
+    (5) Readout/Passive Function [G] (glass, gauge) is used for local direct connected
+    devices, such as
+
+    flow sight glasses, level glasses, pressure gauges, thermometers weigh scales
+    and position
+
+    indicators. These devices provide a simple view of a process condition.
+
+    (a) Readout/Passive Function [I] (indicate) may continue to be used in facilities
+    where it is
+
+    currently used.
+
+    (6) Pressure rupture disc [PSE] and fusible link [TSE] apply to all sensors or
+    primary elements
+
+    intended to protect against emergency pressure or temperature conditions.
+
+    (7) The combinations in the [C] column are used for:
+
+    (a) Discrete single case instruments that do not have operator-visible indication
+    of measured
+
+    variable, setpoint, or output signal.
+
+    (b) Controller functions configured in shared display, shared control systems
+    where
+
+    indication and recording are configurable functions available on demand.
+
+    (8) The combinations in the [IC] and [RC] columns indicate the order to be followed
+    in forming the
+
+    Functional Identification of a controller device or function that also provides
+    indication or
+
+    recording.
+
+    (9) The combinations in the [CV] column indicate the order to be followed in forming
+    the Functional
+
+    Identification for self-actuated control valves.
+
+    (10) Flow safety valve [FSV] applies to valves intended to protect against an
+    emergency excess flow
+
+    or loss of flow condition. Pressure safety valve [PSV], and temperature safety
+    valve [TSV] apply
+
+    to valves intended to protect against emergency pressure and temperature conditions
+
+    (11) A self-actuated pressure valve that prevents operation of a fluid system
+    at a higher-than-desired
+
+    pressure by bleeding fluid from the system is a backpressure control valve [PCV],
+    even if the
+
+    valve is not normally used.
+
+    (a) This valve should be designated a pressure safety valve [PSV] if it protects
+    against
+
+    emergency conditions hazardous to personnel and/or equipment that are not expected
+    to arise
+
+    normally.'
+  asset_id: clause-a.16.3-p97
+text_slots: []
+interpretation:
+- Table cells are source transcriptions; retain headers and merged-cell context when
+  interpreting them. Use the image to resolve superscripts or extraction ambiguity.
+- Example tags and numbering schemes illustrate conventions; never copy them as actual
+  drawing identifiers.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-a.16.3
+  explanation: 'Explanatory notes for Table A.3.1: clause A.16.3.'
+table_data:
+- - - 'First Letters (2)
+
+      Measured/Initiating Variables
+
+      w/ and w/o Modifiers'
+    - null
+    - A
+    - null
+    - null
+    - B
+    - E
+    - G
+    - I
+    - L
+    - N
+    - O
+    - P
+    - Q
+    - R
+    - W
+    - X
+  - - null
+    - null
+    - 'Absolute
+
+      Alarm'
+    - 'Function
+
+      Modifier'
+    - 'Deviation
+
+      Alarm'
+    - 'User’s
+
+      Choice
+
+      (4a)'
+    - 'Primary
+
+      Element'
+    - 'Gauge,
+
+      Glass'
+    - Indicate
+    - Light
+    - 'User’s
+
+      Choice
+
+      (4a)'
+    - 'Orifice,
+
+      Restrict-
+
+      ion'
+    - 'Point
+
+      (Test
+
+      Conn.)'
+    - 'Integrate,
+
+      Total'
+    - Record
+    - 'Well,
+
+      Probe'
+    - 'Unclass-
+
+      ified'
+  - - null
+    - null
+    - A
+    - '[*] (3) (4d)'
+    - AD
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+  - - A
+    - Analysis
+    - AA[*]
+    - '[*] =
+
+      Alarm
+
+      and other
+
+      Function
+
+      Modifier
+
+      None
+
+      High-High
+
+      HH
+
+      High
+
+      H
+
+      Middle
+
+      M
+
+      Low
+
+      L
+
+      Low-Low
+
+      LL
+
+      Open
+
+      O
+
+      Close
+
+      C
+
+      Run
+
+      R
+
+      Stop
+
+      S
+
+      Unclassified
+
+      X'
+    - AAD[*]
+    - ''
+    - AE
+    - NA
+    - AI
+    - AL
+    - ''
+    - NA
+    - AP
+    - NA
+    - AR
+    - AW
+    - AX
+  - - AZ
+    - Analysis(SIS))
+    - AZA[*]
+    - null
+    - NA
+    - ''
+    - AZE
+    - NA
+    - AZI
+    - AZL
+    - ''
+    - NA
+    - AZP
+    - NA
+    - AZR
+    - AZW
+    - NA
+  - - B
+    - Burner, Combustion
+    - BA[*]
+    - null
+    - BAD[*]
+    - ''
+    - BE
+    - BG
+    - BI
+    - BL
+    - ''
+    - NA
+    - BP
+    - NA
+    - BR
+    - BW
+    - BX
+  - - BZ
+    - Burner, Comb(SIS)
+    - BZA[*]
+    - null
+    - NA
+    - ''
+    - BZE
+    - NA
+    - BZI
+    - BZL
+    - ''
+    - NA
+    - BZP
+    - NA
+    - BZR
+    - BZW
+    - NA
+  - - C
+    - User’s Choice
+    - ''
+    - null
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - D
+    - User’s Choice
+    - ''
+    - null
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - E
+    - Voltage
+    - EA[[*]
+    - null
+    - EAD[*]
+    - ''
+    - EE
+    - EG
+    - EI
+    - EL
+    - ''
+    - EO
+    - EP
+    - NA
+    - ER
+    - NA
+    - EX
+  - - EZ
+    - Voltage(SIS)
+    - EZA[*]
+    - null
+    - NA
+    - ''
+    - EZE
+    - NA
+    - EZI
+    - EZL
+    - ''
+    - NA
+    - EZP
+    - NA
+    - EZR
+    - EZW
+    - NA
+  - - F
+    - Flow, Flow Rate
+    - FA[*]
+    - null
+    - FAD[*]
+    - ''
+    - FE
+    - FG
+    - FI
+    - FL
+    - ''
+    - FO
+    - FP
+    - FQ
+    - FR
+    - NA
+    - FX
+  - - FF
+    - Flow Ratio
+    - FFA[*
+    - null
+    - FFAD[*]
+    - ''
+    - FFE
+    - NA
+    - FFI
+    - NA
+    - ''
+    - NA
+    - NA
+    - NA
+    - FFR
+    - NA
+    - FFX
+  - - FQ
+    - Flow Total
+    - FQA[*]
+    - null
+    - FQAD[*]
+    - ''
+    - FQE
+    - NA
+    - FQI
+    - NA
+    - ''
+    - NA
+    - NA
+    - NA
+    - FQR
+    - NA
+    - FQX
+  - - FS
+    - Flow Safety
+    - NA
+    - null
+    - NA
+    - ''
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+  - - FZ
+    - Flow(SIS)
+    - FZA[*]
+    - null
+    - NA
+    - ''
+    - FZE
+    - NA
+    - FZI
+    - FZL
+    - ''
+    - NA
+    - FZP
+    - NA
+    - FZR
+    - FZW
+    - NA
+  - - G
+    - User’s Choice
+    - ''
+    - null
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - H
+    - Hand
+    - HA[*]
+    - null
+    - NA
+    - ''
+    - NA
+    - NA
+    - HI
+    - NA
+    - ''
+    - NA
+    - NA
+    - NA
+    - HR
+    - NA
+    - HX
+  - - HZ
+    - Hand(SIS)
+    - HZA[*]
+    - null
+    - NA
+    - ''
+    - NA
+    - NA
+    - NA
+    - NA
+    - ''
+    - NA
+    - NA
+    - NA
+    - HZR
+    - NA
+    - NA
+  - - I
+    - Current
+    - IA[*]
+    - null
+    - IAD[*]
+    - ''
+    - IE
+    - IG
+    - II
+    - IL
+    - ''
+    - IO
+    - IP
+    - NA
+    - IR
+    - NA
+    - IX
+  - - IZ
+    - Current(SIS)
+    - IZA[*]
+    - null
+    - NA
+    - ''
+    - IZE
+    - NA
+    - IZI
+    - IZL
+    - ''
+    - NA
+    - IZP
+    - NA
+    - BZR
+    - BZW
+    - NA
+  - - J
+    - Power
+    - JA[*]
+    - null
+    - JAD[*]
+    - ''
+    - JE
+    - JG
+    - JI
+    - JL
+    - ''
+    - JO
+    - JP
+    - JQ
+    - JR
+    - NA
+    - JX
+  - - JQ
+    - Power Totalize
+    - JQA[*]
+    - null
+    - NA
+    - ''
+    - JE
+    - NA
+    - JQI
+    - ''
+    - ''
+    - NA
+    - JP
+    - NA
+    - JQR
+    - NA
+    - JQX
+  - - JZ
+    - Power(SIS)
+    - JZA[*]
+    - null
+    - NA
+    - ''
+    - JZE
+    - NA
+    - JZI
+    - JZL
+    - ''
+    - NA
+    - JZP
+    - NA
+    - JZR
+    - NA
+    - NA
+  - - K
+    - Time, Schedule
+    - KA[*]
+    - null
+    - KAD[*]
+    - ''
+    - NA
+    - KG
+    - KI
+    - KL
+    - ''
+    - NA
+    - NA
+    - KQ
+    - KR
+    - NA
+    - KX
+  - - KQ
+    - Time Totalize
+    - KQA[*]
+    - null
+    - NA
+    - ''
+    - NA
+    - KQG
+    - KQI
+    - KQL
+    - ''
+    - NA
+    - NA
+    - NA
+    - KQR
+    - NA
+    - KQX
+  - - L
+    - Level
+    - LA[*]
+    - null
+    - LAD[*]
+    - ''
+    - LE
+    - LG
+    - LI
+    - LL
+    - ''
+    - NA
+    - LP
+    - NA
+    - LR
+    - LW
+    - LX
+  - - LZ
+    - Level(SIS)
+    - LZA[*]
+    - null
+    - NA
+    - ''
+    - LZE
+    - NA
+    - LZI
+    - LZL
+    - ''
+    - NA
+    - LZP
+    - NA
+    - BZR
+    - BZW
+    - NA
+  - - M
+    - User’s Choice
+    - ''
+    - null
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - N
+    - User’s Choice
+    - ''
+    - null
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - O
+    - User’s Choice
+    - ''
+    - null
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - P
+    - Pressure
+    - PA[*]
+    - null
+    - PAD[*]
+    - ''
+    - PE
+    - PG (5)
+    - PI
+    - PL
+    - ''
+    - NA
+    - PP
+    - NA
+    - PR
+    - NA
+    - PX
+  - - PD
+    - Pressure Differential
+    - PDA[*]
+    - null
+    - PDAD[*]
+    - ''
+    - PDE
+    - PDG (5)
+    - PDI
+    - PDL
+    - ''
+    - NA
+    - NA
+    - NA
+    - PDR
+    - NA
+    - PDX
+  - - PF
+    - Pressure Ratio
+    - PFA[*]
+    - null
+    - PFAD[*]
+    - ''
+    - PE
+    - NA
+    - PFI
+    - NA
+    - ''
+    - NA
+    - NA
+    - NA
+    - PFR
+    - NA
+    - PFX
+  - - PJ
+    - Pressure Scan
+    - PJA[*]
+    - null
+    - NA
+    - ''
+    - PE
+    - NA
+    - NA
+    - NA
+    - ''
+    - NA
+    - NA
+    - NA
+    - PJR
+    - NA
+    - NA
+  - - PK
+    - Pressure Rate of Change
+    - PKA[*]
+    - null
+    - PKAD[*]
+    - ''
+    - PE
+    - NA
+    - PKI
+    - PKL
+    - ''
+    - NA
+    - NA
+    - NA
+    - PKR
+    - NA
+    - PKX
+  - - PS
+    - Pressure Safety
+    - NA
+    - null
+    - NA
+    - ''
+    - PSE (6)
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+  - - PZ
+    - Pressure(SIS)
+    - PZA[*]
+    - null
+    - NA
+    - ''
+    - PZE
+    - NA
+    - PZI
+    - PZL
+    - ''
+    - NA
+    - PZP
+    - NA
+    - BZR
+    - BZW
+    - NA
+  - - Q
+    - Quantity
+    - QA[*]
+    - null
+    - QAD[*]
+    - ''
+    - QE
+    - NA
+    - QI
+    - QL
+    - ''
+    - NA
+    - NA
+    - QQ
+    - QR
+    - NA
+    - QX
+  - - QQ
+    - Quantity Totalize
+    - QQA[*]
+    - null
+    - NA
+    - ''
+    - QE
+    - NA
+    - QQI
+    - QQL
+    - ''
+    - NA
+    - NA
+    - NA
+    - QQR
+    - NA
+    - QQX
+  - - R
+    - Radiation
+    - RA[*]
+    - null
+    - RAD[*]
+    - ''
+    - RE
+    - RG
+    - RI
+    - RL
+    - ''
+    - NA
+    - RP
+    - RQ
+    - RR
+    - NA
+    - RX
+  - - RQ
+    - Radiation Totalize
+    - RQA[*]
+    - null
+    - NA
+    - ''
+    - RE
+    - NA
+    - RQI
+    - RQL
+    - ''
+    - NA
+    - NA
+    - NA
+    - RQR
+    - NA
+    - RQX
+  - - RZ
+    - Radiation(SIS)
+    - RZA[*]
+    - null
+    - NA
+    - ''
+    - RZE
+    - NA
+    - RZI
+    - RZL
+    - ''
+    - NA
+    - RZP
+    - NA
+    - BZR
+    - BZW
+    - NA
+  - - S
+    - Speed, Frequency
+    - SA[*]
+    - null
+    - SAD[*]
+    - ''
+    - SE
+    - SG
+    - SI
+    - SL
+    - ''
+    - NA
+    - SP
+    - NA
+    - SR
+    - NA
+    - SX
+  - - SZ
+    - Speed(SIS)
+    - SZA[*]
+    - null
+    - NA
+    - ''
+    - SZE
+    - NA
+    - SZI
+    - SZL
+    - ''
+    - NA
+    - SZP
+    - NA
+    - BZR
+    - BZW
+    - NA
+catalog:
+  role: background

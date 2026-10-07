@@ -1,0 +1,98 @@
+id: isa-5.1-2009.clause-3.1.62
+version: 2
+concept: supervisory setpoint control system
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.62 supervisory setpoint control system:
+
+  the generation of setpoint and/or other control information by a computer control
+  system for use by
+
+  shared control, shared display or other regulatory control devices.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'supervisory setpoint control system:'
+- 3.1.62
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '24'
+  pdf_page: 24
+  table: null
+  item: null
+  passage: Clause 3.1.62
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.62-p24.png
+assets:
+- id: clause-3.1.62-p24
+  role: context
+  label: Clause 3.1.62, page 24
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.62-p24.png
+  sha256: bbf8f9db05b2aa3d1716da88e5c3d566746d5206419494cd4d2df341fffccdd7
+  width: 2010
+  height: 244
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 24
+    printed_page: '24'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 303.631
+    - 547.0
+    - 362.1307
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-24
+  role: context
+  label: Complete technical content on page 24
+  path: illustrations/isa-5.1-2009/complete/page-24.png
+  sha256: 6638cc9273e23bbc87de69e7fcb092a247f321b489fb630e8a9bc2b72e2fef33
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 24
+    printed_page: '24'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

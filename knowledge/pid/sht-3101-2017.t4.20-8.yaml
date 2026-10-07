@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.20-8
+version: 1
+concept: 旋风分离器 / Cyclone
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 旋风分离器
+  interpretation: '旋风分离器 / Cyclone. Defined by SH/T 3101:2017, Table 4.20, item 8. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 旋风分离器
+- Cyclone
+reference_type: symbol
+kind: definition
+explanation: '旋风分离器 / Cyclone. Defined by SH/T 3101:2017, Table 4.20, item 8. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 旋风分离器
+- Cyclone
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '33'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.20-8/context.png
+  document_id: sht-3101-2017
+  pdf_page: 37
+  table: '4.20'
+  item: '8'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.20-8/context.png
+  sha256: 31a78ba0d42447cc4a7c7b0240f265fe5dda00f4b6a8c8d448a9022c983503ff
+  width: 909
+  height: 155
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '8'
+    rect:
+    - 151.0
+    - 646.0
+    - 1060.0
+    - 801.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.20-8/primary.png
+  sha256: 2c42e78fbac4f34c9677085a103053e7101f13ed97b111d53a289a069c23b1ce
+  width: 70
+  height: 119
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '8'
+    rect:
+    - 625.0
+    - 665.0
+    - 695.0
+    - 784.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.20-8/variants.png
+  sha256: 663fbc0ca130d382a0c675a3834fe768e7ce07f03e9bbb13779a0879db8d514d
+  width: 220
+  height: 169
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

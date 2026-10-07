@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.floating-roof-tank
+version: 2
+concept: Floating Roof Tank
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Floating Roof Tank
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Floating Roof Tank’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Floating Roof Tank
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Floating Roof Tank’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Floating Roof Tank
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Floating Roof Tank
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.floating-roof-tank.png
+  sha256: 742976824f9346fb69c3703dce045d1ca766e2fc713299e296760ca6644a5192
+  width: 41
+  height: 41
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/floating_roof_tank.C1UBEtyq_Z1RpXAG.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: f1adcbe27923c3ca7c878238fee256a646094c4031ac6ce258162ee8ac88bea9
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

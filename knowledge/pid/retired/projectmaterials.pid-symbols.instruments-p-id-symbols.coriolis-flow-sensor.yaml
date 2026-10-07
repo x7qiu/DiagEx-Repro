@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.coriolis-flow-sensor
+version: 1
+concept: Coriolis Flow Sensor
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Coriolis Flow Sensor
+  interpretation: Projectmaterials labels this illustration ‘Coriolis Flow Sensor’
+    (Instruments (P&ID Symbols)).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Coriolis Flow Sensor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Coriolis Flow Sensor’ (Instruments
+  (P&ID Symbols)).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Instruments (P&ID Symbols)
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Coriolis Flow Sensor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Coriolis Flow Sensor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.coriolis-flow-sensor.png
+  sha256: 4e33f168ec453a968853f5efdc18f3da12df3dda51d7fda2c71fa7576215049b
+  width: 42
+  height: 40
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/coriolis_flow_sensor.CN9fc-Bo_Z1LXWjD.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: fe24104b8fc36ae948d8d74812190710995a50307a358aaa9a5e6c16f6a33888
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

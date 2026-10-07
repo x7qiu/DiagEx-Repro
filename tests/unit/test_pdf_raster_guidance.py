@@ -141,7 +141,7 @@ def test_pdf_production_hints_do_not_replace_native_candidates(prepared, tmp_pat
     assert seen and result[3] is None
 
 
-def test_scanned_first_page_reaches_public_symbol_review(tmp_path, monkeypatch):
+def test_scanned_first_page_reaches_public_extraction(tmp_path, monkeypatch):
     from diagex.vision.legend_models import LegendPack
 
     source = SOURCE.with_name("two-tanks.pdf")
@@ -169,7 +169,7 @@ def test_scanned_first_page_reaches_public_symbol_review(tmp_path, monkeypatch):
         legend_path=None, legend_pages=None, legend_region=None, no_legend=True,
         legend_key=None, effort="low", config=cfg, persist=True, fresh=True,
         out_path=None, confidence_report_path=None, console=None)
-    assert seen and result.workflow_stage == "detection" and not result.graph.nodes
+    assert seen and result.workflow_stage == "graph" and not result.graph.nodes
     assert result.cost_summary["n_tool_calls"] == 2 * len(seen)
     assert result.cost_summary["tool_call_counts"]["submit_raster_semantics"] == len(seen)
     saved = json.loads((result.run_dir / "evidence/page-0001.json").read_text())

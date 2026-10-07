@@ -16,7 +16,7 @@
 
 * { box-sizing: border-box; }
 body { margin: 0; color: var(--ink); background: #f7f9fc; }
-button, input, select { font: inherit; }
+button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
 .hidden, [hidden] { display: none !important; }
 
@@ -33,10 +33,10 @@ button { cursor: pointer; }
 .status-dot i { width: 8px; height: 8px; border-radius: 50%; background: #aab3c2; }
 .status-dot.online i { background: var(--green); box-shadow: 0 0 0 4px rgba(19,138,88,.12); }
 
-select, input {
+select, input, textarea {
   width: 100%; border: 1px solid #cfd7e4; background: #fff; border-radius: 9px; padding: 10px 12px; color: var(--ink); outline: none;
 }
-select:focus, input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(25,94,230,.12); }
+select:focus, input:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(25,94,230,.12); }
 .header-actions select { width: auto; padding: 8px 30px 8px 10px; }
 
 .shell { max-width: 1240px; margin: 0 auto; padding: 42px 28px 72px; }
@@ -48,8 +48,8 @@ select:focus, input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgb
 .privacy-note strong { color: #174baf; font-size: 14px; }
 .privacy-note span { color: #4b628d; font-size: 12px; line-height: 1.45; }
 
-.workflow-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(360px, .85fr); gap: 22px; align-items: start; }
-.card { background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 26px; }
+.workflow-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; align-items: start; }
+.card { min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 26px; }
 .card-heading { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 23px; }
 .card-heading.compact { margin-bottom: 16px; }
 .card-heading h2, .run-heading h2, .result-heading h2 { margin: 0 0 5px; font-size: 20px; letter-spacing: -.015em; }
@@ -61,8 +61,8 @@ label > span, fieldset legend { display: block; font-weight: 650; font-size: 12p
 label small { display: block; color: var(--muted); margin-top: 6px; line-height: 1.35; }
 .password-wrap { display: flex; gap: 8px; }
 .password-wrap input { flex: 1; }
-.icon-button, .quiet { border: 1px solid #cfd7e4; background: #fff; border-radius: 9px; padding: 8px 12px; color: #435069; }
-.icon-button:hover, .quiet:hover { border-color: #aab7ca; background: var(--soft); }
+.icon-button, .quiet, .secondary { border: 1px solid #cfd7e4; background: #fff; border-radius: 9px; padding: 8px 12px; color: #435069; }
+.icon-button:hover, .quiet:hover, .secondary:hover { border-color: #aab7ca; background: var(--soft); }
 
 .drop-zone { min-height: 210px; border: 1.5px dashed #aebbd0; background: #fbfcff; border-radius: 13px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; text-align: center; transition: .15s; }
 .drop-zone:hover, .drop-zone.dragging { border-color: var(--blue); background: var(--blue-soft); }
@@ -123,10 +123,8 @@ label small { display: block; color: var(--muted); margin-top: 6px; line-height:
 .metric span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .05em; }
 .run-path { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 12px; border: 1px solid var(--line); border-radius: 9px; padding: 10px 12px; color: var(--muted); font-size: 11px; }
 .run-path code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #3a465b; }
-.review-row { display: grid; grid-template-columns: 1fr 260px; align-items: end; gap: 12px; margin-top: 18px; }
-.review-row .primary { height: 43px; }
 
-.existing-run-toolbar { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(180px, 1fr) auto; align-items: end; gap: 12px; margin-bottom: 14px; }
+.existing-run-toolbar { display: grid; grid-template-columns: minmax(180px, 1fr) auto; align-items: end; gap: 12px; margin-bottom: 14px; }
 .existing-run-toolbar .quiet { min-height: 41px; }
 .recent-runs { display: grid; gap: 9px; max-height: 620px; overflow: auto; padding-right: 3px; }
 .recent-run { display: grid; grid-template-columns: 1fr auto; gap: 15px; align-items: center; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
@@ -136,10 +134,6 @@ label small { display: block; color: var(--muted); margin-top: 6px; line-height:
 .recent-run button { width: auto; }
 .recent-run-meta { display: flex; flex-wrap: wrap; gap: 3px 10px; }
 .recent-run-meta span { display: block; max-width: 100%; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.recent-run-actions { display: flex; align-items: center; gap: 10px; }
-.recent-run-actions .source-state { margin: 0; border-radius: 99px; padding: 5px 8px; white-space: nowrap; font-size: 10px; font-weight: 700; }
-.source-state.available { background: #e7f7ef; color: var(--green); }
-.source-state.missing { background: #fff2df; color: var(--amber); }
 
 #toast { position: fixed; right: 24px; bottom: 24px; max-width: 390px; padding: 12px 15px; border-radius: 10px; background: #172033; color: #fff; box-shadow: var(--shadow); opacity: 0; transform: translateY(8px); pointer-events: none; transition: .18s; z-index: 50; }
 #toast.show { opacity: 1; transform: translateY(0); }
@@ -157,9 +151,73 @@ label small { display: block; color: var(--muted); margin-top: 6px; line-height:
   .form-grid { grid-template-columns: 1fr; }
   .form-grid .wide { grid-column: auto; }
   .metric-grid { grid-template-columns: repeat(2, 1fr); }
-  .review-row { grid-template-columns: 1fr; }
   .result-heading { grid-template-columns: 42px 1fr; }
   .result-heading .pill { grid-column: 2; }
   .existing-run-toolbar, .recent-run { grid-template-columns: 1fr; }
-  .recent-run-actions { justify-content: space-between; }
 }
+
+.context-panel { border-color: #c8d5e8; }
+.context-panel h2 { font-size: 1.15rem; margin: 0 0 10px; }
+.context-panel p, .context-panel small { font-size: .85rem; color: #58677c; }
+.context-panel label { display: block; margin: 12px 0; }
+.context-panel input:not([type=checkbox]), .context-panel textarea, .context-panel select { width: 100%; box-sizing: border-box; }
+.context-panel input[type=checkbox] { width: auto; margin-right: 8px; }
+.context-panel button { margin: 6px 0; }
+#contextError { color: #a62121; }
+.context-library { border-left: 1px solid var(--line); padding-left: 24px; min-width: 0; }
+.context-library h3 { margin: 0 0 10px; font-size: 1rem; }
+.context-library a { color: var(--blue); font-size: .85rem; }
+.context-reference { display: flex; gap: 12px; align-items: flex-start; border: 1px solid var(--line); border-radius: 9px; padding: 12px; margin: 10px 0; background: white; }
+.context-reference img { width: 76px; height: 58px; object-fit: contain; flex-shrink: 0; }
+.context-reference > div { min-width: 0; }
+.context-reference a { display: block; font-weight: 650; overflow-wrap: anywhere; }
+.context-reference p { margin: 5px 0; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.context-library #applicableReferences, .context-library #otherReferences { max-height: 380px; overflow-y: auto; }
+.context-reference small { display: block; }
+.context-library summary { cursor: pointer; font-size: .85rem; margin-top: 12px; color: var(--muted); }
+.context-library #referencePreviewPage { max-width: 110px; display: block; margin-top: 6px; }
+
+.recent-run-path { display: block; margin-top: 8px; color: var(--muted); font-size: 11px; overflow-wrap: anywhere; }
+
+.view-run { display: inline-block; text-decoration: none; text-align: center; padding: 11px 16px; border-radius: 8px; white-space: nowrap; }
+.view-run[hidden] { display: none; }
+
+/* Context and its reference library share a full-width card, outside model settings. */
+textarea { display: block; min-height: 86px; resize: vertical; line-height: 1.5; }
+select, input, textarea, .form-grid > *, .context-settings { min-width: 0; max-width: 100%; }
+.model-controls { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.model-controls > .wide { grid-column: auto; }
+#cvSettings { margin-top: 14px; }
+#cvSettings label + label { display: block; margin-top: 14px; }
+.context-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 20px; }
+.context-settings > label:first-child { margin-top: 0; }
+#contextKnownFields, #contextOverrideFields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+#contextKnownFields .wide, #contextOverrideFields .wide { grid-column: 1 / -1; }
+#contextKnownFields .context-short, #contextOverrideFields .context-short { grid-column: auto; }
+.context-panel label:has(input[type=checkbox]) > span { display: inline; }
+.context-panel label:has(input[type=checkbox]) > :last-child { margin-top: 7px; }
+#contextReferences { min-height: 132px; }
+#contextReferences option { white-space: normal; padding: 5px 2px; }
+.context-panel .secondary { line-height: 1.45; text-align: left; }
+.process-context { grid-template-columns: minmax(0, 1fr); border-top: 1px solid var(--line); margin-top: 22px; padding-top: 10px; }
+.process-context > .wide { grid-column: auto; }
+.context-panel p { line-height: 1.5; }
+.context-panel details > summary { cursor: pointer; line-height: 1.5; }
+.header-actions > a { font-size: 13px; color: var(--blue); text-decoration: none; }
+.header-actions > a:hover { text-decoration: underline; }
+@media (max-width: 930px) {
+  .context-layout { grid-template-columns: minmax(0, 1fr); }
+  .context-library { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 20px; }
+}
+@media (max-width: 620px) {
+  .app-header { height: auto; min-height: 74px; flex-wrap: wrap; gap: 12px; padding-top: 12px; padding-bottom: 12px; }
+  .header-actions { flex-wrap: wrap; gap: 12px; }
+  .model-controls, .process-context, #contextKnownFields, #contextOverrideFields { grid-template-columns: minmax(0, 1fr); }
+  .context-reference { gap: 10px; padding: 10px; }
+  .context-reference img { width: 58px; height: 48px; }
+  .context-reference small { overflow-wrap: anywhere; }
+}
+.knowledge-sources {border:1px solid var(--border,#d8dfeb);border-radius:12px;padding:14px;margin:16px 0;}
+.knowledge-sources label {display:flex;align-items:center;gap:10px;margin:10px 0;}
+.knowledge-sources input {width:auto;flex:none;}
+.knowledge-sources p {font-size:13px;line-height:1.5;}

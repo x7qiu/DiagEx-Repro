@@ -1,0 +1,255 @@
+id: isa-5.1-2009.t5.2.3-41
+version: 3
+concept: Generic element without thermowell
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Generic element without thermowell. • Notation (*) should be used to
+  identify type of element, see Table 5.2.2. • Connection symbols 6, 7, 8, or 9 in
+  Table 5.3.1 are used if connection type is to be shown. • Bubble may be omitted
+  if connected to another instrument.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'Measurement symbols: primary elements'
+- 5.2.3
+- Generic element without thermowell
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '43'
+  pdf_page: 43
+  table: 5.2.3
+  item: '41'
+  passage: 'Table 5.2.3, item 41: • Generic element without thermowell. • Notation
+    (*) should be used to identify type of element, see Table 5.2.2. • Connection
+    symbols 6, 7, 8, or 9 in Table 5.3.1 are used if connection type is to be shown.
+    • Bubble may be omitted if connected to another instrument.'
+  image: illustrations/isa-5.1-2009/complete/t5.2.3-41-context.png
+assets:
+- id: t5.2.3-41-context
+  role: context
+  label: 'Complete row: Table 5.2.3, item 41'
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-41-context.png
+  sha256: 03a929cfda7a89b0fc81e8e686fd0fed2be0ea3be8cee0a8a973fff99ae278e9
+  width: 1960
+  height: 243
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 43
+    printed_page: '43'
+    table: 5.2.3
+    item: '41'
+    rect:
+    - 70.948
+    - 126.08
+    - 541.04
+    - 184.24
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-43
+  role: context
+  label: Complete technical content on page 43
+  path: illustrations/isa-5.1-2009/complete/page-43.png
+  sha256: d98fa677c65853f3490ab31b93797e004b940faa71261e9c14fbf9251775dcf4
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 43
+    printed_page: '43'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.2.3-41-panel-2
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-41-panel-2.png
+  sha256: 5ccadabb03cf0d712fea06bcc869dfa3b1ea1ff1ee381569274fe88435889d5d
+  width: 444
+  height: 229
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 43
+    printed_page: '43'
+    table: 5.2.3
+    item: '41'
+    rect:
+    - 126.7743
+    - 127.88
+    - 233.1871
+    - 182.44
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.2-p33
+  role: note
+  label: Clause 5.3.2, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  sha256: d2f5ace70e1c2b4cd4aad60f721e55f09798bdc8204c96571e3303a71de825df
+  width: 2010
+  height: 930
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 397.1707
+    - 547.0
+    - 620.1298
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-41-variants.png
+  sha256: 7bb9116fa159054b0ce84fd88b7b6efe16f8382ffd1af6a7580f9a5c3ac5ff7c
+  width: 1000
+  height: 294
+  derived_from:
+  - t5.2.3-41-panel-2
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.2.3-41-panel-2
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-41.catalog-t5.2.3-41-panel-2.png
+  sha256: d41de65fce0a3f074dedcd820f36681d096ddf91398ce59cd4525a5d8989572f
+  width: 358
+  height: 194
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 43
+    printed_page: '43'
+    table: 5.2.3
+    item: '41'
+    rect:
+    - 137.28
+    - 130.07999999999998
+    - 223.2
+    - 176.64
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-41.sheet.png
+  sha256: 570845d89d190abb6fc44a6be6de88e7a8819b927725230747c9d7a0ef2a3fd4
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.2.3-41-panel-2
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '33'
+    pdf_page: 33
+    table: null
+    item: null
+    passage: Clause 5.3.2
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  explanation: '5.3.2 Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 — Measurement symbols
+
+    (1) Measurements are depicted by:
+
+    (a) Bubbles only.
+
+    (b) Bubbles and graphics.
+
+    (2) These symbols shall be used for process or equipment measurements if:
+
+    (a) A graphic symbol does not exist.
+
+    (b) The user does not use graphic symbols.
+
+    (3) Transmitter [T] may be controller [C], indicator [I], recorder [R], or switch
+    [S].
+
+    (4) User engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    choices are selected.'
+  asset_id: clause-5.3.2-p33
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.2
+  explanation: 'Explanatory notes for Table 5.2.3: clause 5.3.2.'
+catalog:
+  role: catalog
+  category: measurement
+  short_name: Generic element without thermowell
+  interpretation: Generic element without thermowell. Notation (*) should be used
+    to identify type of element, see Table 5.2.2. Connection symbols 6, 7, 8, or 9
+    in Table 5.3.1 are used if connection type is to be shown. Bubble may be omitted
+    if connected to another instrument.
+  displayed_asset_ids:
+  - catalog-t5.2.3-41-panel-2
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.2
+  - isa-5.1-2009.clause-4.1

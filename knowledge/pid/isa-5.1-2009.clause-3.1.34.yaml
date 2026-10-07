@@ -1,0 +1,106 @@
+id: isa-5.1-2009.clause-3.1.34
+version: 2
+concept: high level control system (HLCS)
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.34 high level control system (HLCS):
+
+  A system that provides sophistication above that of the BPCS; with functions typically
+  based in process
+
+  computer or higher level hardware that interacts with the process by manipulating
+  setpoints in the BPCS.
+
+  (a) Control functions in the HLCS include, but are not limited to, statistical process
+  control and model
+
+  predictive control.
+
+  (b) An HLCS is not necessary to operate a plant or process.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'high level control system (HLCS):'
+- 3.1.34
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '21'
+  pdf_page: 21
+  table: null
+  item: null
+  passage: Clause 3.1.34
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.34-p21.png
+assets:
+- id: clause-3.1.34-p21
+  role: context
+  label: Clause 3.1.34, page 21
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.34-p21.png
+  sha256: a295e82f245eeade742de038536e0ad89b5160ed4d6f1e665dd7d0105b09c367
+  width: 2010
+  height: 488
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 21
+    printed_page: '21'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 164.1915
+    - 547.0
+    - 281.1911
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-21
+  role: context
+  label: Complete technical content on page 21
+  path: illustrations/isa-5.1-2009/complete/page-21.png
+  sha256: 55be2b982908ec51c46d68e66a524b557a210bd1c74f559a1dd75b06c092ffcb
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 21
+    printed_page: '21'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

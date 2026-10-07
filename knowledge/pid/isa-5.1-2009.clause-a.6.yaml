@@ -1,0 +1,209 @@
+id: isa-5.1-2009.clause-a.6
+version: 2
+concept: A.6 — Loop identification number numerals
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.6 Loop identification number numerals
+
+  A.6.1 Loop Identification Number numerals should be assigned to loop measured variable
+  letters
+
+  according to one of the following methods selected by the end user:
+
+  a) Parallel: duplicated numerical sequences for each loop variable letter or first
+  letter
+
+  combination.
+
+  b) Serial: single numerical sequence regardless of loop variable letter or first
+  letter
+
+  combination.
+
+  c) Parallel/Serial: parallel sequences for selected loop variable letters or first
+  letter
+
+  combinations and a serial sequence for the remainder.
+
+  A.6.2 Loop Number numerical sequences are normally three or more digits, -*01, -*001,
+  -*0001, etc.
+
+  where the asterisk * can be :
+
+  a) Any digit from zero to 9.
+
+  b) Coded digits related to drawing numbers, unit numbers, equipment numbers, etc.
+
+  A.6.3 *00, *000, *0000, etc. should be used only for special, significant, or critical
+  loops as defined by
+
+  the User.
+
+  A.6.4 000, 0000, 00000, etc. should not be used
+
+  A.6.5 Loop Identification letters and numbers should be assigned in accordance with
+  one of the
+
+  following Loop Numbering Schemes:
+
+  a) No. 1 Parallel – Measured/Initiating Variable.
+
+  b) No. 2 Parallel – Measured/Initiating Variable with Variable Modifier.
+
+  c) No. 3 Parallel – First Letter(s).
+
+  d) No. 4 Series – Measured/Initiating Variable.
+
+  e) No. 5 Series – Measured/Initiating Variable with Variable Modifier.
+
+  f) No. 6 Series – First Letter(s).
+
+  g) No. 7 Parallel/Series – Measured/Initiating Variable.
+
+  h) No. 8 Parallel/Series – Measured/Initiating Variable with Variable Modifier.
+
+  i) No. 9 Parallel/Series – First Letter(s).
+
+  A.6.6 Gaps should be left in any sequence to allow for the addition of future loops.
+
+  A.6.7 See Table A.2 — Allowable letter/number combinations for, loop numbering schemes
+  for
+
+  examples of typical Loop Number assignments.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Loop identification number numerals
+- A.6
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 88, 89
+  pdf_page: 88
+  table: null
+  item: null
+  passage: Clause A.6
+  image: illustrations/isa-5.1-2009/complete/clause-a.6-p88.png
+assets:
+- id: clause-a.6-p88
+  role: context
+  label: Clause A.6, page 88
+  path: illustrations/isa-5.1-2009/complete/clause-a.6-p88.png
+  sha256: 70784690151594816920ec08a5e9871d4cec50b3aa927e298e4e15ed67aab5af
+  width: 2010
+  height: 357
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 88
+    printed_page: '88'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 641.6096
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-88
+  role: context
+  label: Complete technical content on page 88
+  path: illustrations/isa-5.1-2009/complete/page-88.png
+  sha256: 2bf2179008b21e874d11ae071297c6227357b791cb323c71299acad4303dbf8e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 88
+    printed_page: '88'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.6-p89
+  role: context
+  label: Clause A.6, page 89
+  path: illustrations/isa-5.1-2009/complete/clause-a.6-p89.png
+  sha256: f35873c6a9704d587f38edaae4f5c26bb69d4e70f81469a056fef088c4138bc6
+  width: 2010
+  height: 2392
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 89
+    printed_page: '89'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 644.1297
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-89
+  role: context
+  label: Complete technical content on page 89
+  path: illustrations/isa-5.1-2009/complete/page-89.png
+  sha256: d32a958821c411bd12e1696a8fe8a097bf4f0969c0eb34c6355ac22c9cd1d87e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 89
+    printed_page: '89'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

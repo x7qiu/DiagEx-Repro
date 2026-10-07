@@ -1,0 +1,69 @@
+id: sht-3101-2017.auxiliary-page-42
+version: 1
+concept: 辅助设备及其他图例 / Auxiliary equipment and other legends (page 38)
+catalog:
+  role: background
+  short_name: 辅助设备及其他图例 / Auxiliary equipment and other legends (page 38)
+  interpretation: Source material retained for browsing, outside the focused P&ID catalog. Full panels
+    are not individual symbols and are not supplied to extraction.
+  displayed_asset_ids: []
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases: []
+reference_type: convention
+kind: definition
+explanation: Source material retained for browsing, outside the focused P&ID catalog. Full panels are
+  not individual symbols and are not supplied to extraction.
+exceptions: []
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags: []
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '38'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/auxiliary-page-42/context.png
+  document_id: sht-3101-2017
+  pdf_page: 42
+  table: 4.21–4.26
+assets:
+- id: context
+  role: context
+  label: Source context
+  path: illustrations/sht-3101-2017/auxiliary-page-42/context.png
+  sha256: fc3d984c95304e7d195fb2bbfb071c62e04f30f34f345de7f69de6d171309a7a
+  width: 960
+  height: 1325
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 42
+    printed_page: '38'
+    table: 4.21–4.26
+    rect:
+    - 120.0
+    - 215.0
+    - 1080.0
+    - 1540.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []

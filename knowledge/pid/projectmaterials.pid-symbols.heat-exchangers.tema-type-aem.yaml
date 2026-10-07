@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.heat-exchangers.tema-type-aem
+version: 2
+concept: TEMA Type AEM
+catalog:
+  role: catalog
+  category: equipment
+  short_name: TEMA Type AEM
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: Projectmaterials labels this illustration ‘TEMA Type AEM’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- TEMA Type AEM
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘TEMA Type AEM’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: TEMA Type AEM
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#heat-exchangers-pid-symbols
+  section: Heat Exchangers P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: TEMA Type AEM
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.heat-exchangers.tema-type-aem.png
+  sha256: 28fb15245299f7c61f764451177a7b22253a7cf8211c369e4ee97b5bf299c5b7
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/51_TEMA-Type-AEM-PID-Symbol-150x150.92hW0VUz_Zpn0SW.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 6060ed3b80d1ab8ec38db832cd713a9faaf71382654f16f77aabea524011b6e0
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -9,6 +9,7 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+from typing import Annotated
 
 import typer
 from rich.console import Console
@@ -220,7 +221,7 @@ def extract_pid(
     ),
     raster_symbol_mode: str = typer.Option(  # noqa: B008 - Typer declares CLI options in defaults.
         "baseline", "--raster-symbol-mode",
-        help="Experimental symbol route: baseline or broad_review (requires raster proposals; keeps symbols pending for legend-informed review).",
+        help="Experimental symbol route: baseline or broad_review (requires raster proposals; uses legend-supported model classifications).",
     ),
     effort: str = typer.Option(
         "medium", "--effort",
@@ -608,7 +609,7 @@ def web_workbench(
         help="Do not open the browser automatically.",
     ),
 ) -> None:
-    """Configure, run, and review P&ID extraction in a local browser."""
+    """Configure and run P&ID extraction in a local browser."""
     from diagex.web.server import Workbench, serve_workbench
 
     cfg = load_config()
@@ -631,53 +632,6 @@ def web_workbench(
     )
 
 
-@app.command("review")
-def review_pid(
-    target: Path = typer.Argument(
-        ...,
-        exists=True,
-        readable=True,
-        help="Run directory or graph.json emitted by `diagex extract-pid`.",
-    ),
-    pdf: Path = typer.Option(
-        ...,
-        "--pdf",
-        exists=True,
-        readable=True,
-        help="Original source PDF or image used for extraction.",
-    ),
-    rater: str = typer.Option(..., "--rater", help="Reviewer name recorded in the audit log."),
-    out_dir: Path | None = typer.Option(
-        None,
-        "--out-dir",
-        help="Review directory (default: <run-dir>/review).",
-    ),
-    host: str = typer.Option("127.0.0.1", "--host", help="Local server bind address."),
-    port: int = typer.Option(8765, "--port", min=0, max=65535, help="Local server port; 0 selects a free port."),
-    no_open: bool = typer.Option(False, "--no-open", help="Do not open the browser automatically."),
-) -> None:
-    """Review an extracted P&ID beside its source and export corrected DEXPI."""
-    from diagex.review.core import ReviewStore
-    from diagex.review.server import serve_review
-
-    try:
-        store = ReviewStore.open(target, source_path=pdf, rater=rater, out_dir=out_dir)
-    except Exception as exc:  # noqa: BLE001
-        console.print(f"[red]review failed:[/red] {exc}")
-        raise typer.Exit(1)
-
-    if host not in {"127.0.0.1", "localhost", "::1"}:
-        console.print(
-            "[yellow]warning:[/yellow] review is being exposed beyond this machine and has no authentication"
-        )
-    console.print(f"autosave: {store.out_dir}   (Ctrl+C stops safely)")
-    serve_review(
-        store,
-        host=host,
-        port=port,
-        open_browser=not no_open,
-        on_ready=lambda url: console.print(f"review: [cyan]{url}[/cyan]"),
-    )
 
 
 # ---------------------------------------------------------------------------
@@ -846,6 +800,100 @@ def gt_add_edge(
         f"this session; truth now has {result['final_edges']} edges "
         f"(total session edge_add actions: {result['edge_added_total']})."
     )
+
+
+@app.command("stage-run")
+def stage_run(
+    request_file: Annotated[Path, typer.Argument(exists=True, readable=True)],
+    out: Annotated[Path, typer.Option("--out", help="Content-addressed stage artifacts.")] = Path(
+        "output/stages"
+    ),
+    live: bool = typer.Option(
+        False, "--live", help="Allow this explicit request to call its configured model."
+    ),
+) -> None:
+    """Run one extraction module from a saved, versioned request."""
+    import json
+    from dataclasses import replace
+
+    from diagex.vision.stage_contracts import StageRequest
+    from diagex.vision.stages import ModelRuntime, is_live, run_stage
+
+    try:
+        request = StageRequest.model_validate_json(request_file.read_text())
+        runtime = None
+        if is_live(request.stage, request.backend):
+            if not live:
+                raise ValueError("This stage calls a model; pass --live explicitly")
+            from diagex.llm.client import LLMClient
+            from diagex.llm.cost import CostTracker
+            from diagex.ui.progress import NullReporter
+
+            cfg = load_config()
+            if not request.model or not request.transport:
+                raise ValueError("Specify the model and transport in the request")
+            # Preserve the existing credential, budget and metering configuration.
+            llm = replace(cfg.llm, model=request.model, transport=request.transport)
+            if llm.transport == "openrouter" and not (llm.spending_ledger and llm.verified_prices):
+                raise ValueError(
+                    "OpenRouter stage calls require DIAGEX_SPENDING_LEDGER and DIAGEX_VERIFIED_PRICES"
+                )
+            runtime = ModelRuntime(LLMClient(llm), CostTracker(pricing=cfg.pricing), NullReporter())
+        result, reused = run_stage(request, out, base_dir=request_file.parent, runtime=runtime)
+        console.print(
+            json.dumps(
+                {
+                    "stage": request.stage,
+                    "reused": reused,
+                    "status": result["status"],
+                    "artifact": str(
+                        (out / request.stage / result["identity_sha256"] / "result.json").resolve()
+                    ),
+                }
+            )
+        )
+    except (ValueError, OSError, KeyError, TypeError) as exc:
+        console.print(f"[red]stage-run failed:[/red] {exc}")
+        raise typer.Exit(2) from exc
+
+
+@app.command("stage-list")
+def stage_list() -> None:
+    """List independently runnable responsibilities and their backends."""
+    from diagex.vision.stages import STAGES
+
+    for name, (_, backends, _) in STAGES.items():
+        console.print(f"{name}: {', '.join(backends)}")
+
+
+@app.command("stage-score")
+def stage_score(
+    reference: Annotated[Path, typer.Argument(exists=True, readable=True)],
+    result: Annotated[Path, typer.Argument(exists=True, readable=True)],
+    iou: float = typer.Option(0.5, "--iou"),
+    line_tolerance: float = typer.Option(3.0, "--line-tolerance"),
+) -> None:
+    """Score a stage result against explicit, stage-specific reference labels."""
+    import json
+
+    from diagex.vision.stage_metrics import score_stage
+    from diagex.vision.stages import digest
+
+    try:
+        record = json.loads(result.read_text())
+        if digest(record["output"]) != record["output_sha256"]:
+            raise ValueError("Result checksum mismatch")
+        metrics = score_stage(
+            record["stage"],
+            json.loads(reference.read_text()),
+            record["output"],
+            iou=iou,
+            line_tolerance=line_tolerance,
+        )
+        console.print_json(data=metrics)
+    except (ValueError, KeyError, TypeError, OSError) as exc:
+        console.print(f"[red]stage-score failed:[/red] {exc}")
+        raise typer.Exit(2) from exc
 
 
 if __name__ == "__main__":

@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.pit-vessel
+version: 2
+concept: Pit Vessel
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Pit Vessel
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Pit Vessel’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Pit Vessel
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Pit Vessel’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Pit Vessel
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Pit Vessel
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.pit-vessel.png
+  sha256: 9b4448735afb7543cbe3d64a52f7be3c3d959fed0205d24372b573410494e2af
+  width: 54
+  height: 34
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/pit_vessel.BwIvuaW7_1gMCKd.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 5594a58dde82a811d37a9b40f2d0ce4980b782f5f6da5ecc98eb8f2b8fa02ab8
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

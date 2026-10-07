@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.brackets-vessel
+version: 2
+concept: Brackets Vessel
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Brackets Vessel
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Brackets Vessel’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Brackets Vessel
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Brackets Vessel’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Brackets Vessel
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Brackets Vessel
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.brackets-vessel.png
+  sha256: 785cc2e5291e17ae8cf4accc555a34a23b236f9f3d7f50c404e95d65bd0ef44e
+  width: 42
+  height: 54
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/brackets_vessel.DjUNDjjo_ZJ1mLL.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 3081060e25109eee5d9e60705eadc49d0facb10617212ac38aa1a9f6ea1c06e8
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

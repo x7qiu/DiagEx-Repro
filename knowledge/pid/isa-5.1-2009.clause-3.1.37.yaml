@@ -1,0 +1,99 @@
+id: isa-5.1-2009.clause-3.1.37
+version: 2
+concept: instrumentation
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.37 instrumentation:
+
+  a collection of instruments, devices, hardware, or functions or their application
+  for the purpose of
+
+  measuring, monitoring, or controlling an industrial process or machine, or any combination
+  of these.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'instrumentation:'
+- 3.1.37
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '21'
+  pdf_page: 21
+  table: null
+  item: null
+  passage: Clause 3.1.37
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.37-p21.png
+assets:
+- id: clause-3.1.37-p21
+  role: context
+  label: Clause 3.1.37, page 21
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.37-p21.png
+  sha256: a3ee2ccd8946d5ac0ee95fa2eaf9a4e312f0124150c4f7c94df70260db052845
+  width: 2010
+  height: 245
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 21
+    printed_page: '21'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 433.1705
+    - 547.0
+    - 491.6703
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-21
+  role: context
+  label: Complete technical content on page 21
+  path: illustrations/isa-5.1-2009/complete/page-21.png
+  sha256: 55be2b982908ec51c46d68e66a524b557a210bd1c74f559a1dd75b06c092ffcb
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 21
+    printed_page: '21'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

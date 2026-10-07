@@ -1,0 +1,209 @@
+id: isa-5.1-2009.t5.8-22
+version: 2
+concept: Off time delay
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Off time delay. • Moves after relay coil de-energizes and set time
+  has elapsed. • (*) = Set time.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Electrical schematic symbols
+- '5.8'
+- Off time delay
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '74'
+  pdf_page: 74
+  table: '5.8'
+  item: '22'
+  passage: 'Table 5.8, item 22: • Off time delay. • Moves after relay coil de-energizes
+    and set time has elapsed. • (*) = Set time.'
+  image: illustrations/isa-5.1-2009/complete/t5.8-22-context.png
+assets:
+- id: t5.8-22-context
+  role: context
+  label: 'Complete row: Table 5.8, item 22'
+  path: illustrations/isa-5.1-2009/complete/t5.8-22-context.png
+  sha256: cc18bbb0927a59afcf1f9bd8352ebbc8f42c5816f93c0e81a70e1a039c85ab23
+  width: 1960
+  height: 243
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 74
+    printed_page: '74'
+    table: '5.8'
+    item: '22'
+    rect:
+    - 70.9891
+    - 181.76
+    - 541.0109
+    - 239.86
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-74
+  role: context
+  label: Complete technical content on page 74
+  path: illustrations/isa-5.1-2009/complete/page-74.png
+  sha256: f07b12a17dbd0937c635f76574d0c2cf82c7e0ea025e3309e7714c7b8e0d1f37
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 74
+    printed_page: '74'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.8-22-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.8-22-panel-1.png
+  sha256: c3c27300bde4dfd206da8cb63ba4b0294bdc524fb4c684aae9023d6c8eb99e89
+  width: 444
+  height: 228
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 74
+    printed_page: '74'
+    table: '5.8'
+    item: '22'
+    rect:
+    - 108.8
+    - 183.56
+    - 215.2
+    - 238.06
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.8-p35
+  role: note
+  label: Clause 5.3.8, page 35
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.8-p35.png
+  sha256: 7b409c88ca929c3ff4708ec70452d637a3821e022a8fc5609421e057f842448f
+  width: 2010
+  height: 1565
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 35
+    printed_page: '35'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 351.6307
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.8-22-variants.png
+  sha256: f9697a537d95a841b61cba4906ab5cbf792cc45c11fe0e125aec96627b138909
+  width: 1000
+  height: 293
+  derived_from:
+  - t5.8-22-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '35'
+    pdf_page: 35
+    table: null
+    item: null
+    passage: Clause 5.3.8
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.8-p35.png
+  explanation: '5.3.8 Table 5 8 — Electrical schematic symbols
+
+    (1) All devices are shown in the unactuated or de-energized condition.
+
+    (2) Switch contacts 2, 3, and 4 shall be actuated by:
+
+    (a) Hand.
+
+    (b) Actuator symbols 5 and 6.
+
+    (3) Actuator symbols 5 and 6 shall actuate switch symbols 2, 3, and 4.
+
+    (4) Switch symbols 7, 8, and 9.shall be actuated by:
+
+    (a) Hand.
+
+    (b) Actuator symbols 11 through 16.
+
+    (c) Bubble symbol for device or function assigned to actuate the switch symbol.
+
+    (5) Actuator symbols 11 through 16 shall actuate switch symbols 7, 8, and 9.
+
+    (6) Users engineering and design standards, practices and/or guidelines shall
+    document which
+
+    symbol has been selected.'
+  asset_id: clause-5.3.8-p35
+text_slots:
+- role: source_variable
+  example_marker: (*)
+  location: As marked in the source panel
+  meaning: Set time.
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.8
+  explanation: 'Explanatory notes for Table 5.8: clause 5.3.8.'
+catalog:
+  role: background

@@ -1,0 +1,359 @@
+id: isa-5.1-2009.clause-b.7
+version: 2
+concept: B.7 — Process variable measurements
+aliases: []
+reference_type: assembly_pattern
+kind: possible_arrangement
+curation: source_transcribed
+source_status: informative
+explanation: 'B.7 Process variable measurements
+
+  B.7.1 Process variable measurement devices are inserted in or mounted on pipelines
+  and equipment to
+
+  measure a physical property or to analyze a chemical composition, and include but
+  are not limited
+
+  to:
+
+  a) Primary elements, such as orifice plates and thermocouples, that generate analog
+
+  signals, position mechanical devices, or are used by transmitters to generate signals
+
+  compatible with the control system.
+
+  b) Transmitters with integral primary elements, such as vortex shedding flowmeters
+  and
+
+  filled-capillary temperature devices that generate signals compatible with the control
+
+  system.
+
+  B.7.2 Process measurements are indicated by:
+
+  a) Bubbles as shown in Table 5.2.1 for:
+
+  1) Generic primary elements.
+
+  2) Primary elements that do not have a graphic symbol in Table 5.2.3.
+
+  3) Users who elect not to use graphic symbols from Table 5.2.3.
+
+  b) Graphic symbols from Table 5.3.2.
+
+  B.7.3 Analyzer primary element located in a process slip stream or in a process
+  stream or equipment
+
+  with or without accessory devices, such as sample conditioners that contain components
+  that are
+
+  not normally shown, and with type of analyzer and component of interest noted at
+  (**) and (***)
+
+  respectively:
+
+  a) With sample conditioners:
+
+  TC
+
+  VENT
+
+  (**)
+
+  AE
+
+  AE
+
+  or
+
+  *01
+
+  DRAIN *02
+
+  C2
+
+  (***)
+
+  VENT C3
+
+  AX
+
+  AX
+
+  or
+
+  *01
+
+  *02
+
+  DRAIN SMPL SMPL
+
+  COND COND
+
+  b) Without sample conditioners:
+
+  TC (**)
+
+  VENT
+
+  AE AE
+
+  or
+
+  *01 *02
+
+  DRAIN
+
+  C2
+
+  (***)
+
+  C3
+
+  c) Analyzer primary element or transmitter inserted in process stream or equipment:
+
+  MOIST pH
+
+  AE AE
+
+  *03 *04
+
+  B.7.4 Orifice plate primary elements, with or without optional flow arrow, use generic
+  orifice plate
+
+  symbol with transmitter bubble connected to indicate orifice tap location for flange
+  taps, corner
+
+  taps, pipe taps, and vena contracta taps respectively:
+
+  a) Single process connection: corner taps, pipe taps, and vena contracta taps are
+  indicated
+
+  by notation:
+
+  FT FT FT FT
+
+  *01 *01 *01 *01
+
+  CT VC PT
+
+  b) Double process connection, pipe taps and vena contracta taps are indicated by
+  notation:
+
+  FT FT FT FT
+
+  *02 *03 *03 *01
+
+  PT VC
+
+  B.7.5 Process root block valves should be shown as required by the piping engineering
+  group.
+
+  B.7.6 Orifice meter tubes or runs that are specified and requisitioned by the instrument
+  group should be
+
+  shown on drawings and sketches by:
+
+  a) Bubble:
+
+  FX
+
+  *01
+
+  NOTES
+
+  b) Notation:
+
+  1. METER TUBE BY INSTRUMENTS.
+
+  NOTE 1
+
+  c) Flanged or welded:
+
+  METER TUBE METER RUN'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Process variable measurements
+- B.7
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 114, 115, 116
+  pdf_page: 114
+  table: null
+  item: null
+  passage: Clause B.7
+  image: illustrations/isa-5.1-2009/complete/clause-b.7-p114.png
+assets:
+- id: clause-b.7-p114
+  role: context
+  label: Clause B.7, page 114
+  path: illustrations/isa-5.1-2009/complete/clause-b.7-p114.png
+  sha256: f98cdf51c72e916776504e8f8c7377535891776161d52128c13cba3c6284585a
+  width: 2010
+  height: 1644
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 114
+    printed_page: '114'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 332.8519
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-114
+  role: context
+  label: Complete technical content on page 114
+  path: illustrations/isa-5.1-2009/complete/page-114.png
+  sha256: 1f297243f436503776ed5c796d389b7d763937ef38406c305e53f7e1dd314b74
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 114
+    printed_page: '114'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.7-p115
+  role: context
+  label: Clause B.7, page 115
+  path: illustrations/isa-5.1-2009/complete/clause-b.7-p115.png
+  sha256: 28b0a9cb123d0b8488eb38d082e77f4136178d2674c631f971631fb369d2418b
+  width: 2010
+  height: 2738
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 115
+    printed_page: '115'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-115
+  role: context
+  label: Complete technical content on page 115
+  path: illustrations/isa-5.1-2009/complete/page-115.png
+  sha256: 24d6f686425c76f88052a417a1e676dbdbcf7194aeb57b8f39ef846d9b3a5359
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 115
+    printed_page: '115'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.7-p116
+  role: context
+  label: Clause B.7, page 116
+  path: illustrations/isa-5.1-2009/complete/clause-b.7-p116.png
+  sha256: 05273835d154e4cb42440ecb15b64ae78d849a8c87d41d57f315886aade0d000
+  width: 2010
+  height: 747
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 116
+    printed_page: '116'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 249.2719
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-116
+  role: context
+  label: Complete technical content on page 116
+  path: illustrations/isa-5.1-2009/complete/page-116.png
+  sha256: 0674ff48f8717fb6e26fa1a809809b80a17cfe9bdfb953d2fac1d71d862ccb65
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 116
+    printed_page: '116'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

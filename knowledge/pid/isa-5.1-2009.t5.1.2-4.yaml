@@ -1,0 +1,284 @@
+id: isa-5.1-2009.t5.1.2-4
+version: 2
+concept: ‘AND’ interlock logic function
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • ‘AND’ interlock logic function.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Instrumentation device or function symbols, miscellaneous
+- 5.1.2
+- ‘AND’ interlock logic function
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '37'
+  pdf_page: 37
+  table: 5.1.2
+  item: '4'
+  passage: 'Table 5.1.2, item 4: • ‘AND’ interlock logic function.'
+  image: illustrations/isa-5.1-2009/complete/t5.1.2-4-context.png
+assets:
+- id: t5.1.2-4-context
+  role: context
+  label: 'Complete row: Table 5.1.2, item 4'
+  path: illustrations/isa-5.1-2009/complete/t5.1.2-4-context.png
+  sha256: 1ca87bbd4b0b70d2254e3f0bdd5c7ff09e0d52fb28274c2ed1d703744c8b72d8
+  width: 1960
+  height: 254
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 37
+    printed_page: '37'
+    table: 5.1.2
+    item: '4'
+    rect:
+    - 70.9859
+    - 312.98
+    - 541.0141
+    - 373.78
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-37
+  role: context
+  label: Complete technical content on page 37
+  path: illustrations/isa-5.1-2009/complete/page-37.png
+  sha256: 5338b5f2e6c75f370bcf75a3d10e425e2f8976129ce6e6c34fcd4cdbfbb85aab
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 37
+    printed_page: '37'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.1.2-4-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.1.2-4-panel-1.png
+  sha256: 1340774e957d6721cb6d2aeab52ccebdef04f85280e4735da2195021e7ee0587
+  width: 444
+  height: 239
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 37
+    printed_page: '37'
+    table: 5.1.2
+    item: '4'
+    rect:
+    - 108.8
+    - 314.78
+    - 215.2
+    - 371.98
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.1-p32
+  role: note
+  label: Clause 5.3.1, page 32
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.1-p32.png
+  sha256: 970bcc17b21beed5bcedbf381dd74528b77895426bace054b6bfa656f8a9d167
+  width: 2010
+  height: 1374
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 32
+    printed_page: '32'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 397.6506
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.1-p33
+  role: note
+  label: Clause 5.3.1, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.1-p33.png
+  sha256: 496b1d7614b8ac7c0d7cbd7845cb8d5c2aeb98973c21a648dd821adabbe339d0
+  width: 2010
+  height: 1363
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 397.1707
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.1.2-4-variants.png
+  sha256: 8ee29703d750f7c252c88e5430f38ff893a10c403ef0558034a9d6960fc6d5cb
+  width: 1000
+  height: 304
+  derived_from:
+  - t5.1.2-4-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 32, 33
+    pdf_page: 32
+    table: null
+    item: null
+    passage: Clause 5.3.1
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.1-p32.png
+  explanation: '5.3.1 Tables 5.1.1 and 5.1.2 — Instrumentation device and function
+    symbols:
+
+    (1) Devices and functions that are represented by these bubble symbols are:
+
+    (a) Used in shared display, shared control, configurable, microprocessor-based,
+    and data-
+
+    linked instrumentation where the functions are accessible by the operator via
+    a shared display or
+
+    monitor.
+
+    (b) Configured in control systems that include, but are not limited to, distributed
+    control
+
+    systems (DCS), programmable logic controllers (PLC), personal computers (PC),
+    and intelligent
+
+    transmitters and valve positioners.
+
+    (2) The user shall select and document one of the following for use of these symbols
+    in a:
+
+    (a) Primary shared-display, shared-control system.
+
+    (b) Basic Process Control System (BPCS).
+
+    (3) The user shall select and document one of the following for use of these symbols
+    in an:
+
+    (a) Alternate shared-display, shared-control system.
+
+    (b) Safety Instrumented System (SIS).
+
+    (4) Devices and functions represented by these bubble symbols are configured in
+    computer systems
+
+    that include, but are not limited to:
+
+    (a) Process controllers, process optimizers, statistical process control, model-predictive
+
+    process control, analyzer controllers, business computers, manufacturing execution
+    systems, and
+
+    other systems that interact with the process by manipulating setpoints in the
+    BPCS.
+
+    (b) High Level Control System (HLCS)
+
+    (5) Discrete devices or functions that are hardware-based and are either stand-alone
+    or are
+
+    connected to other instruments, devices, or systems that include, but are not
+    limited to, transmitters,
+
+    switches, relays, controllers, and control valves.
+
+    (6) Accessibility includes viewing, setpoint adjustment, operating mode changing,
+    and any other
+
+    operator actions required to operate the instrumentation.
+
+    (7) Functions represented by these symbols are used for simple interlock logic:
+
+    (a) A description of the logic should be shown nearby or in the notes section
+    of the drawing
+
+    or sketch if the intended logic is not clearly understandable.
+
+    (b) These symbols are not recommended for depicting complex DCS, PLC, or SIS
+
+    applications that require other than ‘AND’ and ‘OR’ signal gates.
+
+    (8) A logic number, letter, or number/letter combination identification shall
+    be used if more than one
+
+    logic scheme is used on the project by:
+
+    (a) Replacing [I], [A], and [O] with the logic identification.
+
+    (b) Appending the logic identification outside the symbol.'
+  asset_id: clause-5.3.1-p32
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.1
+  explanation: 'Explanatory notes for Table 5.1.2: clause 5.3.1.'
+catalog:
+  role: background

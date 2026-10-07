@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.compressors.reciprocating-compressor-03
+version: 2
+concept: Reciprocating Compressor 03
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Reciprocating Compressor 03
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Reciprocating Compressor 03’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Reciprocating Compressor 03
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Reciprocating Compressor 03’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Reciprocating Compressor 03
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#compressors-pid-symbols
+  section: Compressors P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Reciprocating Compressor 03
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.compressors.reciprocating-compressor-03.png
+  sha256: e3606e3e76d55bf6d675fddebe9565a70770c50b58926b1a07a46591d3f97e8c
+  width: 45
+  height: 51
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/reciprocating_compressor_03.DInvqghM_Z1rhtQM.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 35f4bae5e4b3d383783b61aa65be19f410a547412d4657f8f581937158cc4f85
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -10,15 +10,16 @@ import json
 from collections import defaultdict
 
 from diagex.llm.client import LLMClient
+from diagex.llm.prompts.output_language import CHINESE_EXPLANATIONS
 from diagex.vision.encode import encode_image_block
-from diagex.vision.perception import (
+from diagex.vision.raster_detector import CLASSES
+from diagex.vision.symbol_interpretation import (
     NormalizedBBox,
     PerceptionBatch,
     PerceptionOutcome,
     _bbox_center_is_owned,
     _project_normalized_bbox,
 )
-from diagex.vision.raster_detector import CLASSES
 
 BROAD_SYSTEM = """Inspect the original P&ID image and recognize broad raster symbol
 classes. This is symbol inventory, not engineering interpretation or graph design.
@@ -139,6 +140,14 @@ def perceive_broad_raster(**kwargs):
               "legend_entries": kwargs.get("legend_summary") or [],
               "legend_scope": "Caller-prepared legend context only; empty means no legend evidence supplied",
               "coordinate_frame": "normalized_to_first_source_image"}
+    from diagex.vision.symbol_interpretation import (
+        _bounded_knowledge_context,
+        _knowledge_image_blocks,
+    )
+    prompt["knowledge"] = _bounded_knowledge_context(
+        kwargs.get("page_context", {}).get("knowledge", {}), prompt["legend_entries"]
+    )
+    reference_blocks = _knowledge_image_blocks(prompt["knowledge"])
     tool = {"name": "submit_raster_symbols", "description": "Return broad raster observations, not engineering objects",
             "input_schema": broad_schema()}
     observations = None
@@ -146,8 +155,8 @@ def perceive_broad_raster(**kwargs):
         text = json.dumps(prompt, ensure_ascii=False)
         if attempt == 2:
             text += "\nPrevious output was not a valid tool payload. Call submit_raster_symbols with raster_results and discoveries arrays."
-        response = client.messages_create(system=BROAD_SYSTEM, messages=[{"role": "user", "content": [
-            encode_image_block(kwargs["view_image"]), {"type": "text", "text": text}]}],
+        response = client.messages_create(system=BROAD_SYSTEM + CHINESE_EXPLANATIONS, messages=[{"role": "user", "content": [
+            encode_image_block(kwargs["view_image"]), *reference_blocks, {"type": "text", "text": text}]}],
             tools=[tool], tool_choice={"type": "tool", "name": tool["name"]}, max_tokens=policy.first_pass_tokens,
             thinking={"type": "disabled"}, reasoning_mode_override="disabled", output_config={"effort": "low"},
             time_budget_s=policy.request_timeout_s, max_attempts=policy.transport_attempts)
@@ -155,6 +164,12 @@ def perceive_broad_raster(**kwargs):
                                      tile_id=kwargs["tile"].id, page_index=kwargs["page"].page_index)
         raw = [b.input for b in response.content if b.type == "tool_use" and b.name == tool["name"]]
         record = {"response_id": response.id, "proposal_ids": list(client.raster_proposal_ids), "tool_results": []}
+        if prompt["knowledge"]:
+            from diagex.knowledge.library import supplied_trace
+            record["supplied_knowledge"] = supplied_trace(prompt["knowledge"])
+        record["supplied_legend_entry_ids"] = [
+            entry["legend_entry_id"] for entry in prompt["legend_entries"] if entry.get("legend_entry_id")
+        ]
         client.raster_review_attempts.append(record)
         try:
             if len(raw) != 1:
@@ -180,5 +195,5 @@ def perceive_broad_raster(**kwargs):
             attributes.update(raster_proposal_id=row["proposal_id"], raster_vlm_decision="symbol")
         batch.candidate_reviews.append({"status": "uncertain", "object_index": index, "bbox": box.model_dump(),
             "object": {"kind": "raster_symbol", "confidence": row["confidence"], "attributes": attributes},
-            "reason": "Broad raster observation; detailed legend semantics and geometry require review before graph use."})
+            "reason": "Broad raster observation; detailed legend semantics remain unresolved."})
     return PerceptionOutcome(detections=[], batch=batch, attempts=attempt)

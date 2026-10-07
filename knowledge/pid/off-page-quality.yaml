@@ -1,0 +1,30 @@
+id: opc.drawing-quality
+version: 2
+concept: Connector drafting quality is separate from connector identity
+kind: drawing_quality_recommendation
+explanation: The supplied illustration discourages middle and vertical placement while
+  explicitly allowing exceptions in some companies. Record unconventional placement
+  for review; do not remove a physically supported connector because its layout is
+  discouraged.
+exceptions:
+- Project conventions and the drawing legend may explicitly allow these placements.
+applicability: {}
+tasks:
+- review
+tags:
+- opc
+- connector
+- utility
+- utilities
+- 公用工程
+source:
+  document: null
+  page: null
+  edition: null
+  image: illustrations/off-page-connectors.png
+catalog:
+  role: supporting
+  interpretation: The supplied illustration discourages middle and vertical placement
+    while explicitly allowing exceptions in some companies. Record unconventional
+    placement for review; do not remove a physically supported connector because its
+    layout is discouraged.

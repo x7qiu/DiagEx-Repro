@@ -19,3 +19,5 @@ runs/
 tmp/
 *.json
 .venv-cv/
+# Unmodified standards PDFs; curated evidence and manifests stay versioned.
+data/knowledge-sources/

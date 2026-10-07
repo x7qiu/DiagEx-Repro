@@ -1,0 +1,105 @@
+id: isa-5.1-2009.clause-3.1.13
+version: 2
+concept: communication link
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.13 communication link:
+
+  a wire, cable, or electromagnetic network or bus system that connects dedicated
+  microprocessor-based
+
+  and computer-based systems so that they share a common database, and communicates
+  according to a
+
+  rigid protocol in a hierarchical and/or peer-to-peer relationship; see datalink.
+
+  a) wire or cable networks may be twisted pair, coaxial, telephone, or fiber optic.
+
+  b) electromagnetic networks may be radio or microwave.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'communication link:'
+- 3.1.13
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '18'
+  pdf_page: 18
+  table: null
+  item: null
+  passage: Clause 3.1.13
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.13-p18.png
+assets:
+- id: clause-3.1.13-p18
+  role: context
+  label: Clause 3.1.13, page 18
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.13-p18.png
+  sha256: a71654fe6c0f7ab45e20938510d918a5a0003d89c47d428923057ef638765a99
+  width: 2010
+  height: 488
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 18
+    printed_page: '18'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 479.1303
+    - 547.0
+    - 596.1298
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-18
+  role: context
+  label: Complete technical content on page 18
+  path: illustrations/isa-5.1-2009/complete/page-18.png
+  sha256: 85bccc007282cf6896bc916040e6165fe395b61cfb71ec759aac39bb54691a84
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 18
+    printed_page: '18'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

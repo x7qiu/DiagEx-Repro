@@ -1,0 +1,130 @@
+id: isa-5.1-2009.t6.1-p78
+version: 2
+concept: Table 6.1 — Dimensions for Tables 5.1.1 and 5.1.2 (page 78)
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: normative
+explanation: Dimensions for Tables 5.1.1 and 5.1.2. Use the source table with its
+  column headings and linked explanatory notes. Blank or merged cells must not be
+  interpreted as new definitions.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- Dimensions for Tables 5.1.1 and 5.1.2
+- '6.1'
+- dimensions
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '78'
+  pdf_page: 78
+  table: '6.1'
+  item: null
+  passage: "               Table 6.1 — Dimensions for Tables 5.1.1 and 5.1.2\n\n\n\
+    Note: Numbers in parentheses refer to explanatory notes in Clause 6.3.1.\n\n\n\
+    \                7[8] (1)\n                                                  \
+    \                                                   5.5\n\n\n\n              \
+    \   2[2.5] (1)\n                                                             \
+    \                        7\n                          1                      \
+    \                              7[8] (1)                            9\n\n     \
+    \          0.5\n\n                                                           \
+    \             2\n\n\n             6\n                                        \
+    \                                      2\n                                   \
+    \                    1                 4.5                                   6\n\
+    \n\n                       6\n                                             4 \
+    \                                 3"
+  image: illustrations/isa-5.1-2009/complete/page-78.png
+assets:
+- id: page-78
+  role: context
+  label: Complete technical content on page 78
+  path: illustrations/isa-5.1-2009/complete/page-78.png
+  sha256: baeb7831cd092e2831d20623351289aa2f117046e8df494b23a1881b842a8cc4
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 78
+    printed_page: '78'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-6.3.1-p76
+  role: note
+  label: Clause 6.3.1, page 76
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.1-p76.png
+  sha256: 9a51b53eb57d459edd313e407d566fd4e780b1681e1fa3bd8858260c4417a382
+  width: 2010
+  height: 245
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 76
+    printed_page: '76'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 575.9702
+    - 547.0
+    - 634.4699
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '76'
+    pdf_page: 76
+    table: null
+    item: null
+    passage: Clause 6.3.1
+    image: illustrations/isa-5.1-2009/complete/clause-6.3.1-p76.png
+  explanation: '6.3.1 Table 6.1 — Dimensions for measurement and control instrumentation
+    device or function
+
+    symbols, Tables 5.1.1 and 5.1.2
+
+    (1) Dimension in parentheses is for 1/2-inch (12-millimeter) option for generic
+    circle symbol.'
+  asset_id: clause-6.3.1-p76
+text_slots: []
+interpretation:
+- Table cells are source transcriptions; retain headers and merged-cell context when
+  interpreting them. Use the image to resolve superscripts or extraction ambiguity.
+- Example tags and numbering schemes illustrate conventions; never copy them as actual
+  drawing identifiers.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-6.3.1
+  explanation: 'Explanatory notes for Table 6.1: clause 6.3.1.'
+table_data: []
+catalog:
+  role: background

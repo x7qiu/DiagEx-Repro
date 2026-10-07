@@ -1,0 +1,77 @@
+id: sht-3101-2017.letter-rules
+version: 1
+concept: 仪表字母解释 / Instrument-letter interpretation
+catalog:
+  role: supporting
+  short_name: 仪表字母解释 / Instrument-letter interpretation
+  interpretation: The first letter identifies the directly measured/initiating variable, optionally with
+    a modifier. A denotes material-composition or physical-property analysis, while vibration/mechanical
+    analysis uses V. User-defined letters N and O require consistent project definitions. Modifiers D,
+    F and Q stay in the same variable numbering sequence. For readout/passive functions, G identifies
+    glass/local direct viewing and I indirect observation. These rules interpret observed text; they cannot
+    supply missing tags. See the letter table source image for the complete mapping.
+  displayed_asset_ids: []
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases: []
+reference_type: convention
+kind: definition
+explanation: The first letter identifies the directly measured/initiating variable, optionally with a
+  modifier. A denotes material-composition or physical-property analysis, while vibration/mechanical analysis
+  uses V. User-defined letters N and O require consistent project definitions. Modifiers D, F and Q stay
+  in the same variable numbering sequence. For readout/passive functions, G identifies glass/local direct
+  viewing and I indirect observation. These rules interpret observed text; they cannot supply missing
+  tags. See the letter table source image for the complete mapping.
+exceptions: []
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags: []
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '11'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/letter-rules/context.png
+  document_id: sht-3101-2017
+  pdf_page: 15
+  table: 4.4 notes
+assets:
+- id: context
+  role: context
+  label: Source context
+  path: illustrations/sht-3101-2017/letter-rules/context.png
+  sha256: a479a202b35fbe38618b0b85bd35de5aa24b7884311ac418bff31f7dd0732e49
+  width: 885
+  height: 584
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 15
+    printed_page: '11'
+    table: 4.4 notes
+    rect:
+    - 185.0
+    - 203.0
+    - 1070.0
+    - 787.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []

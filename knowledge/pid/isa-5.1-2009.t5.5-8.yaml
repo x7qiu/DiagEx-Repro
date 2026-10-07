@@ -1,0 +1,213 @@
+id: isa-5.1-2009.t5.5-8
+version: 2
+concept: Final control element with positioner
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Final control element with positioner. • Control valve with positioner.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Functional diagramming symbols
+- '5.5'
+- Final control element with positioner
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '56'
+  pdf_page: 56
+  table: '5.5'
+  item: '8'
+  passage: 'Table 5.5, item 8: • Final control element with positioner. • Control
+    valve with positioner.'
+  image: illustrations/isa-5.1-2009/complete/t5.5-8-context.png
+assets:
+- id: t5.5-8-context
+  role: context
+  label: 'Complete row: Table 5.5, item 8'
+  path: illustrations/isa-5.1-2009/complete/t5.5-8-context.png
+  sha256: 4591d4c92cb84d8eb883226dd09837f1fc8ab843bdd73b2d03a997cbde5ae4fa
+  width: 1960
+  height: 292
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 56
+    printed_page: '56'
+    table: '5.5'
+    item: '8'
+    rect:
+    - 70.9867
+    - 609.38
+    - 541.0133
+    - 679.3
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-56
+  role: context
+  label: Complete technical content on page 56
+  path: illustrations/isa-5.1-2009/complete/page-56.png
+  sha256: 0450d608aa2057d335d8dd21d3c0ece2647056a15cc183baf0e426af21cdb3ed
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 56
+    printed_page: '56'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.5-8-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.5-8-panel-1.png
+  sha256: 3e6a7c2ae439cd7fd298f6ba6381f85011d6c8b1da2bf89b3fe7207908ec6eb6
+  width: 444
+  height: 277
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 56
+    printed_page: '56'
+    table: '5.5'
+    item: '8'
+    rect:
+    - 108.8
+    - 611.18
+    - 215.2
+    - 677.5
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.5-p34
+  role: note
+  label: Clause 5.3.5, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.5-p34.png
+  sha256: 1ed8dc46db73c1c390ec6487ffdb8a818543c6ba2ff2e05f7fa5c897fc718c85
+  width: 2010
+  height: 209
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 677.1295
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.5-p35
+  role: note
+  label: Clause 5.3.5, page 35
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.5-p35.png
+  sha256: 15108670b476dc6bc3122f3ea93d0e34272e897706fab9d48528c28c64ab6593
+  width: 2010
+  height: 295
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 35
+    printed_page: '35'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 140.6715
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.5-8-variants.png
+  sha256: 239dd105dc36ed0ccd987b74bf48dd760ccdffe3957453ffb37327c229f42880
+  width: 1000
+  height: 342
+  derived_from:
+  - t5.5-8-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 34, 35
+    pdf_page: 34
+    table: null
+    item: null
+    passage: Clause 5.3.5
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.5-p34.png
+  explanation: '5.3.5 Table 5.5 — Functional diagramming symbols:
+
+    (1) Signal flow is assumed to be from top-to-bottom or from left-to-right.
+
+    (2) Symbols are shown in a vertical diagram format.
+
+    (3) Symbols shall be rotated 90 degrees counterclockwise in a horizontal diagram
+    format.
+
+    (4) Insert signal processing symbol from Table 5.6 at (*).'
+  asset_id: clause-5.3.5-p34
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.5
+  explanation: 'Explanatory notes for Table 5.5: clause 5.3.5.'
+catalog:
+  role: background

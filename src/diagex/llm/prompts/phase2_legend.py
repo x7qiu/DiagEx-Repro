@@ -23,6 +23,7 @@ from diagex.dexpi_schema import (
 # is deterministic for a given registry state. Adding a class regenerates
 # this string exactly once per process.
 _STARTER_LEGEND_PROMPT_TEMPLATE = """\
+用户可见的描述、识别依据和不确定性说明使用简体中文；原图标签、编号及枚举保持原样。
 You are extracting a symbol / abbreviation legend from an industrial P&ID.
 The page (or region) you are viewing is a legend sheet: a grid of printed
 symbols next to their meanings, or a table of abbreviations and classes.

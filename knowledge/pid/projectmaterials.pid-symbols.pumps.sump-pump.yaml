@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.pumps.sump-pump
+version: 2
+concept: Sump Pump
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Sump Pump
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Sump Pump’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Sump Pump
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Sump Pump’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Sump Pump
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#pumps-pid-symbols
+  section: Pumps P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Sump Pump
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.pumps.sump-pump.png
+  sha256: d1306d9882b38de613ecc714159d95de92bea139ed5a8573d28b45b7fa175ac6
+  width: 39
+  height: 70
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/sump_pump.BiNplwlg_Z2qqlbT.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: b613350e8d1bd6e2425e05d4291686bb407795356df2390ae29707c65ac7e222
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

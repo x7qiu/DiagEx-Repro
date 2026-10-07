@@ -1,0 +1,175 @@
+id: isa-5.1-2009.clause-2.6
+version: 2
+concept: 2.6 — Extent of loop and functional identification
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '2.6 Extent of loop and functional identification
+
+  2.6.1 This standard provides identification codes and methods for the alphanumeric
+  identification of
+
+  monitoring and controlling loops, instruments and functions.
+
+  2.6.2 These identification methods depend on tagging according to function and not
+  according to
+
+  construction or form. For example, a differential pressure transmitter is not identified
+  as a differential
+
+  pressure transmitter but as a:
+
+  a) Flow transmitter when connected to an orifice plate when measuring flow.
+
+  b) Level transmitter when connected to the side of a vessel when measuring liquid
+  level.
+
+  2.6.3 The user is free to apply added identification by serial, equipment, unit,
+  area, or plant number, or
+
+  any other additional means required for the unique identification of a loop, instrument
+  or function.
+
+  2.6.4 A unique function identification number shall be assigned to identify each:
+
+  a) Loop instrument or device and its integral and/or inherent functions.
+
+  b) Loop-configurable function, which requires or allows a unique user-assigned
+
+  microprocessor or computer address.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Extent of loop and functional identification
+- '2.6'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 15, 16
+  pdf_page: 15
+  table: null
+  item: null
+  passage: Clause 2.6
+  image: illustrations/isa-5.1-2009/complete/clause-2.6-p15.png
+assets:
+- id: clause-2.6-p15
+  role: context
+  label: Clause 2.6, page 15
+  path: illustrations/isa-5.1-2009/complete/clause-2.6-p15.png
+  sha256: d6f343d5359717eed1cbb40152e11148bc55c195687c8def30fed94750e9a58c
+  width: 2010
+  height: 986
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 15
+    printed_page: '15'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 490.6502
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-15
+  role: context
+  label: Complete technical content on page 15
+  path: illustrations/isa-5.1-2009/complete/page-15.png
+  sha256: 7f6409dc18b443aef14a7bb11c3ee6c143f61e8bad07e9a5c2c3c15d3a2e1337
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 15
+    printed_page: '15'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-2.6-p16
+  role: context
+  label: Clause 2.6, page 16
+  path: illustrations/isa-5.1-2009/complete/clause-2.6-p16.png
+  sha256: aa6eb9318b62c3234ac418477a84fc3443eb2d4ace6d4eb88e5c1223f553c895
+  width: 2010
+  height: 245
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 16
+    printed_page: '16'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 128.6716
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-16
+  role: context
+  label: Complete technical content on page 16
+  path: illustrations/isa-5.1-2009/complete/page-16.png
+  sha256: e090245364a2c9fa7d985a00c851d3e7bf3f0ffb0948cf97b4b2d234f8895bb0
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 16
+    printed_page: '16'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

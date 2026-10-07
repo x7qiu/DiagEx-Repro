@@ -1,0 +1,161 @@
+id: isa-5.1-2009.clause-a.15
+version: 2
+concept: A.15 — Identification system guideline tables
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.15 Identification system guideline tables
+
+  A.15.1 Identification System guideline tables are based on the most common usages
+  to be found in the
+
+  chemical and refining process industries.
+
+  A.15.2 The tables are intended to be a guide to constructing such tables based on
+  a User’s actual
+
+  requirements.
+
+  A.15.3 Loops are based on the variable being measured and not on the variable being
+  manipulated.
+
+  A.15.4 Instrument tag numbers are based on the loop number and the functionality
+  required of the loop
+
+  components.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Identification system guideline tables
+- A.15
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 95, 96
+  pdf_page: 95
+  table: null
+  item: null
+  passage: Clause A.15
+  image: illustrations/isa-5.1-2009/complete/clause-a.15-p95.png
+assets:
+- id: clause-a.15-p95
+  role: context
+  label: Clause A.15, page 95
+  path: illustrations/isa-5.1-2009/complete/clause-a.15-p95.png
+  sha256: da70b8db15f3157e671ecb8c6f6db167cfd157afa38db408dde95fa41787db97
+  width: 2010
+  height: 392
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 95
+    printed_page: '95'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 633.1498
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-95
+  role: context
+  label: Complete technical content on page 95
+  path: illustrations/isa-5.1-2009/complete/page-95.png
+  sha256: 486b77099d5589f8bfa27f648565c65e3ac9bb9ded8dd8ac16e1ef2d5bc3b5fc
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 95
+    printed_page: '95'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.15-p96
+  role: context
+  label: Clause A.15, page 96
+  path: illustrations/isa-5.1-2009/complete/clause-a.15-p96.png
+  sha256: 6bea815cb722959607ac283cd2807f5b3aef4f53588694d024a01286da8c83c9
+  width: 2010
+  height: 343
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 96
+    printed_page: '96'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 152.1915
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-96
+  role: context
+  label: Complete technical content on page 96
+  path: illustrations/isa-5.1-2009/complete/page-96.png
+  sha256: 15303720486b4d97d4f1847e0aa3acc96780e358efc9266fa2899d42677236f9
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 96
+    printed_page: '96'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

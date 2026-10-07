@@ -1,0 +1,146 @@
+id: isa-5.1-2009.t5.3.2-19
+version: 3
+concept: Signal output from a logic diagram
+aliases:
+- 逻辑图信号输出
+- logic signal output
+reference_type: symbol
+kind: definition
+explanation: Marks a signal output from a logic diagram. Its variable text can describe
+  the output, identify its destination, or give an instrument tag.
+exceptions:
+- This defines signal notation, not process-piping connectivity.
+- Use the explicit drawing legend when it differs; shape alone does not prove a connection.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- symbol
+- signal
+- connector
+- logic
+- instrument
+- 逻辑图信号输出
+- logic signal output
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '47'
+  pdf_page: 47
+  table: 5.3.2
+  item: '19'
+  image: illustrations/isa-5.1-2009/t5.3.2-19/context.png
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/isa-5.1-2009/t5.3.2-19/context.png
+  sha256: 8df41de53db1a51dc70681e0d3a7999bb128d1028c75826ce16bbe48b0e1dae0
+  width: 1960
+  height: 159
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '19'
+    rect:
+    - 71
+    - 369
+    - 541
+    - 407
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: table-heading
+  role: context
+  label: Table title and note convention
+  path: illustrations/isa-5.1-2009/t5.3.2-19/table-heading.png
+  sha256: 73c92b0fb181738863eac6865730dd74a227b93588e54be5960193c2f25dc0f6
+  width: 1960
+  height: 226
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '19'
+    rect:
+    - 71
+    - 70
+    - 541
+    - 124
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: output
+  role: variant
+  label: Signal output
+  path: illustrations/isa-5.1-2009/t5.3.2-19/output.png
+  sha256: 586434879093a113e69f936b2690eb8b7c4c277281911dc8b7b065e66664d256
+  width: 226
+  height: 113
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '19'
+    rect:
+    - 136
+    - 375
+    - 190
+    - 402
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: variants
+  role: variant_sheet
+  label: Labeled visual variants
+  path: illustrations/isa-5.1-2009/t5.3.2-19/variants.png
+  sha256: 73ccc7fc1c4f1a2fbba9abc28da94a50149bf01583116a2059222c03032d1947
+  width: 550
+  height: 230
+  derived_from:
+  - output
+  quality: clear
+notes: []
+text_slots:
+- role: output_reference
+  example_marker: (*)
+  location: right of terminal stroke
+  meaning: Output description, destination, or instrument tag
+interpretation:
+- Placeholder marks represent variable text, not literal identifiers to copy into
+  drawing results.
+- Row numbers, alternative labels a)/b), and parenthesized note (3) are reference
+  annotations, not symbol parts.
+- Retain uncertainty when the source glyph or actual text does not support a specific
+  interpretation.
+- A logic-diagram input/output mark alone does not prove an off-page continuation;
+  do not force an equipment or piping-node classification.
+catalog:
+  role: catalog
+  category: connectors
+  short_name: Signal output connector
+  interpretation: Marks a signal output from a logic diagram. Its variable text can
+    describe the output, identify its destination, or give an instrument tag.
+  displayed_asset_ids:
+  - output
+  model_asset_id: variants
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.3

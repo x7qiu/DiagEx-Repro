@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.lines.system-link-digital-software
+version: 1
+concept: System Link (Digital/Software)
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: System Link (Digital/Software)
+  interpretation: Projectmaterials labels this illustration ‘System Link (Digital/Software)’
+    (Lines P&ID Symbols).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- System Link
+reference_type: line_style
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘System Link (Digital/Software)’
+  (Lines P&ID Symbols).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+- line_interpretation
+tags:
+- Lines P&ID Symbols
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: System Link (Digital/Software)
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#lines-pid-symbols
+  section: Lines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: System Link (Digital/Software)
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.lines.system-link-digital-software.png
+  sha256: 3fa4a8b219bcb2fbd225b37c996601854042a7a8537ece75ac94a1f16c6d5a4f
+  width: 150
+  height: 60
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/SYSTEM-LINK-Digital-and-SOFTWARE-PID-SYMBOL-150x60.DXJ_iiPl_2d35kf.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: d0ba862f038176f49c568b186ea5da0021c232532e9d67c2298db3568bed02fc
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

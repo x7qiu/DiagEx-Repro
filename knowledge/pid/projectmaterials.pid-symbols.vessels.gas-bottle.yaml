@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.gas-bottle
+version: 2
+concept: Gas Bottle
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Gas Bottle
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Gas Bottle’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Gas Bottle
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Gas Bottle’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Gas Bottle
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Gas Bottle
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.gas-bottle.png
+  sha256: 2fdfe67ece3574d8ed99807467636a9adddfd51f35b996e60bb2a3540d782396
+  width: 32
+  height: 54
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/gas_bottle.DHPN09kQ_JEkPX.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 239f0d7e1a6027b895a9e333d58b759442667bec0f65da95b03d646375a4bed7
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

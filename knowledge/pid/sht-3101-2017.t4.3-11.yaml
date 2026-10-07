@@ -1,0 +1,154 @@
+id: sht-3101-2017.t4.3-11
+version: 2
+concept: 止回阀 / Check valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 止回阀
+  interpretation: 止回阀（单向阀）；见 SH/T 3101—2017 表 4.3 第 11 项。识读时区分阀体与外侧接管。
+  displayed_asset_ids:
+  - tight
+  - primary
+  model_asset_id: tight
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 止回阀
+- Check valve
+- 单向阀
+- Non-return valve
+reference_type: symbol
+kind: definition
+explanation: '止回阀 / Check valve. Defined by SH/T 3101:2017, Table 4.3, item 11. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 止回阀
+- Check valve
+- valves_actuators
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '8'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.3-11/context.png
+  document_id: sht-3101-2017
+  pdf_page: 12
+  table: '4.3'
+  item: '11'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.3-11/context.png
+  sha256: dbb28a7d26126b2e390e3f73e58b68031b6a6daf6752734b8451293b430cbe49
+  width: 911
+  height: 70
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '11'
+    rect:
+    - 123.0
+    - 506.0
+    - 1034.0
+    - 576.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: 原始符号图（含接管）
+  path: illustrations/sht-3101-2017/t4.3-11/primary.png
+  sha256: 3f1728f04291f76c6ba248391bbb8e027381b9bd5c3fe9b1700e0ad0d9ed2229
+  width: 121
+  height: 34
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '11'
+    rect:
+    - 566.0
+    - 522.0
+    - 687.0
+    - 556.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.3-11/variants.png
+  sha256: 6c64b1ad55a2ab910dffc1869f802e6bb1837e4095640400fa7202cc09023c56
+  width: 220
+  height: 84
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+- id: tight
+  role: variant
+  label: 紧凑识读图（保留短接管）
+  path: illustrations/sht-3101-2017/t4.3-11/tight.png
+  sha256: 31c9369b13efdae3bb3d3e18d1f4276e268b218895d6eb4f90f161ecaa430bcc
+  width: 48
+  height: 29
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '11'
+    rect:
+    - 604.0
+    - 525.0
+    - 652.0
+    - 554.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: 从原始符号图裁切，保留短接管；不擦除、不补画笔画，不增加源图细节。no resampling.
+    excluded_annotations: []
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- 单向阀亦称止回阀。识读斜向阀瓣、端部短竖线及其与管线的接触关系；外侧直线为接管上下文，不应扩大阀体定位框。仅有斜线或箭头不足以证明存在阀门。
+relations: []

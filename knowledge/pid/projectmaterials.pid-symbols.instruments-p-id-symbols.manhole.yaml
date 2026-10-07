@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.manhole
+version: 2
+concept: Manhole
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Manhole
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Manhole’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Manhole
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Manhole’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Manhole
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Manhole
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.manhole.png
+  sha256: 53611a0a998382a4ef9224b40cb03d4a98690b5df68c3b0fb4ad611dbdf2b85f
+  width: 41
+  height: 42
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/manhole.RHECUE_J_X6cN7.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: ba4e8f77fc7c8733a6c38f6aa4b28f462f139505df904c89c977583de2f97aa9
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

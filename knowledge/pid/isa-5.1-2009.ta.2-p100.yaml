@@ -1,0 +1,1220 @@
+id: isa-5.1-2009.ta.2-p100
+version: 2
+concept: Table A.2 — Allowable letter/number combinations for loop numbering schemes
+  (page 100)
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: informative
+explanation: Allowable letter/number combinations for loop numbering schemes. Use
+  the source table with its column headings and linked explanatory notes. Blank or
+  merged cells must not be interpreted as new definitions.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+- The printed heading points to clause A.16.3, while clause A.16.2 explicitly discusses
+  Table A.2. Both references are retained.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- text_assignment
+- symbol_interpretation
+- review
+tags:
+- Allowable letter/number combinations for loop numbering schemes
+- A.2
+- identification
+- tag
+- letters
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '100'
+  pdf_page: 100
+  table: A.2
+  item: null
+  passage: "               Table A.2 — Allowable letter/number combinations for loop\
+    \ numbering schemes\n\n\nNote: Numbers in parentheses refer to explanatory notes\
+    \ in Clause A.16.3.\n               First Letters (1)            Scheme 1   Scheme\
+    \ 2   Scheme 3   Scheme 4   Scheme 5   Scheme 6        Scheme 7             Scheme\
+    \ 8             Scheme 9\n                                                   \
+    \           Parallel (2)                                 Serial (2)          \
+    \         Parallel (2)    Serial (2)    Parallel (2)    Serial (2)    Parallel\
+    \ (2)    Serial (2)\n       Measured/Initiating Variables         Meas / Init\
+    \ Variable                 Meas / Init Variable                              \
+    \ Measured/Initiating Variable                                               \
+    \                               First Letters                                First\
+    \ Letters                                                                    \
+    \  First Letters\n        w/ and w/o Modifiers (4b)          w/o Mod.     w/Mod.\
+    \                 w/o Mod.     w/Mod.                     w/o Modifiers      \
+    \        w/Modifiers\n  A                 Analysis                           \
+    \   A-*01        A-*01                     A-*01        A-*01                \
+    \                  A-*01                     A-*01                           \
+    \                  A-*01                                  A-*01              \
+    \                    A-*01\n  AZ             Analysis(SIS) (3)               \
+    \          AZ-*02       AZ-*01                   AZ-*02       AZ-*02         \
+    \                       AZ-*02                   AZ-*01\n  B            Burner,\
+    \ Combustion                         B-*01        B-*01                     B-*03\
+    \        B-*03                                               B-*01           \
+    \          B-*01                                             B-*01           \
+    \                       B-*02                                               B-*01\n\
+    \  BZ       Burner, Combustion(SIS) (3)                    BZ-*02       BZ-*01\
+    \                   BZ-*04       BZ-*04                                      \
+    \      BZ-*02                   BZ-*02\n  C            User’s Choice (4a)    \
+    \        C-*01        C-*01        C-*01        C-*03        C-*05        C-*05\
+    \                     C-*02                     C-*03                     C-*03\n\
+    \  D            User’s Choice (4a)            D-*01        D-*01        D-*01\
+    \        D-*04        D-*06        D-*06                     D-*03           \
+    \          D-*04                     D-*04\n  E                 Voltage      \
+    \                        E-*01        E-*01                     E-*07        E-*07\
+    \                                               E-*05                     E-*05\
+    \                                             E-*01                          \
+    \        E-*05                                               E-*04\n  EZ     \
+    \        Voltage(SIS) (3)                          E-*02       EZ-*01        \
+    \           EZ-*08       E-*08                                             EZ-*06\
+    \                   EZ-*06\n   F             Flow, Flow Rate                 \
+    \          F-*01        F-*01                      F-*09        F-*09        \
+    \                           F-*01                      F-*01\n  FF           \
+    \   Flow Ratio                            FF-*02       FF-*01                \
+    \    FF-*10       FF-*10                                FF-*02               \
+    \     FF-*01\n  FQ              Flow Total                F-*01       FQ-*03 \
+    \     FQ-*01        F-*06       FQ-*11      FQ-*11        F-*01              \
+    \     FQ-*03                  FQ-*01\n  FS            Flow Safety (5)        \
+    \                 FS-*04       FS-*01                   FS-*12       FS-*12  \
+    \                              FS-*04                   FS-*01\n  FZ         \
+    \     Flow(SIS) (3)                           FZ-*05       FZ-*01            \
+    \        FZ-*13       FZ-*13                                FZ-*05           \
+    \         FZ-*01\n  G            User’s Choice (4a)            G-*01        G-*01\
+    \        G-*01        G-*07        G-*14        G-*14                    G-*05\
+    \                    G-*07                    G-*07\n  H               Hand  \
+    \                             H-*01        H-*01                     H-*15   \
+    \     H-*15                                              H-*08               \
+    \      H-*08                                            H-*01                \
+    \                 H-*08                                              H-*06\n \
+    \ HZ             Hand(SIS) (3)                         HZ-*01      HZ-*01    \
+    \               HZ-*16      HZ-*16                                           \
+    \ HZ-*09                   HZ-*09\n       I                  Current         \
+    \                           I-*01           I-*01                          I-*17\
+    \           I-*17                                                         I-*10\
+    \                          I-*10                                             \
+    \         I-*01                                          I-*09               \
+    \                                          I-*07\n   IZ             Current(SIS)\
+    \ (3)                             IZ-*02        IZ-*01                       IZ-*18\
+    \        IZ-*18                                                    IZ-*11    \
+    \                   IZ-*11\n   J               Power                         \
+    \        J-*01         J-*01                       J-*19         J-*19       \
+    \                                            J-*12                       J-*12\n\
+    \  JQ           Power Totalize               J-*01        JD-*02       JD-*01\
+    \        J-*10        JD-*20       JD-*20                      J-*08         \
+    \           JQ-*13                   JQ-*13\n   JZ            Power(SIS) (3) \
+    \                          JZ-*03       JZ-*01                     JZ-*21    \
+    \   JZ-*21                                               JZ-*14              \
+    \       JZ-*14\n  K             Time, Schedule                           K-*01\
+    \        K-*01                     K-*22        K-*22                        \
+    \                       K-*15                     K-*15                      \
+    \                       K-*01                                  K-*11         \
+    \                                      K-*09\n  KQ            Time Totalize  \
+    \                       KQ-*02      KQ-*01                  KQ-*23      KQ-*23\
+    \                                          KQ-*16                  KQ-*16\n  \
+    \ L                  Level                                 L-*01         L-*01\
+    \                      L-*24         L-*24                                   \
+    \ L-*01                      L-*01                                           \
+    \    L-*01                                    L-*12                          \
+    \          L-*01\n  LZ              Level(SIS) (3)                           LZ-*02\
+    \       LZ-*01                    LZ-*25       LZ-*25                        \
+    \         LZ-*02                    LZ-*01\n  M            User’s Choice (4a)\
+    \           M-*01       M-*01       M-*01       M-*13       M-*26       M-*26\
+    \                    M-*10                    M-*17                    M-*17\n\
+    \  N            User’s Choice (4a)            N-*01        N-*01        N-*01\
+    \        N-*14        N-*27        N-*27                     N-*11           \
+    \          N-*18                     N-*18\n  O            User’s Choice (4a)\
+    \            O-*01        O-*01        O-*01        O-*15        O-*28       \
+    \ O-*28                    O-*12                    O-*19                    O-*19\n\
+    \  P                Pressure                              P-*01        P-*01 \
+    \                    P-*29        P-*29                                  P-*01\
+    \                     P-*01\n  PD          Pressure Differential             \
+    \         PD-*02      PD-*01                  PD-*30      PD-*30             \
+    \                  PD-*02                  PD-*01\n  PF             Pressure Ratio\
+    \                         PF-*03       PF-*01                   PF-*31       PF-*31\
+    \                                PF-*03                   PF-*01\n  PJ       \
+    \      Pressure Scan              P-*01        PJ-*04       PJ-*01        P-*16\
+    \        PJ-*32       PJ-*32        P-*01                     PJ-*04         \
+    \           PJ-*01\n  PK        Pressure Rate of Change                     PK-*05\
+    \      PK-*01                   PK-*33      PK-*33                           \
+    \    PK-*05                   PK-*01\n  PS           Pressure Safety (5)     \
+    \                  PS-*06      PS-*01                   PS-*34      PS-*34   \
+    \                            PS-*06                   PS-*01\n  PZ           \
+    \ Pressure(SIS) (3)                        PZ-*07       PZ-*01               \
+    \    PZ-*35       PZ-*35                                PZ-*07               \
+    \    PZ-*01\n  Q                 Quantity                             Q-*01  \
+    \      Q-*01                    Q-*36        Q-*36                           \
+    \                  Q-*20                    Q-*20                            \
+    \               Q-*01                                 Q-*17                  \
+    \                           Q-*13\n  QQ            Quantity Totalize         \
+    \             QQ-*02      QQ-*01                 QQ-*37      QQ-*37          \
+    \                              QQ-*21                 QQ-*21\n  R            \
+    \     Radiation                             R-*01        R-*01               \
+    \      R-*38        R-*38                                              R-*22 \
+    \                    R-*22\n  RQ            Radiation Totalize            R-*01\
+    \      RQ-*02      RQ-*01       R-*18      RQ-*39      RQ-*39                \
+    \    R-*14                  RQ-*23                  RQ-*23\n  RZ            Radiation(SIS)\
+    \ (3)                        RZ-*03      RZ-*01                   RZ-*40     \
+    \ RZ-*40                                            RZ-*24                   RZ-*24\n\
+    \  S           Speed, Frequency                         S-*01        S-*01   \
+    \                  S-*41        S-*41                                        \
+    \       S-*25                     S-*25                                      \
+    \       S-*01                                  S-*19                         \
+    \                      S-*15\n  SZ            Speed(SIS) (3)                 \
+    \        SZ-*02       SZ-*01                   SZ-*42       SZ-*42           \
+    \                                 SZ-*26                   SZ-*26"
+  image: illustrations/isa-5.1-2009/complete/page-100.png
+assets:
+- id: page-100
+  role: context
+  label: Complete technical content on page 100
+  path: illustrations/isa-5.1-2009/complete/page-100.png
+  sha256: 5e7cb6dead7d21e3403133d6f1994887a0c57bccb792ba2209646eac60dea12b
+  width: 2800
+  height: 2030
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 100
+    printed_page: '100'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 547.0
+    - 732.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 90
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.2-p96
+  role: note
+  label: Clause A.16.2, page 96
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.2-p96.png
+  sha256: 954467bb26c07d187cda76ab062fc2f1daa7661782dde7e0e320f40707eb1b4c
+  width: 2010
+  height: 1859
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 96
+    printed_page: '96'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 281.1911
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.2-p97
+  role: note
+  label: Clause A.16.2, page 97
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.2-p97.png
+  sha256: 8ca6c40542ff87c1204f154668d28c90032903c332558aa37dfda8e42747db9d
+  width: 2010
+  height: 147
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 97
+    printed_page: '97'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 105.1516
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p97
+  role: note
+  label: Clause A.16.3, page 97
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  sha256: b7ec4cfea46cb1b9444d0b4ffb603531b7529d52c9089278a2196523f43c1730
+  width: 2010
+  height: 2592
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 97
+    printed_page: '97'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 105.1516
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p98
+  role: note
+  label: Clause A.16.3, page 98
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p98.png
+  sha256: 0cd9d653b9062fc95e4155ae84249a1f0aeb22953a24b928162727a860100442
+  width: 2010
+  height: 195
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 98
+    printed_page: '98'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 116.6716
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 96, 97
+    pdf_page: 96
+    table: null
+    item: null
+    passage: Clause A.16.2
+    image: illustrations/isa-5.1-2009/complete/clause-a.16.2-p96.png
+  explanation: 'A.16.2 Table A.2 — Allowable letter/number combinations for loop numbering
+    schemes.
+
+    (1) First Letters do not include all possibilities.
+
+    (2) Replace asterisk in Loop Number with any digit from 0 to 9 or any combination
+    of numerals.
+
+    (3) Variable Modifier safety instrumented system [Z] is technically not a direct-measured
+    variable but
+
+    is used to identify loops in a Safety Instrumented System. And because of the
+    critical nature of
+
+    such loops, any Measured/Initiating Variable followed by [Z], such as [FZ], [PZ],
+    and [TZ], should
+
+    be considered as Measured/ Initiating Variables in all Loop Identification Number
+    construction
+
+    schemes
+
+    (a) An alternate method for identifying Safety Instrumented System loops is to
+    append [(SIS)]
+
+    outside the bubbles of Safety Instrumented System loops and as a prefix or suffix
+    to the Loop
+
+    Number when used in text. For example, Loop Numbers for pressure and temperature
+    loops in an
+
+    SIS may be [(SIS)PZ-*01] or [TZ-*09(SIS)].
+
+    (4) Users should assign, as needed, meanings to:
+
+    (a) Users Choice Measured/Initiating Variable letters [C], [D], [G], [M], [N],
+    and [O].
+
+    (b) Variable Modifier letter blanks [A], [B], [C], [E], [G], [H], [I], [L], [M],
+    [N], [O], [P], [R], [T],
+
+    [U], [V], and [W].
+
+    (5) Variable Modifier safety [S] is technically not a direct-measured variable
+    but is used to identify
+
+    self-actuated emergency protective primary and final control elements only when
+    used in
+
+    conjunction with Measured/Initiating Variables flow [F], pressure [P] or temperature
+    [T]. And
+
+    because of the critical nature of such devices, [FS], [PS], and [TS] should be
+    considered as
+
+    Measured/ Initiating Variables in all Loop Identification Number construction
+    schemes:
+
+    (a) Shall not be used to identify Safety Instrumented Systems and components.
+
+    (6) Measured/Initiating Variables [V], [W], or [Z] when used in a Safety Instrumented
+    System and:
+
+    (a) Not axially oriented should use [VZ], [WZ], and [ZZ] as Measured/Initiating
+    Variables.
+
+    (b) Axially oriented should use [VZX], [VZY], [VZZ], and [WZX], [WZY], [WZZ] and
+    [ZZX],
+
+    [ZZY], [ZZZ] as Measured/Initiating Variables.'
+  asset_id: clause-a.16.2-p96
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 97, 98
+    pdf_page: 97
+    table: null
+    item: null
+    passage: Clause A.16.3
+    image: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  explanation: 'A.16.3 Tables A.3.1 and A.3.2 — Allowable succeeding letter combinations
+    for readout/passive and
+
+    output/active function letters and first-letters.
+
+    (1) Cells marked NA indicate not allowable combinations.
+
+    (2) First Letters are assigned according to Table A.2.
+
+    (3) Function Modifiers are added where indicated to right of alarm function combinations.
+
+    (4) Users should assign, as needed, meanings to:
+
+    (a) Users Choice Function letters [B] and [N].
+
+    (b) Readout/Passive Function blanks [C], [D], [F], [H], [J], [K], [M], [S], [T],
+    [V], [Y], and [Z].
+
+    (c) Output/Active Function blanks [A], [D], [E], [F], [G], [H], [I], [J], [L],
+    [M], [O], [P], [Q], [R],
+
+    and [W].
+
+    (d) Function Modifier blanks [A], [E], [F], [G], [I], [J], [K], [P], [Q], [T],
+    [U], [V], [W], [Y], and [Z].
+
+    (5) Readout/Passive Function [G] (glass, gauge) is used for local direct connected
+    devices, such as
+
+    flow sight glasses, level glasses, pressure gauges, thermometers weigh scales
+    and position
+
+    indicators. These devices provide a simple view of a process condition.
+
+    (a) Readout/Passive Function [I] (indicate) may continue to be used in facilities
+    where it is
+
+    currently used.
+
+    (6) Pressure rupture disc [PSE] and fusible link [TSE] apply to all sensors or
+    primary elements
+
+    intended to protect against emergency pressure or temperature conditions.
+
+    (7) The combinations in the [C] column are used for:
+
+    (a) Discrete single case instruments that do not have operator-visible indication
+    of measured
+
+    variable, setpoint, or output signal.
+
+    (b) Controller functions configured in shared display, shared control systems
+    where
+
+    indication and recording are configurable functions available on demand.
+
+    (8) The combinations in the [IC] and [RC] columns indicate the order to be followed
+    in forming the
+
+    Functional Identification of a controller device or function that also provides
+    indication or
+
+    recording.
+
+    (9) The combinations in the [CV] column indicate the order to be followed in forming
+    the Functional
+
+    Identification for self-actuated control valves.
+
+    (10) Flow safety valve [FSV] applies to valves intended to protect against an
+    emergency excess flow
+
+    or loss of flow condition. Pressure safety valve [PSV], and temperature safety
+    valve [TSV] apply
+
+    to valves intended to protect against emergency pressure and temperature conditions
+
+    (11) A self-actuated pressure valve that prevents operation of a fluid system
+    at a higher-than-desired
+
+    pressure by bleeding fluid from the system is a backpressure control valve [PCV],
+    even if the
+
+    valve is not normally used.
+
+    (a) This valve should be designated a pressure safety valve [PSV] if it protects
+    against
+
+    emergency conditions hazardous to personnel and/or equipment that are not expected
+    to arise
+
+    normally.'
+  asset_id: clause-a.16.2-p96
+text_slots: []
+interpretation:
+- Table cells are source transcriptions; retain headers and merged-cell context when
+  interpreting them. Use the image to resolve superscripts or extraction ambiguity.
+- Example tags and numbering schemes illustrate conventions; never copy them as actual
+  drawing identifiers.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-a.16.2
+  explanation: 'Explanatory notes for Table A.2: clause A.16.2.'
+- relation: related
+  reference_id: isa-5.1-2009.clause-a.16.3
+  explanation: 'Explanatory notes for Table A.2: clause A.16.3.'
+table_data:
+- - - 'First Letters (1)
+
+      Measured/Initiating Variables
+
+      w/ and w/o Modifiers (4b)'
+    - null
+    - Scheme 1
+    - Scheme 2
+    - Scheme 3
+    - Scheme 4
+    - Scheme 5
+    - Scheme 6
+    - Scheme 7
+    - null
+    - Scheme 8
+    - null
+    - Scheme 9
+    - null
+  - - null
+    - null
+    - Parallel (2)
+    - null
+    - null
+    - Serial (2)
+    - null
+    - null
+    - Parallel (2)
+    - Serial (2)
+    - Parallel (2)
+    - Serial (2)
+    - Parallel (2)
+    - Serial (2)
+  - - null
+    - null
+    - Meas / Init Variable
+    - null
+    - First Letters
+    - Meas / Init Variable
+    - null
+    - First Letters
+    - Measured/Initiating Variable
+    - null
+    - null
+    - null
+    - First Letters
+    - null
+  - - null
+    - null
+    - w/o Mod.
+    - w/Mod.
+    - null
+    - w/o Mod.
+    - w/Mod.
+    - null
+    - w/o Modifiers
+    - null
+    - w/Modifiers
+    - null
+    - null
+    - null
+  - - A
+    - Analysis
+    - A-*01
+    - 'A-*01
+
+      AZ-*02'
+    - A-*01
+    - A-*01
+    - A-*01
+    - A-*01
+    - A-*01
+    - ''
+    - 'A-*01
+
+      AZ-*02'
+    - ''
+    - A-*01
+    - ''
+  - - AZ
+    - Analysis(SIS) (3)
+    - null
+    - null
+    - AZ-*01
+    - null
+    - AZ-*02
+    - AZ-*02
+    - null
+    - null
+    - null
+    - null
+    - AZ-*01
+    - null
+  - - B
+    - Burner, Combustion
+    - B-*01
+    - 'B-*01
+
+      BZ-*02'
+    - B-*01
+    - B-*02
+    - B-*03
+    - B-*03
+    - ''
+    - B-*01
+    - ''
+    - B-*01
+    - ''
+    - B-*01
+  - - BZ
+    - Burner, Combustion(SIS) (3)
+    - null
+    - null
+    - BZ-*01
+    - null
+    - BZ-*04
+    - BZ-*04
+    - null
+    - null
+    - null
+    - BZ-*02
+    - null
+    - BZ-*02
+  - - C
+    - User’s Choice (4a)
+    - C-*01
+    - C-*01
+    - C-*01
+    - C-*03
+    - C-*05
+    - C-*05
+    - null
+    - C-*02
+    - null
+    - C-*03
+    - null
+    - C-*03
+  - - D
+    - User’s Choice (4a)
+    - D-*01
+    - D-*01
+    - D-*01
+    - D-*04
+    - D-*06
+    - D-*06
+    - null
+    - D-*03
+    - null
+    - D-*04
+    - null
+    - D-*04
+  - - E
+    - Voltage
+    - E-*01
+    - 'E-*01
+
+      E-*02'
+    - E-*01
+    - E-*05
+    - E-*07
+    - E-*07
+    - null
+    - E-*04
+    - null
+    - E-*05
+    - null
+    - E-*05
+  - - EZ
+    - Voltage(SIS) (3)
+    - null
+    - null
+    - EZ-*01
+    - null
+    - EZ-*08
+    - E-*08
+    - null
+    - null
+    - null
+    - EZ-*06
+    - null
+    - EZ-*06
+  - - F
+    - Flow, Flow Rate
+    - F-*01
+    - 'F-*01
+
+      FF-*02
+
+      FQ-*03
+
+      FS-*04
+
+      FZ-*05'
+    - F-*01
+    - F-*06
+    - F-*09
+    - F-*09
+    - F-*01
+    - ''
+    - 'F-*01
+
+      FF-*02
+
+      FQ-*03
+
+      FS-*04
+
+      FZ-*05'
+    - ''
+    - F-*01
+    - ''
+  - - FF
+    - Flow Ratio
+    - null
+    - null
+    - FF-*01
+    - null
+    - FF-*10
+    - FF-*10
+    - null
+    - null
+    - null
+    - null
+    - FF-*01
+    - null
+  - - FQ
+    - Flow Total
+    - null
+    - null
+    - FQ-*01
+    - null
+    - FQ-*11
+    - FQ-*11
+    - null
+    - null
+    - null
+    - null
+    - FQ-*01
+    - null
+  - - FS
+    - Flow Safety (5)
+    - null
+    - null
+    - FS-*01
+    - null
+    - FS-*12
+    - FS-*12
+    - null
+    - null
+    - null
+    - null
+    - FS-*01
+    - null
+  - - FZ
+    - Flow(SIS) (3)
+    - null
+    - null
+    - FZ-*01
+    - null
+    - FZ-*13
+    - FZ-*13
+    - null
+    - null
+    - null
+    - null
+    - FZ-*01
+    - null
+  - - G
+    - User’s Choice (4a)
+    - G-*01
+    - G-*01
+    - G-*01
+    - G-*07
+    - G-*14
+    - G-*14
+    - ''
+    - G-*05
+    - ''
+    - G-*07
+    - ''
+    - G-*07
+  - - H
+    - Hand
+    - H-*01
+    - 'H-*01
+
+      HZ-*01'
+    - H-*01
+    - H-*08
+    - H-*15
+    - H-*15
+    - null
+    - H-*06
+    - null
+    - H-*08
+    - null
+    - H-*08
+  - - HZ
+    - Hand(SIS) (3)
+    - null
+    - null
+    - HZ-*01
+    - null
+    - HZ-*16
+    - HZ-*16
+    - null
+    - null
+    - null
+    - HZ-*09
+    - null
+    - HZ-*09
+  - - I
+    - Current
+    - I-*01
+    - 'I-*01
+
+      IZ-*02'
+    - I-*01
+    - I-*09
+    - I-*17
+    - I-*17
+    - null
+    - I-*07
+    - null
+    - I-*10
+    - null
+    - I-*10
+  - - IZ
+    - Current(SIS) (3)
+    - null
+    - null
+    - IZ-*01
+    - null
+    - IZ-*18
+    - IZ-*18
+    - null
+    - null
+    - null
+    - IZ-*11
+    - null
+    - IZ-*11
+  - - J
+    - Power
+    - J-*01
+    - 'J-*01
+
+      JD-*02
+
+      JZ-*03'
+    - J-*01
+    - J-*10
+    - J-*19
+    - J-*19
+    - null
+    - J-*08
+    - null
+    - J-*12
+    - null
+    - J-*12
+  - - JQ
+    - Power Totalize
+    - null
+    - null
+    - JD-*01
+    - null
+    - JD-*20
+    - JD-*20
+    - null
+    - null
+    - null
+    - JQ-*13
+    - null
+    - JQ-*13
+  - - JZ
+    - Power(SIS) (3)
+    - null
+    - null
+    - JZ-*01
+    - null
+    - JZ-*21
+    - JZ-*21
+    - null
+    - null
+    - null
+    - JZ-*14
+    - null
+    - JZ-*14
+  - - K
+    - Time, Schedule
+    - K-*01
+    - 'K-*01
+
+      KQ-*02'
+    - K-*01
+    - K-*11
+    - K-*22
+    - K-*22
+    - null
+    - K-*09
+    - null
+    - K-*15
+    - null
+    - K-*15
+  - - KQ
+    - Time Totalize
+    - null
+    - null
+    - KQ-*01
+    - null
+    - KQ-*23
+    - KQ-*23
+    - null
+    - null
+    - null
+    - KQ-*16
+    - null
+    - KQ-*16
+  - - L
+    - Level
+    - L-*01
+    - 'L-*01
+
+      LZ-*02'
+    - L-*01
+    - L-*12
+    - L-*24
+    - L-*24
+    - L-*01
+    - ''
+    - 'L-*01
+
+      LZ-*02'
+    - ''
+    - L-*01
+    - ''
+  - - LZ
+    - Level(SIS) (3)
+    - null
+    - null
+    - LZ-*01
+    - null
+    - LZ-*25
+    - LZ-*25
+    - null
+    - null
+    - null
+    - null
+    - LZ-*01
+    - null
+  - - M
+    - User’s Choice (4a)
+    - M-*01
+    - M-*01
+    - M-*01
+    - M-*13
+    - M-*26
+    - M-*26
+    - ''
+    - M-*10
+    - ''
+    - M-*17
+    - ''
+    - M-*17
+  - - N
+    - User’s Choice (4a)
+    - N-*01
+    - N-*01
+    - N-*01
+    - N-*14
+    - N-*27
+    - N-*27
+    - null
+    - N-*11
+    - null
+    - N-*18
+    - null
+    - N-*18
+  - - O
+    - User’s Choice (4a)
+    - O-*01
+    - O-*01
+    - O-*01
+    - O-*15
+    - O-*28
+    - O-*28
+    - null
+    - O-*12
+    - null
+    - O-*19
+    - null
+    - O-*19
+  - - P
+    - Pressure
+    - P-*01
+    - 'P-*01
+
+      PD-*02
+
+      PF-*03
+
+      PJ-*04
+
+      PK-*05
+
+      PS-*06
+
+      PZ-*07'
+    - P-*01
+    - P-*16
+    - P-*29
+    - P-*29
+    - P-*01
+    - ''
+    - 'P-*01
+
+      PD-*02
+
+      PF-*03
+
+      PJ-*04
+
+      PK-*05
+
+      PS-*06
+
+      PZ-*07'
+    - ''
+    - P-*01
+    - ''
+  - - PD
+    - Pressure Differential
+    - null
+    - null
+    - PD-*01
+    - null
+    - PD-*30
+    - PD-*30
+    - null
+    - null
+    - null
+    - null
+    - PD-*01
+    - null
+  - - PF
+    - Pressure Ratio
+    - null
+    - null
+    - PF-*01
+    - null
+    - PF-*31
+    - PF-*31
+    - null
+    - null
+    - null
+    - null
+    - PF-*01
+    - null
+  - - PJ
+    - Pressure Scan
+    - null
+    - null
+    - PJ-*01
+    - null
+    - PJ-*32
+    - PJ-*32
+    - null
+    - null
+    - null
+    - null
+    - PJ-*01
+    - null
+  - - PK
+    - Pressure Rate of Change
+    - null
+    - null
+    - PK-*01
+    - null
+    - PK-*33
+    - PK-*33
+    - null
+    - null
+    - null
+    - null
+    - PK-*01
+    - null
+  - - PS
+    - Pressure Safety (5)
+    - null
+    - null
+    - PS-*01
+    - null
+    - PS-*34
+    - PS-*34
+    - null
+    - null
+    - null
+    - null
+    - PS-*01
+    - null
+  - - PZ
+    - Pressure(SIS) (3)
+    - null
+    - null
+    - PZ-*01
+    - null
+    - PZ-*35
+    - PZ-*35
+    - null
+    - null
+    - null
+    - null
+    - PZ-*01
+    - null
+  - - Q
+    - Quantity
+    - Q-*01
+    - 'Q-*01
+
+      QQ-*02'
+    - Q-*01
+    - Q-*17
+    - Q-*36
+    - Q-*36
+    - ''
+    - Q-*13
+    - ''
+    - Q-*20
+    - ''
+    - Q-*20
+  - - QQ
+    - Quantity Totalize
+    - null
+    - null
+    - QQ-*01
+    - null
+    - QQ-*37
+    - QQ-*37
+    - null
+    - null
+    - null
+    - QQ-*21
+    - null
+    - QQ-*21
+  - - R
+    - Radiation
+    - R-*01
+    - 'R-*01
+
+      RQ-*02
+
+      RZ-*03'
+    - R-*01
+    - R-*18
+    - R-*38
+    - R-*38
+    - null
+    - R-*14
+    - null
+    - R-*22
+    - null
+    - R-*22
+  - - RQ
+    - Radiation Totalize
+    - null
+    - null
+    - RQ-*01
+    - null
+    - RQ-*39
+    - RQ-*39
+    - null
+    - null
+    - null
+    - RQ-*23
+    - null
+    - RQ-*23
+  - - RZ
+    - Radiation(SIS) (3)
+    - null
+    - null
+    - RZ-*01
+    - null
+    - RZ-*40
+    - RZ-*40
+    - null
+    - null
+    - null
+    - RZ-*24
+    - null
+    - RZ-*24
+  - - S
+    - Speed, Frequency
+    - S-*01
+    - 'S-*01
+
+      SZ-*02'
+    - S-*01
+    - S-*19
+    - S-*41
+    - S-*41
+    - null
+    - S-*15
+    - null
+    - S-*25
+    - null
+    - S-*25
+  - - SZ
+    - Speed(SIS) (3)
+    - null
+    - null
+    - SZ-*01
+    - null
+    - SZ-*42
+    - SZ-*42
+    - null
+    - null
+    - null
+    - SZ-*26
+    - null
+    - SZ-*26
+catalog:
+  role: background

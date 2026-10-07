@@ -1,0 +1,388 @@
+id: isa-5.1-2009.clause-b.13
+version: 2
+concept: B.13 — An example of instrument, functional, and electrical diagrams for
+  a simple process
+aliases: []
+reference_type: assembly_pattern
+kind: possible_arrangement
+curation: source_transcribed
+source_status: informative
+explanation: 'B.13 An example of instrument, functional, and electrical diagrams for
+  a simple process
+
+  B.13.1 Process control description:
+
+  a) Process description:
+
+  1) Tank periodically fills with a liquid, in small and large volumes over long and
+  short
+
+  time periods.
+
+  b) Control description:
+
+  1) Control system design for:
+
+  a) Small volumes for long and short periods should allow tank to fill to a
+
+  high level to automatically start the pump and then to stop the pump at a
+
+  low level.
+
+  b) Large volumes for long periods should allow the pump to run
+
+  continuously and maintain a fixed level with a level to flow cascade
+
+  control loop.
+
+  2) Pump control is selected by a three-position Hand-Off-Auto selector switch:
+
+  a) Method a) selector switch is in “HAND” position.
+
+  b) Method b) selector switch is in “AUTO” position.
+
+  3) Pump should be stopped at any time:
+
+  a) Automatically if low level is exceeded.
+
+  b) By operating the stop pushbutton.
+
+  c) Switching the H-O-A selector to “OFF” position.
+
+  B.13.2 Instrument diagram:
+
+  STOP
+
+  LIC
+
+  HS LSL
+
+  *02
+
+  *02-B *02
+
+  START LT
+
+  FIC
+
+  *02
+
+  HS LSH
+
+  HS
+
+  *01
+
+  T-1
+
+  *01
+
+  *02
+
+  *02-A
+
+  FT
+
+  FV
+
+  H-O-A
+
+  *01
+
+  *01
+
+  P-1 FO
+
+  B.13.3 Functional diagram
+
+  LSH*02
+
+  A
+
+  FT LT
+
+  H
+
+  N S
+
+  *01 *02
+
+  D
+
+  Ro
+
+  A
+
+  HS
+
+  H-O-A OL
+
+  A
+
+  *01
+
+  ∆ ∆
+
+  N T
+
+  D
+
+  A
+
+  START
+
+  I I P P
+
+  PUMP N
+
+  OR
+
+  HS
+
+  D P-1
+
+  *02-A A
+
+  T A A
+
+  T
+
+  S
+
+  ƒ(x) Ro
+
+  L
+
+  A
+
+  STOP
+
+  FV*01 N
+
+  NOT
+
+  A
+
+  HS
+
+  D LSL*02
+
+  N
+
+  D
+
+  *02-B OL
+
+  B.13.4 Electrical schematic diagram:
+
+  START
+
+  HS*02-A
+
+  M1
+
+  H STOP
+
+  0
+
+  M
+
+  HS*01
+
+  A
+
+  OL
+
+  HS*02-B
+
+  LSL*02
+
+  M2
+
+  LSH*02'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- An example of instrument, functional, and electrical diagrams for a simple process
+- B.13
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 124, 125, 126
+  pdf_page: 124
+  table: null
+  item: null
+  passage: Clause B.13
+  image: illustrations/isa-5.1-2009/complete/clause-b.13-p124.png
+assets:
+- id: clause-b.13-p124
+  role: context
+  label: Clause B.13, page 124
+  path: illustrations/isa-5.1-2009/complete/clause-b.13-p124.png
+  sha256: d1b4cd2408c87363a8faeee1cb8142e77d987a12b15449df68ff1693b5a3962a
+  width: 2010
+  height: 1024
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 124
+    printed_page: '124'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 481.5317
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-124
+  role: context
+  label: Complete technical content on page 124
+  path: illustrations/isa-5.1-2009/complete/page-124.png
+  sha256: 742e09ecd865ff78fa2202192070aa76f64f03bda5bf9cc5a35aac09e42b410c
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 124
+    printed_page: '124'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.13-p125
+  role: context
+  label: Clause B.13, page 125
+  path: illustrations/isa-5.1-2009/complete/clause-b.13-p125.png
+  sha256: 50dc0ea55ca7979d889740964c7c68107e8035cc1b18f3f5b731b1f998b0afa8
+  width: 2010
+  height: 2738
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 125
+    printed_page: '125'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-125
+  role: context
+  label: Complete technical content on page 125
+  path: illustrations/isa-5.1-2009/complete/page-125.png
+  sha256: ae63b408e8095be9898fe15dc660c26e0c5bf1ded4baca09e53d61a99cd1e438
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 125
+    printed_page: '125'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.13-p126
+  role: context
+  label: Clause B.13, page 126
+  path: illustrations/isa-5.1-2009/complete/clause-b.13-p126.png
+  sha256: 30f951171461185477368885b6f9529c95b08364e734515711fb0728af673f7b
+  width: 2010
+  height: 2738
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 126
+    printed_page: '126'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-126
+  role: context
+  label: Complete technical content on page 126
+  path: illustrations/isa-5.1-2009/complete/page-126.png
+  sha256: 9a25118ec4e205c975f80fe6d633886b0f859dbe23675c17b8a4c5c06dcb0732
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 126
+    printed_page: '126'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

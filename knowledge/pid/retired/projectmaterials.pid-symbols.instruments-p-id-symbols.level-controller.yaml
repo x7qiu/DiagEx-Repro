@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.level-controller
+version: 1
+concept: Level Controller
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Level Controller
+  interpretation: Projectmaterials labels this illustration ‘Level Controller’ (Instruments
+    (P&ID Symbols)).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Level Controller
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Level Controller’ (Instruments
+  (P&ID Symbols)).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Instruments (P&ID Symbols)
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Level Controller
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Level Controller
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.level-controller.png
+  sha256: a1188b00ccbf0cb305dd39b2a9e7da85eb1df421a06d16df4cb7dbc0ee23a83d
+  width: 40
+  height: 41
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/level_controller.vcuDd9Xa_16rOR0.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 6a006fe95502ad83a1848530161db0d04da1732558bfb14e7b99b63602654a17
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

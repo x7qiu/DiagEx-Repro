@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.piping.open-drain
+version: 2
+concept: Open Drain
+catalog:
+  role: catalog
+  category: piping
+  short_name: Open Drain
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Open Drain’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Open Drain
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Open Drain’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Open Drain
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#piping-pid-symbols
+  section: Piping P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Open Drain
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.piping.open-drain.png
+  sha256: 8c13b969f0ffebf49c008014505a9e821efe52f1bf1e9f780dbb31817215354b
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/OPEN-DRAIN-PID-SYMBOL-150x150.BPt0akik_Z28z5dw.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: e6a51dc60ea7821190d336acabe0bca84d18b93e3308457c6ba392fd58406eef
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

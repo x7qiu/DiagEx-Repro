@@ -1,0 +1,106 @@
+id: isa-5.1-2009.clause-6.2
+version: 2
+concept: 6.2 — Measurement units
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: normative
+explanation: '6.2 Measurement units
+
+  6.2.1 The dimensions are represented by measurement units (m.u.) that, as a minimum,
+  shall have
+
+  equivalent dimensions equal to:
+
+  a) One-sixteenth inch (1/16 inch or 0.0625 inch).
+
+  b) One and one-half millimeters (1.50 millimeters).
+
+  6.2.2 Symbols drawn in any full size diagram shall be the product of the symbol’s
+  geometric shape m.u.
+
+  times a selected equivalent dimension equal to or greater than the minimum equivalent
+  dimension.
+
+  6.2.3 Lettering shown is the minimum size allowed for full size symbols.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- Measurement units
+- '6.2'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '76'
+  pdf_page: 76
+  table: null
+  item: null
+  passage: Clause 6.2
+  image: illustrations/isa-5.1-2009/complete/clause-6.2-p76.png
+assets:
+- id: clause-6.2-p76
+  role: context
+  label: Clause 6.2, page 76
+  path: illustrations/isa-5.1-2009/complete/clause-6.2-p76.png
+  sha256: e2f48362985df7be5d2e5081769f10726136b5a99e8175a436240270beeb58f2
+  width: 2010
+  height: 782
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 76
+    printed_page: '76'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 364.9509
+    - 547.0
+    - 552.4502
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-76
+  role: context
+  label: Complete technical content on page 76
+  path: illustrations/isa-5.1-2009/complete/page-76.png
+  sha256: d8338f3ea713aff3d124b3388817175127439148d1cb3608a532ccb35dc1ab2b
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 76
+    printed_page: '76'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

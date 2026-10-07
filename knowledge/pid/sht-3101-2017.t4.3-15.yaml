@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.3-15
+version: 1
+concept: 角阀 / Angle valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 角阀
+  interpretation: '角阀 / Angle valve. Defined by SH/T 3101:2017, Table 4.3, item 15. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 角阀
+- Angle valve
+reference_type: symbol
+kind: definition
+explanation: '角阀 / Angle valve. Defined by SH/T 3101:2017, Table 4.3, item 15. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 角阀
+- Angle valve
+- valves_actuators
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '8'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.3-15/context.png
+  document_id: sht-3101-2017
+  pdf_page: 12
+  table: '4.3'
+  item: '15'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.3-15/context.png
+  sha256: a1f1515be34de48e9175189c0c4e48cf83d9b79dc99b74f2d2d2e92080634612
+  width: 911
+  height: 101
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '15'
+    rect:
+    - 123.0
+    - 775.0
+    - 1034.0
+    - 876.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.3-15/primary.png
+  sha256: 6c01a6491f74a2f08d8bf94fd090276e26e010bc1c1cfa4fae7db0e2eeb8043c
+  width: 153
+  height: 85
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '15'
+    rect:
+    - 517.0
+    - 784.0
+    - 670.0
+    - 869.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.3-15/variants.png
+  sha256: 023d353be4d5a38f4063e00386a163e12c51ee2a5e9385741e56c58719a84a84
+  width: 220
+  height: 135
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

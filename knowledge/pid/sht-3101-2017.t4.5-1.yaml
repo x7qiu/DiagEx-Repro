@@ -1,0 +1,190 @@
+id: sht-3101-2017.t4.5-1
+version: 1
+concept: 测量引线 / Instrument impulse line
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: 测量引线
+  interpretation: 测量引线 / Instrument impulse line. Defined by SH/T 3101:2017, Table 4.5, item 1. An arrow
+    may be added to indicate signal direction. This signal convention does not imply a process-fluid connection.
+    Connection between an instrument and process piping or equipment, including instrument impulse tubing.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 测量引线
+- Instrument impulse line
+reference_type: line_style
+kind: definition
+explanation: 测量引线 / Instrument impulse line. Defined by SH/T 3101:2017, Table 4.5, item 1. An arrow may
+  be added to indicate signal direction. This signal convention does not imply a process-fluid connection.
+  Connection between an instrument and process piping or equipment, including instrument impulse tubing.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 测量引线
+- Instrument impulse line
+- lines_signals
+- line_style
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '11'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.5-1/context.png
+  document_id: sht-3101-2017
+  pdf_page: 15
+  table: '4.5'
+  item: '1'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.5-1/context.png
+  sha256: 1cb246b7a46dc3d56d72d5501d30da75c7d764f80d54062b4bf600da5324c894
+  width: 910
+  height: 61
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 15
+    printed_page: '11'
+    table: '4.5'
+    item: '1'
+    rect:
+    - 158.0
+    - 925.0
+    - 1068.0
+    - 986.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.5-1/primary.png
+  sha256: 30549b276fa6085abc1273ba7a01891a7144d4543a568d96879a20c77f1fc42a
+  width: 185
+  height: 38
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 15
+    printed_page: '11'
+    table: '4.5'
+    item: '1'
+    rect:
+    - 533.0
+    - 933.0
+    - 718.0
+    - 971.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.5-1/variants.png
+  sha256: cbe1ee1928fe0eba8b793f56fa8767a8e410b56f9a8f7122326b6c1e48ab9bf1
+  width: 220
+  height: 88
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+- id: table-note
+  role: note
+  label: Table footnote
+  path: illustrations/sht-3101-2017/t4.5-1/table-note.png
+  sha256: 74b487a30ac8f397a7b93062e0c60cdd2514e008fa7e5ab2fe919e7a1c88172a
+  width: 902
+  height: 31
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 15
+    printed_page: '11'
+    table: '4.5'
+    rect:
+    - 162.0
+    - 1508.0
+    - 1064.0
+    - 1539.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '11'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 15
+    table: '4.5'
+    item: '1'
+  explanation: An arrow may be added to indicate signal direction. This signal convention does not imply
+    a process-fluid connection.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '11'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 15
+    table: '4.5'
+    item: '1'
+  explanation: Connection between an instrument and process piping or equipment, including instrument
+    impulse tubing.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '11'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 15
+    table: '4.5'
+  explanation: An arrow may be added to indicate signal direction. This signal convention does not imply
+    a process-fluid connection.
+  asset_id: table-note
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- An arrow may be added to indicate signal direction. This signal convention does not imply a process-fluid
+  connection.
+- Connection between an instrument and process piping or equipment, including instrument impulse tubing.
+relations: []

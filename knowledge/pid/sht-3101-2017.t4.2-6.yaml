@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-6
+version: 1
+concept: 盲板（正常时关） / Spade blind
+catalog:
+  role: catalog
+  category: piping
+  short_name: 盲板（正常时关）
+  interpretation: '盲板（正常时关） / Spade blind. Defined by SH/T 3101:2017, Table 4.2, item 6. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 盲板（正常时关）
+- Spade blind
+reference_type: symbol
+kind: definition
+explanation: '盲板（正常时关） / Spade blind. Defined by SH/T 3101:2017, Table 4.2, item 6. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 盲板（正常时关）
+- Spade blind
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '4'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-6/context.png
+  document_id: sht-3101-2017
+  pdf_page: 8
+  table: '4.2'
+  item: '6'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-6/context.png
+  sha256: b4ac869e6a14ad98d882ce871c3feacd2465f1f09f42f9b1b2ebc58ed8da3d3b
+  width: 912
+  height: 98
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 8
+    printed_page: '4'
+    table: '4.2'
+    item: '6'
+    rect:
+    - 123.0
+    - 399.0
+    - 1035.0
+    - 497.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-6/primary.png
+  sha256: d0678d3f95971c646914b9bd7eb55452dbc061d494a022e7cc4d10ae34d27066
+  width: 136
+  height: 67
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 8
+    printed_page: '4'
+    table: '4.2'
+    item: '6'
+    rect:
+    - 571.0
+    - 418.0
+    - 707.0
+    - 485.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-6/variants.png
+  sha256: 4b5d16b9cb6e04e2f58d183ac60f32ce70f24a34912d546efa5586aedd5c0f12
+  width: 220
+  height: 117
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

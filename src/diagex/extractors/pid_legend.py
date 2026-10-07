@@ -64,7 +64,7 @@ from diagex.vision.models import BBox, DiagramPage, DiagramSource, Tile
 from diagex.vision.tiling import AspectAwareStrategy
 from diagex.vision.views import ViewProvider
 
-LEGEND_EXTRACTOR_VERSION = "3.2.0"
+LEGEND_EXTRACTOR_VERSION = "3.4.0"
 
 # ---------------------------------------------------------------------------
 # Result container
@@ -189,6 +189,14 @@ def load_builtin_pack(standard: SymbolStandard) -> LegendPack:
 
     data = json.loads(raw)
     return LegendPack.model_validate(data)
+
+
+def load_run_builtin_pack(standard: SymbolStandard, cfg: Config) -> LegendPack:
+    # Explicit source selection uses edition-scoped curated references through
+    # the resolver, never an extra unversioned ISA/ISO/SAMA fallback pack.
+    if cfg.knowledge.get("selected_sources") is not None:
+        return load_builtin_pack("none")
+    return load_builtin_pack(standard)
 
 
 # ---------------------------------------------------------------------------
@@ -475,11 +483,67 @@ def _bbox_distance(a: BBox, b: BBox) -> tuple[int, int]:
     return dx, dy
 
 
+def _native_caption_spans(label: str, evidence: PageEvidence) -> list[TextEvidence]:
+    """Exact multiword captions from consecutive words on one identified PDF line.
+
+    Missing/ambiguous native identity or unrelated columns do not establish a
+    caption. Individual source spans remain unchanged and directly match first.
+    """
+    from diagex.vision.evidence import stable_evidence_id
+
+    target = _normalise_legend_text(label)
+    groups: dict[tuple[int, int], list[TextEvidence]] = {}
+    for span in evidence.text_spans:
+        if span.origin != "pdf_text" or any(
+            value is None or value < 0
+            for value in (span.block_index, span.line_index, span.word_index)
+        ):
+            continue
+        groups.setdefault((span.block_index, span.line_index), []).append(span)
+    matches = []
+    for words in groups.values():
+        words.sort(key=lambda span: span.word_index)
+        if len({word.word_index for word in words}) != len(words):
+            continue
+        for start, first in enumerate(words):
+            parts, text = [first], _normalise_legend_text(first.text)
+            if not text or not target.startswith(text):
+                continue
+            for word in words[start + 1:]:
+                previous = parts[-1]
+                overlap = min(previous.bbox.y2, word.bbox.y2) - max(previous.bbox.y, word.bbox.y)
+                gap = word.bbox.x - previous.bbox.x2
+                if (word.word_index != previous.word_index + 1
+                        or overlap < min(previous.bbox.h, word.bbox.h) * 0.5
+                        or gap < -min(previous.bbox.w, word.bbox.w) * 0.25
+                        or gap > max(previous.bbox.h, word.bbox.h) * 1.5):
+                    break
+                normalized = _normalise_legend_text(word.text)
+                if not normalized:
+                    break
+                parts.append(word)
+                text += normalized
+                if text == target:
+                    matches.append(TextEvidence(
+                        id=stable_evidence_id("legend-caption", evidence.page_index, *(p.id for p in parts)),
+                        text=" ".join(p.text for p in parts),
+                        bbox=_union_boxes([p.bbox for p in parts]),
+                        origin="pdf_text", block_index=first.block_index,
+                        line_index=first.line_index, word_index=first.word_index,
+                    ))
+                    break
+                if not target.startswith(text):
+                    break
+    return matches
+
+
 def _matching_label_span(label: str, evidence: PageEvidence) -> TextEvidence | None:
     target = _normalise_legend_text(label)
     if not target:
         return None
     exact = [span for span in evidence.text_spans if _normalise_legend_text(span.text) == target]
+    if not exact:
+        exact = _native_caption_spans(label, evidence)
     if not exact:
         return None
 
@@ -1078,7 +1142,7 @@ def resolve_legend(
             "--no-legend are mutually exclusive."
         )
 
-    builtin = load_builtin_pack(symbol_standard)
+    builtin = load_run_builtin_pack(symbol_standard, cfg)
     progress = reporter or NullReporter()
     cache_path = _cache_path_for(
         legend_key=legend_key,

@@ -1,0 +1,139 @@
+id: sht-3101-2017.t4.19-2
+version: 1
+concept: 汽动或气动往复压缩机（PFD） / Turbine-driven reciprocating compressor (PFD)
+catalog:
+  role: background
+  category: equipment
+  short_name: 汽动或气动往复压缩机（PFD）
+  interpretation: 汽动或气动往复压缩机（PFD） / Turbine-driven reciprocating compressor (PFD). Defined by SH/T 3101:2017,
+    Table 4.19, item 2. The source explicitly labels this depiction for PFD use. Retained for browsing;
+    excluded from normal P&ID extraction retrieval.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 汽动或气动往复压缩机（PFD）
+- Turbine-driven reciprocating compressor (PFD)
+reference_type: symbol
+kind: definition
+explanation: 汽动或气动往复压缩机（PFD） / Turbine-driven reciprocating compressor (PFD). Defined by SH/T 3101:2017,
+  Table 4.19, item 2. The source explicitly labels this depiction for PFD use. Retained for browsing;
+  excluded from normal P&ID extraction retrieval.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 汽动或气动往复压缩机（PFD）
+- Turbine-driven reciprocating compressor (PFD)
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '31'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.19-2/context.png
+  document_id: sht-3101-2017
+  pdf_page: 35
+  table: '4.19'
+  item: '2'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.19-2/context.png
+  sha256: c72cc4994365256654ee00ee46162202bc42b123a26913ea5f1d55c85225bbcc
+  width: 910
+  height: 167
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 35
+    printed_page: '31'
+    table: '4.19'
+    item: '2'
+    rect:
+    - 163.0
+    - 428.0
+    - 1073.0
+    - 595.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.19-2/primary.png
+  sha256: 5060688859acdb75d6861b2c3bb589ea749b38b59396ff878070d54e0bad5a1e
+  width: 164
+  height: 129
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 35
+    printed_page: '31'
+    table: '4.19'
+    item: '2'
+    rect:
+    - 585.0
+    - 448.0
+    - 749.0
+    - 577.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.19-2/variants.png
+  sha256: 8e51aa4c454a66c5c313fd5cf38215d339aac4876378c57fca9fafdf995f0468
+  width: 220
+  height: 179
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '31'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 35
+    table: '4.19'
+    item: '2'
+  explanation: The source explicitly labels this depiction for PFD use. Retained for browsing; excluded
+    from normal P&ID extraction retrieval.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- The source explicitly labels this depiction for PFD use. Retained for browsing; excluded from normal
+  P&ID extraction retrieval.
+relations: []

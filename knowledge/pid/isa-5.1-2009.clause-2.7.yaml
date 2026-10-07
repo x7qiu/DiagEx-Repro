@@ -1,0 +1,119 @@
+id: isa-5.1-2009.clause-2.7
+version: 2
+concept: 2.7 — Extent of symbolization
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '2.7 Extent of symbolization
+
+  2.7.1 This standard provides symbol sets for the graphic depiction of a limited
+  or total functionality of
+
+  instruments and devices, entire monitor or control loops, or control circuits.
+
+  2.7.2 The amount of detail to be shown by the use of symbols depends on the purpose
+  and audience
+
+  for which the document is being prepared.
+
+  2.7.3 Sufficient symbols shall be used to show the functionality of the instrumentation
+  and/or control
+
+  loop being depicted; it is not considered necessary to provide a symbol for each
+  instrument device and
+
+  each function required by a loop.
+
+  2.7.4 Additional construction, fabrication, installation, and operation details
+  of an instrument are better
+
+  described in a suitable specification, data sheet, loop diagram, installation/wiring
+  drawing, or sketch, or
+
+  other document intended for those requiring such details.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Extent of symbolization
+- '2.7'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '16'
+  pdf_page: 16
+  table: null
+  item: null
+  passage: Clause 2.7
+  image: illustrations/isa-5.1-2009/complete/clause-2.7-p16.png
+assets:
+- id: clause-2.7-p16
+  role: context
+  label: Clause 2.7, page 16
+  path: illustrations/isa-5.1-2009/complete/clause-2.7-p16.png
+  sha256: 891c0c17afa9e6af655ccc42b1ff135fcfd76d707f17166ec003838c362bd95b
+  width: 2010
+  height: 876
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 16
+    printed_page: '16'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 128.6716
+    - 547.0
+    - 338.6709
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-16
+  role: context
+  label: Complete technical content on page 16
+  path: illustrations/isa-5.1-2009/complete/page-16.png
+  sha256: e090245364a2c9fa7d985a00c851d3e7bf3f0ffb0948cf97b4b2d234f8895bb0
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 16
+    printed_page: '16'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

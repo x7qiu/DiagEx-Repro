@@ -13,8 +13,8 @@ from dataclasses import dataclass, field
 
 from diagex.vision.evidence import PageEvidence
 from diagex.vision.models import BBox, ReconciledNode
-from diagex.vision.perception import DetectionRecord
 from diagex.vision.reconcile import normalise_label
+from diagex.vision.symbol_interpretation import DetectionRecord
 from diagex.vision.vector_geometry import symbol_contours
 
 FUSION_VERSION = "4.0.1"

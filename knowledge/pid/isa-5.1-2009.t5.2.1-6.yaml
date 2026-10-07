@@ -1,0 +1,274 @@
+id: isa-5.1-2009.t5.2.1-6
+version: 3
+concept: Transmitter with close-coupled primary element inserted in or on process
+  flow line, vessel, or equipment, bubble/graphic format
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '• Transmitter with close-coupled primary element inserted in or on process
+  flow line, vessel, or equipment, bubble/graphic format. • Insert primary element
+  symbol from Table 5.2.3 at #. • Connecting line shall be equal to or less than 0.25
+  inches (6 millimeters). • Connect to other instruments by symbols from Table 5.3.2.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'Measurement symbols: primary elements and transmitters'
+- 5.2.1
+- Transmitter with close-coupled primary element inserted in or on process flow line,
+  vessel, or equipment, bubble/graphic format
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '38'
+  pdf_page: 38
+  table: 5.2.1
+  item: '6'
+  passage: 'Table 5.2.1, item 6: • Transmitter with close-coupled primary element
+    inserted in or on process flow line, vessel, or equipment, bubble/graphic format.
+    • Insert primary element symbol from Table 5.2.3 at #. • Connecting line shall
+    be equal to or less than 0.25 inches (6 millimeters). • Connect to other instruments
+    by symbols from Table 5.3.2.'
+  image: illustrations/isa-5.1-2009/complete/t5.2.1-6-context.png
+assets:
+- id: t5.2.1-6-context
+  role: context
+  label: 'Complete row: Table 5.2.1, item 6'
+  path: illustrations/isa-5.1-2009/complete/t5.2.1-6-context.png
+  sha256: 7ec5ce768168dbb3ff098c587a6ffb44547444e516923f03b9ae8bdb91bdbe2d
+  width: 1960
+  height: 329
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 38
+    printed_page: '38'
+    table: 5.2.1
+    item: '6'
+    rect:
+    - 70.9859
+    - 536.78
+    - 541.0141
+    - 615.58
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-38
+  role: context
+  label: Complete technical content on page 38
+  path: illustrations/isa-5.1-2009/complete/page-38.png
+  sha256: dfd290062557e2157f74841a8deb971a22a904dc77c935b7a13313f979c26acb
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 38
+    printed_page: '38'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.2.1-6-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.2.1-6-panel-1.png
+  sha256: f674a576f2506f5ef967d71a06619726ffd689eb6f0fe98850f83f3a60fa45cb
+  width: 444
+  height: 314
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 38
+    printed_page: '38'
+    table: 5.2.1
+    item: '6'
+    rect:
+    - 108.8
+    - 538.58
+    - 215.2
+    - 613.78
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.2-p33
+  role: note
+  label: Clause 5.3.2, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  sha256: d2f5ace70e1c2b4cd4aad60f721e55f09798bdc8204c96571e3303a71de825df
+  width: 2010
+  height: 930
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 397.1707
+    - 547.0
+    - 620.1298
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.2.1-6-variants.png
+  sha256: 82db20d816dc73f96ab84247cba38a7954539c27bfe4537af3825569e80bf00b
+  width: 1000
+  height: 379
+  derived_from:
+  - t5.2.1-6-panel-1
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.2.1-6-panel-1
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.1-6.catalog-t5.2.1-6-panel-1.png
+  sha256: 05d4a7c6759d8d5545757857d1ed9a30ea7f4f47133a3554c365e33077f59a3b
+  width: 152
+  height: 277
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 38
+    printed_page: '38'
+    table: 5.2.1
+    item: '6'
+    rect:
+    - 146.88
+    - 543.8399999999999
+    - 183.35999999999999
+    - 610.3199999999999
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations:
+    - text: (1b)
+      rect:
+      - 110.159912109375
+      - 541.0884399414062
+      - 124.31723022460938
+      - 549.0684814453125
+      reason: source_note_reference
+    - text: (3)
+      rect:
+      - 126.58834075927734
+      - 541.0884399414062
+      - 136.31915283203125
+      - 549.0684814453125
+      reason: source_note_reference
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.1-6.sheet.png
+  sha256: 82f4bae22a67c1e46b37f83330eb660b773d039b2021d73c77a9d37740e71722
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.2.1-6-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '33'
+    pdf_page: 33
+    table: null
+    item: null
+    passage: Clause 5.3.2
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  explanation: '5.3.2 Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 — Measurement symbols
+
+    (1) Measurements are depicted by:
+
+    (a) Bubbles only.
+
+    (b) Bubbles and graphics.
+
+    (2) These symbols shall be used for process or equipment measurements if:
+
+    (a) A graphic symbol does not exist.
+
+    (b) The user does not use graphic symbols.
+
+    (3) Transmitter [T] may be controller [C], indicator [I], recorder [R], or switch
+    [S].
+
+    (4) User engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    choices are selected.'
+  asset_id: clause-5.3.2-p33
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.2
+  explanation: 'Explanatory notes for Table 5.2.1: clause 5.3.2.'
+catalog:
+  role: catalog
+  category: measurement
+  short_name: Close-coupled element on process equipment
+  interpretation: 'Transmitter with close-coupled primary element inserted in or on
+    process flow line, vessel, or equipment, bubble/graphic format. Insert primary
+    element symbol from Table 5.2.3 at #. Connecting line shall be equal to or less
+    than 0.25 inches (6 millimeters). Connect to other instruments by symbols from
+    Table 5.3.2. This is a measurement arrangement; identify its components separately
+    from drawing evidence.'
+  displayed_asset_ids:
+  - catalog-t5.2.1-6-panel-1
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.2
+  - isa-5.1-2009.clause-4.1

@@ -1,0 +1,103 @@
+id: isa-5.1-2009.clause-6.3.7
+version: 2
+concept: 6.3.7 — Table 6.7 — Dimensions for binary logic symbols, Table 5.7
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: informative
+explanation: '6.3.7 Table 6.7 — Dimensions for binary logic symbols, Table 5.7
+
+  (1) Input connection line dimensions are the minimum for:
+
+  (a) Five inputs.
+
+  (b) Three inputs.
+
+  (c) Two inputs.
+
+  (2) Two m.u.’s shall be added for each additional input
+
+  (3) Minimum spacing between inputs.
+
+  (4) Output signal line shall be centered on symbol.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- Table 6.7 — Dimensions for binary logic symbols, Table 5.7
+- 6.3.7
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '77'
+  pdf_page: 77
+  table: null
+  item: null
+  passage: Clause 6.3.7
+  image: illustrations/isa-5.1-2009/complete/clause-6.3.7-p77.png
+assets:
+- id: clause-6.3.7-p77
+  role: context
+  label: Clause 6.3.7, page 77
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.7-p77.png
+  sha256: 14e43abb6614fe18938e0f2eb5a51eadcc3b1651ce26d24509bd305b18cf83b0
+  width: 2010
+  height: 784
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 399.1506
+    - 547.0
+    - 587.1298
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-77
+  role: context
+  label: Complete technical content on page 77
+  path: illustrations/isa-5.1-2009/complete/page-77.png
+  sha256: 9399e445b5169885912f8143eea91ba0683a87325296cd0e97df2efb7121a3fb
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

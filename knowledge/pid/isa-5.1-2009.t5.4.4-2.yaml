@@ -1,0 +1,254 @@
+id: isa-5.1-2009.t5.4.4-2
+version: 2
+concept: Fail to closed position
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Fail to closed position.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Control valve failure and de-energized position indications
+- 5.4.4
+- Fail to closed position
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '55'
+  pdf_page: 55
+  table: 5.4.4
+  item: '2'
+  passage: 'Table 5.4.4, item 2: • Fail to closed position.'
+  image: illustrations/isa-5.1-2009/complete/t5.4.4-2-context.png
+assets:
+- id: t5.4.4-2-context
+  role: context
+  label: 'Complete row: Table 5.4.4, item 2'
+  path: illustrations/isa-5.1-2009/complete/t5.4.4-2-context.png
+  sha256: fc96d5f8141b2def0308776d37a545420cd8d9e2451e63fe0e9e975fdf65ea73
+  width: 1960
+  height: 254
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 55
+    printed_page: '55'
+    table: 5.4.4
+    item: '2'
+    rect:
+    - 70.98
+    - 193.58
+    - 541.02
+    - 254.38
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-55
+  role: context
+  label: Complete technical content on page 55
+  path: illustrations/isa-5.1-2009/complete/page-55.png
+  sha256: 708e3a8c6d6691faad3d3055d83e4b17410e27a0069aff2d15a146d7a43f731a
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 55
+    printed_page: '55'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.4.4-2-panel-1
+  role: variant
+  label: Method A
+  path: illustrations/isa-5.1-2009/complete/t5.4.4-2-panel-1.png
+  sha256: 44d6f9942669fa64299ab3877bb8a9d7ff52a448a4f03296062550cb23e6b792
+  width: 444
+  height: 239
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 55
+    printed_page: '55'
+    table: 5.4.4
+    item: '2'
+    rect:
+    - 108.8
+    - 195.38
+    - 215.2
+    - 252.58
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.4.4-2-panel-2
+  role: variant
+  label: Method B
+  path: illustrations/isa-5.1-2009/complete/t5.4.4-2-panel-2.png
+  sha256: 2ac0dcbce5ff380674d03c66490efe974bd1eb2f4c2879600053801cc5e78935
+  width: 444
+  height: 239
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 55
+    printed_page: '55'
+    table: 5.4.4
+    item: '2'
+    rect:
+    - 216.8
+    - 195.38
+    - 323.2
+    - 252.58
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.4-p34
+  role: note
+  label: Clause 5.3.4, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  sha256: 22398fd3ece7505715c4362491d0de8902648bfba29cb21750251ccb42c738ab
+  width: 2010
+  height: 1461
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 326.671
+    - 547.0
+    - 677.1295
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.4.4-2-variants.png
+  sha256: d1cf5de859310003b8fc5c147c9ac48d7eb824899de40885b5334a67f3ab1f6a
+  width: 1000
+  height: 608
+  derived_from:
+  - t5.4.4-2-panel-1
+  - t5.4.4-2-panel-2
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '34'
+    pdf_page: 34
+    table: null
+    item: null
+    passage: Clause 5.3.4
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  explanation: '5.3.4 Tables 5.4.1, 5.4.2, 5.4.3 and 5.4.4 — Final control element
+    symbols:
+
+    (1) Users engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    symbols have been selected.
+
+    (2) Element symbols 1 through 14, when combined with actuator symbols 1 through
+    16, represent
+
+    process control valves.
+
+    (3) Element symbol 2, when combined with actuator symbols 20 and 21, represent
+    pressure safety
+
+    valves.
+
+    (4) Element symbols 15 through 19, when combined with actuator symbols 13, 14,
+    and 15, represent
+
+    on-off solenoid valves.
+
+    (5) Element symbol 21, when combined with actuator symbols 1 through 16, represents
+    a variable
+
+    speed control unit.
+
+    (6) Element symbol 21 represents a motor that manipulates or controls a process
+    variable.
+
+    (7) Actuator symbols 1 through 16, when combined with element symbols 1 through
+    14, represent
+
+    process control valves and with element symbol 21 represents a variable speed
+    control unit.
+
+    (8) Actuator symbols 17, 18, and 19, when combined with element symbols 15 through
+    19, represent
+
+    on-off solenoid valves.
+
+    (9) Actuator symbols 20 and 21, when combined with element symbol 2, represent
+    pressure safety
+
+    valves.
+
+    (10) The symbols are applicable to all types of control valves and actuators.'
+  asset_id: clause-5.3.4-p34
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.4
+  explanation: 'Explanatory notes for Table 5.4.4: clause 5.3.4.'
+catalog:
+  role: supporting
+  short_name: Fail to closed position
+  interpretation: Fail to closed position. Failure action must be supported by the
+    drawing annotation, not assumed from valve type.

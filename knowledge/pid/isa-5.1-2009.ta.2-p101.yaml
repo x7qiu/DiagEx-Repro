@@ -1,0 +1,1237 @@
+id: isa-5.1-2009.ta.2-p101
+version: 2
+concept: Table A.2 — Allowable letter/number combinations for loop numbering schemes
+  (page 101)
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: informative
+explanation: Allowable letter/number combinations for loop numbering schemes. Use
+  the source table with its column headings and linked explanatory notes. Blank or
+  merged cells must not be interpreted as new definitions.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+- The printed heading points to clause A.16.3, while clause A.16.2 explicitly discusses
+  Table A.2. Both references are retained.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- text_assignment
+- symbol_interpretation
+- review
+tags:
+- Allowable letter/number combinations for loop numbering schemes
+- A.2
+- identification
+- tag
+- letters
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '101'
+  pdf_page: 101
+  table: A.2
+  item: null
+  passage: "               Table A.2 — Allowable letter/number combinations for loop\
+    \ numbering schemes\n\n\nNote: Numbers in parentheses refer to explanatory notes\
+    \ in Clause A.16.3.\n               First Letters (1)            Scheme 1   Scheme\
+    \ 2   Scheme 3   Scheme 4   Scheme 5   Scheme 6        Scheme 7             Scheme\
+    \ 8             Scheme 9\n                                                   \
+    \           Parallel (2)                                 Serial (2)          \
+    \         Parallel (2)    Serial (2)    Parallel (2)    Serial (2)    Parallel\
+    \ (2)    Serial (2)\n       Measured/Initiating Variables         Meas / Init\
+    \ Variable                 Meas / Init Variable                              \
+    \ Measured/Initiating Variable                                               \
+    \                               First Letters                                First\
+    \ Letters                                                                    \
+    \  First Letters\n        w/ and w/o Modifiers (4b)          w/o Mod.     w/Mod.\
+    \                 w/o Mod.     w/Mod.                     w/o Modifiers      \
+    \        w/Modifiers\n   T              Temperature                          \
+    \   T-*01        T-*01                      T-*43        T-*43               \
+    \                    T-*01                      T-*01\n  TD        Temperature\
+    \ Differential                     TD-*02      TD-*01                   TD-*44\
+    \      TD-*44                               TD-*02                   TD-*01\n\
+    \  TF          Temperature Ratio                        TF-*03       TF-*01  \
+    \                  TF-*45       TF-*45                                TF-*03 \
+    \                   TF-*01\n   TJ           Temperature Scan             T-*01\
+    \        TJ-*04       TJ-*01        T-*20        TJ-*46       TJ-*46        T-*01\
+    \                     TJ-*04                     TJ-*01\n  TK      Temperature\
+    \ Rate of Change                   TK-*05       TK-*01                   TK-*47\
+    \       TK-*47                                TK-*05                   TK-*01\n\
+    \  TS         Temperature Safety (5)                      TS-*06       TS-*01\
+    \                   TS-*48       TS-*48                                TS-*06\
+    \                   TS-*01\n  TZ          Temperature(SIS) (3)               \
+    \        TZ-*07       TZ-*01                    TZ-*49       TZ-*49          \
+    \                      TZ-*06                    TZ-*06\n  U                Multivariable\
+    \                           U-*01        U-*01                     U-*50     \
+    \   U-*50                                              U-*27                 \
+    \    U-*27\n  UJ             Multivariable Scan            U-*01       UJ-*02\
+    \       UJ-*01       U-*21       UJ-*51       UJ-*51                    U-*16\
+    \                    UJ-*28                    UJ-*28\n  UZ           Multivariable(SIS)\
+    \ (3)                      UZ-*03      UZ-*01                   UZ-*52      UZ-*52\
+    \                                             UJ-*29                    UJ-*29\n\
+    \  V        Vibration, Machinery Analysis                     V-*01        V-*01\
+    \                     V-*53        V-*53                                     \
+    \          V-*30                     V-*30\n  VZ           Vibration(SIS) (3)\
+    \ (6a)                      VZ-*02       VZ-*01                   VZ-*54     \
+    \  VZ-*54                                            VZ-*31                  \
+    \ VZ-*31\n  VX              Vibration X-Axis                        VX-*03   \
+    \   VX-*01                   VX-*55      VX-*55                              \
+    \              VX-*32                   VX-*32\n  VY              Vibration Y-Axis\
+    \                        VY-*04      VY-*01                   VY-*56      VY-*56\
+    \                                            VY-*33                   VY-*33 \
+    \                                            V-*01                           \
+    \       V-*22                                               V-*17\n  VZ      \
+    \        Vibration Z-Axis                         VZ-*05       VZ-*01        \
+    \           VZ-*57       VZ-*57                                            VZ-*34\
+    \                   VZ-*34\n  VZX      Vibration X-Axis(SIS) (3) (6b)        \
+    \          VZX-*06     VZX-*01                 VZX-*58     VZX-*58           \
+    \                              VZX-*35                 VZX-*35\n  VZY      Vibration\
+    \ Y-Axis(SIS) (3) (6b)                  VZY-*07     VZY-*01                 VZY-*59\
+    \     VZY-*59                                         VZY-*36                \
+    \ VZY-*36\n  VZZ      Vibration Z-Axis(SIS) (3) (6b)                  VZZ-*08\
+    \     VZZ-*01                  VZZ-*60     VZZ-*60                           \
+    \               VZZ-*37                  VZZ-*37\n  W              Weight, Force\
+    \                        W-*01       W-*01                   W-*61       W-*61\
+    \                                          W-*38                   W-*38\n  WZ\
+    \           Force(SIS) (3) (6a)                      WZ-*02      WZ-*01      \
+    \           WZ-*62      WZ-*62                                        WZ-*39 \
+    \                WZ-*39\n WD          Weight Differential                    \
+    \ WD-*03     WD-*01                WD-*63     WD-*63                         \
+    \              WD-*40                WD-*40\n  WF            Weight Ratio    \
+    \                    WF-*04      WF-*01                 WF-*65      WF-*65   \
+    \                                     WF-*41                 WF-*41\n WK     \
+    \     Weight Loss (Gain)                     WK-*05     WK-*01               \
+    \  WK-*66     WK-*66                                        WK-*42           \
+    \      WK-*42\n WQ             Weight Total                                  \
+    \      W-*01      WQ-*06     WQ-*01      W-*23      WQ-*67     WQ-*67        \
+    \          W-*18                 WQ-*43                WQ-*43\n WX           \
+    \  Force X Axis                        WX-*07     WX-*01                 WX-*68\
+    \     WX-*68                                        WX-*44                 WX-*44\n\
+    \ WY             Force Y Axis                        WY-*08     WY-*01       \
+    \          W-Y*69     W-Y*69                                        WY-*45   \
+    \              WY-*45\n  WZ             Force Z Axis                        WZ-*09\
+    \      WZ-*01                 WZ-*70      WZ-*70                             \
+    \           WZ-*46                 WZ-*46\n WZX       Force X Axis(SIS) (3) (6b)\
+    \                   WZ-*10     WZX-*01                WZX-*71    WZX-*71     \
+    \                                 WZX-*47                WZX-*47\n WZY       Force\
+    \ Y Axis(SIS) (3) (6b)                  WZX-*11    WZY-*01                WZY-*72\
+    \    WZY-*72                                      WZY-*48                WZY-*48\n\
+    \ WZZ       Force Z Axis(SIS) (3) (6b)                  WZY-*12    WZZ-*01   \
+    \             WZZ-*73    WZZ-*73                                       WZZ-*49\
+    \                WZZ-*49\n  X                Unclassified               X-*01\
+    \        X-*01        X-*01        X-*24        X-*74        X-*74           \
+    \          X-*19                     X-*50                     X-*50\n  Y    \
+    \      Event, State, Presence                       Y-*01        Y-*01       \
+    \              Y-*75        Y-*75                                            \
+    \   Y-*51                     Y-*51                                          \
+    \   Y-*01                                  Y-*25                             \
+    \                  Y-*20\n  YZ           Event, State(SIS) (3)               \
+    \        YZ-*02       YZ-*01                   YZ-*76       YZ-*76           \
+    \                                 YZ-*52                   YZ-*52\n   Z      \
+    \       Position, Dimension                         Z-*01        Z-*01       \
+    \               Z-*77        Z-*77                      Z-*21                \
+    \      Z-*53                      Z-*53                                      \
+    \        Z-*01                                   Z-*26\n  ZZ           Position(SIS)\
+    \ (3) (6a)                       ZZ-*02       ZZ-*01                    ZZ-*78\
+    \       ZZ-*78                                            ZX-*54             \
+    \      ZX-*54\n  ZX              Position X Axis                         ZX-*03\
+    \       ZX-*01                   ZX-*79       ZX-*79                         \
+    \                   ZY-*55                   ZY-*55\n  ZY              Position\
+    \ Y Axis                         ZY-*04      ZY-*01                   ZY-*80 \
+    \      ZY-*80                                             ZZ-*56             \
+    \       ZZ-*56\n  ZZ              Position Z Axis                          ZZ-*05\
+    \       ZZ-*01                    ZZ-*81       ZZ-*81                        \
+    \                     ZZ-*57                    ZZ-*57\n  ZZX       Position X\
+    \ Axis(SIS) (3) (6b)                   ZZX-*06     ZZX-*01                  ZZX-*82\
+    \     ZZX-*82                                          ZZX-*58               \
+    \   ZZX-*58\n  ZZY       Position Y Axis(SIS) (3) (6b)                   ZZY-*07\
+    \     ZZY-*01                  ZZY-*83     ZZY-*83                           \
+    \               ZZY-*59                  ZZY-*59\n  ZZZ       Position Z Axis(SIS)\
+    \ (3) (6b)                   ZZZ-*08     ZZZ-*01                  ZZZ-*84    \
+    \ ZZZ-*84                                           ZZZ-*60                  ZZZ-*60\n\
+    \  ZD            Position Difference                       ZD-*09      ZD-*01\
+    \                   ZD-*85      ZD-*85                                       \
+    \     ZD-*61                   ZD-*61\n ZDX        Position Difference X Axis\
+    \                   ZDX-*10     ZDX-*01                 ZDX-*86     ZDX-*86  \
+    \                                       ZDX-*62                 ZDX-*62"
+  image: illustrations/isa-5.1-2009/complete/page-101.png
+assets:
+- id: page-101
+  role: context
+  label: Complete technical content on page 101
+  path: illustrations/isa-5.1-2009/complete/page-101.png
+  sha256: 448645b475f3d0d8be0f41d109e98e87831357f603197cd1253877aef2a1b4cc
+  width: 2800
+  height: 2030
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 101
+    printed_page: '101'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 547.0
+    - 732.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 90
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.2-p96
+  role: note
+  label: Clause A.16.2, page 96
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.2-p96.png
+  sha256: 954467bb26c07d187cda76ab062fc2f1daa7661782dde7e0e320f40707eb1b4c
+  width: 2010
+  height: 1859
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 96
+    printed_page: '96'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 281.1911
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.2-p97
+  role: note
+  label: Clause A.16.2, page 97
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.2-p97.png
+  sha256: 8ca6c40542ff87c1204f154668d28c90032903c332558aa37dfda8e42747db9d
+  width: 2010
+  height: 147
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 97
+    printed_page: '97'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 105.1516
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p97
+  role: note
+  label: Clause A.16.3, page 97
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  sha256: b7ec4cfea46cb1b9444d0b4ffb603531b7529d52c9089278a2196523f43c1730
+  width: 2010
+  height: 2592
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 97
+    printed_page: '97'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 105.1516
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p98
+  role: note
+  label: Clause A.16.3, page 98
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p98.png
+  sha256: 0cd9d653b9062fc95e4155ae84249a1f0aeb22953a24b928162727a860100442
+  width: 2010
+  height: 195
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 98
+    printed_page: '98'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 116.6716
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 96, 97
+    pdf_page: 96
+    table: null
+    item: null
+    passage: Clause A.16.2
+    image: illustrations/isa-5.1-2009/complete/clause-a.16.2-p96.png
+  explanation: 'A.16.2 Table A.2 — Allowable letter/number combinations for loop numbering
+    schemes.
+
+    (1) First Letters do not include all possibilities.
+
+    (2) Replace asterisk in Loop Number with any digit from 0 to 9 or any combination
+    of numerals.
+
+    (3) Variable Modifier safety instrumented system [Z] is technically not a direct-measured
+    variable but
+
+    is used to identify loops in a Safety Instrumented System. And because of the
+    critical nature of
+
+    such loops, any Measured/Initiating Variable followed by [Z], such as [FZ], [PZ],
+    and [TZ], should
+
+    be considered as Measured/ Initiating Variables in all Loop Identification Number
+    construction
+
+    schemes
+
+    (a) An alternate method for identifying Safety Instrumented System loops is to
+    append [(SIS)]
+
+    outside the bubbles of Safety Instrumented System loops and as a prefix or suffix
+    to the Loop
+
+    Number when used in text. For example, Loop Numbers for pressure and temperature
+    loops in an
+
+    SIS may be [(SIS)PZ-*01] or [TZ-*09(SIS)].
+
+    (4) Users should assign, as needed, meanings to:
+
+    (a) Users Choice Measured/Initiating Variable letters [C], [D], [G], [M], [N],
+    and [O].
+
+    (b) Variable Modifier letter blanks [A], [B], [C], [E], [G], [H], [I], [L], [M],
+    [N], [O], [P], [R], [T],
+
+    [U], [V], and [W].
+
+    (5) Variable Modifier safety [S] is technically not a direct-measured variable
+    but is used to identify
+
+    self-actuated emergency protective primary and final control elements only when
+    used in
+
+    conjunction with Measured/Initiating Variables flow [F], pressure [P] or temperature
+    [T]. And
+
+    because of the critical nature of such devices, [FS], [PS], and [TS] should be
+    considered as
+
+    Measured/ Initiating Variables in all Loop Identification Number construction
+    schemes:
+
+    (a) Shall not be used to identify Safety Instrumented Systems and components.
+
+    (6) Measured/Initiating Variables [V], [W], or [Z] when used in a Safety Instrumented
+    System and:
+
+    (a) Not axially oriented should use [VZ], [WZ], and [ZZ] as Measured/Initiating
+    Variables.
+
+    (b) Axially oriented should use [VZX], [VZY], [VZZ], and [WZX], [WZY], [WZZ] and
+    [ZZX],
+
+    [ZZY], [ZZZ] as Measured/Initiating Variables.'
+  asset_id: clause-a.16.2-p96
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 97, 98
+    pdf_page: 97
+    table: null
+    item: null
+    passage: Clause A.16.3
+    image: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  explanation: 'A.16.3 Tables A.3.1 and A.3.2 — Allowable succeeding letter combinations
+    for readout/passive and
+
+    output/active function letters and first-letters.
+
+    (1) Cells marked NA indicate not allowable combinations.
+
+    (2) First Letters are assigned according to Table A.2.
+
+    (3) Function Modifiers are added where indicated to right of alarm function combinations.
+
+    (4) Users should assign, as needed, meanings to:
+
+    (a) Users Choice Function letters [B] and [N].
+
+    (b) Readout/Passive Function blanks [C], [D], [F], [H], [J], [K], [M], [S], [T],
+    [V], [Y], and [Z].
+
+    (c) Output/Active Function blanks [A], [D], [E], [F], [G], [H], [I], [J], [L],
+    [M], [O], [P], [Q], [R],
+
+    and [W].
+
+    (d) Function Modifier blanks [A], [E], [F], [G], [I], [J], [K], [P], [Q], [T],
+    [U], [V], [W], [Y], and [Z].
+
+    (5) Readout/Passive Function [G] (glass, gauge) is used for local direct connected
+    devices, such as
+
+    flow sight glasses, level glasses, pressure gauges, thermometers weigh scales
+    and position
+
+    indicators. These devices provide a simple view of a process condition.
+
+    (a) Readout/Passive Function [I] (indicate) may continue to be used in facilities
+    where it is
+
+    currently used.
+
+    (6) Pressure rupture disc [PSE] and fusible link [TSE] apply to all sensors or
+    primary elements
+
+    intended to protect against emergency pressure or temperature conditions.
+
+    (7) The combinations in the [C] column are used for:
+
+    (a) Discrete single case instruments that do not have operator-visible indication
+    of measured
+
+    variable, setpoint, or output signal.
+
+    (b) Controller functions configured in shared display, shared control systems
+    where
+
+    indication and recording are configurable functions available on demand.
+
+    (8) The combinations in the [IC] and [RC] columns indicate the order to be followed
+    in forming the
+
+    Functional Identification of a controller device or function that also provides
+    indication or
+
+    recording.
+
+    (9) The combinations in the [CV] column indicate the order to be followed in forming
+    the Functional
+
+    Identification for self-actuated control valves.
+
+    (10) Flow safety valve [FSV] applies to valves intended to protect against an
+    emergency excess flow
+
+    or loss of flow condition. Pressure safety valve [PSV], and temperature safety
+    valve [TSV] apply
+
+    to valves intended to protect against emergency pressure and temperature conditions
+
+    (11) A self-actuated pressure valve that prevents operation of a fluid system
+    at a higher-than-desired
+
+    pressure by bleeding fluid from the system is a backpressure control valve [PCV],
+    even if the
+
+    valve is not normally used.
+
+    (a) This valve should be designated a pressure safety valve [PSV] if it protects
+    against
+
+    emergency conditions hazardous to personnel and/or equipment that are not expected
+    to arise
+
+    normally.'
+  asset_id: clause-a.16.2-p96
+text_slots: []
+interpretation:
+- Table cells are source transcriptions; retain headers and merged-cell context when
+  interpreting them. Use the image to resolve superscripts or extraction ambiguity.
+- Example tags and numbering schemes illustrate conventions; never copy them as actual
+  drawing identifiers.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-a.16.2
+  explanation: 'Explanatory notes for Table A.2: clause A.16.2.'
+- relation: related
+  reference_id: isa-5.1-2009.clause-a.16.3
+  explanation: 'Explanatory notes for Table A.2: clause A.16.3.'
+table_data:
+- - - 'First Letters (1)
+
+      Measured/Initiating Variables
+
+      w/ and w/o Modifiers (4b)'
+    - null
+    - Scheme 1
+    - Scheme 2
+    - Scheme 3
+    - Scheme 4
+    - Scheme 5
+    - Scheme 6
+    - Scheme 7
+    - null
+    - Scheme 8
+    - null
+    - Scheme 9
+    - null
+  - - null
+    - null
+    - Parallel (2)
+    - null
+    - null
+    - Serial (2)
+    - null
+    - null
+    - Parallel (2)
+    - Serial (2)
+    - Parallel (2)
+    - Serial (2)
+    - Parallel (2)
+    - Serial (2)
+  - - null
+    - null
+    - Meas / Init Variable
+    - null
+    - First Letters
+    - Meas / Init Variable
+    - null
+    - First Letters
+    - Measured/Initiating Variable
+    - null
+    - null
+    - null
+    - First Letters
+    - null
+  - - null
+    - null
+    - w/o Mod.
+    - w/Mod.
+    - null
+    - w/o Mod.
+    - w/Mod.
+    - null
+    - w/o Modifiers
+    - null
+    - w/Modifiers
+    - null
+    - null
+    - null
+  - - T
+    - Temperature
+    - T-*01
+    - 'T-*01
+
+      TD-*02
+
+      TF-*03
+
+      TJ-*04
+
+      TK-*05
+
+      TS-*06
+
+      TZ-*07'
+    - T-*01
+    - T-*20
+    - T-*43
+    - T-*43
+    - T-*01
+    - ''
+    - 'T-*01
+
+      TD-*02
+
+      TF-*03
+
+      TJ-*04
+
+      TK-*05
+
+      TS-*06
+
+      TZ-*06'
+    - ''
+    - T-*01
+    - ''
+  - - TD
+    - Temperature Differential
+    - null
+    - null
+    - TD-*01
+    - null
+    - TD-*44
+    - TD-*44
+    - null
+    - null
+    - null
+    - null
+    - TD-*01
+    - null
+  - - TF
+    - Temperature Ratio
+    - null
+    - null
+    - TF-*01
+    - null
+    - TF-*45
+    - TF-*45
+    - null
+    - null
+    - null
+    - null
+    - TF-*01
+    - null
+  - - TJ
+    - Temperature Scan
+    - null
+    - null
+    - TJ-*01
+    - null
+    - TJ-*46
+    - TJ-*46
+    - null
+    - null
+    - null
+    - null
+    - TJ-*01
+    - null
+  - - TK
+    - Temperature Rate of Change
+    - null
+    - null
+    - TK-*01
+    - null
+    - TK-*47
+    - TK-*47
+    - null
+    - null
+    - null
+    - null
+    - TK-*01
+    - null
+  - - TS
+    - Temperature Safety (5)
+    - null
+    - null
+    - TS-*01
+    - null
+    - TS-*48
+    - TS-*48
+    - null
+    - null
+    - null
+    - null
+    - TS-*01
+    - null
+  - - TZ
+    - Temperature(SIS) (3)
+    - null
+    - null
+    - TZ-*01
+    - null
+    - TZ-*49
+    - TZ-*49
+    - null
+    - null
+    - null
+    - null
+    - TZ-*06
+    - null
+  - - U
+    - Multivariable
+    - U-*01
+    - 'U-*01
+
+      UJ-*02
+
+      UZ-*03'
+    - U-*01
+    - U-*21
+    - U-*50
+    - U-*50
+    - ''
+    - U-*16
+    - ''
+    - U-*27
+    - ''
+    - U-*27
+  - - UJ
+    - Multivariable Scan
+    - null
+    - null
+    - UJ-*01
+    - null
+    - UJ-*51
+    - UJ-*51
+    - null
+    - null
+    - null
+    - UJ-*28
+    - null
+    - UJ-*28
+  - - UZ
+    - Multivariable(SIS) (3)
+    - null
+    - null
+    - UZ-*01
+    - null
+    - UZ-*52
+    - UZ-*52
+    - null
+    - null
+    - null
+    - UJ-*29
+    - null
+    - UJ-*29
+  - - V
+    - Vibration, Machinery Analysis
+    - V-*01
+    - 'V-*01
+
+      VZ-*02
+
+      VX-*03
+
+      VY-*04
+
+      VZ-*05
+
+      VZX-*06
+
+      VZY-*07
+
+      VZZ-*08'
+    - V-*01
+    - V-*22
+    - V-*53
+    - V-*53
+    - null
+    - V-*17
+    - null
+    - V-*30
+    - null
+    - V-*30
+  - - VZ
+    - Vibration(SIS) (3) (6a)
+    - null
+    - null
+    - VZ-*01
+    - null
+    - VZ-*54
+    - VZ-*54
+    - null
+    - null
+    - null
+    - VZ-*31
+    - null
+    - VZ-*31
+  - - VX
+    - Vibration X-Axis
+    - null
+    - null
+    - VX-*01
+    - null
+    - VX-*55
+    - VX-*55
+    - null
+    - null
+    - null
+    - VX-*32
+    - null
+    - VX-*32
+  - - VY
+    - Vibration Y-Axis
+    - null
+    - null
+    - VY-*01
+    - null
+    - VY-*56
+    - VY-*56
+    - null
+    - null
+    - null
+    - VY-*33
+    - null
+    - VY-*33
+  - - VZ
+    - Vibration Z-Axis
+    - null
+    - null
+    - VZ-*01
+    - null
+    - VZ-*57
+    - VZ-*57
+    - null
+    - null
+    - null
+    - VZ-*34
+    - null
+    - VZ-*34
+  - - VZX
+    - Vibration X-Axis(SIS) (3) (6b)
+    - null
+    - null
+    - VZX-*01
+    - null
+    - VZX-*58
+    - VZX-*58
+    - null
+    - null
+    - null
+    - VZX-*35
+    - null
+    - VZX-*35
+  - - VZY
+    - Vibration Y-Axis(SIS) (3) (6b)
+    - null
+    - null
+    - VZY-*01
+    - null
+    - VZY-*59
+    - VZY-*59
+    - null
+    - null
+    - null
+    - VZY-*36
+    - null
+    - VZY-*36
+  - - VZZ
+    - Vibration Z-Axis(SIS) (3) (6b)
+    - null
+    - null
+    - VZZ-*01
+    - null
+    - VZZ-*60
+    - VZZ-*60
+    - null
+    - null
+    - null
+    - VZZ-*37
+    - null
+    - VZZ-*37
+  - - W
+    - Weight, Force
+    - W-*01
+    - 'W-*01
+
+      WZ-*02
+
+      WD-*03
+
+      WF-*04
+
+      WK-*05
+
+      WQ-*06
+
+      WX-*07
+
+      WY-*08
+
+      WZ-*09
+
+      WZ-*10
+
+      WZX-*11
+
+      WZY-*12'
+    - W-*01
+    - W-*23
+    - W-*61
+    - W-*61
+    - null
+    - W-*18
+    - null
+    - W-*38
+    - null
+    - W-*38
+  - - WZ
+    - Force(SIS) (3) (6a)
+    - null
+    - null
+    - WZ-*01
+    - null
+    - WZ-*62
+    - WZ-*62
+    - null
+    - null
+    - null
+    - WZ-*39
+    - null
+    - WZ-*39
+  - - WD
+    - Weight Differential
+    - null
+    - null
+    - WD-*01
+    - null
+    - WD-*63
+    - WD-*63
+    - null
+    - null
+    - null
+    - WD-*40
+    - null
+    - WD-*40
+  - - WF
+    - Weight Ratio
+    - null
+    - null
+    - WF-*01
+    - null
+    - WF-*65
+    - WF-*65
+    - null
+    - null
+    - null
+    - WF-*41
+    - null
+    - WF-*41
+  - - WK
+    - Weight Loss (Gain)
+    - null
+    - null
+    - WK-*01
+    - null
+    - WK-*66
+    - WK-*66
+    - null
+    - null
+    - null
+    - WK-*42
+    - null
+    - WK-*42
+  - - WQ
+    - Weight Total
+    - null
+    - null
+    - WQ-*01
+    - null
+    - WQ-*67
+    - WQ-*67
+    - null
+    - null
+    - null
+    - WQ-*43
+    - null
+    - WQ-*43
+  - - WX
+    - Force X Axis
+    - null
+    - null
+    - WX-*01
+    - null
+    - WX-*68
+    - WX-*68
+    - null
+    - null
+    - null
+    - WX-*44
+    - null
+    - WX-*44
+  - - WY
+    - Force Y Axis
+    - null
+    - null
+    - WY-*01
+    - null
+    - W-Y*69
+    - W-Y*69
+    - null
+    - null
+    - null
+    - WY-*45
+    - null
+    - WY-*45
+  - - WZ
+    - Force Z Axis
+    - null
+    - null
+    - WZ-*01
+    - null
+    - WZ-*70
+    - WZ-*70
+    - null
+    - null
+    - null
+    - WZ-*46
+    - null
+    - WZ-*46
+  - - WZX
+    - Force X Axis(SIS) (3) (6b)
+    - null
+    - null
+    - WZX-*01
+    - null
+    - WZX-*71
+    - WZX-*71
+    - null
+    - null
+    - null
+    - WZX-*47
+    - null
+    - WZX-*47
+  - - WZY
+    - Force Y Axis(SIS) (3) (6b)
+    - null
+    - null
+    - WZY-*01
+    - null
+    - WZY-*72
+    - WZY-*72
+    - null
+    - null
+    - null
+    - WZY-*48
+    - null
+    - WZY-*48
+  - - WZZ
+    - Force Z Axis(SIS) (3) (6b)
+    - null
+    - null
+    - WZZ-*01
+    - null
+    - WZZ-*73
+    - WZZ-*73
+    - null
+    - null
+    - null
+    - WZZ-*49
+    - null
+    - WZZ-*49
+  - - X
+    - Unclassified
+    - X-*01
+    - X-*01
+    - X-*01
+    - X-*24
+    - X-*74
+    - X-*74
+    - null
+    - X-*19
+    - null
+    - X-*50
+    - null
+    - X-*50
+  - - Y
+    - Event, State, Presence
+    - Y-*01
+    - 'Y-*01
+
+      YZ-*02'
+    - Y-*01
+    - Y-*25
+    - Y-*75
+    - Y-*75
+    - null
+    - Y-*20
+    - null
+    - Y-*51
+    - null
+    - Y-*51
+  - - YZ
+    - Event, State(SIS) (3)
+    - null
+    - null
+    - YZ-*01
+    - null
+    - YZ-*76
+    - YZ-*76
+    - null
+    - null
+    - null
+    - YZ-*52
+    - null
+    - YZ-*52
+  - - Z
+    - Position, Dimension
+    - Z-*01
+    - 'Z-*01
+
+      ZZ-*02
+
+      ZX-*03
+
+      ZY-*04
+
+      ZZ-*05
+
+      ZZX-*06
+
+      ZZY-*07
+
+      ZZZ-*08
+
+      ZD-*09
+
+      ZDX-*10'
+    - Z-*01
+    - Z-*26
+    - Z-*77
+    - Z-*77
+    - null
+    - Z-*21
+    - null
+    - Z-*53
+    - null
+    - Z-*53
+  - - ZZ
+    - Position(SIS) (3) (6a)
+    - null
+    - null
+    - ZZ-*01
+    - null
+    - ZZ-*78
+    - ZZ-*78
+    - null
+    - null
+    - null
+    - ZX-*54
+    - null
+    - ZX-*54
+  - - ZX
+    - Position X Axis
+    - ''
+    - null
+    - ZX-*01
+    - ''
+    - ZX-*79
+    - ZX-*79
+    - null
+    - null
+    - null
+    - ZY-*55
+    - null
+    - ZY-*55
+  - - ZY
+    - Position Y Axis
+    - null
+    - null
+    - ZY-*01
+    - null
+    - ZY-*80
+    - ZY-*80
+    - null
+    - null
+    - null
+    - ZZ-*56
+    - null
+    - ZZ-*56
+  - - ZZ
+    - Position Z Axis
+    - null
+    - null
+    - ZZ-*01
+    - null
+    - ZZ-*81
+    - ZZ-*81
+    - null
+    - null
+    - null
+    - ZZ-*57
+    - null
+    - ZZ-*57
+  - - ZZX
+    - Position X Axis(SIS) (3) (6b)
+    - null
+    - null
+    - ZZX-*01
+    - null
+    - ZZX-*82
+    - ZZX-*82
+    - null
+    - null
+    - null
+    - ZZX-*58
+    - null
+    - ZZX-*58
+  - - ZZY
+    - Position Y Axis(SIS) (3) (6b)
+    - null
+    - null
+    - ZZY-*01
+    - null
+    - ZZY-*83
+    - ZZY-*83
+    - null
+    - null
+    - null
+    - ZZY-*59
+    - null
+    - ZZY-*59
+  - - ZZZ
+    - Position Z Axis(SIS) (3) (6b)
+    - null
+    - null
+    - ZZZ-*01
+    - null
+    - ZZZ-*84
+    - ZZZ-*84
+    - null
+    - null
+    - null
+    - ZZZ-*60
+    - null
+    - ZZZ-*60
+  - - ZD
+    - Position Difference
+    - null
+    - null
+    - ZD-*01
+    - null
+    - ZD-*85
+    - ZD-*85
+    - null
+    - null
+    - null
+    - ZD-*61
+    - null
+    - ZD-*61
+  - - ZDX
+    - Position Difference X Axis
+    - null
+    - null
+    - ZDX-*01
+    - null
+    - ZDX-*86
+    - ZDX-*86
+    - null
+    - null
+    - null
+    - ZDX-*62
+    - null
+    - ZDX-*62
+catalog:
+  role: background

@@ -1,0 +1,124 @@
+id: sht-3101-2017.t4.2-45
+version: 1
+concept: 现场焊接 / Field weld
+catalog:
+  role: catalog
+  category: piping
+  short_name: 现场焊接
+  interpretation: '现场焊接 / Field weld. Defined by SH/T 3101:2017, Table 4.2, item 45. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 现场焊接
+- Field weld
+reference_type: convention
+kind: definition
+explanation: '现场焊接 / Field weld. Defined by SH/T 3101:2017, Table 4.2, item 45. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 现场焊接
+- Field weld
+- piping
+- convention
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '6'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-45/context.png
+  document_id: sht-3101-2017
+  pdf_page: 10
+  table: '4.2'
+  item: '45'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-45/context.png
+  sha256: 90c7aa24d7f789ca9f20f5fd270bd6b9898e8896fac8ceeefeb768793a7aaa17
+  width: 912
+  height: 89
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '45'
+    rect:
+    - 127.0
+    - 1321.0
+    - 1039.0
+    - 1410.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-45/primary.png
+  sha256: 30a8e3c86c77ce5dbc0627ad7256499befb3f0e4d6e84eb57ca40a019147dabf
+  width: 58
+  height: 68
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '45'
+    rect:
+    - 605.0
+    - 1329.0
+    - 663.0
+    - 1397.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-45/variants.png
+  sha256: 09ea05c20fddc61cb4e9f7fb37dccf806fafe62e37d464cda3684b7330a2d7f4
+  width: 220
+  height: 118
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.heating-cooling-jacket-vessel
+version: 2
+concept: Heating Cooling Jacket Vessel
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Heating Cooling Jacket Vessel
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Heating Cooling Jacket Vessel’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Heating Cooling Jacket Vessel
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Heating Cooling Jacket Vessel’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Heating Cooling Jacket Vessel
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Heating Cooling Jacket Vessel
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.heating-cooling-jacket-vessel.png
+  sha256: bcb21629479865ef50541b778e16bb6e3f610ea25f3b999e0f4ed0e3847334a8
+  width: 43
+  height: 56
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/heating_cooling_jacket_vessel.DgLZ_gf9_ZKVNIK.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: dfdffc13cca9a0af9ba6a2f1d818b4787f7810b7b2d06ee42f3a877f4a84a6d9
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

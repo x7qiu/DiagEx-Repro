@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.3-7
+version: 1
+concept: 减压阀 / Pressure-reducing valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 减压阀
+  interpretation: '减压阀 / Pressure-reducing valve. Defined by SH/T 3101:2017, Table 4.3, item 7. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 减压阀
+- Pressure-reducing valve
+reference_type: symbol
+kind: definition
+explanation: '减压阀 / Pressure-reducing valve. Defined by SH/T 3101:2017, Table 4.3, item 7. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 减压阀
+- Pressure-reducing valve
+- valves_actuators
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '7'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.3-7/context.png
+  document_id: sht-3101-2017
+  pdf_page: 11
+  table: '4.3'
+  item: '7'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.3-7/context.png
+  sha256: 549d4ec0c71fb95c7c89e6fb60d19352e77347d373043e74ec43c46d4e918f74
+  width: 911
+  height: 84
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.3'
+    item: '7'
+    rect:
+    - 159.0
+    - 1452.0
+    - 1070.0
+    - 1536.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.3-7/primary.png
+  sha256: 84cc20c86c018c13f7fad4d7e6ed0db7b54572efcd366a690aa66a2514283c46
+  width: 121
+  height: 33
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.3'
+    item: '7'
+    rect:
+    - 603.0
+    - 1475.0
+    - 724.0
+    - 1508.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.3-7/variants.png
+  sha256: 8c3162a5f84fa45442f651a3603092000e43d764d02d5d3f78fa0db3429b180f
+  width: 220
+  height: 83
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

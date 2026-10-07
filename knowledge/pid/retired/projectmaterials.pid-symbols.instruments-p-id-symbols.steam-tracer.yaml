@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.steam-tracer
+version: 1
+concept: Steam Tracer
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Steam Tracer
+  interpretation: Projectmaterials labels this illustration ‘Steam Tracer’ (Instruments
+    (P&ID Symbols)).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Steam Tracer
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Steam Tracer’ (Instruments
+  (P&ID Symbols)).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Instruments (P&ID Symbols)
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Steam Tracer
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Steam Tracer
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.steam-tracer.png
+  sha256: 20261cd81dba2a1e85595cea86c94c3e5c5eda348545d48912a89d9fa692c9b8
+  width: 42
+  height: 45
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/steam_traced.CB9jUYop_Z1GRcIv.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: d29265b4e511746f6322aa36092a0abfc579101cd04ceec0929004e978d968e7
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

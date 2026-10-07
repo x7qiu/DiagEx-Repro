@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.motor
+version: 1
+concept: Motor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Motor
+  interpretation: Projectmaterials labels this illustration ‘Motor’ (General Plant
+    Equipment P&ID Symbols).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Motor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Motor’ (General Plant Equipment
+  P&ID Symbols).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- General Plant Equipment P&ID Symbols
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Motor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Motor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.motor.png
+  sha256: e80eac0e1de154e288b37b58c15c1d6c6a62fae2b1f839177f1b9acb1df8abc5
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Motor-PID-Symbol-150x150.8GBkX9Eu_ZHV3Xu.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 05d5832920f989a7418f13e427c336424d2c468fdd91f239364ff3328ca354ee
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

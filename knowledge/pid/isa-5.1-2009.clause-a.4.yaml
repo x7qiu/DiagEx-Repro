@@ -1,0 +1,179 @@
+id: isa-5.1-2009.clause-a.4
+version: 2
+concept: A.4 — Loop identification number
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.4 Loop identification number
+
+  A.4.1 A Loop Identification Number is a unique combination of letters and numbers
+  that is assigned to
+
+  each monitoring and control loop in a facility to identify the process or machine
+  variable that is
+
+  being monitored or controlled and should be assigned to each:
+
+  a) Primary monitoring and control loop.
+
+  b) Self-contained measuring or control device.
+
+  c) Secondary measuring or monitoring device if future primary loops are anticipated
+  or if it is
+
+  the standard practice of the User.
+
+  A.4.2 Loop Identification Numbers assigned, as the basis for Instrument Identification/Tag
+  Numbers to
+
+  auxiliary or accessory devices, should be the same as the loop for which the devices
+  are
+
+  required.
+
+  A.4.3 Loop Identification Numbers are assigned:
+
+  a) First Letters from Table 4.1 to identify loop Measured/Initiating Variables.
+
+  b) Numerals to form a unique loop identity.
+
+  c) Optional loop suffixes to identify identical loops on identical pieces of equipment
+  or
+
+  services.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Loop identification number
+- A.4
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 87, 88
+  pdf_page: 87
+  table: null
+  item: null
+  passage: Clause A.4
+  image: illustrations/isa-5.1-2009/complete/clause-a.4-p87.png
+assets:
+- id: clause-a.4-p87
+  role: context
+  label: Clause A.4, page 87
+  path: illustrations/isa-5.1-2009/complete/clause-a.4-p87.png
+  sha256: 69e2af2b95a0a88e98533c4acb3dbd4b746ce6b0119f0b2be3fc4e598475598f
+  width: 2010
+  height: 1032
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 87
+    printed_page: '87'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 479.6703
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-87
+  role: context
+  label: Complete technical content on page 87
+  path: illustrations/isa-5.1-2009/complete/page-87.png
+  sha256: 16a262abe275f999408d8c7568564c331f5428e98b0a0341d1dd543913ebfc9f
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 87
+    printed_page: '87'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.4-p88
+  role: context
+  label: Clause A.4, page 88
+  path: illustrations/isa-5.1-2009/complete/clause-a.4-p88.png
+  sha256: 5ad3fd6da4893116384b05768aa57b828c5bcda011a4db6a921816a6f85784ab
+  width: 2010
+  height: 343
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 88
+    printed_page: '88'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 152.1915
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-88
+  role: context
+  label: Complete technical content on page 88
+  path: illustrations/isa-5.1-2009/complete/page-88.png
+  sha256: 2bf2179008b21e874d11ae071297c6227357b791cb323c71299acad4303dbf8e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 88
+    printed_page: '88'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

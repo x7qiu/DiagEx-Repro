@@ -1,0 +1,155 @@
+id: sht-3101-2017.t4.9-4
+version: 1
+concept: 火焰检测器 / Flame detector
+catalog:
+  role: catalog
+  category: measurement
+  short_name: 火焰检测器
+  interpretation: 火焰检测器 / Flame detector. Defined by SH/T 3101:2017, Table 4.9, item 4. The source lists
+    ultraviolet and industrial-television flame detectors; the glyph alone does not select one technology.
+    Interpret this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI
+    describe the illustrated function, not actual instrument tag numbers.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids:
+  - sht-3101-2017.letter-rules
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 火焰检测器
+- Flame detector
+reference_type: symbol
+kind: definition
+explanation: 火焰检测器 / Flame detector. Defined by SH/T 3101:2017, Table 4.9, item 4. The source lists ultraviolet
+  and industrial-television flame detectors; the glyph alone does not select one technology. Interpret
+  this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI describe the
+  illustrated function, not actual instrument tag numbers.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 火焰检测器
+- Flame detector
+- measurement
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '15'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.9-4/context.png
+  document_id: sht-3101-2017
+  pdf_page: 19
+  table: '4.9'
+  item: '4'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.9-4/context.png
+  sha256: ffa89f52d44583bf37ea8e73777dbd5d3d6f49bc4042d43116718a5306ee27f8
+  width: 910
+  height: 107
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 19
+    printed_page: '15'
+    table: '4.9'
+    item: '4'
+    rect:
+    - 151.0
+    - 639.0
+    - 1061.0
+    - 746.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.9-4/primary.png
+  sha256: 14da0a6eb808f3e9c22850ed4ce7a83f690e0911ebd8a3cb5d5fe2fcc844c7a9
+  width: 91
+  height: 37
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 19
+    printed_page: '15'
+    table: '4.9'
+    item: '4'
+    rect:
+    - 576.0
+    - 675.0
+    - 667.0
+    - 712.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.9-4/variants.png
+  sha256: 816f1e3765fe95edb95d6b86a98b0036288c0a0033f3b39dbc9e8883e66c76d1
+  width: 220
+  height: 87
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '15'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 19
+    table: '4.9'
+    item: '4'
+  explanation: The source lists ultraviolet and industrial-television flame detectors; the glyph alone
+    does not select one technology.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '15'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 19
+    table: '4.9'
+    item: '4'
+  explanation: Interpret this as a primary measurement element in context. Internal letters such as M,
+    C, ΔT or FI describe the illustrated function, not actual instrument tag numbers.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- The source lists ultraviolet and industrial-television flame detectors; the glyph alone does not select
+  one technology.
+- Interpret this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI
+  describe the illustrated function, not actual instrument tag numbers.
+relations: []

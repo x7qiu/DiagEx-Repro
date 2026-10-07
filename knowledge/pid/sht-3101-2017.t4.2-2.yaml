@@ -1,0 +1,126 @@
+id: sht-3101-2017.t4.2-2
+version: 1
+concept: 异径管（通用） / Concentric reducer
+catalog:
+  role: catalog
+  category: piping
+  short_name: 异径管（通用）
+  interpretation: '异径管（通用） / Concentric reducer. Defined by SH/T 3101:2017, Table 4.2, item 2. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 异径管（通用）
+- Concentric reducer
+reference_type: symbol
+kind: definition
+explanation: '异径管（通用） / Concentric reducer. Defined by SH/T 3101:2017, Table 4.2, item 2. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 异径管（通用）
+- Concentric reducer
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '3'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-2/context.png
+  document_id: sht-3101-2017
+  pdf_page: 7
+  table: '4.2'
+  item: '2'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-2/context.png
+  sha256: a97c50bb6cbd6dbbf9901dd12f8ba1821790aaba57e0137f0640f95a33e3c10c
+  width: 908
+  height: 111
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 7
+    printed_page: '3'
+    table: '4.2'
+    item: '2'
+    rect:
+    - 158.0
+    - 1120.0
+    - 1066.0
+    - 1231.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-2/primary.png
+  sha256: 7de2dfa7b0b219741bd42fe7f217e6aca580023ff30be7062ed2b40a2213c051
+  width: 159
+  height: 96
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 7
+    printed_page: '3'
+    table: '4.2'
+    item: '2'
+    rect:
+    - 582.0
+    - 1130.0
+    - 741.0
+    - 1226.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-2/variants.png
+  sha256: 401953e45315380b926437b8b1e1cddebc97e70d5fd4048ae3f2f2b5926daa4c
+  width: 220
+  height: 146
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots:
+- role: diameter
+  example_marker: D1 × D2
+  location: below the reducer
+  meaning: Large-end and small-end pipe diameters, in mm or inches; sample variable names, not tags.
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

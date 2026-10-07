@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-38
+version: 1
+concept: 视镜 / Sight glass
+catalog:
+  role: catalog
+  category: piping
+  short_name: 视镜
+  interpretation: '视镜 / Sight glass. Defined by SH/T 3101:2017, Table 4.2, item 38. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 视镜
+- Sight glass
+reference_type: symbol
+kind: definition
+explanation: '视镜 / Sight glass. Defined by SH/T 3101:2017, Table 4.2, item 38. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 视镜
+- Sight glass
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '6'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-38/context.png
+  document_id: sht-3101-2017
+  pdf_page: 10
+  table: '4.2'
+  item: '38'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-38/context.png
+  sha256: b5360701d6b85d50ce945ee95c34481e2cd7a68740e3ecab95ab9dc1651d7acd
+  width: 912
+  height: 99
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '38'
+    rect:
+    - 127.0
+    - 733.0
+    - 1039.0
+    - 832.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-38/primary.png
+  sha256: 29c9bfc9131001265da8f0997b336bf7f1de25957e1822ae3d8fb6e4802d4296
+  width: 54
+  height: 54
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '38'
+    rect:
+    - 605.0
+    - 752.0
+    - 659.0
+    - 806.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-38/variants.png
+  sha256: 6fb875799ea717c36d34005da8d2315de11f1139dbfb92b64f0322997fcc4419
+  width: 220
+  height: 104
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

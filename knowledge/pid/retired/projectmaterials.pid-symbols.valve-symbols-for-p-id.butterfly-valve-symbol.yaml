@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.valve-symbols-for-p-id.butterfly-valve-symbol
+version: 1
+concept: Butterfly Valve Symbol
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Butterfly Valve Symbol
+  interpretation: Projectmaterials labels this illustration ‘Butterfly Valve Symbol’
+    (Valve Symbols for P&ID).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Butterfly Valve
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Butterfly Valve Symbol’ (Valve
+  Symbols for P&ID).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Valve Symbols for P&ID
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Butterfly Valve Symbol
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#valve-symbols-for-pid
+  section: Valve Symbols for P&ID
+assets:
+- id: symbol
+  role: variant
+  label: Butterfly Valve Symbol
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.valve-symbols-for-p-id.butterfly-valve-symbol.png
+  sha256: 54baefd2b6294e7a212806d6a60481de136b9ca45ae54d97a466a1d4b55681d6
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/butterfly-valve-150x150.CwNH-sIy_Z12GzQd.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: f496c690b43c3da2d15e00827f00d6066b421eef60dd2e7e5051d40a7cc761f0
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

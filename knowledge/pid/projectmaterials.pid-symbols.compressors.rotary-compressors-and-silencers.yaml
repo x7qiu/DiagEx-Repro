@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.compressors.rotary-compressors-and-silencers
+version: 2
+concept: Rotary Compressors and Silencers
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Rotary Compressors and Silencers
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Rotary Compressors and Silencers’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Rotary Compressors and Silencers
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Rotary Compressors and Silencers’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Rotary Compressors and Silencers
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#compressors-pid-symbols
+  section: Compressors P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Rotary Compressors and Silencers
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.compressors.rotary-compressors-and-silencers.png
+  sha256: 5b78617d9cc438c9f7028f08805b3c12b4499e91b94fe3ae7b370a1a1d76720d
+  width: 51
+  height: 41
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/rotary_compressors_and_silencers.BWEYnSbo_Zqab9i.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 915c85f6d7e6cf596e05679910baa1e98e4943ad07cdfd74de2ca76a5b36bba1
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

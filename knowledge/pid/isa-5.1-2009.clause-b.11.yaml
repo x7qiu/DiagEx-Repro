@@ -1,0 +1,228 @@
+id: isa-5.1-2009.clause-b.11
+version: 2
+concept: B.11 — Alarm indicators
+aliases: []
+reference_type: assembly_pattern
+kind: possible_arrangement
+curation: source_transcribed
+source_status: informative
+explanation: 'B.11 Alarm indicators
+
+  B.11.1 Shared control and monitor functions generally allow the indication of four
+  configurable alarms for
+
+  process variables and setpoint deviations.
+
+  B.11.2 Only alarms that are to be configured are shown.
+
+  B.11.3 Instrument diagramming:
+
+  a) Process variable alarms:
+
+  HH
+
+  FT FC
+
+  H
+
+  L
+
+  *01 *01
+
+  LL
+
+  b) Process variable deviation from setpoint alarms:
+
+  DH
+
+  FT FC
+
+  *01 *01
+
+  DL
+
+  c) Process variable deviation from setpoint and process variable alarms:
+
+  DH
+
+  FT FC
+
+  H
+
+  L
+
+  *01 *01
+
+  DL
+
+  B.11.4 Functional diagramming:
+
+  a) Process variable alarms:
+
+  FT
+
+  *01
+
+  HH/H/L/LL
+
+  ∆
+
+  I P
+
+  A T A
+
+  b) Process variable deviation from setpoint alarms:
+
+  H/L ∆
+
+  I P
+
+  A T A
+
+  c) Process variable deviation from setpoint and process variable alarms:
+
+  H/L
+
+  H/L
+
+  ∆
+
+  I P
+
+  A T A'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Alarm indicators
+- B.11
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 121, 122
+  pdf_page: 121
+  table: null
+  item: null
+  passage: Clause B.11
+  image: illustrations/isa-5.1-2009/complete/clause-b.11-p121.png
+assets:
+- id: clause-b.11-p121
+  role: context
+  label: Clause B.11, page 121
+  path: illustrations/isa-5.1-2009/complete/clause-b.11-p121.png
+  sha256: 41e19eab7b6f9b7995a72323a16d4c90dfb86bd92e1fb49de2e89d23b0ce753d
+  width: 2010
+  height: 900
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 121
+    printed_page: '121'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 511.4117
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-121
+  role: context
+  label: Complete technical content on page 121
+  path: illustrations/isa-5.1-2009/complete/page-121.png
+  sha256: 77dab1572940ed3beeb9ca410f9074efab1651fa37a23f7b6b23e418b704f6c6
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 121
+    printed_page: '121'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.11-p122
+  role: context
+  label: Clause B.11, page 122
+  path: illustrations/isa-5.1-2009/complete/clause-b.11-p122.png
+  sha256: 075f69455fce57a0d34cbfe020821c8628856077098135c8805aaca3e3af192c
+  width: 2010
+  height: 2352
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 122
+    printed_page: '122'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 634.3519
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-122
+  role: context
+  label: Complete technical content on page 122
+  path: illustrations/isa-5.1-2009/complete/page-122.png
+  sha256: 8546b597a9b47e5429ad7e849d482df248597c4967fbe134046aaf741839a283
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 122
+    printed_page: '122'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

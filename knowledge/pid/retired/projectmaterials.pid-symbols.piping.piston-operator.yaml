@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.piping.piston-operator
+version: 1
+concept: Piston Operator
+catalog:
+  role: catalog
+  category: piping
+  short_name: Piston Operator
+  interpretation: Projectmaterials labels this illustration ‘Piston Operator’ (Piping
+    P&ID Symbols).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Piston Operator
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Piston Operator’ (Piping P&ID
+  Symbols).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Piping P&ID Symbols
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Piston Operator
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#piping-pid-symbols
+  section: Piping P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Piston Operator
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.piping.piston-operator.png
+  sha256: eb5285f8ee84f642223736d076f1dabe23b3cfa7ce0769051c725bacdada27d2
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/PISTON-OPERATOR-PID-SYMBOL-150x150.BbmhYX79_Z1V4JwH.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: aeabe6ab4d53dd1aa62ae5f840d08c1f4a379a104157a3e77bd4b70b208127b4
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

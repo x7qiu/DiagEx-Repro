@@ -208,14 +208,13 @@ def run_pid_extract(
     confidence_report_path: Path | None = None,
     console: Console | None = None,
     stop_after: str = "graph",
-    reviewed_inputs: dict | None = None,
 ) -> PidExtractionResult:
     cfg = config or load_config()
     selected_engine = engine or cfg.pid.engine
     if stop_after not in {"graph", "detection"}:
         raise ValueError("stop_after must be graph or detection")
-    if selected_engine != "evidence-v2" and (stop_after != "graph" or reviewed_inputs is not None):
-        raise ValueError("Staged detection review requires evidence-v2")
+    if selected_engine != "evidence-v2" and stop_after != "graph":
+        raise ValueError("Detection-only extraction requires evidence-v2")
     if selected_engine == "evidence-v2":
         from diagex.extractors.pid_evidence import run_pid_evidence_extract
 
@@ -232,7 +231,6 @@ def run_pid_extract(
             persist=persist,
             fresh=fresh,
             stop_after=stop_after,
-            reviewed_inputs=reviewed_inputs,
             out_path=out_path,
             confidence_report_path=confidence_report_path,
             console=console,

@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.3-16
+version: 1
+concept: 三通阀 / Three-way valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 三通阀
+  interpretation: '三通阀 / Three-way valve. Defined by SH/T 3101:2017, Table 4.3, item 16. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 三通阀
+- Three-way valve
+reference_type: symbol
+kind: definition
+explanation: '三通阀 / Three-way valve. Defined by SH/T 3101:2017, Table 4.3, item 16. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 三通阀
+- Three-way valve
+- valves_actuators
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '8'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.3-16/context.png
+  document_id: sht-3101-2017
+  pdf_page: 12
+  table: '4.3'
+  item: '16'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.3-16/context.png
+  sha256: bde9debd8de7d035a02b7e630495edf0c6520d01420f171747cb009ec4b07888
+  width: 911
+  height: 106
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '16'
+    rect:
+    - 123.0
+    - 866.0
+    - 1034.0
+    - 972.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.3-16/primary.png
+  sha256: 4578373d38d8293078e3bbc5530394d9d3b39a6c069d4fa0a0e23a72a0b2c01f
+  width: 122
+  height: 65
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '16'
+    rect:
+    - 567.0
+    - 888.0
+    - 689.0
+    - 953.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.3-16/variants.png
+  sha256: 812d25d85f4308cff85f0a18d086cdef9c796f894008e65469af349281ebf6db
+  width: 220
+  height: 115
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

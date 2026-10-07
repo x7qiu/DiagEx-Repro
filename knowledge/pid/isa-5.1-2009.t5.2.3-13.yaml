@@ -1,0 +1,246 @@
+id: isa-5.1-2009.t5.2.3-13
+version: 3
+concept: Venturi tube
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Venturi tube.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'Measurement symbols: primary elements'
+- 5.2.3
+- Venturi tube
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '40'
+  pdf_page: 40
+  table: 5.2.3
+  item: '13'
+  passage: 'Table 5.2.3, item 13: • Venturi tube.'
+  image: illustrations/isa-5.1-2009/complete/t5.2.3-13-context.png
+assets:
+- id: t5.2.3-13-context
+  role: context
+  label: 'Complete row: Table 5.2.3, item 13'
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-13-context.png
+  sha256: 63a2e7087f698009b907a7d8e2acbb98dd6f3ef2ecf3591150d1ca934bddada3
+  width: 1960
+  height: 168
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 40
+    printed_page: '40'
+    table: 5.2.3
+    item: '13'
+    rect:
+    - 70.8125
+    - 593.06
+    - 541.1275
+    - 633.22
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-40
+  role: context
+  label: Complete technical content on page 40
+  path: illustrations/isa-5.1-2009/complete/page-40.png
+  sha256: 3b1819961d2f7c485737a63902430b285cf962d0350ab4b5d14aef42ceda7b68
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 40
+    printed_page: '40'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.2.3-13-panel-2
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-13-panel-2.png
+  sha256: 9c96fd264ff56653f42db547bb22e9146d27f3b7100e2d421fb2cd47556eb918
+  width: 445
+  height: 153
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 40
+    printed_page: '40'
+    table: 5.2.3
+    item: '13'
+    rect:
+    - 126.68
+    - 594.86
+    - 233.14
+    - 631.42
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.2-p33
+  role: note
+  label: Clause 5.3.2, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  sha256: d2f5ace70e1c2b4cd4aad60f721e55f09798bdc8204c96571e3303a71de825df
+  width: 2010
+  height: 930
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 397.1707
+    - 547.0
+    - 620.1298
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-13-variants.png
+  sha256: ba93016af7ae8827f1cdc82569769bc59663d7037d07d60209f7f548fb56a326
+  width: 1000
+  height: 218
+  derived_from:
+  - t5.2.3-13-panel-2
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.2.3-13-panel-2
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-13.catalog-t5.2.3-13-panel-2.png
+  sha256: 03359f6f6f8fadb52657fb0d471787685876222dbfb61817a82135461dc8b302
+  width: 135
+  height: 98
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 40
+    printed_page: '40'
+    table: 5.2.3
+    item: '13'
+    rect:
+    - 167.04
+    - 601.92
+    - 199.44
+    - 625.4399999999999
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-13.sheet.png
+  sha256: 9e75dbbba61565e112821f7927adfca1931da089a8ac83a03e4d08b929ffd2b8
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.2.3-13-panel-2
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '33'
+    pdf_page: 33
+    table: null
+    item: null
+    passage: Clause 5.3.2
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  explanation: '5.3.2 Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 — Measurement symbols
+
+    (1) Measurements are depicted by:
+
+    (a) Bubbles only.
+
+    (b) Bubbles and graphics.
+
+    (2) These symbols shall be used for process or equipment measurements if:
+
+    (a) A graphic symbol does not exist.
+
+    (b) The user does not use graphic symbols.
+
+    (3) Transmitter [T] may be controller [C], indicator [I], recorder [R], or switch
+    [S].
+
+    (4) User engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    choices are selected.'
+  asset_id: clause-5.3.2-p33
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.2
+  explanation: 'Explanatory notes for Table 5.2.3: clause 5.3.2.'
+catalog:
+  role: catalog
+  category: measurement
+  short_name: Venturi tube
+  interpretation: Venturi tube.
+  displayed_asset_ids:
+  - catalog-t5.2.3-13-panel-2
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.2
+  - isa-5.1-2009.clause-4.1

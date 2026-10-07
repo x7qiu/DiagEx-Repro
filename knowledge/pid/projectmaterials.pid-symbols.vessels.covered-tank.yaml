@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.covered-tank
+version: 2
+concept: Covered Tank
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Covered Tank
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Covered Tank’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Covered Tank
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Covered Tank’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Covered Tank
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Covered Tank
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.covered-tank.png
+  sha256: d94a74e5964bd5b37532fb14893b2f81abd5e862cea494b52ee889b325f3e667
+  width: 47
+  height: 42
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/covered_tank.mnm9gFC4_25kv3x.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 97b710e27166320b1366fa091f3374728b5096850eeb7b063279968d61ce941a
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

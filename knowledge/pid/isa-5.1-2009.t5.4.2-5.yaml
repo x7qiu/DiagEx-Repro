@@ -1,0 +1,279 @@
+id: isa-5.1-2009.t5.4.2-5
+version: 3
+concept: Linear piston actuator with positioner
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Linear piston actuator with positioner.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Final control element actuator symbols
+- 5.4.2
+- Linear piston actuator with positioner
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '50'
+  pdf_page: 50
+  table: 5.4.2
+  item: '5'
+  passage: 'Table 5.4.2, item 5: • Linear piston actuator with positioner.'
+  image: illustrations/isa-5.1-2009/complete/t5.4.2-5-context.png
+assets:
+- id: t5.4.2-5-context
+  role: context
+  label: 'Complete row: Table 5.4.2, item 5'
+  path: illustrations/isa-5.1-2009/complete/t5.4.2-5-context.png
+  sha256: 83a0c37f8268b49484a4caeffdd047721dc93e383d515273a5b5c93be983acd2
+  width: 1961
+  height: 216
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 50
+    printed_page: '50'
+    table: 5.4.2
+    item: '5'
+    rect:
+    - 70.99
+    - 333.62
+    - 541.25
+    - 385.42
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-50
+  role: context
+  label: Complete technical content on page 50
+  path: illustrations/isa-5.1-2009/complete/page-50.png
+  sha256: 42fded7a18ef33a8c93b0d7b1fb87a030ec61ca6a86dc04e84bda80ee2ce9229
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 50
+    printed_page: '50'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.4.2-5-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.4.2-5-panel-1.png
+  sha256: 58489e3806e5b2c541f9f8f3885041d2abe92c6459087b64b17fd1e3f7a4777e
+  width: 445
+  height: 202
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 50
+    printed_page: '50'
+    table: 5.4.2
+    item: '5'
+    rect:
+    - 108.86
+    - 335.42
+    - 215.32
+    - 383.62
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.4-p34
+  role: note
+  label: Clause 5.3.4, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  sha256: 22398fd3ece7505715c4362491d0de8902648bfba29cb21750251ccb42c738ab
+  width: 2010
+  height: 1461
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 326.671
+    - 547.0
+    - 677.1295
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.4.2-5-variants.png
+  sha256: 94fe339f7a3c1a508bd12f2476673094fcbcd1a14c7ccdc80cec8f340dc8a653
+  width: 1000
+  height: 267
+  derived_from:
+  - t5.4.2-5-panel-1
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.4.2-5-panel-1
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.2-5.catalog-t5.4.2-5-panel-1.png
+  sha256: c404f198724cfa3c76c2de597e8a9bad3eb3cf453049f2f2a61ebe3542545bae
+  width: 81
+  height: 156
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 50
+    printed_page: '50'
+    table: 5.4.2
+    item: '5'
+    rect:
+    - 154.07999999999998
+    - 340.56
+    - 173.51999999999998
+    - 378.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations:
+    - text: (7)
+      rect:
+      - 110.21975708007812
+      - 337.9284362792969
+      - 119.9457778930664
+      - 345.9084167480469
+      reason: source_note_reference
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.2-5.sheet.png
+  sha256: b43bce6f458229a6d3fd05aca53d6b1ec424287423671e06e5e2fc68f70ea041
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.4.2-5-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '34'
+    pdf_page: 34
+    table: null
+    item: null
+    passage: Clause 5.3.4
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  explanation: '5.3.4 Tables 5.4.1, 5.4.2, 5.4.3 and 5.4.4 — Final control element
+    symbols:
+
+    (1) Users engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    symbols have been selected.
+
+    (2) Element symbols 1 through 14, when combined with actuator symbols 1 through
+    16, represent
+
+    process control valves.
+
+    (3) Element symbol 2, when combined with actuator symbols 20 and 21, represent
+    pressure safety
+
+    valves.
+
+    (4) Element symbols 15 through 19, when combined with actuator symbols 13, 14,
+    and 15, represent
+
+    on-off solenoid valves.
+
+    (5) Element symbol 21, when combined with actuator symbols 1 through 16, represents
+    a variable
+
+    speed control unit.
+
+    (6) Element symbol 21 represents a motor that manipulates or controls a process
+    variable.
+
+    (7) Actuator symbols 1 through 16, when combined with element symbols 1 through
+    14, represent
+
+    process control valves and with element symbol 21 represents a variable speed
+    control unit.
+
+    (8) Actuator symbols 17, 18, and 19, when combined with element symbols 15 through
+    19, represent
+
+    on-off solenoid valves.
+
+    (9) Actuator symbols 20 and 21, when combined with element symbol 2, represent
+    pressure safety
+
+    valves.
+
+    (10) The symbols are applicable to all types of control valves and actuators.'
+  asset_id: clause-5.3.4-p34
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.4
+  explanation: 'Explanatory notes for Table 5.4.2: clause 5.3.4.'
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Linear piston actuator with positioner
+  interpretation: Linear piston actuator with positioner.
+  displayed_asset_ids:
+  - catalog-t5.4.2-5-panel-1
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.4

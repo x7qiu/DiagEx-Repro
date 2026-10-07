@@ -1,0 +1,135 @@
+id: sht-3101-2017.t4.2-15
+version: 1
+concept: 密闭漏斗 / Closed service drain
+catalog:
+  role: catalog
+  category: piping
+  short_name: 密闭漏斗
+  interpretation: 密闭漏斗 / Closed service drain. Defined by SH/T 3101:2017, Table 4.2, item 15. A discharge-medium
+    code may be annotated.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 密闭漏斗
+- Closed service drain
+reference_type: symbol
+kind: definition
+explanation: 密闭漏斗 / Closed service drain. Defined by SH/T 3101:2017, Table 4.2, item 15. A discharge-medium
+  code may be annotated.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 密闭漏斗
+- Closed service drain
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '4'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-15/context.png
+  document_id: sht-3101-2017
+  pdf_page: 8
+  table: '4.2'
+  item: '15'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-15/context.png
+  sha256: 2c1cf9f35a358c4a3a9794db191959fed6291cedbc0b7f5185751dd2b7f6d530
+  width: 912
+  height: 105
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 8
+    printed_page: '4'
+    table: '4.2'
+    item: '15'
+    rect:
+    - 123.0
+    - 1108.0
+    - 1035.0
+    - 1213.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-15/primary.png
+  sha256: e1a8d69e1736c285b2194d967f82141c9f8f8d6b15894b8ee6ecaf8e84637bac
+  width: 58
+  height: 62
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 8
+    printed_page: '4'
+    table: '4.2'
+    item: '15'
+    rect:
+    - 603.0
+    - 1131.0
+    - 661.0
+    - 1193.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-15/variants.png
+  sha256: af053d4ba9cd5544a295cb1cc83a4c39a81c28c851370b80fa046cea1a759aeb
+  width: 220
+  height: 112
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '4'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 8
+    table: '4.2'
+    item: '15'
+  explanation: A discharge-medium code may be annotated.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- A discharge-medium code may be annotated.
+relations: []

@@ -175,7 +175,8 @@ def test_native_classifier_uses_bounded_batches_and_cannot_replace_source_identi
 
 def test_missing_malformed_and_conflicting_classifications_remain_reviewable():
     entries, coverage, client, _ = extract(5, "mixed")
-    assert len(client.calls) == 2 and len(entries) == 4
+    # Initial batch, one contract repair for bad rows, one rejection recheck.
+    assert len(client.calls) == 3 and len(entries) == 4
     assert [e.attributes["row_status"] for e in entries] == [
         "uncertain",
         "uncertain",

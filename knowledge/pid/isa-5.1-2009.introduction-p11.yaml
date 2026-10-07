@@ -1,0 +1,163 @@
+id: isa-5.1-2009.introduction-p11
+version: 2
+concept: Introduction and interpretation background (page 11)
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'accurate because they no longer reflect the currently acceptable meanings.
+  DCSs and PLCs can both
+
+  perform continuous and binary control functions.  The same functions are performed
+  by personal
+
+  computers (PC) and by fieldbus and devicebus devices. Both ‘circle-in-square’ and
+  ‘diamond-in-square’
+
+  symbols are classified as ‘shared display, shared control.’  ‘Circle-in-square’
+  will depict either (a) primary
+
+  control system choice or (b) basic process control system (BPCS). ‘Diamond-in-square’
+  will depict either
+
+  (a) alternate control system choice or (b) safety instrumented system (SIS). Users
+  who continue to use
+
+  the symbols as in the past should change to the revised meanings as soon as possible.
+
+
+  (21) This revision uses, with permission, information from the excellent SAMA (Scientific
+  Apparatus
+
+  Makers Association) PMC 22.1-1981, “Functional Diagramming of Instrument and Control
+  Systems,” a
+
+  document still used by many control system engineers and designers. SAMA symbols
+  and descriptions
+
+  for functional diagramming of Instruments and control loops and for signal processing
+  symbols and
+
+  function blocks were adapted in ANSI/ISA-5.1-1984 (R 1992) for use in loop schematic
+  diagrams. This
+
+  revision adds the SAMA symbols and descriptions for logic function enclosures for
+  use in functional
+
+  diagrams, logic diagrams, and application software functions.   Guidelines  for
+  a limited number of
+
+  applications of the symbols will be found in Annex B, “Graphic symbol system guidelines
+  (Informative).”
+
+
+  (22) The binary line symbols, which were introduced in ANSI/ISA-5.1-1984 (R 1992)
+  to aid the batch
+
+  processing industries, have been removed because of their general lack of use and
+  acceptance and the
+
+  many objections to their use.    If their use is desired within the batch processing
+  industries, an ISA
+
+  Technical Report could be produced to cover this unique need.
+
+
+  (23) The many examples contained in Clause 6 of ANSI/ISA-5.1-1984 (R 1992) have
+  been reduced in
+
+  number and are now located in Annex B.  It is hoped that ISA Technical Reports will
+  be prepared based
+
+  on this standard to cover the application of identification and symbolization methods
+  and practices in the
+
+  detail required by users in those many industries beyond the process industries,
+  who depend on this
+
+  standard in their daily work.
+
+
+  (24) The ISA5 committee and ISA5.1 subcommittee recognize and deeply appreciate
+  the work of
+
+  previous ISA5.1 subcommittees, and have tried to treat their work with the great
+  respect it deserves.
+
+
+  (25) ISA5 and ISA5.1 also acknowledge the work done by the past ISA5.2 and ISA5.3
+  subcommittees in
+
+  developing ISA-5.2-1976 (R1992), "Binary Logic Diagrams for Process Operations,"
+  and ISA-5.3-1983,
+
+  "Graphic Symbols for Distributed Control/Shared Display Instrumentation, Logic and
+  Computer Systems."
+
+  The key elements of ISA-5.3-1983 were incorporated in ANSI/ISA-5.1-1984 (R 1992)
+  and have been
+
+  expanded in this revision. The key elements of ISA-5.2-1976 are incorporated and
+  integrated with the
+
+  logic symbols from SAMA PMC 22.1-1981 for symbolizing and describing binary functions.
+  Guidelines for
+
+  the application of the binary system can be found in Annex B (Informative), Graphic
+  symbol system
+
+  guidelines.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags: []
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '11'
+  pdf_page: 11
+  table: null
+  item: null
+  passage: null
+  image: illustrations/isa-5.1-2009/complete/page-11.png
+assets:
+- id: page-11
+  role: context
+  label: Complete technical content on page 11
+  path: illustrations/isa-5.1-2009/complete/page-11.png
+  sha256: 1ca50327b041ef1ace665439c634b0c8373da3db0a6516acec2ce62840079bb1
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 11
+    printed_page: '11'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

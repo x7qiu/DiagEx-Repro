@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.13-2
+version: 1
+concept: 卧式容器 / Horizontal vessel
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 卧式容器
+  interpretation: '卧式容器 / Horizontal vessel. Defined by SH/T 3101:2017, Table 4.13, item 2. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 卧式容器
+- Horizontal vessel
+reference_type: symbol
+kind: definition
+explanation: '卧式容器 / Horizontal vessel. Defined by SH/T 3101:2017, Table 4.13, item 2. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 卧式容器
+- Horizontal vessel
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '20'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.13-2/context.png
+  document_id: sht-3101-2017
+  pdf_page: 24
+  table: '4.13'
+  item: '2'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.13-2/context.png
+  sha256: db4cbd100f0789934c70ebdc53b35f4c6ce3fec785aa1341a3b6f06507c74fd2
+  width: 914
+  height: 92
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 24
+    printed_page: '20'
+    table: '4.13'
+    item: '2'
+    rect:
+    - 156.0
+    - 581.0
+    - 1070.0
+    - 673.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.13-2/primary.png
+  sha256: c2500a07b105780ed1d4b313071eb57dd095ed8c0e54ce6904bb9318732dc4d7
+  width: 187
+  height: 53
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 24
+    printed_page: '20'
+    table: '4.13'
+    item: '2'
+    rect:
+    - 547.0
+    - 600.0
+    - 734.0
+    - 653.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.13-2/variants.png
+  sha256: 2361bc5fd2371f94c5ebc6a093061fea0ba0951ca6f37de4138fb2b848cfe4f6
+  width: 220
+  height: 103
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

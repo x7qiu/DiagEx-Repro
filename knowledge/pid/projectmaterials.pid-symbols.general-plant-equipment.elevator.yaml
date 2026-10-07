@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.elevator
+version: 2
+concept: Elevator
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Elevator
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Elevator’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Elevator
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Elevator’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Elevator
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Elevator
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.elevator.png
+  sha256: c6ab5ef0b93b273d4e1d6c98686794577efa0e361fc4de5c360f8d51500b967f
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Elevator-PID-Symbol-150x150.CpV4q9F9_29o2IV.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 243b5007cbed3394bc814e5a5fa3b36e1a9b502c4b8b4e952d39a90782524f79
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

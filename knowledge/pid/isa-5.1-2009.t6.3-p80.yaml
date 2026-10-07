@@ -1,0 +1,143 @@
+id: isa-5.1-2009.t6.3-p80
+version: 2
+concept: Table 6.3 — Dimensions for Tables 5.3.1 and 5.3.2 (page 80)
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: normative
+explanation: Dimensions for Tables 5.3.1 and 5.3.2. Use the source table with its
+  column headings and linked explanatory notes. Blank or merged cells must not be
+  interpreted as new definitions.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- Dimensions for Tables 5.3.1 and 5.3.2
+- '6.3'
+- dimensions
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '80'
+  pdf_page: 80
+  table: '6.3'
+  item: null
+  passage: "                Table 6.3 — Dimensions for Tables 5.3.1 and 5.3.2\n\n\n\
+    Note: Numbers in parentheses refer to explanatory notes in Clause 6.3.3.\n\n\n\
+    \                 Min = 8                                                    \
+    \     2\n                                                                    \
+    \                1    1    1             Max = 32                            \
+    \                0.4 (2)                                     0.2 (1)\n       \
+    \                                                                 2          \
+    \                                                                            \
+    \                 1\n\n\n     Min = 1        Min = 0.5\n   Max = 1.5     Max =\
+    \ 0.75\n\n         2                   2        1         1         1        \
+    \     4                4\n\n\n                                               \
+    \                          2                                                 \
+    \                                                 2\n\n                      \
+    \                          0.5 (3)      0.5         0.5            2         \
+    \      2        1          1\n\n\n                                           \
+    \    9[10]Xt\n                             1\n                               \
+    \                                                              6       Min = 1\
+    \        Min = 0.5                                  As req’d\n     Max = 1.5 \
+    \    Max = 0.75\n                                                         7[8]\
+    \ (1)\n                     1.5                                              \
+    \                4     (ST)\n\n\n\n\n\n                   Max = 16           \
+    \                               Max = 16\n                       Min = 8     \
+    \                                             Min = 8\n\n\n\n                \
+    \                                    6"
+  image: illustrations/isa-5.1-2009/complete/page-80.png
+assets:
+- id: page-80
+  role: context
+  label: Complete technical content on page 80
+  path: illustrations/isa-5.1-2009/complete/page-80.png
+  sha256: 7814f21d509238d8cb730666a6de371d3c85a8631b79429e9d0e9fbb814f0071
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 80
+    printed_page: '80'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-6.3.3-p77
+  role: note
+  label: Clause 6.3.3, page 77
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.3-p77.png
+  sha256: 9a0ce670f89879ce6d25ba1560032c06458a7974a61209fcc38bab5a9994d62d
+  width: 2010
+  height: 490
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 93.6917
+    - 547.0
+    - 211.1713
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '77'
+    pdf_page: 77
+    table: null
+    item: null
+    passage: Clause 6.3.3
+    image: illustrations/isa-5.1-2009/complete/clause-6.3.3-p77.png
+  explanation: '6.3.3 Table 6.3 — Dimensions for line symbols, Tables 5.3.1 and 5.3.2
+
+    (1) Recommended maximum signal line thickness.
+
+    (a) Signal lines are never thicker than process and equipment lines.
+
+    (2) Recommended minimum process and equipment line thickness for instrument sketches.
+
+    (3) Clearance around symbol shall be equal to half the width of the symbol.'
+  asset_id: clause-6.3.3-p77
+text_slots: []
+interpretation:
+- Table cells are source transcriptions; retain headers and merged-cell context when
+  interpreting them. Use the image to resolve superscripts or extraction ambiguity.
+- Example tags and numbering schemes illustrate conventions; never copy them as actual
+  drawing identifiers.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-6.3.3
+  explanation: 'Explanatory notes for Table 6.3: clause 6.3.3.'
+table_data: []
+catalog:
+  role: background

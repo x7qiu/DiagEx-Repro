@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.flume-meter
+version: 1
+concept: Flume Meter
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Flume Meter
+  interpretation: Projectmaterials labels this illustration ‘Flume Meter’ (Instruments
+    (P&ID Symbols)).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Flume Meter
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Flume Meter’ (Instruments
+  (P&ID Symbols)).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Instruments (P&ID Symbols)
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Flume Meter
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Flume Meter
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.flume-meter.png
+  sha256: 32c1a9e130871274a6cd2c455ebd348ddce8c528d27ab99b8a55644a048b18f6
+  width: 48
+  height: 40
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/flume_meter.CaToNCX__Z9DygK.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: e28a4bb43743d5e598adda995a540e1cb1a243fbd31871258233bd0336d0f3dc
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.compressors.ring-compressor
+version: 2
+concept: Ring Compressor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Ring Compressor
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Ring Compressor’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Ring Compressor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Ring Compressor’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Ring Compressor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#compressors-pid-symbols
+  section: Compressors P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Ring Compressor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.compressors.ring-compressor.png
+  sha256: 3732f1f17589f38389b5b0f0d7ad991aabd4fccb89b1cd2076524ac8b3a2fbba
+  width: 39
+  height: 41
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/ring_compressor.CnwLranE_ZJS8Bo.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: bb6847084e7955bceb928df42fcb0fb105f3933a7025dc109b95c0dab71eaa0a
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.piping.closed-spectacle-blind
+version: 2
+concept: Closed Spectacle Blind
+catalog:
+  role: catalog
+  category: piping
+  short_name: Closed Spectacle Blind
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Closed Spectacle Blind’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Closed Spectacle Blind
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Closed Spectacle Blind’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Closed Spectacle Blind
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#piping-pid-symbols
+  section: Piping P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Closed Spectacle Blind
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.piping.closed-spectacle-blind.png
+  sha256: 2be83fbee68aa7b9ca4ae32cc59e48a59cc426b6d65c44722e05d8358dffdb4b
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/CLOSED-SPECTACLE-BLIND-PID-SYMBOL-150x150.C0ZO3PFA_1sV1fh.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: d7181def8a9ec56bc6fa076ccf448faa3639c979677d8a2c16fdba9905170973
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

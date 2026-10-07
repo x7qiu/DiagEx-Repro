@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.3-24
+version: 1
+concept: 安全阀 / Relief valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 安全阀
+  interpretation: '安全阀 / Relief valve. Defined by SH/T 3101:2017, Table 4.3, item 24. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 安全阀
+- Relief valve
+reference_type: symbol
+kind: definition
+explanation: '安全阀 / Relief valve. Defined by SH/T 3101:2017, Table 4.3, item 24. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 安全阀
+- Relief valve
+- valves_actuators
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '9'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.3-24/context.png
+  document_id: sht-3101-2017
+  pdf_page: 13
+  table: '4.3'
+  item: '24'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.3-24/context.png
+  sha256: b1f3490cafbe0bb4d2c3d2b530e86d555b5c7306886b136949b37f3876dec0f3
+  width: 910
+  height: 93
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 13
+    printed_page: '9'
+    table: '4.3'
+    item: '24'
+    rect:
+    - 159.0
+    - 296.0
+    - 1069.0
+    - 389.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.3-24/primary.png
+  sha256: a60e9003c34a4fff44fc05681f69a71696840a0a92e9e3c53a7bfd3c35f5480a
+  width: 78
+  height: 80
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 13
+    printed_page: '9'
+    table: '4.3'
+    item: '24'
+    rect:
+    - 608.0
+    - 304.0
+    - 686.0
+    - 384.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.3-24/variants.png
+  sha256: 1cbafd97aa4b3c9c474729a0d055d4235fd38e8629b8f746ce36cd94a0a3705d
+  width: 220
+  height: 130
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

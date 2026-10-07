@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.flow-element
+version: 1
+concept: Flow Element
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Flow Element
+  interpretation: Projectmaterials labels this illustration ‘Flow Element’ (Instruments
+    (P&ID Symbols)).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Flow Element
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Flow Element’ (Instruments
+  (P&ID Symbols)).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Instruments (P&ID Symbols)
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Flow Element
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Flow Element
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.flow-element.png
+  sha256: 6c80d9e3f89e4a887ee915f98c6458846d4ee957a55ee3f79efeeb2165986855
+  width: 43
+  height: 40
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/flow_element.o3Tk0iIz_Z29IzUE.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 6caa25af1cb83dd38d6cd3d2f5a1fc60391e1a47505421e0a6ec4a3ec952224d
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

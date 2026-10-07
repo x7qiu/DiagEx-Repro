@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.temperature-recorder
+version: 1
+concept: Temperature Recorder
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Temperature Recorder
+  interpretation: Projectmaterials labels this illustration ‘Temperature Recorder’
+    (Instruments (P&ID Symbols)).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Temperature Recorder
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Temperature Recorder’ (Instruments
+  (P&ID Symbols)).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Instruments (P&ID Symbols)
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Temperature Recorder
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Temperature Recorder
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.temperature-recorder.png
+  sha256: 682eac5b4116a6c8f2788b7fbd2edf8d0fcd000ddec5a71f41c009d56440ff0a
+  width: 43
+  height: 38
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/temperature_recorder.CBLJzSf4_oYKWN.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 6d70e47d51e4c0af66e3b02490f20299ee3b1a103db68fc66bd9e9b4b46223c1
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

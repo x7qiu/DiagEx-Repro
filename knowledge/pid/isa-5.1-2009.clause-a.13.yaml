@@ -1,0 +1,225 @@
+id: isa-5.1-2009.clause-a.13
+version: 2
+concept: A.13 — Secondary, auxiliary, and accessory instrumentation
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.13 Secondary, auxiliary, and accessory instrumentation
+
+  A.13.1 Secondary instrumentation, such as level glasses, pressure gauges, and thermometers,
+  may be
+
+  assigned either:
+
+  a) An Instrument Identification/Tag Number which should be either of:
+
+  1) LG-*01, PG-*01, TG-*01, etc.
+
+  2) LI-*01, PI-*01, TI-*01, etc.
+
+  b) A generic identification number that defines the instrument type and range which
+  should
+
+  be either of:
+
+  1) LG-24 – 0-24in, PG-200 – 0-200psig, TG-250 – 0-250degF.
+
+  2) LI-24 – 0-24in, PI-200 – 0-200psig, TI-250 – 0-250degF.
+
+  A.13.2 Readout/Passive Function letter for glass, gauge, or viewing device [G] is
+  recommended for use
+
+  for flow glasses [FG], level glasses or gauges [LG], pressure gauges [PG], thermometers
+  [TG],
+
+  etc., to avoid database management problems with primary flow indicators [FI], level
+  indicators
+
+  [LI], pressure indicators [PI], temperature indicators [TI], etc.
+
+  A.13.3 Current common usage is [FG] and [LG] for flow and level and [PI] and [TI]
+  for pressure and
+
+  temperature.
+
+  A.13.4 Auxiliary instrumentation, such as signal computing and converting relays,
+  solenoid valves, and
+
+  analyzer sample conditioning units, are identified by a loop Measured/Initiating
+  Variable and the
+
+  Output/Active Function [Y], as in, [FY], [PY], etc.
+
+  A.13.5 Instrumentation accessories, such as flowmeter runs, purge meters, air sets,
+  seal pots, etc., that
+
+  may or may not be explicitly shown on a diagram should be tagged in the Instrument
+  index.
+
+  A.13.6 A purge meter for pressure transmitter [PT-*23] may be tagged:
+
+  a) With the Instrument Identification/Tag Number of the instrument they serve followed
+  by a
+
+  word or phrase, that describes their function, for example: [PT-*23 PURGE].
+
+  b) With an Instrument Identification/Tag Number as a component of the loop: [PX-*23]
+  with
+
+  a note outside the bubble or in the note section of the drawing describing its use.
+
+  c) As a secondary instrument:
+
+  1) [FI-*11] if not controlling purge flow.
+
+  2) [FICV-*11] if controlling purge flow.
+
+  A.13.7 Assignment of a tag number to an accessory;
+
+  a) Means that it must be listed in the instrument index.
+
+  b) Does not mean that it must be shown on a P&ID.
+
+  c) Means that it must be tagged on a P&ID if shown.
+
+  A.13.8 The identification methods chosen for a project should be documented in the
+  Owners or Users
+
+  engineering and design standards and guidelines and on a drawing or document legend
+  sheet.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Secondary, auxiliary, and accessory instrumentation
+- A.13
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 94, 95
+  pdf_page: 94
+  table: null
+  item: null
+  passage: Clause A.13
+  image: illustrations/isa-5.1-2009/complete/clause-a.13-p94.png
+assets:
+- id: clause-a.13-p94
+  role: context
+  label: Clause A.13, page 94
+  path: illustrations/isa-5.1-2009/complete/clause-a.13-p94.png
+  sha256: e4f80633ad9275055aaff1d1e9bc19e45fc7ba4bc42959c1e73bf3c36afa0e95
+  width: 2010
+  height: 2542
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 94
+    printed_page: '94'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 117.1516
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-94
+  role: context
+  label: Complete technical content on page 94
+  path: illustrations/isa-5.1-2009/complete/page-94.png
+  sha256: 9158f728baa663af0fc51aa23ab03f679f417890f70c8e076c8621ecaa24a6c4
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 94
+    printed_page: '94'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.13-p95
+  role: context
+  label: Clause A.13, page 95
+  path: illustrations/isa-5.1-2009/complete/clause-a.13-p95.png
+  sha256: dd91772a304a8e1c46c49b30faad3202e1a83c8168354028557c8b1eb6041d08
+  width: 2010
+  height: 440
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 95
+    printed_page: '95'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 175.6514
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-95
+  role: context
+  label: Complete technical content on page 95
+  path: illustrations/isa-5.1-2009/complete/page-95.png
+  sha256: 486b77099d5589f8bfa27f648565c65e3ac9bb9ded8dd8ac16e1ef2d5bc3b5fc
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 95
+    printed_page: '95'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

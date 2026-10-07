@@ -1,0 +1,89 @@
+id: isa-5.1-2009.clause-6.3
+version: 2
+concept: 6.3 — Dimensions for graphic symbol tables explanatory notes
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: normative
+explanation: 6.3 Dimensions for graphic symbol tables explanatory notes
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- Dimensions for graphic symbol tables explanatory notes
+- '6.3'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '76'
+  pdf_page: 76
+  table: null
+  item: null
+  passage: Clause 6.3
+  image: illustrations/isa-5.1-2009/complete/clause-6.3-p76.png
+assets:
+- id: clause-6.3-p76
+  role: context
+  label: Clause 6.3, page 76
+  path: illustrations/isa-5.1-2009/complete/clause-6.3-p76.png
+  sha256: 5d66becf8267dc58f017c31ef3c801841f3dbff1cd6dda4c091bfddb94adb66e
+  width: 2010
+  height: 99
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 76
+    printed_page: '76'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 552.4502
+    - 547.0
+    - 575.9702
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-76
+  role: context
+  label: Complete technical content on page 76
+  path: illustrations/isa-5.1-2009/complete/page-76.png
+  sha256: d8338f3ea713aff3d124b3388817175127439148d1cb3608a532ccb35dc1ab2b
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 76
+    printed_page: '76'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

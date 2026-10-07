@@ -1,0 +1,103 @@
+id: isa-5.1-2009.clause-3.1.8
+version: 2
+concept: basic process control system (BPCS)
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.8 basic process control system (BPCS):
+
+  instrumentation and systems that are installed to monitor and control normal production
+  operations using,
+
+  but not limited to combinations of single-loop pneumatic and electronic monitors
+  and controllers,
+
+  programmable logic controllers and distributed control systems.
+
+  (a) A BPCS is necessary to operate a plant or process.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'basic process control system (BPCS):'
+- 3.1.8
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '18'
+  pdf_page: 18
+  table: null
+  item: null
+  passage: Clause 3.1.8
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.8-p18.png
+assets:
+- id: clause-3.1.8-p18
+  role: context
+  label: Clause 3.1.8, page 18
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.8-p18.png
+  sha256: 2c912ce5d786318aace3f3fda3c912441cf7b4af7f748952801bc008448679b0
+  width: 2010
+  height: 390
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 18
+    printed_page: '18'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 128.6716
+    - 547.0
+    - 222.1513
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-18
+  role: context
+  label: Complete technical content on page 18
+  path: illustrations/isa-5.1-2009/complete/page-18.png
+  sha256: 85bccc007282cf6896bc916040e6165fe395b61cfb71ec759aac39bb54691a84
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 18
+    printed_page: '18'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

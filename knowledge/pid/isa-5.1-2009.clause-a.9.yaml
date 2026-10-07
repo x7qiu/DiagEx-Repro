@@ -1,0 +1,234 @@
+id: isa-5.1-2009.clause-a.9
+version: 2
+concept: A.9 — Function identification letters
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.9 Function identification letters
+
+  A.9.1 Instrument Function Identification letters should be selected from Table 4.1,
+  Identification Letters,
+
+  and added to the Loop Identification Number letters to form an Instrument Functional
+  Identity.
+
+  A.9.2 The sequence of letters in a Functional Identification should be in the same
+  left-to-right order as
+
+  the columns in Table 4.1:
+
+  a) Measured or Initiating Variable, from Column 1.
+
+  b) Modifier, if required, from Column 2.
+
+  c) Passive Readout Function, from Column 3.
+
+  d) Active Output Function, from Column 4.
+
+  e) Modifier(s), if required, from Column 5.
+
+  A.9.3 Functional Identifications should use one Readout/Passive Function or one
+  Output/Active
+
+  Function to identify each device or function except, as is common for:
+
+  a) Indicating /recording controller/switch instruments or functions in which one
+  Passive
+
+  Function, indicate [I] or record [R] and one Active Function, control [C] or switch
+  [S], is
+
+  combined to form, for example, pressure recording controller [PRC], or low-pressure
+  indicating
+
+  switch [PISL].
+
+  b) Self-actuated control valves, in which two Active Functions control [C] and valve
+  [V] are
+
+  combined to form, for example, pressure control valve [PCV].
+
+  A.9.4 The number of letters in a Functional Identification should be sufficient
+  to fully describe the
+
+  functionality of the device or function being identified, but generally should not
+  exceed eight.
+
+  A.9.5 Function Modifiers designate the relative value of the measured or initiating
+  variable that actuates
+
+  the instrument or function, for example for Function Modifier low [L]:
+
+  a) [PSL-*01] indicates actuation by a pressure below a setpoint, normally used to
+  indicate a
+
+  process level that requires operator intervention to prevent a process trip or other
+  unwanted
+
+  result.
+
+  b) [PSLL-*01] indicates actuation below a setpoint lower than the previous example,
+
+  normally used to indicate a process level that resulted in a process trip.
+
+  A.9.6 A device or function common to two or more loops should be assigned a Loop
+  Identification Letter
+
+  for the loop which actuates the instrument:
+
+  a) A solenoid valve that is actuated by a high level switch [LSH] to trip a flow
+  control valve
+
+  [FV] is assigned to the level [L] loop as an [LY] and not to the flow [F] loop as
+  an [FY].
+
+  b) A high signal select device or function that selects the higher signal from a
+  flow [F] loop
+
+  and a high level [L] override loop is assigned to the flow [F]-loop as an [FY] and
+  not to the
+
+  level [L] loop as an [LY].
+
+  A.9.7 For allowable function letter combinations see tables:
+
+  a) A.3.1 — Allowable succeeding letter combinations for readout/passive function
+  letters.
+
+  b) A.3.2 — Allowable succeeding letter combinations for output/active function letters.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Function identification letters
+- A.9
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 90, 91
+  pdf_page: 90
+  table: null
+  item: null
+  passage: Clause A.9
+  image: illustrations/isa-5.1-2009/complete/clause-a.9-p90.png
+assets:
+- id: clause-a.9-p90
+  role: context
+  label: Clause A.9, page 90
+  path: illustrations/isa-5.1-2009/complete/clause-a.9-p90.png
+  sha256: edcfd5ae5bc8eb3af150d6c8be31e1e027413cd81093b3467ff8cb3bea076733
+  width: 2010
+  height: 1472
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 90
+    printed_page: '90'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 374.1307
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-90
+  role: context
+  label: Complete technical content on page 90
+  path: illustrations/isa-5.1-2009/complete/page-90.png
+  sha256: f31d16c6c5ef1ad1a97803589d7a3af08d7cda42fcde51fca099b8a87964a5ce
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 90
+    printed_page: '90'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.9-p91
+  role: context
+  label: Clause A.9, page 91
+  path: illustrations/isa-5.1-2009/complete/clause-a.9-p91.png
+  sha256: 168b4e5aabff3292eaaae0dd8fae505bd9c99364b7428229f210f04001773f34
+  width: 2010
+  height: 1509
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 91
+    printed_page: '91'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 432.1506
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-91
+  role: context
+  label: Complete technical content on page 91
+  path: illustrations/isa-5.1-2009/complete/page-91.png
+  sha256: 1e2f71c0e00161defcee1ac1631d9b9d8eea2da0cd670aa01145a4ccb5fd688a
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 91
+    printed_page: '91'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

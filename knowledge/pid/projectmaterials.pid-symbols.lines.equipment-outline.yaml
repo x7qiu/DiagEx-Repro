@@ -1,0 +1,63 @@
+id: projectmaterials.pid-symbols.lines.equipment-outline
+version: 2
+concept: Equipment Outline
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: Equipment Outline
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Equipment Outline’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Equipment Outline
+reference_type: line_style
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Equipment Outline’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+- line_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Equipment Outline
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#lines-pid-symbols
+  section: Lines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Equipment Outline
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.lines.equipment-outline.png
+  sha256: da0aa0ada65e580c4921b15cfc454d2800c2dffff084d966ee1f7bfab1c2aeee
+  width: 150
+  height: 60
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/EQUIPMENT-OUTLINE-PID-SYMBOL-150x60.CYUSsreF_Zt2GFB.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 4a0728793de850278544912b27f2e97078a2fd628bd4f533eeda422763683aba
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

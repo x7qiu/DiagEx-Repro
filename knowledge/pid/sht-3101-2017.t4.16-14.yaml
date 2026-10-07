@@ -1,0 +1,187 @@
+id: sht-3101-2017.t4.16-14
+version: 2
+concept: 套管式换热器或冷却器 / Double-pipe or scraped-surface exchanger
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 套管式换热器或冷却器
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: 套管式换热器或冷却器 / Double-pipe or scraped-surface exchanger. Defined by SH/T 3101:2017, Table
+    4.16, item 14. Select the illustrated alternative according to the actual equipment type; the alternatives
+    are not one combined symbol. Each labeled alternative is a separate reference depiction, not an additional
+    object to instantiate.
+  displayed_asset_ids:
+  - variant-1
+  - variant-2
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 套管式换热器或冷却器
+- Double-pipe or scraped-surface exchanger
+reference_type: symbol
+kind: definition
+explanation: 套管式换热器或冷却器 / Double-pipe or scraped-surface exchanger. Defined by SH/T 3101:2017, Table 4.16,
+  item 14. Select the illustrated alternative according to the actual equipment type; the alternatives
+  are not one combined symbol. Each labeled alternative is a separate reference depiction, not an additional
+  object to instantiate.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 套管式换热器或冷却器
+- Double-pipe or scraped-surface exchanger
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '26'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.16-14/context.png
+  document_id: sht-3101-2017
+  pdf_page: 30
+  table: '4.16'
+  item: '14'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.16-14/context.png
+  sha256: 5fb2676259e3190dea0f939cebecf78d63a839eae6d5bea03554e4ae03a0fd96
+  width: 913
+  height: 208
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 30
+    printed_page: '26'
+    table: '4.16'
+    item: '14'
+    rect:
+    - 132.0
+    - 1320.0
+    - 1045.0
+    - 1528.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variant-1
+  role: variant
+  label: Alternative 1
+  path: illustrations/sht-3101-2017/t4.16-14/variant-1.png
+  sha256: 68861c6a26e2e75074b34bb4329ac33faf9149e62f02e43947af984f54ef0319
+  width: 131
+  height: 85
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 30
+    printed_page: '26'
+    table: '4.16'
+    item: '14'
+    rect:
+    - 574.0
+    - 1345.0
+    - 705.0
+    - 1430.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-2
+  role: variant
+  label: Alternative 2
+  path: illustrations/sht-3101-2017/t4.16-14/variant-2.png
+  sha256: 3b694681ba54bdd89b5a7594382fc8156508c5bf263907ddd39dc03192a6ae09
+  width: 137
+  height: 67
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 30
+    printed_page: '26'
+    table: '4.16'
+    item: '14'
+    rect:
+    - 571.0
+    - 1436.0
+    - 708.0
+    - 1503.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.16-14/variants.png
+  sha256: d8c1ad76ab7441437113b237aae1fd63b17ce87d3fffb3fde28f651fdb4c3504
+  width: 440
+  height: 135
+  derived_from:
+  - variant-1
+  - variant-2
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '26'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 30
+    table: '4.16'
+    item: '14'
+  explanation: Select the illustrated alternative according to the actual equipment type; the alternatives
+    are not one combined symbol.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '26'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 30
+    table: '4.16'
+    item: '14'
+  explanation: Each labeled alternative is a separate reference depiction, not an additional object to
+    instantiate.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- Select the illustrated alternative according to the actual equipment type; the alternatives are not
+  one combined symbol.
+- Each labeled alternative is a separate reference depiction, not an additional object to instantiate.
+relations: []

@@ -7,7 +7,6 @@ import hashlib
 import io
 import json
 import re
-import shutil
 import time
 from dataclasses import asdict, replace
 from pathlib import Path
@@ -34,6 +33,12 @@ from diagex.extractors.pid import (
 )
 from diagex.llm.client import LLMClient, is_non_retryable_api_error
 from diagex.llm.cost import CostTracker
+from diagex.vision.connection_inference import (
+    PageGraphResult,
+    PageLineEvidence,
+    classify_page_line_evidence,
+    solve_page_graph,
+)
 from diagex.vision.contextual import (
     ContextualPageResult,
     apply_contextual_results,
@@ -48,20 +53,17 @@ from diagex.vision.evidence import (
 from diagex.vision.fusion import assemble_graph, fuse_objects
 from diagex.vision.instance_matching import FUSION_DEPENDENT_STAGES, FUSION_VERSION
 from diagex.vision.legend_models import LegendPack, SymbolStandard
+from diagex.vision.line_detection import LINE_DETECTION_VERSION, LineDetectionResult, detect_lines
 from diagex.vision.native_text import build_native_text_inventory
-from diagex.vision.page_graph import (
-    PageGraphResult,
-    PageLineEvidence,
-    classify_page_line_evidence,
-    solve_page_graph,
-)
-from diagex.vision.perception import DetectionRecord, PerceptionRunGuard, perceive_tile
 from diagex.vision.quality import QualityReport, add_dexpi_results, assess_quality
+from diagex.vision.stage_capture import capture_stage
 from diagex.vision.symbol_candidates import (
     PERCEPTION_DEPENDENT_STAGES,
     SYMBOL_PERCEPTION_VERSION,
-    symbol_candidates,
 )
+from diagex.vision.symbol_detection import detect_symbols
+from diagex.vision.symbol_interpretation import DetectionRecord, PerceptionRunGuard, perceive_tile
+from diagex.vision.text_assignment import TEXT_ASSIGNMENT_VERSION
 from diagex.vision.tiling import AspectAwareStrategy, ownership_core, tile
 from diagex.vision.topology import (
     TOPOLOGY_DEPENDENT_STAGES,
@@ -97,13 +99,12 @@ def run_pid_evidence_extract(
     confidence_report_path: Path | None,
     console: Console | None,
     stop_after: str = "graph",
-    reviewed_inputs: dict | None = None,
 ) -> PidExtractionResult:
     from rich.console import Console as RichConsole
 
     from diagex.extractors.pid_legend import (
         LEGEND_EXTRACTOR_VERSION,
-        load_builtin_pack,
+        load_run_builtin_pack,
         resolve_evidence_legend,
     )
     from diagex.ui.progress import make_reporter
@@ -111,9 +112,6 @@ def run_pid_evidence_extract(
 
     if stop_after not in {"graph", "detection"}:
         raise ValueError("stop_after must be graph or detection")
-    # Reviewed inputs are frozen for this job and never resume derived checkpoints.
-    if reviewed_inputs is not None:
-        fresh = True
     cfg = config
     stem = _safe_stem(diagram)
     started = time.perf_counter()
@@ -122,10 +120,6 @@ def run_pid_evidence_extract(
         raise ValueError("Unsupported raster symbol mode")
     if cfg.raster_symbol_mode == "broad_review" and cfg.raster_proposals is None:
         raise ValueError("Broad review requires source-bound raster proposals")
-    if cfg.raster_symbol_mode == "broad_review" and reviewed_inputs is None:
-        if not persist:
-            raise ValueError("Broad review requires persisted observations for symbol review")
-        stop_after = "detection"
     if cfg.raster_ink_filter:
         from diagex.vision.raster_ink import validate_source
         validate_source(diagram)
@@ -140,8 +134,6 @@ def run_pid_evidence_extract(
             validate_guidance(cfg.raster_proposals, diagram, source_sha256=source_hash)
         if cfg.scan.deskew or cfg.symbol_perception.workflow != "fixed":
             raise ValueError("Experimental raster guidance requires fixed inspection with deskew disabled")
-    if reviewed_inputs is not None and reviewed_inputs["source_sha256"] != source_hash:
-        raise ValueError("Reviewed inputs do not match the source drawing")
     vision_model = cfg.llm.vision_model or cfg.llm.model
     reasoning_model = cfg.llm.reasoning_model or cfg.llm.model
     config_hash = _configuration_hash(
@@ -157,10 +149,6 @@ def run_pid_evidence_extract(
         effort=effort,
     )
 
-    if reviewed_inputs is not None:
-        config_hash = hashlib.sha256(
-            (config_hash + json.dumps(reviewed_inputs, sort_keys=True)).encode()
-        ).hexdigest()
 
     run_dir: Path | None = None
     run_id = _new_run_id()
@@ -225,6 +213,8 @@ def run_pid_evidence_extract(
                 run_id=run_id,
             )
 
+    if cfg.knowledge and run_dir is not None:
+        atomic_write_json(run_dir / "knowledge.snapshot.json", cfg.knowledge)
     prior_cost = _load_prior_cost(run_dir) if resumed and run_dir is not None else {}
     if run_dir is not None and cfg.raster_proposals is not None:
         from diagex.vision.raster_guidance import implementation_sha256
@@ -258,9 +248,17 @@ def run_pid_evidence_extract(
             ),
         )
         store.ensure_stage_version(
+            "text_assignment", TEXT_ASSIGNMENT_VERSION,
+            invalidate=("text_assignment", "contextual", "topology", "line_evidence", "page_graph", "assembly", "export"),
+        )
+        store.ensure_stage_version(
             "object_fusion",
             FUSION_VERSION,
             invalidate=FUSION_DEPENDENT_STAGES,
+        )
+        store.ensure_stage_version(
+            "line_detection", LINE_DETECTION_VERSION,
+            invalidate=("line_detection", "topology", "line_evidence", "page_graph", "assembly", "export"),
         )
         store.ensure_stage_version(
             "port_topology",
@@ -325,16 +323,6 @@ def run_pid_evidence_extract(
     vision_llm.reset_retry_counter()
     reasoning_llm.reset_retry_counter()
 
-    if reviewed_inputs is not None and run_dir is not None:
-        atomic_write_json(run_dir / "reviewed.inputs.json", reviewed_inputs)
-        # Only page evidence is reused: legend and symbol decisions come from review.
-        origin = Path(reviewed_inputs["source_run"])
-        for path in sorted((origin / "evidence").glob("page-*.json")):
-            destination = run_dir / "evidence" / path.name
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(path, destination)
-            if store is not None:
-                store.mark_done("inspection", path.stem)
 
     # 1. Inspect pages and persist immutable native evidence.
     evidence_pages, page_states = _inspect_pages(
@@ -364,42 +352,38 @@ def run_pid_evidence_extract(
     legend_pack: LegendPack
     legend_source = ""
     legend_reporter = reporter_factory()
-    if reviewed_inputs is not None:
-        legend_pack = LegendPack.model_validate(reviewed_inputs["legend_pack"])
-        legend_source = f"{reviewed_inputs.get('review_origin', 'human')}_reviewed"
-    else:
-        try:
-            with legend_reporter:
-                legend_reporter.on_phase_start(
-                    name="v2 legend resolution", total_items=len(detected_legends) or 1
-                )
-                routed = resolve_evidence_legend(
-                    source=source,
-                    pages=evidence_pages,
-                    symbol_standard=symbol_standard,
-                    cfg=cfg,
-                    client=vision_llm,
-                    cost_tracker=cost,
-                    legend_path=legend_path,
-                    legend_pages=legend_pages,
-                    legend_region=legend_region,
-                    no_legend=no_legend,
-                    legend_key=legend_key,
-                    runs_dir_for_stem=runs_root if persist else None,
-                    reporter=legend_reporter,
-                    fresh=fresh,
-                )
-                resolution = routed.resolution
-                legend_pack = resolution.pack
-                legend_source = resolution.source
-                legend_reporter.on_phase_end(
-                    detail=f"{len(legend_pack.entries)} entries · source={legend_source}"
-                )
-        except Exception as exc:  # noqa: BLE001 - built-in pack is a safe fallback
-            if is_non_retryable_api_error(exc):
-                raise
-            legend_pack = load_builtin_pack(symbol_standard)
-            legend_source = f"fallback_builtin(error={exc!r})"
+    try:
+        with legend_reporter:
+            legend_reporter.on_phase_start(
+                name="v2 legend resolution", total_items=len(detected_legends) or 1
+            )
+            routed = resolve_evidence_legend(
+                source=source,
+                pages=evidence_pages,
+                symbol_standard=symbol_standard,
+                cfg=cfg,
+                client=vision_llm,
+                cost_tracker=cost,
+                legend_path=legend_path,
+                legend_pages=legend_pages,
+                legend_region=legend_region,
+                no_legend=no_legend,
+                legend_key=legend_key,
+                runs_dir_for_stem=runs_root if persist else None,
+                reporter=legend_reporter,
+                fresh=fresh,
+            )
+            resolution = routed.resolution
+            legend_pack = resolution.pack
+            legend_source = resolution.source
+            legend_reporter.on_phase_end(
+                detail=f"{len(legend_pack.entries)} entries · source={legend_source}"
+            )
+    except Exception as exc:  # noqa: BLE001 - built-in pack is a safe fallback
+        if is_non_retryable_api_error(exc):
+            raise
+        legend_pack = load_run_builtin_pack(symbol_standard, cfg)
+        legend_source = f"fallback_builtin(error={exc!r})"
     _checkpoint_cost(run_dir, prior_cost, cost)
 
     legend_failure = _legend_prerequisite_error(legend_pack, legend_source)
@@ -410,13 +394,11 @@ def run_pid_evidence_extract(
         else:
             store.save()
 
-    # Keep uncertain definitions in the review bundle, but do not use them as
-    # interpretation rules. Reviewed input packs contain only confirmed rows.
+    # Persist uncertain definitions as observations, not interpretation rules.
     interpretation_entries = [
         entry
         for entry in legend_pack.entries
-        if reviewed_inputs is not None
-        or entry.source == "customer_override"
+        if entry.source == "customer_override"
         or entry.attributes.get("row_status") not in {"uncertain", "reject"}
     ]
     interpretation_pack = legend_pack.model_copy(update={"entries": interpretation_entries})
@@ -431,7 +413,7 @@ def run_pid_evidence_extract(
         for entry in interpretation_entries
     ]
     legend_visual_entries = [entry.model_dump(mode="json") for entry in interpretation_entries]
-    if store is not None and reviewed_inputs is None:
+    if store is not None:
         # A repaired partial legend changes the evidence supplied to symbols
         # even when source/model/implementation versions remain identical.
         content_hash = hashlib.sha256(
@@ -466,35 +448,29 @@ def run_pid_evidence_extract(
 
     # 3. Deterministic crop coverage and raw instance classification.
     perception_stop_reason = None
-    if reviewed_inputs is not None:
-        detections = [DetectionRecord.model_validate(d) for d in reviewed_inputs["detections"]]
-        per_page_status = {p.page_index: "ok" for p in evidence_pages}
-        perception_call_counts = {}
-    else:
-        detections, per_page_status, perception_call_counts, perception_stop_reason = (
-            _run_perception(
-                source=source,
-                pages=evidence_pages,
-                cfg=cfg,
-                client=vision_llm,
-                cost=cost,
-                reporter=reporter_factory(),
-                store=store,
-                legend_summary=legend_visual_entries,
-                run_dir=run_dir,
-                prior_cost=prior_cost,
-                prerequisite_error=legend_failure,
-                escalation_client=escalation_llm,
-            )
+    detections, per_page_status, perception_call_counts, perception_stop_reason = (
+        _run_perception(
+            source=source,
+            pages=evidence_pages,
+            cfg=cfg,
+            client=vision_llm,
+            cost=cost,
+            reporter=reporter_factory(),
+            store=store,
+            legend_summary=legend_visual_entries,
+            run_dir=run_dir,
+            prior_cost=prior_cost,
+            prerequisite_error=legend_failure,
+            escalation_client=escalation_llm,
         )
+    )
 
-    if reviewed_inputs is None:
-        for region_coverage in legend_pack.coverage:
-            if region_coverage.status != "complete":
-                per_page_status[region_coverage.page_index] = "partial"
+    for region_coverage in legend_pack.coverage:
+        if region_coverage.status != "complete":
+            per_page_status[region_coverage.page_index] = "partial"
 
-    if run_dir is not None and reviewed_inputs is None:
-        from diagex.review.detection import write_detection_bundle
+    if run_dir is not None:
+        from diagex.extractors.detection_artifacts import write_detection_bundle
 
         audit_path = run_dir / "perception.review.json"
         reviews = (
@@ -511,11 +487,19 @@ def run_pid_evidence_extract(
                 c.model_dump(mode="json")
                 for p in evidence_pages
                 if p.role == "pid"
-                for c in symbol_candidates(p)
+                for c in detect_symbols(page=p).native_candidates
             ],
             reviews=reviews,
         )
         atomic_write_json(run_dir / "legend.json", legend_pack.model_dump(mode="json"))
+    if cfg.knowledge and run_dir is not None:
+        from diagex.knowledge.resolver import resolve
+        atomic_write_json(run_dir / "knowledge.snapshot.json", cfg.knowledge)
+        atomic_write_json(run_dir / "knowledge.stages.json", {
+            task: [resolve(cfg.knowledge, task, page.page_index, "connector arrow " + " ".join(s.text for s in page.text_spans), legend_summary) for page in evidence_pages]
+            for task in ("symbol_interpretation", "text_assignment", "line_interpretation", "connections", "review")
+        })
+
     if stop_after == "detection" or perception_stop_reason:
         from diagex.vision.models import ReconciledGraph
 
@@ -579,13 +563,20 @@ def run_pid_evidence_extract(
         )
 
     # 4. Fuse overlapping object observations exactly once.
+    def record_text_assignment(request, result):
+        capture_stage(run_dir, "text_assignment", "geometry", "objects", request["inputs"], output=result)
+        if store is not None:
+            store.write_json_artifact("text_assignment", "request", request)
+            store.write_json_artifact("text_assignment", "output", result)
+
     object_fusion = fuse_objects(
+        knowledge=cfg.knowledge,
+        on_text_assignment=record_text_assignment,
         source_name=diagram.name,
         pages=evidence_pages,
         detections=detections,
         per_page_status=per_page_status,
         legend_pack=interpretation_pack,
-        reviewed_instances=reviewed_inputs is not None,
     )
     if store is not None:
         store.write_json_artifact(
@@ -599,22 +590,19 @@ def run_pid_evidence_extract(
     # 5. Resolve only ambiguous small glyphs attached to valve bodies, using
     # project-specific legend crops and page context before topology can snap
     # symbol strokes as process connections.
-    if reviewed_inputs is not None:
-        contextual_results, contextual_calls = [], 0
-    else:
-        contextual_results, contextual_calls = _run_contextual_resolution(
-            source=source,
-            pages=evidence_pages,
-            nodes=object_fusion.graph.nodes,
-            legend_entries=legend_visual_entries,
-            client=vision_llm,
-            cost=cost,
-            reporter=reporter_factory(),
-            store=store,
-            per_page_status=per_page_status,
-            run_dir=run_dir,
-            prior_cost=prior_cost,
-        )
+    contextual_results, contextual_calls = _run_contextual_resolution(
+        source=source,
+        pages=evidence_pages,
+        nodes=object_fusion.graph.nodes,
+        legend_entries=legend_visual_entries,
+        client=vision_llm,
+        cost=cost,
+        reporter=reporter_factory(),
+        store=store,
+        per_page_status=per_page_status,
+        run_dir=run_dir,
+        prior_cost=prior_cost,
+    )
     if contextual_results:
         object_fusion = apply_contextual_results(object_fusion, contextual_results)
     if store is not None:
@@ -659,6 +647,7 @@ def run_pid_evidence_extract(
     )
     # 7. Collect bounded, non-thinking visual facts for recovered line candidates.
     line_evidence, line_evidence_calls = _run_line_evidence(
+        knowledge=cfg.knowledge,
         source=source,
         pages=evidence_pages,
         topology=topology_results,
@@ -674,6 +663,7 @@ def run_pid_evidence_extract(
     )
     # 8. Resolve only the remaining semantic relationships from structured evidence.
     page_graph_results, page_graph_calls = _run_page_graphs(
+        knowledge=cfg.knowledge,
         source=source,
         pages=evidence_pages,
         topology=topology_results,
@@ -700,7 +690,6 @@ def run_pid_evidence_extract(
         topology=topology_results,
         page_graph_results=page_graph_results,
         per_page_status=per_page_status,
-        reviewed_instances=reviewed_inputs is not None,
     )
     graph = fusion.graph
     if run_dir is not None:
@@ -708,8 +697,6 @@ def run_pid_evidence_extract(
             "status": "review_only", "hypotheses": [h for result in page_graph_results for h in result.hypotheses],
             "process_context": cfg.process_context,
         })
-        if reviewed_inputs is not None:
-            atomic_write_json(run_dir / "review.exceptions.json", reviewed_inputs.get("unresolved", {}))
     _checkpoint_cost(run_dir, prior_cost, cost)
 
     native_text_inventory = build_native_text_inventory(
@@ -1024,6 +1011,11 @@ def _inspect_pages(
                         atomic_write_text(public_path, page_evidence.model_dump_json(indent=2))
                     if store is not None:
                         store.mark_done("inspection", item)
+                capture_stage(run_dir, "text_detection", "native", item,
+                    {"page": page_evidence.model_dump(mode="json")},
+                    output={"page_index": page_evidence.page_index,
+                            "text_spans": [t.model_dump(mode="json") for t in page_evidence.text_spans],
+                            "backend": "native_pdf", "warnings": []})
                 evidence.append(page_evidence)
                 states.append(
                     SimpleNamespace(
@@ -1122,7 +1114,13 @@ def _run_perception(
             if evidence.role != "pid":
                 continue
             fixed_tiles = tile(rendered_page, strategy)
-            candidates = symbol_candidates(evidence)
+            detection = detect_symbols(page=evidence)
+            candidates = detection.native_candidates
+            capture_stage(run_dir, "symbol_detection", "native", f"page-{evidence.page_index + 1:04d}",
+                {"page": evidence.model_dump(mode="json")}, output=detection.model_dump(mode="json"))
+            if store is not None:
+                store.write_json_artifact("symbol_detection", f"page-{evidence.page_index + 1:04d}",
+                    {"input": evidence.model_dump(mode="json"), "output": detection.model_dump(mode="json")})
             page_view_counts[evidence.page_index] = len(fixed_tiles)
             provider = ViewProvider(rendered_page, fixed_tiles)
             raster_hints = None
@@ -1182,6 +1180,11 @@ def _run_perception(
                         view_image, view_info = provider.get_tile(current_tile.id)
                         core = ownership_core(current_tile, fixed_tiles)
                         page_context = {"coverage": "deterministic fixed grid"}
+                        if cfg.knowledge:
+                            from diagex.knowledge.resolver import resolve_symbol_context
+                            page_context["knowledge"] = resolve_symbol_context(
+                                cfg.knowledge, evidence, candidates, legend_summary, core
+                            )
                         if raster_hints is not None:
                             from diagex.vision.raster_guidance import view_guidance
                             page_context.update(view_guidance(
@@ -1191,6 +1194,16 @@ def _run_perception(
                         if cfg.raster_symbol_mode == "broad_review" and raster_hints is not None:
                             from diagex.vision.raster_pipeline import perceive_broad_with_semantics
                             tile_perception = perceive_broad_with_semantics
+                        capture_stage(run_dir, "symbol_interpretation",
+                            "broad_review" if cfg.raster_symbol_mode == "broad_review" and raster_hints is not None else "baseline",
+                            item, {"page": evidence.model_dump(mode="json"),
+                                   "tile": current_tile.model_dump(mode="json", exclude={"image"}),
+                                   "ownership_bbox": core.model_dump(mode="json"),
+                                   "candidates": [c.model_dump(mode="json") for c in candidates],
+                                   "legend_entries": legend_summary, "page_context": page_context,
+                                   "policy": asdict(cfg.symbol_perception)},
+                            image=rendered_page.image, model=cfg.llm.vision_model or cfg.llm.model,
+                            transport=cfg.llm.transport)
                         outcome = tile_perception(
                             client=client,
                             cost_tracker=cost,
@@ -1235,6 +1248,7 @@ def _run_perception(
                                     "detections": [
                                         value.model_dump(mode="json") for value in tile_detections
                                     ],
+                                    "knowledge": page_context.get("knowledge", {}),
                                     "observations": batch.observations,
                                     "uncertainties": batch.uncertainties,
                                     "rejected_objects": batch.rejected_objects,
@@ -1316,7 +1330,7 @@ def _run_perception(
                     "status": "unreviewed",
                     "reason": stop_reason,
                 }
-                for c in symbol_candidates(page)
+                for c in detect_symbols(page=page).native_candidates
                 if c.id not in assessed
             )
 
@@ -1566,7 +1580,23 @@ def _run_topology(
             elif store is not None and store.is_done("topology", item):
                 result = TopologyResult.model_validate(store.read_json_artifact("topology", item))
             else:
+                if store is not None and store.is_done("line_detection", item):
+                    detected = LineDetectionResult.model_validate(store.read_json_artifact("line_detection", item)["output"])
+                else:
+                    detected = detect_lines(page=evidence, image=rendered_page.image)
+                    if store is not None:
+                        store.write_json_artifact("line_detection", item,
+                            {"input": evidence.model_dump(mode="json"), "output": detected.model_dump(mode="json")})
+                capture_stage(store.run_dir if store else None, "line_detection", "geometry", item,
+                    {"page": evidence.model_dump(mode="json")}, image=rendered_page.image,
+                    output=detected.model_dump(mode="json"))
+                capture_stage(store.run_dir if store else None, "connection_inference", "geometry", item,
+                    {"page": evidence.model_dump(mode="json"),
+                     "nodes": [n.model_dump(mode="json") for n in nodes_by_page.get(rendered_page.page_index, [])],
+                     "lines": detected.model_dump(mode="json"),
+                     "legend_line_profile": legend_line_profile.model_dump(mode="json")})
                 result = build_page_topology(
+                    detected_lines=detected,
                     page=evidence,
                     nodes=nodes_by_page.get(rendered_page.page_index, []),
                     raster_image=rendered_page.image,
@@ -1595,6 +1625,7 @@ def _run_topology(
 
 def _run_line_evidence(
     *,
+    knowledge: dict | None = None,
     source: Any,
     pages: list[PageEvidence],
     topology: list[TopologyResult],
@@ -1661,7 +1692,10 @@ def _run_line_evidence(
                 else:
                     if rendered_page.image is None:
                         raise ValueError("rendered page image unavailable")
+                    from diagex.knowledge.resolver import resolve
+                    stage_context = resolve(knowledge, "line_interpretation", evidence.page_index, "connector arrow line connection")
                     result = classify_page_line_evidence(
+                        knowledge_context=stage_context,
                         client=client,
                         cost_tracker=cost,
                         reporter=reporter,
@@ -1674,6 +1708,7 @@ def _run_line_evidence(
                         max_tokens=max(2500, min(6000, 800 + len(page_topology.edges) * 90)),
                         on_attempt=record_attempt,
                     )
+                    result.knowledge = stage_context
                     if store is not None:
                         store.invalidate("page_graph", "assembly", "export")
                         store.write_json_artifact(
@@ -1714,6 +1749,7 @@ def _run_line_evidence(
 
 def _run_page_graphs(
     *,
+    knowledge: dict | None = None,
     source: Any,
     pages: list[PageEvidence],
     topology: list[TopologyResult],
@@ -1778,7 +1814,10 @@ def _run_page_graphs(
                 else:
                     if rendered_page.image is None:
                         raise ValueError("rendered page image unavailable")
+                    from diagex.knowledge.resolver import resolve
+                    stage_context = resolve(knowledge, "connections", evidence.page_index, "connector arrow line connection")
                     result = solve_page_graph(
+                        knowledge_context=stage_context,
                         client=client,
                         cost_tracker=cost,
                         reporter=reporter,
@@ -1803,6 +1842,7 @@ def _run_page_graphs(
                         escalation_client=escalation_client,
                         include_visual_context=include_visual_context,
                     )
+                    result.knowledge = stage_context
                     if store is not None:
                         store.invalidate("assembly", "export")
                         store.write_json_artifact(
@@ -1919,7 +1959,7 @@ def _configuration_hash(
     legend_hash = sha256_file(legend_path) if legend_path is not None else None
     payload = {
         "engine": "evidence-v2",
-        "engine_schema": "3.6.0",
+        "engine_schema": "3.7.0",
         "transport": cfg.llm.transport,
         "vision_model": vision_model,
         "reasoning_model": reasoning_model,
@@ -1944,6 +1984,8 @@ def _configuration_hash(
         # discard compatible native evidence and perception before invalidation.
         "page_graph_pipeline": "1.9.0",
     }
+    if cfg.knowledge:
+        payload["knowledge"] = cfg.knowledge
     if cfg.raster_ink_filter:
         from diagex.vision.raster_ink import implementation_sha256 as ink_implementation_sha256
         payload["raster_ink_filter"] = {"implementation_sha256": ink_implementation_sha256()}

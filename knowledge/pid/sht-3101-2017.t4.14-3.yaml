@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.14-3
+version: 1
+concept: 釜式反应器 / Stirred tank reactor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 釜式反应器
+  interpretation: '釜式反应器 / Stirred tank reactor. Defined by SH/T 3101:2017, Table 4.14, item 3. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 釜式反应器
+- Stirred tank reactor
+reference_type: symbol
+kind: definition
+explanation: '釜式反应器 / Stirred tank reactor. Defined by SH/T 3101:2017, Table 4.14, item 3. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 釜式反应器
+- Stirred tank reactor
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '23'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.14-3/context.png
+  document_id: sht-3101-2017
+  pdf_page: 27
+  table: '4.14'
+  item: '3'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.14-3/context.png
+  sha256: 5fcdcda46763714f521e30a11730dce748cbdf30d75dfd2a3ce3fe384f0dfea2
+  width: 910
+  height: 164
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 27
+    printed_page: '23'
+    table: '4.14'
+    item: '3'
+    rect:
+    - 140.0
+    - 736.0
+    - 1050.0
+    - 900.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.14-3/primary.png
+  sha256: 7d17c1a74532b66dc59696e85f0ba8b4639b2c2af23ed6ef99c779693152ee88
+  width: 155
+  height: 146
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 27
+    printed_page: '23'
+    table: '4.14'
+    item: '3'
+    rect:
+    - 518.0
+    - 748.0
+    - 673.0
+    - 894.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.14-3/variants.png
+  sha256: c0c526bec3f5c0070e29f8b7c3025d921efd4d41d7dafdb72600be74a9d5f7c7
+  width: 220
+  height: 196
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

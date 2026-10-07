@@ -1,0 +1,190 @@
+id: isa-5.1-2009.t5.7-7
+version: 2
+concept: Qualified OR gate Less or equal to ‘n’
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Output true if number of true inputs is less than or equal to ‘n’.
+  • Truth table and graph are for n = 2.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Binary logic symbols
+- '5.7'
+- Qualified OR gate Less or equal to ‘n’
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '67'
+  pdf_page: 67
+  table: '5.7'
+  item: '7'
+  passage: 'Table 5.7, item 7: • Output true if number of true inputs is less than
+    or equal to ‘n’. • Truth table and graph are for n = 2.'
+  image: illustrations/isa-5.1-2009/complete/t5.7-7-context.png
+assets:
+- id: t5.7-7-context
+  role: context
+  label: 'Complete row: Table 5.7, item 7'
+  path: illustrations/isa-5.1-2009/complete/t5.7-7-context.png
+  sha256: ef0724162fb01df8b0f696681216a1b8f3bd2e6bfdf5fd8dfb172c0e7520c648
+  width: 1960
+  height: 1153
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 67
+    printed_page: '67'
+    table: '5.7'
+    item: '7'
+    rect:
+    - 70.985
+    - 161.24
+    - 541.015
+    - 437.74
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-67
+  role: context
+  label: Complete technical content on page 67
+  path: illustrations/isa-5.1-2009/complete/page-67.png
+  sha256: 0f15a88ade5563c0a49378ef3a8c3520e8a96b4e44e174c2427f0eaadc0ca8f4
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 67
+    printed_page: '67'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.7-7-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.7-7-panel-1.png
+  sha256: 9321ac880baf8abf5e09c44c1f60ed852641066c5bc74301e5634b2acf215749
+  width: 369
+  height: 1138
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 67
+    printed_page: '67'
+    table: '5.7'
+    item: '7'
+    rect:
+    - 108.8
+    - 163.04
+    - 197.2
+    - 435.94
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.7-p35
+  role: note
+  label: Clause 5.3.7, page 35
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.7-p35.png
+  sha256: 3be3bab470d708de5e86ff0004a879197f0a48d752a9f74cdd21ff5376ffeb8e
+  width: 2010
+  height: 441
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 35
+    printed_page: '35'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 246.1511
+    - 547.0
+    - 351.6307
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.7-7-variants.png
+  sha256: 2e3aa10f7d9d1be85d341d7735defa2add9197432046c524cd3194ffe4c8d3bc
+  width: 1000
+  height: 765
+  derived_from:
+  - t5.7-7-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '35'
+    pdf_page: 35
+    table: null
+    item: null
+    passage: Clause 5.3.7
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.7-p35.png
+  explanation: '5.3.7 Table 5.7 — Binary logic symbols:
+
+    (1) True signals are equal to binary one, and false signals are equal to binary
+    zero.
+
+    (2) Alternate symbols shall be used only for “AND’ and “OR” gates.
+
+    (3) Users engineering and design standards, practices and/or guidelines shall
+    document which
+
+    symbol has been selected.'
+  asset_id: clause-5.3.7-p35
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.7
+  explanation: 'Explanatory notes for Table 5.7: clause 5.3.7.'
+catalog:
+  role: background

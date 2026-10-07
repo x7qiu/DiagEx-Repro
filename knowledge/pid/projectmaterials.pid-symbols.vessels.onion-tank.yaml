@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.onion-tank
+version: 2
+concept: Onion Tank
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Onion Tank
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Onion Tank’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Onion Tank
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Onion Tank’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Onion Tank
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Onion Tank
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.onion-tank.png
+  sha256: 9525f3121074678ae2bee01faba20a95b93ce1a6ac42cb80cb970e4c548314b0
+  width: 55
+  height: 40
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/onion_tank.DBo8hOoQ_1BnwvQ.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 46eb491a4891bfc5087c6926a3c7ee4c3ce1dbcf305e6921b3da86535cec5b7a
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

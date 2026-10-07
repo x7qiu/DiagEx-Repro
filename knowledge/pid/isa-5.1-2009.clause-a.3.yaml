@@ -1,0 +1,123 @@
+id: isa-5.1-2009.clause-a.3
+version: 2
+concept: A.3 — Loop identification and instrument identification/tag numbers
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.3 Loop identification and instrument identification/tag numbers
+
+  A.3.1 Loop Identification Numbers are unique combinations of letters and numbers
+  that are assigned to
+
+  each monitoring and control loop in a facility to identify the process or machine
+  variable that is
+
+  being monitored or controlled.
+
+  A.3.2 Instrument Identification/Tag Numbers are unique combinations of letters and
+  numbers that are
+
+  formed by adding letters to the Loop Identification Number to define the purpose
+  of each loop
+
+  device and/or function that comprises a monitoring or control loop.
+
+  A.3.3 Instrument Identification/Tag Numbers are also called Instrument Identification
+  Number,
+
+  Instrument Tag Number, Instrument Number, or Tag Number.
+
+  A.3.4 Examples of Loop Identification and Instrument Identification/Tag Numbers
+  for a typical loop with
+
+  references to sub-clauses relevant to the components of the Loop and Instrument
+  Identification
+
+  /Tag Numbers are given in Table A.1 — Typical Loop and Instrument Identification/Tag
+  Numbers.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Loop identification and instrument identification/tag numbers
+- A.3
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '87'
+  pdf_page: 87
+  table: null
+  item: null
+  passage: Clause A.3
+  image: illustrations/isa-5.1-2009/complete/clause-a.3-p87.png
+assets:
+- id: clause-a.3-p87
+  role: context
+  label: Clause A.3, page 87
+  path: illustrations/isa-5.1-2009/complete/clause-a.3-p87.png
+  sha256: d90fd4fd78b906a59e3139e37fb8477b51531cb5e17fb74396daf557d54e5b0e
+  width: 2010
+  height: 924
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 87
+    printed_page: '87'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 258.1511
+    - 547.0
+    - 479.6703
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-87
+  role: context
+  label: Complete technical content on page 87
+  path: illustrations/isa-5.1-2009/complete/page-87.png
+  sha256: 16a262abe275f999408d8c7568564c331f5428e98b0a0341d1dd543913ebfc9f
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 87
+    printed_page: '87'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

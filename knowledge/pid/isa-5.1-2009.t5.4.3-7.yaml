@@ -1,0 +1,272 @@
+id: isa-5.1-2009.t5.4.3-7
+version: 3
+concept: Level regulator
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Level regulator. • Ball float and mechanical linkage.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Self-actuated final control element symbol
+- 5.4.3
+- Level regulator
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '52'
+  pdf_page: 52
+  table: 5.4.3
+  item: '7'
+  passage: 'Table 5.4.3, item 7: • Level regulator. • Ball float and mechanical linkage.'
+  image: illustrations/isa-5.1-2009/complete/t5.4.3-7-context.png
+assets:
+- id: t5.4.3-7-context
+  role: context
+  label: 'Complete row: Table 5.4.3, item 7'
+  path: illustrations/isa-5.1-2009/complete/t5.4.3-7-context.png
+  sha256: b8808ba8751684d3d0ae05232acf809ebd6d8c36861ab2a7f122a16db00134b5
+  width: 1960
+  height: 254
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 52
+    printed_page: '52'
+    table: 5.4.3
+    item: '7'
+    rect:
+    - 70.988
+    - 505.58
+    - 541.012
+    - 566.38
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-52
+  role: context
+  label: Complete technical content on page 52
+  path: illustrations/isa-5.1-2009/complete/page-52.png
+  sha256: fed4edd59b59b4a48975fb359e99c030ab470d6a04bc30ee9eb9d48cd81a080e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 52
+    printed_page: '52'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.4.3-7-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.4.3-7-panel-1.png
+  sha256: a28d3e2b68fbe665b83ede77cfc82b163bc7b0df7c45e4e475aab8322f7b57dd
+  width: 444
+  height: 239
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 52
+    printed_page: '52'
+    table: 5.4.3
+    item: '7'
+    rect:
+    - 108.8
+    - 507.38
+    - 215.2
+    - 564.58
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.4-p34
+  role: note
+  label: Clause 5.3.4, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  sha256: 22398fd3ece7505715c4362491d0de8902648bfba29cb21750251ccb42c738ab
+  width: 2010
+  height: 1461
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 326.671
+    - 547.0
+    - 677.1295
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.4.3-7-variants.png
+  sha256: 3fecb09e09c8128ed4c49ce79dd6b7c7f87d35f13b83c4eb94165840bfee5b21
+  width: 1000
+  height: 304
+  derived_from:
+  - t5.4.3-7-panel-1
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.4.3-7-panel-1
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.3-7.catalog-t5.4.3-7-panel-1.png
+  sha256: c0c14bdb2d1975ec79142cbf6cf95d013b26c990532e4a498137aec7e748d1b0
+  width: 424
+  height: 155
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 52
+    printed_page: '52'
+    table: 5.4.3
+    item: '7'
+    rect:
+    - 112.55999999999999
+    - 516.7199999999999
+    - 214.32
+    - 553.92
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.3-7.sheet.png
+  sha256: 0d213298fec8192a1908063df993b643698d35e6fc30f68f9cbd4a53cdd8078f
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.4.3-7-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '34'
+    pdf_page: 34
+    table: null
+    item: null
+    passage: Clause 5.3.4
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  explanation: '5.3.4 Tables 5.4.1, 5.4.2, 5.4.3 and 5.4.4 — Final control element
+    symbols:
+
+    (1) Users engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    symbols have been selected.
+
+    (2) Element symbols 1 through 14, when combined with actuator symbols 1 through
+    16, represent
+
+    process control valves.
+
+    (3) Element symbol 2, when combined with actuator symbols 20 and 21, represent
+    pressure safety
+
+    valves.
+
+    (4) Element symbols 15 through 19, when combined with actuator symbols 13, 14,
+    and 15, represent
+
+    on-off solenoid valves.
+
+    (5) Element symbol 21, when combined with actuator symbols 1 through 16, represents
+    a variable
+
+    speed control unit.
+
+    (6) Element symbol 21 represents a motor that manipulates or controls a process
+    variable.
+
+    (7) Actuator symbols 1 through 16, when combined with element symbols 1 through
+    14, represent
+
+    process control valves and with element symbol 21 represents a variable speed
+    control unit.
+
+    (8) Actuator symbols 17, 18, and 19, when combined with element symbols 15 through
+    19, represent
+
+    on-off solenoid valves.
+
+    (9) Actuator symbols 20 and 21, when combined with element symbol 2, represent
+    pressure safety
+
+    valves.
+
+    (10) The symbols are applicable to all types of control valves and actuators.'
+  asset_id: clause-5.3.4-p34
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.4
+  explanation: 'Explanatory notes for Table 5.4.3: clause 5.3.4.'
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Level regulator
+  interpretation: Level regulator. Ball float and mechanical linkage.
+  displayed_asset_ids:
+  - catalog-t5.4.3-7-panel-1
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.4

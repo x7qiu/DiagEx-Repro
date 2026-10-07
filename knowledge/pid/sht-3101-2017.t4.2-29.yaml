@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-29
+version: 1
+concept: 管道消声器 / In-line silencer
+catalog:
+  role: catalog
+  category: piping
+  short_name: 管道消声器
+  interpretation: '管道消声器 / In-line silencer. Defined by SH/T 3101:2017, Table 4.2, item 29. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 管道消声器
+- In-line silencer
+reference_type: symbol
+kind: definition
+explanation: '管道消声器 / In-line silencer. Defined by SH/T 3101:2017, Table 4.2, item 29. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 管道消声器
+- In-line silencer
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '5'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-29/context.png
+  document_id: sht-3101-2017
+  pdf_page: 9
+  table: '4.2'
+  item: '29'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-29/context.png
+  sha256: f8ba3ac75e3c2ab1fe9fe2c72c9d7a7cce26b3a2bb2c7dd88aa81b60725d489e
+  width: 910
+  height: 135
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 9
+    printed_page: '5'
+    table: '4.2'
+    item: '29'
+    rect:
+    - 157.0
+    - 1172.0
+    - 1067.0
+    - 1307.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-29/primary.png
+  sha256: 82fb5b4e1220dc1130b6789352b79bf55712a2483a4a86d45129b97b3f1f48b4
+  width: 49
+  height: 96
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 9
+    printed_page: '5'
+    table: '4.2'
+    item: '29'
+    rect:
+    - 637.0
+    - 1192.0
+    - 686.0
+    - 1288.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-29/variants.png
+  sha256: ae5fa8d12664635ea2ef7109984035e957632eeac34a8cd00c081e2ce57739b9
+  width: 220
+  height: 146
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

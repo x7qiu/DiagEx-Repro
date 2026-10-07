@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.13-17
+version: 1
+concept: 夹套罐 / Jacketed vessel
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 夹套罐
+  interpretation: '夹套罐 / Jacketed vessel. Defined by SH/T 3101:2017, Table 4.13, item 17. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 夹套罐
+- Jacketed vessel
+reference_type: symbol
+kind: definition
+explanation: '夹套罐 / Jacketed vessel. Defined by SH/T 3101:2017, Table 4.13, item 17. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 夹套罐
+- Jacketed vessel
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '22'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.13-17/context.png
+  document_id: sht-3101-2017
+  pdf_page: 26
+  table: '4.13'
+  item: '17'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.13-17/context.png
+  sha256: ab23ff7bfe2f36b327c945a188d4d59b6070e6cf640769737ddd5b3c23ab7516
+  width: 912
+  height: 168
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 26
+    printed_page: '22'
+    table: '4.13'
+    item: '17'
+    rect:
+    - 144.0
+    - 612.0
+    - 1056.0
+    - 780.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.13-17/primary.png
+  sha256: 5e78121411eb227ab679bef95708fca8dc304f92139e1ac49dd648c0a318886e
+  width: 80
+  height: 106
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 26
+    printed_page: '22'
+    table: '4.13'
+    item: '17'
+    rect:
+    - 609.0
+    - 643.0
+    - 689.0
+    - 749.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.13-17/variants.png
+  sha256: b771693ad3f1c3129b4d1ef0d239e2f27607f3a67476382eeeac0c47248b9d17
+  width: 220
+  height: 156
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

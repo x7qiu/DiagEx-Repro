@@ -1,0 +1,394 @@
+scope: offline candidate retention; held-fixed detections, no model inference
+conditions:
+  'off':
+    knowledge_identity: null
+    totals:
+      true_positive: 0
+      false_positive: 0
+      false_negative: 2
+      requires_review: 0
+    drawings:
+    - id: interior
+      true_positive: 0
+      false_positive: 0
+      false_negative: 1
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    - id: vertical
+      true_positive: 0
+      false_positive: 0
+      false_negative: 1
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 390
+          y: 300
+          w: 20
+          h: 50
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    - id: ambiguous-arrow
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    - id: missing-line
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    - id: missing-outline
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    - id: unknown-destination
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    delta_true_positive: 0
+    delta_false_positive: 0
+  general:
+    knowledge_identity: 4f53f5f2e7629a4a3b0dc40024a5a7e8b8423acd56e6277b9d4625b42c0eea9d
+    totals:
+      true_positive: 2
+      false_positive: 0
+      false_negative: 0
+      requires_review: 2
+    drawings:
+    - id: interior
+      true_positive: 1
+      false_positive: 0
+      false_negative: 0
+      recovered_ids:
+      - candidate
+      findings:
+      - type: unconventional_connector_placement
+        status: requires_review
+        detection_id: candidate
+        page_index: 0
+        reference_ids:
+        - opc.placement-exceptions
+        knowledge_identity: 4f53f5f2e7629a4a3b0dc40024a5a7e8b8423acd56e6277b9d4625b42c0eea9d
+        profile_version: null
+        glyph_path_ids:
+        - glyph
+        attached_path_ids:
+        - pipe
+        text_ids:
+        - label
+        reason: 'Supported placement exception: source outline, attached line and
+          continuation text. Destination remains unverified.'
+      requires_review: 1
+    - id: vertical
+      true_positive: 1
+      false_positive: 0
+      false_negative: 0
+      recovered_ids:
+      - candidate
+      findings:
+      - type: unconventional_connector_placement
+        status: requires_review
+        detection_id: candidate
+        page_index: 0
+        reference_ids:
+        - opc.placement-exceptions
+        knowledge_identity: 4f53f5f2e7629a4a3b0dc40024a5a7e8b8423acd56e6277b9d4625b42c0eea9d
+        profile_version: null
+        glyph_path_ids:
+        - glyph
+        attached_path_ids:
+        - pipe
+        text_ids:
+        - label
+        reason: 'Supported placement exception: source outline, attached line and
+          continuation text. Destination remains unverified.'
+      requires_review: 1
+    - id: ambiguous-arrow
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    - id: missing-line
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    - id: missing-outline
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    - id: unknown-destination
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    delta_true_positive: 2
+    delta_false_positive: 0
+  profile:
+    knowledge_identity: a1a63bced9c95b2d371e9e5ebb40f4a1e42bf1ac6b9d3c5115d045c92e312b2b
+    totals:
+      true_positive: 2
+      false_positive: 0
+      false_negative: 0
+      requires_review: 2
+    drawings:
+    - id: interior
+      true_positive: 1
+      false_positive: 0
+      false_negative: 0
+      recovered_ids:
+      - candidate
+      findings:
+      - type: unconventional_connector_placement
+        status: requires_review
+        detection_id: candidate
+        page_index: 0
+        reference_ids:
+        - opc.placement-exceptions
+        knowledge_identity: a1a63bced9c95b2d371e9e5ebb40f4a1e42bf1ac6b9d3c5115d045c92e312b2b
+        profile_version: 1
+        glyph_path_ids:
+        - glyph
+        attached_path_ids:
+        - pipe
+        text_ids:
+        - label
+        reason: 'Supported placement exception: source outline, attached line and
+          continuation text. Destination remains unverified.'
+      requires_review: 1
+    - id: vertical
+      true_positive: 1
+      false_positive: 0
+      false_negative: 0
+      recovered_ids:
+      - candidate
+      findings:
+      - type: unconventional_connector_placement
+        status: requires_review
+        detection_id: candidate
+        page_index: 0
+        reference_ids:
+        - opc.placement-exceptions
+        knowledge_identity: a1a63bced9c95b2d371e9e5ebb40f4a1e42bf1ac6b9d3c5115d045c92e312b2b
+        profile_version: 1
+        glyph_path_ids:
+        - glyph
+        attached_path_ids:
+        - pipe
+        text_ids:
+        - label
+        reason: 'Supported placement exception: source outline, attached line and
+          continuation text. Destination remains unverified.'
+      requires_review: 1
+    - id: ambiguous-arrow
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    - id: missing-line
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    - id: missing-outline
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    - id: unknown-destination
+      true_positive: 0
+      false_positive: 0
+      false_negative: 0
+      recovered_ids: []
+      findings:
+      - type: rejected_opc_without_boundary_evidence
+        page_index: 0
+        detection_id: candidate
+        label: off-page connector
+        bbox:
+          x: 400
+          y: 300
+          w: 50
+          h: 20
+        status: resolved
+        reason: OPC lacked both drawing-boundary support and an explicit continuation
+          reference
+      requires_review: 0
+    delta_true_positive: 2
+    delta_false_positive: 0

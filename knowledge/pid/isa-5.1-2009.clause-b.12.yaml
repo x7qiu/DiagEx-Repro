@@ -1,0 +1,347 @@
+id: isa-5.1-2009.clause-b.12
+version: 2
+concept: B.12 — Multipoint, multivariable and multifunction instruments
+aliases: []
+reference_type: assembly_pattern
+kind: possible_arrangement
+curation: source_transcribed
+source_status: informative
+explanation: 'B.12 Multipoint, multivariable and multifunction instruments
+
+  B.12.1 Multipoint instruments are single or multivariable indicators or recorders
+  that receive input signals
+
+  from two (2) or more primary elements or transmitters.
+
+  B.12.2 Multivariable instruments are controllers that receive input signals from
+  two (2) or more primary
+
+  elements or transmitters and control one (1) manipulated variable.
+
+  B.12.3 Multifunction instruments are controllers that receive input signals from
+  two (2) or more primary
+
+  elements or transmitters and control two (2) or more manipulated variables.
+
+  B.12.4 Single variable or multivariable multipoint recorders for two (2) or three
+  (3) points are drawn with
+
+  bubbles either:
+
+  a) Tangent to each other in the same order, left to right, as the pen or pointer
+  assignments:
+
+  FR TR PR
+
+  *10 *08 *11
+
+  PT TT FT
+
+  *11 *08 *10
+
+  b) Separate from each other with pen number indicated and a note defining the multipoint
+
+  instrument:
+
+  PEN #1 PEN #3 PEN 2
+
+  NOTE 1. FR PR TR
+
+  PEN IN RECORDER,
+
+  *10 *11 *08
+
+  FR*10/PR*11/TR*08.
+
+  NOTE 1 NOTE 1 NOTE 1
+
+  PT TT FT
+
+  *11 *08 *10
+
+  B.12.5 Multipoint indicators and recorders for four (4) or more points are drawn
+  with bubbles separate
+
+  from each other, with point number indicated by adding a suffix to the tag numbers:
+
+  a) Single variable:
+
+  TI TE
+
+  TI TI TE TE TI
+
+  TE
+
+  *01-04 *01-04
+
+  *01-03 *01-01 *01-03 *01-01 *01-02
+
+  *01-02
+
+  b) Multivariable:
+
+  UJI TE
+
+  UJI UJI LT TE UJI
+
+  PT
+
+  *01-04 *01-04
+
+  *01-03 *01-01 *01-03 *01-01 *01-02
+
+  *01-02
+
+  B.12.6 A multivariable controller example drawn with bubbles for each measured variable
+  input, the
+
+  output to the final control element, and measured variable indicators:
+
+  PI TI LI FI
+
+  PT
+
+  *11 *51 21 *71
+
+  *11
+
+  TT
+
+  *51
+
+  UC
+
+  *01
+
+  LT UV
+
+  *01 *21
+
+  FT
+
+  FO
+
+  *71
+
+  B.12.7 variable multifunction controller example drawn with bubbles for measured
+  variable inputs,
+
+  controller and indicator functions, and final control elements, for example:
+
+  PT
+
+  L1 TI
+
+  *11
+
+  21 *51
+
+  TT
+
+  *51
+
+  FC UU SP
+
+  *71 *01
+
+  FV
+
+  LT *71
+
+  *21 UV
+
+  FT
+
+  *01
+
+  *71
+
+  FO
+
+  FO'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Multipoint, multivariable and multifunction instruments
+- B.12
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 122, 123, 124
+  pdf_page: 122
+  table: null
+  item: null
+  passage: Clause B.12
+  image: illustrations/isa-5.1-2009/complete/clause-b.12-p122.png
+assets:
+- id: clause-b.12-p122
+  role: context
+  label: Clause B.12, page 122
+  path: illustrations/isa-5.1-2009/complete/clause-b.12-p122.png
+  sha256: 1cadc508ebf0fa4fbf9c7b64f6f7bf9a4b1e1b9c0ae26e376565eb693a6aa6db
+  width: 2010
+  height: 387
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 122
+    printed_page: '122'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 634.3519
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-122
+  role: context
+  label: Complete technical content on page 122
+  path: illustrations/isa-5.1-2009/complete/page-122.png
+  sha256: 8546b597a9b47e5429ad7e849d482df248597c4967fbe134046aaf741839a283
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 122
+    printed_page: '122'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.12-p123
+  role: context
+  label: Clause B.12, page 123
+  path: illustrations/isa-5.1-2009/complete/clause-b.12-p123.png
+  sha256: e57bbed74c22c38eb499ff9c0062953a4ca37ee0da46e8e59b5dd41146c1fc77
+  width: 2010
+  height: 2738
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 123
+    printed_page: '123'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-123
+  role: context
+  label: Complete technical content on page 123
+  path: illustrations/isa-5.1-2009/complete/page-123.png
+  sha256: 8bd5d08ee3e1b42104600cc0494203c8ac3a01994a32b5a900ddcd3489cd2e2e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 123
+    printed_page: '123'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-b.12-p124
+  role: context
+  label: Clause B.12, page 124
+  path: illustrations/isa-5.1-2009/complete/clause-b.12-p124.png
+  sha256: 933b0498a46e6e3c208a2a760dd1915154a79a75cf7d7cfbe44ffcb7dad65fa8
+  width: 2010
+  height: 1715
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 124
+    printed_page: '124'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 481.5317
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-124
+  role: context
+  label: Complete technical content on page 124
+  path: illustrations/isa-5.1-2009/complete/page-124.png
+  sha256: 742e09ecd865ff78fa2202192070aa76f64f03bda5bf9cc5a35aac09e42b410c
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 124
+    printed_page: '124'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

@@ -1,0 +1,152 @@
+id: isa-5.1-2009.clause-a.16.4
+version: 2
+concept: A.16.4 — Table A.4 — Loop and Identification Tag Number suffixes
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.16.4 Table A.4 — Loop and Identification Tag Number suffixes
+
+  (1) Replace asterisk in Loop Numbers with any digit from 0 to 9 or any combination
+  of numerals.
+
+  (2) Punctuation shown is recommended.
+
+  (3) Case 1 and Case 2 may be reversed or a single case may be used for all applications.
+
+  Annex B Graphic symbol guidelines (informative annex)'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Table A.4 — Loop and Identification Tag Number suffixes
+- A.16.4
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 98, 111
+  pdf_page: 98
+  table: null
+  item: null
+  passage: Clause A.16.4
+  image: illustrations/isa-5.1-2009/complete/clause-a.16.4-p98.png
+assets:
+- id: clause-a.16.4-p98
+  role: context
+  label: Clause A.16.4, page 98
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.4-p98.png
+  sha256: a112f4fe4c2ae6dff3ca93df354c1fe800f9f27d2cf93b7b1def3a8d0d370d8e
+  width: 2010
+  height: 2544
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 98
+    printed_page: '98'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 116.6716
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-98
+  role: context
+  label: Complete technical content on page 98
+  path: illustrations/isa-5.1-2009/complete/page-98.png
+  sha256: 98526f35c0eedd8b2485e050b6b348d71bbce2ce1bf1609c6701fbef355f755e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 98
+    printed_page: '98'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.4-p111
+  role: context
+  label: Clause A.16.4, page 111
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.4-p111.png
+  sha256: e973057fc9ee08d948f14086813e54ff7180bfbe2a8560656a0ae83258eb022a
+  width: 2010
+  height: 108
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 111
+    printed_page: '111'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 81.82
+    - 547.0
+    - 107.4919
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-111
+  role: context
+  label: Complete technical content on page 111
+  path: illustrations/isa-5.1-2009/complete/page-111.png
+  sha256: 3aad1f587a1152292276321cc8ecdae0cbf61cb3ccaa2e62bd71f586e6e0b70f
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 111
+    printed_page: '111'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

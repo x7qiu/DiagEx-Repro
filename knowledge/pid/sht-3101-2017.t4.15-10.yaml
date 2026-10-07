@@ -1,0 +1,139 @@
+id: sht-3101-2017.t4.15-10
+version: 1
+concept: 平桨式搅拌器 / Flat-blade paddle agitator
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 平桨式搅拌器
+  interpretation: 平桨式搅拌器 / Flat-blade paddle agitator. Defined by SH/T 3101:2017, Table 4.15, item 10.
+    An equipment internal or accessory. Its presence must be observed inside or attached to actual equipment;
+    do not create a separate vessel or infer unseen internals from this reference.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 平桨式搅拌器
+- Flat-blade paddle agitator
+reference_type: symbol
+kind: definition
+explanation: 平桨式搅拌器 / Flat-blade paddle agitator. Defined by SH/T 3101:2017, Table 4.15, item 10. An equipment
+  internal or accessory. Its presence must be observed inside or attached to actual equipment; do not
+  create a separate vessel or infer unseen internals from this reference.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 平桨式搅拌器
+- Flat-blade paddle agitator
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '24'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.15-10/context.png
+  document_id: sht-3101-2017
+  pdf_page: 28
+  table: '4.15'
+  item: '10'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.15-10/context.png
+  sha256: 647f204dc9c6eb606e1567f59ae47cc294cd0a2c979586894af03732d4ddfc8e
+  width: 912
+  height: 166
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 28
+    printed_page: '24'
+    table: '4.15'
+    item: '10'
+    rect:
+    - 147.0
+    - 1261.0
+    - 1059.0
+    - 1427.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.15-10/primary.png
+  sha256: 92a3c09e7acd18f462af79d58b7a65510f7ddd826bd8bb81af1d082228ef5a93
+  width: 53
+  height: 126
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 28
+    printed_page: '24'
+    table: '4.15'
+    item: '10'
+    rect:
+    - 629.0
+    - 1283.0
+    - 682.0
+    - 1409.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.15-10/variants.png
+  sha256: 301c82c1ae616a17af33031651765541c650408d08881e8c0d9b58bc86880b9e
+  width: 220
+  height: 176
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '24'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 28
+    table: '4.15'
+    item: '10'
+  explanation: An equipment internal or accessory. Its presence must be observed inside or attached to
+    actual equipment; do not create a separate vessel or infer unseen internals from this reference.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- An equipment internal or accessory. Its presence must be observed inside or attached to actual equipment;
+  do not create a separate vessel or infer unseen internals from this reference.
+relations: []

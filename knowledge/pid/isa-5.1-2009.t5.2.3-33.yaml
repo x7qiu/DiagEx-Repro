@@ -1,0 +1,249 @@
+id: isa-5.1-2009.t5.2.3-33
+version: 3
+concept: Ball float internally mounted in vessel
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Ball float internally mounted in vessel. • May be installed through
+  top of vessel.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'Measurement symbols: primary elements'
+- 5.2.3
+- Ball float internally mounted in vessel
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '42'
+  pdf_page: 42
+  table: 5.2.3
+  item: '33'
+  passage: 'Table 5.2.3, item 33: • Ball float internally mounted in vessel. • May
+    be installed through top of vessel.'
+  image: illustrations/isa-5.1-2009/complete/t5.2.3-33-context.png
+assets:
+- id: t5.2.3-33-context
+  role: context
+  label: 'Complete row: Table 5.2.3, item 33'
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-33-context.png
+  sha256: a4593d7abc2f237044eb28e14f64866c4ec4a4759696515a6c2d76ca40fbc8f3
+  width: 1960
+  height: 243
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 42
+    printed_page: '42'
+    table: 5.2.3
+    item: '33'
+    rect:
+    - 70.8091
+    - 220.4
+    - 541.1309
+    - 278.56
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-42
+  role: context
+  label: Complete technical content on page 42
+  path: illustrations/isa-5.1-2009/complete/page-42.png
+  sha256: b51523804e092216fbb772a5f0112b191479f3a17ce3ab636ddeb929e699d489
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 42
+    printed_page: '42'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.2.3-33-panel-2
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-33-panel-2.png
+  sha256: 30b3764576b5859107eab0c43ae0bf7a00d44e0d9f87013daade5739be70704e
+  width: 445
+  height: 229
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 42
+    printed_page: '42'
+    table: 5.2.3
+    item: '33'
+    rect:
+    - 126.68
+    - 222.2
+    - 233.14
+    - 276.76
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.2-p33
+  role: note
+  label: Clause 5.3.2, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  sha256: d2f5ace70e1c2b4cd4aad60f721e55f09798bdc8204c96571e3303a71de825df
+  width: 2010
+  height: 930
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 397.1707
+    - 547.0
+    - 620.1298
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-33-variants.png
+  sha256: b780173138cfee54c3f9d5e6bc7030458dd9026899d683409e54ba7e2dee88c5
+  width: 1000
+  height: 294
+  derived_from:
+  - t5.2.3-33-panel-2
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.2.3-33-panel-2
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-33.catalog-t5.2.3-33-panel-2.png
+  sha256: a60411ec7d2a155c696936af8a276603b6bd38635b9ef0a796119eb6a937aa57
+  width: 187
+  height: 173
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 42
+    printed_page: '42'
+    table: 5.2.3
+    item: '33'
+    rect:
+    - 166.07999999999998
+    - 228.95999999999998
+    - 210.95999999999998
+    - 270.47999999999996
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-33.sheet.png
+  sha256: a46bb28c75ae24873df61108c498e0fde2104c85af064787843050d47eb5be81
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.2.3-33-panel-2
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '33'
+    pdf_page: 33
+    table: null
+    item: null
+    passage: Clause 5.3.2
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  explanation: '5.3.2 Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 — Measurement symbols
+
+    (1) Measurements are depicted by:
+
+    (a) Bubbles only.
+
+    (b) Bubbles and graphics.
+
+    (2) These symbols shall be used for process or equipment measurements if:
+
+    (a) A graphic symbol does not exist.
+
+    (b) The user does not use graphic symbols.
+
+    (3) Transmitter [T] may be controller [C], indicator [I], recorder [R], or switch
+    [S].
+
+    (4) User engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    choices are selected.'
+  asset_id: clause-5.3.2-p33
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.2
+  explanation: 'Explanatory notes for Table 5.2.3: clause 5.3.2.'
+catalog:
+  role: catalog
+  category: measurement
+  short_name: Ball float internally mounted in vessel
+  interpretation: Ball float internally mounted in vessel. May be installed through
+    top of vessel.
+  displayed_asset_ids:
+  - catalog-t5.2.3-33-panel-2
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.2
+  - isa-5.1-2009.clause-4.1

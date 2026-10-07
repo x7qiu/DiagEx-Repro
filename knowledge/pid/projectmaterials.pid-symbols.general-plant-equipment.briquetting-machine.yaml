@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.briquetting-machine
+version: 2
+concept: Briquetting Machine
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Briquetting Machine
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Briquetting Machine’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Briquetting Machine
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Briquetting Machine’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Briquetting Machine
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Briquetting Machine
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.briquetting-machine.png
+  sha256: fe8894ee2f394bdab7ca45f57aaa5df75ac2cb3a591c099c3c1a11a3b0867430
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Briquetting-Machine-PID-Symbol-150x150.Dw66BsyT_M6gex.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 51b7af9ad47518707b2934cd59418d617a246070c29a6faf19799daf590e562a
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

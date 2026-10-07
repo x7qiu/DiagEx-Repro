@@ -1,0 +1,104 @@
+id: isa-5.1-2009.clause-3.1.66
+version: 2
+concept: transmitter
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.66 transmitter:
+
+  a device that senses a process variable through the medium of a sensor or measuring
+  element and has
+
+  an output whose steady-state value varies only as a predetermined function of the
+  process variable.
+
+  a) the sensor can be an integral part, as in a direct-connected pressure transmitter,
+  or a separate
+
+  part, as in a thermocouple.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'transmitter:'
+- 3.1.66
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '24'
+  pdf_page: 24
+  table: null
+  item: null
+  passage: Clause 3.1.66
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.66-p24.png
+assets:
+- id: clause-3.1.66-p24
+  role: context
+  label: Clause 3.1.66, page 24
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.66-p24.png
+  sha256: f1db7988b5a3933b3d5cb7500349a6bad483b7e2c24047cab601a961ba5caf55
+  width: 2010
+  height: 742
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 24
+    printed_page: '24'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 549.1501
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-24
+  role: context
+  label: Complete technical content on page 24
+  path: illustrations/isa-5.1-2009/complete/page-24.png
+  sha256: 6638cc9273e23bbc87de69e7fcb092a247f321b489fb630e8a9bc2b72e2fef33
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 24
+    printed_page: '24'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

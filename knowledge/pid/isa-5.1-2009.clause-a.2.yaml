@@ -1,0 +1,174 @@
+id: isa-5.1-2009.clause-a.2
+version: 2
+concept: A.2 — Instrument index
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.2 Instrument index
+
+  A.2.1 Loop Identification Numbers and Instrument Identification/Tag Numbers are
+  recorded in an
+
+  Instrument Index that should be maintained for the life of the facility for the
+  recording and control
+
+  of all documents and records pertaining to the loops and their instrumentation and
+  functions.
+
+  A.2.2 An Instrument Index should contain references to all instrumentation data
+  required by owner
+
+  and/or government regulatory agency management of change requirements and contain,
+  as a
+
+  minimum for each loop:
+
+  a) Loop Identification Number.
+
+  b) Service Description.
+
+  c) Instrument Identification/Tag Numbers.
+
+  d) Piping and Instrumentation Diagram drawing numbers.
+
+  e) Instrument Data Sheet numbers.
+
+  f) Location Plan drawing numbers.
+
+  g) Installation Detail drawing numbers.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Instrument index
+- A.2
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 86, 87
+  pdf_page: 86
+  table: null
+  item: null
+  passage: Clause A.2
+  image: illustrations/isa-5.1-2009/complete/clause-a.2-p86.png
+assets:
+- id: clause-a.2-p86
+  role: context
+  label: Clause A.2, page 86
+  path: illustrations/isa-5.1-2009/complete/clause-a.2-p86.png
+  sha256: b7fc409d17b461042465c8e2b45817ced1d2e4fd3a73f1782f0e0a4942aa362a
+  width: 2010
+  height: 538
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 86
+    printed_page: '86'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 598.1698
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-86
+  role: context
+  label: Complete technical content on page 86
+  path: illustrations/isa-5.1-2009/complete/page-86.png
+  sha256: b22797fe1b7f8534084ed418f8bfa7e37fc36480548379dbbfaa9ed2a906e3d4
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 86
+    printed_page: '86'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.2-p87
+  role: context
+  label: Clause A.2, page 87
+  path: illustrations/isa-5.1-2009/complete/clause-a.2-p87.png
+  sha256: 750562c12fd6de5eed37d71de48c8af0a3fcf95af7e3a61fc9667bb2e99562cb
+  width: 2010
+  height: 784
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 87
+    printed_page: '87'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 258.1511
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-87
+  role: context
+  label: Complete technical content on page 87
+  path: illustrations/isa-5.1-2009/complete/page-87.png
+  sha256: 16a262abe275f999408d8c7568564c331f5428e98b0a0341d1dd543913ebfc9f
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 87
+    printed_page: '87'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

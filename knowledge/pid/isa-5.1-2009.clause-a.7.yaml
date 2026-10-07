@@ -1,0 +1,168 @@
+id: isa-5.1-2009.clause-a.7
+version: 2
+concept: A.7 — Optional loop number prefixes
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.7 Optional loop number prefixes
+
+  A.7.1 Loop Number Prefixes consisting of any combination of alpha/numeric characters
+  that may be
+
+  added to Loop Numbers to identify loop location, such as a complex, plant, or unit
+  should be
+
+  located before the Measured/Initiating Variable, for example, a flow loop in processing
+  plant #1
+
+  might be [PP1-F*01].
+
+  A.7.2 Loop Number Prefixes should:
+
+  a) Not necessarily be shown on drawings or indexes but covered by a general note
+  on a
+
+  legend sheet or a note on each drawing or index sheet.
+
+  b) Be shown for all uses on drawings when more than one prefix is required by loops
+  shown
+
+  on the drawing.
+
+  c) Be shown when used in text.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Optional loop number prefixes
+- A.7
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 89, 90
+  pdf_page: 89
+  table: null
+  item: null
+  passage: Clause A.7
+  image: illustrations/isa-5.1-2009/complete/clause-a.7-p89.png
+assets:
+- id: clause-a.7-p89
+  role: context
+  label: Clause A.7, page 89
+  path: illustrations/isa-5.1-2009/complete/clause-a.7-p89.png
+  sha256: 1b1ef55c9bb6138a015bba051f5360b31fae1a888ade62032e76c290ec1e055e
+  width: 2010
+  height: 347
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 89
+    printed_page: '89'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 644.1297
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-89
+  role: context
+  label: Complete technical content on page 89
+  path: illustrations/isa-5.1-2009/complete/page-89.png
+  sha256: d32a958821c411bd12e1696a8fe8a097bf4f0969c0eb34c6355ac22c9cd1d87e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 89
+    printed_page: '89'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.7-p90
+  role: context
+  label: Clause A.7, page 90
+  path: illustrations/isa-5.1-2009/complete/clause-a.7-p90.png
+  sha256: db26ad289a02df4eb3eb608475f05469411884bc521f920671871a776fa19dc5
+  width: 2010
+  height: 586
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 90
+    printed_page: '90'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 210.6914
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-90
+  role: context
+  label: Complete technical content on page 90
+  path: illustrations/isa-5.1-2009/complete/page-90.png
+  sha256: f31d16c6c5ef1ad1a97803589d7a3af08d7cda42fcde51fca099b8a87964a5ce
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 90
+    printed_page: '90'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

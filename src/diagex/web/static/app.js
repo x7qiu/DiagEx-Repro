@@ -2,65 +2,61 @@ const $ = (id) => document.getElementById(id);
 
 const I18N = {
   en: {
-    subtitle: "P&ID extraction and human review workbench", connecting: "Connecting", online: "Local server online",
+    subtitle: "P&ID extraction workbench", connecting: "Connecting", online: "Local server online",
     localWorkbench: "LOCAL WORKBENCH", title: "Turn a P&ID into an editable engineering graph",
-    intro: "Configure the models, upload a drawing, run extraction, then open the result directly in human review.",
+    intro: "Configure the models, upload a drawing, and save the extraction results.",
     credentialsStayLocal: "Credentials are not saved", credentialsDetail: "Keys are kept in this server process, sent only to the selected API endpoint, and never saved to .env or run artifacts.",
     configure: "Configure extraction", configureHint: "Choose the provider and models used for this run.", provider: "Provider",
     baseUrl: "API endpoint", apiKey: "API key", apiKeyPlaceholder: "Leave blank to use the configured environment key", show: "Show", hide: "Hide",
     environmentKeyAvailable: "A configured key is available. Leave this field blank to use it.", keyRequired: "No configured key found. Enter one for this run.",
-    visionModel: "Vision model", visionHint: "Used for raw symbol detection. Enable reasoning below for difficult symbols.",
-    reasoningModel: "Reasoning model", reasoningModelHint: "Used for page-level relationship and cross-sheet reasoning.",
+    visionModel: "AI model for reading symbols", visionHint: "Reads symbols and labels from the drawing, using the legend when available.",
+    reasoningModel: "AI model for interpreting connections", reasoningModelHint: "Interprets how equipment and instruments connect, within and between pages.",
     reasoningHint: "Symbol detection starts with a fast pass. Enabled adds one limited check for uncertain or rejected symbols and ambiguous equipment bodies, using enlarged details.",
-    reasoning: "Reasoning", automatic: "Automatic", enabled: "Enabled", disabled: "Disabled", effort: "Reasoning effort", low: "Low", medium: "Medium", high: "High", xhigh: "Extra high", engine: "Extraction engine",
+    reasoning: "Extra checking for uncertain symbols", automatic: "Automatic", enabled: "Enabled", disabled: "Disabled", effort: "Connection reasoning effort", low: "Low", medium: "Medium", high: "High", xhigh: "Extra high", engine: "Extraction workflow",
     chooseDrawing: "Choose the drawing", chooseDrawingHint: "PDF is recommended; vector PDFs give the strongest line evidence.",
     dropDrawing: "Drop a P&ID here", orBrowse: "or click to choose a file", replace: "Replace", artifactReuse: "Artifact reuse",
     reuseArtifacts: "Resume compatible artifacts", reuseHint: "Continue an interrupted matching run when possible.",
-    startFresh: "Start a brand-new run", freshHint: "Bypass machine legend and symbol caches; preserve reviewed artifacts.",
+    startFresh: "Start a brand-new run", freshHint: "Bypass machine legend and symbol caches.",
     startExtraction: "Start extraction", queued: "Queued", extractionProgress: "Extraction progress", elapsed: "Elapsed", liveLog: "Live extraction log",
-    autoScroll: "Auto-scroll", copy: "Copy", extractionFinished: "Extraction finished", runDirectory: "Run directory",
-    reviewerName: "Reviewer name", openReview: "Review findings", recentRuns: "Open an existing run",
-    recentRunsHint: "Review any extraction in the configured runs directory without rerunning it.", refreshRuns: "Refresh runs",
+    autoScroll: "Auto-scroll", copy: "Copy", extractionFinished: "Extraction finished", runDirectory: "Run directory", recentRuns: "Saved runs",
+    recentRunsHint: "Find saved extraction results and their output directories.", refreshRuns: "Refresh runs",
     filterRuns: "Find a run", filterRunsPlaceholder: "Drawing, run ID, or model",
-    reviewerRequired: "Enter the reviewer name first.", attachSourceReview: "Attach source & review", resumeReview: "Resume findings review",
     sourceVerified: "Source verified", sourceFound: "Source found", sourceNeeded: "Source PDF needed", sourceUploading: "Uploading source P&ID…",
     nodes: "nodes", connections: "connections", uploading: "Uploading drawing…", uploaded: "Drawing uploaded",
     running: "Running", succeeded: "Finished", failed: "Failed", quality: "Quality", equipment: "Equipment", valves: "Valves",
     instruments: "Instruments", segments: "Segments", opcs: "OPCs", tokens: "Tokens", buildIssues: "build issues", validationIssues: "validation issues",
-    copied: "Log copied", reviewStarting: "Preparing human review…", sourceUnavailable: "Original source unavailable", review: "Review",
+    copied: "Log copied", sourceUnavailable: "Original source unavailable",
   },
   "zh-CN": {
-    subtitle: "P&ID 提取与人工复核工作台", connecting: "正在连接", online: "本地服务已连接",
+    subtitle: "P&ID 提取工作台", connecting: "正在连接", online: "本地服务已连接",
     localWorkbench: "本地工作台", title: "将 P&ID 转换为可编辑的工程关系图",
-    intro: "配置模型、上传图纸并运行提取，然后直接进入人工复核。",
+    intro: "配置模型、上传图纸并运行提取，保存结果到输出目录。",
     credentialsStayLocal: "凭证不会被保存", credentialsDetail: "密钥仅保留在当前服务进程中并发送至所选 API 地址，不会写入 .env 或运行产物。",
     configure: "配置提取任务", configureHint: "选择本次运行使用的服务商和模型。", provider: "服务商",
     baseUrl: "API 地址", apiKey: "API 密钥", apiKeyPlaceholder: "留空则使用当前环境中已配置的密钥", show: "显示", hide: "隐藏",
     environmentKeyAvailable: "已检测到配置密钥；留空即可使用。", keyRequired: "没有检测到配置密钥，请输入本次运行使用的密钥。",
-    visionModel: "视觉模型", visionHint: "用于原始符号识别；可在下方启用推理，帮助识别困难符号。",
-    reasoningModel: "推理模型", reasoningModelHint: "用于整页关系和跨页连接推理。",
+    visionModel: "识读符号的 AI 模型", visionHint: "用于原始符号识别；可在下方启用推理，帮助识别困难符号。",
+    reasoningModel: "解释连接关系的 AI 模型", reasoningModelHint: "用于整页关系和跨页连接推理。",
     reasoningHint: "符号识别先进行快速检测；启用推理后，使用放大细节对不确定或被排除的符号及易混淆设备追加一次限时检查。",
-    reasoning: "推理模式", automatic: "自动", enabled: "启用", disabled: "禁用", effort: "推理强度", low: "低", medium: "中", high: "高", xhigh: "超高", engine: "提取引擎",
+    reasoning: "对不确定的符号追加检查", automatic: "自动", enabled: "启用", disabled: "禁用", effort: "连接关系推理强度", low: "低", medium: "中", high: "高", xhigh: "超高", engine: "提取流程",
     chooseDrawing: "选择图纸", chooseDrawingHint: "建议使用 PDF；矢量 PDF 可提供更可靠的线条证据。",
     dropDrawing: "将 P&ID 拖到这里", orBrowse: "或点击选择文件", replace: "更换", artifactReuse: "产物复用",
     reuseArtifacts: "复用兼容产物", reuseHint: "如存在匹配的中断任务，则从检查点继续。",
-    startFresh: "开始全新运行", freshHint: "跳过机器图例和符号缓存；保留已复核记录。",
+    startFresh: "开始全新运行", freshHint: "跳过机器图例和符号缓存。",
     startExtraction: "开始提取", queued: "排队中", extractionProgress: "提取进度", elapsed: "已用时间", liveLog: "实时提取日志",
-    autoScroll: "自动滚动", copy: "复制", extractionFinished: "提取已完成", runDirectory: "运行目录",
-    reviewerName: "复核人姓名", openReview: "查看待判断问题", recentRuns: "打开已有运行",
-    recentRunsHint: "无需重新提取，即可复核运行目录中的任何提取结果。", refreshRuns: "刷新运行列表",
+    autoScroll: "自动滚动", copy: "复制", extractionFinished: "提取已完成", runDirectory: "运行目录", recentRuns: "已保存的运行",
+    recentRunsHint: "查找已保存的提取结果和输出目录。", refreshRuns: "刷新运行列表",
     filterRuns: "查找运行", filterRunsPlaceholder: "图纸、运行 ID 或模型",
-    reviewerRequired: "请先填写复核人姓名。", attachSourceReview: "关联原图并复核", resumeReview: "继续问题复核",
     sourceVerified: "原图已校验", sourceFound: "已找到原图", sourceNeeded: "需要关联原始图纸", sourceUploading: "正在上传原始 P&ID…",
     nodes: "节点", connections: "连接", uploading: "正在上传图纸…", uploaded: "图纸上传完成",
     running: "运行中", succeeded: "已完成", failed: "失败", quality: "质量状态", equipment: "设备", valves: "阀门",
     instruments: "仪表", segments: "管段", opcs: "跨页连接点", tokens: "令牌", buildIssues: "构建问题", validationIssues: "验证问题",
-    copied: "日志已复制", reviewStarting: "正在准备人工复核…", sourceUnavailable: "原始图纸不可用", review: "复核",
+    copied: "日志已复制", sourceUnavailable: "原始图纸不可用",
   },
 };
 
 const state = {
-  language: localStorage.getItem("diagex.web.language") || "en",
+  language: localStorage.getItem("diagex.web.language") || "zh-CN",
   config: null,
   upload: null,
   job: null,
@@ -69,12 +65,49 @@ const state = {
   elapsedTimer: null,
   logLines: [],
   connected: false,
-  pendingReviewRun: null,
 };
 
-Object.assign(I18N.en, {detectSymbols: "Detect legends & symbols", detectHint: "Stop before graph construction. Review the legend and symbols first.", reviewSymbols: "Review legends & symbols", buildReviewed: "Build reviewed graph", reviewedBuildTitle: "Build graph from reviewed symbols", reviewedBuildHint: "Uses the saved legend and symbol decisions. Check the model settings, then start the graph build.", legendEntries: "Legend entries"});
-Object.assign(I18N["zh-CN"], {detectSymbols: "仅检测图例和符号", detectHint: "在构建连接图之前停止，先审核图例和符号。", reviewSymbols: "审核图例和符号", buildReviewed: "使用审核结果构建图", reviewedBuildTitle: "使用已审核符号构建连接图", reviewedBuildHint: "使用已保存的图例和符号审核结果。请检查模型设置，然后开始构建连接图。", legendEntries: "图例条目"});
-const buildParams = new URLSearchParams(location.search);
+Object.assign(I18N.en, {detectedSymbols: "Detected symbols", detectSymbols: "Detect legends & symbols", detectHint: "Save legend and symbol detections without constructing a graph.", legendEntries: "Legend entries"});
+Object.assign(I18N["zh-CN"], {detectedSymbols: "已检测符号", detectSymbols: "仅检测图例和符号", detectHint: "保存图例和符号检测结果，不构建连接图。", legendEntries: "图例条目"});
+Object.assign(I18N.en, {
+  cvMode: "Symbol detection", cvOff: "AI model with PDF text and lines (default)",
+  cvGuided: "CV-guided AI detection", cvOn: "CV detection, then AI interpretation",
+  cvHint: "The trained detector suggests symbol locations. The AI model checks the drawing and interprets the symbols. A matching legend or knowledge reference is optional evidence.",
+  cvCheckpoint: "Trained detector file (.pt)",
+  cvCheckpointHint: "Path on the machine running this server. Uses the configured checkpoint when provided.",
+  cvDevice: "Run the symbol detector on", cvMissing: "Enter the path to the trained detector file.",
+});
+Object.assign(I18N["zh-CN"], {
+  cvMode: "符号检测", cvOff: "AI 模型 + PDF 文字和线条（默认）", cvGuided: "CV 辅助 AI 检测", cvOn: "CV 检测后由 AI 单独解释",
+  cvHint: "已训练的检测器提供符号位置建议，AI 模型核对图纸并解释符号。匹配的图例或知识库条目是可选的参考依据。",
+  cvCheckpoint: "已训练的检测器文件（.pt）", cvCheckpointHint: "填写运行此服务的机器上的文件路径；如已配置权重，则自动填入。",
+  cvDevice: "运行符号检测器的硬件", cvMissing: "请填写已训练的检测器文件路径。",
+});
+
+Object.assign(I18N.en, {
+  modelSetup: "AI model setup", deepseekSetup: "DeepSeek (default)",
+  qwenSetup: "Open weight model", customSetup: "Choose my own models",
+  customSetupHint: "Choose the AI service and the models for reading symbols and interpreting connections.",
+  currentWorkflow: "Current workflow", olderWorkflow: "Older workflow",
+  cpuDevice: "Computer processor (CPU)", appleDevice: "Apple graphics processor", nvidiaDevice: "NVIDIA graphics card",
+});
+Object.assign(I18N["zh-CN"], {
+  modelSetup: "AI 模型选择", deepseekSetup: "DeepSeek（默认）",
+  qwenSetup: "开放权重模型", customSetup: "自行选择模型",
+  customSetupHint: "选择 AI 服务商，以及识读符号和解释连接关系所用的模型。",
+  currentWorkflow: "当前流程", olderWorkflow: "旧版流程",
+  cpuDevice: "电脑处理器（CPU）", appleDevice: "Apple 图形处理器", nvidiaDevice: "NVIDIA 显卡",
+});
+
+function updateModelHint() {
+  const profile = state.config?.model_profiles?.[$("modelPolicy").value];
+  $("modelPolicyHint").textContent = (state.language === "zh-CN" ? profile?.hint_zh : profile?.hint) || t("customSetupHint");
+}
+
+function updateCV() {
+  $("cvSettings").classList.toggle("hidden", $("cvMode").value === "off");
+  if ($("cvMode").value !== "off") $("engine").value = "evidence-v2";
+}
 
 const providerDefaults = {
   openrouter: "https://openrouter.ai/api",
@@ -96,6 +129,7 @@ function applyLanguage() {
     node.placeholder = t(node.dataset.i18nPlaceholder);
   });
   updateKeyStatus();
+  updateModelHint();
   if (state.connected) $("serverStatus").querySelector("span").textContent = t("online");
   if (state.job) renderJob(state.job);
   renderRecentRuns(window.__recentRuns || []);
@@ -165,16 +199,15 @@ async function uploadFile(file) {
   $("dropZone").classList.add("hidden");
   $("startButton").disabled = true;
   $("detectButton").disabled = true;
-  $("buildReviewedButton").disabled = true;
   try {
     const payload = await uploadDrawing(file);
     state.upload = payload.upload;
+    window.maybeSuggestDrawingContext?.();
     $("fileName").textContent = state.upload.filename;
     $("fileSize").textContent = humanBytes(state.upload.size);
     $("fileSummary").classList.remove("hidden");
     $("startButton").disabled = false;
     $("detectButton").disabled = false;
-    $("buildReviewedButton").disabled = false;
     showToast(t("uploaded"));
   } finally {
     $("uploadProgress").classList.add("hidden");
@@ -183,8 +216,12 @@ async function uploadFile(file) {
 
 function extractionPayload() {
   return {
+    ...window.drawingContextPayload(),
     upload_id: state.upload?.id,
     model_policy: $("modelPolicy").value,
+    cv_mode: $("cvMode").value,
+    cv_checkpoint: $("cvCheckpoint").value.trim(),
+    cv_device: $("cvDevice").value,
     process_overview: $("processOverview").value.trim(),
     engineering_rules: $("engineeringRules").value.trim(),
     provider: $("provider").value,
@@ -199,13 +236,17 @@ function extractionPayload() {
   };
 }
 
-async function startExtraction(stopAfter = "graph", reviewed = false) {
-  if (stopAfter === "detection" || reviewed) $("engine").value = "evidence-v2";
+async function startExtraction(stopAfter = "graph") {
+  if (stopAfter === "detection") $("engine").value = "evidence-v2";
   $("formError").classList.add("hidden");
   $("startButton").disabled = true;
   try {
+    if ($("cvMode").value !== "off") {
+      if (!$("cvCheckpoint").value.trim()) throw new Error(t("cvMissing"));
+      $("engine").value = "evidence-v2";
+    }
     const payload = await api("/api/extractions", {
-      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({...extractionPayload(), stop_after: stopAfter, ...(reviewed ? {reviewed_run:buildParams.get("reviewed_run"), reviewed_revision:Number(buildParams.get("reviewed_revision")), draft:buildParams.get("draft") === "true", engine:"evidence-v2"} : {})}),
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({...extractionPayload(), stop_after: stopAfter}),
     });
     $("apiKey").value = "";
     state.job = payload.job;
@@ -223,7 +264,6 @@ async function startExtraction(stopAfter = "graph", reviewed = false) {
     $("formError").classList.remove("hidden");
     $("startButton").disabled = false;
     $("detectButton").disabled = false;
-    $("buildReviewedButton").disabled = false;
   }
 }
 
@@ -248,7 +288,6 @@ async function pollJob() {
       clearInterval(state.elapsedTimer);
       $("startButton").disabled = false;
     $("detectButton").disabled = false;
-    $("buildReviewedButton").disabled = false;
       loadRecentRuns();
     }
   } catch (error) {
@@ -259,7 +298,7 @@ async function pollJob() {
 }
 
 function renderJob(job) {
-  const label = job.status === "paused" ? (state.language === "zh" ? "已暂停 · 可续跑" : "Paused · resumable") : (t(job.status) || job.status);
+  const label = job.status === "paused" ? (state.language === "zh-CN" ? "已暂停 · 可续跑" : "Paused · resumable") : (t(job.status) || job.status);
   $("jobState").textContent = label;
   $("jobState").className = `pill ${job.status === "failed" ? "error" : job.status === "succeeded" ? "ok" : job.status === "paused" ? "partial" : "running"}`;
   $("jobSubtitle").textContent = `${job.filename} · ${job.settings.vision_model} → ${job.settings.reasoning_model}`;
@@ -295,40 +334,16 @@ function renderResult(job) {
     metric(t("opcs"), stats.opc_count || 0), metric(t("tokens"), formatTokens(result.tokens || 0)),
   ].join("");
   $("runPath").textContent = job.run_dir || "";
+  $("viewRunButton").hidden = !job.run_dir;
+  $("viewRunButton").href = "/runs/view?" + new URLSearchParams({run_dir:job.run_dir || ""});
+  $("viewRunButton").textContent = state.language === "zh-CN" ? "查看结果" : "View results";
   const detectionOnly = result.workflow_stage === "detection";
-  $("reviewButton").hidden = detectionOnly;
-  $("detectionReviewButton").hidden = result.engine !== "evidence-v2" || !!job.settings.reviewed_run;
   if (detectionOnly) {
     $("resultSummary").textContent = t("detectHint");
-    $("metricGrid").innerHTML = [metric(t("reviewSymbols"), stats.detection_count || 0), metric(t("legendEntries"), result.legend.entry_count || 0), metric(t("tokens"), formatTokens(result.tokens || 0))].join("");
+    $("metricGrid").innerHTML = [metric(t("detectedSymbols"), stats.detection_count || 0), metric(t("legendEntries"), result.legend.entry_count || 0), metric(t("tokens"), formatTokens(result.tokens || 0))].join("");
     $("qualityBadge").className = "pill partial";
   }
-  if (result.pause_reason) $("resultSummary").textContent = `${result.pause_reason} · ${state.language === "zh" ? "已保存检查点；选择续跑可继续未完成部分。" : "Checkpoints saved. Choose Resume to continue incomplete coverage."}`;
-}
-
-async function openReview({ kind = "graph", jobId = null, runDir = null, uploadId = null, raterId = "raterName", errorId = "reviewError" } = {}) {
-  const rater = $(raterId).value.trim();
-  const errorNode = $(errorId);
-  errorNode.classList.add("hidden");
-  if (!rater) {
-    errorNode.textContent = t("reviewerRequired");
-    errorNode.classList.remove("hidden");
-    return;
-  }
-  const pendingWindow = window.open("about:blank", "_blank");
-  showToast(t("reviewStarting"));
-  try {
-    const payload = await api("/api/reviews", {
-      method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ job_id: jobId, run_dir: runDir, upload_id: uploadId, rater, kind }),
-    });
-    if (pendingWindow) pendingWindow.location = payload.url;
-    else window.location.href = payload.url;
-  } catch (error) {
-    if (pendingWindow) pendingWindow.close();
-    errorNode.textContent = error.message;
-    errorNode.classList.remove("hidden");
-  }
+  if (result.pause_reason) $("resultSummary").textContent = `${result.pause_reason} · ${state.language === "zh-CN" ? "已保存检查点；选择续跑可继续未完成部分。" : "Checkpoints saved. Choose Resume to continue incomplete coverage."}`;
 }
 
 async function loadRecentRuns() {
@@ -366,41 +381,15 @@ function renderRecentRuns(runs) {
       meta.append(item);
     }
     details.append(title, meta);
-    const actions = document.createElement("div");
-    actions.className = "recent-run-actions";
-    const sourceState = document.createElement("span");
-    sourceState.className = `source-state ${run.source_available ? "available" : "missing"}`;
-    sourceState.textContent = run.source_available
-      ? t(run.source_verified ? "sourceVerified" : "sourceFound")
-      : t("sourceNeeded");
-    const button = document.createElement("button");
-    button.className = "primary";
-    button.hidden = !run.has_graph && run.source_available;
-    button.textContent = run.source_available
-      ? t(run.review_started ? "resumeReview" : "openReview")
-      : t("attachSourceReview");
-    button.addEventListener("click", () => {
-      if (run.source_available) {
-        openReview({ runDir: run.run_dir, raterId: "existingRaterName", errorId: "existingReviewError" });
-      } else {
-        const rater = $("existingRaterName").value.trim();
-        if (!rater) {
-          $("existingReviewError").textContent = t("reviewerRequired");
-          $("existingReviewError").classList.remove("hidden");
-          return;
-        }
-        state.pendingReviewRun = run;
-        $("existingSourceInput").click();
-      }
-    });
-    actions.append(sourceState, button);
-    if (run.has_detection && run.source_available) {
-      const review = document.createElement("button"); review.className = "quiet";
-      review.textContent = t("reviewSymbols");
-      review.onclick = () => openReview({kind:"detection", runDir:run.run_dir, raterId:"existingRaterName", errorId:"existingReviewError"});
-      actions.append(review);
-    }
-    row.append(details, actions);
+    const location = document.createElement("code");
+    location.textContent = run.run_dir;
+    location.className = "recent-run-path";
+    details.append(location);
+    const view = document.createElement("a");
+    view.className = "primary view-run";
+    view.textContent = state.language === "zh-CN" ? "查看结果" : "View results";
+    view.href = "/runs/view?" + new URLSearchParams({run_dir:run.run_dir});
+    row.append(details, view);
     $("recentRuns").append(row);
   }
 }
@@ -436,13 +425,11 @@ async function initialise() {
     $("reasoningMode").value = state.config.reasoning_mode || "auto";
     $("effort").value = state.config.effort || "medium";
     $("engine").value = state.config.engine || "evidence-v2";
+    $("cvCheckpoint").value = state.config.cv?.checkpoint || "";
+    $("cvDevice").value = state.config.cv?.device || "cpu";
+    updateCV();
     updateProvider();
     updateModelPolicy();
-    if (buildParams.get("reviewed_run")) {
-      $("reviewedBuild").classList.remove("hidden");
-      $("dropZone").classList.add("hidden");
-      $("engine").value = "evidence-v2";
-    }
     await Promise.all([loadRecentRuns(), restoreActiveJob()]);
   } catch (error) {
     $("serverStatus").querySelector("span").textContent = error.message;
@@ -454,7 +441,7 @@ $("provider").addEventListener("change", updateProvider);
 function updateModelPolicy() {
   const profile = state.config?.model_profiles?.[$("modelPolicy").value];
   for (const id of ["provider", "visionModel", "reasoningModel", "engine"]) $(id).disabled = Boolean(profile);
-  $("modelPolicyHint").textContent = profile?.hint || "Choose the provider and models for this run.";
+  updateModelHint();
   if (profile) {
     $("provider").value = profile.provider;
     $("visionModel").value = profile.vision_model;
@@ -465,6 +452,7 @@ function updateModelPolicy() {
   }
 }
 $("modelPolicy").addEventListener("change", updateModelPolicy);
+$("cvMode").addEventListener("change", updateCV);
 $("toggleKey").addEventListener("click", () => { const visible = $("apiKey").type === "text"; $("apiKey").type = visible ? "password" : "text"; $("toggleKey").textContent = t(visible ? "show" : "hide"); });
 $("fileInput").addEventListener("change", () => { if ($("fileInput").files[0]) uploadFile($("fileInput").files[0]).catch((error) => { $("formError").textContent = error.message; $("formError").classList.remove("hidden"); $("dropZone").classList.remove("hidden"); }); });
 $("replaceFile").addEventListener("click", () => { state.upload = null; $("fileSummary").classList.add("hidden"); $("dropZone").classList.remove("hidden"); $("fileInput").value = ""; $("startButton").disabled = true; });
@@ -473,34 +461,8 @@ for (const event of ["dragleave", "drop"]) $("dropZone").addEventListener(event,
 $("dropZone").addEventListener("drop", (event) => { const file = event.dataTransfer.files[0]; if (file) uploadFile(file).catch((error) => { $("formError").textContent = error.message; $("formError").classList.remove("hidden"); $("dropZone").classList.remove("hidden"); }); });
 $("startButton").addEventListener("click", () => startExtraction());
 $("detectButton").addEventListener("click", () => startExtraction("detection"));
-$("detectionReviewButton").addEventListener("click", () => openReview({kind:"detection", jobId:state.job?.id}));
-$("buildReviewedButton").addEventListener("click", () => startExtraction("graph", true));
 $("copyLog").addEventListener("click", async () => { await navigator.clipboard.writeText(state.logLines.join("\n")); showToast(t("copied")); });
-$("reviewButton").addEventListener("click", () => openReview({ jobId: state.job?.id }));
 $("refreshRuns").addEventListener("click", loadRecentRuns);
 $("runFilter").addEventListener("input", () => renderRecentRuns(window.__recentRuns || []));
-$("existingSourceInput").addEventListener("change", async () => {
-  const file = $("existingSourceInput").files[0];
-  const run = state.pendingReviewRun;
-  $("existingSourceInput").value = "";
-  if (!file || !run) return;
-  $("existingReviewError").classList.add("hidden");
-  showToast(t("sourceUploading"));
-  try {
-    const payload = await uploadDrawing(file);
-    await openReview({
-      runDir: run.run_dir, kind: run.has_graph ? "graph" : "detection",
-      uploadId: payload.upload.id,
-      raterId: "existingRaterName",
-      errorId: "existingReviewError",
-    });
-    await loadRecentRuns();
-  } catch (error) {
-    $("existingReviewError").textContent = error.message;
-    $("existingReviewError").classList.remove("hidden");
-  } finally {
-    state.pendingReviewRun = null;
-  }
-});
 
 initialise();

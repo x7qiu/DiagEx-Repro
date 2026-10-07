@@ -1,0 +1,1121 @@
+id: isa-5.1-2009.ta.3.2-p107
+version: 2
+concept: Table A.3.2 — Allowable succeeding letter combinations for output/active
+  function letters (1) (4b2) (page 107)
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: informative
+explanation: Allowable succeeding letter combinations for output/active function letters
+  (1) (4b2). Use the source table with its column headings and linked explanatory
+  notes. Blank or merged cells must not be interpreted as new definitions.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- text_assignment
+- symbol_interpretation
+- review
+tags:
+- Allowable succeeding letter combinations for output/active function letters (1)
+  (4b2)
+- A.3.2
+- identification
+- tag
+- letters
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '107'
+  pdf_page: 107
+  table: A.3.2
+  item: null
+  passage: "       Table A.3.2 — Allowable succeeding letter combinations for output/active\
+    \ function letters (1) (4b2)\n\nNote: Numbers in parentheses refer to explanatory\
+    \ notes in A.16.3.\n            First Letters          B                C    \
+    \            K      N          S                   T             U      V    \
+    \  X      Y       Z\n                                  User’s   Control  Indicate\
+    \  Record   Control            User’s           Function           Indicating\
+    \ Recording           Valve          Compute,                                \
+    \                                                  Control            Switch \
+    \          Transmit                         Multi-            Unclass-       \
+    \    Actuator,\n   Measured/Initiating Variables    Choice            Control\
+    \   Control    Valve            Choice            Modifier           Transmit\
+    \ Transmit         Damper           Convert                                  \
+    \                                                    Station                 \
+    \                                             function                ified  \
+    \             Drive\n      w/ and w/o Modifiers           (4a)    C (7)     IC\
+    \ (8)   RC (8)   CV (9)                (4a)     S      [*] (3) (4d)    T     \
+    \    IT      RT             Louver            Relay\n SZ          Speed(SIS) \
+    \               SZC     SZIC    SZRC   SZCV    NA                SZS[*]      \
+    \      SZT     NA     NA     SZU    SZV    SZX    SZY     SZZ\n  T          Temperature\
+    \                TC      TIC     TRC    TCV    TK              TS[*]]        \
+    \  TT     TIT    TRT     TU     TV      TX      TY      TZ\n TD    Temperature\
+    \ Differential           TDC     TDIC   TDRC    NA    TDK           TDS[*]   \
+    \     TDT   TDIT  TDRT   TDU    TDV    TDX    TDY    TDZ\n TF       Temperature\
+    \ Ratio              TFC     TFIC    TFRC    NA    TFK            TFS[*]     \
+    \   NA    NA    NA     TFU     TFV     TFX     TFY     TFZ\n TJ       Temperature\
+    \ Scan             NA     NA     NA     NA    NA             TJS[*]          TJT\
+    \   NA    NA     NA     NA     NA     NA     NA\n TK  Temperature Rate of Change\
+    \          TKC     TKIC    TKRC    NA    TKK           TKS[*]        NA    NA\
+    \    NA     TKU    TKV    TKX    TKY     TKZ\n TS      Temperature Safety    \
+    \         NA     NA     NA     TSV    NA         NA         NA    NA    NA   \
+    \  NA    TSV (9)   NA     NA     NA\n TZ       Temperature(SIS)              TZC\
+    \     TZIC    TZRC    NA    NA            TZS[*]         TZT   NA    NA     TZU\
+    \    TZZV    TZX     TZY     TZZ\n U            Multivariable               UC\
+    \      UIC    URC     NA    NA             US[*]         NA    NA    NA     UU\
+    \     UV     UX     UY     UZ\n UJ        Multivariable Scan             NA  \
+    \   NA     NA     NA    NA         NA         NA    NA    NA     NA     NA   \
+    \  NA     NA     NA\n UZ        Multivariable(SIS)             UZC     UZIC  \
+    \ UZRC    NA    NA            UZS[*]        NA    NA    NA    UZU    UZV    UZX\
+    \    UZY    UZZ\n  V        Vibr., Mach. Analysis             VC      VIC    VRC\
+    \     NA    VK             VS[*]          VT     VIT   VRT    VU     NA     VX\
+    \     VY     NA\n VZ          Vibration(SIS)               VZC     VZIC    VZRC\
+    \    NA    NA            VZS[*]         VZT   NA    NA    VZZU    NA     VZX \
+    \   VZY     NA\n VX         Vibration X-Axis              VXC     VXIC   VXRC\
+    \    NA    NA            VXS[*]        VXT   VXIT  VXRT   VXU    NA     VXX  \
+    \  VXY    NA\n VY         Vibration Y-Axis              VYC     VYIC   VYRC  \
+    \  NA    NA            VYS[*]        VYT   VYIT  VYRT   VYU    NA     VYX    VYY\
+    \    NA\n VZ         Vibration Z-Axis              VZC     VZIC    VZRC    NA\
+    \    NA            VZS[*]         VZT    VZIT   VZRT   VZU    NA     VZX    VZY\
+    \     NA\n VZX      Vibration X-Axis(SIS)            VZXC   VZXIC   VZXRC    NA\
+    \    NA           VZXS[*]        VZXT   NA    NA    VZXU    NA    VZXX   VZXY\
+    \    NA\n VZY      Vibration Y-Axis(SIS)            VZYC   VZYIC   VZYRC    NA\
+    \    NA           VZYS[*]        VZYT   NA    NA    VZYU    NA    VZYX   VZYY\
+    \    NA\n VZZ      Vibration Z-Axis(SIS)            VZZC    VZZIC   VZZRC    NA\
+    \    NA           VZZS[*]        VZZT   NA    NA    VZZU    NA    VZZX    VZZY\
+    \    NA\n W          Weight, Force            WC     WIC   WRC   WCV   WK    \
+    \       WS[*]        WT    WIT   WRT   WU    WV    WX    WY    WZ\n WZ       \
+    \   Force(SIS)              WZC    WZIC   WZRC    NA    NA           WZS[*]  \
+    \     WZT   NA    NA    WZU   WZV   WZX   WZY    WZZ\n WD      Weight Differential\
+    \           WDC   WDIC   WDRC    NA   WDK         WDS[*]       WDT  WDIT  WDRT\
+    \  WDU   WDV   WDX   WDY   WDZ\n WF         Weight Ratio             WFC    WFIC\
+    \   WFRC    NA   WFK          WFS[*]        NA    NA    NA    WFU   WFV   WFX\
+    \   WFY    NA\n WK      Weight Loss (Gain)           WKC    WKIC   WKRC    NA\
+    \   WKK          WKS[*]       WKT   WKIT  WKRT   WKU   WKV   WKX   WKY   WKZ\n\
+    \ WQ         Weight Total            WQC   WQIC   WQRC    NA   WQK         WQS[*]\
+    \        NA    NA    NA    WQU   WQV   WQX   WQY   WQZ\n WX         Force X Axis\
+    \             WXC    WXIC   WXRC    NA   WXK          WXS[*]       WXT   WXIT\
+    \  WXRT   WXU   WXV   WXX   WXY   WXZ\n WY         Force Y Axis             WYC\
+    \    WYIC   WYRC    NA   WYK          WYS[*]       WYT   WYIT  WYRT   WYU   WYV\
+    \   WYX   WYY   WYZ\n WZ         Force Z Axis             WZC    WZIC   WZRC \
+    \   NA   WZK          WZS[*]       WZT   WZIT  WZRT   WZU   WZV   WZX   WZY  \
+    \  WZZ\n\n\nWZX      Force X Axis(SIS)            WZXC   WZXIC  WZXRC   NA   \
+    \ NA          WZXS[*]      WZXT   NA    NA    WZXU   WZXV   WZXX   WZXY   WZXZ\n\
+    \n\n\nWZY      Force Y Axis(SIS)            WZYC   WZYIC  WZYRC   NA    NA   \
+    \       WZYS[*]      WZYT   NA    NA    WZYU   WZYV   WZYX   WZYY   WZYZ\nWZZ\
+    \      Force Z Axis(SIS)            WZZC   WZZIC  WZZRC   NA    NA          WZZS[*]\
+    \       WZZT   NA    NA    WZZU   WZZV   WZZX   WZZY   WZZZ\n  X            Unclassified\
+    \               XC      XIC    XRC     NA    XK             XS[*]          XT\
+    \     XIT   XRT    XU     XV     XX     XY     XZ\n  Y      Event, State, Presence\
+    \            YC      YIC    YRC     NA    YK             YS[*]          YT   \
+    \  YIT   YRT    YU     YV     YX     YY     YZ\n YZ        Event, State(SIS) \
+    \             YZC     YZIC    YZRC    NA    NA            YZS[*]         YZT \
+    \  NA    NA     YZU    YZV    YZX    YZY     YZZ\n  Z        Position, Dimension\
+    \              ZC      ZIC     ZRC     NA    ZK              ZS[*]          ZT\
+    \     ZIT    ZRT     ZU     ZV      ZX      ZY      ZZ\n ZZ          Position(SIS)\
+    \                ZZC     ZZIC    ZZRC    NA    NA            ZZS[*]         ZZT\
+    \   NA    NA     ZZU     ZZV     ZZX     ZZY     ZZZ\n ZX          Position X\
+    \ Axis               ZXC     ZXIC    ZXRC    NA    ZXK           ZXS[*]      \
+    \   ZXT    ZXIT   ZXRT   ZXU    ZXV    ZXX    ZXY     ZXZ"
+  image: illustrations/isa-5.1-2009/complete/page-107.png
+assets:
+- id: page-107
+  role: context
+  label: Complete technical content on page 107
+  path: illustrations/isa-5.1-2009/complete/page-107.png
+  sha256: 760b1a1558e4aed0d2ad3f7e7585ed12f5c35d65290e00dce786200996d59227
+  width: 2800
+  height: 2030
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 107
+    printed_page: '107'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 547.0
+    - 732.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 90
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p97
+  role: note
+  label: Clause A.16.3, page 97
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  sha256: b7ec4cfea46cb1b9444d0b4ffb603531b7529d52c9089278a2196523f43c1730
+  width: 2010
+  height: 2592
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 97
+    printed_page: '97'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 105.1516
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p98
+  role: note
+  label: Clause A.16.3, page 98
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p98.png
+  sha256: 0cd9d653b9062fc95e4155ae84249a1f0aeb22953a24b928162727a860100442
+  width: 2010
+  height: 195
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 98
+    printed_page: '98'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 116.6716
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 97, 98
+    pdf_page: 97
+    table: null
+    item: null
+    passage: Clause A.16.3
+    image: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  explanation: 'A.16.3 Tables A.3.1 and A.3.2 — Allowable succeeding letter combinations
+    for readout/passive and
+
+    output/active function letters and first-letters.
+
+    (1) Cells marked NA indicate not allowable combinations.
+
+    (2) First Letters are assigned according to Table A.2.
+
+    (3) Function Modifiers are added where indicated to right of alarm function combinations.
+
+    (4) Users should assign, as needed, meanings to:
+
+    (a) Users Choice Function letters [B] and [N].
+
+    (b) Readout/Passive Function blanks [C], [D], [F], [H], [J], [K], [M], [S], [T],
+    [V], [Y], and [Z].
+
+    (c) Output/Active Function blanks [A], [D], [E], [F], [G], [H], [I], [J], [L],
+    [M], [O], [P], [Q], [R],
+
+    and [W].
+
+    (d) Function Modifier blanks [A], [E], [F], [G], [I], [J], [K], [P], [Q], [T],
+    [U], [V], [W], [Y], and [Z].
+
+    (5) Readout/Passive Function [G] (glass, gauge) is used for local direct connected
+    devices, such as
+
+    flow sight glasses, level glasses, pressure gauges, thermometers weigh scales
+    and position
+
+    indicators. These devices provide a simple view of a process condition.
+
+    (a) Readout/Passive Function [I] (indicate) may continue to be used in facilities
+    where it is
+
+    currently used.
+
+    (6) Pressure rupture disc [PSE] and fusible link [TSE] apply to all sensors or
+    primary elements
+
+    intended to protect against emergency pressure or temperature conditions.
+
+    (7) The combinations in the [C] column are used for:
+
+    (a) Discrete single case instruments that do not have operator-visible indication
+    of measured
+
+    variable, setpoint, or output signal.
+
+    (b) Controller functions configured in shared display, shared control systems
+    where
+
+    indication and recording are configurable functions available on demand.
+
+    (8) The combinations in the [IC] and [RC] columns indicate the order to be followed
+    in forming the
+
+    Functional Identification of a controller device or function that also provides
+    indication or
+
+    recording.
+
+    (9) The combinations in the [CV] column indicate the order to be followed in forming
+    the Functional
+
+    Identification for self-actuated control valves.
+
+    (10) Flow safety valve [FSV] applies to valves intended to protect against an
+    emergency excess flow
+
+    or loss of flow condition. Pressure safety valve [PSV], and temperature safety
+    valve [TSV] apply
+
+    to valves intended to protect against emergency pressure and temperature conditions
+
+    (11) A self-actuated pressure valve that prevents operation of a fluid system
+    at a higher-than-desired
+
+    pressure by bleeding fluid from the system is a backpressure control valve [PCV],
+    even if the
+
+    valve is not normally used.
+
+    (a) This valve should be designated a pressure safety valve [PSV] if it protects
+    against
+
+    emergency conditions hazardous to personnel and/or equipment that are not expected
+    to arise
+
+    normally.'
+  asset_id: clause-a.16.3-p97
+text_slots: []
+interpretation:
+- Table cells are source transcriptions; retain headers and merged-cell context when
+  interpreting them. Use the image to resolve superscripts or extraction ambiguity.
+- Example tags and numbering schemes illustrate conventions; never copy them as actual
+  drawing identifiers.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-a.16.3
+  explanation: 'Explanatory notes for Table A.3.2: clause A.16.3.'
+table_data:
+- - - 'First Letters
+
+      Measured/Initiating Variables
+
+      w/ and w/o Modifiers'
+    - null
+    - B
+    - C
+    - null
+    - null
+    - null
+    - K
+    - N
+    - S
+    - null
+    - T
+    - null
+    - null
+    - U
+    - V
+    - X
+    - Y
+    - Z
+  - - null
+    - null
+    - 'User’s
+
+      Choice
+
+      (4a)'
+    - Control
+    - 'Indicate
+
+      Control'
+    - 'Record
+
+      Control'
+    - 'Control
+
+      Valve'
+    - 'Control
+
+      Station'
+    - 'User’s
+
+      Choice
+
+      (4a)'
+    - Switch
+    - 'Function
+
+      Modifier'
+    - Transmit
+    - 'Indicating
+
+      Transmit'
+    - 'Recording
+
+      Transmit'
+    - 'Multi-
+
+      function'
+    - 'Valve
+
+      Damper
+
+      Louver'
+    - 'Unclass-
+
+      ified'
+    - 'Compute,
+
+      Convert
+
+      Relay'
+    - 'Actuator,
+
+      Drive'
+  - - null
+    - null
+    - null
+    - C (7)
+    - IC (8)
+    - RC (8)
+    - CV (9)
+    - null
+    - null
+    - S
+    - '[*] (3) (4d)'
+    - T
+    - IT
+    - RT
+    - null
+    - null
+    - null
+    - null
+    - null
+  - - SZ
+    - Speed(SIS)
+    - ''
+    - SZC
+    - SZIC
+    - SZRC
+    - SZCV
+    - NA
+    - ''
+    - SZS[*]
+    - ''
+    - SZT
+    - NA
+    - NA
+    - SZU
+    - SZV
+    - SZX
+    - SZY
+    - SZZ
+  - - T
+    - Temperature
+    - ''
+    - TC
+    - TIC
+    - TRC
+    - TCV
+    - TK
+    - ''
+    - TS[*]]
+    - null
+    - TT
+    - TIT
+    - TRT
+    - TU
+    - TV
+    - TX
+    - TY
+    - TZ
+  - - TD
+    - Temperature Differential
+    - ''
+    - TDC
+    - TDIC
+    - TDRC
+    - NA
+    - TDK
+    - ''
+    - TDS[*]
+    - null
+    - TDT
+    - TDIT
+    - TDRT
+    - TDU
+    - TDV
+    - TDX
+    - TDY
+    - TDZ
+  - - TF
+    - Temperature Ratio
+    - ''
+    - TFC
+    - TFIC
+    - TFRC
+    - NA
+    - TFK
+    - ''
+    - TFS[*]
+    - null
+    - NA
+    - NA
+    - NA
+    - TFU
+    - TFV
+    - TFX
+    - TFY
+    - TFZ
+  - - TJ
+    - Temperature Scan
+    - ''
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - ''
+    - TJS[*]
+    - null
+    - TJT
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+  - - TK
+    - Temperature Rate of Change
+    - ''
+    - TKC
+    - TKIC
+    - TKRC
+    - NA
+    - TKK
+    - ''
+    - TKS[*]
+    - null
+    - NA
+    - NA
+    - NA
+    - TKU
+    - TKV
+    - TKX
+    - TKY
+    - TKZ
+  - - TS
+    - Temperature Safety
+    - ''
+    - NA
+    - NA
+    - NA
+    - TSV
+    - NA
+    - ''
+    - NA
+    - null
+    - NA
+    - NA
+    - NA
+    - NA
+    - TSV (9)
+    - NA
+    - NA
+    - NA
+  - - TZ
+    - Temperature(SIS)
+    - ''
+    - TZC
+    - TZIC
+    - TZRC
+    - NA
+    - NA
+    - ''
+    - TZS[*]
+    - null
+    - TZT
+    - NA
+    - NA
+    - TZU
+    - TZZV
+    - TZX
+    - TZY
+    - TZZ
+  - - U
+    - Multivariable
+    - ''
+    - UC
+    - UIC
+    - URC
+    - NA
+    - NA
+    - ''
+    - US[*]
+    - null
+    - NA
+    - NA
+    - NA
+    - UU
+    - UV
+    - UX
+    - UY
+    - UZ
+  - - UJ
+    - Multivariable Scan
+    - ''
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - ''
+    - NA
+    - null
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+    - NA
+  - - UZ
+    - Multivariable(SIS)
+    - ''
+    - UZC
+    - UZIC
+    - UZRC
+    - NA
+    - NA
+    - ''
+    - UZS[*]
+    - null
+    - NA
+    - NA
+    - NA
+    - UZU
+    - UZV
+    - UZX
+    - UZY
+    - UZZ
+  - - V
+    - Vibr., Mach. Analysis
+    - ''
+    - VC
+    - VIC
+    - VRC
+    - NA
+    - VK
+    - ''
+    - VS[*]
+    - null
+    - VT
+    - VIT
+    - VRT
+    - VU
+    - NA
+    - VX
+    - VY
+    - NA
+  - - VZ
+    - Vibration(SIS)
+    - ''
+    - VZC
+    - VZIC
+    - VZRC
+    - NA
+    - NA
+    - ''
+    - VZS[*]
+    - null
+    - VZT
+    - NA
+    - NA
+    - VZZU
+    - NA
+    - VZX
+    - VZY
+    - NA
+  - - VX
+    - Vibration X-Axis
+    - ''
+    - VXC
+    - VXIC
+    - VXRC
+    - NA
+    - NA
+    - ''
+    - VXS[*]
+    - null
+    - VXT
+    - VXIT
+    - VXRT
+    - VXU
+    - NA
+    - VXX
+    - VXY
+    - NA
+  - - VY
+    - Vibration Y-Axis
+    - ''
+    - VYC
+    - VYIC
+    - VYRC
+    - NA
+    - NA
+    - ''
+    - VYS[*]
+    - null
+    - VYT
+    - VYIT
+    - VYRT
+    - VYU
+    - NA
+    - VYX
+    - VYY
+    - NA
+  - - VZ
+    - Vibration Z-Axis
+    - ''
+    - VZC
+    - VZIC
+    - VZRC
+    - NA
+    - NA
+    - ''
+    - VZS[*]
+    - null
+    - VZT
+    - VZIT
+    - VZRT
+    - VZU
+    - NA
+    - VZX
+    - VZY
+    - NA
+  - - VZX
+    - Vibration X-Axis(SIS)
+    - ''
+    - VZXC
+    - VZXIC
+    - VZXRC
+    - NA
+    - NA
+    - ''
+    - VZXS[*]
+    - null
+    - VZXT
+    - NA
+    - NA
+    - VZXU
+    - NA
+    - VZXX
+    - VZXY
+    - NA
+  - - VZY
+    - Vibration Y-Axis(SIS)
+    - ''
+    - VZYC
+    - VZYIC
+    - VZYRC
+    - NA
+    - NA
+    - ''
+    - VZYS[*]
+    - null
+    - VZYT
+    - NA
+    - NA
+    - VZYU
+    - NA
+    - VZYX
+    - VZYY
+    - NA
+  - - VZZ
+    - Vibration Z-Axis(SIS)
+    - ''
+    - VZZC
+    - VZZIC
+    - VZZRC
+    - NA
+    - NA
+    - ''
+    - VZZS[*]
+    - null
+    - VZZT
+    - NA
+    - NA
+    - VZZU
+    - NA
+    - VZZX
+    - VZZY
+    - NA
+  - - W
+    - Weight, Force
+    - ''
+    - WC
+    - WIC
+    - WRC
+    - WCV
+    - WK
+    - ''
+    - WS[*]
+    - null
+    - WT
+    - WIT
+    - WRT
+    - WU
+    - WV
+    - WX
+    - WY
+    - WZ
+  - - WZ
+    - Force(SIS)
+    - ''
+    - WZC
+    - WZIC
+    - WZRC
+    - NA
+    - NA
+    - ''
+    - WZS[*]
+    - null
+    - WZT
+    - NA
+    - NA
+    - WZU
+    - WZV
+    - WZX
+    - WZY
+    - WZZ
+  - - WD
+    - Weight Differential
+    - ''
+    - WDC
+    - WDIC
+    - WDRC
+    - NA
+    - WDK
+    - ''
+    - WDS[*]
+    - null
+    - WDT
+    - WDIT
+    - WDRT
+    - WDU
+    - WDV
+    - WDX
+    - WDY
+    - WDZ
+  - - WF
+    - Weight Ratio
+    - ''
+    - WFC
+    - WFIC
+    - WFRC
+    - NA
+    - WFK
+    - ''
+    - WFS[*]
+    - null
+    - NA
+    - NA
+    - NA
+    - WFU
+    - WFV
+    - WFX
+    - WFY
+    - NA
+  - - WK
+    - Weight Loss (Gain)
+    - ''
+    - WKC
+    - WKIC
+    - WKRC
+    - NA
+    - WKK
+    - ''
+    - WKS[*]
+    - null
+    - WKT
+    - WKIT
+    - WKRT
+    - WKU
+    - WKV
+    - WKX
+    - WKY
+    - WKZ
+  - - WQ
+    - Weight Total
+    - ''
+    - WQC
+    - WQIC
+    - WQRC
+    - NA
+    - WQK
+    - ''
+    - WQS[*]
+    - null
+    - NA
+    - NA
+    - NA
+    - WQU
+    - WQV
+    - WQX
+    - WQY
+    - WQZ
+  - - WX
+    - Force X Axis
+    - ''
+    - WXC
+    - WXIC
+    - WXRC
+    - NA
+    - WXK
+    - ''
+    - WXS[*]
+    - null
+    - WXT
+    - WXIT
+    - WXRT
+    - WXU
+    - WXV
+    - WXX
+    - WXY
+    - WXZ
+  - - WY
+    - Force Y Axis
+    - ''
+    - WYC
+    - WYIC
+    - WYRC
+    - NA
+    - WYK
+    - ''
+    - WYS[*]
+    - null
+    - WYT
+    - WYIT
+    - WYRT
+    - WYU
+    - WYV
+    - WYX
+    - WYY
+    - WYZ
+  - - WZ
+    - Force Z Axis
+    - ''
+    - WZC
+    - WZIC
+    - WZRC
+    - NA
+    - WZK
+    - ''
+    - WZS[*]
+    - null
+    - WZT
+    - WZIT
+    - WZRT
+    - WZU
+    - WZV
+    - WZX
+    - WZY
+    - WZZ
+  - - WZX
+    - Force X Axis(SIS)
+    - ''
+    - WZXC
+    - WZXIC
+    - WZXRC
+    - NA
+    - NA
+    - ''
+    - WZXS[*]
+    - null
+    - WZXT
+    - NA
+    - NA
+    - WZXU
+    - WZXV
+    - WZXX
+    - WZXY
+    - WZXZ
+  - - WZY
+    - Force Y Axis(SIS)
+    - ''
+    - WZYC
+    - WZYIC
+    - WZYRC
+    - NA
+    - NA
+    - ''
+    - WZYS[*]
+    - null
+    - WZYT
+    - NA
+    - NA
+    - WZYU
+    - WZYV
+    - WZYX
+    - WZYY
+    - WZYZ
+  - - WZZ
+    - Force Z Axis(SIS)
+    - ''
+    - WZZC
+    - WZZIC
+    - WZZRC
+    - NA
+    - NA
+    - ''
+    - WZZS[*]
+    - null
+    - WZZT
+    - NA
+    - NA
+    - WZZU
+    - WZZV
+    - WZZX
+    - WZZY
+    - WZZZ
+  - - X
+    - Unclassified
+    - ''
+    - XC
+    - XIC
+    - XRC
+    - NA
+    - XK
+    - ''
+    - XS[*]
+    - null
+    - XT
+    - XIT
+    - XRT
+    - XU
+    - XV
+    - XX
+    - XY
+    - XZ
+  - - Y
+    - Event, State, Presence
+    - ''
+    - YC
+    - YIC
+    - YRC
+    - NA
+    - YK
+    - ''
+    - YS[*]
+    - null
+    - YT
+    - YIT
+    - YRT
+    - YU
+    - YV
+    - YX
+    - YY
+    - YZ
+  - - YZ
+    - Event, State(SIS)
+    - ''
+    - YZC
+    - YZIC
+    - YZRC
+    - NA
+    - NA
+    - ''
+    - YZS[*]
+    - null
+    - YZT
+    - NA
+    - NA
+    - YZU
+    - YZV
+    - YZX
+    - YZY
+    - YZZ
+  - - Z
+    - Position, Dimension
+    - ''
+    - ZC
+    - ZIC
+    - ZRC
+    - NA
+    - ZK
+    - ''
+    - ZS[*]
+    - null
+    - ZT
+    - ZIT
+    - ZRT
+    - ZU
+    - ZV
+    - ZX
+    - ZY
+    - ZZ
+  - - ZZ
+    - Position(SIS)
+    - ''
+    - ZZC
+    - ZZIC
+    - ZZRC
+    - NA
+    - NA
+    - ''
+    - ZZS[*]
+    - null
+    - ZZT
+    - NA
+    - NA
+    - ZZU
+    - ZZV
+    - ZZX
+    - ZZY
+    - ZZZ
+  - - ZX
+    - Position X Axis
+    - ''
+    - ZXC
+    - ZXIC
+    - ZXRC
+    - NA
+    - ZXK
+    - ''
+    - ZXS[*]
+    - null
+    - ZXT
+    - ZXIT
+    - ZXRT
+    - ZXU
+    - ZXV
+    - ZXX
+    - ZXY
+    - ZXZ
+catalog:
+  role: background

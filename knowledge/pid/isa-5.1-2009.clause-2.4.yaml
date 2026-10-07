@@ -1,0 +1,162 @@
+id: isa-5.1-2009.clause-2.4
+version: 2
+concept: 2.4 — Application to classes of instrumentation and to instrument functions
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '2.4 Application to classes of instrumentation and to instrument functions
+
+  2.4.1 The identification and symbolism methods provided in this standard are applicable
+  to all classes
+
+  and types of measurement and control instruments and/or functions.
+
+  2.4.2 The methods can be used for, but are not limited to, describing and identifying:
+
+  a) Discrete instruments and their functions.
+
+  b) Shared display and control functions.
+
+  c) Distributed control functions.
+
+  d) Computer control functions.
+
+  e) Programmable logic controller display and control functions.
+
+  f) Application software display and control functions.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Application to classes of instrumentation and to instrument functions
+- '2.4'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 14, 15
+  pdf_page: 14
+  table: null
+  item: null
+  passage: Clause 2.4
+  image: illustrations/isa-5.1-2009/complete/clause-2.4-p14.png
+assets:
+- id: clause-2.4-p14
+  role: context
+  label: Clause 2.4, page 14
+  path: illustrations/isa-5.1-2009/complete/clause-2.4-p14.png
+  sha256: 6ce04ac094149109435b6d32b46e06f649d964f5e0111b955b6851bf85caba20
+  width: 2010
+  height: 442
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 14
+    printed_page: '14'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 621.1498
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-14
+  role: context
+  label: Complete technical content on page 14
+  path: illustrations/isa-5.1-2009/complete/page-14.png
+  sha256: e4afec8f7e861b3baaf430c6f7934101d7f199cd5b5af6c1fd042ded1fe0d117
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 14
+    printed_page: '14'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-2.4-p15
+  role: context
+  label: Clause 2.4, page 15
+  path: illustrations/isa-5.1-2009/complete/clause-2.4-p15.png
+  sha256: dcee61537f299874e7a6abf34f3b9bcaf692d7e96357c734e2430ccfd58d9b2a
+  width: 2010
+  height: 588
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 15
+    printed_page: '15'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 211.1713
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-15
+  role: context
+  label: Complete technical content on page 15
+  path: illustrations/isa-5.1-2009/complete/page-15.png
+  sha256: 7f6409dc18b443aef14a7bb11c3ee6c143f61e8bad07e9a5c2c3c15d3a2e1337
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 15
+    printed_page: '15'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

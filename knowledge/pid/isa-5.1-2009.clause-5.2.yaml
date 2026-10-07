@@ -1,0 +1,200 @@
+id: isa-5.1-2009.clause-5.2
+version: 2
+concept: 5.2 — Tables to be used for common applications
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '5.2 Tables to be used for common applications
+
+  5.2.1 Instrumentation diagrams that represent instrumentation devices and functions
+  shall be
+
+  constructed from the symbols shown in:
+
+  a) Tables 5.1.1 and 5.1.2 — Measurement and control devices or functions.
+
+  b) Tables 5.2.1, 5.2.2, 5.2.3, and 5.2.4 — Measurement elements and transmitters.
+
+  c) Tables 5.3.1 and 5.3.2 — Lines, instrument to process or instrument to instrument.
+
+  d) Tables 5.4.1, 5.4.2, 5.4.3, and 5.4.4 — Final control elements.
+
+  e) Table 5.6 — Signal processing function blocks.
+
+  5.2.2 Functional diagrams that represent monitoring and control loops shall be constructed
+  from the
+
+  symbols shown in:
+
+  a) Table 5.5 — Functional diagramming symbols.
+
+  b) Table 5.6 — Signal processing function block symbols.
+
+  c) Table 5.7 — Binary logic symbols.
+
+  5.2.3 Binary logic diagrams that represent logic processes shall be constructed
+  from the symbols
+
+  shown in:
+
+  a) Table 5.1.1 — Measurement and control devices or functions.
+
+  b) Table 5.7 — Binary logic symbols.
+
+  5.2.4 Electrical schematics that represent electrical circuits shall be constructed
+  from the symbols
+
+  shown in:
+
+  a) Table 5.1.1 — Measurement and control devices or functions.
+
+  b) Table 5.8 — Electrical schematic symbols.
+
+  5.2.5 Symbols may be developed to show devices and functions not covered by this
+  standard or to
+
+  simplify the depiction of frequently used instrumentation. Such uses shall be fully
+  detailed by sketches or
+
+  notes on the drawing legend and detail sheets.
+
+  5.2.6 If new or revised symbols are developed they should be submitted to the ISA-5.1
+  committee for
+
+  inclusion in the next revision of this standard.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Tables to be used for common applications
+- '5.2'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 31, 32
+  pdf_page: 31
+  table: null
+  item: null
+  passage: Clause 5.2
+  image: illustrations/isa-5.1-2009/complete/clause-5.2-p31.png
+assets:
+- id: clause-5.2-p31
+  role: context
+  label: Clause 5.2, page 31
+  path: illustrations/isa-5.1-2009/complete/clause-5.2-p31.png
+  sha256: 776c31024c2455e1dc6cb0c0fd238dabc5f1dc3492fdd1722c3bb0ffc0346f86
+  width: 2010
+  height: 1264
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 31
+    printed_page: '31'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 423.9307
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-31
+  role: context
+  label: Complete technical content on page 31
+  path: illustrations/isa-5.1-2009/complete/page-31.png
+  sha256: 56f4ff5958d0706ae529d2735fd8bf69fc2d3d48b4c89d7c2097d70016007b1e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 31
+    printed_page: '31'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.2-p32
+  role: context
+  label: Clause 5.2, page 32
+  path: illustrations/isa-5.1-2009/complete/clause-5.2-p32.png
+  sha256: 0bdf4f61c8cb8b5f7285adaa93a8edb21c70c9f25b8d1d089506c10109a42f6c
+  width: 2010
+  height: 1122
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 32
+    printed_page: '32'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 339.1509
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-32
+  role: context
+  label: Complete technical content on page 32
+  path: illustrations/isa-5.1-2009/complete/page-32.png
+  sha256: 3bc0b02b017c0eb4bd9f2747f60095ff21ecd1d1c67ca257aa49974160f99989
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 32
+    printed_page: '32'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

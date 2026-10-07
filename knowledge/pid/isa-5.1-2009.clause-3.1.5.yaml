@@ -1,0 +1,101 @@
+id: isa-5.1-2009.clause-3.1.5
+version: 2
+concept: assignable
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.5 assignable:
+
+  a system feature permitting channeling or directing of a signal from one device
+  to another without the
+
+  need for changes in wiring either by means of patching, switching, or via keyboard
+  commands to the
+
+  system.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'assignable:'
+- 3.1.5
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '17'
+  pdf_page: 17
+  table: null
+  item: null
+  passage: Clause 3.1.5
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.5-p17.png
+assets:
+- id: clause-3.1.5-p17
+  role: context
+  label: Clause 3.1.5, page 17
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.5-p17.png
+  sha256: 042b69e3e622749cf61ec04b0c52a9d7b023d5320481441da193013f32863ae4
+  width: 2010
+  height: 293
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 17
+    printed_page: '17'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 585.9302
+    - 547.0
+    - 655.95
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-17
+  role: context
+  label: Complete technical content on page 17
+  path: illustrations/isa-5.1-2009/complete/page-17.png
+  sha256: 1276453e2f11fb2ce9993952712207e32a1a79d5bee02eb44bab0d8d420cd953
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 17
+    printed_page: '17'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

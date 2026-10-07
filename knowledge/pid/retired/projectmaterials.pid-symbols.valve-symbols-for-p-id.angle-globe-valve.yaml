@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.valve-symbols-for-p-id.angle-globe-valve
+version: 1
+concept: Angle Globe Valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Angle Globe Valve
+  interpretation: Projectmaterials labels this illustration ‘Angle Globe Valve’ (Valve
+    Symbols for P&ID).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Angle Globe Valve
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Angle Globe Valve’ (Valve
+  Symbols for P&ID).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Valve Symbols for P&ID
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Angle Globe Valve
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#valve-symbols-for-pid
+  section: Valve Symbols for P&ID
+assets:
+- id: symbol
+  role: variant
+  label: Angle Globe Valve
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.valve-symbols-for-p-id.angle-globe-valve.png
+  sha256: 7d3eb0b955136c7647ef7503dea40b91f91d4686267afc9f220a283a307265d1
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/ANGLE-GLOBE-VALVE-150x150.BEJn4k-I_ttgBa.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 87a3272b8516bd1e0412cd0fde5d0615ff6a819f116a305f4c70b1db9c5a6ce1
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

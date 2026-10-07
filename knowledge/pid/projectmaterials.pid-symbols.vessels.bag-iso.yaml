@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.bag-iso
+version: 2
+concept: Bag ISO
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Bag ISO
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Bag ISO’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Bag ISO
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Bag ISO’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Bag ISO
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Bag ISO
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.bag-iso.png
+  sha256: 7fbab116ba9f2ebc6d7137cfdd7d74ddafde15467c7ab89220a84cf18e7af619
+  width: 38
+  height: 53
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/bag_iso.5pjWa-AC_GbLsE.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 49b803ce310671cf70b01a8a50995e800e08e65d703229ac25ae4fa1bbd1657c
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

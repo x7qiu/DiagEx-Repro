@@ -1,0 +1,114 @@
+id: isa-5.1-2009.clause-b.1
+version: 2
+concept: B.1 — Graphic symbols
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'B.1 Graphic symbols
+
+  B.1.1 This informative annex to the standard describes the use of graphic symbols
+  that are used to
+
+  depict instrument loop devices and functions, application software functions, and
+  the
+
+  interconnections between them that is logical, unique, and consistent in application
+  with a
+
+  minimum of exceptions, special uses, or requirements.
+
+  B.1.2 Graphic symbols, when used with identification letters and numbers constructed
+  as described in
+
+  Annex A, should as a minimum describe the functionality of, and if assigned a loop
+  number
+
+  provide a unique identity for, each device and function shown.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Graphic symbols
+- B.1
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '111'
+  pdf_page: 111
+  table: null
+  item: null
+  passage: Clause B.1
+  image: illustrations/isa-5.1-2009/complete/clause-b.1-p111.png
+assets:
+- id: clause-b.1-p111
+  role: context
+  label: Clause B.1, page 111
+  path: illustrations/isa-5.1-2009/complete/clause-b.1-p111.png
+  sha256: 1ee1ce48e91476db5657be25dbbe9474ee78e360e7b32c5c75729f0c4786bee4
+  width: 2010
+  height: 632
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 111
+    printed_page: '111'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 107.4919
+    - 547.0
+    - 258.9313
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-111
+  role: context
+  label: Complete technical content on page 111
+  path: illustrations/isa-5.1-2009/complete/page-111.png
+  sha256: 3aad1f587a1152292276321cc8ecdae0cbf61cb3ccaa2e62bd71f586e6e0b70f
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 111
+    printed_page: '111'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

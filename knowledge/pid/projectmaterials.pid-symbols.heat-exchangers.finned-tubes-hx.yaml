@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.heat-exchangers.finned-tubes-hx
+version: 2
+concept: Finned Tubes HX
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Finned Tubes HX
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: Projectmaterials labels this illustration ‘Finned Tubes HX’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Finned Tubes HX
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Finned Tubes HX’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Finned Tubes HX
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#heat-exchangers-pid-symbols
+  section: Heat Exchangers P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Finned Tubes HX
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.heat-exchangers.finned-tubes-hx.png
+  sha256: 291828b4ca102d8305fde628dc9037e6c339b38762634649e223e0e3afd4b4fc
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/17_Finned-Tubes-Heat-Exchanger-PID-Symbol-5516403-150x150.CR3PsD62_ZsesVp.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: dfcab3235a0f4c923500e3b2297c1c5d32ee5e24a0cd57795f465e52f6d957e8
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

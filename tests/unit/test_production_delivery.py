@@ -13,42 +13,7 @@ from diagex.vision.page_graph import (
     PageGraphSubmission,
     validate_page_graph_submission,
 )
-from tests.unit.test_detection_review import action, setup_store
 from tests.unit.test_page_graph import _node, _page
-
-
-def test_agent_draft_keeps_pending_items_out_and_preserves_provenance(tmp_path):
-    store, _, _ = setup_store(tmp_path)
-    with pytest.raises(ValueError, match="source evidence"):
-        action(store, "confirm_detected", ids=["d1"], actor_type="agent", draft_review=True)
-    action(
-        store,
-        "confirm_detected",
-        ids=["d1"],
-        actor_type="agent",
-        draft_review=True,
-        evidence_refs=["drawing.pdf#page=1&bbox=40,60,50,130"],
-    )
-    frozen = store.snapshot(store.read()["revision"], draft=True)
-    assert frozen["review_origin"] == "agent"
-    assert len(frozen["detections"]) == 1
-    assert not frozen["legend_pack"]["entries"]
-    assert frozen["unresolved"]["unchecked_pages"] == [0]
-    assert frozen["review"]["symbols"][0]["review_provenance"]["actor_type"] == "agent"
-    from diagex.vision.fusion import fuse_objects
-    from diagex.vision.perception import DetectionRecord
-
-    graph = fuse_objects(
-        source_name="drawing.pdf",
-        pages=[],
-        detections=[DetectionRecord.model_validate(d) for d in frozen["detections"]],
-        per_page_status={0: "ok"},
-        reviewed_instances=True,
-    ).graph
-    assert graph.nodes[0].attributes["review_origin"] == "agent"
-    assert graph.nodes[0].attributes["human_reviewed"] is False
-    with pytest.raises(ValueError, match="still need review"):
-        store.snapshot(store.read()["revision"])
 
 
 def test_budget_persists_reservations_and_counts_retries(tmp_path):
@@ -127,29 +92,20 @@ def test_process_hypotheses_are_not_graph_edges():
     assert result.hypotheses[0]["status"] == "unresolved"
 
 
-def test_legend_caption_bounds_and_thumbnail_regeneration(tmp_path):
-    from tests.unit.test_detection_review import ready
-
-    store, _, _ = setup_store(tmp_path)
-    ready(store)
-    entry = store.read()["legends"][0]["entry"]
-    entry["image_b64"] = "regenerated-thumbnail"
-    action(store, "save_legend", id="legend-0", entry=entry)
-    assert store.read()["symbols"][0]["status"] == "confirmed"
-    entry.update(source_page_index=0, source_label_bbox={"x": 390, "y": 20, "w": 30, "h": 20})
-    with pytest.raises(ValueError, match="caption bounds"):
-        action(store, "save_legend", id="legend-0", entry=entry)
-    assert store.read()["symbols"][0]["status"] == "confirmed"
 
 
 def test_fresh_legend_bypasses_complete_and_partial_cache(tmp_path, monkeypatch):
+    import fitz
+
     from diagex.config import Config
     from diagex.extractors import pid_legend
     from diagex.llm.cost import CostTracker
     from diagex.vision.legend_models import LegendEntry, LegendPack
-    from tests.unit.test_detection_review import inputs
 
-    source, *_ = inputs(tmp_path)
+    source = tmp_path / "drawing.pdf"
+    with fitz.open() as document:
+        document.new_page()
+        document.save(source)
 
     def cached(*args, **kwargs):
         raise AssertionError("Fresh must not read either complete or partial machine cache")
@@ -302,8 +258,9 @@ def test_missing_usage_retains_full_reservation(tmp_path):
     "validation,strokes,expected",
     [("accept", ["distinct outline"], 1), ("accept", [], 0), ("reject", ["pipeline"], 0)],
 )
+@pytest.mark.parametrize("workflow", ["fixed", "adaptive"])
 def test_discovery_requires_independent_source_glyph_validation(
-    monkeypatch, validation, strokes, expected
+    monkeypatch, validation, strokes, expected, workflow
 ):
     from PIL import Image
 
@@ -365,7 +322,8 @@ def test_discovery_requires_independent_source_glyph_validation(
         ownership_bbox=box,
         region_provider=lambda *args: (Image.new("RGB", (500, 320), "white"), view(box)),
     )
-    module._validate_discoveries(outcome, kwargs, SymbolPerceptionConfig(workflow="adaptive"))
+    monkeypatch.setattr(module, "_perceive_tile", lambda **kw: outcome)
+    module.perceive_tile(**kwargs, policy=SymbolPerceptionConfig(workflow=workflow))
     assert len(calls) == 1
     assert len(outcome.detections) == expected
     if expected:

@@ -1,0 +1,140 @@
+id: sht-3101-2017.t4.9-19
+version: 1
+concept: V锥式流量元件 / V-cone flow element
+catalog:
+  role: catalog
+  category: measurement
+  short_name: V锥式流量元件
+  interpretation: V锥式流量元件 / V-cone flow element. Defined by SH/T 3101:2017, Table 4.9, item 19. Interpret
+    this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI describe
+    the illustrated function, not actual instrument tag numbers.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids:
+  - sht-3101-2017.letter-rules
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- V锥式流量元件
+- V-cone flow element
+reference_type: symbol
+kind: definition
+explanation: V锥式流量元件 / V-cone flow element. Defined by SH/T 3101:2017, Table 4.9, item 19. Interpret this
+  as a primary measurement element in context. Internal letters such as M, C, ΔT or FI describe the illustrated
+  function, not actual instrument tag numbers.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- V锥式流量元件
+- V-cone flow element
+- measurement
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '16'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.9-19/context.png
+  document_id: sht-3101-2017
+  pdf_page: 20
+  table: '4.9'
+  item: '19'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.9-19/context.png
+  sha256: e5dce7bbcb9a60a10ded2b3cee61e99526eb62c5f793865b4757c01b1cc60add
+  width: 913
+  height: 96
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 20
+    printed_page: '16'
+    table: '4.9'
+    item: '19'
+    rect:
+    - 114.0
+    - 779.0
+    - 1027.0
+    - 875.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.9-19/primary.png
+  sha256: 4b05c3a087bef1408c46e738a7c1e35d9629a4d6fb74c1be0248a7f6328f73e4
+  width: 132
+  height: 68
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 20
+    printed_page: '16'
+    table: '4.9'
+    item: '19'
+    rect:
+    - 460.0
+    - 801.0
+    - 592.0
+    - 869.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.9-19/variants.png
+  sha256: 2a4231671352b74847d65730092794411de329a56895999a666b7b6e0d72edff
+  width: 220
+  height: 118
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '16'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 20
+    table: '4.9'
+    item: '19'
+  explanation: Interpret this as a primary measurement element in context. Internal letters such as M,
+    C, ΔT or FI describe the illustrated function, not actual instrument tag numbers.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- Interpret this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI
+  describe the illustrated function, not actual instrument tag numbers.
+relations: []

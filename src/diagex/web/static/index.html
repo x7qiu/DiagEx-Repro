@@ -1,22 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DiagEx Workbench</title>
+  <title>DiagEx 提取工作台</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
   <header class="app-header">
     <div>
       <div class="brand"><span class="brand-mark">D</span><strong>DiagEx</strong></div>
-      <p data-i18n="subtitle">P&amp;ID extraction and human review workbench</p>
+      <p data-i18n="subtitle">P&amp;ID 提取工作台</p>
     </div>
     <div class="header-actions">
-      <span id="serverStatus" class="status-dot"><i></i><span data-i18n="connecting">Connecting</span></span>
-      <select id="languageSwitch" aria-label="Language">
+      <a href="/knowledge">知识库</a>
+      <span id="serverStatus" class="status-dot"><i></i><span data-i18n="connecting">正在连接</span></span>
+      <select id="languageSwitch" aria-label="界面语言">
         <option value="en">English</option>
-        <option value="zh-CN">中文</option>
+        <option value="zh-CN" selected>中文</option>
       </select>
     </div>
   </header>
@@ -24,13 +25,13 @@
   <main class="shell">
     <section class="intro">
       <div>
-        <span class="eyebrow" data-i18n="localWorkbench">LOCAL WORKBENCH</span>
-        <h1 data-i18n="title">Turn a P&amp;ID into an editable engineering graph</h1>
-        <p data-i18n="intro">Configure the models, upload a drawing, run extraction, then open the result directly in human review.</p>
+        <span class="eyebrow" data-i18n="localWorkbench">本地工作台</span>
+        <h1 data-i18n="title">将 P&amp;ID 转换为可编辑的工程关系图</h1>
+        <p data-i18n="intro">配置模型、上传图纸并运行提取，保存结果到输出目录。</p>
       </div>
       <div class="privacy-note">
-        <strong data-i18n="credentialsStayLocal">Credentials are not saved</strong>
-        <span data-i18n="credentialsDetail">Keys are sent only to the selected API endpoint and are never saved to .env or run artifacts.</span>
+        <strong data-i18n="credentialsStayLocal">凭证不会被保存</strong>
+        <span data-i18n="credentialsDetail">密钥仅保留在当前服务进程中并发送至所选 API 地址，不会写入 .env 或运行产物。</span>
       </div>
     </section>
 
@@ -38,11 +39,37 @@
       <article class="card settings-card">
         <div class="card-heading">
           <span class="step">1</span>
-          <div><h2 data-i18n="configure">Configure extraction</h2><p data-i18n="configureHint">Choose the provider and models used for this run.</p></div>
+          <div><h2 data-i18n="configure">配置提取任务</h2><p data-i18n="configureHint">选择本次运行使用的服务商和模型。</p></div>
+        </div>
+        <div class="form-grid model-controls">
+          <label class="wide">
+            <span data-i18n="modelSetup">AI model setup</span>
+            <select id="modelPolicy">
+              <option value="deepseek-flash" data-i18n="deepseekSetup">DeepSeek (default)</option>
+              <option value="production-open-weight" data-i18n="qwenSetup">Open weight model</option>
+              <option value="evaluation" data-i18n="customSetup">Choose my own models</option>
+            </select>
+            <small id="modelPolicyHint">Uses DeepSeek V4.1 Flash to read symbols, interpret connections, and recheck uncertain details.</small>
+          </label>
+          <div id="cvControls">
+            <label class="wide">
+              <span data-i18n="cvMode">Symbol detection</span>
+              <select id="cvMode">
+                <option value="off" data-i18n="cvOff">AI model with PDF text and lines (default)</option>
+                <option value="guided" data-i18n="cvGuided">CV-guided AI detection</option>
+                <option value="broad_review" data-i18n="cvOn">CV detection, then AI interpretation</option>
+              </select>
+              <small data-i18n="cvHint">The trained detector finds likely symbols first. The AI model interprets them using the legend. Review the symbols before building connections.</small>
+            </label>
+            <div id="cvSettings" class="hidden">
+              <label class="wide"><span data-i18n="cvCheckpoint">Trained detector file (.pt)</span><input id="cvCheckpoint" type="text" spellcheck="false" placeholder="/path/to/detector.pt"><small data-i18n="cvCheckpointHint">Path on the machine running this server. Uses the configured checkpoint when provided.</small></label>
+              <label><span data-i18n="cvDevice">Run the symbol detector on</span><select id="cvDevice"><option value="cpu" data-i18n="cpuDevice">Computer processor (CPU)</option><option value="mps" data-i18n="appleDevice">Apple graphics processor</option><option value="cuda" data-i18n="nvidiaDevice">NVIDIA graphics card</option></select></label>
+            </div>
+          </div>
         </div>
         <div class="form-grid">
           <label>
-            <span data-i18n="provider">Provider</span>
+            <span data-i18n="provider">服务商</span>
             <select id="provider">
               <option value="openrouter">OpenRouter</option>
               <option value="kimi">Kimi</option>
@@ -51,50 +78,50 @@
             </select>
           </label>
           <label id="baseUrlField">
-            <span data-i18n="baseUrl">API endpoint</span>
+            <span data-i18n="baseUrl">API 地址</span>
             <input id="baseUrl" type="url" spellcheck="false" autocomplete="off">
           </label>
           <label class="wide">
-            <span data-i18n="apiKey">API key</span>
+            <span data-i18n="apiKey">API 密钥</span>
             <div class="password-wrap">
               <input id="apiKey" type="password" autocomplete="off" data-i18n-placeholder="apiKeyPlaceholder" placeholder="Leave blank to use the configured environment key">
-              <button id="toggleKey" class="icon-button" type="button" data-i18n="show">Show</button>
+              <button id="toggleKey" class="icon-button" type="button" data-i18n="show">显示</button>
             </div>
             <small id="keyStatus"></small>
           </label>
           <label class="wide">
-            <span data-i18n="visionModel">Vision model</span>
+            <span data-i18n="visionModel">识读符号的 AI 模型</span>
             <input id="visionModel" list="modelSuggestions" spellcheck="false" autocomplete="off" placeholder="provider/model-slug">
-            <small data-i18n="visionHint">Used for raw symbol detection. Enable reasoning below for difficult symbols.</small>
+            <small data-i18n="visionHint">用于原始符号识别；可在下方启用推理，帮助识别困难符号。</small>
           </label>
           <label class="wide">
-            <span data-i18n="reasoningModel">Reasoning model</span>
+            <span data-i18n="reasoningModel">解释连接关系的 AI 模型</span>
             <input id="reasoningModel" list="modelSuggestions" spellcheck="false" autocomplete="off" placeholder="Same as vision model when blank">
-            <small data-i18n="reasoningModelHint">Used for page-level relationship and cross-sheet reasoning.</small>
+            <small data-i18n="reasoningModelHint">用于整页关系和跨页连接推理。</small>
           </label>
           <label>
-            <span data-i18n="reasoning">Reasoning</span>
+            <span data-i18n="reasoning">对不确定的符号追加检查</span>
             <select id="reasoningMode">
-              <option value="auto" data-i18n="automatic">Automatic</option>
-              <option value="enabled" data-i18n="enabled">Enabled</option>
-              <option value="disabled" data-i18n="disabled">Disabled</option>
+              <option value="auto" data-i18n="automatic">自动</option>
+              <option value="enabled" data-i18n="enabled">启用</option>
+              <option value="disabled" data-i18n="disabled">禁用</option>
             </select>
-            <small data-i18n="reasoningHint">Symbol detection starts with a fast pass. Enabled allows one reasoning check for uncertain symbols, with time limits.</small>
+            <small data-i18n="reasoningHint">符号识别先进行快速检测；启用推理后，使用放大细节对不确定或被排除的符号及易混淆设备追加一次限时检查。</small>
           </label>
           <label>
-            <span data-i18n="effort">Reasoning effort</span>
+            <span data-i18n="effort">连接关系推理强度</span>
             <select id="effort">
-              <option value="low" data-i18n="low">Low</option>
-              <option value="medium" data-i18n="medium">Medium</option>
-              <option value="high" data-i18n="high">High</option>
-              <option value="xhigh" data-i18n="xhigh">Extra high</option>
+              <option value="low" data-i18n="low">低</option>
+              <option value="medium" data-i18n="medium">中</option>
+              <option value="high" data-i18n="high">高</option>
+              <option value="xhigh" data-i18n="xhigh">超高</option>
             </select>
           </label>
           <label>
-            <span data-i18n="engine">Extraction engine</span>
+            <span data-i18n="engine">提取流程</span>
             <select id="engine">
-              <option value="evidence-v2">Evidence v2</option>
-              <option value="legacy">Legacy</option>
+              <option value="evidence-v2" data-i18n="currentWorkflow">Current workflow</option>
+              <option value="legacy" data-i18n="olderWorkflow">Older workflow</option>
             </select>
           </label>
         </div>
@@ -107,51 +134,86 @@
         </datalist>
       </article>
 
+      <section id="drawingContext" class="card context-panel">
+        <h2>图纸背景</h2>
+        <p>使用已确认的项目约定辅助识读；未知项可留空。</p>
+        <div class="context-layout">
+          <div class="context-settings">
+            <label class="wide"><span>参考知识</span><select id="knowledgeMode"><option value="off">不使用</option><option value="general">所选参考来源</option><option value="profile">所选来源及项目背景</option></select></label>
+            <fieldset id="knowledgeSources" class="knowledge-sources">
+              <legend>本次提取参考来源</legend>
+              <label><input type="checkbox" value="isa-5.1-2009"> ISA 5.1:2009</label>
+              <label><input type="checkbox" value="sht-3101-2017"> SH/T 3101-2017</label>
+              <label><input type="checkbox" value="projectmaterials.pid-symbols" checked>网站</label>
+              <p class="hint">可多选；所选标准版本用于本次提取，项目中的冲突版本及单页例外仍优先，图纸图例始终优先。</p>
+              <p id="knowledgeSourceStatus" role="status"></p>
+            </fieldset>
+            <div id="contextProfileFields" class="hidden">
+              <label class="wide"><span>已保存项目</span><select id="contextProfile"><option value="">新建</option></select></label>
+              <label class="wide"><span>名称</span><input id="contextName" maxlength="160"></label>
+              <div id="contextKnownFields"></div>
+              <label class="wide"><span>优先参考条目 (optional)</span><select id="contextReferences" multiple></select><small>优先选择不会改变适用条件。</small></label>
+              <button id="suggestContext" type="button" class="secondary">从文档建议</button>
+              <div id="contextSuggestions"></div>
+              <button id="confirmContext" type="button" class="secondary">确认并保存</button>
+              <p id="contextStatus" role="status"></p>
+              <details><summary>本图或单页例外</summary>
+                <p>Checked fields replace the project value for these pages, including an empty value. Unchecked fields inherit the project profile.</p>
+                <label class="wide"><span>页码 (e.g. 1,3-5; blank = all)</span><input id="contextPages"></label>
+                <div id="contextOverrideFields"></div>
+              </details>
+            </div>
+            <div class="form-grid process-context">
+              <label class="wide"><span>工艺说明（可选）</span><textarea id="processOverview" rows="3" maxlength="40000" placeholder="填写原料、工艺及系统说明"></textarea></label>
+              <label class="wide"><span>工程规则（可选）</span><textarea id="engineeringRules" rows="3" maxlength="40000" placeholder="填写辅助核查连接关系的工程规则"></textarea></label>
+            </div>
+          </div>
+          <div class="context-library">
+            <h3>适用参考</h3>
+            <a id="browseContextLibrary" href="/knowledge" target="_blank" rel="noopener">浏览知识库 ↗</a>
+            <p>浏览不会更改项目背景，各提取阶段按需检索适用条目。</p>
+            <label id="referencePreviewPageField" class="hidden">查看页码<input id="referencePreviewPage" type="number" min="1" step="1" value="1"></label>
+            <p id="applicableReferenceStatus" role="status">正在加载…</p>
+            <div id="applicableReferences"></div>
+            <details id="otherReferencesDetails"><summary id="otherReferencesSummary">其他参考</summary><div id="otherReferences"></div></details>
+          </div>
+        </div>
+        <p id="contextError" role="alert"></p>
+      </section>
+
       <article class="card source-card">
-        <label class="wide">
-          <span>Model profile / 模型方案</span>
-          <select id="modelPolicy">
-            <option value="deepseek-flash">DeepSeek V4.1 Flash (default / 默认)</option>
-            <option value="production-open-weight">Open-weight production profile / 开放权重方案</option>
-            <option value="evaluation">Custom evaluation models / 自定义评测模型</option>
-          </select>
-          <small id="modelPolicyHint">DeepSeek V4.1 Flash handles vision, reasoning, and bounded source reinspection.</small>
-        </label>
-        <label class="wide"><span>Process overview / 工艺说明（可选）</span><textarea id="processOverview" rows="3" maxlength="40000" placeholder="Source and process description"></textarea></label>
-        <label class="wide"><span>Engineering rules / 工程规则（可选）</span><textarea id="engineeringRules" rows="3" maxlength="40000" placeholder="Used to propose connections for source inspection"></textarea></label>
         <div class="card-heading">
           <span class="step">2</span>
-          <div><h2 data-i18n="chooseDrawing">Choose the drawing</h2><p data-i18n="chooseDrawingHint">PDF is recommended; vector PDFs give the strongest line evidence.</p></div>
+          <div><h2 data-i18n="chooseDrawing">选择图纸</h2><p data-i18n="chooseDrawingHint">建议使用 PDF；矢量 PDF 可提供更可靠的线条证据。</p></div>
         </div>
         <label id="dropZone" class="drop-zone">
           <input id="fileInput" type="file" accept="application/pdf,image/png,image/jpeg,image/tiff">
           <span class="upload-icon">⇧</span>
-          <strong data-i18n="dropDrawing">Drop a P&amp;ID here</strong>
-          <span data-i18n="orBrowse">or click to choose a file</span>
+          <strong data-i18n="dropDrawing">将 P&amp;ID 拖到这里</strong>
+          <span data-i18n="orBrowse">或点击选择文件</span>
           <small>PDF · PNG · JPEG · TIFF</small>
         </label>
-        <div id="reviewedBuild" class="hidden"><strong data-i18n="reviewedBuildTitle">Build graph from reviewed symbols</strong><p data-i18n="reviewedBuildHint">Uses the saved legend and symbol decisions. Check the model settings, then start the graph build.</p><button id="buildReviewedButton" class="primary" type="button" data-i18n="buildReviewed">Build reviewed graph</button></div>
         <div id="uploadProgress" class="upload-progress hidden"><div></div></div>
         <div id="fileSummary" class="file-summary hidden">
           <div class="file-icon">PDF</div>
           <div><strong id="fileName"></strong><span id="fileSize"></span></div>
-          <button id="replaceFile" class="quiet" type="button" data-i18n="replace">Replace</button>
+          <button id="replaceFile" class="quiet" type="button" data-i18n="replace">更换</button>
         </div>
 
         <fieldset class="run-mode">
-          <legend data-i18n="artifactReuse">Artifact reuse</legend>
+          <legend data-i18n="artifactReuse">产物复用</legend>
           <label class="choice-card">
             <input type="radio" name="runMode" value="reuse" checked>
-            <span><strong data-i18n="reuseArtifacts">Resume compatible artifacts</strong><small data-i18n="reuseHint">Continue an interrupted matching run when possible.</small></span>
+            <span><strong data-i18n="reuseArtifacts">复用兼容产物</strong><small data-i18n="reuseHint">如存在匹配的中断任务，则从检查点继续。</small></span>
           </label>
           <label class="choice-card">
             <input type="radio" name="runMode" value="fresh">
-            <span><strong data-i18n="startFresh">Start a brand-new run</strong><small data-i18n="freshHint">Bypass machine legend and symbol caches; preserve reviewed artifacts.</small></span>
+            <span><strong data-i18n="startFresh">开始全新运行</strong><small data-i18n="freshHint">跳过机器图例和符号缓存。</small></span>
           </label>
         </fieldset>
-        <button id="detectButton" class="primary" type="button" data-i18n="detectSymbols">Detect legends &amp; symbols</button>
+        <button id="detectButton" class="primary" type="button" data-i18n="detectSymbols">Detect legends &amp;amp; symbols</button>
         <p data-i18n="detectHint">Stop before graph construction. Review the legend and symbols first.</p>
-        <button id="startButton" class="primary large" type="button" disabled><span data-i18n="startExtraction">Start extraction</span><b>→</b></button>
+        <button id="startButton" class="primary large" type="button" disabled><span data-i18n="startExtraction">开始提取</span><b>→</b></button>
         <div id="formError" class="message error hidden"></div>
       </article>
     </section>
@@ -159,16 +221,16 @@
     <section id="runSection" class="card run-card hidden">
       <div class="run-heading">
         <div>
-          <span id="jobState" class="pill running" data-i18n="queued">Queued</span>
-          <h2 id="jobTitle" data-i18n="extractionProgress">Extraction progress</h2>
+          <span id="jobState" class="pill running" data-i18n="queued">排队中</span>
+          <h2 id="jobTitle" data-i18n="extractionProgress">提取进度</h2>
           <p id="jobSubtitle"></p>
         </div>
-        <div class="run-time"><span data-i18n="elapsed">Elapsed</span><strong id="elapsedTime">00:00</strong></div>
+        <div class="run-time"><span data-i18n="elapsed">已用时间</span><strong id="elapsedTime">00:00</strong></div>
       </div>
       <div id="activityBar" class="activity-bar"><div></div></div>
       <div class="log-toolbar">
-        <strong data-i18n="liveLog">Live extraction log</strong>
-        <div><label><input id="autoScroll" type="checkbox" checked> <span data-i18n="autoScroll">Auto-scroll</span></label><button id="copyLog" class="quiet" type="button" data-i18n="copy">Copy</button></div>
+        <strong data-i18n="liveLog">实时提取日志</strong>
+        <div><label><input id="autoScroll" type="checkbox" checked> <span data-i18n="autoScroll">自动滚动</span></label><button id="copyLog" class="quiet" type="button" data-i18n="copy">复制</button></div>
       </div>
       <pre id="jobLog" class="job-log"></pre>
       <div id="jobError" class="message error hidden"></div>
@@ -177,32 +239,26 @@
     <section id="resultSection" class="card result-card hidden">
       <div class="result-heading">
         <div class="result-check">✓</div>
-        <div><h2 data-i18n="extractionFinished">Extraction finished</h2><p id="resultSummary"></p></div>
+        <div><h2 data-i18n="extractionFinished">提取已完成</h2><p id="resultSummary"></p></div>
         <span id="qualityBadge" class="pill"></span>
       </div>
       <div id="metricGrid" class="metric-grid"></div>
-      <div class="run-path"><span data-i18n="runDirectory">Run directory</span><code id="runPath"></code></div>
-      <div class="review-row">
-        <label><span data-i18n="reviewerName">Reviewer name</span><input id="raterName" autocomplete="name" placeholder="Engineer"></label>
-        <button id="detectionReviewButton" class="primary" type="button" data-i18n="reviewSymbols">Review legends &amp; symbols</button><button id="reviewButton" class="primary large" type="button"><span data-i18n="openReview">Open human review</span><b>↗</b></button>
-      </div>
-      <div id="reviewError" class="message error hidden"></div>
+      <div class="run-path"><span data-i18n="runDirectory">运行目录</span><code id="runPath"></code></div>
+      <a id="viewRunButton" class="primary view-run" hidden>View results</a>
     </section>
 
     <section id="recentSection" class="card recent-card hidden">
-      <div class="card-heading compact"><div><h2 data-i18n="recentRuns">Open an existing run</h2><p data-i18n="recentRunsHint">Review any extraction in the configured runs directory without rerunning it.</p></div></div>
+      <div class="card-heading compact"><div><h2 data-i18n="recentRuns">已保存的运行</h2><p data-i18n="recentRunsHint">查找已保存的提取结果和输出目录。</p></div></div>
       <div class="existing-run-toolbar">
-        <label><span data-i18n="filterRuns">Find a run</span><input id="runFilter" type="search" data-i18n-placeholder="filterRunsPlaceholder" placeholder="Drawing, run ID, or model"></label>
-        <label><span data-i18n="reviewerName">Reviewer name</span><input id="existingRaterName" autocomplete="name" placeholder="Engineer"></label>
-        <button id="refreshRuns" class="quiet" type="button" data-i18n="refreshRuns">Refresh runs</button>
+        <label><span data-i18n="filterRuns">查找运行</span><input id="runFilter" type="search" data-i18n-placeholder="filterRunsPlaceholder" placeholder="Drawing, run ID, or model"></label>
+        <button id="refreshRuns" class="quiet" type="button" data-i18n="refreshRuns">刷新运行列表</button>
       </div>
-      <input id="existingSourceInput" class="hidden" type="file" accept="application/pdf,image/png,image/jpeg,image/tiff">
-      <div id="existingReviewError" class="message error hidden"></div>
       <div id="recentRuns" class="recent-runs"></div>
     </section>
   </main>
 
   <div id="toast" role="status" aria-live="polite"></div>
   <script src="/static/app.js"></script>
+  <script src="/static/context.js"></script>
 </body>
 </html>

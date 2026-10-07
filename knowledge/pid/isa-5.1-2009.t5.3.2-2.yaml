@@ -1,0 +1,309 @@
+id: isa-5.1-2009.t5.3.2-2
+version: 3
+concept: Instrument electric power supply
+aliases: []
+reference_type: line_style
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Instrument electric power supply. • Indicate voltage and type as required,
+  e.g. ES-220 Vac. • ES may be replaced by 24 Vdc, 120 Vac, etc.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'Line symbols: instrument-to-instrument connections'
+- 5.3.2
+- Instrument electric power supply
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '46'
+  pdf_page: 46
+  table: 5.3.2
+  item: '2'
+  passage: 'Table 5.3.2, item 2: • Instrument electric power supply. • Indicate voltage
+    and type as required, e.g. ES-220 Vac. • ES may be replaced by 24 Vdc, 120 Vac,
+    etc.'
+  image: illustrations/isa-5.1-2009/complete/t5.3.2-2-context.png
+assets:
+- id: t5.3.2-2-context
+  role: context
+  label: 'Complete row: Table 5.3.2, item 2'
+  path: illustrations/isa-5.1-2009/complete/t5.3.2-2-context.png
+  sha256: c9ad501a3310892557e015fbf9f486cd9ea9523932737568df7182ada47c513f
+  width: 1960
+  height: 188
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: 5.3.2
+    item: '2'
+    rect:
+    - 70.8125
+    - 174.74
+    - 541.1275
+    - 219.76
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-46
+  role: context
+  label: Complete technical content on page 46
+  path: illustrations/isa-5.1-2009/complete/page-46.png
+  sha256: 98c3174bee7f386b11be360d7e6edcdf06140695374a6f8d1c1324a33a53b517
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.3.2-2-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.3.2-2-panel-1.png
+  sha256: 567362f0a7d37ece6d7aac12c3f4fe29e650e699a48f4db6b0e8c3653c41b3fc
+  width: 445
+  height: 174
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: 5.3.2
+    item: '2'
+    rect:
+    - 108.68
+    - 176.54
+    - 215.14
+    - 217.96
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.3-p33
+  role: note
+  label: Clause 5.3.3, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.3-p33.png
+  sha256: de79abf0334898ef01fd5c2907db502340dcd9d510fac339e1d4bacc563097c2
+  width: 2010
+  height: 447
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 620.1298
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.3-p34
+  role: note
+  label: Clause 5.3.3, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.3-p34.png
+  sha256: 371509e218f1a8c8b4a2b9c033fe079c94320edc2c6bc9d6b5a5cded281f5e4c
+  width: 2010
+  height: 1070
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 326.671
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.3.2-2-variants.png
+  sha256: 157ddcd1cf6c741bd1abf8821ed76360fd32d624c29cfd01c3bbb886a4c8fc49
+  width: 1000
+  height: 239
+  derived_from:
+  - t5.3.2-2-panel-1
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.3.2-2-panel-1
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.3.2-2.catalog-t5.3.2-2-panel-1.png
+  sha256: 6c96c037c20128c27597271eff338a52e7da7b801d69d7cb91938e4932383ea2
+  width: 317
+  height: 46
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: 5.3.2
+    item: '2'
+    rect:
+    - 126.96
+    - 188.88
+    - 203.04
+    - 199.92
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations:
+    - text: (1)
+      rect:
+      - 110.03975677490234
+      - 179.0491485595703
+      - 119.76577758789062
+      - 187.02914428710938
+      reason: source_note_reference
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.3.2-2.sheet.png
+  sha256: 2e6829e640fd8df7a6793ac191545ce7580317c838327d3cb1324fe957f4d0a2
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.3.2-2-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 33, 34
+    pdf_page: 33
+    table: null
+    item: null
+    passage: Clause 5.3.3
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.3-p33.png
+  explanation: '5.3.3 Tables 5.3.1 and 5.3.2 — Line symbols:
+
+    (1) Power supplies shall be shown when:
+
+    (a) Different from those normally used, e.g., 120 Vdc when normal is 24 Vdc.
+
+    (b) When a device requires an independent power supply.
+
+    (c) Affected by controller or switch actions.
+
+    (2) Arrows shall be used if needed to clarify direction of signal flow.
+
+    (3) Users engineering and design standards, practices and/or guidelines shall
+    document which
+
+    symbol has been selected.
+
+    (4) The line symbols connect devices and functions that are integral parts of
+    dedicated systems,
+
+    such as distributed control systems (DCS), programmable logic controllers (PLC),
+    personal computer
+
+    systems (PC), and computer control systems (CCS) over a dedicated communication
+    link.
+
+    (5) The line symbols connect independent microprocessor-based and computer-based
+    systems to
+
+    each other over a dedicated communications link, using but not limited to the
+    RS232 protocol.
+
+    (6) The line symbols connect “intelligent” devices, such as microprocessor-based
+    transmitters and
+
+    control valve positioners that contain control functionality, to other such devices
+    and to the
+
+    instrumentation system, using but not limited to Ethernet fieldbus protocols.
+
+    (7) The line symbols connect “smart” devices, such as transmitters, to instrumentation
+    system input
+
+    signal terminals and provide a superimposed digital signal that is used for instrument
+    diagnostics and
+
+    calibration.'
+  asset_id: clause-5.3.3-p33
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+- Distinguish process connections, instrument signals, and line crossings using the
+  stated application and drawing legend.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.3
+  explanation: 'Explanatory notes for Table 5.3.2: clause 5.3.3.'
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: Instrument electric power supply
+  interpretation: Instrument electric power supply. Indicate voltage and type as required,
+    e.g. ES-220 Vac. ES may be replaced by 24 Vdc, 120 Vac, etc.
+  displayed_asset_ids:
+  - catalog-t5.3.2-2-panel-1
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.3

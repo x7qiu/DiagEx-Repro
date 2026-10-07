@@ -1,0 +1,140 @@
+id: sht-3101-2017.t4.9-22
+version: 1
+concept: 超声波式流量元件 / Ultrasonic flow element
+catalog:
+  role: catalog
+  category: measurement
+  short_name: 超声波式流量元件
+  interpretation: 超声波式流量元件 / Ultrasonic flow element. Defined by SH/T 3101:2017, Table 4.9, item 22. Interpret
+    this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI describe
+    the illustrated function, not actual instrument tag numbers.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids:
+  - sht-3101-2017.letter-rules
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 超声波式流量元件
+- Ultrasonic flow element
+reference_type: symbol
+kind: definition
+explanation: 超声波式流量元件 / Ultrasonic flow element. Defined by SH/T 3101:2017, Table 4.9, item 22. Interpret
+  this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI describe the
+  illustrated function, not actual instrument tag numbers.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 超声波式流量元件
+- Ultrasonic flow element
+- measurement
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '16'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.9-22/context.png
+  document_id: sht-3101-2017
+  pdf_page: 20
+  table: '4.9'
+  item: '22'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.9-22/context.png
+  sha256: 6902563f2be6ab57bd7b2b0837034dd7d0ba6f1b444a429de4807e7deecf3a71
+  width: 913
+  height: 95
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 20
+    printed_page: '16'
+    table: '4.9'
+    item: '22'
+    rect:
+    - 114.0
+    - 1035.0
+    - 1027.0
+    - 1130.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.9-22/primary.png
+  sha256: 708bf55d1d117489ebfc08c06b8af3e80b68a2c896c0c7566e5972ac32cc7149
+  width: 161
+  height: 71
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 20
+    printed_page: '16'
+    table: '4.9'
+    item: '22'
+    rect:
+    - 432.0
+    - 1054.0
+    - 593.0
+    - 1125.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.9-22/variants.png
+  sha256: 2913668a8d53ce9abb15eca912aec14ad26cb554a3f039c435200ece5169b377
+  width: 220
+  height: 121
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '16'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 20
+    table: '4.9'
+    item: '22'
+  explanation: Interpret this as a primary measurement element in context. Internal letters such as M,
+    C, ΔT or FI describe the illustrated function, not actual instrument tag numbers.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- Interpret this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI
+  describe the illustrated function, not actual instrument tag numbers.
+relations: []

@@ -1,0 +1,282 @@
+id: isa-5.1-2009.t5.4.2-21
+version: 3
+concept: Pilot actuated relief or safety valve actuator
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Pilot actuated relief or safety valve actuator. • Pilot pressure sensing
+  line deleted if sensing is internal.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Final control element actuator symbols
+- 5.4.2
+- Pilot actuated relief or safety valve actuator
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '51'
+  pdf_page: 51
+  table: 5.4.2
+  item: '21'
+  passage: 'Table 5.4.2, item 21: • Pilot actuated relief or safety valve actuator.
+    • Pilot pressure sensing line deleted if sensing is internal.'
+  image: illustrations/isa-5.1-2009/complete/t5.4.2-21-context.png
+assets:
+- id: t5.4.2-21-context
+  role: context
+  label: 'Complete row: Table 5.4.2, item 21'
+  path: illustrations/isa-5.1-2009/complete/t5.4.2-21-context.png
+  sha256: a54e6b99b168f4c6db7dfee7770492269ae87b35bc9252ee587b58d482c2bf69
+  width: 1961
+  height: 217
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 51
+    printed_page: '51'
+    table: 5.4.2
+    item: '21'
+    rect:
+    - 70.9891
+    - 573.44
+    - 541.2509
+    - 625.36
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-51
+  role: context
+  label: Complete technical content on page 51
+  path: illustrations/isa-5.1-2009/complete/page-51.png
+  sha256: dc0e9b872f876e8fd6a8f70924651964f7003077c55f95a2161ebecd9547d96d
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 51
+    printed_page: '51'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.4.2-21-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.4.2-21-panel-1.png
+  sha256: 176fa24bf6b8916b3d80fe618c4ad15f09b55eed0581fe7b20fda6a0f3bf9cf1
+  width: 445
+  height: 203
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 51
+    printed_page: '51'
+    table: 5.4.2
+    item: '21'
+    rect:
+    - 108.86
+    - 575.24
+    - 215.32
+    - 623.56
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.4-p34
+  role: note
+  label: Clause 5.3.4, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  sha256: 22398fd3ece7505715c4362491d0de8902648bfba29cb21750251ccb42c738ab
+  width: 2010
+  height: 1461
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 326.671
+    - 547.0
+    - 677.1295
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.4.2-21-variants.png
+  sha256: 995df4945b6e1fd37c81382455847cf9c90979c9dd5f21f55cdbdacddf02ff78
+  width: 1000
+  height: 268
+  derived_from:
+  - t5.4.2-21-panel-1
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.4.2-21-panel-1
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.2-21.catalog-t5.4.2-21-panel-1.png
+  sha256: 1e49adc76402b401d30a37ec37e2c88153583437b3f53e43cb3d61c33302fd9e
+  width: 108
+  height: 159
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 51
+    printed_page: '51'
+    table: 5.4.2
+    item: '21'
+    rect:
+    - 152.39999999999998
+    - 580.0799999999999
+    - 178.32
+    - 618.24
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations:
+    - text: (9)
+      rect:
+      - 110.21979522705078
+      - 577.7484130859375
+      - 119.94581604003906
+      - 585.7284545898438
+      reason: source_note_reference
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.4.2-21.sheet.png
+  sha256: c6b6f9c03ddc77cba957247e1ad681028a363792d27f22a94aaa747d763a2ea8
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.4.2-21-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '34'
+    pdf_page: 34
+    table: null
+    item: null
+    passage: Clause 5.3.4
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.4-p34.png
+  explanation: '5.3.4 Tables 5.4.1, 5.4.2, 5.4.3 and 5.4.4 — Final control element
+    symbols:
+
+    (1) Users engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    symbols have been selected.
+
+    (2) Element symbols 1 through 14, when combined with actuator symbols 1 through
+    16, represent
+
+    process control valves.
+
+    (3) Element symbol 2, when combined with actuator symbols 20 and 21, represent
+    pressure safety
+
+    valves.
+
+    (4) Element symbols 15 through 19, when combined with actuator symbols 13, 14,
+    and 15, represent
+
+    on-off solenoid valves.
+
+    (5) Element symbol 21, when combined with actuator symbols 1 through 16, represents
+    a variable
+
+    speed control unit.
+
+    (6) Element symbol 21 represents a motor that manipulates or controls a process
+    variable.
+
+    (7) Actuator symbols 1 through 16, when combined with element symbols 1 through
+    14, represent
+
+    process control valves and with element symbol 21 represents a variable speed
+    control unit.
+
+    (8) Actuator symbols 17, 18, and 19, when combined with element symbols 15 through
+    19, represent
+
+    on-off solenoid valves.
+
+    (9) Actuator symbols 20 and 21, when combined with element symbol 2, represent
+    pressure safety
+
+    valves.
+
+    (10) The symbols are applicable to all types of control valves and actuators.'
+  asset_id: clause-5.3.4-p34
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.4
+  explanation: 'Explanatory notes for Table 5.4.2: clause 5.3.4.'
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Pilot actuated relief or safety valve actuator
+  interpretation: Pilot actuated relief or safety valve actuator. Pilot pressure sensing
+    line deleted if sensing is internal.
+  displayed_asset_ids:
+  - catalog-t5.4.2-21-panel-1
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.4

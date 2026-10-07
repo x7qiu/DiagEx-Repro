@@ -71,16 +71,8 @@ def test_arrow_remains_broad_review_observation_with_correct_source_geometry(mon
     assert "candidate_id" not in review and not attrs.get("source_path_ids")
     request_context = json.loads(seen[0]["messages"][0]["content"][1]["text"])
     assert request_context["legend_entries"] == args["legend_summary"]
-    from diagex.review.detection import DetectionReviewStore, write_detection_bundle
-    from diagex.vision.legend_models import LegendPack
 
     args["page"].role = "pid"
-    write_detection_bundle(tmp_path, source_hash="fixture", pages=[args["page"]],
-        detections=outcome.detections, legend_pack=LegendPack(), per_page_status={0: "ok"},
-        candidates=[], reviews=[{**review, "page_index": 0, "tile_id": args["tile"].id}])
-    store = DetectionReviewStore(tmp_path)
-    assert store.public()["symbols"][0]["detection"]["kind"] == "raster_symbol"
-    assert store.snapshot(0, draft=True)["detections"] == []
 
 
 def test_broad_wire_format_recovery_is_bounded_and_audited(monkeypatch):

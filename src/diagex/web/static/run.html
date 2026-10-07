@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>历史结果 · DiagEx</title>
+  <link rel="stylesheet" href="/static/run.css">
+  <script src="/static/run.js" defer></script>
+</head>
+<body>
+  <header><a href="/">工作台</a><strong>历史结果</strong><span class="badge">只读</span></header>
+  <section class="summary">
+    <h1 id="title">加载中…</h1>
+    <p id="summary"></p><p id="notice" role="status"></p>
+    <div class="controls"><label>快照 <select id="version" disabled></select></label><details><summary>下载产物</summary><nav id="downloads"></nav></details></div>
+  </section>
+  <main>
+    <aside class="catalog" aria-label="已保存的提取对象">
+      <label>结果<select id="category"><option value="nodes">符号</option><option value="edges">连接</option><option value="legend">图例</option><option value="findings">待核查项</option></select></label>
+      <input id="search" type="search" placeholder="搜索" aria-label="搜索结果">
+      <p id="count" class="muted"></p><div id="items"></div>
+    </aside>
+    <section class="drawing" aria-label="原始图纸">
+      <div class="toolbar">
+        <label>页 <select id="page"></select></label>
+        <label><input type="checkbox" id="symbols" checked>符号</label>
+        <label><input type="checkbox" id="connections" checked>连线</label>
+        <button id="zoomOut" aria-label="缩小">−</button><button id="fit">适应</button><button id="zoomIn" aria-label="放大">+</button>
+      </div>
+      <p id="pageNotice" role="status"></p>
+      <div id="viewport"><svg id="canvas" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="图纸及识别标记"><image id="source"/><g id="overlays"></g></svg></div>
+      <p class="key">蓝：符号 · 绿：连接 · 黄：候选项</p>
+    </section>
+    <aside class="inspector" aria-label="所选结果详情"><h2>详情</h2><div id="detail">选择结果或图纸标记查看依据。</div></aside>
+  </main>
+</body>
+</html>

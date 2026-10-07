@@ -1,0 +1,129 @@
+id: isa-5.1-2009.clause-5.1
+version: 2
+concept: 5.1 — Graphic symbol tables
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '5.1 Graphic symbol tables
+
+  5.1.1 This clause provides in tabular form the graphic building blocks that are
+  used to construct
+
+  diagrams for measurement and control loops, instruments, and functions in a concise,
+  easily referenced
+
+  manner.
+
+  5.1.2 The graphic symbol sets included in this clause are intended to be used to
+  prepare:
+
+  a) Instrumentation diagrams.
+
+  b) Functional diagrams.
+
+  c) Binary logic diagrams.
+
+  d) Electrical schematics.
+
+  5.1.3 The graphic symbols shown in the tables are drawn full size for use in full
+  size sketches or
+
+  drawings.
+
+  5.1.4 The device and function symbols shown in Table 5.1.1 are based on the traditional
+  7/16-inch or
+
+  11mm circle format but may be changed to the often-used 1/2-inch or 12mm circle
+  format.
+
+  5.1.5 Consideration shall be given to the size of reduced P&IDs when selecting symbol
+  sizing.
+
+  5.1.6 All symbols shall maintain the size ratios shown in the tables when reduced
+  or increased in size.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Graphic symbol tables
+- '5.1'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '31'
+  pdf_page: 31
+  table: null
+  item: null
+  passage: Clause 5.1
+  image: illustrations/isa-5.1-2009/complete/clause-5.1-p31.png
+assets:
+- id: clause-5.1-p31
+  role: context
+  label: Clause 5.1, page 31
+  path: illustrations/isa-5.1-2009/complete/clause-5.1-p31.png
+  sha256: 7ce8ea6165a19ab230d3a5befe884c1bca2338dc9da47818d0a84057abec8151
+  width: 2010
+  height: 1368
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 31
+    printed_page: '31'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 95.9719
+    - 547.0
+    - 423.9307
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-31
+  role: context
+  label: Complete technical content on page 31
+  path: illustrations/isa-5.1-2009/complete/page-31.png
+  sha256: 56f4ff5958d0706ae529d2735fd8bf69fc2d3d48b4c89d7c2097d70016007b1e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 31
+    printed_page: '31'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

@@ -1,0 +1,139 @@
+id: sht-3101-2017.t4.15-9
+version: 1
+concept: 螺带式搅拌器 / Helical-ribbon agitator
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 螺带式搅拌器
+  interpretation: 螺带式搅拌器 / Helical-ribbon agitator. Defined by SH/T 3101:2017, Table 4.15, item 9. An
+    equipment internal or accessory. Its presence must be observed inside or attached to actual equipment;
+    do not create a separate vessel or infer unseen internals from this reference.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 螺带式搅拌器
+- Helical-ribbon agitator
+reference_type: symbol
+kind: definition
+explanation: 螺带式搅拌器 / Helical-ribbon agitator. Defined by SH/T 3101:2017, Table 4.15, item 9. An equipment
+  internal or accessory. Its presence must be observed inside or attached to actual equipment; do not
+  create a separate vessel or infer unseen internals from this reference.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 螺带式搅拌器
+- Helical-ribbon agitator
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '24'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.15-9/context.png
+  document_id: sht-3101-2017
+  pdf_page: 28
+  table: '4.15'
+  item: '9'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.15-9/context.png
+  sha256: ade423f4192d9811bb74f5139d6a0e40ec2de7654d6de339512f26c184df6f5d
+  width: 912
+  height: 179
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 28
+    printed_page: '24'
+    table: '4.15'
+    item: '9'
+    rect:
+    - 147.0
+    - 1092.0
+    - 1059.0
+    - 1271.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.15-9/primary.png
+  sha256: 9317611a500e95f72639912ea61a659baf4ee51ee0aeb1cadf34d18ca1b2a0c8
+  width: 67
+  height: 137
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 28
+    printed_page: '24'
+    table: '4.15'
+    item: '9'
+    rect:
+    - 616.0
+    - 1116.0
+    - 683.0
+    - 1253.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.15-9/variants.png
+  sha256: 734dbece675b5cbe0f62ba7cb5b4d49202f1ca07b016bc9390be1245d586f811
+  width: 220
+  height: 187
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '24'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 28
+    table: '4.15'
+    item: '9'
+  explanation: An equipment internal or accessory. Its presence must be observed inside or attached to
+    actual equipment; do not create a separate vessel or infer unseen internals from this reference.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- An equipment internal or accessory. Its presence must be observed inside or attached to actual equipment;
+  do not create a separate vessel or infer unseen internals from this reference.
+relations: []

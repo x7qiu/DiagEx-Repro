@@ -1,0 +1,140 @@
+id: sht-3101-2017.t4.9-12
+version: 1
+concept: 平均皮托管 / Averaging Pitot tube
+catalog:
+  role: catalog
+  category: measurement
+  short_name: 平均皮托管
+  interpretation: 平均皮托管 / Averaging Pitot tube. Defined by SH/T 3101:2017, Table 4.9, item 12. Interpret
+    this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI describe
+    the illustrated function, not actual instrument tag numbers.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids:
+  - sht-3101-2017.letter-rules
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 平均皮托管
+- Averaging Pitot tube
+reference_type: symbol
+kind: definition
+explanation: 平均皮托管 / Averaging Pitot tube. Defined by SH/T 3101:2017, Table 4.9, item 12. Interpret this
+  as a primary measurement element in context. Internal letters such as M, C, ΔT or FI describe the illustrated
+  function, not actual instrument tag numbers.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 平均皮托管
+- Averaging Pitot tube
+- measurement
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '15'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.9-12/context.png
+  document_id: sht-3101-2017
+  pdf_page: 19
+  table: '4.9'
+  item: '12'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.9-12/context.png
+  sha256: 1ac07e8e26df289057d6f27599ef8f8d342583d4babe58fb5a4c90f8e9b886e4
+  width: 910
+  height: 99
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 19
+    printed_page: '15'
+    table: '4.9'
+    item: '12'
+    rect:
+    - 151.0
+    - 1429.0
+    - 1061.0
+    - 1528.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.9-12/primary.png
+  sha256: 0bfbf3255907b40d3f54cfa7d0f17b41ff5628768020c7a65d5d632b9b8ae534
+  width: 67
+  height: 68
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 19
+    printed_page: '15'
+    table: '4.9'
+    item: '12'
+    rect:
+    - 552.0
+    - 1440.0
+    - 619.0
+    - 1508.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.9-12/variants.png
+  sha256: 07a6eb88755e2f758b50c30381e5a6d1ac03f553389559f54a770b94696ec0d5
+  width: 220
+  height: 118
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '15'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 19
+    table: '4.9'
+    item: '12'
+  explanation: Interpret this as a primary measurement element in context. Internal letters such as M,
+    C, ΔT or FI describe the illustrated function, not actual instrument tag numbers.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- Interpret this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI
+  describe the illustrated function, not actual instrument tag numbers.
+relations: []

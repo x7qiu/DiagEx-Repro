@@ -1,0 +1,139 @@
+id: sht-3101-2017.t4.15-5
+version: 1
+concept: 泡罩塔板 / Bubble-cap tray
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 泡罩塔板
+  interpretation: 泡罩塔板 / Bubble-cap tray. Defined by SH/T 3101:2017, Table 4.15, item 5. An equipment
+    internal or accessory. Its presence must be observed inside or attached to actual equipment; do not
+    create a separate vessel or infer unseen internals from this reference.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 泡罩塔板
+- Bubble-cap tray
+reference_type: symbol
+kind: definition
+explanation: 泡罩塔板 / Bubble-cap tray. Defined by SH/T 3101:2017, Table 4.15, item 5. An equipment internal
+  or accessory. Its presence must be observed inside or attached to actual equipment; do not create a
+  separate vessel or infer unseen internals from this reference.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 泡罩塔板
+- Bubble-cap tray
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '24'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.15-5/context.png
+  document_id: sht-3101-2017
+  pdf_page: 28
+  table: '4.15'
+  item: '5'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.15-5/context.png
+  sha256: 932106e97d28f24c44467f2ce37d56b37f7218325981c294423731a40a9df586
+  width: 912
+  height: 78
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 28
+    printed_page: '24'
+    table: '4.15'
+    item: '5'
+    rect:
+    - 147.0
+    - 626.0
+    - 1059.0
+    - 704.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.15-5/primary.png
+  sha256: 82c663036dcea0ee59c5f34275c7b0aefa8c0a48dcd83a26b83ad898c2a397af
+  width: 191
+  height: 49
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 28
+    printed_page: '24'
+    table: '4.15'
+    item: '5'
+    rect:
+    - 587.0
+    - 649.0
+    - 778.0
+    - 698.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.15-5/variants.png
+  sha256: c64d00d55f2c4fff8315c82e8c371040a174bdfed64a477bd3fa8d5f54f40403
+  width: 220
+  height: 99
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '24'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 28
+    table: '4.15'
+    item: '5'
+  explanation: An equipment internal or accessory. Its presence must be observed inside or attached to
+    actual equipment; do not create a separate vessel or infer unseen internals from this reference.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- An equipment internal or accessory. Its presence must be observed inside or attached to actual equipment;
+  do not create a separate vessel or infer unseen internals from this reference.
+relations: []

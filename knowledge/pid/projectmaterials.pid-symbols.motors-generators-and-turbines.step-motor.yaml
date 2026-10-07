@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.motors-generators-and-turbines.step-motor
+version: 2
+concept: Step Motor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Step Motor
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Step Motor’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Step Motor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Step Motor’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Step Motor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#motors-generators-and-turbines-pid-symbols
+  section: Motors, Generators, and Turbines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Step Motor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.motors-generators-and-turbines.step-motor.png
+  sha256: 6e4cb53b095e2f26b5d94f7b6e5764cfadf3e79eb4ce2f63ceb9b9e2b15d81e9
+  width: 36
+  height: 35
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/step_motor.QNvlwoRV_Z2nKOHr.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 5022c06e6579a7f7ac63142853e7913e133d7657d87c90053c6f78e7e108ba39
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

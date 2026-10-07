@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.13-5
+version: 1
+concept: 拱顶罐 / Dome-roof tank
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 拱顶罐
+  interpretation: '拱顶罐 / Dome-roof tank. Defined by SH/T 3101:2017, Table 4.13, item 5. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 拱顶罐
+- Dome-roof tank
+reference_type: symbol
+kind: definition
+explanation: '拱顶罐 / Dome-roof tank. Defined by SH/T 3101:2017, Table 4.13, item 5. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 拱顶罐
+- Dome-roof tank
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '20'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.13-5/context.png
+  document_id: sht-3101-2017
+  pdf_page: 24
+  table: '4.13'
+  item: '5'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.13-5/context.png
+  sha256: 005d1eba28506bfe2f6934635ec425ba39de8b021528b8ba091092b36ae5cdd6
+  width: 914
+  height: 139
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 24
+    printed_page: '20'
+    table: '4.13'
+    item: '5'
+    rect:
+    - 156.0
+    - 1031.0
+    - 1070.0
+    - 1170.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.13-5/primary.png
+  sha256: caa666682119a2da5289f3d1695e53fa6b1181999b02884ff7e1208611073eed
+  width: 102
+  height: 93
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 24
+    printed_page: '20'
+    table: '4.13'
+    item: '5'
+    rect:
+    - 612.0
+    - 1055.0
+    - 714.0
+    - 1148.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.13-5/variants.png
+  sha256: 941387481e7b836ddb260c01d8a7a0de8c84b4fbf8a4906e074f5595218c1607
+  width: 220
+  height: 143
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

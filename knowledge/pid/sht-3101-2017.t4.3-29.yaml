@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.3-29
+version: 1
+concept: 过流阀 / Excess flow valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 过流阀
+  interpretation: '过流阀 / Excess flow valve. Defined by SH/T 3101:2017, Table 4.3, item 29. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 过流阀
+- Excess flow valve
+reference_type: symbol
+kind: definition
+explanation: '过流阀 / Excess flow valve. Defined by SH/T 3101:2017, Table 4.3, item 29. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 过流阀
+- Excess flow valve
+- valves_actuators
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '9'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.3-29/context.png
+  document_id: sht-3101-2017
+  pdf_page: 13
+  table: '4.3'
+  item: '29'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.3-29/context.png
+  sha256: bc22fce33c8f97f93e80e161254301f88081df06794f4f376f97ae93475136ba
+  width: 910
+  height: 77
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 13
+    printed_page: '9'
+    table: '4.3'
+    item: '29'
+    rect:
+    - 159.0
+    - 657.0
+    - 1069.0
+    - 734.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.3-29/primary.png
+  sha256: 970050aac70e9e81fbc2798b4526151f966281b8a27d5f1199cd92ab7763ab0b
+  width: 124
+  height: 39
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 13
+    printed_page: '9'
+    table: '4.3'
+    item: '29'
+    rect:
+    - 602.0
+    - 673.0
+    - 726.0
+    - 712.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.3-29/variants.png
+  sha256: 1115013e313e9b5628d37e76e45ac69c086b9ee6b9bf661c68206b9d827c094c
+  width: 220
+  height: 89
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

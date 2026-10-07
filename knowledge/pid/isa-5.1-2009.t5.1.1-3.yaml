@@ -1,0 +1,476 @@
+id: isa-5.1-2009.t5.1.1-3
+version: 3
+concept: 'Instrumentation location: Located in rear of central or main panel'
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Located in rear of central or main panel. • Located in cabinet behind
+  panel. • Not visible on front of panel or on video display. • Not normally operator
+  accessible at panel or console.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Instrumentation device and function symbols
+- 5.1.1
+- 'Instrumentation location: Located in rear of central or main panel'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '36'
+  pdf_page: 36
+  table: 5.1.1
+  item: '3'
+  passage: 'Table 5.1.1, item 3: • Located in rear of central or main panel. • Located
+    in cabinet behind panel. • Not visible on front of panel or on video display.
+    • Not normally operator accessible at panel or console.'
+  image: illustrations/isa-5.1-2009/complete/t5.1.1-3-context.png
+assets:
+- id: t5.1.1-3-context
+  role: context
+  label: 'Complete row: Table 5.1.1, item 3'
+  path: illustrations/isa-5.1-2009/complete/t5.1.1-3-context.png
+  sha256: 91a3771da31db691dd4c058657fc79b152dcecb6680575c72cbe54bf59f256c6
+  width: 1961
+  height: 329
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 36
+    printed_page: '36'
+    table: 5.1.1
+    item: '3'
+    rect:
+    - 70.7429
+    - 392.06
+    - 541.0172
+    - 470.86
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-36
+  role: context
+  label: Complete technical content on page 36
+  path: illustrations/isa-5.1-2009/complete/page-36.png
+  sha256: edf09440f4006817eead26ad6f205bf865847e94bfbf161b0841ed8ff8d8715b
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 36
+    printed_page: '36'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.1.1-3-panel-1
+  role: variant
+  label: 'A: Primary / BPCS'
+  path: illustrations/isa-5.1-2009/complete/t5.1.1-3-panel-1.png
+  sha256: 776cbaa6d64b85da7419d5d4f8bee440f1625d79a155cc7e6e12d6df953a136e
+  width: 219
+  height: 314
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 36
+    printed_page: '36'
+    table: 5.1.1
+    item: '3'
+    rect:
+    - 107.78
+    - 393.86
+    - 160.3
+    - 469.06
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.1.1-3-panel-2
+  role: variant
+  label: 'B: Alternate / SIS'
+  path: illustrations/isa-5.1-2009/complete/t5.1.1-3-panel-2.png
+  sha256: fc5643223b85caf18bbd1220693ba39cfc0fae5c5a038be3873d5de7613ce9c6
+  width: 220
+  height: 314
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 36
+    printed_page: '36'
+    table: 5.1.1
+    item: '3'
+    rect:
+    - 161.9
+    - 393.86
+    - 214.48
+    - 469.06
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.1.1-3-panel-3
+  role: variant
+  label: 'C: Computer systems'
+  path: illustrations/isa-5.1-2009/complete/t5.1.1-3-panel-3.png
+  sha256: ed2088096a1ec2143ebf24e30781ecad6ef8dd92069b98888835ea66af7da3f9
+  width: 220
+  height: 314
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 36
+    printed_page: '36'
+    table: 5.1.1
+    item: '3'
+    rect:
+    - 216.08
+    - 393.86
+    - 268.6
+    - 469.06
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.1.1-3-panel-4
+  role: variant
+  label: 'D: Discrete'
+  path: illustrations/isa-5.1-2009/complete/t5.1.1-3-panel-4.png
+  sha256: 4a211032497848ef59ca012bd096785771a60feb16720df44145e85a8eada0a6
+  width: 220
+  height: 314
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 36
+    printed_page: '36'
+    table: 5.1.1
+    item: '3'
+    rect:
+    - 270.2
+    - 393.86
+    - 322.78
+    - 469.06
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.1-p32
+  role: note
+  label: Clause 5.3.1, page 32
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.1-p32.png
+  sha256: 970bcc17b21beed5bcedbf381dd74528b77895426bace054b6bfa656f8a9d167
+  width: 2010
+  height: 1374
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 32
+    printed_page: '32'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 397.6506
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.1-p33
+  role: note
+  label: Clause 5.3.1, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.1-p33.png
+  sha256: 496b1d7614b8ac7c0d7cbd7845cb8d5c2aeb98973c21a648dd821adabbe339d0
+  width: 2010
+  height: 1363
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 397.1707
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.1.1-3-variants.png
+  sha256: bb7169a821a2c2c5e3c88656dc3aa972685f18761ebf53b17fa9967553fcebcc
+  width: 1000
+  height: 1516
+  derived_from:
+  - t5.1.1-3-panel-1
+  - t5.1.1-3-panel-2
+  - t5.1.1-3-panel-3
+  - t5.1.1-3-panel-4
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.1.1-3-panel-4
+  role: variant
+  label: Individual instrument
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.1.1-3.catalog-t5.1.1-3-panel-4.png
+  sha256: 751e990f498c26c3a6dd47440ec66a21003b33a5cd8e374be5a8096365fd0c6f
+  width: 153
+  height: 153
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 36
+    printed_page: '36'
+    table: 5.1.1
+    item: '3'
+    rect:
+    - 276.0
+    - 413.76
+    - 312.71999999999997
+    - 450.47999999999996
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.1.1-3-panel-1
+  role: variant
+  label: Primary control system
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.1.1-3.catalog-t5.1.1-3-panel-1.png
+  sha256: f04a95b17a59e12e01ed90c9cd7a7afa777c7472ffe2ab793b3f07889a5b2470
+  width: 153
+  height: 153
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 36
+    printed_page: '36'
+    table: 5.1.1
+    item: '3'
+    rect:
+    - 113.03999999999999
+    - 413.76
+    - 149.76
+    - 450.47999999999996
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.1.1-3-panel-2
+  role: variant
+  label: Alternate control system
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.1.1-3.catalog-t5.1.1-3-panel-2.png
+  sha256: 138dd84f60007939183a36f788a7648713ff6b40f8a1fcf81fe8c1e063873aa1
+  width: 153
+  height: 152
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 36
+    printed_page: '36'
+    table: 5.1.1
+    item: '3'
+    rect:
+    - 168.0
+    - 414.47999999999996
+    - 204.72
+    - 450.96
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.1.1-3.sheet.png
+  sha256: 63ad4056ae52799ffde714d71a9d59ab25941ed03becbf069dbf79f537c0af9a
+  width: 1100
+  height: 780
+  derived_from:
+  - catalog-t5.1.1-3-panel-4
+  - catalog-t5.1.1-3-panel-1
+  - catalog-t5.1.1-3-panel-2
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 32, 33
+    pdf_page: 32
+    table: null
+    item: null
+    passage: Clause 5.3.1
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.1-p32.png
+  explanation: '5.3.1 Tables 5.1.1 and 5.1.2 — Instrumentation device and function
+    symbols:
+
+    (1) Devices and functions that are represented by these bubble symbols are:
+
+    (a) Used in shared display, shared control, configurable, microprocessor-based,
+    and data-
+
+    linked instrumentation where the functions are accessible by the operator via
+    a shared display or
+
+    monitor.
+
+    (b) Configured in control systems that include, but are not limited to, distributed
+    control
+
+    systems (DCS), programmable logic controllers (PLC), personal computers (PC),
+    and intelligent
+
+    transmitters and valve positioners.
+
+    (2) The user shall select and document one of the following for use of these symbols
+    in a:
+
+    (a) Primary shared-display, shared-control system.
+
+    (b) Basic Process Control System (BPCS).
+
+    (3) The user shall select and document one of the following for use of these symbols
+    in an:
+
+    (a) Alternate shared-display, shared-control system.
+
+    (b) Safety Instrumented System (SIS).
+
+    (4) Devices and functions represented by these bubble symbols are configured in
+    computer systems
+
+    that include, but are not limited to:
+
+    (a) Process controllers, process optimizers, statistical process control, model-predictive
+
+    process control, analyzer controllers, business computers, manufacturing execution
+    systems, and
+
+    other systems that interact with the process by manipulating setpoints in the
+    BPCS.
+
+    (b) High Level Control System (HLCS)
+
+    (5) Discrete devices or functions that are hardware-based and are either stand-alone
+    or are
+
+    connected to other instruments, devices, or systems that include, but are not
+    limited to, transmitters,
+
+    switches, relays, controllers, and control valves.
+
+    (6) Accessibility includes viewing, setpoint adjustment, operating mode changing,
+    and any other
+
+    operator actions required to operate the instrumentation.
+
+    (7) Functions represented by these symbols are used for simple interlock logic:
+
+    (a) A description of the logic should be shown nearby or in the notes section
+    of the drawing
+
+    or sketch if the intended logic is not clearly understandable.
+
+    (b) These symbols are not recommended for depicting complex DCS, PLC, or SIS
+
+    applications that require other than ‘AND’ and ‘OR’ signal gates.
+
+    (8) A logic number, letter, or number/letter combination identification shall
+    be used if more than one
+
+    logic scheme is used on the project by:
+
+    (a) Replacing [I], [A], and [O] with the logic identification.
+
+    (b) Appending the logic identification outside the symbol.'
+  asset_id: clause-5.3.1-p32
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.1
+  explanation: 'Explanatory notes for Table 5.1.1: clause 5.3.1.'
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Instrument behind main panel
+  interpretation: Located in rear of central or main panel. Located in cabinet behind
+    panel. Not visible on front of panel or on video display. Not normally operator
+    accessible at panel or console.
+  displayed_asset_ids:
+  - catalog-t5.1.1-3-panel-4
+  - catalog-t5.1.1-3-panel-1
+  - catalog-t5.1.1-3-panel-2
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.1
+  - isa-5.1-2009.clause-4.1

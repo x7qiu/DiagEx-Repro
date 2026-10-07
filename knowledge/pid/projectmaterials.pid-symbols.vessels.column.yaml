@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.column
+version: 2
+concept: Column
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Column
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Column’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Column
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Column’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Column
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Column
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.column.png
+  sha256: cd37363efe10e2a1285eef02180bf8904a4ff265b5927279e6b74a93e355b7b1
+  width: 35
+  height: 59
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/column.Bj_MOg6n_1kFFEl.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 20dbbb11443e8ad3e22a18a0adde197f2fcc52337ad697ca2e71e32931b4f3f0
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -2,7 +2,7 @@
 
 The workbench deliberately keeps provider credentials in process memory.  It
 persists uploaded source files and redacted run metadata so a completed run can
-be opened in the existing human-review application after a browser refresh.
+be inspected from its saved extraction outputs after a browser refresh.
 """
 
 from __future__ import annotations
@@ -25,13 +25,12 @@ from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any, BinaryIO
-from urllib.parse import parse_qs, unquote, urlencode, urlsplit
+from urllib.parse import parse_qs, unquote, urlsplit
 
 from rich.console import Console
 
 from diagex.config import Config, LLMConfig
 from diagex.extractors.evidence_checkpoint import atomic_write_json
-from diagex.review.detection import DetectionReviewStore, ReviewConflict
 
 STATIC_DIR = Path(__file__).with_name("static")
 MAX_UPLOAD_BYTES = 500 * 1024 * 1024
@@ -197,7 +196,7 @@ class WorkbenchConflictError(WorkbenchError):
 
 
 class Workbench:
-    """Own uploads, extraction jobs, and child review servers for one process."""
+    """Own uploads and extraction jobs for one process."""
 
     def __init__(
         self,
@@ -209,18 +208,18 @@ class Workbench:
         self.config = copy.deepcopy(config)
         runs_root = Path(self.config.runs_dir).expanduser().resolve()
         self.storage_dir = (storage_dir or runs_root / ".web").expanduser().resolve()
+        from diagex.knowledge.profiles import ProfileStore
+        self.context_profiles = ProfileStore(self.storage_dir / "context_profiles")
         self.uploads_dir = self.storage_dir / "uploads"
         self.uploads_dir.mkdir(parents=True, exist_ok=True)
         self.runner = runner
-        self.detection_stores: dict[str, DetectionReviewStore] = {}
-        self.detection_images: dict[tuple[str, int], bytes] = {}
         self.uploads: dict[str, UploadedDiagram] = {}
         self.jobs: dict[str, ExtractionJob] = {}
-        self.review_servers: dict[str, tuple[ThreadingHTTPServer, threading.Thread, str]] = {}
         self._source_hash_cache: dict[Path, tuple[int, int, str]] = {}
         self._lock = threading.RLock()
 
     def public_config(self) -> dict[str, Any]:
+        from diagex.web.cv import defaults as cv_defaults
         from diagex.web.model_profiles import DEFAULT_MODEL_POLICY, MODEL_PROFILES
 
         llm = self.config.llm
@@ -242,6 +241,7 @@ class Workbench:
             },
             "runs_dir": str(Path(self.config.runs_dir).expanduser().resolve()),
             "upload_limit_bytes": MAX_UPLOAD_BYTES,
+            "cv": cv_defaults(),
         }
 
     def save_upload(
@@ -295,30 +295,21 @@ class Workbench:
 
     def start_extraction(self, body: dict[str, Any]) -> ExtractionJob:
         upload_id = str(body.get("upload_id") or "")
-        reviewed = None
-        if body.get("reviewed_run"):
-            review_store = self.detection_store(str(body["reviewed_run"]))
-            reviewed = review_store.snapshot(body.get("reviewed_revision"), draft=bool(body.get("draft", False)))
-            source, verified = self._resolve_run_source(review_store.run_dir)
-            if source is None or not verified:
-                raise WorkbenchError("Attach the original P&ID before building the graph")
-            upload = UploadedDiagram(
-                id="reviewed",
-                filename=source.name,
-                path=source,
-                content_type="",
-                size=source.stat().st_size,
-                created_at=_utc_now(),
-            )
         with self._lock:
-            if reviewed is None:
-                upload = self.uploads.get(upload_id)
+            upload = self.uploads.get(upload_id)
             if upload is None:
                 raise WorkbenchError("select and upload a P&ID first")
             if any(job.status not in _TERMINAL_JOB_STATES for job in self.jobs.values()):
                 raise WorkbenchConflictError("another extraction is already running")
 
         config, redacted = self._config_for_request(body)
+        from diagex.knowledge.resolver import knowledge_snapshot
+        knowledge_mode = body.get("knowledge_mode", "off")
+        profile = self.context_profiles.get(body.get("context_profile_id"), body.get("context_profile_version")) if knowledge_mode == "profile" else None
+        config.knowledge = knowledge_snapshot(knowledge_mode, profile, body.get("drawing_overrides"), body.get("knowledge_sources"))
+        redacted["knowledge"] = config.knowledge
+        if config.knowledge and str(body.get("engine") or "evidence-v2") != "evidence-v2":
+            raise WorkbenchError("Drawing context requires Evidence v2")
         from diagex.vision.process_context import context_document
         config.process_context = [context_document(body[key], source="workbench:" + key, kind=key)
                                   for key in ("process_overview", "engineering_rules") if body.get(key)]
@@ -335,14 +326,24 @@ class Workbench:
         stop_after = str(body.get("stop_after") or "graph")
         if stop_after not in {"graph", "detection"}:
             raise WorkbenchError("Unknown workflow stage")
-        if (stop_after == "detection" or reviewed is not None) and engine != "evidence-v2":
-            raise WorkbenchError("Legend and symbol review requires Evidence v2")
-        if reviewed is not None:
-            fresh, stop_after = True, "graph"
+        if stop_after == "detection" and engine != "evidence-v2":
+            raise WorkbenchError("Detection-only extraction requires Evidence v2")
+        from diagex.web.cv import settings as cv_settings
+        try:
+            selected_cv = cv_settings(body)
+        except (ValueError, OSError) as exc:
+            raise WorkbenchError(str(exc)) from exc
+        # A web job must never inherit proposals bound to a different upload.
+        config.raster_proposals = None
+        config.raster_symbol_mode = "baseline"
+        if selected_cv["mode"] in {"guided", "broad_review"}:
+            if engine != "evidence-v2":
+                raise WorkbenchError("CV-assisted detection requires Evidence v2")
+            config.symbol_perception = replace(config.symbol_perception, workflow="fixed")
+            config.scan = replace(config.scan, deskew=False)
+            config.raster_symbol_mode = "broad_review" if selected_cv["mode"] == "broad_review" else "baseline"
+        redacted["cv"] = selected_cv
         redacted["stop_after"] = stop_after
-        if reviewed is not None:
-            redacted["reviewed_run"] = reviewed["source_run"]
-            redacted["reviewed_revision"] = reviewed["revision"]
         config.pid.engine = engine  # type: ignore[assignment]
         redacted.update({"fresh": fresh, "effort": effort, "engine": engine})
 
@@ -359,7 +360,7 @@ class Workbench:
             self.jobs[job.id] = job
         thread = threading.Thread(
             target=self._run_extraction,
-            args=(job, config, effort, engine, fresh, reviewed),
+            args=(job, config, effort, engine, fresh),
             name=f"diagex-{job.id}",
             daemon=True,
         )
@@ -446,7 +447,6 @@ class Workbench:
         effort: str,
         engine: str,
         fresh: bool,
-        reviewed_inputs: dict | None = None,
     ) -> None:
         job.status = "running"
         job.started_at = _utc_now()
@@ -455,6 +455,11 @@ class Workbench:
         console = Console(file=writer, force_terminal=False, color_system=None, width=160)
         started = time.monotonic()
         try:
+            if job.settings.get("cv", {}).get("mode") in {"guided", "broad_review"}:
+                from diagex.web.cv import prepare
+                folder = self.storage_dir / "cv" / job.id
+                config.raster_proposals = prepare(job.source_path, config, job.settings["cv"], folder, job.append_log)
+                job.settings["cv"]["proposals_path"] = str((folder / "proposals.json").resolve())
             runner = self.runner
             if runner is None:
                 from diagex.extractors.pid import run_pid_extract
@@ -475,7 +480,6 @@ class Workbench:
                 persist=True,
                 fresh=fresh,
                 stop_after=job.settings.get("stop_after", "graph"),
-                reviewed_inputs=reviewed_inputs,
                 out_path=None,
                 confidence_report_path=None,
                 console=console,
@@ -483,13 +487,13 @@ class Workbench:
             writer.flush()
             job.run_dir = Path(result.run_dir).resolve() if result.run_dir else None
             job.result = self._public_result(result)
-            job.status = "succeeded"
+            final_status = "succeeded"
             if job.run_dir is not None:
                 manifest_path = job.run_dir / "checkpoints" / "manifest.json"
                 if manifest_path.exists():
                     manifest = json.loads(manifest_path.read_text())
                     if manifest.get("status") == "paused":
-                        job.status = "paused"
+                        final_status = "paused"
                         job.result["pause_reason"] = manifest.get("pause_reason")
             if job.run_dir is not None:
                 atomic_write_json(
@@ -509,6 +513,9 @@ class Workbench:
                 f"Extraction finished with quality status {result.quality_status or 'unknown'} "
                 f"in {time.monotonic() - started:.1f}s"
             )
+            # Publish completion only after the saved run settings are readable.
+            job.finished_at = _utc_now()
+            job.status = final_status
         except Exception as exc:  # noqa: BLE001 - error is returned to the local operator
             writer.flush()
             job.status = "failed"
@@ -567,7 +574,6 @@ class Workbench:
         for path in (
             run_dir / "detection.json",
             run_dir / "checkpoints" / "manifest.json",
-            run_dir / "review" / "session.json",
             run_dir / "workbench.json",
         ):
             value = str(_read_json_object(path).get("source_sha256") or "").strip().lower()
@@ -580,7 +586,7 @@ class Workbench:
     ) -> list[Path]:
         root = Path(self.config.runs_dir).expanduser().resolve()
         raw_candidates: list[str | Path] = []
-        for path in (run_dir / "workbench.json", run_dir / "review" / "session.json"):
+        for path in (run_dir / "workbench.json",):
             source = _read_json_object(path).get("source_path")
             if source:
                 raw_candidates.append(str(source))
@@ -627,19 +633,6 @@ class Workbench:
                 continue
         return None, None
 
-    def _persist_source_link(self, run_dir: Path, source_path: Path, source_sha256: str) -> None:
-        path = run_dir / "workbench.json"
-        manifest = _read_json_object(path)
-        manifest.update(
-            {
-                "schema_version": "1.0.0",
-                "source_path": str(source_path.resolve()),
-                "source_filename": source_path.name,
-                "source_sha256": source_sha256,
-                "source_linked_at": _utc_now(),
-            }
-        )
-        atomic_write_json(path, manifest)
 
     def recent_runs(self, limit: int = 50) -> list[dict[str, Any]]:
         root = Path(self.config.runs_dir).expanduser().resolve()
@@ -685,7 +678,6 @@ class Workbench:
                         "has_graph": graph_path.is_file(),
                         "has_detection": (run_dir / "detection.json").is_file(),
                         "workflow_stage": result.get("workflow_stage", "graph"),
-                        "review_started": (run_dir / "review" / "session.json").is_file(),
                         "node_count": len(graph.get("nodes") or []),
                         "edge_count": len(graph.get("edges") or []),
                     }
@@ -696,175 +688,12 @@ class Workbench:
                 break
         return records
 
-    def launch_review(
-        self,
-        *,
-        rater: str,
-        job_id: str | None = None,
-        run_dir: str | None = None,
-        upload_id: str | None = None,
-        kind: str = "graph",
-    ) -> str:
-        reviewer = rater.strip()
-        if not reviewer:
-            raise WorkbenchError("enter the reviewer name")
-        target: Path | None = None
-        source_path: Path | None = None
-        if job_id:
-            job = self.job(job_id)
-            if job.status not in {"succeeded", "paused"} or job.run_dir is None:
-                raise WorkbenchConflictError("the extraction must finish before review")
-            target = job.run_dir
-            source_path = job.source_path
-        elif run_dir:
-            target = Path(run_dir).expanduser().resolve()
-        if target is None:
-            raise WorkbenchError("select an extraction run")
-        runs_root = Path(self.config.runs_dir).expanduser().resolve()
-        target = target.resolve()
-        if not target.is_relative_to(runs_root):
-            raise WorkbenchError("the selected run is outside the configured runs directory")
-        if kind not in {"graph", "detection"}:
-            raise WorkbenchError("Unknown review type")
-        artifact = target / ("detection.json" if kind == "detection" else "graph.json")
-        if not artifact.is_file():
-            raise WorkbenchError(
-                f"The selected run has no {artifact.name}; run the corresponding extraction first"
-            )
 
-        if upload_id:
-            with self._lock:
-                upload = self.uploads.get(upload_id)
-            if upload is None:
-                raise WorkbenchError("the selected source upload is unavailable")
-            source_path = upload.path
-        elif source_path is None:
-            source_path, _verified = self._resolve_run_source(target)
-        if source_path is None or not source_path.is_file():
-            raise WorkbenchError("attach the original P&ID before opening this run")
 
-        source_sha = self._source_hash(source_path)
-        expected_sha = self._expected_source_hash(target)
-        if expected_sha is not None and source_sha != expected_sha:
-            raise WorkbenchError("the selected P&ID does not match this run's source hash")
-        self._persist_source_link(target, source_path, source_sha)
 
-        if kind == "detection":
-            self.detection_store(str(target))
-            return "/detection-review?" + urlencode({"run_dir": str(target), "rater": reviewer})
-
-        key = str(target.resolve())
-        existing = self.review_servers.get(key)
-        if existing is not None and existing[1].is_alive():
-            return existing[2]
-
-        from diagex.review.core import ReviewStore
-        from diagex.review.server import make_handler as make_review_handler
-
-        store = ReviewStore.open(target, source_path=source_path, rater=reviewer)
-        server = ThreadingHTTPServer(("127.0.0.1", 0), make_review_handler(store))
-        thread = threading.Thread(
-            target=server.serve_forever,
-            kwargs={"poll_interval": 0.25},
-            name=f"diagex-review-{target.name}",
-            daemon=True,
-        )
-        thread.start()
-        url = f"http://127.0.0.1:{int(server.server_address[1])}/"
-        self.review_servers[key] = (server, thread, url)
-        return url
-
-    def detection_store(self, run_dir: str) -> DetectionReviewStore:
-        target = Path(run_dir).expanduser().resolve()
-        root = Path(self.config.runs_dir).expanduser().resolve()
-        if not target.is_relative_to(root) or not (target / "detection.json").is_file():
-            raise WorkbenchError("Select a completed legend and symbol detection run")
-        source, verified = self._resolve_run_source(target)
-        if source is None or not verified:
-            raise WorkbenchError("Attach the original P&ID before reviewing detections")
-        with self._lock:
-            key = str(target)
-            if key not in self.detection_stores:
-                self.detection_stores[key] = DetectionReviewStore(target)
-            return self.detection_stores[key]
-
-    def detection_page(self, run_dir: str, index: int) -> bytes:
-        import fitz
-        from PIL import Image
-
-        store = self.detection_store(run_dir)
-        page = next((p for p in store.bundle["pages"] if p["page_index"] == index), None)
-        if page is None:
-            raise WorkbenchError("Unknown page")
-        cache_key = (str(store.run_dir), index)
-        if cache_key in self.detection_images:
-            return self.detection_images[cache_key]
-        source, _ = self._resolve_run_source(store.run_dir)
-        scale = min(1.0, 2400 / max(page["width"], page["height"]))
-        size = (max(1, round(page["width"] * scale)), max(1, round(page["height"] * scale)))
-        if source.suffix.lower() == ".pdf":
-            with fitz.open(source) as document:
-                native = document[index]
-                pix = native.get_pixmap(
-                    matrix=fitz.Matrix(size[0] / native.rect.width, size[1] / native.rect.height),
-                    alpha=False,
-                )
-                data = pix.tobytes("png")
-                self.detection_images[cache_key] = data
-                return data
-        with Image.open(source) as original:
-            original.seek(index)
-            image = original.convert("RGB")
-            image = image.resize(size)
-            output = io.BytesIO()
-            image.save(output, format="PNG")
-            data = output.getvalue()
-            self.detection_images[cache_key] = data
-            return data
-
-    def detection_crop(self, run_dir: str, index: int, bounds: list[int]) -> bytes:
-        import fitz
-        from PIL import Image
-
-        store = self.detection_store(run_dir)
-        page = next((p for p in store.bundle["pages"] if p["page_index"] == index), None)
-        if page is None or len(bounds) != 4:
-            raise WorkbenchError("Invalid source crop")
-        x, y, width, height = bounds
-        if (
-            min(x, y) < 0
-            or min(width, height) <= 0
-            or x + width > page["width"]
-            or y + height > page["height"]
-        ):
-            raise WorkbenchError("Crop must be inside its source page")
-        source, _ = self._resolve_run_source(store.run_dir)
-        if source.suffix.lower() == ".pdf":
-            with fitz.open(source) as document:
-                native = document[index]
-                sx, sy = native.rect.width / page["width"], native.rect.height / page["height"]
-                clip = fitz.Rect(x * sx, y * sy, (x + width) * sx, (y + height) * sy)
-                # Re-render native vector strokes; do not magnify the page preview.
-                scale = min(128.0, 1200 / max(clip.width, clip.height))
-                pix = native.get_pixmap(matrix=fitz.Matrix(scale, scale), clip=clip, alpha=False)
-                return pix.tobytes("png")
-        with Image.open(source) as original:
-            original.seek(index)
-            sx, sy = original.width / page["width"], original.height / page["height"]
-            crop = original.convert("RGB").crop(
-                (round(x * sx), round(y * sy), round((x + width) * sx), round((y + height) * sy))
-            )
-            crop.thumbnail((1200, 1200))
-            output = io.BytesIO()
-            crop.save(output, format="PNG")
-            return output.getvalue()
 
     def close(self) -> None:
-        for server, thread, _url in list(self.review_servers.values()):
-            server.shutdown()
-            server.server_close()
-            thread.join(timeout=5)
-        self.review_servers.clear()
+        """No child application servers to close."""
 
 
 def make_handler(workbench: Workbench) -> type[BaseHTTPRequestHandler]:
@@ -931,8 +760,6 @@ def make_handler(workbench: Workbench) -> type[BaseHTTPRequestHandler]:
         def do_GET(self) -> None:  # noqa: N802
             try:
                 self._handle_get()
-            except ReviewConflict as exc:
-                self._send_json({"error": str(exc)}, HTTPStatus.CONFLICT)
             except (WorkbenchError, ValueError) as exc:
                 self._send_json({"error": str(exc)}, HTTPStatus.BAD_REQUEST)
             except Exception as exc:  # noqa: BLE001
@@ -946,22 +773,31 @@ def make_handler(workbench: Workbench) -> type[BaseHTTPRequestHandler]:
             if route in {"/", "/index.html"}:
                 self._send_file(STATIC_DIR / "index.html", "text/html; charset=utf-8")
                 return
-            if route == "/detection-review":
-                self._send_file(STATIC_DIR / "detection.html", "text/html; charset=utf-8")
+            if route == "/knowledge":
+                self._send_file(STATIC_DIR / "knowledge.html", "text/html; charset=utf-8")
                 return
-            if route in {"/api/detection-review", "/api/detection-page", "/api/detection-crop"}:
-                run_dir = (self._query().get("run_dir") or [""])[0]
-                if route == "/api/detection-review":
-                    self._send_json(workbench.detection_store(run_dir).public())
+            if route == "/runs/view":
+                self._send_file(STATIC_DIR / "run.html", "text/html; charset=utf-8")
+                return
+            if route in {"/api/run-view", "/api/run-page", "/api/run-artifact"}:
+                from diagex.web import run_viewer
+                query = self._query()
+                selected = (query.get("run_dir") or [""])[0]
+                if route == "/api/run-view":
+                    self._send_json(run_viewer.details(workbench, selected, (query.get("version") or ["extraction"])[0]))
+                elif route == "/api/run-page":
+                    payload = run_viewer.page_image(workbench, selected, int((query.get("page") or ["0"])[0]))
+                    self._headers(HTTPStatus.OK, "image/png", len(payload))
+                    self.wfile.write(payload)
                 else:
-                    index = int((self._query().get("page") or ["0"])[0])
-                    if route == "/api/detection-crop":
-                        bounds = [int(n) for n in (self._query().get("box") or [""])[0].split(",")]
-                        data = workbench.detection_crop(run_dir, index, bounds)
-                    else:
-                        data = workbench.detection_page(run_dir, index)
-                    self._headers(HTTPStatus.OK, "image/png", len(data))
-                    self.wfile.write(data)
+                    payload, filename = run_viewer.download(workbench, selected, (query.get("name") or [""])[0])
+                    self.send_response(HTTPStatus.OK)
+                    self.send_header("Content-Type", "application/octet-stream")
+                    self.send_header("Content-Disposition", f'attachment; filename="{filename}"')
+                    self.send_header("X-Content-Type-Options", "nosniff")
+                    self.send_header("Content-Length", str(len(payload)))
+                    self.end_headers()
+                    self.wfile.write(payload)
                 return
             if route.startswith("/static/"):
                 name = route.removeprefix("/static/")
@@ -972,6 +808,24 @@ def make_handler(workbench: Workbench) -> type[BaseHTTPRequestHandler]:
                 return
             if route == "/api/health":
                 self._send_json({"ok": True})
+                return
+            if route == "/api/context/profiles":
+                self._send_json({"profiles": workbench.context_profiles.list()})
+                return
+            if route == "/api/context/library":
+                from diagex.knowledge.resolver import knowledge_snapshot
+                self._send_json(knowledge_snapshot("general"))
+                return
+            if route in {"/api/context/illustration", "/api/context/asset"}:
+                from diagex.knowledge.library import catalog_asset
+                from diagex.knowledge.resolver import library_root
+                entry_id = (self._query().get("id") or [""])[0]
+                asset_id = (self._query().get("asset") or [""])[0] if route == "/api/context/asset" else None
+                if route == "/api/context/asset" and not asset_id:
+                    raise WorkbenchError("Reference asset ID is required")
+                payload = catalog_asset(library_root(), entry_id, asset_id).read_bytes()
+                self._headers(HTTPStatus.OK, "image/png", len(payload))
+                self.wfile.write(payload)
                 return
             if route == "/api/config":
                 self._send_json(workbench.public_config())
@@ -1017,26 +871,32 @@ def make_handler(workbench: Workbench) -> type[BaseHTTPRequestHandler]:
                     self._send_json({"upload": upload.public()}, HTTPStatus.CREATED)
                     return
                 body = self._read_json()
+                if route == "/api/context/applicable":
+                    from diagex.knowledge.resolver import applicable_references, knowledge_snapshot
+                    mode = body.get("knowledge_mode", "off")
+                    profile = workbench.context_profiles.get(body.get("context_profile_id"), body.get("context_profile_version")) if mode == "profile" else None
+                    snapshot = knowledge_snapshot(mode, profile, body.get("drawing_overrides"), body.get("knowledge_sources"))
+                    page = body.get("page", 1)
+                    if not isinstance(page, int) or isinstance(page, bool) or page < 1:
+                        raise WorkbenchError("Preview sheet must be a positive integer")
+                    self._send_json(applicable_references(snapshot, page - 1))
+                    return
+                if route == "/api/context/profiles":
+                    self._send_json({"profile": workbench.context_profiles.save(body)})
+                    return
+                if route == "/api/context/suggestions":
+                    from diagex.knowledge.profiles import suggest
+                    upload = workbench.uploads.get(str(body.get("upload_id") or ""))
+                    if upload is None:
+                        raise WorkbenchError("Upload a document before requesting context suggestions")
+                    self._send_json(suggest(upload.path))
+                    return
                 if route == "/api/extractions":
                     job = workbench.start_extraction(body)
                     self._send_json({"job": job.public()}, HTTPStatus.ACCEPTED)
                     return
-                if route == "/api/detection-review/actions":
-                    store = workbench.detection_store(str(body.get("run_dir") or ""))
-                    self._send_json(store.apply(body))
-                    return
-                if route == "/api/reviews":
-                    url = workbench.launch_review(
-                        kind=str(body.get("kind") or "graph"),
-                        rater=str(body.get("rater") or ""),
-                        job_id=str(body.get("job_id") or "") or None,
-                        run_dir=str(body.get("run_dir") or "") or None,
-                        upload_id=str(body.get("upload_id") or "") or None,
-                    )
-                    self._send_json({"url": url})
-                    return
                 self._send_json({"error": "not found"}, HTTPStatus.NOT_FOUND)
-            except (WorkbenchConflictError, ReviewConflict) as exc:
+            except WorkbenchConflictError as exc:
                 self._send_json({"error": str(exc)}, HTTPStatus.CONFLICT)
             except (WorkbenchError, ValueError, KeyError, json.JSONDecodeError) as exc:
                 self._send_json({"error": str(exc)}, HTTPStatus.BAD_REQUEST)

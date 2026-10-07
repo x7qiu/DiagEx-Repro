@@ -1,0 +1,128 @@
+id: sht-3101-2017.t4.2-49
+version: 1
+concept: 设备绝热 / Equipment insulation
+catalog:
+  role: catalog
+  category: piping
+  short_name: 设备绝热
+  interpretation: '设备绝热 / Equipment insulation. Defined by SH/T 3101:2017, Table 4.2, item 49. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 设备绝热
+- Equipment insulation
+reference_type: convention
+kind: definition
+explanation: '设备绝热 / Equipment insulation. Defined by SH/T 3101:2017, Table 4.2, item 49. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 设备绝热
+- Equipment insulation
+- piping
+- convention
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '7'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-49/context.png
+  document_id: sht-3101-2017
+  pdf_page: 11
+  table: '4.2'
+  item: '49'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-49/context.png
+  sha256: 83e6f19243695e1cf4ae57b402776f3b63e759e24f316afbb23528846715ee27
+  width: 911
+  height: 152
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.2'
+    item: '49'
+    rect:
+    - 159.0
+    - 411.0
+    - 1070.0
+    - 563.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-49/primary.png
+  sha256: fe6e69a4039a17b15718bf6b6935cc3bb5aaee688e1994284a57a4e81e289670
+  width: 90
+  height: 108
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.2'
+    item: '49'
+    rect:
+    - 606.0
+    - 436.0
+    - 696.0
+    - 544.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-49/variants.png
+  sha256: 31431e9ea8a9e70049989fc1698d8712a1cc085696c52f44aef347b037c15294
+  width: 220
+  height: 158
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots:
+- role: insulation_type
+  example_marker: H
+  location: beside the vessel wall
+  meaning: Illustrative insulation type; replace with the actual type shown in the drawing.
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

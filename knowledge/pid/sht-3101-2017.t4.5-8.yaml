@@ -1,0 +1,191 @@
+id: sht-3101-2017.t4.5-8
+version: 1
+concept: 软连接 / Soft link
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: 软连接
+  interpretation: 软连接 / Soft link. Defined by SH/T 3101:2017, Table 4.5, item 8. An arrow may be added
+    to indicate signal direction. This signal convention does not imply a process-fluid connection. Communication
+    links and system buses between shared-display/control functions and between DCS, SIS and PLC systems.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 软连接
+- Soft link
+reference_type: line_style
+kind: definition
+explanation: 软连接 / Soft link. Defined by SH/T 3101:2017, Table 4.5, item 8. An arrow may be added to indicate
+  signal direction. This signal convention does not imply a process-fluid connection. Communication links
+  and system buses between shared-display/control functions and between DCS, SIS and PLC systems.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 软连接
+- Soft link
+- lines_signals
+- line_style
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '11'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.5-8/context.png
+  document_id: sht-3101-2017
+  pdf_page: 15
+  table: '4.5'
+  item: '8'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.5-8/context.png
+  sha256: 11b601ded5d154647330d33a495714259db82c42523ca12d66a754723be65179
+  width: 910
+  height: 112
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 15
+    printed_page: '11'
+    table: '4.5'
+    item: '8'
+    rect:
+    - 158.0
+    - 1400.0
+    - 1068.0
+    - 1512.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.5-8/primary.png
+  sha256: 20290d774651e8ddf89972dabb4691c072ed7daeb23644076cc80f94d4023c20
+  width: 176
+  height: 32
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 15
+    printed_page: '11'
+    table: '4.5'
+    item: '8'
+    rect:
+    - 527.0
+    - 1437.0
+    - 703.0
+    - 1469.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.5-8/variants.png
+  sha256: a1c179854ca0fbe5a835ad326d915c28325a1ff692e0fbb8a5322834d6be93ae
+  width: 220
+  height: 82
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+- id: table-note
+  role: note
+  label: Table footnote
+  path: illustrations/sht-3101-2017/t4.5-8/table-note.png
+  sha256: 74b487a30ac8f397a7b93062e0c60cdd2514e008fa7e5ab2fe919e7a1c88172a
+  width: 902
+  height: 31
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 15
+    printed_page: '11'
+    table: '4.5'
+    rect:
+    - 162.0
+    - 1508.0
+    - 1064.0
+    - 1539.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '11'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 15
+    table: '4.5'
+    item: '8'
+  explanation: An arrow may be added to indicate signal direction. This signal convention does not imply
+    a process-fluid connection.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '11'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 15
+    table: '4.5'
+    item: '8'
+  explanation: Communication links and system buses between shared-display/control functions and between
+    DCS, SIS and PLC systems.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '11'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 15
+    table: '4.5'
+  explanation: An arrow may be added to indicate signal direction. This signal convention does not imply
+    a process-fluid connection.
+  asset_id: table-note
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- An arrow may be added to indicate signal direction. This signal convention does not imply a process-fluid
+  connection.
+- Communication links and system buses between shared-display/control functions and between DCS, SIS and
+  PLC systems.
+relations: []

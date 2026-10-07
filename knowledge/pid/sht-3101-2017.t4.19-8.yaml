@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.19-8
+version: 1
+concept: 隔膜压缩机 / Diaphragm compressor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 隔膜压缩机
+  interpretation: '隔膜压缩机 / Diaphragm compressor. Defined by SH/T 3101:2017, Table 4.19, item 8. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 隔膜压缩机
+- Diaphragm compressor
+reference_type: symbol
+kind: definition
+explanation: '隔膜压缩机 / Diaphragm compressor. Defined by SH/T 3101:2017, Table 4.19, item 8. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 隔膜压缩机
+- Diaphragm compressor
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '32'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.19-8/context.png
+  document_id: sht-3101-2017
+  pdf_page: 36
+  table: '4.19'
+  item: '8'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.19-8/context.png
+  sha256: 4a81e9534e4b2203adb7aed34a9645291c5e5191ddd4752202bfbcefee177326
+  width: 915
+  height: 111
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 36
+    printed_page: '32'
+    table: '4.19'
+    item: '8'
+    rect:
+    - 138.0
+    - 280.0
+    - 1053.0
+    - 391.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.19-8/primary.png
+  sha256: eae81d43de17dc145314d41c7109e340c1ef53ef4c7284c4b14eccfd8499e496
+  width: 175
+  height: 69
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 36
+    printed_page: '32'
+    table: '4.19'
+    item: '8'
+    rect:
+    - 558.0
+    - 306.0
+    - 733.0
+    - 375.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.19-8/variants.png
+  sha256: d5ded6229167209115c0cf6600bac6c81f25187cf38c0de53f07c364ffe27b76
+  width: 220
+  height: 119
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

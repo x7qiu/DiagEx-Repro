@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.20-7
+version: 1
+concept: 旋转过滤机 / Rotary filter
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 旋转过滤机
+  interpretation: '旋转过滤机 / Rotary filter. Defined by SH/T 3101:2017, Table 4.20, item 7. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 旋转过滤机
+- Rotary filter
+reference_type: symbol
+kind: definition
+explanation: '旋转过滤机 / Rotary filter. Defined by SH/T 3101:2017, Table 4.20, item 7. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 旋转过滤机
+- Rotary filter
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '33'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.20-7/context.png
+  document_id: sht-3101-2017
+  pdf_page: 37
+  table: '4.20'
+  item: '7'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.20-7/context.png
+  sha256: b52727a984450bd8066b9b5f34c4215aace718347c4ea4e2edca34bba41c5b2d
+  width: 909
+  height: 125
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '7'
+    rect:
+    - 151.0
+    - 531.0
+    - 1060.0
+    - 656.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.20-7/primary.png
+  sha256: e72cd8cef7b629e9ce9ad479346c5b3b5057d48f1604fcddcd35f6aea9f97bea
+  width: 91
+  height: 84
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '7'
+    rect:
+    - 609.0
+    - 552.0
+    - 700.0
+    - 636.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.20-7/variants.png
+  sha256: 6b6dafe8a1348927ec10dfcdb8eeaace3b00c5348564e8a6d203db1da87ea722
+  width: 220
+  height: 134
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

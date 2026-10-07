@@ -1,0 +1,194 @@
+id: isa-5.1-2009.t5.7-18
+version: 2
+concept: Pulse duration - variable
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Output [O] changes from (0) to (1) when input [I] changes from (0)
+  to (1). • Output [O] changes from (1) to (0) when Input [I] has been equal to (1)
+  for time duration (t), Input [I] changes from (1) to (0), or optional Reset [R]
+  changes to (1).
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Binary logic symbols
+- '5.7'
+- Pulse duration - variable
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '71'
+  pdf_page: 71
+  table: '5.7'
+  item: '18'
+  passage: 'Table 5.7, item 18: • Output [O] changes from (0) to (1) when input [I]
+    changes from (0) to (1). • Output [O] changes from (1) to (0) when Input [I] has
+    been equal to (1) for time duration (t), Input [I] changes from (1) to (0), or
+    optional Reset [R] changes to (1).'
+  image: illustrations/isa-5.1-2009/complete/t5.7-18-context.png
+assets:
+- id: t5.7-18-context
+  role: context
+  label: 'Complete row: Table 5.7, item 18'
+  path: illustrations/isa-5.1-2009/complete/t5.7-18-context.png
+  sha256: db389a513e860a030b422f03eb45f6796b0d06b841fa756096c5c7dcdc16ddf7
+  width: 1960
+  height: 722
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 71
+    printed_page: '71'
+    table: '5.7'
+    item: '18'
+    rect:
+    - 70.985
+    - 332.24
+    - 541.015
+    - 505.36
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-71
+  role: context
+  label: Complete technical content on page 71
+  path: illustrations/isa-5.1-2009/complete/page-71.png
+  sha256: 2bc7b734475c304ce66510fa6efe9bf68521e042ed546b3a39c76daa797a02de
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 71
+    printed_page: '71'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.7-18-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.7-18-panel-1.png
+  sha256: 3f0908589fdd08bed362e3b038976ab21ad6db3351de22efe90d2c2dd46df988
+  width: 369
+  height: 708
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 71
+    printed_page: '71'
+    table: '5.7'
+    item: '18'
+    rect:
+    - 108.8
+    - 334.04
+    - 197.2
+    - 503.56
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.7-p35
+  role: note
+  label: Clause 5.3.7, page 35
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.7-p35.png
+  sha256: 3be3bab470d708de5e86ff0004a879197f0a48d752a9f74cdd21ff5376ffeb8e
+  width: 2010
+  height: 441
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 35
+    printed_page: '35'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 246.1511
+    - 547.0
+    - 351.6307
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.7-18-variants.png
+  sha256: c1ad4dd3ebf8932bef8cf1f7f43d915050905e25e3cf5f5ec5d5d54e307731ca
+  width: 1000
+  height: 765
+  derived_from:
+  - t5.7-18-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '35'
+    pdf_page: 35
+    table: null
+    item: null
+    passage: Clause 5.3.7
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.7-p35.png
+  explanation: '5.3.7 Table 5.7 — Binary logic symbols:
+
+    (1) True signals are equal to binary one, and false signals are equal to binary
+    zero.
+
+    (2) Alternate symbols shall be used only for “AND’ and “OR” gates.
+
+    (3) Users engineering and design standards, practices and/or guidelines shall
+    document which
+
+    symbol has been selected.'
+  asset_id: clause-5.3.7-p35
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.7
+  explanation: 'Explanatory notes for Table 5.7: clause 5.3.7.'
+catalog:
+  role: background

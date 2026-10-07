@@ -1,0 +1,144 @@
+id: sht-3101-2017.t4.18-8
+version: 1
+concept: 液环式真空泵 / Liquid-ring vacuum pump
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 液环式真空泵
+  interpretation: 液环式真空泵 / Liquid-ring vacuum pump. Defined by SH/T 3101:2017, Table 4.18, item 8. The
+    note gives a circle with M for a motor and a turbine glyph as driver alternatives. The source crop
+    preserves the placeholder; it does not prove the driver type or location on a drawing.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 液环式真空泵
+- Liquid-ring vacuum pump
+reference_type: symbol
+kind: definition
+explanation: 液环式真空泵 / Liquid-ring vacuum pump. Defined by SH/T 3101:2017, Table 4.18, item 8. The note
+  gives a circle with M for a motor and a turbine glyph as driver alternatives. The source crop preserves
+  the placeholder; it does not prove the driver type or location on a drawing.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 液环式真空泵
+- Liquid-ring vacuum pump
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '30'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.18-8/context.png
+  document_id: sht-3101-2017
+  pdf_page: 34
+  table: '4.18'
+  item: '8'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.18-8/context.png
+  sha256: 801575dfe3efa0126f74f7935c1b06b3cd4098a001800c9db31ea8fc92aa60ee
+  width: 912
+  height: 193
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 34
+    printed_page: '30'
+    table: '4.18'
+    item: '8'
+    rect:
+    - 137.0
+    - 455.0
+    - 1049.0
+    - 648.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.18-8/primary.png
+  sha256: 4e811feeed80cfbc3910b9f28c919682fc07a455b2f1299ad4cab2d8cfec0545
+  width: 75
+  height: 134
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 34
+    printed_page: '30'
+    table: '4.18'
+    item: '8'
+    rect:
+    - 546.0
+    - 496.0
+    - 621.0
+    - 630.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.18-8/variants.png
+  sha256: 649931b8a002c6b9bcecd10818f834f444455fe104d177828f94e5ec4f449a91
+  width: 220
+  height: 184
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '30'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 34
+    table: '4.18'
+    item: '8'
+  explanation: The note gives a circle with M for a motor and a turbine glyph as driver alternatives.
+    The source crop preserves the placeholder; it does not prove the driver type or location on a drawing.
+  asset_id: context
+text_slots:
+- role: driver_type
+  example_marker: 注
+  location: in the driver circle
+  meaning: 'Placeholder referring to the row note: motor or turbine; the illustrated driver location is
+    schematic. 注 is not an instrument tag.'
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- The note gives a circle with M for a motor and a turbine glyph as driver alternatives. The source crop
+  preserves the placeholder; it does not prove the driver type or location on a drawing.
+relations: []

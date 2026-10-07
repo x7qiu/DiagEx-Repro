@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.pumps.cavity-pump
+version: 2
+concept: Cavity Pump
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Cavity Pump
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Cavity Pump’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Cavity Pump
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Cavity Pump’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Cavity Pump
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#pumps-pid-symbols
+  section: Pumps P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Cavity Pump
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.pumps.cavity-pump.png
+  sha256: d91dba3936268bf779b6bc438196d6d52a41516db5a4638cf3644112a5e91d64
+  width: 56
+  height: 30
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/cavity_pump.CjvPC3p6_Z2jdQXD.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: aabd9227c58322efa0a3e7519cf9cfc5ed51a7e92b32994c3f1dd91c09cde10f
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

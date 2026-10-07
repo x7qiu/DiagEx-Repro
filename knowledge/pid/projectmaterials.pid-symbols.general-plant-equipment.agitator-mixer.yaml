@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.agitator-mixer
+version: 2
+concept: Agitator / Mixer
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Agitator / Mixer
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Agitator / Mixer’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Agitator
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Agitator / Mixer’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Agitator / Mixer
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Agitator / Mixer
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.agitator-mixer.png
+  sha256: 7fd4e6f43348ebce8aeb74ff1b6fd8daeb07f8c5e62293f7ae794f59243b0f98
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Agitator-or-Mixer-150x150.DENueUGI_1D7C6f.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 868ba86e3a2fadc548deeb1d2d29aefe241cfe0a0bbe61ae6d18a064f44ec028
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

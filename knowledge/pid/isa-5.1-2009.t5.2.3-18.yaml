@@ -1,0 +1,246 @@
+id: isa-5.1-2009.t5.2.3-18
+version: 3
+concept: Averaging pitot tube
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Averaging pitot tube.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'Measurement symbols: primary elements'
+- 5.2.3
+- Averaging pitot tube
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '41'
+  pdf_page: 41
+  table: 5.2.3
+  item: '18'
+  passage: 'Table 5.2.3, item 18: • Averaging pitot tube.'
+  image: illustrations/isa-5.1-2009/complete/t5.2.3-18-context.png
+assets:
+- id: t5.2.3-18-context
+  role: context
+  label: 'Complete row: Table 5.2.3, item 18'
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-18-context.png
+  sha256: 1a448ae57aea4319904cc7677e1342c7631d3546478deec399444f3ad7d7dbd8
+  width: 1960
+  height: 168
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 41
+    printed_page: '41'
+    table: 5.2.3
+    item: '18'
+    rect:
+    - 70.8125
+    - 202.4
+    - 541.1275
+    - 242.56
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-41
+  role: context
+  label: Complete technical content on page 41
+  path: illustrations/isa-5.1-2009/complete/page-41.png
+  sha256: 381e39f9c1aa81706777a1295782dbb37a352be126ec32e10b1bc85987c23749
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 41
+    printed_page: '41'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.2.3-18-panel-2
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-18-panel-2.png
+  sha256: 89078392d83cfeed104bc96b8a1e81ff0b1d5394030255be62e4bf7331678d76
+  width: 445
+  height: 154
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 41
+    printed_page: '41'
+    table: 5.2.3
+    item: '18'
+    rect:
+    - 126.68
+    - 204.2
+    - 233.14
+    - 240.76
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.2-p33
+  role: note
+  label: Clause 5.3.2, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  sha256: d2f5ace70e1c2b4cd4aad60f721e55f09798bdc8204c96571e3303a71de825df
+  width: 2010
+  height: 930
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 397.1707
+    - 547.0
+    - 620.1298
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-18-variants.png
+  sha256: 88189c96e86237795e4a34c5fd8796c3acb69ace4c833d5bf940a21af25511dc
+  width: 1000
+  height: 219
+  derived_from:
+  - t5.2.3-18-panel-2
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.2.3-18-panel-2
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-18.catalog-t5.2.3-18-panel-2.png
+  sha256: 2e977015aefb8e495ff1b57ab059d66a28f58e138f9f8076e3f41fdfa47dbd17
+  width: 99
+  height: 99
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 41
+    printed_page: '41'
+    table: 5.2.3
+    item: '18'
+    rect:
+    - 170.39999999999998
+    - 215.99999999999997
+    - 194.16
+    - 239.76
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-18.sheet.png
+  sha256: 48c6b59e7621024c6cbd69d4740460354be78b6fe797bb9a6f942a292ae99d4d
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.2.3-18-panel-2
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '33'
+    pdf_page: 33
+    table: null
+    item: null
+    passage: Clause 5.3.2
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  explanation: '5.3.2 Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 — Measurement symbols
+
+    (1) Measurements are depicted by:
+
+    (a) Bubbles only.
+
+    (b) Bubbles and graphics.
+
+    (2) These symbols shall be used for process or equipment measurements if:
+
+    (a) A graphic symbol does not exist.
+
+    (b) The user does not use graphic symbols.
+
+    (3) Transmitter [T] may be controller [C], indicator [I], recorder [R], or switch
+    [S].
+
+    (4) User engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    choices are selected.'
+  asset_id: clause-5.3.2-p33
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.2
+  explanation: 'Explanatory notes for Table 5.2.3: clause 5.3.2.'
+catalog:
+  role: catalog
+  category: measurement
+  short_name: Averaging pitot tube
+  interpretation: Averaging pitot tube.
+  displayed_asset_ids:
+  - catalog-t5.2.3-18-panel-2
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.2
+  - isa-5.1-2009.clause-4.1

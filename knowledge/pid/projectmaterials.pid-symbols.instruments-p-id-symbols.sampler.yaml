@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.sampler
+version: 2
+concept: Sampler
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Sampler
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Sampler’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Sampler
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Sampler’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Sampler
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Sampler
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.sampler.png
+  sha256: 1c95b63463f67378795ff8f4e4d8219891599e3c0f765618c5489a1de1ab14bf
+  width: 40
+  height: 43
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/sampler.DSVwZq8b_2p0a9t.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 9d33314358b2f63febd20a4747c1fe157b97a518a6f410d19b57733d217a9a62
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

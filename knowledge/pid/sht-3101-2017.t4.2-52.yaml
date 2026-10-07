@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-52
+version: 1
+concept: 喷淋管 / Spray
+catalog:
+  role: catalog
+  category: piping
+  short_name: 喷淋管
+  interpretation: '喷淋管 / Spray. Defined by SH/T 3101:2017, Table 4.2, item 52. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 喷淋管
+- Spray
+reference_type: symbol
+kind: definition
+explanation: '喷淋管 / Spray. Defined by SH/T 3101:2017, Table 4.2, item 52. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 喷淋管
+- Spray
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '7'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-52/context.png
+  document_id: sht-3101-2017
+  pdf_page: 11
+  table: '4.2'
+  item: '52'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-52/context.png
+  sha256: 404e679134de74e7500bc486b8e29e76b195daa47f663d4511214552df990dcd
+  width: 911
+  height: 71
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.2'
+    item: '52'
+    rect:
+    - 159.0
+    - 675.0
+    - 1070.0
+    - 746.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-52/primary.png
+  sha256: 05e29a3e6d8fb9f1e1722c23957476196aeed0f20e58ba47e165967c77214f7b
+  width: 104
+  height: 27
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 11
+    printed_page: '7'
+    table: '4.2'
+    item: '52'
+    rect:
+    - 612.0
+    - 702.0
+    - 716.0
+    - 729.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-52/variants.png
+  sha256: 87071190f3f1303dc48f7aff9c1386fa1f824a621b01c6434c01e5f7da23ebf6
+  width: 220
+  height: 77
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

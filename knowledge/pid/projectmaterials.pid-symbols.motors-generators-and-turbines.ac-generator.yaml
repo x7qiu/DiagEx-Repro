@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.motors-generators-and-turbines.ac-generator
+version: 2
+concept: AC Generator
+catalog:
+  role: catalog
+  category: equipment
+  short_name: AC Generator
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘AC Generator’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- AC Generator
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘AC Generator’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: AC Generator
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#motors-generators-and-turbines-pid-symbols
+  section: Motors, Generators, and Turbines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: AC Generator
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.motors-generators-and-turbines.ac-generator.png
+  sha256: 4c50cc205b9a5c22d2fd2cff1c4431b4f13b225534f4c4a074c972c010479bbf
+  width: 36
+  height: 35
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/ac_generator.DNsyE8ZU_27RcEa.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 2c189566c9bbfeb598ee54ed686652d531c3776768264a2dd9ccec7f390dd01d
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

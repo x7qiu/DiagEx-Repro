@@ -1,0 +1,144 @@
+id: sht-3101-2017.t4.18-5
+version: 1
+concept: 齿轮泵 / Gear pump
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 齿轮泵
+  interpretation: 齿轮泵 / Gear pump. Defined by SH/T 3101:2017, Table 4.18, item 5. The note gives a circle
+    with M for a motor and a turbine glyph as driver alternatives. The source crop preserves the placeholder;
+    it does not prove the driver type or location on a drawing.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 齿轮泵
+- Gear pump
+reference_type: symbol
+kind: definition
+explanation: 齿轮泵 / Gear pump. Defined by SH/T 3101:2017, Table 4.18, item 5. The note gives a circle with
+  M for a motor and a turbine glyph as driver alternatives. The source crop preserves the placeholder;
+  it does not prove the driver type or location on a drawing.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 齿轮泵
+- Gear pump
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '29'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.18-5/context.png
+  document_id: sht-3101-2017
+  pdf_page: 33
+  table: '4.18'
+  item: '5'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.18-5/context.png
+  sha256: 1884a1d66b2a06b7db4eccb502537c71aee3ebe344c45ef41fdf8542248dd7b8
+  width: 909
+  height: 209
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 33
+    printed_page: '29'
+    table: '4.18'
+    item: '5'
+    rect:
+    - 166.0
+    - 1110.0
+    - 1075.0
+    - 1319.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.18-5/primary.png
+  sha256: 99ef26a796de2d4ab32e0a491a8afa6160790497fd674f50b77298f84b3d20f7
+  width: 241
+  height: 195
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 33
+    printed_page: '29'
+    table: '4.18'
+    item: '5'
+    rect:
+    - 495.0
+    - 1118.0
+    - 736.0
+    - 1313.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.18-5/variants.png
+  sha256: ae55b4d8b5ef133c0599d875ee1d76cc0624629b8a75433c86755932b8ead1ca
+  width: 265
+  height: 245
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '29'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 33
+    table: '4.18'
+    item: '5'
+  explanation: The note gives a circle with M for a motor and a turbine glyph as driver alternatives.
+    The source crop preserves the placeholder; it does not prove the driver type or location on a drawing.
+  asset_id: context
+text_slots:
+- role: driver_type
+  example_marker: 注
+  location: in the driver circle
+  meaning: 'Placeholder referring to the row note: motor or turbine; the illustrated driver location is
+    schematic. 注 is not an instrument tag.'
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- The note gives a circle with M for a motor and a turbine glyph as driver alternatives. The source crop
+  preserves the placeholder; it does not prove the driver type or location on a drawing.
+relations: []

@@ -1,0 +1,96 @@
+id: isa-5.1-2009.clause-6.3.1
+version: 2
+concept: 6.3.1 — Table 6.1 — Dimensions for measurement and control instrumentation
+  device or function
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: informative
+explanation: '6.3.1 Table 6.1 — Dimensions for measurement and control instrumentation
+  device or function
+
+  symbols, Tables 5.1.1 and 5.1.2
+
+  (1) Dimension in parentheses is for 1/2-inch (12-millimeter) option for generic
+  circle symbol.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- Table 6.1 — Dimensions for measurement and control instrumentation device or function
+- 6.3.1
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '76'
+  pdf_page: 76
+  table: null
+  item: null
+  passage: Clause 6.3.1
+  image: illustrations/isa-5.1-2009/complete/clause-6.3.1-p76.png
+assets:
+- id: clause-6.3.1-p76
+  role: context
+  label: Clause 6.3.1, page 76
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.1-p76.png
+  sha256: 9a51b53eb57d459edd313e407d566fd4e780b1681e1fa3bd8858260c4417a382
+  width: 2010
+  height: 245
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 76
+    printed_page: '76'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 575.9702
+    - 547.0
+    - 634.4699
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-76
+  role: context
+  label: Complete technical content on page 76
+  path: illustrations/isa-5.1-2009/complete/page-76.png
+  sha256: d8338f3ea713aff3d124b3388817175127439148d1cb3608a532ccb35dc1ab2b
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 76
+    printed_page: '76'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

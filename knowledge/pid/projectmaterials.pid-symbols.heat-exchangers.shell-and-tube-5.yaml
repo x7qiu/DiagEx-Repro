@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.heat-exchangers.shell-and-tube-5
+version: 2
+concept: Shell and Tube 5
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Shell and Tube 5
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: Projectmaterials labels this illustration ‘Shell and Tube 5’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Shell and Tube 5
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Shell and Tube 5’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Shell and Tube 5
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#heat-exchangers-pid-symbols
+  section: Heat Exchangers P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Shell and Tube 5
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.heat-exchangers.shell-and-tube-5.png
+  sha256: 292297d6f3259eef6d402b0f63f632c6948b6eac530e42fd7d1481124ce1747e
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/31_Shell-and-Tube-Heat-5-PID-Symbol22031014142971403-150x150.TRbBq0zb_fQVEe.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: f1706bf04360db500a62657823ed6d6533750a3467dbdba6aeaab4807f021e73
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

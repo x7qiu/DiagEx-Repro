@@ -1,0 +1,124 @@
+id: sht-3101-2017.t4.2-8
+version: 1
+concept: 8字盲板（正常时关） / Spectacle blind, normally closed
+catalog:
+  role: catalog
+  category: piping
+  short_name: 8字盲板（正常时关）
+  interpretation: '8字盲板（正常时关） / Spectacle blind, normally closed. Defined by SH/T 3101:2017, Table 4.2,
+    item 8. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 8字盲板（正常时关）
+- Spectacle blind, normally closed
+reference_type: symbol
+kind: definition
+explanation: '8字盲板（正常时关） / Spectacle blind, normally closed. Defined by SH/T 3101:2017, Table 4.2, item
+  8. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 8字盲板（正常时关）
+- Spectacle blind, normally closed
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '4'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-8/context.png
+  document_id: sht-3101-2017
+  pdf_page: 8
+  table: '4.2'
+  item: '8'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-8/context.png
+  sha256: 614e6b65858332b3845ca1a3c4576df87b496d68f282e4229c59c5da60bd7eea
+  width: 912
+  height: 120
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 8
+    printed_page: '4'
+    table: '4.2'
+    item: '8'
+    rect:
+    - 123.0
+    - 594.0
+    - 1035.0
+    - 714.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-8/primary.png
+  sha256: 29b5a0c46fa5bce752aaa55f5eb2e69f78905531b40747a29ac55be17fd046af
+  width: 117
+  height: 76
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 8
+    printed_page: '4'
+    table: '4.2'
+    item: '8'
+    rect:
+    - 569.0
+    - 616.0
+    - 686.0
+    - 692.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-8/variants.png
+  sha256: 77197bb2cb0f04a907daf029851c6c1ebc78dd9bcbe168cbbd0c28ce27cab329
+  width: 220
+  height: 126
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

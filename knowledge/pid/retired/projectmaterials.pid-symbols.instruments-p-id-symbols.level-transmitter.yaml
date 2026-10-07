@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.level-transmitter
+version: 1
+concept: Level Transmitter
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Level Transmitter
+  interpretation: Projectmaterials labels this illustration ‘Level Transmitter’ (Instruments
+    (P&ID Symbols)).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Level Transmitter
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Level Transmitter’ (Instruments
+  (P&ID Symbols)).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Instruments (P&ID Symbols)
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Level Transmitter
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Level Transmitter
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.level-transmitter.png
+  sha256: cc5d6079b1cde40119812d14475eacb7699ca3aab2ad6aa89150b74ad249d0b9
+  width: 41
+  height: 41
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/level_transmitter.B9-BfIN2_Z1BU4jI.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 5e4b07cb4424c562b0a1e9edd6735aad51d3f716d5a8769d57711650407c72cb
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

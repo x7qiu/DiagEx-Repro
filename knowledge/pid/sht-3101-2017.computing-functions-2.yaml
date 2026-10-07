@@ -1,0 +1,69 @@
+id: sht-3101-2017.computing-functions-2
+version: 1
+concept: 计算功能（续） / Computing functions (continued)
+catalog:
+  role: background
+  short_name: 计算功能（续） / Computing functions (continued)
+  interpretation: Source material retained for browsing, outside the focused P&ID catalog. Full panels
+    are not individual symbols and are not supplied to extraction.
+  displayed_asset_ids: []
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases: []
+reference_type: convention
+kind: definition
+explanation: Source material retained for browsing, outside the focused P&ID catalog. Full panels are
+  not individual symbols and are not supplied to extraction.
+exceptions: []
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags: []
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '18'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/computing-functions-2/context.png
+  document_id: sht-3101-2017
+  pdf_page: 22
+  table: '4.10'
+assets:
+- id: context
+  role: context
+  label: Source context
+  path: illustrations/sht-3101-2017/computing-functions-2/context.png
+  sha256: 8e82c1161df1f41915561918b8301e45199878b79f4f920409f2e55dc93a5445
+  width: 915
+  height: 537
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 22
+    printed_page: '18'
+    table: '4.10'
+    rect:
+    - 146.0
+    - 225.0
+    - 1061.0
+    - 762.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,93 @@
+id: isa-5.1-2009.clause-3
+version: 2
+concept: 3 — Definitions
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: 3 Definitions
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Definitions
+- '3'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '17'
+  pdf_page: 17
+  table: null
+  item: null
+  passage: Clause 3
+  image: illustrations/isa-5.1-2009/complete/clause-3-p17.png
+assets:
+- id: clause-3-p17
+  role: context
+  label: Clause 3, page 17
+  path: illustrations/isa-5.1-2009/complete/clause-3-p17.png
+  sha256: 11d095a634cc20687c8417843b6ae07c448d976ee6377c7534e6daec33f24102
+  width: 2010
+  height: 108
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 17
+    printed_page: '17'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 140.32
+    - 547.0
+    - 165.9919
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-17
+  role: context
+  label: Complete technical content on page 17
+  path: illustrations/isa-5.1-2009/complete/page-17.png
+  sha256: 1276453e2f11fb2ce9993952712207e32a1a79d5bee02eb44bab0d8d420cd953
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 17
+    printed_page: '17'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

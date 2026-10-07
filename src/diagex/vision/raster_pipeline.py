@@ -5,14 +5,14 @@ import hashlib
 from pathlib import Path
 
 from diagex.vision.legend_context import select_legend_context
-from diagex.vision.perception import perceive_tile
 from diagex.vision.raster_broad import BroadRasterClient, perceive_broad_raster
 from diagex.vision.raster_semantics import interpret_raster_reviews
+from diagex.vision.symbol_interpretation import perceive_tile
 
 
 def implementation_sha256():
     root = Path(__file__).parent
-    paths = [root / name for name in ("raster_pipeline.py", "raster_broad.py", "raster_semantics.py", "legend_context.py")]
+    paths = [root / name for name in ("raster_pipeline.py", "raster_broad.py", "raster_semantics.py", "legend_context.py", "reference_evidence.py")]
     return hashlib.sha256(b"".join(p.read_bytes() for p in paths)).hexdigest()
 
 
@@ -39,11 +39,34 @@ def perceive_broad_with_semantics(**kwargs):
             for _ in range(len(kwargs["cost_tracker"].steps) - before):
                 callback("submit_raster_symbols")
     reviews, audit = interpret_raster_reviews(
+        knowledge_context=context.get("knowledge"),
         reviews=outcome.batch.candidate_reviews, client=client, cost_tracker=kwargs["cost_tracker"],
         page=kwargs["page"], tile=kwargs["tile"], view_image=kwargs["view_image"],
         view_info=kwargs["view_info"], legend_entries=entries, policy=kwargs["policy"],
         deadline=kwargs.get("deadline"), on_attempt=kwargs.get("on_attempt"),
     )
+    from diagex.vision.raster_semantics import interpreted_detection
+    from diagex.vision.symbol_interpretation import DetectionRecord
+
+    for index, observation in enumerate(reviews):
+        interpretation = observation.get("legend_interpretation", {})
+        if interpretation.get("decision") != "interpreted":
+            continue
+        raw = {
+            **observation["object"], "id": f"raster-{kwargs['page'].page_index}-{kwargs['tile'].id}-{index}",
+            "page_index": kwargs["page"].page_index, "tile_id": kwargs["tile"].id,
+            "bbox": observation["bbox"],
+        }
+        detection = DetectionRecord.model_validate(interpreted_detection(raw, interpretation))
+        detection.attributes["semantic_validation"] = (
+            "legend_supported_model_classification" if interpretation.get("legend_entry_ids")
+            else "knowledge_supported_model_classification" if (
+                interpretation.get("knowledge_matches") or interpretation.get("knowledge_match")
+            )
+            else "source_supported_model_classification"
+        )
+        detection.attributes["requires_legend_interpretation"] = False
+        outcome.detections.append(detection)
     outcome.batch.candidate_reviews = reviews
     outcome.recovery_diagnostics.append({"stage": "raster_legend_interpretation", **audit})
     outcome.attempts += len(audit["attempts"])

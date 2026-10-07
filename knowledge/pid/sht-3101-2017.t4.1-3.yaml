@@ -1,0 +1,141 @@
+id: sht-3101-2017.t4.1-3
+version: 1
+concept: 伴热管道 / Tracing piping
+catalog:
+  role: background
+  category: lines_signals
+  short_name: 伴热管道
+  interpretation: '伴热管道 / Tracing piping. Defined by SH/T 3101:2017, Table 4.1, item 3. Scan limitation:
+    the tracing-line pattern is too faint to distinguish confidently. A clearer source is needed before
+    using this crop for visual matching.'
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 伴热管道
+- Tracing piping
+reference_type: line_style
+kind: definition
+explanation: '伴热管道 / Tracing piping. Defined by SH/T 3101:2017, Table 4.1, item 3. Scan limitation: the
+  tracing-line pattern is too faint to distinguish confidently. A clearer source is needed before using
+  this crop for visual matching.'
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 伴热管道
+- Tracing piping
+- lines_signals
+- line_style
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '2'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.1-3/context.png
+  document_id: sht-3101-2017
+  pdf_page: 6
+  table: '4.1'
+  item: '3'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.1-3/context.png
+  sha256: 463ff8d961d4c4349e223afb40518704666b42609d43228bfe8be333550ff431
+  width: 913
+  height: 95
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '3'
+    rect:
+    - 125.0
+    - 471.0
+    - 1038.0
+    - 566.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.1-3/primary.png
+  sha256: e16ab8d458a1f6ae08cb36e944dc5f5528e25ff78980683c34777c6309f5f7fe
+  width: 151
+  height: 27
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '3'
+    rect:
+    - 554.0
+    - 505.0
+    - 705.0
+    - 532.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: ambiguous
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.1-3/variants.png
+  sha256: f50f00845c253c284f8317f0ad4d0473bfb6eb2a2bcf24bbb301e699ae1b8c7f
+  width: 220
+  height: 77
+  derived_from:
+  - primary
+  quality: ambiguous
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '2'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 6
+    table: '4.1'
+    item: '3'
+  explanation: 'Scan limitation: the tracing-line pattern is too faint to distinguish confidently. A clearer
+    source is needed before using this crop for visual matching.'
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- 'Scan limitation: the tracing-line pattern is too faint to distinguish confidently. A clearer source
+  is needed before using this crop for visual matching.'
+relations: []

@@ -1,0 +1,161 @@
+id: isa-5.1-2009.clause-3.1.22
+version: 2
+concept: converter
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.22 converter:
+
+  a device that receives information as one form of an instrument signal and transmits
+  an output signal as
+
+  another form, such as a current-to-pneumatic signal converter.
+
+  a). an instrument that changes a sensor’s output to a standard signal, is properly
+  designated as a
+
+  transmitter, not a converter; typically, a temperature element [TE] connects to
+  a transmitter [TT], not to a
+
+  converter [TY].
+
+  b) a converter is sometimes referred to as a transducer, a completely general term
+  not
+
+  recommended for signal conversion.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'converter:'
+- 3.1.22
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 19, 20
+  pdf_page: 19
+  table: null
+  item: null
+  passage: Clause 3.1.22
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.22-p19.png
+assets:
+- id: clause-3.1.22-p19
+  role: context
+  label: Clause 3.1.22, page 19
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.22-p19.png
+  sha256: fc5e4e3acf7a02f5636213daf35fa6aa5f6a81c96c34aeb2e82e09a97d11733a
+  width: 2010
+  height: 499
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 19
+    printed_page: '19'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 607.6519
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-19
+  role: context
+  label: Complete technical content on page 19
+  path: illustrations/isa-5.1-2009/complete/page-19.png
+  sha256: 55f045ca7b6c548db0d31e1f9a21c3d9c8b16d42a3e9d57e15cf150fabba3ade
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 19
+    printed_page: '19'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-3.1.22-p20
+  role: context
+  label: Clause 3.1.22, page 20
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.22-p20.png
+  sha256: 350c12a114b11f9ad02e3b29a417c00282cb7586026b6b439d6149eead709078
+  width: 2010
+  height: 147
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 20
+    printed_page: '20'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 105.1516
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-20
+  role: context
+  label: Complete technical content on page 20
+  path: illustrations/isa-5.1-2009/complete/page-20.png
+  sha256: d4cd7f5e954b0255d976d148c73a79dcddb0c3b0215545529fe97d180358f3de
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 20
+    printed_page: '20'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

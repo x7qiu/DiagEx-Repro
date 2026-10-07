@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-1
+version: 1
+concept: 软管 / Flexible hose
+catalog:
+  role: catalog
+  category: piping
+  short_name: 软管
+  interpretation: '软管 / Flexible hose. Defined by SH/T 3101:2017, Table 4.2, item 1. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 软管
+- Flexible hose
+reference_type: symbol
+kind: definition
+explanation: '软管 / Flexible hose. Defined by SH/T 3101:2017, Table 4.2, item 1. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 软管
+- Flexible hose
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '3'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-1/context.png
+  document_id: sht-3101-2017
+  pdf_page: 7
+  table: '4.2'
+  item: '1'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-1/context.png
+  sha256: ad472bd1bfaeed3673d9ef298889eca8f9def143703777a1c8c857d6c4b2c119
+  width: 908
+  height: 112
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 7
+    printed_page: '3'
+    table: '4.2'
+    item: '1'
+    rect:
+    - 158.0
+    - 1018.0
+    - 1066.0
+    - 1130.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-1/primary.png
+  sha256: 10ad4ddc630c7f951d477e97c823566f7c0bdf8a19174b6021d98ef93740d130
+  width: 146
+  height: 30
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 7
+    printed_page: '3'
+    table: '4.2'
+    item: '1'
+    rect:
+    - 590.0
+    - 1060.0
+    - 736.0
+    - 1090.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-1/variants.png
+  sha256: 21e2aea1da15ee5f78e5b06170f1a14891ea6e1757e13291473d094be5a97d38
+  width: 220
+  height: 80
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

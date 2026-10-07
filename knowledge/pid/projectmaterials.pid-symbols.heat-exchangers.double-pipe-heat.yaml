@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.heat-exchangers.double-pipe-heat
+version: 2
+concept: Double Pipe Heat
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Double Pipe Heat
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: Projectmaterials labels this illustration ‘Double Pipe Heat’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Double Pipe Heat
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Double Pipe Heat’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Double Pipe Heat
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#heat-exchangers-pid-symbols
+  section: Heat Exchangers P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Double Pipe Heat
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.heat-exchangers.double-pipe-heat.png
+  sha256: c8673184ab7ee8b8e96c663266e564c13082255c4afcb5d59038339db8c42410
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/10_Double-Pipe-Heat-PID-Symbol-3760703-150x150.kWckAKEB_Z2wOQf4.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: a2629775fa873ae203ac624a16276a4e8a85b73f2cc77817262ccd23ea38cc05
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

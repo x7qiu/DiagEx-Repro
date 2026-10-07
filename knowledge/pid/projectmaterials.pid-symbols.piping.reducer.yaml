@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.piping.reducer
+version: 2
+concept: Reducer
+catalog:
+  role: catalog
+  category: piping
+  short_name: Reducer
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Reducer’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Reducer
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Reducer’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Reducer
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#piping-pid-symbols
+  section: Piping P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Reducer
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.piping.reducer.png
+  sha256: 6556bf28cffbf7fbff59a394703fef55e08848f278fe76d69f5982213810be5e
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/REDUCER-PID-SYMBOL-150x150.a5Tg-w1y_2f2jvm.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: c9cfd3b08e848411e02acab3bb1d39b0325fdd721d33bd4e2fe99df5e4e7312f
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

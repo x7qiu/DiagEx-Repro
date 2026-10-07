@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-43
+version: 1
+concept: 转向弯头 / Swing elbow
+catalog:
+  role: catalog
+  category: piping
+  short_name: 转向弯头
+  interpretation: '转向弯头 / Swing elbow. Defined by SH/T 3101:2017, Table 4.2, item 43. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 转向弯头
+- Swing elbow
+reference_type: symbol
+kind: definition
+explanation: '转向弯头 / Swing elbow. Defined by SH/T 3101:2017, Table 4.2, item 43. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 转向弯头
+- Swing elbow
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '6'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-43/context.png
+  document_id: sht-3101-2017
+  pdf_page: 10
+  table: '4.2'
+  item: '43'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-43/context.png
+  sha256: e633bf5274730d8e31a4306ec25b99938182b7c17369fbe4ba5297a919036125
+  width: 912
+  height: 97
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '43'
+    rect:
+    - 127.0
+    - 1174.0
+    - 1039.0
+    - 1271.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-43/primary.png
+  sha256: a4e9d485dc5a1406ccf6e5acae2431be5b78e12471effca77e4c458322117928
+  width: 113
+  height: 79
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '43'
+    rect:
+    - 579.0
+    - 1183.0
+    - 692.0
+    - 1262.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-43/variants.png
+  sha256: 335996ef51e99e647e9bccebd47802f24abcedfc67bddd35b6e1672f2ea492ba
+  width: 220
+  height: 129
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

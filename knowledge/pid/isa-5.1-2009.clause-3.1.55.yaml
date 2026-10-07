@@ -1,0 +1,101 @@
+id: isa-5.1-2009.clause-3.1.55
+version: 2
+concept: scan
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.55 scan:
+
+  to sample, in a predetermined manner, each of a number of variables periodically
+  or intermittently.
+
+  a) a scanning device is often used to ascertain the state or value of a group of
+  variables, and may
+
+  be associated with other functions such as recording and alarming.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'scan:'
+- 3.1.55
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '23'
+  pdf_page: 23
+  table: null
+  item: null
+  passage: Clause 3.1.55
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.55-p23.png
+assets:
+- id: clause-3.1.55-p23
+  role: context
+  label: Clause 3.1.55, page 23
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.55-p23.png
+  sha256: d7d9280a7008acd1825d1879dcaa319b8f00c1d15ae8e53d4e6dc9540957a9a8
+  width: 2010
+  height: 343
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 23
+    printed_page: '23'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 409.1707
+    - 547.0
+    - 491.1302
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-23
+  role: context
+  label: Complete technical content on page 23
+  path: illustrations/isa-5.1-2009/complete/page-23.png
+  sha256: 31146aae82821a82777606e74fa3c713fe90906f04346b24ce337706f99b9622
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 23
+    printed_page: '23'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

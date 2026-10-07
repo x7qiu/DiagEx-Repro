@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.dished-ends-vessel
+version: 2
+concept: Dished Ends Vessel
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Dished Ends Vessel
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Dished Ends Vessel’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Dished Ends Vessel
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Dished Ends Vessel’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Dished Ends Vessel
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Dished Ends Vessel
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.dished-ends-vessel.png
+  sha256: 08a33482c64569eb06c26d092a677582ccf100797a75dd6294e9e4c7d57f7269
+  width: 33
+  height: 62
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/dished_ends_vessel.Bls2Umon_Z1iyrJC.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 9fd706b6826c7408b2aefa30713e670e0fcd3c974ecc4dc785aa7aedde0e09ad
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

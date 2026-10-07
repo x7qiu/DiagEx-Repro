@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.conveyor
+version: 2
+concept: Conveyor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Conveyor
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Conveyor’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Conveyor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Conveyor’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Conveyor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Conveyor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.conveyor.png
+  sha256: ff6accce0a1ce304bbd19e14a0dd37b98cf48e3a85612ae730e2ed3b188dfdb8
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Conveyor-PID-Symbol-150x150.nqWPjYzo_Z1kMLzE.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: e209085c357e6f0e2a1dfc329487932edf6f755ccf65884a475f6f87140f41d7
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,128 @@
+id: isa-5.1-2009.clause-b.2
+version: 2
+concept: B.2 — Instrument identification applied to graphic symbols
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'B.2 Instrument identification applied to graphic symbols
+
+  B.2.1 Instrument identification applied to graphic symbols should include, as a
+  minimum, an alphabetic
+
+  functional identification to identify the functionality of devices and functions
+  shown in the diagrams
+
+  as described in Annex A.
+
+  B.2.2 Tables A.3.1.1 through A.3.6.2 provide examples of allowable functional identifications.
+
+  B.2.3 Brief explanatory notes or other text may be added adjacent to a symbol or
+  in the note section of
+
+  a drawing or sketch to clarify the meaning or purpose of a device or function.
+
+  B.2.4 Loop Identification Number numerals, when assigned in accordance with A.6,
+  complete the
+
+  identity of the loop being shown.
+
+  B.2.5 Lettering fonts should be similar to Arial Narrow and be a minimum of 3/32in(1.125mm)
+  high and
+
+  a maximum of 13 characters per inch wide.
+
+  B.2.6 A Loop Number prefix should:
+
+  a) Not be used with bubbles on drawings but indicated in the note section.
+
+  b) Be used with bubbles if more than one prefix is being used.
+
+  c) Be used in text.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Instrument identification applied to graphic symbols
+- B.2
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '111'
+  pdf_page: 111
+  table: null
+  item: null
+  passage: Clause B.2
+  image: illustrations/isa-5.1-2009/complete/clause-b.2-p111.png
+assets:
+- id: clause-b.2-p111
+  role: context
+  label: Clause B.2, page 111
+  path: illustrations/isa-5.1-2009/complete/clause-b.2-p111.png
+  sha256: 9d10457a6a8ed189a0a4354e20de4fb444787931bcac49796f0c598bf4288ac3
+  width: 2010
+  height: 1318
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 111
+    printed_page: '111'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 258.9313
+    - 547.0
+    - 574.9502
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-111
+  role: context
+  label: Complete technical content on page 111
+  path: illustrations/isa-5.1-2009/complete/page-111.png
+  sha256: 3aad1f587a1152292276321cc8ecdae0cbf61cb3ccaa2e62bd71f586e6e0b70f
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 111
+    printed_page: '111'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation:
+- These are worked examples. Do not treat the complete diagram as one equipment symbol
+  or assign all enclosed text to a group.
+relations: []
+catalog:
+  role: background

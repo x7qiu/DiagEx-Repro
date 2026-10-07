@@ -1,0 +1,114 @@
+id: isa-5.1-2009.clause-3.1.19
+version: 2
+concept: controller
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.19 controller:
+
+  a device having an output that varies to regulate a controlled variable in a specified
+  manner that may be a
+
+  self-contained analog or digital instrument, or may be the equivalent of such an
+  instrument in a shared-
+
+  control system.
+
+  a) an automatic controller varies its output automatically in response to a direct
+  or indirect input of a
+
+  measured process variable.
+
+  b) a manual controller, or manual loading station, varies its output in response
+  to a manual
+
+  adjustment; it is not dependent on a measured process variable.
+
+  c) a controller may be an integral element of other functional elements of a control
+  loop.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'controller:'
+- 3.1.19
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '19'
+  pdf_page: 19
+  table: null
+  item: null
+  passage: Clause 3.1.19
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.19-p19.png
+assets:
+- id: clause-3.1.19-p19
+  role: context
+  label: Clause 3.1.19, page 19
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.19-p19.png
+  sha256: 49bdcb4b40eaceccf4e446b1ff054d8ec9903ca0f6589a811e9bc5f1b0a9a2d5
+  width: 2010
+  height: 682
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 19
+    printed_page: '19'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 268.6511
+    - 547.0
+    - 432.1505
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-19
+  role: context
+  label: Complete technical content on page 19
+  path: illustrations/isa-5.1-2009/complete/page-19.png
+  sha256: 55f045ca7b6c548db0d31e1f9a21c3d9c8b16d42a3e9d57e15cf150fabba3ade
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 19
+    printed_page: '19'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

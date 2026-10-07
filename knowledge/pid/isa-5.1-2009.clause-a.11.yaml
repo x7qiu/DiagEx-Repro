@@ -1,0 +1,143 @@
+id: isa-5.1-2009.clause-a.11
+version: 2
+concept: A.11 — Optional punctuation marks in identification numbers
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.11 Optional punctuation marks in identification numbers
+
+  A.11.1 Punctuation marks, hyphens, slashes, etc., may be used to separate sections
+  of identification
+
+  numbers as required by:
+
+  a) User/Owner.
+
+  b) Database management system.
+
+  c) Control system application software.
+
+  A.11.2 Punctuation is recommended for use between:
+
+  An alphabetic Loop Number prefix and Measured/Initiating Variable letters: [AB-P*05].
+
+  a)
+
+  Loop Number numerals and a numeric Loop Number suffix: [AB-P*05-1, AB-P*05-2],
+
+  b)
+
+  Loop Number numerals and Tag Number suffix: [10-P*05-A1A or 10-P*05-1A1]
+
+  c)
+
+  A Loop Number suffix and Tag Number suffix: [10PT*05A-A or 10PT*05-1-A].
+
+  d)
+
+  A.11.3 Punctuation is optional for use between:
+
+  A Numeric Loop Number prefix and Measured/Initiating Variable letter: [10-P*05].
+
+  a)
+
+  b) A Measured /Initiating Variable letter and Loop Number numerals: [10P*-05].
+
+  A.11.4 Punctuation should not be used between:
+
+  a) Loop Number numerals and an alphabetic Loop Number suffix: [10P*05A].
+
+  Additional Tag Number suffixes: [10PV*05A-A1A].
+
+  b)
+
+  A.11.5 Backslashes are normally used between Functional Identification letters for
+  multifunction devices
+
+  when used in text, [TR⁄TSH-*108].'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Optional punctuation marks in identification numbers
+- A.11
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '92'
+  pdf_page: 92
+  table: null
+  item: null
+  passage: Clause A.11
+  image: illustrations/isa-5.1-2009/complete/clause-a.11-p92.png
+assets:
+- id: clause-a.11-p92
+  role: context
+  label: Clause A.11, page 92
+  path: illustrations/isa-5.1-2009/complete/clause-a.11-p92.png
+  sha256: 090108c8b33ed886fd44c3f23ad78b3eb8770af41c6ecc2acff1907cc7ad5777
+  width: 2010
+  height: 1916
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 92
+    printed_page: '92'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 117.1516
+    - 547.0
+    - 576.9312
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-92
+  role: context
+  label: Complete technical content on page 92
+  path: illustrations/isa-5.1-2009/complete/page-92.png
+  sha256: 75f815b1ca66c29ca255376c54fdfb77fbb28c463aca95b30c4f5c6aa07a6760
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 92
+    printed_page: '92'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

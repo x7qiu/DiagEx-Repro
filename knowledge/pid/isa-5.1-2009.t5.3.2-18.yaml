@@ -1,0 +1,146 @@
+id: isa-5.1-2009.t5.3.2-18
+version: 3
+concept: Signal input to a logic diagram
+aliases:
+- 逻辑图信号输入
+- logic signal input
+reference_type: symbol
+kind: definition
+explanation: Marks a signal input to a logic diagram. Its variable text can describe
+  the input, identify its source, or give an instrument tag.
+exceptions:
+- This defines signal notation, not process-piping connectivity.
+- Use the explicit drawing legend when it differs; shape alone does not prove a connection.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- symbol
+- signal
+- connector
+- logic
+- instrument
+- 逻辑图信号输入
+- logic signal input
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '47'
+  pdf_page: 47
+  table: 5.3.2
+  item: '18'
+  image: illustrations/isa-5.1-2009/t5.3.2-18/context.png
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/isa-5.1-2009/t5.3.2-18/context.png
+  sha256: 8ec516b41e18321b2778421fa196773800e68c6756c1ce6f2fac01d6e3c4bff9
+  width: 1960
+  height: 159
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '18'
+    rect:
+    - 71
+    - 331
+    - 541
+    - 369
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: table-heading
+  role: context
+  label: Table title and note convention
+  path: illustrations/isa-5.1-2009/t5.3.2-18/table-heading.png
+  sha256: 73c92b0fb181738863eac6865730dd74a227b93588e54be5960193c2f25dc0f6
+  width: 1960
+  height: 226
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '18'
+    rect:
+    - 71
+    - 70
+    - 541
+    - 124
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: input
+  role: variant
+  label: Signal input
+  path: illustrations/isa-5.1-2009/t5.3.2-18/input.png
+  sha256: c2883349af80561144985393eeadaa7777242a6be1aa7c6008387a6f550fa1ac
+  width: 230
+  height: 113
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '18'
+    rect:
+    - 131
+    - 337
+    - 186
+    - 364
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: variants
+  role: variant_sheet
+  label: Labeled visual variants
+  path: illustrations/isa-5.1-2009/t5.3.2-18/variants.png
+  sha256: 18dee05be8467c98b69b3cbecdaaf8bdedc079382e0daec0a47d7349dd8d46d0
+  width: 550
+  height: 230
+  derived_from:
+  - input
+  quality: clear
+notes: []
+text_slots:
+- role: input_reference
+  example_marker: (*)
+  location: left of terminal stroke
+  meaning: Input description, source, or instrument tag
+interpretation:
+- Placeholder marks represent variable text, not literal identifiers to copy into
+  drawing results.
+- Row numbers, alternative labels a)/b), and parenthesized note (3) are reference
+  annotations, not symbol parts.
+- Retain uncertainty when the source glyph or actual text does not support a specific
+  interpretation.
+- A logic-diagram input/output mark alone does not prove an off-page continuation;
+  do not force an equipment or piping-node classification.
+catalog:
+  role: catalog
+  category: connectors
+  short_name: Signal input connector
+  interpretation: Marks a signal input to a logic diagram. Its variable text can describe
+    the input, identify its source, or give an instrument tag.
+  displayed_asset_ids:
+  - input
+  model_asset_id: variants
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.3

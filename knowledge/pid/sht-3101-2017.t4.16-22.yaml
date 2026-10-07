@@ -1,0 +1,126 @@
+id: sht-3101-2017.t4.16-22
+version: 2
+concept: 板翅式换热器 / Plate-fin exchanger
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 板翅式换热器
+  search_terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  interpretation: '板翅式换热器 / Plate-fin exchanger. Defined by SH/T 3101:2017, Table 4.16, item 22. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 板翅式换热器
+- Plate-fin exchanger
+reference_type: symbol
+kind: definition
+explanation: '板翅式换热器 / Plate-fin exchanger. Defined by SH/T 3101:2017, Table 4.16, item 22. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 板翅式换热器
+- Plate-fin exchanger
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '27'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.16-22/context.png
+  document_id: sht-3101-2017
+  pdf_page: 31
+  table: '4.16'
+  item: '22'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.16-22/context.png
+  sha256: 1db3563121fb0a8444e51e81eaf6d94bc8b1e8ff2f9cc7b4b98e8a62425b2a77
+  width: 908
+  height: 196
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 31
+    printed_page: '27'
+    table: '4.16'
+    item: '22'
+    rect:
+    - 160.0
+    - 1177.0
+    - 1068.0
+    - 1373.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.16-22/primary.png
+  sha256: 1fe5777d93644595ffd76bf5b87abe410a63ea9826ca0568362227c1c3361975
+  width: 83
+  height: 116
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 31
+    printed_page: '27'
+    table: '4.16'
+    item: '22'
+    rect:
+    - 622.0
+    - 1218.0
+    - 705.0
+    - 1334.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.16-22/variants.png
+  sha256: 8519f4308fb02830b36b7ad0e009546941019b8ec712f3c1970e77ae4db45f98
+  width: 220
+  height: 166
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

@@ -27,6 +27,7 @@ MAX_ABBREVIATIONS = 16
 SHAPES = (
     "continuation_arrow",
     "valve_body",
+    "open_inline_valve",
     "instrument_frame",
     "round_symbol",
     "capsule_body",
@@ -68,6 +69,28 @@ def _tokens(text: str) -> set[str]:
 
 def _families(entry: dict[str, Any]) -> set[str]:
     attrs = entry.get("attributes") or {}
+    kind, cls = entry.get("kind"), entry.get("symbol_class", "")
+    # Shape hints describe visual resemblance, not the role of a definition.
+    # In particular, curled line-example ends and scope-boundary corners have
+    # been mislabeled continuation_arrow. Keep those definitions available to
+    # line/graph consumers, but never promote them into object exemplars here.
+    roles = {
+        entry.get("reference_type"),
+        attrs.get("reference_type"),
+        attrs.get("symbol_role"),
+        attrs.get("line_type"),
+    }
+    if roles & {"line_style", "scope_boundary", "boundary", "line_annotation"} or cls in {
+        "boundary_line", "scope_boundary", "line_style", "line_crossing", "line_annotation"
+    }:
+        return set()
+    if kind == "line":
+        # Older packs sometimes stored an explicitly typed off-page endpoint
+        # as a line. Preserve that supported distinction; generic arrow shape
+        # alone cannot override a line definition's role.
+        if cls in {"opc", "off_page_connector", "offpage_connector", "drawing_reference"}:
+            return {"continuation_arrow"}
+        return set()
     try:
         explicit = json.loads(attrs.get("candidate_shapes", "[]"))
     except (TypeError, ValueError):
@@ -84,17 +107,22 @@ def _families(entry: dict[str, Any]) -> set[str]:
             and families & {"capsule_body", "connected_frame"}
         ):
             families |= {"capsule_body", "connected_frame"}
+        if "valve_body" in families:
+            families.add("open_inline_valve")
         return families
-    kind, cls = entry.get("kind"), entry.get("symbol_class", "")
     if kind == "connector" or cls == "opc":
         return {"continuation_arrow"}
     if kind == "valve" or "valve" in cls or attrs.get("valve_type"):
-        return {"valve_body"}
+        return {"valve_body", "open_inline_valve"}
     if kind == "instrument":
         return {"round_symbol", "instrument_frame"}
     if kind == "equipment":
         return {"round_symbol", "capsule_body", "connected_frame"}
     return set()
+
+
+def cls_check(entry):
+    return entry.get("symbol_class") == "check_valve"
 
 
 def select_legend_context(
@@ -104,7 +132,7 @@ def select_legend_context(
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, list[str]]]:
     """Return compact entries, image blocks, and per-candidate reference IDs."""
     tokens = _tokens(" ".join([*native_text, *(text for c in candidates for text in c.text)]))
-    families = {c.shape for c in candidates} or set(SHAPES)
+    families = {c.shape for c in candidates} | {"valve_body", "continuation_arrow", "round_symbol", "capsule_body"}
     graphical, abbreviations = [], []
     for entry in entries:
         entry = normalise_legend_role(entry)
@@ -145,6 +173,8 @@ def select_legend_context(
                 "description",
                 "source_page_index",
                 "source_bbox",
+                "source",
+                "standard",
             )
         }
         item.update(
@@ -155,6 +185,7 @@ def select_legend_context(
                 if k
                 not in {
                     "classification_evidence",
+                    "classification_repair_evidence",
                     "source_path_ids",
                     "source_text_ids",
                     "previous_rejection_reason",
@@ -169,7 +200,11 @@ def select_legend_context(
         applicable = _families(entry) & families
         if not applicable:
             continue
+        specific = any(c.shape == "open_inline_valve" for c in candidates) and (
+            attrs.get("valve_type") == "check" or cls_check(entry)
+        )
         rank = (
+            not specific,
             -len(_tokens(label) & tokens),
             entry.get("source") != "customer_override",
             entry.get("source") != "legend_extracted",

@@ -1,0 +1,746 @@
+version: 1
+preferred_source: isa-5.1-2009
+compared_source: projectmaterials.pid-symbols
+policy: Prefer the ISA definition for confirmed equivalent meanings; do not claim
+  all website drawings conform to ISA. Keep differing subtype/context meanings and
+  unresolved variants.
+replacements:
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.analyzer-transmitter
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: f934ba6b0e8037e7fa9db5e906e541940b8ffde48b9203fc85ed48dcdf1799ca
+  source_label: Analyzer Transmitter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.flow-controller
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 753d5922287d1c3019c5326c08b39030254fdc30b24f3d60b9a936b60c7dc4ba
+  source_label: Flow Controller
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.flow-element
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 6c80d9e3f89e4a887ee915f98c6458846d4ee957a55ee3f79efeeb2165986855
+  source_label: Flow Element
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.flow-indicator
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 2b7f99dc599fe7daa5ea8264e9f6d7eee2ac7e8767d86450d93f26f127f8a29e
+  source_label: Flow Indicator
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.flow-recorder
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 835cc9e1e0e3e52a20973014bbb963f0a475cbf887a30f9aea9750b1e2dd2daf
+  source_label: Flow Recorder
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.flow-transmitter
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 06d03284ff920984cfc4e5bfe85c022dc0c2bbd335f567f8bc3b9a1b470b0d6a
+  source_label: Flow Transmitter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.indicator-01
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: d8399b86f44895818d3673c51ea885fb06d07cbc37f2ca9ff02b5c9345b7228f
+  source_label: Indicator 01
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.level-gauge
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 31f7a85149cb1eb7ec49f71ed2a36e469eec786ed068329d70b150c9a210d003
+  source_label: Level Gauge
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.level-indicator
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 1e8e4c4366fd5e7b195763e3ad8517468ea0fb10c07597b06515475f0e5d9f76
+  source_label: Level Indicator
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.pressure-indicator
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 5db75d36ea1a861602186e5b707ea69b66794c14e8e7b95f1656b0d5a17ead3d
+  source_label: Pressure Indicator
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.temperature-controller
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 04582bdb500d3ceeac6106d795a1402f48d5f84bd8c94e8091f6085e4a81a5fc
+  source_label: Temperature Controller
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.temperature-element
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 467cd4fe7716f0491fef99ef642dd27ada0462f0991445d77b11449991adf40e
+  source_label: Temperature Element
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.temperature-indicator
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: a639f292f2df6dcc7c179527921a3285de1994e45111a834292c9b7b9672f5ed
+  source_label: Temperature Indicator
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.temperature-recorder
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 682eac5b4116a6c8f2788b7fbd2edf8d0fcd000ddec5a71f41c009d56440ff0a
+  source_label: Temperature Recorder
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.temperature-transmitter
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: Same individual field-instrument circle, with example identification letters.
+    ISA Table 5.1.1 row 1 supplies the glyph; linked Table 4.1 letter definitions
+    supply functions. Function and tag must be read from the drawing, never inferred
+    from the circle.
+  source_image_sha256: 3584d83cd90729187a72dc81f5889e75b1467995f6432b725678a3820ef0cffc
+  source_label: Temperature Transmitter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.level-alarm
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Same accessible main-panel instrument circle with one solid horizontal line.
+    Website letters and loop numbers are example identification, not additional symbol
+    definitions; ISA Table 4.1 supplies the letter meanings.
+  source_image_sha256: 62644dac3919d014d39f3a61fd4cb4839402ceab042d00abddeadbb2877cf881
+  source_label: Level Alarm
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.level-controller
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Same accessible main-panel instrument circle with one solid horizontal line.
+    Website letters and loop numbers are example identification, not additional symbol
+    definitions; ISA Table 4.1 supplies the letter meanings.
+  source_image_sha256: a1188b00ccbf0cb305dd39b2a9e7da85eb1df421a06d16df4cb7dbc0ee23a83d
+  source_label: Level Controller
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.level-recorder
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Same accessible main-panel instrument circle with one solid horizontal line.
+    Website letters and loop numbers are example identification, not additional symbol
+    definitions; ISA Table 4.1 supplies the letter meanings.
+  source_image_sha256: 63e8e149e9027dd8e6d71d4cb09cb9e55f2cfb6dc5265f684be3c574b058b766
+  source_label: Level Recorder
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.level-transmitter
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Same accessible main-panel instrument circle with one solid horizontal line.
+    Website letters and loop numbers are example identification, not additional symbol
+    definitions; ISA Table 4.1 supplies the letter meanings.
+  source_image_sha256: cc5d6079b1cde40119812d14475eacb7699ca3aab2ad6aa89150b74ad249d0b9
+  source_label: Level Transmitter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.pressure-controller
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Same accessible main-panel instrument circle with one solid horizontal line.
+    Website letters and loop numbers are example identification, not additional symbol
+    definitions; ISA Table 4.1 supplies the letter meanings.
+  source_image_sha256: 0f64802d9fd989c5311bc82c8d9b31b6514f88be5e5543bc912e3f9915133821
+  source_label: Pressure Controller
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.pressure-indicating-controller
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Same accessible main-panel instrument circle with one solid horizontal line.
+    Website letters and loop numbers are example identification, not additional symbol
+    definitions; ISA Table 4.1 supplies the letter meanings.
+  source_image_sha256: 734b05babb6aa66212837467ef76def684655af97c9a0e0bbe947c53bae1fa81
+  source_label: Pressure Indicating Controller
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.pressure-recorder
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Same accessible main-panel instrument circle with one solid horizontal line.
+    Website letters and loop numbers are example identification, not additional symbol
+    definitions; ISA Table 4.1 supplies the letter meanings.
+  source_image_sha256: a255492f1f6ab1c6f75a118136092a09e571e862219a7be34d1fa055191fa964
+  source_label: Pressure Recorder
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.pressure-recording-controller
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Same accessible main-panel instrument circle with one solid horizontal line.
+    Website letters and loop numbers are example identification, not additional symbol
+    definitions; ISA Table 4.1 supplies the letter meanings.
+  source_image_sha256: 56d07b632052b80261095c3219529ad3ca4b863701499e715a94e3904cd0d838
+  source_label: Pressure Recording Controller
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.pressure-transmitter
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Same accessible main-panel instrument circle with one solid horizontal line.
+    Website letters and loop numbers are example identification, not additional symbol
+    definitions; ISA Table 4.1 supplies the letter meanings.
+  source_image_sha256: ff11c211576e5d6d6f50f68194fe19f716def1c981ffdab297342f639e453330
+  source_label: Pressure Transmitter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.behind-control
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-3
+  reason: Same individual-instrument location marking and circle; solid/dashed and
+    single/double horizontal lines retain their ISA distinctions.
+  source_image_sha256: 4f412afb5cd03a48b75066b800324463bc807446995981aa56055e8f8f2d9e52
+  source_label: Behind Control
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.behind-local-control
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-5
+  reason: Same individual-instrument location marking and circle; solid/dashed and
+    single/double horizontal lines retain their ISA distinctions.
+  source_image_sha256: 72ad037afadd7c632e22b7773a4b4e28b6db6fad25b0f0d73e003d6f82497222
+  source_label: Behind Local Control
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.on-central-control-panel
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Same individual-instrument location marking and circle; solid/dashed and
+    single/double horizontal lines retain their ISA distinctions.
+  source_image_sha256: cb1e7c0b64c2e330fc7bae2064e593f6b9483661b39d70d8755d567424024bef
+  source_label: On Central Control Panel
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.on-local-control-panel
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-4
+  reason: Same individual-instrument location marking and circle; solid/dashed and
+    single/double horizontal lines retain their ISA distinctions.
+  source_image_sha256: 1ad417547623d21c86f8ebc22486cab1e24c6f8b9668188d2a84d903adc30546
+  source_label: On Local Control Panel
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.shared-indicator-01
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Circle inside a square with a horizontal line is covered by the accessible
+    main-panel primary control-system variant (A), not the standalone circle variant
+    (D).
+  source_image_sha256: 491fdf9797e1f48d58f2a47aa6c6d4556a0e51dcb59963f49d80ba2d401e88db
+  source_label: Shared Indicator 01
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.shared-indicator-02
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-2
+  reason: Circle inside a square with a horizontal line is covered by the accessible
+    main-panel primary control-system variant (A), not the standalone circle variant
+    (D).
+  source_image_sha256: b55ed4a2ffd115b52cca6c45fd44612c8b96db8b5f10ef3e54cd6b46293231b9
+  source_label: Shared Indicator 02
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.computer
+  replacement_ids:
+  - isa-5.1-2009.t5.1.1-1
+  reason: The unbarred hexagon is preserved in ISA row 1, original computer-systems
+    variant C; it remains outside the focused catalog variants.
+  source_image_sha256: 0797a2554d938cc43792b8517c3f5040664f150b87a791ba7b534193beb663bb
+  source_label: Computer
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.and-gate
+  replacement_ids:
+  - isa-5.1-2009.t5.7-1
+  reason: AND logic function already exists in ISA, including the alternate D-shaped
+    illustration. Both references are background, not equipment.
+  source_image_sha256: 21f6c258fdc8180e5553cfa64c374e870e129b5ee1be56fb63829dacc5410e09
+  source_label: AND Gate
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.or-gate
+  replacement_ids:
+  - isa-5.1-2009.t5.7-2
+  reason: OR logic function already exists in ISA, including the alternate curved
+    illustration. Both references are background, not equipment.
+  source_image_sha256: e6d321a55fc448358c9c648e9c758ad3620bc02cd7dd3e312b77c1202aba0f17
+  source_label: OR Gate
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.not-gate
+  replacement_ids:
+  - isa-5.1-2009.t5.7-11
+  reason: NOT logic function is already defined by ISA. Retain the ISA definition
+    and its original illustration, rather than a second website logic entry.
+  source_image_sha256: 416f60850ffd9bfa8df5bd222cc8f5e79902f7aa1b1b0efa70e969e52b4881ed
+  source_label: NOT Gate
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.averaging-pitot-tube
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-18
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: 52d86a0f488d2e21e4dc39fc1fd19b476b51fd497c014ab55346c821c5d3da51
+  source_label: Averaging Pitot Tube
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.coriolis-flow-sensor
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-27
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: 4e33f168ec453a968853f5efdc18f3da12df3dda51d7fda2c71fa7576215049b
+  source_label: Coriolis Flow Sensor
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.flow-nozzle-meter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-14
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: 9b707268728ce26496476838381feb056c22401e2fdb6ea297b0488e8a13f056
+  source_label: Flow Nozzle Meter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.flume-meter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-31
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: 32c1a9e130871274a6cd2c455ebd348ddce8c528d27ab99b8a55644a048b18f6
+  source_label: Flume Meter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.magnetic-flow-meter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-22
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: d207465a89a3039754db11967631be759f532a96d937e984e0d19bd6a36a01d2
+  source_label: Magnetic Flow Meter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.pitot-tube
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-17
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: 9ddba33b0056dcac46405f25046d033eeda4c7c2156758c2990238c5c99c7c26
+  source_label: Pitot Tube
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.quick-change-meter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-7
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: b48d71d92d5ac5218fbc4c1ac4299c3deabdf9ad18556f864b1a2a74fb20b3ed
+  source_label: Quick Change Meter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.target-meter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-21
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: 681ba49f20f547498628ab6317ee6a593e3fe86f9b5dcb83fd8f55facde0c320
+  source_label: Target Meter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.turbine-meter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-19
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: 026858498302156d7e8bbc0d60b40112dd61a4517ffb666b3537160c37c21997
+  source_label: Turbine Meter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.ultrasonic-meter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-28
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: fb3682eb9f04826bf84846e2d474b73be892b94834a654fe480124a3296f540d
+  source_label: Ultrasonic Meter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.v-cone-meter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-25
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: ea19a416c48cbe22395ba3c95c3492589b1d6357c02331022d6061c48409117e
+  source_label: V Cone Meter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.venturi-meter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-12
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: 50a81a8ebf14f61cd46f6b72254352e155b5eab055dd821b45101711e60fd921
+  source_label: Venturi Meter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.vortex-sensor
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-20
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: 947f2e0a982acdef0a62bf663b596b812e421add012336469be82627e051e882
+  source_label: Vortex Sensor
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.wedge-meter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-26
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: 25f3312448a679c8db648e0d83d004000aed3c1511f18b086c4598a2a4611671
+  source_label: Wedge Meter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.weir-meter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-30
+  reason: Same named primary measurement device/function covered by ISA Table 5.2.3.
+    Keep the ISA reference illustration and qualifications; drawing orientation and
+    line attachments are occurrence evidence.
+  source_image_sha256: a24d1cc273723986c519daea4600ec4cdffa9ed30868f0462338461b0e1d4c2c
+  source_label: Weir Meter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.steam-tracer
+  replacement_ids:
+  - isa-5.1-2009.t5.3.1-5
+  reason: Same concentric solid and broken circles indicating a heat-traced instrument;
+    it is not an additional equipment object.
+  source_image_sha256: 20261cd81dba2a1e85595cea86c94c3e5c5eda348545d48912a89d9fa692c9b8
+  source_label: Steam Tracer
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.straightening-vane
+  replacement_ids:
+  - isa-5.1-2009.t5.2.5-3
+  reason: Flow-straightening vanes already have an ISA definition and process-line
+    illustration; keep the ISA depiction and qualifications.
+  source_image_sha256: 46866172a0a8169ff2e1b9757db5e58ba096b786859b3d18d129e7f8091185a9
+  source_label: Straightening Vane
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.pressure-gauge
+  replacement_ids:
+  - isa-5.1-2009.t5.2.4-4
+  reason: Same local pressure-gage function on a process connection; retain ISA pressure-gage
+    identification rather than the website pointer illustration.
+  source_image_sha256: 4539815ddb53fb8139e81c2a473cb2a1541d716252c6261c7162e68d7153588e
+  source_label: Pressure Gauge
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.thermometer
+  replacement_ids:
+  - isa-5.1-2009.t5.2.4-5
+  reason: Same local thermometer function on a process connection; retain ISA thermometer
+    identification and illustration.
+  source_image_sha256: 77186e0b025afc51b693827729408e00d5afc43ebc92575ce8513cbf5a6eb1c0
+  source_label: Thermometer
+- reference_id: projectmaterials.pid-symbols.lines.capillary-tubing-filled
+  replacement_ids:
+  - isa-5.1-2009.t5.3.2-9
+  reason: Same signal-line convention and characteristic repeated marking. Air/N2
+    is a medium annotation on the pneumatic signal, not a separate signal-line definition.
+    ISA qualifications take precedence.
+  source_image_sha256: bfbac2ab48ab113da939e6f8a8cf69c9dabd1415c65c501421431468bcbcd0a8
+  source_label: Capillary Tubing (Filled)
+- reference_id: projectmaterials.pid-symbols.lines.electrical-signal
+  replacement_ids:
+  - isa-5.1-2009.t5.3.2-6
+  reason: Same signal-line convention and characteristic repeated marking. Air/N2
+    is a medium annotation on the pneumatic signal, not a separate signal-line definition.
+    ISA qualifications take precedence.
+  source_image_sha256: ecbbb521f34a530aa76121284b434b3033ec9400b935003274c1e95beb4c6248
+  source_label: Electrical Signal
+- reference_id: projectmaterials.pid-symbols.lines.hydraulic-signal
+  replacement_ids:
+  - isa-5.1-2009.t5.3.2-8
+  reason: Same signal-line convention and characteristic repeated marking. Air/N2
+    is a medium annotation on the pneumatic signal, not a separate signal-line definition.
+    ISA qualifications take precedence.
+  source_image_sha256: deee355ad358416e642a14f4addf892e7a37e9ebde63487f3d7050102bdeccc6
+  source_label: Hydraulic Signal
+- reference_id: projectmaterials.pid-symbols.lines.pneumatic-signal-air
+  replacement_ids:
+  - isa-5.1-2009.t5.3.2-5
+  reason: Same signal-line convention and characteristic repeated marking. Air/N2
+    is a medium annotation on the pneumatic signal, not a separate signal-line definition.
+    ISA qualifications take precedence.
+  source_image_sha256: d3414f675d635eb41cf569eb62478e2c1203ef441c53ba0bf93eb69a8a5fbf15
+  source_label: Pneumatic Signal (Air)
+- reference_id: projectmaterials.pid-symbols.lines.pneumatic-signal-n2
+  replacement_ids:
+  - isa-5.1-2009.t5.3.2-5
+  reason: Same signal-line convention and characteristic repeated marking. Air/N2
+    is a medium annotation on the pneumatic signal, not a separate signal-line definition.
+    ISA qualifications take precedence.
+  source_image_sha256: ad2d617886659f795b70223510b4527e6fc99459b982d8babd8bb689e39890d7
+  source_label: Pneumatic Signal (N2)
+- reference_id: projectmaterials.pid-symbols.lines.system-link-digital-software
+  replacement_ids:
+  - isa-5.1-2009.t5.3.2-12
+  reason: Same signal-line convention and characteristic repeated marking. Air/N2
+    is a medium annotation on the pneumatic signal, not a separate signal-line definition.
+    ISA qualifications take precedence.
+  source_image_sha256: 3fa4a8b219bcb2fbd225b37c996601854042a7a8537ece75ac94a1f16c6d5a4f
+  source_label: System Link (Digital/Software)
+- reference_id: projectmaterials.pid-symbols.lines.undefined-signal
+  replacement_ids:
+  - isa-5.1-2009.t5.3.2-4
+  reason: Same signal-line convention and characteristic repeated marking. Air/N2
+    is a medium annotation on the pneumatic signal, not a separate signal-line definition.
+    ISA qualifications take precedence.
+  source_image_sha256: a60f5c7fb0539d292e83a0a1062538b57c17aac00c1bf42f8e47be2a1b7b2dc2
+  source_label: Undefined Signal
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.gate-valve-symbol
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-1
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: 22213195b5466db5face2f0381dc428ca6dab8b8b992006cdac39f12c96eaaf6
+  source_label: Gate Valve Symbol
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.globe-valve-symbol
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-1
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: 9e015b526e71c699b31ad2acbd768bfbb6be039dc8ecc8618c224e48765cbe7b
+  source_label: Globe Valve Symbol
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.angle-valve
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-2
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: d89eb2f6a1c712cdd811ce1d657d415748c6b152ef232ca87ae7015985c24f76
+  source_label: Angle Valve
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.angle-globe-valve
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-2
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: 7d3eb0b955136c7647ef7503dea40b91f91d4686267afc9f220a283a307265d1
+  source_label: Angle Globe Valve
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.3-way-gate-valve
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-3
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: d0b0d1fbe52adda8847016a2bddfa9e6387b19a6ca917345623a0f022034a910
+  source_label: 3-Way Gate Valve
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.3-way-valve-normal
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-3
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: 0e86b7c7c2c3858a58a68e79b1c5aa69fc39ac71891f892bcae62fbbd2671561
+  source_label: 3-Way Valve Normal
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.4-way-valve
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-4
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: 7273ac38064a2702b018ddc5e772189e022946148b8b66e6732796185263670e
+  source_label: 4-Way Valve
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.ball-valve-symbol
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-6
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: a6cb2633b3b09be3a9240db6311a96e99331c79774348c5f25f3cbb03b9a8cb2
+  source_label: Ball Valve Symbol
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.plug-valve-symbol
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-7
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: bc1be22ac96aee0d8d461b00071b5dbc42486e0e95a64e98606a209e19c8573a
+  source_label: Plug Valve Symbol
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.butterfly-valve-symbol
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-5
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: 54baefd2b6294e7a212806d6a60481de136b9ca45ae54d97a466a1d4b55681d6
+  source_label: Butterfly Valve Symbol
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.diaphragm-valve
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-9
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: 79b9947be946081bdfe8bf2100037349d408e5fa1fdc82f1b3ee98046c731631
+  source_label: Diaphragm Valve
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.pinch-valve
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-10
+  reason: Same valve family explicitly defined by ISA Table 5.4.1; retain ISA primary/alternate
+    forms. Do not infer a more specific valve subtype from the generic ISA glyph.
+  source_image_sha256: a40aa6bf50020bc4bd191f819ef2ec9cbc312c954e6f1209dbc41bbb78fdb695
+  source_label: Pinch Valve
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.solenoid-manual-reset
+  replacement_ids:
+  - isa-5.1-2009.t5.4.2-18
+  reason: Same S actuator with adjacent R diamond for manual/remote reset; ISA preserves
+    the reset qualifications.
+  source_image_sha256: 66da5172a9a4530085b2a2c42bc8a3192836fde5e96fb041fba2d48d607892a6
+  source_label: Solenoid Manual Reset
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.4-way-solenoid
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-18
+  - isa-5.1-2009.t5.4.2-17
+  reason: Four-way on/off valve body plus S solenoid actuator are both represented
+    by ISA. Preserve the component distinction; this reference match does not instantiate
+    an assembly.
+  source_image_sha256: 39923850228bf2aa5244edaaa2af807e36b2913eeba4658b9c45ebeda7dce2bc
+  source_label: 4-Way Solenoid
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.motor-activated-valve
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-1
+  - isa-5.1-2009.t5.4.2-9
+  reason: Generic two-way valve body plus circular M rotary motor actuator are represented
+    separately in ISA; neither component implies a new connection in a drawing.
+  source_image_sha256: d85d136e38625aadacae6be5668b6069701181b68b8ace6aef90b82abfb40637
+  source_label: Motor Activated Valve
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.electro-hydraulic
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-1
+  - isa-5.1-2009.t5.4.2-14
+  reason: Generic valve and E/H electrohydraulic actuator functions are defined by
+    ISA. Retain ISA component records and qualifications rather than a separate composite
+    website card.
+  source_image_sha256: 82078367c5016c3946f6181f5c00087b623547f0b5480a1324ebea3212f5dc4f
+  source_label: Electro Hydraulic
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.control-valve-internal
+  replacement_ids:
+  - isa-5.1-2009.t5.4.3-10
+  reason: Illustrated self-actuated regulator/safety-valve arrangement is already
+    covered by this ISA row. Use the ISA-specific definition rather than the website
+    broad caption.
+  source_image_sha256: 0d33ea61b0685a68c4309c66e4a0b7d324f9a489334191a1d950e2ba1f728191
+  source_label: Control Valve Internal
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.control-valve-symbol-external
+  replacement_ids:
+  - isa-5.1-2009.t5.4.3-11
+  reason: Illustrated self-actuated regulator/safety-valve arrangement is already
+    covered by this ISA row. Use the ISA-specific definition rather than the website
+    broad caption.
+  source_image_sha256: a9a1509f70f37757b2316b5cab7cef012d992aad1f0d20dcb0ae86d687e54cef
+  source_label: Control Valve Symbol (External)
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.pressure-relief-valve-symbol
+  replacement_ids:
+  - isa-5.1-2009.t5.4.3-15
+  reason: Illustrated self-actuated regulator/safety-valve arrangement is already
+    covered by this ISA row. Use the ISA-specific definition rather than the website
+    broad caption.
+  source_image_sha256: b781e1af7d3cc9d8add834394d4e1c7d2360de416521cdea43010d4a9146b316
+  source_label: Pressure Relief Valve Symbol
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.pressure-vacuum-valve
+  replacement_ids:
+  - isa-5.1-2009.t5.4.3-17
+  reason: Illustrated self-actuated regulator/safety-valve arrangement is already
+    covered by this ISA row. Use the ISA-specific definition rather than the website
+    broad caption.
+  source_image_sha256: 8f73c16968fb70d769475528c2156de906cbb5709cf570773e834fe714b39ed9
+  source_label: Pressure Vacuum Valve
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.vacuum-breaker
+  replacement_ids:
+  - isa-5.1-2009.t5.4.3-16
+  reason: Illustrated self-actuated regulator/safety-valve arrangement is already
+    covered by this ISA row. Use the ISA-specific definition rather than the website
+    broad caption.
+  source_image_sha256: 6f52866ef986d0cf05b454c12e3c0fe5d3d421c5d76d41ced150dbf4bd84019e
+  source_label: Vacuum Breaker
+- reference_id: projectmaterials.pid-symbols.piping.diaphragm
+  replacement_ids:
+  - isa-5.1-2009.t5.4.2-1
+  reason: Same spring-diaphragm actuator dome and stem; the website broad caption
+    does not denote a separate standalone equipment definition.
+  source_image_sha256: 9172c005f2fc4a74d944efbb8cda3f986583e1a9ad43f7a8ffe70fbcb51841c1
+  source_label: Diaphragm
+- reference_id: projectmaterials.pid-symbols.piping.manual-handwheel
+  replacement_ids:
+  - isa-5.1-2009.t5.4.2-13
+  reason: Same T-shaped manual actuator symbol.
+  source_image_sha256: abf3e71a9cca618de5bc1a06af6fed30a51e60860184b153bfbc5ee4c90a7a2f
+  source_label: Manual Handwheel
+- reference_id: projectmaterials.pid-symbols.piping.piston-operator
+  replacement_ids:
+  - isa-5.1-2009.t5.4.2-4
+  reason: Same rectangular piston actuator with divided chamber and stem.
+  source_image_sha256: eb5285f8ee84f642223736d076f1dabe23b3cfa7ce0769051c725bacdada27d2
+  source_label: Piston Operator
+- reference_id: projectmaterials.pid-symbols.piping.orifice-plate
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-6
+  reason: Generic orifice plate is already defined in ISA; retain the ISA illustrated
+    alternatives rather than a separate flanged website example.
+  source_image_sha256: 85fb2468748327e66d2c42a714770f1cc309c35be35db0219af2cd4e2cb5f52c
+  source_label: Orifice Plate
+- reference_id: projectmaterials.pid-symbols.general-plant-equipment.electric-motor
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-21
+  reason: Same electric-motor equipment body, including rotated depiction/shaft, covered
+    by ISA. This replacement is the equipment motor, not a motor-operated valve actuator.
+  source_image_sha256: 3cd83de6c6af47bbc6ac5ed0d1c6c0bb8e392030679f2daa7e4a500362d08765
+  source_label: Electric Motor
+- reference_id: projectmaterials.pid-symbols.general-plant-equipment.motor
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-21
+  reason: Same electric-motor equipment body, including rotated depiction/shaft, covered
+    by ISA. This replacement is the equipment motor, not a motor-operated valve actuator.
+  source_image_sha256: e80eac0e1de154e288b37b58c15c1d6c6a62fae2b1f839177f1b9acb1df8abc5
+  source_label: Motor
+- reference_id: projectmaterials.pid-symbols.motors-generators-and-turbines.motor-02
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-21
+  reason: Same generic electric-motor equipment function; retain ISA equipment motor
+    definition. AC/DC/step-motor subtypes are not collapsed into this generic entry.
+  source_image_sha256: 8abe4742a108ac0dc4ec35b85e143f45f7ffeccc593cfb4e6d3512c16e2fcf34
+  source_label: Motor 02
+- reference_id: projectmaterials.pid-symbols.motors-generators-and-turbines.electric-motor
+  replacement_ids:
+  - isa-5.1-2009.t5.4.1-21
+  reason: Same generic electric-motor equipment function; retain ISA equipment motor
+    definition. AC/DC/step-motor subtypes are not collapsed into this generic entry.
+  source_image_sha256: a26527cb20ee40211e960c7cac037fcec8252dcd5c789f35adcf561f4abbe7fc
+  source_label: Electric Motor
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.flowmeter
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-24
+  reason: Paired lobes within a rectangular body are the positive-displacement flowmeter
+    illustration, rotated relative to the ISA depiction. The broad website name is
+    replaced with the specific ISA definition.
+  source_image_sha256: bff8fd42371e9af4f9d2925827f4e332d720988b8228374779f40bdf62e9bcad
+  source_label: Flowmeter
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.venturi
+  replacement_ids:
+  - isa-5.1-2009.t5.2.3-12
+  reason: Same converging/diverging generic venturi/flow-tube outline; external pipe
+    extensions do not establish a different measurement symbol.
+  source_image_sha256: d35b8c906028100125aa0433a3ebb5839511fd67bd2516efec5cbffe087a173a
+  source_label: Venturi
+retained_examples:
+- reference_id: projectmaterials.pid-symbols.strainers.flat-plate-strainer
+  reason: Resembles an orifice/integral plate; strainer meaning differs. Keep.
+- reference_id: projectmaterials.pid-symbols.lines.electrical-supply
+  reason: Website long/short dash pattern differs from ISA electric-supply solid line
+    labelled ES. Keep as a distinct convention.
+- reference_id: projectmaterials.pid-symbols.lines.ultrasonic-signal
+  reason: Continuous wave overlaps the guided-signal appearance, but the caption does
+    not establish guided versus unguided applicability. Keep.
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.control-valve
+  reason: Generic caption with S actuator does not establish on/off versus modulating
+    service. Do not equate to one ISA actuator definition.
+- reference_id: projectmaterials.pid-symbols.valve-symbols-for-p-id.valve-generic
+  reason: Illustration includes a directional marker; a generic caption alone cannot
+    establish equivalence to the ISA generic valve.
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.pitot-tube-type-flow-meter
+  reason: Website L-in-box glyph differs from the ISA bent probe; equivalence is not
+    established by the caption.
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.rotary-meter
+  reason: R-in-box device subtype is not an exact equivalent of the ISA generic positive-displacement
+    meter.
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.rotometer
+  reason: Circle plus triangle differs from ISA variable-area glyph. Retain pending
+    a stronger match.
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.pressure-gauges
+  reason: P-in-box illustration differs from the ISA local pressure gage; possible
+    specialized meaning is unresolved.
+- reference_id: projectmaterials.pid-symbols.instruments-p-id-symbols.computer-indicator
+  reason: Octagonal website outline differs from ISA computer-system hexagon. Do not
+    merge by the word computer.

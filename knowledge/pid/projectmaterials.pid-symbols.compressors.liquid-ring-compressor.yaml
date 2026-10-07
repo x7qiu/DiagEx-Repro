@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.compressors.liquid-ring-compressor
+version: 2
+concept: Liquid Ring Compressor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Liquid Ring Compressor
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Liquid Ring Compressor’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Liquid Ring Compressor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Liquid Ring Compressor’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Liquid Ring Compressor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#compressors-pid-symbols
+  section: Compressors P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Liquid Ring Compressor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.compressors.liquid-ring-compressor.png
+  sha256: 5bda351766cdd86948e41ffc9a11ec935485971c5e6b20489b175d6db26547ce
+  width: 52
+  height: 52
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/liquid_ring_compressor.TM3oXHO-_Z25e5FJ.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 8373ea16a1fd96ad8ebfef88a7b1d7e32493d950ceb9cb498684fad22cbe89f6
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

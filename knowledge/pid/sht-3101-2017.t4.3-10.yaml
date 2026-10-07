@@ -1,0 +1,135 @@
+id: sht-3101-2017.t4.3-10
+version: 1
+concept: 轨道球阀 / Rising-stem ball valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 轨道球阀
+  interpretation: 轨道球阀 / Rising-stem ball valve. Defined by SH/T 3101:2017, Table 4.3, item 10. PE denotes
+    the pressure end; it is not the valve tag.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 轨道球阀
+- Rising-stem ball valve
+reference_type: symbol
+kind: definition
+explanation: 轨道球阀 / Rising-stem ball valve. Defined by SH/T 3101:2017, Table 4.3, item 10. PE denotes
+  the pressure end; it is not the valve tag.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 轨道球阀
+- Rising-stem ball valve
+- valves_actuators
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '8'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.3-10/context.png
+  document_id: sht-3101-2017
+  pdf_page: 12
+  table: '4.3'
+  item: '10'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.3-10/context.png
+  sha256: 5e9379a13e665bee08933393c3400de1983899e3fe11a0338611f30b64c2f1a3
+  width: 911
+  height: 84
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '10'
+    rect:
+    - 123.0
+    - 432.0
+    - 1034.0
+    - 516.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.3-10/primary.png
+  sha256: a228d350053cea2af4ea8f47d45cdce9c0ca33bb044041b0326985ac23133fc2
+  width: 183
+  height: 53
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 12
+    printed_page: '8'
+    table: '4.3'
+    item: '10'
+    rect:
+    - 501.0
+    - 448.0
+    - 684.0
+    - 501.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.3-10/variants.png
+  sha256: 54097beaf66e01e30f86a35ec55b86d8291b0fffbac51c3027bb9b5be44cec1b
+  width: 220
+  height: 103
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '8'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 12
+    table: '4.3'
+    item: '10'
+  explanation: PE denotes the pressure end; it is not the valve tag.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- PE denotes the pressure end; it is not the valve tag.
+relations: []

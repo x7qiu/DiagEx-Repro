@@ -1,0 +1,98 @@
+id: isa-5.1-2009.clause-3.1.24
+version: 2
+concept: detector
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.24 detector:
+
+  a device that is used to detect the presence of something, such as flammable or
+  toxic gases or discrete
+
+  parts; see also primary element and sensor.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'detector:'
+- 3.1.24
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '20'
+  pdf_page: 20
+  table: null
+  item: null
+  passage: Clause 3.1.24
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.24-p20.png
+assets:
+- id: clause-3.1.24-p20
+  role: context
+  label: Clause 3.1.24, page 20
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.24-p20.png
+  sha256: d01bc7ebcddc174a73b077eebccf2fbf8b1508e81e8d405e5c9fe66f6a1aa4a9
+  width: 2010
+  height: 245
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 20
+    printed_page: '20'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 233.6713
+    - 547.0
+    - 292.1711
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-20
+  role: context
+  label: Complete technical content on page 20
+  path: illustrations/isa-5.1-2009/complete/page-20.png
+  sha256: d4cd7f5e954b0255d976d148c73a79dcddb0c3b0215545529fe97d180358f3de
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 20
+    printed_page: '20'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

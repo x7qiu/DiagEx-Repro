@@ -1,0 +1,264 @@
+id: isa-5.1-2009.t5.3.2-17
+version: 3
+concept: Drawing-to-drawing signal connector
+aliases:
+- 跨图信号连接符
+- signal continuation
+reference_type: symbol
+kind: definition
+explanation: Carries a signal between drawings. The table describes signal flow from
+  left to right and shows rounded and pointed alternatives. The upper field identifies
+  the sending or receiving instrument; the lower field identifies the other drawing
+  or sheet.
+exceptions:
+- This defines signal notation, not process-piping connectivity.
+- Use the explicit drawing legend when it differs; shape alone does not prove a connection.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- symbol
+- signal
+- connector
+- logic
+- instrument
+- 跨图信号连接符
+- signal continuation
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '47'
+  pdf_page: 47
+  table: 5.3.2
+  item: '17'
+  image: illustrations/isa-5.1-2009/t5.3.2-17/context.png
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/isa-5.1-2009/t5.3.2-17/context.png
+  sha256: f568be5946c8efefc81e06b6ba3abd0254cb5f632c35550d708e4cb30034f472
+  width: 1960
+  height: 687
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '17'
+    rect:
+    - 71
+    - 166.5
+    - 541
+    - 331
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: table-heading
+  role: context
+  label: Table title and note convention
+  path: illustrations/isa-5.1-2009/t5.3.2-17/table-heading.png
+  sha256: 73c92b0fb181738863eac6865730dd74a227b93588e54be5960193c2f25dc0f6
+  width: 1960
+  height: 226
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '17'
+    rect:
+    - 71
+    - 70
+    - 541
+    - 124
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: a1
+  role: variant
+  label: a) upper rounded alternative
+  path: illustrations/isa-5.1-2009/t5.3.2-17/a1.png
+  sha256: c96382e313bcf9cf6e78fafcef807c705d17981b1990d4f587750d54266512cd
+  width: 392
+  height: 134
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '17'
+    rect:
+    - 121
+    - 181
+    - 215
+    - 213
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: a2
+  role: variant
+  label: a) lower rounded alternative
+  path: illustrations/isa-5.1-2009/t5.3.2-17/a2.png
+  sha256: 2db2f4de421d9e2e3a7e55b9321790661694b44f6a6d21d8cd22fb40fe7b6871
+  width: 392
+  height: 130
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '17'
+    rect:
+    - 121
+    - 215
+    - 215
+    - 246
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: b1
+  role: variant
+  label: b) upper pointed alternative
+  path: illustrations/isa-5.1-2009/t5.3.2-17/b1.png
+  sha256: 8c18508abf479236cfd3d8fc824f109562ecd03f4c7ef9e4f014b4f1cc2377cd
+  width: 386
+  height: 142
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '17'
+    rect:
+    - 123
+    - 253
+    - 215.3
+    - 287
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: b2
+  role: variant
+  label: b) lower pointed alternative
+  path: illustrations/isa-5.1-2009/t5.3.2-17/b2.png
+  sha256: e62a06825c7b77436b27e46d9a2ab6307aa682686e00d82e1428b5621eeb4c62
+  width: 392
+  height: 142
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 47
+    printed_page: '47'
+    table: 5.3.2
+    item: '17'
+    rect:
+    - 121
+    - 289
+    - 215
+    - 323
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: note-3
+  role: note
+  label: Clause 5.3.3, note (3)
+  path: illustrations/isa-5.1-2009/t5.3.2-17/note-3.png
+  sha256: 8861bd57c962b0861058ee59be9e95d5a1d48bb333e5068c852b79d0121b3a80
+  width: 1980
+  height: 122
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 70
+    - 116
+    - 545
+    - 145
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: none
+  quality: clear
+- id: variants
+  role: variant_sheet
+  label: Labeled visual variants
+  path: illustrations/isa-5.1-2009/t5.3.2-17/variants.png
+  sha256: b456f324ef67aebcd5165a06b6c318f5e7c98ab233e5207e2ade1eb5647488f6
+  width: 1100
+  height: 460
+  derived_from:
+  - a1
+  - a2
+  - b1
+  - b2
+  quality: clear
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '34'
+    pdf_page: 34
+    passage: Clause 5.3.3, note (3)
+  explanation: The user's engineering and design practices should document which alternative
+    symbol is selected.
+  asset_id: note-3
+text_slots:
+- role: instrument_tag
+  example_marker: (#)
+  location: upper compartment
+  meaning: Instrument sending or receiving the signal
+- role: drawing_reference
+  example_marker: (##)
+  location: lower compartment
+  meaning: Drawing or sheet sending or receiving the signal
+interpretation:
+- Placeholder marks represent variable text, not literal identifiers to copy into
+  drawing results.
+- Row numbers, alternative labels a)/b), and parenthesized note (3) are reference
+  annotations, not symbol parts.
+- Retain uncertainty when the source glyph or actual text does not support a specific
+  interpretation.
+catalog:
+  role: catalog
+  category: connectors
+  short_name: Drawing-to-drawing signal connector
+  interpretation: Carries a signal between drawings. The table describes signal flow
+    from left to right and shows rounded and pointed alternatives. The upper field
+    identifies the sending or receiving instrument; the lower field identifies the
+    other drawing or sheet.
+  displayed_asset_ids:
+  - a1
+  - a2
+  - b1
+  - b2
+  model_asset_id: variants
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.3

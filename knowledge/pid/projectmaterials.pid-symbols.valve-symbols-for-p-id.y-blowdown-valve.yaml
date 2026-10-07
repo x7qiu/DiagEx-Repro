@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.valve-symbols-for-p-id.y-blowdown-valve
+version: 2
+concept: Y Blowdown Valve
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Y Blowdown Valve
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Y Blowdown Valve’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Y Blowdown Valve
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Y Blowdown Valve’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Y Blowdown Valve
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#valve-symbols-for-pid
+  section: Valve Symbols for P&ID
+assets:
+- id: symbol
+  role: variant
+  label: Y Blowdown Valve
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.valve-symbols-for-p-id.y-blowdown-valve.png
+  sha256: 6224cf6fe94f0bc797db09cdfc6c12e28863a7efc96afd3ee419ee6cb09146c3
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Y-BLOWDOWN-VALVE-150x150.C0ZV_LpK_Z1kDDgu.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: d91ad5443348c3e9653ebcf119ac87e37f793bf5a13ae059e281a6aa5a989744
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.valve-symbols-for-p-id.vacuum-breaker
+version: 1
+concept: Vacuum Breaker
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Vacuum Breaker
+  interpretation: Projectmaterials labels this illustration ‘Vacuum Breaker’ (Valve
+    Symbols for P&ID).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Vacuum Breaker
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Vacuum Breaker’ (Valve Symbols
+  for P&ID).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Valve Symbols for P&ID
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Vacuum Breaker
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#valve-symbols-for-pid
+  section: Valve Symbols for P&ID
+assets:
+- id: symbol
+  role: variant
+  label: Vacuum Breaker
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.valve-symbols-for-p-id.vacuum-breaker.png
+  sha256: 6f52866ef986d0cf05b454c12e3c0fe5d3d421c5d76d41ced150dbf4bd84019e
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/VACUUM-BREAKER-150x150.CkjD5ftv_ZwiJLQ.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: d727e41a29dcfbcd206ee4d6b901a2ee9b271c57db9c79612e92a6670a878fd1
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.18-12
+version: 1
+concept: 潜液泵 / Immersed pump
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 潜液泵
+  interpretation: '潜液泵 / Immersed pump. Defined by SH/T 3101:2017, Table 4.18, item 12. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 潜液泵
+- Immersed pump
+reference_type: symbol
+kind: definition
+explanation: '潜液泵 / Immersed pump. Defined by SH/T 3101:2017, Table 4.18, item 12. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 潜液泵
+- Immersed pump
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '30'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.18-12/context.png
+  document_id: sht-3101-2017
+  pdf_page: 34
+  table: '4.18'
+  item: '12'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.18-12/context.png
+  sha256: 6d1ab419457f17af5dd4368eee7df792490333026cfb3bb64c7337dc395411e9
+  width: 912
+  height: 255
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 34
+    printed_page: '30'
+    table: '4.18'
+    item: '12'
+    rect:
+    - 137.0
+    - 1056.0
+    - 1049.0
+    - 1311.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.18-12/primary.png
+  sha256: b3c22623354cc7b2a5299dcf09a0e160c515b362929eca84d8b04862d31af6bf
+  width: 70
+  height: 190
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 34
+    printed_page: '30'
+    table: '4.18'
+    item: '12'
+    rect:
+    - 551.0
+    - 1080.0
+    - 621.0
+    - 1270.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.18-12/variants.png
+  sha256: 09ea691a826a4d4f7ff34fb6b9ad28d7254eba56a43507b1f875cb421857fb9c
+  width: 220
+  height: 240
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

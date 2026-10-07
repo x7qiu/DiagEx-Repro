@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.piping.manual-handwheel
+version: 1
+concept: Manual Handwheel
+catalog:
+  role: catalog
+  category: piping
+  short_name: Manual Handwheel
+  interpretation: Projectmaterials labels this illustration ‘Manual Handwheel’ (Piping
+    P&ID Symbols).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Manual Handwheel
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Manual Handwheel’ (Piping
+  P&ID Symbols).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Piping P&ID Symbols
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Manual Handwheel
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#piping-pid-symbols
+  section: Piping P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Manual Handwheel
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.piping.manual-handwheel.png
+  sha256: abf3e71a9cca618de5bc1a06af6fed30a51e60860184b153bfbc5ee4c90a7a2f
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/MANUAL-HANDWHEEL-PID-SYMBOL-150x150.DuiUsN37_4PHf6.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: dd7c4ed8eba37e78ec4c2507c073d3caa4de4e2ed0f2c5aa8a982d1e29fad5eb
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

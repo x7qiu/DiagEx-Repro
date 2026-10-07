@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 import http.client
 import io
 import json
@@ -11,11 +10,10 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import fitz
-import pytest
 
 from diagex.config import Config, LLMConfig
 from diagex.vision.models import BBox, ReconciledGraph, ReconciledNode
-from diagex.web.server import Workbench, WorkbenchError, make_handler
+from diagex.web.server import Workbench, make_handler
 
 
 def _config(tmp_path: Path) -> Config:
@@ -163,6 +161,8 @@ def test_fresh_extraction_uses_memory_key_and_persists_only_redacted_settings(
             "effort": "high",
             "engine": "evidence-v2",
             "fresh": True,
+            "knowledge_mode": "general",
+            "knowledge_sources": ["isa-5.1-2009", "sht-3101-2017"],
         }
     )
     finished = _wait_for_job(workbench, job.id)
@@ -170,86 +170,18 @@ def test_fresh_extraction_uses_memory_key_and_persists_only_redacted_settings(
     assert finished.status == "succeeded"
     assert captured["fresh"] is True
     request_config = captured["config"]
+    assert request_config.knowledge["selected_sources"] == ["isa-5.1-2009", "sht-3101-2017"]
     assert request_config.llm.openrouter_api_key == "one-run-secret"
     public_job = finished.public()
     assert "one-run-secret" not in json.dumps(public_job)
     manifest = json.loads((run_dir / "workbench.json").read_text(encoding="utf-8"))
     assert manifest["settings"]["fresh"] is True
+    assert manifest["settings"]["knowledge"]["selected_sources"] == request_config.knowledge["selected_sources"]
     assert "one-run-secret" not in json.dumps(manifest)
 
 
-def test_review_cannot_open_a_directory_outside_configured_runs(tmp_path: Path) -> None:
-    workbench = Workbench(_config(tmp_path), storage_dir=tmp_path / "web")
-    source_path = tmp_path / "source.pdf"
-    source_path.write_bytes(_pdf_bytes())
-    outside = tmp_path / "outside"
-    outside.mkdir()
-    (outside / "workbench.json").write_text(
-        json.dumps({"source_path": str(source_path)}), encoding="utf-8"
-    )
-
-    with pytest.raises(WorkbenchError, match="outside the configured runs directory"):
-        workbench.launch_review(rater="Engineer", run_dir=str(outside))
 
 
-def test_cli_run_can_attach_a_hash_verified_source_and_reopen(tmp_path: Path) -> None:
-    workbench = Workbench(_config(tmp_path), storage_dir=tmp_path / "web")
-    run_dir = tmp_path / "runs" / "drawing" / "run-existing"
-    run_dir.mkdir(parents=True)
-    graph = ReconciledGraph(source_path="original.pdf")
-    (run_dir / "graph.json").write_text(graph.model_dump_json(), encoding="utf-8")
-    (run_dir / "result.json").write_text(
-        json.dumps(
-            {
-                "run_id": "r-existing",
-                "model": "vision=test; reasoning=test",
-                "engine": "evidence-v2",
-                "quality_status": "partial",
-            }
-        ),
-        encoding="utf-8",
-    )
-    source = _pdf_bytes()
-    source_sha = hashlib.sha256(source).hexdigest()
-    checkpoint_dir = run_dir / "checkpoints"
-    checkpoint_dir.mkdir()
-    (checkpoint_dir / "manifest.json").write_text(
-        json.dumps({"source_sha256": source_sha}), encoding="utf-8"
-    )
-
-    discovered = workbench.recent_runs()
-    assert discovered[0]["run_id"] == "r-existing"
-    assert discovered[0]["source_available"] is False
-
-    wrong = workbench.save_upload(
-        filename="original.pdf",
-        content_type="application/pdf",
-        source=io.BytesIO(b"not the original"),
-        length=len(b"not the original"),
-    )
-    with pytest.raises(WorkbenchError, match="does not match this run's source hash"):
-        workbench.launch_review(
-            rater="Engineer", run_dir=str(run_dir), upload_id=wrong.id
-        )
-
-    upload = workbench.save_upload(
-        filename="original.pdf",
-        content_type="application/pdf",
-        source=io.BytesIO(source),
-        length=len(source),
-    )
-    url = workbench.launch_review(
-        rater="Engineer", run_dir=str(run_dir), upload_id=upload.id
-    )
-
-    assert url.startswith("http://127.0.0.1:")
-    manifest = json.loads((run_dir / "workbench.json").read_text(encoding="utf-8"))
-    assert manifest["source_path"] == str(upload.path.resolve())
-    assert manifest["source_sha256"] == source_sha
-    rediscovered = workbench.recent_runs()
-    assert rediscovered[0]["source_available"] is True
-    assert rediscovered[0]["source_verified"] is True
-    workbench.close()
 
 
 def _request(
@@ -267,7 +199,7 @@ def _request(
     return response.status, response.getheader("Content-Type"), response.read()
 
 
-def test_http_dashboard_upload_job_and_review_handoff(tmp_path: Path) -> None:
+def test_http_dashboard_upload_job_and_removed_review_routes(tmp_path: Path) -> None:
     run_dir = tmp_path / "runs" / "drawing" / "run-1"
 
     def fake_runner(**kwargs: object) -> object:
@@ -324,13 +256,13 @@ def test_http_dashboard_upload_job_and_review_handoff(tmp_path: Path) -> None:
     connection = http.client.HTTPConnection(
         "127.0.0.1", server.server_address[1], timeout=10
     )
-    review_connection: http.client.HTTPConnection | None = None
     try:
         status, content_type, body = _request(connection, "GET", "/")
         assert status == 200
         assert content_type.startswith("text/html")
         assert b'id="startButton"' in body
-        assert b'id="reviewButton"' in body
+        assert b'id="reviewButton"' not in body
+        assert b'id="raterName"' not in body
 
         status, content_type, body = _request(connection, "GET", "/static/app.js")
         assert status == 200
@@ -378,27 +310,16 @@ def test_http_dashboard_upload_job_and_review_handoff(tmp_path: Path) -> None:
         assert job_state["status"] == "succeeded"
         assert b"browser-secret" not in body
 
-        review_body = json.dumps({"job_id": job_id, "rater": "Engineer"}).encode()
-        status, _, body = _request(
-            connection, "POST", "/api/reviews", review_body, "application/json"
-        )
-        assert status == 200
-        review_url = json.loads(body)["url"]
-        review_parts = review_url.removeprefix("http://").split(":")
-        review_connection = http.client.HTTPConnection(
-            review_parts[0], int(review_parts[1].rstrip("/")), timeout=10
-        )
-        review_connection.request("GET", "/api/state")
-        review_response = review_connection.getresponse()
-        assert review_response.status == 200
-        review_state = json.loads(review_response.read())
-        assert review_state["inventory"]["counts"]["nodes"] == 1
-
-        status, _, _ = _request(connection, "GET", "/static/../server.py")
-        assert status in {400, 404}
+        for route in ("/api/reviews", "/api/detection-review/actions"):
+            connection.request("POST", route, body="{}", headers={"Content-Type":"application/json"})
+            response = connection.getresponse()
+            assert response.status == 404
+            response.read()
+        connection.request("GET", "/detection-review")
+        response = connection.getresponse()
+        assert response.status == 404
+        response.read()
     finally:
-        if review_connection is not None:
-            review_connection.close()
         connection.close()
         server.shutdown()
         server.server_close()

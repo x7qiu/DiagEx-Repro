@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.overhead-conveyor
+version: 2
+concept: Overhead Conveyor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Overhead Conveyor
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Overhead Conveyor’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Overhead Conveyor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Overhead Conveyor’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Overhead Conveyor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Overhead Conveyor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.overhead-conveyor.png
+  sha256: 7e39b483f52afb89ac4c07e7a55f5558960d707e0629d1cb4f953c54235368a0
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Overhead-Conveyor-PID-Symbol-150x150.Dwo05kDQ_1PSWf2.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 03eabec71b6520754f348f2802f0941ac228b5cc72e1489d8014c3991addf0af
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,139 @@
+id: sht-3101-2017.t4.16-15
+version: 1
+concept: 浸液式冷却器（PFD） / Immersion cooler (PFD)
+catalog:
+  role: background
+  category: equipment
+  short_name: 浸液式冷却器（PFD）
+  interpretation: 浸液式冷却器（PFD） / Immersion cooler (PFD). Defined by SH/T 3101:2017, Table 4.16, item 15.
+    The source explicitly labels this depiction for PFD use. Retained for browsing; excluded from normal
+    P&ID extraction retrieval.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 浸液式冷却器（PFD）
+- Immersion cooler (PFD)
+reference_type: symbol
+kind: definition
+explanation: 浸液式冷却器（PFD） / Immersion cooler (PFD). Defined by SH/T 3101:2017, Table 4.16, item 15. The
+  source explicitly labels this depiction for PFD use. Retained for browsing; excluded from normal P&ID
+  extraction retrieval.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 浸液式冷却器（PFD）
+- Immersion cooler (PFD)
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '27'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.16-15/context.png
+  document_id: sht-3101-2017
+  pdf_page: 31
+  table: '4.16'
+  item: '15'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.16-15/context.png
+  sha256: ef6a766b4f0f5f60c8a891894bc648b087521c0078721d91f94bd1896ad1909e
+  width: 908
+  height: 155
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 31
+    printed_page: '27'
+    table: '4.16'
+    item: '15'
+    rect:
+    - 160.0
+    - 285.0
+    - 1068.0
+    - 440.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.16-15/primary.png
+  sha256: f7f1540a93026ed2b9b9ed563a81323616c9d5e56619fa62758508a7f9ba5347
+  width: 133
+  height: 116
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 31
+    printed_page: '27'
+    table: '4.16'
+    item: '15'
+    rect:
+    - 600.0
+    - 306.0
+    - 733.0
+    - 422.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.16-15/variants.png
+  sha256: 209c885fafeb6529a440a43dfd6041cbe8f31db830f400a6b66040845a59a4da
+  width: 220
+  height: 166
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '27'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 31
+    table: '4.16'
+    item: '15'
+  explanation: The source explicitly labels this depiction for PFD use. Retained for browsing; excluded
+    from normal P&ID extraction retrieval.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- The source explicitly labels this depiction for PFD use. Retained for browsing; excluded from normal
+  P&ID extraction retrieval.
+relations: []

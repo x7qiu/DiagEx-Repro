@@ -358,6 +358,7 @@ class Config:
     pid: PidConfig = field(default_factory=PidConfig)
     runs_dir: Path = field(default_factory=lambda: Path("runs"))
     process_context: list[dict] = field(default_factory=list)
+    knowledge: dict = field(default_factory=dict)
     raster_proposals: dict | None = None
     raster_ink_filter: bool = False
     raster_symbol_mode: Literal["baseline", "broad_review"] = "baseline"

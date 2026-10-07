@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.valve-symbols-for-p-id.valve-generic
+version: 2
+concept: Valve (Generic)
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Valve (Generic)
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Valve (Generic)’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Valve
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Valve (Generic)’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Valve (Generic)
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#valve-symbols-for-pid
+  section: Valve Symbols for P&ID
+assets:
+- id: symbol
+  role: variant
+  label: Valve (Generic)
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.valve-symbols-for-p-id.valve-generic.png
+  sha256: 11018c9b58b184cce15bbc5e2aeddafc4cf508302d5838a652d72e54a9bfda92
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Page-27@3x-150x150.p9tawyeZ_Z2f15CP.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 823059ee5f55f16a3043a41aefe4f46939bc15f25be11092a1aecb0ce42c0df4
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

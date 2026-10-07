@@ -1,0 +1,161 @@
+id: isa-5.1-2009.clause-3.1.58
+version: 2
+concept: shared control
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.58 shared control:
+
+  a feature of a control device or function that contains a number of pre-programmed
+  algorithms, which are
+
+  user retrievable, configurable, and connectable, and allows user-defined control
+  strategies or functions to
+
+  be implemented,
+
+  a) often used to describe the control features of a distributed control system,
+  programmable logic
+
+  controller, or other microprocessor or mainframe computer based system.
+
+  b) control of multiple process variables can be implemented by sharing the capabilities
+  of a single
+
+  device of this kind.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'shared control:'
+- 3.1.58
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: 23, 24
+  pdf_page: 23
+  table: null
+  item: null
+  passage: Clause 3.1.58
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.58-p23.png
+assets:
+- id: clause-3.1.58-p23
+  role: context
+  label: Clause 3.1.58, page 23
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.58-p23.png
+  sha256: d0c844eff9cefbd146fcc9a02d148bcff5f6e4dff80a1b27c4dbfcf88cfaa311
+  width: 2010
+  height: 449
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 23
+    printed_page: '23'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 619.6498
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-23
+  role: context
+  label: Complete technical content on page 23
+  path: illustrations/isa-5.1-2009/complete/page-23.png
+  sha256: 31146aae82821a82777606e74fa3c713fe90906f04346b24ce337706f99b9622
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 23
+    printed_page: '23'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-3.1.58-p24
+  role: context
+  label: Clause 3.1.58, page 24
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.58-p24.png
+  sha256: dea3086edf50eadf6cf2dbdc335d88ac8367d8a44dcb26b46b034638be6173cb
+  width: 2010
+  height: 147
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 24
+    printed_page: '24'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 105.1516
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-24
+  role: context
+  label: Complete technical content on page 24
+  path: illustrations/isa-5.1-2009/complete/page-24.png
+  sha256: 6638cc9273e23bbc87de69e7fcb092a247f321b489fb630e8a9bc2b72e2fef33
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 24
+    printed_page: '24'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

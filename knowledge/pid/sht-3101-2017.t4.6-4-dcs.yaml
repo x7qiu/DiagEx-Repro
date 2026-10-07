@@ -1,0 +1,126 @@
+id: sht-3101-2017.t4.6-4-dcs
+version: 1
+concept: '分散控制系统：现场控制盘面显示 / DCS: local control-panel/console/display'
+catalog:
+  role: catalog
+  category: instruments
+  short_name: 分散控制系统：现场控制盘面显示
+  interpretation: DCS, local control-panel/console/display. These SH/T families distinguish DCS, SIS,
+    third-party systems and individual instruments; do not substitute ISA primary/alternate-control meanings.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids:
+  - sht-3101-2017.instrument-markings
+  - sht-3101-2017.letter-rules
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 分散控制系统：现场控制盘面显示
+- 'DCS: local control-panel/console/display'
+reference_type: symbol
+kind: definition
+explanation: DCS, local control-panel/console/display. These SH/T families distinguish DCS, SIS, third-party
+  systems and individual instruments; do not substitute ISA primary/alternate-control meanings.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 分散控制系统：现场控制盘面显示
+- 'DCS: local control-panel/console/display'
+- instruments
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '12'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.6-4-dcs/context.png
+  document_id: sht-3101-2017
+  pdf_page: 16
+  table: '4.6'
+  item: 4-dcs
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.6-4-dcs/context.png
+  sha256: 1bfb9eff9f47f987c5e2772a51e9032b6c851a4c3fa3604a82d31aff5e4a19bc
+  width: 912
+  height: 180
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 16
+    printed_page: '12'
+    table: '4.6'
+    item: 4-dcs
+    rect:
+    - 139.0
+    - 881.0
+    - 1051.0
+    - 1061.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: DCS
+  path: illustrations/sht-3101-2017/t4.6-4-dcs/primary.png
+  sha256: efbe473b8d46f49da9380968abc7191ac81918452c49eeae0a2b8dbaed444df2
+  width: 104
+  height: 105
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 16
+    printed_page: '12'
+    table: '4.6'
+    item: 4-dcs
+    rect:
+    - 167.0
+    - 925.0
+    - 271.0
+    - 1030.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.6-4-dcs/variants.png
+  sha256: f0a2c3fac75e4c4f3077955dcf6e03f427dedc7eb7a3aec871c4a60241078e7e
+  width: 220
+  height: 155
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

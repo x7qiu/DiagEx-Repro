@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.tank-02
+version: 2
+concept: Tank 02
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Tank 02
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Tank 02’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Tank 02
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Tank 02’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Tank 02
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Tank 02
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.tank-02.png
+  sha256: b175558a9b6dc0879f1ab5b3fc4e49f2d4a575af1cf09ed81ff6e97534cf632a
+  width: 50
+  height: 49
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/tank_02.CigxBfnc_1TyS0n.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: f5f54517eabc8d1d2c7033dba17a2f38b55994d5b0f2dde2a6beda3c0c35daab
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

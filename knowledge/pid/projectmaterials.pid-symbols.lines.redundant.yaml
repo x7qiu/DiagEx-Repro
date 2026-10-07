@@ -1,0 +1,63 @@
+id: projectmaterials.pid-symbols.lines.redundant
+version: 2
+concept: Redundant
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: Redundant
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Redundant’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Redundant
+reference_type: line_style
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Redundant’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+- line_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Redundant
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#lines-pid-symbols
+  section: Lines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Redundant
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.lines.redundant.png
+  sha256: b7148185a9e683807ba69cf8f5a986b1b3bd06e13e658aaff8014dae55dfcc34
+  width: 150
+  height: 60
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/REDUNDANT-PID-SYMBOL-150x60.VYiIO2rR_Z4RICI.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 2e9907e99fcec2ff697dd9174253536fb886ec158decd60ca53d8361c1450545
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

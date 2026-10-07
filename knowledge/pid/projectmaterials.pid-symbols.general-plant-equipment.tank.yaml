@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.tank
+version: 2
+concept: Tank
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Tank
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Tank’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Tank
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Tank’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Tank
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Tank
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.tank.png
+  sha256: be39abd31773adda576175b5f90096c31b7ffbd841aa7fbe25e46115e983138b
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Tank-PID-Symbol-150x150.ChhuBRCJ_Z2bNeBm.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: cf475a4e76bb1b64638a7f2825aa5776cbb8611bf434813fff3a2e2c195d2a66
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

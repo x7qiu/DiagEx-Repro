@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.compressors.piston-compressor
+version: 2
+concept: Piston Compressor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Piston Compressor
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Piston Compressor’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Piston Compressor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Piston Compressor’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Piston Compressor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#compressors-pid-symbols
+  section: Compressors P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Piston Compressor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.compressors.piston-compressor.png
+  sha256: 3b62399bd4bffb9284ae1abcfaa50bbafd00e7df52e92cf87e698f82081aa240
+  width: 40
+  height: 40
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/piston_compressor.Duf0LjEs_1FD7Qw.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 35699ad40ba8c6bfb04c3f0c5f9d094f789c6a71976f6ba8ed3a27a073e67bd2
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

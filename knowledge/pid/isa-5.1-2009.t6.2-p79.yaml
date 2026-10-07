@@ -1,0 +1,196 @@
+id: isa-5.1-2009.t6.2-p79
+version: 2
+concept: Table 6.2 — Dimensions for Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 (page
+  79)
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: normative
+explanation: Dimensions for Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5. Use the
+  source table with its column headings and linked explanatory notes. Blank or merged
+  cells must not be interpreted as new definitions.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- Dimensions for Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5
+- '6.2'
+- dimensions
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '79'
+  pdf_page: 79
+  table: '6.2'
+  item: null
+  passage: "      Table 6.2 — Dimensions for Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and\
+    \ 5.2.5\n\n\nNote: Numbers in parentheses refer to explanatory notes in Clause\
+    \ 6.3.2.\n\n\n           7[8] (1)           4                  6\n           \
+    \                                                   2\n\n                    \
+    \                                                         3                 5\n\
+    \n                                   4                                       \
+    \                              3                1.5\n                        \
+    \                              1\n\n                               2         \
+    \                                                                 1\n        \
+    \    2                                                                       \
+    \       4                                               4\n                  \
+    \       1            1                 2      3\n                            \
+    \                                                              1.25          \
+    \           1.5                                                              \
+    \                 4\n     4                                 5                \
+    \                             1.25                 1\n                       \
+    \                                                           1.5\n\n          \
+    \                                                                      0.5\n\n\
+    \          6               6             4             6\n                   \
+    \                                                                       1\n  \
+    \                                                                       1\n\n\
+    \      2                      2        2               2          4          \
+    \       3            3.5                                                     \
+    \                         2\n\n\n                                  1.5\n\n\n \
+    \       1\n                           2                   1              2   \
+    \                  2\n                                                       \
+    \                                        2\n\n              4      2         \
+    \    1                  2               3       2                            \
+    \             2\n                                                     1      \
+    \                              2\n\n                                     2   \
+    \                                                        4\n                 \
+    \                   •                                                        \
+    \         4               2             3                  5              1\n\
+    \                               1.5                                          \
+    \                                                          2\n               \
+    \                                            1.5\n      1.5            2\n   \
+    \                                   6                          3\n    1.5    \
+    \              6                         0.5                                 \
+    \                                (3)          7                              \
+    \                                                                        (2)\n\
+    \    0.75                                                1\n                 \
+    \                                  0.67\n                                  1\n\
+    \n                                                                           \
+    \                  1\n                 4\n                                   \
+    \      6\n                                                                   \
+    \    6                   6\n\n        7        3             1\n             \
+    \            5                                   2\n                         \
+    \                           4\n                                              \
+    \                                     4           2"
+  image: illustrations/isa-5.1-2009/complete/page-79.png
+assets:
+- id: page-79
+  role: context
+  label: Complete technical content on page 79
+  path: illustrations/isa-5.1-2009/complete/page-79.png
+  sha256: d036e8fa0f5c6ed8f7e43bda482616affdea258ac0d66311e387e68681096797
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 79
+    printed_page: '79'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-6.3.2-p76
+  role: note
+  label: Clause 6.3.2, page 76
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.2-p76.png
+  sha256: bfa9fea4cb8a2036d2233b630a541dd306312817d08700c02eaf0594d18b471c
+  width: 2010
+  height: 387
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 76
+    printed_page: '76'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 634.4699
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-6.3.2-p77
+  role: note
+  label: Clause 6.3.2, page 77
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.2-p77.png
+  sha256: 97ca363c0004814e7bc6312cb8e8eb21b928c628cdae2018ce01c13f0aaf55ce
+  width: 2010
+  height: 99
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 93.6917
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 76, 77
+    pdf_page: 76
+    table: null
+    item: null
+    passage: Clause 6.3.2
+    image: illustrations/isa-5.1-2009/complete/clause-6.3.2-p76.png
+  explanation: '6.3.2 Table 6.2 — Dimensions for measurement symbols: primary elements
+    and transmitters, Tables
+
+    5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5
+
+    (1) Dimension in parentheses is for 1/2-inch (12-millimeter) option for generic
+    circle symbol.
+
+    (2) Size as required by size of vessel as drawn or depth of application.
+
+    (3) Dip tube shown, show as required for other devices.'
+  asset_id: clause-6.3.2-p76
+text_slots: []
+interpretation:
+- Table cells are source transcriptions; retain headers and merged-cell context when
+  interpreting them. Use the image to resolve superscripts or extraction ambiguity.
+- Example tags and numbering schemes illustrate conventions; never copy them as actual
+  drawing identifiers.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-6.3.2
+  explanation: 'Explanatory notes for Table 6.2: clause 6.3.2.'
+table_data: []
+catalog:
+  role: background

@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.valve-symbols-for-p-id.thermal-release
+version: 2
+concept: Thermal Release
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Thermal Release
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Thermal Release’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Thermal Release Valve
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Thermal Release’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Thermal Release
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#valve-symbols-for-pid
+  section: Valve Symbols for P&ID
+assets:
+- id: symbol
+  role: variant
+  label: Thermal Release
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.valve-symbols-for-p-id.thermal-release.png
+  sha256: 1c915b7b494b3d1744d3b81d1c7d227ed8f95fd2fde8a021644c9fc630de679a
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/THERMAL-RELEASE-HYDRAULIC-SHUT-VALVE-150x150.I3zM4RMM_ZI5MyW.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 80fcd10cefe56a1eea29c708ad0d7a0714fcc8c064026b9669c0e57e6392f0c2
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

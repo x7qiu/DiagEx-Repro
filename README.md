@@ -29,6 +29,11 @@ they are large (~150–250 MB) and not needed to verify any number.
 
 ## Quick start (no API key required)
 
+For independent development of symbol detection, text detection, line detection,
+text assignment, and connection inference, see
+[Modular extraction](docs/MODULAR_EXTRACTION.md). It includes separate CV and VLM
+backends, saved stage inputs, replay commands, and per-stage evaluation.
+
 ```bash
 git clone <REPLACE_WITH_REPO_URL> diagex-repro && cd diagex-repro
 python3.11 -m venv .venv && source .venv/bin/activate
@@ -67,15 +72,19 @@ diagex web
 The dashboard configures the provider, API key, vision and reasoning models,
 reasoning mode, effort, and extraction engine. It accepts a P&ID upload, lets
 the operator resume compatible artifacts or start a fresh run, preserves the
-live extraction log, and opens a completed graph in human review. For Evidence v2,
-**Detect legends & symbols** stops before fusion, connectivity and export. Open
-**Review legends & symbols**, check the legend, correct/add/reject symbols and
-check each P&ID page for missed symbols. **Build graph…** returns to model settings;
-**Build reviewed graph** then uses the saved decisions in a new run without
-repeating legend or symbol model calls. The original detection run stays available.
-The dashboard lists runs containing `graph.json` or `detection.json`; older runs can be linked to
-their original PDF before review, with checkpoint source hashes enforced when
-available. API keys entered in the dashboard remain in process memory and are
+live extraction log, and displays the saved output directory. For Evidence v2,
+**Detect legends & symbols** saves machine detections without constructing a graph.
+**Start extraction** runs through graph construction, including CV-assisted model
+classification when enabled. Unresolved candidates remain explicit in the output.
+The dashboard lists saved runs containing `graph.json` or `detection.json`.
+Choose **View results / 查看结果** beside a saved run to inspect the source drawing,
+symbol and connection overlays, legend images, unresolved findings, and downloadable
+artifacts. The viewer is read-only and makes no model calls. Older saved edits, when
+present, are available as a separately labelled snapshot. If the original source file
+is missing, saved extraction data remains viewable; overlays are hidden when the
+original extraction coordinate frame is unknown.
+Human reviewer applications, sign-off sessions, and the `diagex review` command have
+been removed. Existing run artifacts remain on disk. API keys entered in the dashboard remain in process memory and are
 not written to run artifacts. The server binds to `127.0.0.1` by default;
 non-loopback use has no authentication or TLS and is intended only for trusted
 networks.
@@ -136,9 +145,8 @@ abbreviation tables such as `通用缩写` and `仪表类型缩写` are reconstr
 positioned native text and merged into the same project legend used by a full
 evidence-v2 run. It writes a human-readable `legend.learned.md`, a compact
 `legend.learned.json`, the full image-bearing `legend.json`,
-`legend.abbreviations.json`, and a self-contained `legend.review.html` with
-source-row crops, filters, editable normalized fields, approve/reject state,
-and reviewed-JSON download. Per-page native evidence and
+`legend.abbreviations.json`. Native rows and evidence are retained without an interactive editor.
+Per-page native evidence and
 `evidence/native-text-inventory.json` are also retained beneath the inspection
 run directory.
 Because engineering-object perception is intentionally skipped, tag inventory
@@ -294,39 +302,6 @@ example `runs/2401/2026-08-16T10-30-00_qwen-qwen3.7-flash_r-ab12/`.
 Live results are non-deterministic; expect ±0.02 macro-F1 around the
 published numbers per the evaluation plan §8.1.
 
-## Human review workbench
-
-Review an extraction beside its original PDF in a local browser:
-
-```bash
-diagex review runs/<drawing>/<run-id> \
-  --pdf path/to/drawing.pdf \
-  --rater "Reviewer name"
-```
-
-The left pane preserves the source page and the right pane shows editable,
-source-aligned entities and connections. Every action is autosaved under the
-run's `review/` directory, so Ctrl+C is safe and the same command resumes the
-session. Final export remains disabled until every page, entity, connection,
-and extraction conflict has an explicit disposition. Completion writes
-`graph.reviewed.json`, `pid.reviewed.dexpi.json`,
-`pid.reviewed.dexpi.xml`, and `review.report.json` without changing the
-original `graph.json`.
-
-The queue opens on **Needs your decision**, with identifier, symbol, and
-connection filters, search, page selection, source-location links, and a
-**Next finding** button. **Awaiting human approval** contains the full sign-off
-worklist. Clearing flagged findings does not complete human review.
-
-Additional audit questions can be supplied in `review-findings.json` beside
-`graph.json`. It contains the matching `graph_sha256` and `source_sha256`, and a
-`findings` list of `{ "id": "stable-id", "conflict": { ... } }` records.
-Each conflict needs a `type`; optional `title`, `question`, `queue_category`,
-`page_index`, `node_id`, and `source_locations` provide the review context.
-Each source location has `page_index`, `bbox_global`, and `label` in the graph's
-page coordinates. Imports preserve existing review events and reject changed
-content under an existing ID. Audit decisions require a written clarification.
-
 ## Layout
 
 ```
@@ -372,3 +347,5 @@ See `CITATION.cff` (GitHub renders it as a "Cite this repository" widget).
   archive.
 - Live-mode reproduction depends on Anthropic API availability and current
   pricing of `claude-opus-4-7`. Cassette mode is fully offline.
+
+Context-aware extraction: see [Drawing context and P&ID knowledge](docs/PID_KNOWLEDGE.md) for confirmed project profiles, sheet overrides, reference provenance, and the offline evaluation.

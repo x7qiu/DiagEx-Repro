@@ -1,0 +1,568 @@
+scope: Synthetic annotated source-evidence fixtures; not held-out real-drawing accuracy.
+profile:
+  id: utilities
+  name: Utilities
+  version: 1
+  confirmed: true
+  context:
+    industry: null
+    unit_types:
+    - utilities
+    company: null
+    project: null
+    conventions: []
+    standards: []
+drawings:
+- id: interior
+  page:
+    schema_version: 1.2.0
+    page_index: 0
+    source_ref: synthetic
+    width: 1000
+    height: 800
+    dpi: 100.0
+    effective_dpi: 100.0
+    is_scanned: false
+    rotation_deg: 0.0
+    native_coordinate_frame: legacy
+    role: pid
+    role_confidence: low
+    role_reason: uncertain page; processed as P&ID
+    fail_open: true
+    text_spans:
+    - id: label
+      text: TO SHEET A-2
+      bbox:
+        x: 400
+        y: 350
+        w: 100
+        h: 15
+      origin: pdf_text
+      block_index: null
+      line_index: null
+      word_index: null
+    paths:
+    - id: glyph
+      page_index: 0
+      points:
+      - - 400
+        - 300
+      - - 440
+        - 300
+      - - 450
+        - 310
+      - - 440
+        - 320
+      - - 400
+        - 320
+      - - 400
+        - 300
+      bbox:
+        x: 400
+        y: 300
+        w: 50
+        h: 20
+      origin: pdf_vector
+      primitive: line
+      closed: true
+      stroke_width: 1.0
+      stroke_color: null
+      fill_color: null
+      dashes: null
+      visual_style: unknown
+      style_confidence: null
+      style_source: unknown
+      source_path_ids: []
+      source_drawing_index: null
+    - id: pipe
+      page_index: 0
+      points:
+      - - 250
+        - 310
+      - - 400
+        - 310
+      bbox:
+        x: 250
+        y: 310
+        w: 150
+        h: 1
+      origin: pdf_vector
+      primitive: line
+      closed: false
+      stroke_width: 1.0
+      stroke_color: null
+      fill_color: null
+      dashes: null
+      visual_style: unknown
+      style_confidence: null
+      style_source: unknown
+      source_path_ids: []
+      source_drawing_index: null
+    raster_available: true
+    warnings: []
+  detections:
+  - id: candidate
+    page_index: 0
+    tile_id: t
+    kind: opc
+    label: off-page connector
+    bbox:
+      x: 400
+      y: 300
+      w: 50
+      h: 20
+    confidence: medium
+    raw_text: null
+    attributes: {}
+    source_text_ids: []
+  expected_connector_ids:
+  - candidate
+- id: vertical
+  page:
+    schema_version: 1.2.0
+    page_index: 0
+    source_ref: synthetic
+    width: 1000
+    height: 800
+    dpi: 100.0
+    effective_dpi: 100.0
+    is_scanned: false
+    rotation_deg: 0.0
+    native_coordinate_frame: legacy
+    role: pid
+    role_confidence: low
+    role_reason: uncertain page; processed as P&ID
+    fail_open: true
+    text_spans:
+    - id: label
+      text: TO SHEET A-2
+      bbox:
+        x: 400
+        y: 350
+        w: 100
+        h: 15
+      origin: pdf_text
+      block_index: null
+      line_index: null
+      word_index: null
+    paths:
+    - id: glyph
+      page_index: 0
+      points:
+      - - 390
+        - 300
+      - - 390
+        - 340
+      - - 400
+        - 350
+      - - 410
+        - 340
+      - - 410
+        - 300
+      - - 390
+        - 300
+      bbox:
+        x: 390
+        y: 300
+        w: 20
+        h: 50
+      origin: pdf_vector
+      primitive: line
+      closed: true
+      stroke_width: 1.0
+      stroke_color: null
+      fill_color: null
+      dashes: null
+      visual_style: unknown
+      style_confidence: null
+      style_source: unknown
+      source_path_ids: []
+      source_drawing_index: null
+    - id: pipe
+      page_index: 0
+      points:
+      - - 400
+        - 150
+      - - 400
+        - 300
+      bbox:
+        x: 400
+        y: 150
+        w: 1
+        h: 150
+      origin: pdf_vector
+      primitive: line
+      closed: false
+      stroke_width: 1.0
+      stroke_color: null
+      fill_color: null
+      dashes: null
+      visual_style: unknown
+      style_confidence: null
+      style_source: unknown
+      source_path_ids: []
+      source_drawing_index: null
+    raster_available: true
+    warnings: []
+  detections:
+  - id: candidate
+    page_index: 0
+    tile_id: t
+    kind: opc
+    label: off-page connector
+    bbox:
+      x: 390
+      y: 300
+      w: 20
+      h: 50
+    confidence: medium
+    raw_text: null
+    attributes: {}
+    source_text_ids: []
+  expected_connector_ids:
+  - candidate
+- id: ambiguous-arrow
+  page:
+    schema_version: 1.2.0
+    page_index: 0
+    source_ref: synthetic
+    width: 1000
+    height: 800
+    dpi: 100.0
+    effective_dpi: 100.0
+    is_scanned: false
+    rotation_deg: 0.0
+    native_coordinate_frame: legacy
+    role: pid
+    role_confidence: low
+    role_reason: uncertain page; processed as P&ID
+    fail_open: true
+    text_spans:
+    - id: label
+      text: FLOW
+      bbox:
+        x: 400
+        y: 350
+        w: 100
+        h: 15
+      origin: pdf_text
+      block_index: null
+      line_index: null
+      word_index: null
+    paths:
+    - id: glyph
+      page_index: 0
+      points:
+      - - 400
+        - 300
+      - - 440
+        - 300
+      - - 450
+        - 310
+      - - 440
+        - 320
+      - - 400
+        - 320
+      - - 400
+        - 300
+      bbox:
+        x: 400
+        y: 300
+        w: 50
+        h: 20
+      origin: pdf_vector
+      primitive: line
+      closed: true
+      stroke_width: 1.0
+      stroke_color: null
+      fill_color: null
+      dashes: null
+      visual_style: unknown
+      style_confidence: null
+      style_source: unknown
+      source_path_ids: []
+      source_drawing_index: null
+    - id: pipe
+      page_index: 0
+      points:
+      - - 250
+        - 310
+      - - 400
+        - 310
+      bbox:
+        x: 250
+        y: 310
+        w: 150
+        h: 1
+      origin: pdf_vector
+      primitive: line
+      closed: false
+      stroke_width: 1.0
+      stroke_color: null
+      fill_color: null
+      dashes: null
+      visual_style: unknown
+      style_confidence: null
+      style_source: unknown
+      source_path_ids: []
+      source_drawing_index: null
+    raster_available: true
+    warnings: []
+  detections:
+  - id: candidate
+    page_index: 0
+    tile_id: t
+    kind: opc
+    label: off-page connector
+    bbox:
+      x: 400
+      y: 300
+      w: 50
+      h: 20
+    confidence: medium
+    raw_text: null
+    attributes: {}
+    source_text_ids: []
+  expected_connector_ids: []
+- id: missing-line
+  page:
+    schema_version: 1.2.0
+    page_index: 0
+    source_ref: synthetic
+    width: 1000
+    height: 800
+    dpi: 100.0
+    effective_dpi: 100.0
+    is_scanned: false
+    rotation_deg: 0.0
+    native_coordinate_frame: legacy
+    role: pid
+    role_confidence: low
+    role_reason: uncertain page; processed as P&ID
+    fail_open: true
+    text_spans:
+    - id: label
+      text: TO SHEET A-2
+      bbox:
+        x: 400
+        y: 350
+        w: 100
+        h: 15
+      origin: pdf_text
+      block_index: null
+      line_index: null
+      word_index: null
+    paths:
+    - id: glyph
+      page_index: 0
+      points:
+      - - 400
+        - 300
+      - - 440
+        - 300
+      - - 450
+        - 310
+      - - 440
+        - 320
+      - - 400
+        - 320
+      - - 400
+        - 300
+      bbox:
+        x: 400
+        y: 300
+        w: 50
+        h: 20
+      origin: pdf_vector
+      primitive: line
+      closed: true
+      stroke_width: 1.0
+      stroke_color: null
+      fill_color: null
+      dashes: null
+      visual_style: unknown
+      style_confidence: null
+      style_source: unknown
+      source_path_ids: []
+      source_drawing_index: null
+    raster_available: true
+    warnings: []
+  detections:
+  - id: candidate
+    page_index: 0
+    tile_id: t
+    kind: opc
+    label: off-page connector
+    bbox:
+      x: 400
+      y: 300
+      w: 50
+      h: 20
+    confidence: medium
+    raw_text: null
+    attributes: {}
+    source_text_ids: []
+  expected_connector_ids: []
+- id: missing-outline
+  page:
+    schema_version: 1.2.0
+    page_index: 0
+    source_ref: synthetic
+    width: 1000
+    height: 800
+    dpi: 100.0
+    effective_dpi: 100.0
+    is_scanned: false
+    rotation_deg: 0.0
+    native_coordinate_frame: legacy
+    role: pid
+    role_confidence: low
+    role_reason: uncertain page; processed as P&ID
+    fail_open: true
+    text_spans:
+    - id: label
+      text: TO SHEET A-2
+      bbox:
+        x: 400
+        y: 350
+        w: 100
+        h: 15
+      origin: pdf_text
+      block_index: null
+      line_index: null
+      word_index: null
+    paths:
+    - id: pipe
+      page_index: 0
+      points:
+      - - 250
+        - 310
+      - - 400
+        - 310
+      bbox:
+        x: 250
+        y: 310
+        w: 150
+        h: 1
+      origin: pdf_vector
+      primitive: line
+      closed: false
+      stroke_width: 1.0
+      stroke_color: null
+      fill_color: null
+      dashes: null
+      visual_style: unknown
+      style_confidence: null
+      style_source: unknown
+      source_path_ids: []
+      source_drawing_index: null
+    raster_available: true
+    warnings: []
+  detections:
+  - id: candidate
+    page_index: 0
+    tile_id: t
+    kind: opc
+    label: off-page connector
+    bbox:
+      x: 400
+      y: 300
+      w: 50
+      h: 20
+    confidence: medium
+    raw_text: null
+    attributes: {}
+    source_text_ids: []
+  expected_connector_ids: []
+- id: unknown-destination
+  page:
+    schema_version: 1.2.0
+    page_index: 0
+    source_ref: synthetic
+    width: 1000
+    height: 800
+    dpi: 100.0
+    effective_dpi: 100.0
+    is_scanned: false
+    rotation_deg: 0.0
+    native_coordinate_frame: legacy
+    role: pid
+    role_confidence: low
+    role_reason: uncertain page; processed as P&ID
+    fail_open: true
+    text_spans: []
+    paths:
+    - id: glyph
+      page_index: 0
+      points:
+      - - 400
+        - 300
+      - - 440
+        - 300
+      - - 450
+        - 310
+      - - 440
+        - 320
+      - - 400
+        - 320
+      - - 400
+        - 300
+      bbox:
+        x: 400
+        y: 300
+        w: 50
+        h: 20
+      origin: pdf_vector
+      primitive: line
+      closed: true
+      stroke_width: 1.0
+      stroke_color: null
+      fill_color: null
+      dashes: null
+      visual_style: unknown
+      style_confidence: null
+      style_source: unknown
+      source_path_ids: []
+      source_drawing_index: null
+    - id: pipe
+      page_index: 0
+      points:
+      - - 250
+        - 310
+      - - 400
+        - 310
+      bbox:
+        x: 250
+        y: 310
+        w: 150
+        h: 1
+      origin: pdf_vector
+      primitive: line
+      closed: false
+      stroke_width: 1.0
+      stroke_color: null
+      fill_color: null
+      dashes: null
+      visual_style: unknown
+      style_confidence: null
+      style_source: unknown
+      source_path_ids: []
+      source_drawing_index: null
+    raster_available: true
+    warnings: []
+  detections:
+  - id: candidate
+    page_index: 0
+    tile_id: t
+    kind: opc
+    label: off-page connector
+    bbox:
+      x: 400
+      y: 300
+      w: 50
+      h: 20
+    confidence: medium
+    raw_text: null
+    attributes: {}
+    source_text_ids: []
+  expected_connector_ids: []

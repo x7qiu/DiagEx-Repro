@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.alkylation
+version: 2
+concept: Alkylation
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Alkylation
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Alkylation’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Alkylation
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Alkylation’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Alkylation
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Alkylation
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.alkylation.png
+  sha256: 90f5dbbc0d90498307b5bbfe7140b0e17d2f43f944e540c53d296aa7f3ef5a2f
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Alkylation-PID-Symbol-150x150.CKtxeUfx_1G87dn.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 25df9681e8fc5f0c4a430804c640bb2cdb49dc0d130e2333fa0df0c7981277b4
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

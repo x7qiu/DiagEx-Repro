@@ -1,0 +1,250 @@
+id: isa-5.1-2009.t5.2.3-37
+version: 3
+concept: Float with guide wires
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Float with guide wires. • Location of readout should be noted, at grade,
+  at top, or accessible from a ladder. • Guide wires may be omitted.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'Measurement symbols: primary elements'
+- 5.2.3
+- Float with guide wires
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '42'
+  pdf_page: 42
+  table: 5.2.3
+  item: '37'
+  passage: 'Table 5.2.3, item 37: • Float with guide wires. • Location of readout
+    should be noted, at grade, at top, or accessible from a ladder. • Guide wires
+    may be omitted.'
+  image: illustrations/isa-5.1-2009/complete/t5.2.3-37-context.png
+assets:
+- id: t5.2.3-37-context
+  role: context
+  label: 'Complete row: Table 5.2.3, item 37'
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-37-context.png
+  sha256: 032893c9c91b680a9168fe8ab0bde8bc5edc8fadcbe356d23547045c5dab0998
+  width: 1960
+  height: 243
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 42
+    printed_page: '42'
+    table: 5.2.3
+    item: '37'
+    rect:
+    - 70.8091
+    - 444.98
+    - 541.1309
+    - 503.14
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-42
+  role: context
+  label: Complete technical content on page 42
+  path: illustrations/isa-5.1-2009/complete/page-42.png
+  sha256: b51523804e092216fbb772a5f0112b191479f3a17ce3ab636ddeb929e699d489
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 42
+    printed_page: '42'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.2.3-37-panel-2
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-37-panel-2.png
+  sha256: f372be28173c1fce90531fa9ef5da7b0819ab501b71107da5da0c79a47e003ae
+  width: 445
+  height: 228
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 42
+    printed_page: '42'
+    table: 5.2.3
+    item: '37'
+    rect:
+    - 126.68
+    - 446.78
+    - 233.14
+    - 501.34
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.2-p33
+  role: note
+  label: Clause 5.3.2, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  sha256: d2f5ace70e1c2b4cd4aad60f721e55f09798bdc8204c96571e3303a71de825df
+  width: 2010
+  height: 930
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 397.1707
+    - 547.0
+    - 620.1298
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-37-variants.png
+  sha256: 862cb0586f5958ab45dac9c144e9a87be5cb253feb77f1b056dc6ada9128dfaf
+  width: 1000
+  height: 293
+  derived_from:
+  - t5.2.3-37-panel-2
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.2.3-37-panel-2
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-37.catalog-t5.2.3-37-panel-2.png
+  sha256: c58ceef27c8d3feb6ab8a38640c96c7d74825ba2d96bbb6f98319ab0338367bb
+  width: 167
+  height: 196
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 42
+    printed_page: '42'
+    table: 5.2.3
+    item: '37'
+    rect:
+    - 163.92
+    - 449.28
+    - 203.99999999999997
+    - 496.31999999999994
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-37.sheet.png
+  sha256: ff8a0f4c42a4ea424cf1a9cd263764b0fdf4ebbef762e14201fa00c6cc6e2896
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.2.3-37-panel-2
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '33'
+    pdf_page: 33
+    table: null
+    item: null
+    passage: Clause 5.3.2
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  explanation: '5.3.2 Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 — Measurement symbols
+
+    (1) Measurements are depicted by:
+
+    (a) Bubbles only.
+
+    (b) Bubbles and graphics.
+
+    (2) These symbols shall be used for process or equipment measurements if:
+
+    (a) A graphic symbol does not exist.
+
+    (b) The user does not use graphic symbols.
+
+    (3) Transmitter [T] may be controller [C], indicator [I], recorder [R], or switch
+    [S].
+
+    (4) User engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    choices are selected.'
+  asset_id: clause-5.3.2-p33
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.2
+  explanation: 'Explanatory notes for Table 5.2.3: clause 5.3.2.'
+catalog:
+  role: catalog
+  category: measurement
+  short_name: Float with guide wires
+  interpretation: Float with guide wires. Location of readout should be noted, at
+    grade, at top, or accessible from a ladder. Guide wires may be omitted.
+  displayed_asset_ids:
+  - catalog-t5.2.3-37-panel-2
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.2
+  - isa-5.1-2009.clause-4.1

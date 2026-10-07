@@ -1,0 +1,128 @@
+id: sht-3101-2017.t4.1-11
+version: 1
+concept: 坡度 / Slope
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: 坡度
+  interpretation: '坡度 / Slope. Defined by SH/T 3101:2017, Table 4.1, item 11. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 坡度
+- Slope
+reference_type: convention
+kind: definition
+explanation: '坡度 / Slope. Defined by SH/T 3101:2017, Table 4.1, item 11. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 坡度
+- Slope
+- lines_signals
+- convention
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '2'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.1-11/context.png
+  document_id: sht-3101-2017
+  pdf_page: 6
+  table: '4.1'
+  item: '11'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.1-11/context.png
+  sha256: 813818cd87f5e47db8938e1f8124b5a3ba04cd4d39692a0ac81beec97fca84fb
+  width: 913
+  height: 94
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '11'
+    rect:
+    - 125.0
+    - 1209.0
+    - 1038.0
+    - 1303.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.1-11/primary.png
+  sha256: 906e0dbe040453c6d2d4ca5ac6e903a1e2bd199392e65101d4a57bb61826faff
+  width: 154
+  height: 53
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '11'
+    rect:
+    - 569.0
+    - 1227.0
+    - 723.0
+    - 1280.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.1-11/variants.png
+  sha256: 3680ffb5989d080f3b4e66a9b5d87f7c5a0dc0681da86340f651af02fa4f7a96
+  width: 220
+  height: 103
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots:
+- role: slope
+  example_marker: X
+  location: beside the slope triangle
+  meaning: Actual slope value, e.g. 0.25%; X is not an equipment tag.
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

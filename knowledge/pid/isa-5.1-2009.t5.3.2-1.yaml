@@ -1,0 +1,310 @@
+id: isa-5.1-2009.t5.3.2-1
+version: 3
+concept: IA may be replaced by PA [plant air], NS [nitrogen}, or GS [any gas supply]
+aliases: []
+reference_type: line_style
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • IA may be replaced by PA [plant air], NS [nitrogen}, or GS [any gas
+  supply]. • Indicate supply pressure as required, e.g., PA-70 kPa, NS-150 psig, etc.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'Line symbols: instrument-to-instrument connections'
+- 5.3.2
+- IA may be replaced by PA [plant air], NS [nitrogen}, or GS [any gas supply]
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '46'
+  pdf_page: 46
+  table: 5.3.2
+  item: '1'
+  passage: 'Table 5.3.2, item 1: • IA may be replaced by PA [plant air], NS [nitrogen},
+    or GS [any gas supply]. • Indicate supply pressure as required, e.g., PA-70 kPa,
+    NS-150 psig, etc.'
+  image: illustrations/isa-5.1-2009/complete/t5.3.2-1-context.png
+assets:
+- id: t5.3.2-1-context
+  role: context
+  label: 'Complete row: Table 5.3.2, item 1'
+  path: illustrations/isa-5.1-2009/complete/t5.3.2-1-context.png
+  sha256: 78ca710817c2eaca4d22a10fcfdbcc45093b289a6ca02cd8b4c97ba3d9d3cdf1
+  width: 1960
+  height: 168
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: 5.3.2
+    item: '1'
+    rect:
+    - 70.8125
+    - 136.58
+    - 541.1275
+    - 176.74
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-46
+  role: context
+  label: Complete technical content on page 46
+  path: illustrations/isa-5.1-2009/complete/page-46.png
+  sha256: 98c3174bee7f386b11be360d7e6edcdf06140695374a6f8d1c1324a33a53b517
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.3.2-1-panel-1
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.3.2-1-panel-1.png
+  sha256: 42a58323f5688d9338557a14c31c25703bf810cfc1bc2db114830cb7e965dc22
+  width: 445
+  height: 153
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: 5.3.2
+    item: '1'
+    rect:
+    - 108.68
+    - 138.38
+    - 215.14
+    - 174.94
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.3-p33
+  role: note
+  label: Clause 5.3.3, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.3-p33.png
+  sha256: de79abf0334898ef01fd5c2907db502340dcd9d510fac339e1d4bacc563097c2
+  width: 2010
+  height: 447
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 620.1298
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.3-p34
+  role: note
+  label: Clause 5.3.3, page 34
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.3-p34.png
+  sha256: 371509e218f1a8c8b4a2b9c033fe079c94320edc2c6bc9d6b5a5cded281f5e4c
+  width: 2010
+  height: 1070
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 34
+    printed_page: '34'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 326.671
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.3.2-1-variants.png
+  sha256: 16c2f8d2f38cd06e35cba10f8d1c7942c199bf27e2d8c9c219d4fd904205e8fe
+  width: 1000
+  height: 218
+  derived_from:
+  - t5.3.2-1-panel-1
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.3.2-1-panel-1
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.3.2-1.catalog-t5.3.2-1-panel-1.png
+  sha256: 1a89652a69934967cdd0899073a2e84b026129b860fc25ac0722435250a73f25
+  width: 312
+  height: 44
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 46
+    printed_page: '46'
+    table: 5.3.2
+    item: '1'
+    rect:
+    - 128.64
+    - 151.44
+    - 203.51999999999998
+    - 162.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations:
+    - text: (1)
+      rect:
+      - 110.03975677490234
+      - 140.88856506347656
+      - 119.76577758789062
+      - 148.86856079101562
+      reason: source_note_reference
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.3.2-1.sheet.png
+  sha256: 22f0e9b43d9bc3859118a17cc4ef5c1ff179b36be2bc624e5b6aba88366bdd6b
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.3.2-1-panel-1
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 33, 34
+    pdf_page: 33
+    table: null
+    item: null
+    passage: Clause 5.3.3
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.3-p33.png
+  explanation: '5.3.3 Tables 5.3.1 and 5.3.2 — Line symbols:
+
+    (1) Power supplies shall be shown when:
+
+    (a) Different from those normally used, e.g., 120 Vdc when normal is 24 Vdc.
+
+    (b) When a device requires an independent power supply.
+
+    (c) Affected by controller or switch actions.
+
+    (2) Arrows shall be used if needed to clarify direction of signal flow.
+
+    (3) Users engineering and design standards, practices and/or guidelines shall
+    document which
+
+    symbol has been selected.
+
+    (4) The line symbols connect devices and functions that are integral parts of
+    dedicated systems,
+
+    such as distributed control systems (DCS), programmable logic controllers (PLC),
+    personal computer
+
+    systems (PC), and computer control systems (CCS) over a dedicated communication
+    link.
+
+    (5) The line symbols connect independent microprocessor-based and computer-based
+    systems to
+
+    each other over a dedicated communications link, using but not limited to the
+    RS232 protocol.
+
+    (6) The line symbols connect “intelligent” devices, such as microprocessor-based
+    transmitters and
+
+    control valve positioners that contain control functionality, to other such devices
+    and to the
+
+    instrumentation system, using but not limited to Ethernet fieldbus protocols.
+
+    (7) The line symbols connect “smart” devices, such as transmitters, to instrumentation
+    system input
+
+    signal terminals and provide a superimposed digital signal that is used for instrument
+    diagnostics and
+
+    calibration.'
+  asset_id: clause-5.3.3-p33
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+- Distinguish process connections, instrument signals, and line crossings using the
+  stated application and drawing legend.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.3
+  explanation: 'Explanatory notes for Table 5.3.2: clause 5.3.3.'
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: Instrument air / gas supply
+  interpretation: IA may be replaced by PA [plant air], NS [nitrogen}, or GS [any
+    gas supply]. Indicate supply pressure as required, e.g., PA-70 kPa, NS-150 psig,
+    etc.
+  displayed_asset_ids:
+  - catalog-t5.3.2-1-panel-1
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.3

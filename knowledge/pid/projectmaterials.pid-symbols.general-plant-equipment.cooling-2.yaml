@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.cooling-2
+version: 2
+concept: Cooling 2
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Cooling 2
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Cooling 2’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Cooling 2
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Cooling 2’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Cooling 2
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Cooling 2
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.cooling-2.png
+  sha256: 2d71f073b095c5d7298f462ccaa8a88fcc1baec703d9c4056891b07caef5790d
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Cooling-2-PID-Symbol-150x150.BThhcT7B_Z2usrp6.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 3c0dd00e181416b02dca69187532f5027f3ec289731606e1dd18452190c5a37e
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

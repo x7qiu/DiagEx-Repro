@@ -1,0 +1,138 @@
+id: sht-3101-2017.t4.2-17
+version: 1
+concept: 立式精密过滤器 / Vertical ultrafilter
+catalog:
+  role: catalog
+  category: piping
+  short_name: 立式精密过滤器
+  interpretation: 立式精密过滤器 / Vertical ultrafilter. Defined by SH/T 3101:2017, Table 4.2, item 17. Nozzles
+    in the illustration are schematic; the reference does not establish their number or connectivity in
+    a drawing.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 立式精密过滤器
+- Vertical ultrafilter
+reference_type: symbol
+kind: definition
+explanation: 立式精密过滤器 / Vertical ultrafilter. Defined by SH/T 3101:2017, Table 4.2, item 17. Nozzles in
+  the illustration are schematic; the reference does not establish their number or connectivity in a drawing.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 立式精密过滤器
+- Vertical ultrafilter
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '4'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-17/context.png
+  document_id: sht-3101-2017
+  pdf_page: 8
+  table: '4.2'
+  item: '17'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-17/context.png
+  sha256: 0cb324c1f20dcf64c46560b67a9929120356d7fe0589bff60361b48efbe671c9
+  width: 912
+  height: 170
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 8
+    printed_page: '4'
+    table: '4.2'
+    item: '17'
+    rect:
+    - 123.0
+    - 1287.0
+    - 1035.0
+    - 1457.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-17/primary.png
+  sha256: 0eb797287c99dab71ec8a99048367885d1aeaf8611344bc8833259563d5041fb
+  width: 163
+  height: 145
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 8
+    printed_page: '4'
+    table: '4.2'
+    item: '17'
+    rect:
+    - 503.0
+    - 1294.0
+    - 666.0
+    - 1439.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-17/variants.png
+  sha256: 76e4ef13a3457d77a4b02627583cb91e6a0df91fe7a5a2e6065929dbafd930e8
+  width: 220
+  height: 195
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '4'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 8
+    table: '4.2'
+    item: '17'
+  explanation: Nozzles in the illustration are schematic; the reference does not establish their number
+    or connectivity in a drawing.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- Nozzles in the illustration are schematic; the reference does not establish their number or connectivity
+  in a drawing.
+relations: []

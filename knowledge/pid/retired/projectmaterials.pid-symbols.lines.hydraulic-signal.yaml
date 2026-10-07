@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.lines.hydraulic-signal
+version: 1
+concept: Hydraulic Signal
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: Hydraulic Signal
+  interpretation: Projectmaterials labels this illustration ‘Hydraulic Signal’ (Lines
+    P&ID Symbols).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Hydraulic Signal
+reference_type: line_style
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Hydraulic Signal’ (Lines P&ID
+  Symbols).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+- line_interpretation
+tags:
+- Lines P&ID Symbols
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Hydraulic Signal
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#lines-pid-symbols
+  section: Lines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Hydraulic Signal
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.lines.hydraulic-signal.png
+  sha256: deee355ad358416e642a14f4addf892e7a37e9ebde63487f3d7050102bdeccc6
+  width: 150
+  height: 60
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/HYDRAULIC-SIGNAL-PID-SYMBOL-150x60.ChbsWNFN_ZRh3zp.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 88a9c82ba2515d4b4b44f0726ca3fe6647afd8cc84c1f23317506c0be057887d
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.13-18
+version: 1
+concept: 带内盘管罐 / Vessel with internal coil
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 带内盘管罐
+  interpretation: '带内盘管罐 / Vessel with internal coil. Defined by SH/T 3101:2017, Table 4.13, item 18. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 带内盘管罐
+- Vessel with internal coil
+reference_type: symbol
+kind: definition
+explanation: '带内盘管罐 / Vessel with internal coil. Defined by SH/T 3101:2017, Table 4.13, item 18. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 带内盘管罐
+- Vessel with internal coil
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '22'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.13-18/context.png
+  document_id: sht-3101-2017
+  pdf_page: 26
+  table: '4.13'
+  item: '18'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.13-18/context.png
+  sha256: da253996cb40900f2ad7d4e59147fd6d2fe5a9c8bca47fc32e653c590d6c5a3c
+  width: 912
+  height: 169
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 26
+    printed_page: '22'
+    table: '4.13'
+    item: '18'
+    rect:
+    - 144.0
+    - 770.0
+    - 1056.0
+    - 939.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.13-18/primary.png
+  sha256: 364476e63fd60e93d65cd0151e4f78c68bba8e8bb735a4d79b640d34e70d4437
+  width: 81
+  height: 115
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 26
+    printed_page: '22'
+    table: '4.13'
+    item: '18'
+    rect:
+    - 609.0
+    - 797.0
+    - 690.0
+    - 912.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.13-18/variants.png
+  sha256: c804713f3253bbc34ee5bda2c5cb19c6514873905ef858dde53c01d7aa40e90c
+  width: 220
+  height: 165
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

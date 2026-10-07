@@ -1,0 +1,166 @@
+id: sht-3101-2017.t4.20-6
+version: 1
+concept: 离心过滤机 / Centrifugal filter
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 离心过滤机
+  interpretation: 离心过滤机 / Centrifugal filter. Defined by SH/T 3101:2017, Table 4.20, item 6. Each labeled
+    alternative is a separate reference depiction, not an additional object to instantiate.
+  displayed_asset_ids:
+  - variant-1
+  - variant-2
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 离心过滤机
+- Centrifugal filter
+reference_type: symbol
+kind: definition
+explanation: 离心过滤机 / Centrifugal filter. Defined by SH/T 3101:2017, Table 4.20, item 6. Each labeled alternative
+  is a separate reference depiction, not an additional object to instantiate.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 离心过滤机
+- Centrifugal filter
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '33'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.20-6/context.png
+  document_id: sht-3101-2017
+  pdf_page: 37
+  table: '4.20'
+  item: '6'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.20-6/context.png
+  sha256: ddf59644832c7cb33e9a9e08f94e24dce2a47731ce04f393a24600ca59ac2cea
+  width: 909
+  height: 264
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '6'
+    rect:
+    - 151.0
+    - 277.0
+    - 1060.0
+    - 541.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variant-1
+  role: variant
+  label: Alternative 1
+  path: illustrations/sht-3101-2017/t4.20-6/variant-1.png
+  sha256: 8b26c5631a3f085cfc24e84ca47509b7e6a6ad93cb48f3a85493d92ac02049bc
+  width: 154
+  height: 120
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '6'
+    rect:
+    - 599.0
+    - 294.0
+    - 753.0
+    - 414.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variant-2
+  role: variant
+  label: Alternative 2
+  path: illustrations/sht-3101-2017/t4.20-6/variant-2.png
+  sha256: eb4310d354f74adb9c7e8af8bb5c0c8774ff024ee2bd1eca5b266fecca24da3a
+  width: 155
+  height: 99
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 37
+    printed_page: '33'
+    table: '4.20'
+    item: '6'
+    rect:
+    - 589.0
+    - 419.0
+    - 744.0
+    - 518.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.20-6/variants.png
+  sha256: 93c08b71d625a54840e8288fac58166a61c2cdf94a9de14c99cbe53dfaead60c
+  width: 440
+  height: 170
+  derived_from:
+  - variant-1
+  - variant-2
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '33'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 37
+    table: '4.20'
+    item: '6'
+  explanation: Each labeled alternative is a separate reference depiction, not an additional object to
+    instantiate.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- Each labeled alternative is a separate reference depiction, not an additional object to instantiate.
+relations: []

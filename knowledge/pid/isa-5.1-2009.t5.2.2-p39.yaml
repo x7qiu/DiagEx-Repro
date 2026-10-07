@@ -1,0 +1,406 @@
+id: isa-5.1-2009.t5.2.2-p39
+version: 2
+concept: 'Table 5.2.2 — Measurement symbols: measurement notations (4) (page 39)'
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: 'Measurement symbols: measurement notations (4). Use the source table
+  with its column headings and linked explanatory notes. Blank or merged cells must
+  not be interpreted as new definitions.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- text_assignment
+- symbol_interpretation
+- review
+tags:
+- 'Measurement symbols: measurement notations (4)'
+- 5.2.2
+- measurement
+- notation
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '39'
+  pdf_page: 39
+  table: 5.2.2
+  item: null
+  passage: "       Table 5.2.2 — Measurement symbols: measurement notations (4)\n\n\
+    \nNote: Numbers in parentheses refer to explanatory notes in Clause 5.3.2\n  \
+    \                                                         Analysis\n AIR    =\
+    \ Excess air           H2O    = Water               O2     = Oxygen          \
+    \   UV     =  Ultraviolet\nCO     = Carbon monoxide       H2S    = Hydrogen sulfide\
+    \       OP     =  Opacity                 VIS    =  Visible light\nCO2    = Carbon\
+    \ dioxide       HUM   =  Humidity            ORP   =  Oxidation reduction    \
+    \  VISC   =  Viscosity\nCOL    =  Color                    IR     =  Infrared\
+    \              pH     = Hydrogen ion                  =\nCOMB  = Combustibles\
+    \          LC     =  Liquid chromatograph    REF    =  Refractometer         \
+    \        =\nCOND  =  Elec. conductivity       MOIST  =  Moisture             \
+    \    RI     =  Refractive index                =\nDEN    =  Density          \
+    \  MS    = Mass spectrometer      TC     =  Thermal conductivity            =\n\
+    GC     = Gas chromatograph      NIR    = Near infrared          TDL    =  Tunable\
+    \ diode laser             =\n                                                \
+    \     Flow\nCFR    =  Constant flow regulator   OP     =  Orifice plate      \
+    \     PT     =  Pitot tube            VENT  =  Venturi tube\nCONE  = Cone    \
+    \            OP-CT  =  Corner taps           PV     =  Pitot venturi         \
+    \ VOR   =  Vortex Shedding\nCOR   =  Coriollis              OP-CQ =  Circle quadrant\
+    \        SNR   = Sonar            WDG   = Wedge\nDOP    =  Doppler           \
+    \    OP-E   =  Eccentric           SON       Sonic                        =\n\
+    DSON  =  Doppler sonic          OP-FT  =  Flange taps           TAR    =  Target\n\
+    \ FLN    = Flow nozzle           OP-MH =  Multi-hole            THER  =  Thermal\
+    \                      =\n FLT    = Flow tube             OP-P   =  Pipe taps\
+    \             TTS    =  Transit time sonic               =\nLAM    = Laminar \
+    \             OP-VC  = Vena contracta taps     TUR    =  Turbine             \
+    \         =\nMAG   = Magnetic            PD     =  Positive displacement    US\
+    \     =  Ultrasonic                     =\n                                  \
+    \                        Level\nCAP    = Capacitance        GWR   = Guided wave\
+    \ radar     NUC    = Nuclear              US   = Ultrasonic\nd/p     = Differential\
+    \ pressure     LSR    = Laser              RAD    = Radar                    \
+    \    =\nDI      = Dielectric constant      MAG    = Magnetic            RES  \
+    \  = Resistance                    =\nDP     = Differential pressure     MS  \
+    \   = Magnetostrictive       SON    = Sonic                        =\n       \
+    \                                               Pressure\nABS    =  Absolute \
+    \          MAN   = Manometer           VAC    = Vacuum\nAVG    = Average     \
+    \           P-V    =  Pressure-vacuum                                        \
+    \     =\nDRF    =  Draft              SG     =  Strain gage                  \
+    \ =                              =\n                                         \
+    \          Temperature\nBM     = Bi-metallic           RTD    = Resistance temp\
+    \ detector TCK    = Thermocouple type K    TRAN   = Transistor\nIR      = Infrared\
+    \             TC     = Thermocouple         TCT    = Thermocouple type T     \
+    \       =\nRAD    = Radiation            TCE    = Thermocouple type E    THRM\
+    \  = Thermistor                    =\nRP     = Radiation pyrometer      TCJ  \
+    \  = Thermocouple type J    TMP    = Thermopile                    =\n       \
+    \                                              Miscellaneous\n      Burner, Combustion\
+    \                   Position                        Quantity                 \
+    \      Radiation\nFR     = Flame rod           CAP    =  Capacitance         \
+    \ PE     =  Photoelectric           α      =  Alpha radiation\nIGN    =  Igniter\
+    \              EC     = Eddy current         TOG   =  Toggle                β\
+    \      =  Beta radiation\nIR      =  Infrared                IND    =  Inductive\
+    \                     =                          γ      = Gamma radiation\nTV\
+    \     =  Television            LAS    =  Laser                        =      \
+    \                  n      =  Neutron radiation\nUV     =  Ultraviolet        \
+    \  MAG   =  Magnetic                     =                              =\n  \
+    \     =                  MECH  =  Mechanical                   =             \
+    \                 =\n       =                   OPT    =  Optical            \
+    \           =                              =\n       =                   RAD \
+    \  = Radar                        =                              =\n       = \
+    \                             =                              =               \
+    \               =\n          Speed                     Weight, Force\nACC    =\
+    \  Acceleration           LC     = Load cell                     =           \
+    \                   =\nEC     =  Eddy current         SG     =  Strain gauge \
+    \                 =                              =\nPROX   =  Proximity      \
+    \    WS    = Weigh scale                   =                              =\n\
+    VEL    =  Velocity                      =                              =     \
+    \                         =\n        =                              =        \
+    \                      =                              ="
+  image: illustrations/isa-5.1-2009/complete/page-39.png
+assets:
+- id: page-39
+  role: context
+  label: Complete technical content on page 39
+  path: illustrations/isa-5.1-2009/complete/page-39.png
+  sha256: bb87234dc3683022bf6327e5f28d0bb1551450afb78a3b47ecd532898992aa98
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 39
+    printed_page: '39'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.2-p33
+  role: note
+  label: Clause 5.3.2, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  sha256: d2f5ace70e1c2b4cd4aad60f721e55f09798bdc8204c96571e3303a71de825df
+  width: 2010
+  height: 930
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 397.1707
+    - 547.0
+    - 620.1298
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '33'
+    pdf_page: 33
+    table: null
+    item: null
+    passage: Clause 5.3.2
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  explanation: '5.3.2 Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 — Measurement symbols
+
+    (1) Measurements are depicted by:
+
+    (a) Bubbles only.
+
+    (b) Bubbles and graphics.
+
+    (2) These symbols shall be used for process or equipment measurements if:
+
+    (a) A graphic symbol does not exist.
+
+    (b) The user does not use graphic symbols.
+
+    (3) Transmitter [T] may be controller [C], indicator [I], recorder [R], or switch
+    [S].
+
+    (4) User engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    choices are selected.'
+  asset_id: clause-5.3.2-p33
+text_slots: []
+interpretation:
+- Table cells are source transcriptions; retain headers and merged-cell context when
+  interpreting them. Use the image to resolve superscripts or extraction ambiguity.
+- Example tags and numbering schemes illustrate conventions; never copy them as actual
+  drawing identifiers.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.2
+  explanation: 'Explanatory notes for Table 5.2.2: clause 5.3.2.'
+table_data:
+- - - Analysis
+    - null
+    - null
+    - null
+  - - 'AIR = Excess air H2O = Water O2 = Oxygen UV = Ultraviolet
+
+      CO = Carbon monoxide H2S = Hydrogen sulfide OP = Opacity VIS = Visible light
+
+      CO2 = Carbon dioxide HUM = Humidity ORP = Oxidation reduction VISC = Viscosity
+
+      COL = Color IR = Infrared pH = Hydrogen ion =
+
+      COMB = Combustibles LC = Liquid chromatograph REF = Refractometer =
+
+      COND = Elec. conductivity MOIST = Moisture RI = Refractive index =
+
+      DEN = Density MS = Mass spectrometer TC = Thermal conductivity =
+
+      GC = Gas chromatograph NIR = Near infrared TDL = Tunable diode laser ='
+    - null
+    - null
+    - null
+  - - Flow
+    - null
+    - null
+    - null
+  - - 'CFR = Constant flow regulator OP = Orifice plate PT = Pitot tube VENT = Venturi
+      tube
+
+      CONE = Cone OP-CT = Corner taps PV = Pitot venturi VOR = Vortex Shedding
+
+      COR = Coriollis OP-CQ = Circle quadrant SNR = Sonar WDG = Wedge
+
+      DOP = Doppler OP-E = Eccentric SON Sonic =
+
+      DSON = Doppler sonic OP-FT = Flange taps TAR = Target
+
+      FLN = Flow nozzle OP-MH = Multi-hole THER = Thermal =
+
+      FLT = Flow tube OP-P = Pipe taps TTS = Transit time sonic =
+
+      LAM = Laminar OP-VC = Vena contracta taps TUR = Turbine =
+
+      MAG = Magnetic PD = Positive displacement US = Ultrasonic ='
+    - null
+    - null
+    - null
+  - - Level
+    - null
+    - null
+    - null
+  - - 'CAP = Capacitance GWR = Guided wave radar NUC = Nuclear US = Ultrasonic
+
+      d/p = Differential pressure LSR = Laser RAD = Radar =
+
+      DI = Dielectric constant MAG = Magnetic RES = Resistance =
+
+      DP = Differential pressure MS = Magnetostrictive SON = Sonic ='
+    - null
+    - null
+    - null
+  - - Pressure
+    - null
+    - null
+    - null
+  - - 'ABS = Absolute MAN = Manometer VAC = Vacuum
+
+      AVG = Average P-V = Pressure-vacuum =
+
+      DRF = Draft SG = Strain gage = ='
+    - null
+    - null
+    - null
+  - - Temperature
+    - null
+    - null
+    - null
+  - - 'BM = Bi-metallic RTD = Resistance temp detector TCK = Thermocouple type K TRAN
+      = Transistor
+
+      IR = Infrared TC = Thermocouple TCT = Thermocouple type T =
+
+      RAD = Radiation TCE = Thermocouple type E THRM = Thermistor =
+
+      RP = Radiation pyrometer TCJ = Thermocouple type J TMP = Thermopile ='
+    - null
+    - null
+    - null
+  - - Miscellaneous
+    - null
+    - null
+    - null
+  - - Burner, Combustion
+    - Position
+    - Quantity
+    - Radiation
+  - - 'FR = Flame rod
+
+      IGN = Igniter
+
+      IR = Infrared
+
+      TV = Television
+
+      UV = Ultraviolet
+
+      =
+
+      =
+
+      =
+
+      ='
+    - 'CAP = Capacitance
+
+      EC = Eddy current
+
+      IND = Inductive
+
+      LAS = Laser
+
+      MAG = Magnetic
+
+      MECH = Mechanical
+
+      OPT = Optical
+
+      RAD = Radar
+
+      ='
+    - 'PE = Photoelectric
+
+      TOG = Toggle
+
+      =
+
+      =
+
+      =
+
+      =
+
+      =
+
+      =
+
+      ='
+    - 'α = Alpha radiation
+
+      β = Beta radiation
+
+      γ = Gamma radiation
+
+      n = Neutron radiation
+
+      =
+
+      =
+
+      =
+
+      =
+
+      ='
+  - - Speed
+    - Weight, Force
+    - ''
+    - ''
+  - - 'ACC = Acceleration
+
+      EC = Eddy current
+
+      PROX = Proximity
+
+      VEL = Velocity
+
+      ='
+    - 'LC = Load cell
+
+      SG = Strain gauge
+
+      WS = Weigh scale
+
+      =
+
+      ='
+    - '=
+
+      =
+
+      =
+
+      =
+
+      ='
+    - '=
+
+      =
+
+      =
+
+      =
+
+      ='
+catalog:
+  role: background

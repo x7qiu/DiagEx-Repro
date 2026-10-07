@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.flow-meter
+version: 2
+concept: Flow Meter
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Flow Meter
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Flow Meter’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Flow Meter
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Flow Meter’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Flow Meter
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Flow Meter
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.flow-meter.png
+  sha256: a2551ecd697939236ffcd16a80e5c4681615c899f04987d3c9aba3f14e3b3adb
+  width: 76
+  height: 36
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/flow_meter.fdFL9TJO_1AwqRu.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 83e7ac058e139e5cd9f21318da3979b96f107fa8eb33352c7cc382253f027119
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-33
+version: 1
+concept: 文丘里混合器 / Jet mixer
+catalog:
+  role: catalog
+  category: piping
+  short_name: 文丘里混合器
+  interpretation: '文丘里混合器 / Jet mixer. Defined by SH/T 3101:2017, Table 4.2, item 33. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 文丘里混合器
+- Jet mixer
+reference_type: symbol
+kind: definition
+explanation: '文丘里混合器 / Jet mixer. Defined by SH/T 3101:2017, Table 4.2, item 33. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 文丘里混合器
+- Jet mixer
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '6'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-33/context.png
+  document_id: sht-3101-2017
+  pdf_page: 10
+  table: '4.2'
+  item: '33'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-33/context.png
+  sha256: b5650bdf1d4ce662ac4f07607fb9fd7b7ad5965ea4c85e6b8caa170d69bce1ad
+  width: 912
+  height: 72
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '33'
+    rect:
+    - 127.0
+    - 381.0
+    - 1039.0
+    - 453.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-33/primary.png
+  sha256: d8fce3a30850883b406bd6e66a8ad22bfde6de029074d4efbcb95b8b12a0eac5
+  width: 78
+  height: 52
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '33'
+    rect:
+    - 592.0
+    - 391.0
+    - 670.0
+    - 443.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-33/variants.png
+  sha256: 0e008768667e59e88df983a100c457f8ce4958ba6d30e560b2a01b0e1b4fb2c5
+  width: 220
+  height: 102
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

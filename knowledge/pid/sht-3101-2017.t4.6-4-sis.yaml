@@ -1,0 +1,126 @@
+id: sht-3101-2017.t4.6-4-sis
+version: 1
+concept: '安全仪表系统：现场控制盘面显示 / SIS: local control-panel/console/display'
+catalog:
+  role: catalog
+  category: instruments
+  short_name: 安全仪表系统：现场控制盘面显示
+  interpretation: SIS, local control-panel/console/display. These SH/T families distinguish DCS, SIS,
+    third-party systems and individual instruments; do not substitute ISA primary/alternate-control meanings.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids:
+  - sht-3101-2017.instrument-markings
+  - sht-3101-2017.letter-rules
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 安全仪表系统：现场控制盘面显示
+- 'SIS: local control-panel/console/display'
+reference_type: symbol
+kind: definition
+explanation: SIS, local control-panel/console/display. These SH/T families distinguish DCS, SIS, third-party
+  systems and individual instruments; do not substitute ISA primary/alternate-control meanings.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 安全仪表系统：现场控制盘面显示
+- 'SIS: local control-panel/console/display'
+- instruments
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '12'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.6-4-sis/context.png
+  document_id: sht-3101-2017
+  pdf_page: 16
+  table: '4.6'
+  item: 4-sis
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.6-4-sis/context.png
+  sha256: 1bfb9eff9f47f987c5e2772a51e9032b6c851a4c3fa3604a82d31aff5e4a19bc
+  width: 912
+  height: 180
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 16
+    printed_page: '12'
+    table: '4.6'
+    item: 4-sis
+    rect:
+    - 139.0
+    - 881.0
+    - 1051.0
+    - 1061.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: SIS
+  path: illustrations/sht-3101-2017/t4.6-4-sis/primary.png
+  sha256: 6ce240d499de58d8e079fa3facafc4e147ce892da879ca1b1221c28af210c835
+  width: 106
+  height: 106
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 16
+    printed_page: '12'
+    table: '4.6'
+    item: 4-sis
+    rect:
+    - 354.0
+    - 923.0
+    - 460.0
+    - 1029.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.6-4-sis/variants.png
+  sha256: dbc17833698a6c65bfd5009b3f1cac24c302a9372b023709c87e0fd20c89015c
+  width: 220
+  height: 156
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

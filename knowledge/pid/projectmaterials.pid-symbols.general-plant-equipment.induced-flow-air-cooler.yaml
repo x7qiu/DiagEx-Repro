@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.induced-flow-air-cooler
+version: 2
+concept: Induced Flow Air Cooler
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Induced Flow Air Cooler
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Induced Flow Air Cooler’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Induced Flow Air Cooler
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Induced Flow Air Cooler’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Induced Flow Air Cooler
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Induced Flow Air Cooler
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.induced-flow-air-cooler.png
+  sha256: 4bb085cabed81df81519598512d90c477d2f47749860168d9d7eb3adb5917057
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Induced-Flow-Air-Cooler-PID-Symbol--150x150.BXEer9pL_ScTCO.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 9b3ce2c03eadf5fa626c15cdea2b86bf5c33918adcf8ac0afd532dee56b7d6db
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

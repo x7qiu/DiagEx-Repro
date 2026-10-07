@@ -1,0 +1,242 @@
+id: sht-3101-2017.t4.8-4
+version: 1
+concept: 故障锁定后趋向开 FLO / Fail at last position, then drift open
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: 故障锁定后趋向开 FLO
+  interpretation: 故障锁定后趋向开 FLO / Fail at last position, then drift open. Defined by SH/T 3101:2017, Table
+    4.8, item 4. Failure here means loss of valve function, including air-supply or hydraulic-fluid failure.
+    The illustrated arrows describe failure movement, not process-flow direction. The two images are alternative
+    notations for the same condition. The valve first holds its last position, then drifts as stored energy
+    is depleted; retain this distinction from immediate fail-open/fail-closed. Each labeled alternative
+    is a separate reference depiction, not an additional object to instantiate.
+  displayed_asset_ids:
+  - variant-1
+  - variant-2
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 故障锁定后趋向开 FLO
+- Fail at last position, then drift open
+reference_type: convention
+kind: definition
+explanation: 故障锁定后趋向开 FLO / Fail at last position, then drift open. Defined by SH/T 3101:2017, Table 4.8,
+  item 4. Failure here means loss of valve function, including air-supply or hydraulic-fluid failure.
+  The illustrated arrows describe failure movement, not process-flow direction. The two images are alternative
+  notations for the same condition. The valve first holds its last position, then drifts as stored energy
+  is depleted; retain this distinction from immediate fail-open/fail-closed. Each labeled alternative
+  is a separate reference depiction, not an additional object to instantiate.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 故障锁定后趋向开 FLO
+- Fail at last position, then drift open
+- valves_actuators
+- convention
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '14'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.8-4/context.png
+  document_id: sht-3101-2017
+  pdf_page: 18
+  table: '4.8'
+  item: '4'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.8-4/context.png
+  sha256: 223e1cb832d36f90d9609501d479aa319cfe329d59acf3e8ef5ea4f86e5facdb
+  width: 915
+  height: 139
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 18
+    printed_page: '14'
+    table: '4.8'
+    item: '4'
+    rect:
+    - 114.0
+    - 1248.0
+    - 1029.0
+    - 1387.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variant-1
+  role: variant
+  label: Letter marking
+  path: illustrations/sht-3101-2017/t4.8-4/variant-1.png
+  sha256: ee729cb15333544975c315c9644c9b8cdc83a6b149207c32cb717319ea6f3273
+  width: 67
+  height: 105
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 18
+    printed_page: '14'
+    table: '4.8'
+    item: '4'
+    rect:
+    - 527.0
+    - 1270.0
+    - 594.0
+    - 1375.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-2
+  role: variant
+  label: Arrow marking
+  path: illustrations/sht-3101-2017/t4.8-4/variant-2.png
+  sha256: 683316b3a559eb7c57c5e936328ae86786179716bc7a596743edcddb9b467c71
+  width: 67
+  height: 91
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 18
+    printed_page: '14'
+    table: '4.8'
+    item: '4'
+    rect:
+    - 632.0
+    - 1270.0
+    - 699.0
+    - 1361.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.8-4/variants.png
+  sha256: 9cfb82760561f955136d455ef7fae0d514fb897678fbcab7393c9e6f2ee3d5e4
+  width: 440
+  height: 155
+  derived_from:
+  - variant-1
+  - variant-2
+  quality: clear
+  depiction: isolated_symbol
+- id: table-note
+  role: note
+  label: Table footnote
+  path: illustrations/sht-3101-2017/t4.8-4/table-note.png
+  sha256: 3d5030ed843d2282f8e7015e86bd0cf8207b85ebaef9778d8c093be72fd90ceb
+  width: 906
+  height: 38
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 18
+    printed_page: '14'
+    table: '4.8'
+    rect:
+    - 118.0
+    - 1510.0
+    - 1024.0
+    - 1548.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '14'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 18
+    table: '4.8'
+    item: '4'
+  explanation: Failure here means loss of valve function, including air-supply or hydraulic-fluid failure.
+    The illustrated arrows describe failure movement, not process-flow direction. The two images are alternative
+    notations for the same condition.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '14'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 18
+    table: '4.8'
+    item: '4'
+  explanation: The valve first holds its last position, then drifts as stored energy is depleted; retain
+    this distinction from immediate fail-open/fail-closed.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '14'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 18
+    table: '4.8'
+    item: '4'
+  explanation: Each labeled alternative is a separate reference depiction, not an additional object to
+    instantiate.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '14'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 18
+    table: '4.8'
+  explanation: Failure here means loss of valve function, including air-supply or hydraulic-fluid failure.
+    The illustrated arrows describe failure movement, not process-flow direction. The two images are alternative
+    notations for the same condition.
+  asset_id: table-note
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- Failure here means loss of valve function, including air-supply or hydraulic-fluid failure. The illustrated
+  arrows describe failure movement, not process-flow direction. The two images are alternative notations
+  for the same condition.
+- The valve first holds its last position, then drifts as stored energy is depleted; retain this distinction
+  from immediate fail-open/fail-closed.
+- Each labeled alternative is a separate reference depiction, not an additional object to instantiate.
+relations: []

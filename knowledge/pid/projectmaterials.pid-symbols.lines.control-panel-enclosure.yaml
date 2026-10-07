@@ -1,0 +1,63 @@
+id: projectmaterials.pid-symbols.lines.control-panel-enclosure
+version: 3
+concept: Control Panel / Enclosure
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: Control Panel / Enclosure
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Control Panel / Enclosure’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Control Panel Enclosure
+reference_type: scope_boundary
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Control Panel / Enclosure’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+- line_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Control Panel / Enclosure
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#lines-pid-symbols
+  section: Lines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Control Panel / Enclosure
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.lines.control-panel-enclosure.png
+  sha256: f74326b0ae8e18bf64afa4ed6ab724a259881ac2f48e62eb9db8903604dc8556
+  width: 150
+  height: 60
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/CONTROL-PANEL-ENCLOSURE-PID-SYMBOL-150x60.CU2E31IC_lJ765.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 5c23a962ce3a8c92b47c7b71bb4f3dd424623490c19b60bf4568f3167a30202a
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

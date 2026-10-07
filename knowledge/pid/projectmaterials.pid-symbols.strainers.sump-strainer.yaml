@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.strainers.sump-strainer
+version: 2
+concept: Sump Strainer
+catalog:
+  role: catalog
+  category: piping
+  short_name: Sump Strainer
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Sump Strainer’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Sump Strainer
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Sump Strainer’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Sump Strainer
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#strainers-pid-symbols
+  section: Strainers P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Sump Strainer
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.strainers.sump-strainer.png
+  sha256: 3daf9d406cfd9ec78a1f7956f598fde2459a22ae74cdf665b39f10e3ffcc06fb
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/SUMP-STRAINER-PID-SYMBOL-150x150.EI-bxttN_2ew3zx.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: d58acc485bd529e9f0b930d2fbfce1897f285ca3d1012d5c74fc3d88d6defc17
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

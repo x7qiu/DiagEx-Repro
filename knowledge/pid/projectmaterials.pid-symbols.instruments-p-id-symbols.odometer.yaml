@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.odometer
+version: 2
+concept: Odometer
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Odometer
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Odometer’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Odometer
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Odometer’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Odometer
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Odometer
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.odometer.png
+  sha256: 24ceb1a1379a6e040f32220851190c12d78fceeeaebaa349a884174facfb5dd2
+  width: 42
+  height: 59
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/odometer.DwhloeGZ_Z1jBBgt.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: fe756e3fbae4906f6e2ae187851c37566dd75d26730073221179fd9af40da6e4
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

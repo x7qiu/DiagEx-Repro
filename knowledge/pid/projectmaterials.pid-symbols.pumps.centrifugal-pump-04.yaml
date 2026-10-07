@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.pumps.centrifugal-pump-04
+version: 2
+concept: Centrifugal Pump 04
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Centrifugal Pump 04
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Centrifugal Pump 04’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Centrifugal Pump 04
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Centrifugal Pump 04’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Centrifugal Pump 04
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#pumps-pid-symbols
+  section: Pumps P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Centrifugal Pump 04
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.pumps.centrifugal-pump-04.png
+  sha256: 4cb8295e415fb2d2b30fa728a04355ae61bc7f8ac0de37450db2926fd8ca9bb6
+  width: 44
+  height: 51
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/centrifugal_pumps_04.BWoVE7ll_Z1eHoT.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 1f993661a6e194be66a848860f88af3c02e7361f5f8c15452250eaa3640e41df
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.staggered-baffle-tray-column
+version: 2
+concept: Staggered Baffle Tray Column
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Staggered Baffle Tray Column
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Staggered Baffle Tray Column’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Staggered Baffle Tray Column
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Staggered Baffle Tray Column’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Staggered Baffle Tray Column
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Staggered Baffle Tray Column
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.staggered-baffle-tray-column.png
+  sha256: 523af4e4862952eee8e6a9e980587a814785dec0681fc62cab9a6ffc2037c534
+  width: 24
+  height: 67
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/staggered_baffle_tray_column.P9EhpMNS_Z5lpUQ.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: eef4787d3cc89ec12d5d7c0852c222c326dd35845057255a28de8be33786a8cc
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

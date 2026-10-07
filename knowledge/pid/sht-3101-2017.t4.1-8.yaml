@@ -1,0 +1,141 @@
+id: sht-3101-2017.t4.1-8
+version: 1
+concept: 成套供货设备范围界线 / Vendor package scope
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: 成套供货设备范围界线
+  interpretation: 成套供货设备范围界线 / Vendor package scope. Defined by SH/T 3101:2017, Table 4.1, item 8. This
+    enclosure marks vendor package scope, not one equipment symbol or a process pipe. Containment alone
+    must not assign all enclosed text to the boundary; identify equipment and text independently.
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 成套供货设备范围界线
+- Vendor package scope
+reference_type: scope_boundary
+kind: definition
+explanation: 成套供货设备范围界线 / Vendor package scope. Defined by SH/T 3101:2017, Table 4.1, item 8. This enclosure
+  marks vendor package scope, not one equipment symbol or a process pipe. Containment alone must not assign
+  all enclosed text to the boundary; identify equipment and text independently.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+tags:
+- 成套供货设备范围界线
+- Vendor package scope
+- lines_signals
+- scope_boundary
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '2'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.1-8/context.png
+  document_id: sht-3101-2017
+  pdf_page: 6
+  table: '4.1'
+  item: '8'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.1-8/context.png
+  sha256: 5f4728aa706c9e97aa7994c1886d216d4c4eca1ed5224d2ad9b2e27a41163f91
+  width: 913
+  height: 152
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '8'
+    rect:
+    - 125.0
+    - 896.0
+    - 1038.0
+    - 1048.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.1-8/primary.png
+  sha256: b03851a7d755e5794cff500e73b1fd690b454336cfe1a15d0504f1a9b62745fd
+  width: 200
+  height: 111
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 6
+    printed_page: '2'
+    table: '4.1'
+    item: '8'
+    rect:
+    - 504.0
+    - 903.0
+    - 704.0
+    - 1014.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.1-8/variants.png
+  sha256: 7a5db087df09251cde64b913b23dec8aa2b6cf8b1f97d467e2d583b98c316d04
+  width: 224
+  height: 161
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '2'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 6
+    table: '4.1'
+    item: '8'
+  explanation: This enclosure marks vendor package scope, not one equipment symbol or a process pipe.
+    Containment alone must not assign all enclosed text to the boundary; identify equipment and text independently.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- This enclosure marks vendor package scope, not one equipment symbol or a process pipe. Containment alone
+  must not assign all enclosed text to the boundary; identify equipment and text independently.
+relations: []

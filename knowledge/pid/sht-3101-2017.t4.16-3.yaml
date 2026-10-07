@@ -1,0 +1,213 @@
+id: sht-3101-2017.t4.16-3
+version: 1
+concept: 换热器三（PFD） / Heat exchanger III (PFD)
+catalog:
+  role: background
+  category: equipment
+  short_name: 换热器三（PFD）
+  interpretation: 换热器三（PFD） / Heat exchanger III (PFD). Defined by SH/T 3101:2017, Table 4.16, item 3.
+    The source explicitly labels this depiction for PFD use. Retained for browsing; excluded from normal
+    P&ID extraction retrieval. Each labeled alternative is a separate reference depiction, not an additional
+    object to instantiate.
+  displayed_asset_ids:
+  - variant-1
+  - variant-2
+  - variant-3
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 换热器三（PFD）
+- Heat exchanger III (PFD)
+reference_type: symbol
+kind: definition
+explanation: 换热器三（PFD） / Heat exchanger III (PFD). Defined by SH/T 3101:2017, Table 4.16, item 3. The
+  source explicitly labels this depiction for PFD use. Retained for browsing; excluded from normal P&ID
+  extraction retrieval. Each labeled alternative is a separate reference depiction, not an additional
+  object to instantiate.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 换热器三（PFD）
+- Heat exchanger III (PFD)
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '25'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.16-3/context.png
+  document_id: sht-3101-2017
+  pdf_page: 29
+  table: '4.16'
+  item: '3'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.16-3/context.png
+  sha256: 05780013ca34be7158735a641eb8f5eeb44351a6ca6846e08192a983cfb0f0c0
+  width: 908
+  height: 226
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '3'
+    rect:
+    - 163.0
+    - 612.0
+    - 1071.0
+    - 838.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variant-1
+  role: variant
+  label: Alternative 1
+  path: illustrations/sht-3101-2017/t4.16-3/variant-1.png
+  sha256: b7b2dfd1e6bd180aeb564cfde2e61aa6d94612dae843bdf20291232856eb115d
+  width: 65
+  height: 65
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '3'
+    rect:
+    - 633.0
+    - 626.0
+    - 698.0
+    - 691.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-2
+  role: variant
+  label: Alternative 2
+  path: illustrations/sht-3101-2017/t4.16-3/variant-2.png
+  sha256: c262dbad0c36204aa3c2db4810a1008e56aa222c8144fb7e5eb7730d24d55ca3
+  width: 89
+  height: 76
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '3'
+    rect:
+    - 620.0
+    - 691.0
+    - 709.0
+    - 767.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-3
+  role: variant
+  label: Alternative 3
+  path: illustrations/sht-3101-2017/t4.16-3/variant-3.png
+  sha256: 9266dabf898bb9a25c235b26717976346075bf8ecceece23b6adc16bc466c03d
+  width: 93
+  height: 59
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 29
+    printed_page: '25'
+    table: '4.16'
+    item: '3'
+    rect:
+    - 619.0
+    - 767.0
+    - 712.0
+    - 826.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.16-3/variants.png
+  sha256: 855b58922d2c27ff332d51c3c0b07097bd7ee0fc6dda878ca07e2eeeb7b35934
+  width: 440
+  height: 252
+  derived_from:
+  - variant-1
+  - variant-2
+  - variant-3
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '25'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 29
+    table: '4.16'
+    item: '3'
+  explanation: The source explicitly labels this depiction for PFD use. Retained for browsing; excluded
+    from normal P&ID extraction retrieval.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '25'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 29
+    table: '4.16'
+    item: '3'
+  explanation: Each labeled alternative is a separate reference depiction, not an additional object to
+    instantiate.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- The source explicitly labels this depiction for PFD use. Retained for browsing; excluded from normal
+  P&ID extraction retrieval.
+- Each labeled alternative is a separate reference depiction, not an additional object to instantiate.
+relations: []

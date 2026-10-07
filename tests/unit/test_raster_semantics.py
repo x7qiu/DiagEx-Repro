@@ -11,10 +11,8 @@ from PIL import Image
 
 from diagex.config import SymbolPerceptionConfig
 from diagex.llm.cost import CostTracker
-from diagex.review.detection import DetectionReviewStore, write_detection_bundle
 from diagex.vision.evidence import PageEvidence
 from diagex.vision.legend_context import select_legend_context
-from diagex.vision.legend_models import LegendPack
 from diagex.vision.models import BBox
 from diagex.vision.raster_semantics import interpret_raster_reviews, normalize_semantics
 
@@ -76,7 +74,7 @@ def test_invalid_semantics_cannot_modify_geometry_or_become_a_suggestion(mutatio
     assert results[0]["decision"] == "unresolved" and "symbol" not in results[0]
 
 
-def test_success_includes_real_legend_crop_and_stays_pending_in_review(tmp_path):
+def test_success_includes_real_legend_crop_and_preserves_classified_geometry(tmp_path):
     calls = []
     client = SimpleNamespace(messages_create=lambda **kw: calls.append(kw) or message({"results": [decision()]}))
     args = arguments(client)
@@ -90,56 +88,140 @@ def test_success_includes_real_legend_crop_and_stays_pending_in_review(tmp_path)
     assert sum(b["type"] == "image" for b in blocks) == 2
     context = json.loads(blocks[-1]["text"])
     assert context["symbols"][0]["bbox_in_source_view"] == {"x": .1, "y": .2, "w": .2, "h": .2}
-    reviews[0].update(page_index=0, tile_id="t1")
-    write_detection_bundle(tmp_path, source_hash="fixture", pages=[args["page"]], detections=[],
-        legend_pack=LegendPack.model_validate({"entries": legend()}), per_page_status={0: "ok"},
-        candidates=[], reviews=reviews)
-    store = DetectionReviewStore(tmp_path)
-    row = store.public()["symbols"][0]
-    assert row["status"] == "pending" and row["origin"] == "proposal"
-    assert row["detection"]["kind"] == "equipment" and row["detection"]["attributes"]["valve_type"] == "gate"
-    assert row["detection"]["bbox"] == original[0]["bbox"]
-    assert row["source_observation"]["object"] == original[0]["object"]
-    assert store.snapshot(0, draft=True)["detections"] == []
-    from diagex.vision.fusion import fuse_objects
-    from diagex.vision.perception import DetectionRecord
-
-    def apply(action, **values):
-        return store.apply({"revision": store.read()["revision"], "rater": "Test reviewer",
-                            "actor_type": "agent", "evidence_refs": ["source-view", "legend-gate"],
-                            "action": action, **values})
-    with pytest.raises(ValueError, match="Review the legend"):
-        apply("save_symbol", id=row["id"], detection=row["detection"])
-    apply("confirm_legends", ids=["legend-0"])
-    apply("save_symbol", id=row["id"], detection=row["detection"])
-    apply("coverage", page_index=0, checked=True)
-    snapshot = store.snapshot(store.read()["revision"])
-    fused = fuse_objects(source_name="fixture", pages=[args["page"]],
-        detections=[DetectionRecord.model_validate(d) for d in snapshot["detections"]],
-        per_page_status={0: "ok"}, legend_pack=LegendPack.model_validate(snapshot["legend_pack"]),
-        reviewed_instances=True)
-    assert len(fused.graph.nodes) == 1
-    node = fused.graph.nodes[0]
-    assert node.bbox_global.model_dump() == original[0]["bbox"]
-    assert node.attributes["valve_type"] == "gate" and node.attributes["human_reviewed"] is False
-    assert node.attributes["legend_entry_ids"] == ["legend-gate"]
+    from diagex.vision.raster_semantics import interpreted_detection
+    from diagex.vision.symbol_interpretation import DetectionRecord
+    raw = {**reviews[0]["object"], "id":"machine-1", "page_index":0,
+           "tile_id":"t1", "bbox":reviews[0]["bbox"]}
+    detection = DetectionRecord.model_validate(interpreted_detection(raw, reviews[0]["legend_interpretation"]))
+    assert detection.kind == "equipment"
+    assert detection.bbox.model_dump() == original[0]["bbox"]
+    assert detection.attributes["valve_type"] == "gate"
+    assert detection.attributes["legend_entry_ids"] == ["legend-gate"]
+    assert detection.attributes["legend_matches"][0]["source"] == "legend_extracted"
+    assert detection.attributes["recognition_method"] == "vlm"
 
 
-@pytest.mark.parametrize("reason", ["no_legend", "rejected_legend", "deadline"])
-def test_missing_legend_or_deadline_preserves_observations_without_api_use(reason):
+@pytest.mark.parametrize("reason", ["deadline", "no_observations"])
+def test_deadline_or_no_observations_preserves_inventory_without_api_use(reason):
     def forbidden(**kwargs):
         raise AssertionError("No API call expected")
     args = arguments(SimpleNamespace(messages_create=forbidden))
-    if reason == "no_legend":
-        args["legend_entries"] = []
-    elif reason == "rejected_legend":
-        args["legend_entries"][0]["attributes"]["row_status"] = "reject"
+    if reason == "no_observations":
+        args["reviews"] = []
     else:
         args["deadline"] = time.monotonic() - 1
     reviews, audit = interpret_raster_reviews(**args)
     assert not audit["attempts"] and not args["cost_tracker"].steps
-    assert reviews[0]["legend_interpretation"]["decision"] == "unresolved"
-    assert reviews[0]["object"] == args["reviews"][0]["object"]
+    if reviews:
+        assert reviews[0]["legend_interpretation"]["decision"] == "unresolved"
+        assert reviews[0]["object"] == args["reviews"][0]["object"]
+
+
+def source_decision(symbol=None):
+    return {
+        "symbol_id": "symbol-0", "decision": "interpreted", "legend_entry_ids": [],
+        "reason": "The source supports a physical component without an applicable reference match.",
+        "source_evidence": "Closed body with a cross-hatched mesh and flanged connections; FL-399 printed above.",
+        "symbol": symbol or {"kind": "equipment", "equipment_class": "filter", "printed_tag": "FL-399"},
+    }
+
+
+def test_flattened_live_response_fields_stay_invalid_until_model_resubmits_nested_symbol():
+    nested = source_decision()
+    flattened = copy.deepcopy(nested)
+    flattened.update(flattened.pop("symbol"))
+    bad, _ = normalize_semantics({"results": [flattened]}, ["symbol-0"], [])
+    assert bad[0]["decision"] == "unresolved" and "symbol" not in bad[0]
+    good, _ = normalize_semantics({"results": [nested]}, ["symbol-0"], [])
+    assert good[0]["decision"] == "interpreted"
+    assert good[0]["symbol"] == nested["symbol"]
+
+
+@pytest.mark.parametrize("reference_state", ["none", "rejected", "unmatched"])
+@pytest.mark.parametrize("symbol", [
+    {"kind": "equipment", "equipment_class": "filter", "printed_tag": "FL-399"},
+    {"kind": "instrument", "instrument_function": "unclassified_instrument", "printed_tag": "LA 004"},
+    {"kind": "equipment", "equipment_class": "unclassified_equipment", "structural_description": "Closed body with internal mesh"},
+])
+def test_source_supported_unmatched_symbols_preserve_geometry_and_truthful_provenance(reference_state, symbol):
+    from diagex.vision.raster_semantics import interpreted_detection
+    from diagex.web.evidence_origin import evidence_origin
+
+    row = source_decision(symbol)
+    if symbol["kind"] == "instrument":
+        row["source_evidence"] = "Distinct hexagonal glyph with horizontal divider; LA above 004 inside the glyph."
+    calls = []
+    client = SimpleNamespace(messages_create=lambda **kw: calls.append(kw) or message({"results": [row]}))
+    args = arguments(client)
+    if reference_state == "none":
+        args["legend_entries"] = []
+    elif reference_state == "rejected":
+        args["legend_entries"][0]["attributes"]["row_status"] = "reject"
+    original = copy.deepcopy(args["reviews"])
+    reviews, audit = interpret_raster_reviews(**args)
+    assert len(calls) == len(audit["attempts"]) == len(args["cost_tracker"].steps) == 1
+    assert original == args["reviews"] and reviews[0]["object"] == original[0]["object"]
+    interpretation = reviews[0]["legend_interpretation"]
+    assert interpretation["decision"] == "interpreted" and not interpretation["legend_matches"]
+    assert "knowledge_match" not in interpretation
+    raw = {**reviews[0]["object"], "bbox": reviews[0]["bbox"]}
+    detection = interpreted_detection(raw, interpretation)
+    assert detection["bbox"] == original[0]["bbox"]
+    assert detection["attributes"]["raster_proposal_id"] == "detector-1"
+    assert detection["attributes"]["recognition_evidence"] == row["source_evidence"]
+    assert detection["label"] == symbol.get("printed_tag", "")
+    origin = evidence_origin(detection)
+    assert len(origin["sources"]) == 1 and origin["sources"][0]["kind"] == "other"
+    assert origin["sources"][0]["evidence"] == row["source_evidence"]
+
+
+@pytest.mark.parametrize("mutation", ["blank_evidence", "missing_symbol", "unknown_legend", "unknown_knowledge", "geometry"])
+def test_source_fallback_does_not_rescue_invalid_interpretations(mutation):
+    row = source_decision()
+    if mutation == "blank_evidence":
+        row["source_evidence"] = " \n "
+    elif mutation == "missing_symbol":
+        row.pop("symbol")
+    elif mutation == "unknown_legend":
+        row["legend_entry_ids"] = ["invented"]
+    elif mutation == "unknown_knowledge":
+        row.update(knowledge_reference_id="invented", knowledge_evidence="Visible source shape")
+    else:
+        row["symbol"]["bbox"] = {"x": 0, "y": 0, "w": 1, "h": 1}
+    result, _ = normalize_semantics({"results": [row]}, ["symbol-0"], [])
+    assert result[0]["decision"] == "unresolved" and "symbol" not in result[0]
+
+
+@pytest.mark.parametrize("decision_value,reason", [
+    ("non_node", "Enclosed tag and leader identify a separate visible valve body; this box is the identity callout."),
+    ("non_node", "Only a flow-direction arrow on the line is visible."),
+    ("unresolved", "This box groups multiple glyphs; no single coherent physical symbol."),
+    ("unresolved", "Only printed text is legible; no distinct physical glyph can be established."),
+    ("unresolved", "Explicit drawing definitions conflict for this ambiguous outline."),
+])
+def test_source_only_request_does_not_promote_uncertainty_or_non_objects(decision_value, reason):
+    row = {"symbol_id": "symbol-0", "decision": decision_value, "reason": reason, "legend_entry_ids": []}
+    args = arguments(SimpleNamespace(messages_create=lambda **kw: message({"results": [row]})))
+    args["legend_entries"] = []
+    reviews, audit = interpret_raster_reviews(**args)
+    assert len(audit["attempts"]) == 1
+    assert reviews[0]["legend_interpretation"]["decision"] == decision_value
+    assert "symbol" not in reviews[0]["legend_interpretation"]
+    assert reviews[0]["status"] == "uncertain" and reviews[0]["object"] == args["reviews"][0]["object"]
+
+
+def test_source_prompt_requires_own_glyph_and_legacy_rows_are_not_promoted():
+    from diagex.vision.raster_semantics import SYSTEM
+
+    assert "identity callouts" in SYSTEM and "A tag alone is insufficient" in SYSTEM
+    assert "boxes grouping multiple" in SYSTEM and "unclassified_instrument" in SYSTEM
+    old = decision()
+    old["legend_entry_ids"] = []
+    result, _ = normalize_semantics({"results": [old]}, ["symbol-0"], [])
+    assert result[0]["decision"] == "unresolved" and "symbol" not in result[0]
+    compact, _, _ = select_legend_context(legend(), [], [])
+    result, _ = normalize_semantics({"results": [decision()]}, ["symbol-0"], compact)
+    assert result[0]["decision"] == "interpreted" and "source_evidence" not in result[0]
 
 
 def test_transport_failure_retains_all_observations_and_stops_further_chunks():

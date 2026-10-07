@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.2-23
+version: 1
+concept: 临时过滤器 / Temporary strainer
+catalog:
+  role: catalog
+  category: piping
+  short_name: 临时过滤器
+  interpretation: '临时过滤器 / Temporary strainer. Defined by SH/T 3101:2017, Table 4.2, item 23. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 临时过滤器
+- Temporary strainer
+reference_type: symbol
+kind: definition
+explanation: '临时过滤器 / Temporary strainer. Defined by SH/T 3101:2017, Table 4.2, item 23. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 临时过滤器
+- Temporary strainer
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '5'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-23/context.png
+  document_id: sht-3101-2017
+  pdf_page: 9
+  table: '4.2'
+  item: '23'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-23/context.png
+  sha256: 38016a07f4f4337f3453b50446e40f6d6fedbf54a7b97fec81588afbcd041251
+  width: 910
+  height: 100
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 9
+    printed_page: '5'
+    table: '4.2'
+    item: '23'
+    rect:
+    - 157.0
+    - 604.0
+    - 1067.0
+    - 704.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-23/primary.png
+  sha256: bced0238daf9ae88a44acd9089e9fbdea4708551465c1b7698a24e1f16a980d0
+  width: 250
+  height: 86
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 9
+    printed_page: '5'
+    table: '4.2'
+    item: '23'
+    rect:
+    - 536.0
+    - 612.0
+    - 786.0
+    - 698.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-23/variants.png
+  sha256: 9c352c44ad54e431977a9626f4f484bfb6f619c863e2bb21107647a180d09e33
+  width: 274
+  height: 136
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

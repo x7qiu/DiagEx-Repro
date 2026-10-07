@@ -1,0 +1,184 @@
+id: sht-3101-2017.t4.9-23
+version: 1
+concept: 转子式流量元件 / Variable-area flow element
+catalog:
+  role: catalog
+  category: measurement
+  short_name: 转子式流量元件
+  interpretation: 转子式流量元件 / Variable-area flow element. Defined by SH/T 3101:2017, Table 4.9, item 23.
+    Interpret this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI
+    describe the illustrated function, not actual instrument tag numbers. Each labeled alternative is
+    a separate reference depiction, not an additional object to instantiate.
+  displayed_asset_ids:
+  - variant-1
+  - variant-2
+  model_asset_id: variants
+  supporting_reference_ids:
+  - sht-3101-2017.letter-rules
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 转子式流量元件
+- Variable-area flow element
+reference_type: symbol
+kind: definition
+explanation: 转子式流量元件 / Variable-area flow element. Defined by SH/T 3101:2017, Table 4.9, item 23. Interpret
+  this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI describe the
+  illustrated function, not actual instrument tag numbers. Each labeled alternative is a separate reference
+  depiction, not an additional object to instantiate.
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 转子式流量元件
+- Variable-area flow element
+- measurement
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '16'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.9-23/context.png
+  document_id: sht-3101-2017
+  pdf_page: 20
+  table: '4.9'
+  item: '23'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.9-23/context.png
+  sha256: 9179864d248f3b6f489750ddd75744e9f57093fc71e9d7d5ade2d1828dc28b00
+  width: 913
+  height: 177
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 20
+    printed_page: '16'
+    table: '4.9'
+    item: '23'
+    rect:
+    - 114.0
+    - 1120.0
+    - 1027.0
+    - 1297.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: variant-1
+  role: variant
+  label: Alternative 1
+  path: illustrations/sht-3101-2017/t4.9-23/variant-1.png
+  sha256: d0c8c41c3496d0c08d4973744cfb014eb38f95211c7bdf57c7ef5f50d65b4af2
+  width: 114
+  height: 79
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 20
+    printed_page: '16'
+    table: '4.9'
+    item: '23'
+    rect:
+    - 512.0
+    - 1129.0
+    - 626.0
+    - 1208.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variant-2
+  role: variant
+  label: Alternative 2
+  path: illustrations/sht-3101-2017/t4.9-23/variant-2.png
+  sha256: c4ac598fbe0c4f1110491500734f12c78f87ec470ec6871fcbd0da434a842c43
+  width: 56
+  height: 83
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 20
+    printed_page: '16'
+    table: '4.9'
+    item: '23'
+    rect:
+    - 535.0
+    - 1208.0
+    - 591.0
+    - 1291.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.9-23/variants.png
+  sha256: d6e772dfdebe6a656962b127a030bfd50ef07cfabdcc765eb948fc3ff0fb4a31
+  width: 440
+  height: 133
+  derived_from:
+  - variant-1
+  - variant-2
+  quality: clear
+  depiction: isolated_symbol
+notes:
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '16'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 20
+    table: '4.9'
+    item: '23'
+  explanation: Interpret this as a primary measurement element in context. Internal letters such as M,
+    C, ΔT or FI describe the illustrated function, not actual instrument tag numbers.
+  asset_id: context
+- source:
+    document: SH/T 3101—2017 石油化工流程图图例
+    page: '16'
+    edition: '2017'
+    document_id: sht-3101-2017
+    pdf_page: 20
+    table: '4.9'
+    item: '23'
+  explanation: Each labeled alternative is a separate reference depiction, not an additional object to
+    instantiate.
+  asset_id: context
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+- Interpret this as a primary measurement element in context. Internal letters such as M, C, ΔT or FI
+  describe the illustrated function, not actual instrument tag numbers.
+- Each labeled alternative is a separate reference depiction, not an additional object to instantiate.
+relations: []

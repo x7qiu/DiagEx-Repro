@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.valve-symbols-for-p-id.ball-valve-symbol
+version: 1
+concept: Ball Valve Symbol
+catalog:
+  role: catalog
+  category: valves_actuators
+  short_name: Ball Valve Symbol
+  interpretation: Projectmaterials labels this illustration ‘Ball Valve Symbol’ (Valve
+    Symbols for P&ID).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Ball Valve
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Ball Valve Symbol’ (Valve
+  Symbols for P&ID).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Valve Symbols for P&ID
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Ball Valve Symbol
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#valve-symbols-for-pid
+  section: Valve Symbols for P&ID
+assets:
+- id: symbol
+  role: variant
+  label: Ball Valve Symbol
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.valve-symbols-for-p-id.ball-valve-symbol.png
+  sha256: a6cb2633b3b09be3a9240db6311a96e99331c79774348c5f25f3cbb03b9a8cb2
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/ball-valve-150x150.DzkMZ5OM_Z1illsn.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: d6a4fc44244d33094b2b42e9bae83404e422bb95ce777ab7112263abfc3056b1
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,99 @@
+id: isa-5.1-2009.clause-3.1.49
+version: 2
+concept: process
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.49 process:
+
+  any operation or sequence of operations involving a change of energy, state, composition,
+  dimension, or
+
+  other properties that may be defined with respect to zero or some other defined
+  initial value.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'process:'
+- 3.1.49
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '22'
+  pdf_page: 22
+  table: null
+  item: null
+  passage: Clause 3.1.49
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.49-p22.png
+assets:
+- id: clause-3.1.49-p22
+  role: context
+  label: Clause 3.1.49, page 22
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.49-p22.png
+  sha256: 8aa52c84d4a3486bbc07370d5ccea4ca77392f00a53b822637f54b5540631c22
+  width: 2010
+  height: 351
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 22
+    printed_page: '22'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 643.1719
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-22
+  role: context
+  label: Complete technical content on page 22
+  path: illustrations/isa-5.1-2009/complete/page-22.png
+  sha256: 28bf3b4afc7b1cacf4c6cb1fc54ee0258debf2ceebfc49f26e12a585a2f318d8
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 22
+    printed_page: '22'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

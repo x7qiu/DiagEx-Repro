@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.programmable-indicator
+version: 2
+concept: Programmable Indicator
+catalog:
+  role: background
+  category: instruments
+  short_name: Programmable Indicator
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Programmable Indicator’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Programmable Indicator
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Programmable Indicator’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Programmable Indicator
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Programmable Indicator
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.programmable-indicator.png
+  sha256: b8136edb6752ed994c17a48b571633c36335c2507f9f50da0243d924d3141ed4
+  width: 41
+  height: 41
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/programmable_indicator.BTJu47bX_Z1hEDlJ.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 8fc2825689249bd007f00953b85cd4bc5a17c39be7a8dcf45706eadc42525814
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

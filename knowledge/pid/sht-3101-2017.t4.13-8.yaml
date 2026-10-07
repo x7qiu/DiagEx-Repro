@@ -1,0 +1,122 @@
+id: sht-3101-2017.t4.13-8
+version: 1
+concept: 干式气罐 / Dry-seal gas holder
+catalog:
+  role: catalog
+  category: equipment
+  short_name: 干式气罐
+  interpretation: '干式气罐 / Dry-seal gas holder. Defined by SH/T 3101:2017, Table 4.13, item 8. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 干式气罐
+- Dry-seal gas holder
+reference_type: symbol
+kind: definition
+explanation: '干式气罐 / Dry-seal gas holder. Defined by SH/T 3101:2017, Table 4.13, item 8. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 干式气罐
+- Dry-seal gas holder
+- equipment
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '21'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.13-8/context.png
+  document_id: sht-3101-2017
+  pdf_page: 25
+  table: '4.13'
+  item: '8'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.13-8/context.png
+  sha256: 2f5158575fd72fae010e1fa25a5ca8d17c6c92ed0a4dfe0feb974172961b9bab
+  width: 909
+  height: 135
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 25
+    printed_page: '21'
+    table: '4.13'
+    item: '8'
+    rect:
+    - 156.0
+    - 296.0
+    - 1065.0
+    - 431.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.13-8/primary.png
+  sha256: f8a9e25d86621d5b35ef9ddcde34202a74dd7e8caf91a3249730bcabe5cca466
+  width: 141
+  height: 97
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 25
+    printed_page: '21'
+    table: '4.13'
+    item: '8'
+    rect:
+    - 591.0
+    - 317.0
+    - 732.0
+    - 414.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.13-8/variants.png
+  sha256: 4ceb3bccc2fe67416499e22312a8d1cf8efa224c49f48f0726fd230f048d3574
+  width: 220
+  height: 147
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

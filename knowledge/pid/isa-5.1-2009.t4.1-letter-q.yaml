@@ -1,0 +1,608 @@
+id: isa-5.1-2009.t4.1-letter-q
+version: 2
+concept: Identification letter Q
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: 'Measured/initiating variable: Quantity (2); Variable modifier: Integrate,
+  Totalize (11b); Readout/passive function: Integrate, Totalize; Output/active function:
+  blank in source; Function modifier: blank in source'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- identification
+- letter
+- Q
+- Quantity (2)
+- Integrate, Totalize (11b)
+- Integrate, Totalize
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '30'
+  pdf_page: 30
+  table: '4.1'
+  item: Q
+  passage: null
+  image: illustrations/isa-5.1-2009/complete/page-30.png
+assets:
+- id: page-30
+  role: context
+  label: Complete technical content on page 30
+  path: illustrations/isa-5.1-2009/complete/page-30.png
+  sha256: 63f6260bcf0f2a7fde22319fb13c83babf359b4806ef53b648bb4b3f7307e7cc
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 30
+    printed_page: '30'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-4.2-p25
+  role: note
+  label: Clause 4.2, page 25
+  path: illustrations/isa-5.1-2009/complete/clause-4.2-p25.png
+  sha256: f180747458872c847d304515ebc1dbe13fe3d309880b62c72db2da96f0707144
+  width: 2010
+  height: 1560
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 25
+    printed_page: '25'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 352.951
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-4.2-p26
+  role: note
+  label: Clause 4.2, page 26
+  path: illustrations/isa-5.1-2009/complete/clause-4.2-p26.png
+  sha256: e37a1cf685756b61ef21aed54e115f69142897623aefd4620721af827a357041
+  width: 2010
+  height: 2738
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 26
+    printed_page: '26'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-4.2-p27
+  role: note
+  label: Clause 4.2, page 27
+  path: illustrations/isa-5.1-2009/complete/clause-4.2-p27.png
+  sha256: 463d4e264106a339324452e4d548593bd5f86b5c0b2f0222c78b805bbe3b9a27
+  width: 2010
+  height: 2738
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 27
+    printed_page: '27'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-4.2-p28
+  role: note
+  label: Clause 4.2, page 28
+  path: illustrations/isa-5.1-2009/complete/clause-4.2-p28.png
+  sha256: 066b76055be21f55ea621fb771743028b0ae1c7eeaf655a41524b53c358aab4c
+  width: 2010
+  height: 2738
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 28
+    printed_page: '28'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-4.2-p29
+  role: note
+  label: Clause 4.2, page 29
+  path: illustrations/isa-5.1-2009/complete/clause-4.2-p29.png
+  sha256: 63d2853662bc2b863309d1c06236c7bb5d8bdec141ada5aecace667e19247cfb
+  width: 2010
+  height: 2738
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 29
+    printed_page: '29'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 25, 26, 27, 28, 29
+    pdf_page: 25
+    table: null
+    item: null
+    passage: Clause 4.2
+    image: illustrations/isa-5.1-2009/complete/clause-4.2-p25.png
+  explanation: '4.2 Table 4.1 — Identification letters explanatory notes
+
+    The following notes, indicated in Table 4.1 by parentheses, are to be used as
+    an aid in understanding the
+
+    meanings of the letters when they are used in certain positions in Loop Identification
+    Letter(s) or
+
+    Functional Identifications.
+
+    (1) First Letters are a Measured/Initiating Variable and, if required, a combination
+    of a
+
+    Measured/Initiating Variable and a Variable Modifier that shall be referred to
+    by the combined meaning.
+
+    (2) The specific meanings given for Measured/Initiating Variables [A], [B], [E],
+    [F], [H], [I], [J], [K] [L],
+
+    [P], [Q], [R], [S], [T], [U], [V], [W], [Y], and [Z] shall not be modified.
+
+    (3) Measured/Initiating Variable analysis [A] shall be used for all types of process
+    stream composition
+
+    and physical property analysis. The type of analyzer, and for stream component
+    analyzers the
+
+    components of interest, shall be defined outside the tagging bubble.
+
+    (a) “User’s Choice” Measured/Initiating Variables [C], [D], and [M] are assigned
+    to identify
+
+    conductivity, density, and moisture analysis, respectively, when it is the user’s
+    common practice.
+
+    (4) Measured/Initiating Variable analysis [A] shall not be used to identify vibration
+    or other types of
+
+    mechanical or machinery analysis, which shall be identified by Measured/Initiating
+    Variable vibration or
+
+    mechanical analysis [V].
+
+    (5) “User’s Choice” letters [C], [D], [M], [N], and [O] that cover unlisted repetitive
+    meanings that may
+
+    have one meaning as a Measured or Initiating Variable and another as a Succeeding-Letter
+    shall be
+
+    defined only once. For example, [N] may be defined as “modulus of elasticity”
+    as a Measured/Initiating
+
+    Variable and “oscilloscope” as a Readout/Passive Function.
+
+    (6) Measured/Initiating Variable multivariable [U] identifies an instrument or
+    loop that requires
+
+    multiple points of measurement or other inputs to generate single or multiple
+    outputs, such as a PLC that
+
+    uses multiple pressure and temperature measurements to regulate the switching
+    of multiple on-off valves.
+
+    (7) Measured/Initiating Variable vibration or mechanical analysis [V] is intended
+    to perform the
+
+    function in machinery monitoring that Measured/Initiating Variable analysis [A]
+    performs in process
+
+    monitoring and except for vibration, it is expected that the variable of interest
+    will be defined outside the
+
+    tagging bubble.
+
+    (8) First-Letter or Succeeding-Letter for unclassified devices or functions [X]
+    for non-repetitive
+
+    meanings that are used only once or to a limited extent may have any number of
+    meanings that shall be
+
+    defined outside the tagging bubble or by a note in the document. For example,
+    [XR-2] may be a stress
+
+    recorder and [XX-4] may be a stress oscilloscope.
+
+    (9) Measured/Initiating Variable event, state, or presence [Y] is intended for
+    use when control or
+
+    monitoring responses are not driven by time or time schedule--but driven by events,
+    presence, or state.
+
+    (10) Measured/Initiating Variable and Variable Modifier combinations shall be
+    selected according to
+
+    how the property being measured is modified or changed.
+
+    (11) Direct measured variables that shall be considered as Measured/Initiating
+    Variables for Loop
+
+    Numbering shall include but are not limited to:
+
+    (a) Differential [D] — pressure [PD] or temperature [TD].
+
+    (b) Total [Q] — flow totalizer [FQ], when directly measured, such as by a positive
+
+    displacement flowmeter.
+
+    (c) X-axis, y-axis, or z-axis [X], [Y], or [Z] — vibration [VX], [VY], and [VZ],
+    force [WX], [WY],
+
+    or [WZ] or position [ZX], [ZY], or [ZZ].
+
+    (12) Derived or calculated from other direct measured variables that should not
+    be considered as
+
+    Measured/Initiating Variables for Loop Numbering shall include but are not limited
+    to:
+
+    (a) Difference [D] — temperature [TD] or weight [WD].
+
+    (b) Ratio [F] — Flow [FF], pressure [PF], or temperature [TF].
+
+    (c) Time rate of change [K] — pressure [PK], temperature [TK], or weight [WK].
+
+    (13) Variable Modifier time or time schedule [K] in combination with a Measured/Initiating
+    Variable
+
+    signifies a time rate of change of the measured or initiating variable; [WK],
+    represents a rate-of-weight-
+
+    loss loop.
+
+    (14) Variable Modifier safety [S] is technically not a direct-measured variable
+    but is used to identify
+
+    self-actuated emergency protective primary and final control elements only when
+    used in conjunction with
+
+    Measured/Initiating Variables flow [F], pressure [P] or temperature [T]. And because
+    of the critical nature
+
+    of such devices, [FS, PS, and TS] shall be considered as Measured/ Initiating
+    Variables in all Loop
+
+    Identification Number construction schemes:
+
+    (a) Flow safety valve [FSV] applies to valves intended to protect against an emergency
+
+    excess flow or loss of flow condition. Pressure safety valve [PSV] and temperature
+    safety valve
+
+    [TSV] apply to valves intended to protect against emergency pressure and temperature
+
+    conditions. This applies regardless of whether the valve construction or mode
+    of operation places
+
+    it in the category of safety valve, relief valve, or safety relief valve.
+
+    (b) A self-actuated pressure valve that prevents operation of a fluid system at
+    a higher-than-
+
+    desired pressure by bleeding fluid from the system is a backpressure control valve
+    [PCV], even if
+
+    the valve is not intended to be used normally. However, this valve is designated
+    a pressure
+
+    safety valve [PSV] if it protects against emergency conditions hazardous to personnel
+    and/or
+
+    equipment that are not expected to arise normally.
+
+    (c) Pressure rupture disc [PSE] and fusible link [TSE] apply to all sensors or
+    primary
+
+    elements intended to protect against emergency pressure or temperature conditions.
+
+    (d) [S] shall not be used to identify Safety Instrumented Systems and components,
+    see (30).
+
+    (15) The grammatical form of Succeeding Letter meanings shall be modified as required;
+    for example,
+
+    ‘indicate’ [I] may be read as ‘indicator’ or ‘indicating,’ and ‘transmit’ [T]
+    may be read as ‘transmitter’ or
+
+    ‘transmitting.’
+
+    (16) Readout/Passive Function glass, gauge, or viewing device [G] should be used
+    instead of
+
+    Readout/Passive Function indicate [I] for instruments or devices that provide
+    a secondary view, such as
+
+    level glasses, pressure gauges, thermometers, and flow sight glasses.
+
+    (a) Also used to identify devices that provide an uncalibrated view of plant operations,
+    such
+
+    as television monitors.
+
+    (17) Readout/Passive Function indicate [I] applies to the analog or digital readout
+    of an actual
+
+    measurement or input signal to a discrete instrument or a distributed control
+    system''s video display unit.
+
+    (a) In the case of a manual loader, it should be used for the dial or setting
+    indication of the
+
+    output signal being generated, [HIC] or [HIK].
+
+    (18) Readout/Passive Function scan [J] when used shall indicate a non-continuous
+    periodic reading of
+
+    two or more Measured/Initiating Variables of the same or different kinds, such
+    as multipoint temperature
+
+    and pressure recorders.
+
+    (19) Readout/Passive Function light [L] identifies devices or functions that are
+    intended to indicate
+
+    normal operating status, such as motor on-off or actuator position, and is not
+    intended for alarm
+
+    indication.
+
+    (20) Readout/Passive Function record [R] applies to any permanent or semi-permanent
+    electronic or
+
+    paper media storage of information or data in an easily retrievable form.
+
+    (21) Readout/Passive and Output/Active Function multifunction [U] is used to:
+
+    (a) Identify control loops that have more than the usual indicate/record and control
+    functions.
+
+    (b) Save space on drawings by not showing tangent bubbles for each function.
+
+    (c) A note describing the multiple functions should be on the drawing if needed
+    for clarity.
+
+    (22) Readout/Passive Function accessory [X] is intended to identify hardware and
+    devices that do not
+
+    measure or control but are required for the proper operation of instrumentation.
+
+    (23) There are differences in meaning to be considered when selecting between
+    Output/Active
+
+    Functions for control [C], switch [S], valve, damper, or louver [V], and auxiliary
+    device [Y]:
+
+    (a) Control [C] means an automatic device or function that receives an input signal
+
+    generated by a Measured/Initiating Variable and generates a variable output signal
+    that is used to
+
+    modulate or switch a valve [V] or auxiliary device [Y] at a predetermined setpoint
+    for ordinary
+
+    process control.
+
+    (b) Switch [S] means a device or function that connects, disconnects, or transfers
+    one or
+
+    more air, electronic, electric, or hydraulic signals, or circuits that may be
+    manually actuated or
+
+    automatically actuated directly by a Measured or Initiating Variable, or indirectly
+    by a Measured or
+
+    Initiating Variable transmitter.
+
+    (c) Valve, damper, or louver [V] means a device that modulates, switches, or turns
+    on/off a
+
+    process fluid stream after receiving an output signal generated by a controller
+    [C], switch [S], or
+
+    auxiliary device [Y].
+
+    (d) Auxiliary device [Y] means an automatic device or function actuated by a controller
+    [C],
+
+    transmitter [T], or switch [S] signal that connects, disconnects, transfers, computes,
+    and/or
+
+    converts air, electronic, electric, or hydraulic signals or circuits.
+
+    (e) The succeeding letters CV shall not be used for anything other than a self-actuated
+
+    control valve.
+
+    (24) Output/Active Function control station [K] shall be used for:
+
+    (a) Designating an operator accessible control station used with an automatic
+    controller that
+
+    does not have an integral operator accessible auto-manual and/or control mode
+    switch.
+
+    (b) Split architecture or fieldbus control devices where the controller functions
+    are located
+
+    remotely from the operator station.
+
+    (25) Output/Active Function auxiliary devices and functions [Y] include, but are
+    not limited to, solenoid
+
+    valves, relays, and computing and converting devices and functions
+
+    (26) Output/Active Function auxiliary devices [Y] for signal computing and converting
+    when shown in a
+
+    diagram or drawing shall be defined outside their bubbles with an appropriate
+    symbol from Table 5.6
+
+    Mathematical Function Blocks and when written in text shall include a description
+    of the mathematical
+
+    function from Table 5 6.
+
+    (27) Function Modifiers high [H], low [L], and middle or intermediate [M] when
+    applied to positions of
+
+    valves and other open-close devices, are defined as follows:
+
+    (a) High [H], the valve is in or approaching the fully open position, open [O]
+    may be used as
+
+    an alternative.
+
+    (b) Low [L] the valve is in or approaching the fully closed position; closed [C]
+    may be used as
+
+    an alternative.
+
+    (c) Middle or intermediate [M] the valve is traveling or located in between the
+    fully open or
+
+    closed position.
+
+    (28) Function Modifier deviation [D] when combined with Readout/Passive Function
+    [A] (alarm) or
+
+    Output/Active Function S (switch) indicates a measured variable has deviated from
+    a controller or other
+
+    setpoint more than a predetermined amount.
+
+    (a) Function Modifiers high [H] or low [L] shall be added if only a positive or
+    negative
+
+    deviation, respectively, is of importance.
+
+    (29) Function Modifiers high [H], low [L], and middle or intermediate [M] when
+    applied to alarms
+
+    correspond to values of the measured variable, not to values of the alarm-actuating
+    signal, unless
+
+    otherwise noted:
+
+    (a) A high-level alarm derived from a reverse-acting level transmitter signal
+    is an LAH, even
+
+    though the alarm is actuated when the signal falls to a low value.
+
+    (b) The terms shall be used in combination as appropriate to indicate multiple
+    levels of
+
+    actuation from the same measurement, for example high [H] and high-high [HH],
+    low [L] and low-
+
+    low [LL], or high-low [HL].
+
+    (30) Variable Modifier [Z] is technically not a direct-measured variable but is
+    used to identify the
+
+    components of Safety Instrumented Systems.
+
+    (a) [Z] shall not be used to identify the safety devices noted in (14).'
+  asset_id: clause-4.2-p25
+text_slots: []
+interpretation:
+- Letter meaning depends on its position in the instrument identification. Do not
+  assign one meaning to every occurrence of this letter.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-4.2
+  explanation: 'Explanatory notes for Table 4.1: clause 4.2.'
+catalog:
+  role: supporting
+  short_name: Identification letter Q
+  interpretation: 'Measured/initiating variable: Quantity (2); Variable modifier:
+    Integrate, Totalize (11b); Readout/passive function: Integrate, Totalize; Output/active
+    function: blank in source; Function modifier: blank in source The specific meanings
+    given for Measured/Initiating Variables [A], [B], [E], [F], [H], [I], [J], [K]
+    [L], [P], [Q], [R], [S], [T], [U], [V], [W], [Y], and [Z] shall not be modified.
+    Direct measured variables that shall be considered as Measured/Initiating Variables
+    for Loop Numbering shall include but are not limited to: (a) Differential [D]
+    — pressure [PD] or temperature [TD]. (b) Total [Q] — flow totalizer [FQ], when
+    directly measured, such as by a positive displacement flowmeter. (c) X-axis, y-axis,
+    or z-axis [X], [Y], or [Z] — vibration [VX], [VY], and [VZ], force [WX], [WY],
+    or [WZ] or position [ZX], [ZY], or [ZZ].'

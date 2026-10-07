@@ -1,0 +1,93 @@
+id: isa-5.1-2009.clause-4
+version: 2
+concept: 4 — Identification letters table
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: 4 Identification letters table
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Identification letters table
+- '4'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '25'
+  pdf_page: 25
+  table: null
+  item: null
+  passage: Clause 4
+  image: illustrations/isa-5.1-2009/complete/clause-4-p25.png
+assets:
+- id: clause-4-p25
+  role: context
+  label: Clause 4, page 25
+  path: illustrations/isa-5.1-2009/complete/clause-4-p25.png
+  sha256: cacbd928995a01df045e86f687752a74f0b65154643e6c216f1388c9f967ee08
+  width: 2010
+  height: 108
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 25
+    printed_page: '25'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.3
+    - 547.0
+    - 95.9719
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-25
+  role: context
+  label: Complete technical content on page 25
+  path: illustrations/isa-5.1-2009/complete/page-25.png
+  sha256: 1766c14903a78e7b03b2a5c1bcecbe080617bb98cac317753b10504ec4567b30
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 25
+    printed_page: '25'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

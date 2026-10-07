@@ -1,0 +1,64 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.flowmeter
+version: 1
+concept: Flowmeter
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Flowmeter
+  interpretation: Projectmaterials labels this illustration ‘Flowmeter’ (Instruments
+    (P&ID Symbols)).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Flowmeter
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Flowmeter’ (Instruments (P&ID
+  Symbols)).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Instruments (P&ID Symbols)
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Flowmeter
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Flowmeter
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.flowmeter.png
+  sha256: bff8fd42371e9af4f9d2925827f4e332d720988b8228374779f40bdf62e9bcad
+  width: 49
+  height: 36
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/flowmeter.DctPqfRO_ZQKERJ.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: a29ee04693043069153b61a010705c5506a8ce1d4f98325b3ac79aaab7909e86
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

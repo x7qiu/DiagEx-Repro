@@ -1,0 +1,123 @@
+id: sht-3101-2017.t4.2-37
+version: 1
+concept: 正拱爆破片 / Conventional-domed bursting disc
+catalog:
+  role: catalog
+  category: piping
+  short_name: 正拱爆破片
+  interpretation: '正拱爆破片 / Conventional-domed bursting disc. Defined by SH/T 3101:2017, Table 4.2, item
+    37. '
+  displayed_asset_ids:
+  - primary
+  model_asset_id: variants
+  supporting_reference_ids: []
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- 正拱爆破片
+- Conventional-domed bursting disc
+reference_type: symbol
+kind: definition
+explanation: '正拱爆破片 / Conventional-domed bursting disc. Defined by SH/T 3101:2017, Table 4.2, item 37. '
+exceptions:
+- Explicit drawing legends and project definitions take precedence. Unclear drawing evidence must remain
+  uncertain.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags:
+- 正拱爆破片
+- Conventional-domed bursting disc
+- piping
+- symbol
+- SH/T 3101
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '6'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/t4.2-37/context.png
+  document_id: sht-3101-2017
+  pdf_page: 10
+  table: '4.2'
+  item: '37'
+assets:
+- id: context
+  role: context
+  label: Complete source row
+  path: illustrations/sht-3101-2017/t4.2-37/context.png
+  sha256: e9ee88c3c4f8ff7a5701023fd9ecfa86595dfe4e4855ace42091d34f518806d6
+  width: 912
+  height: 73
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '37'
+    rect:
+    - 127.0
+    - 670.0
+    - 1039.0
+    - 743.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: primary
+  role: variant
+  label: Source symbol
+  path: illustrations/sht-3101-2017/t4.2-37/primary.png
+  sha256: f78eee79693e1aa94844b8972c81003ece3d65c9d9b0a20347bd724d226b089b
+  width: 63
+  height: 40
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 10
+    printed_page: '6'
+    table: '4.2'
+    item: '37'
+    rect:
+    - 601.0
+    - 687.0
+    - 664.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+- id: variants
+  role: variant_sheet
+  label: Labeled reference variants
+  path: illustrations/sht-3101-2017/t4.2-37/variants.png
+  sha256: 5cf97ea24f9f6705c65e70aa5fe5c710ae2f880596b82cf525d902c4bfd7de2b
+  width: 220
+  height: 90
+  derived_from:
+  - primary
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation:
+- Source illustrations are references, not drawing evidence. Never copy example tags, coordinates or connections
+  into extraction.
+relations: []

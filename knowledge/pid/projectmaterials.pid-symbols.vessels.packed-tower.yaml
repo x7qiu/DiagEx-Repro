@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.packed-tower
+version: 2
+concept: Packed Tower
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Packed Tower
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Packed Tower’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Packed Tower
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Packed Tower’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Packed Tower
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Packed Tower
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.packed-tower.png
+  sha256: ab15a5fd4df86ac6e38c789f28cf54d972ef36660ce7795aab16807cff29882d
+  width: 35
+  height: 83
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/packed_tower.BlvMzyNc_ZAVag4.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: ac10a288fef18a3e5538fa837014ec729383ceb52e1bb11e6da2ad20c2be7184
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

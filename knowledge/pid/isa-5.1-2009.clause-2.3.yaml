@@ -1,0 +1,145 @@
+id: isa-5.1-2009.clause-2.3
+version: 2
+concept: 2.3 — Application to work activities
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '2.3 Application to work activities
+
+  2.3.1 This standard is suitable for use whenever reference to measurement and control
+
+  instrumentation, control devices and functions, and software applications and functions
+  is required for
+
+  identification and symbolization, such as:
+
+  a) Design sketches.
+
+  b) Teaching examples.
+
+  c) Technical papers, literature, and discussions.
+
+  d) Instrumentation, loop, logic, and functional diagrams.
+
+  e) Function descriptions.
+
+  f) Conceptual drawings including but not limited to:
+
+  1) Process Flow Diagrams (PFD)
+
+  2) Utility Flow Diagrams (UFD).
+
+  g) Construction drawings including but not limited to:
+
+  1) Engineering Flow Diagrams (EFD).
+
+  2) Mechanical Flow Diagrams (MFD).
+
+  3) Piping and Instrumentation Diagrams (P&ID).
+
+  4) System Flow Diagrams (SFD).
+
+  h) Specifications, purchase orders, manifests, and other lists.
+
+  i) Identification and tag numbering of instruments and control functions.
+
+  j) Installation, operating and maintenance instructions, drawings, and records.
+
+  2.3.2 This standard provides sufficient information to enable anyone who has a reasonable
+  amount of
+
+  process and instrumentation knowledge, and who is reviewing documents depicting
+  measurement and
+
+  control, to understand the means and purpose of the instrumentation shown.
+
+  2.3.3 The detailed knowledge of a specialist in instrumentation and/or control systems
+  is not a
+
+  prerequisite to understanding this standard.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Application to work activities
+- '2.3'
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '14'
+  pdf_page: 14
+  table: null
+  item: null
+  passage: Clause 2.3
+  image: illustrations/isa-5.1-2009/complete/clause-2.3-p14.png
+assets:
+- id: clause-2.3-p14
+  role: context
+  label: Clause 2.3, page 14
+  path: illustrations/isa-5.1-2009/complete/clause-2.3-p14.png
+  sha256: 17010a992758b22c87ccf7b6523c7ea777ae89b44d17c4351066ac9232fa9cb5
+  width: 2010
+  height: 2297
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 14
+    printed_page: '14'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 621.1498
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-14
+  role: context
+  label: Complete technical content on page 14
+  path: illustrations/isa-5.1-2009/complete/page-14.png
+  sha256: e4afec8f7e861b3baaf430c6f7934101d7f199cd5b5af6c1fd042ded1fe0d117
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 14
+    printed_page: '14'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

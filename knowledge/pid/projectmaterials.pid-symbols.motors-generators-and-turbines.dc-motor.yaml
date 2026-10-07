@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.motors-generators-and-turbines.dc-motor
+version: 2
+concept: DC Motor
+catalog:
+  role: catalog
+  category: equipment
+  short_name: DC Motor
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘DC Motor’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- DC Motor
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘DC Motor’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: DC Motor
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#motors-generators-and-turbines-pid-symbols
+  section: Motors, Generators, and Turbines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: DC Motor
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.motors-generators-and-turbines.dc-motor.png
+  sha256: 04072812a54542434f159f6cbead26aff87d8ea718929beeebe21b431f2faf5b
+  width: 37
+  height: 37
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/dc_motor.CI8dSLeB_ZcNJIL.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: c14a3df6f30b6467dec3ca12d248a34f117b147c8ce73b2673b3a6cc2adbe8cf
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

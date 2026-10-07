@@ -1,0 +1,98 @@
+id: isa-5.1-2009.clause-3.1.57
+version: 2
+concept: setpoint
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.57 setpoint:
+
+  an input variable that sets the desired value of the controlled variable manually,
+  automatically, or by
+
+  means of a program in the same units as the controlled variable.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'setpoint:'
+- 3.1.57
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '23'
+  pdf_page: 23
+  table: null
+  item: null
+  passage: Clause 3.1.57
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.57-p23.png
+assets:
+- id: clause-3.1.57-p23
+  role: context
+  label: Clause 3.1.57, page 23
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.57-p23.png
+  sha256: 43b2a5badeaa380416993cd38fc7a7794da62d4325c09b19f4324d53ff9d0236
+  width: 2010
+  height: 244
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 23
+    printed_page: '23'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 561.15
+    - 547.0
+    - 619.6498
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-23
+  role: context
+  label: Complete technical content on page 23
+  path: illustrations/isa-5.1-2009/complete/page-23.png
+  sha256: 31146aae82821a82777606e74fa3c713fe90906f04346b24ce337706f99b9622
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 23
+    printed_page: '23'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

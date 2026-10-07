@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.instruments-p-id-symbols.rotometer
+version: 2
+concept: Rotometer
+catalog:
+  role: catalog
+  category: instruments
+  short_name: Rotometer
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Rotometer’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Rotometer
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Rotometer’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Rotometer
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#instruments-pid-symbols
+  section: Instruments (P&ID Symbols)
+assets:
+- id: symbol
+  role: variant
+  label: Rotometer
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.instruments-p-id-symbols.rotometer.png
+  sha256: 4865e976f65cbaf7be1b3a310d8d90ceb8c9a23a9cf9550abe1d2e8cd4987421
+  width: 46
+  height: 34
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/rotometer.BKxv3beo_MWyUJ.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: c8d2269464f212dcafbe5879cbf2fe3f788b3a57d357735ebc9cb76003aeb9fa
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

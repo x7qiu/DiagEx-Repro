@@ -12,6 +12,7 @@ from typing import Literal
 from pydantic import BaseModel, Field, ValidationError, model_validator
 
 from diagex.llm.client import is_non_retryable_api_error
+from diagex.llm.prompts.output_language import CHINESE_EXPLANATIONS
 from diagex.vision.encode import encode_image_block
 from diagex.vision.legend_models import LegendEntry, LegendRegionCoverage
 from diagex.vision.legend_rows import native_legend_rows, union_boxes
@@ -140,6 +141,7 @@ def classify_native_legend(
     pending = []
     pending_verification = []
     previous_rejections = {}
+    repair_evidence = {}
     for row in rows:
         if row.id in prior_entries and not suspicious_legend_label(row.label):
             entries.append(prior_entries[row.id])
@@ -164,15 +166,17 @@ def classify_native_legend(
         else:
             pending.append(row)
     batches = deque(
-        (pending[start : start + BATCH_SIZE], False) for start in range(0, len(pending), BATCH_SIZE)
+        (pending[start : start + BATCH_SIZE], False, False)
+        for start in range(0, len(pending), BATCH_SIZE)
     )
     batches.extend(
-        (pending_verification[start : start + BATCH_SIZE], True)
+        (pending_verification[start : start + BATCH_SIZE], True, False)
         for start in range(0, len(pending_verification), BATCH_SIZE)
     )
     while batches:
-        batch, verifying_rejection = batches.popleft()
+        batch, verifying_rejection, repairing_contract = batches.popleft()
         verify_next = []
+        repair_next = []
         content = []
         for row in batch:
             context = union_boxes([row.bbox, row.label_bbox])
@@ -201,6 +205,14 @@ def classify_native_legend(
                                 if verifying_rejection
                                 else {}
                             ),
+                            **(
+                                {
+                                    "repair_instruction": "Your previous response for this source row did not satisfy the response contract. Inspect the same source crop again and return one valid decision for this row_id. Fix only the reported response errors; do not change the printed label, source geometry, or force acceptance. Preserve uncertainty when the source is ambiguous. An actuator-only definition requires kind=equipment and symbol_class=actuator; a contextual valve is not the definition's valve body. Use only the allowed candidate_shapes, or leave that optional list empty when none applies.",
+                                    **repair_evidence[row.id],
+                                }
+                                if repairing_contract
+                                else {}
+                            ),
                         },
                         ensure_ascii=False,
                     ),
@@ -209,6 +221,7 @@ def classify_native_legend(
             ]
         decisions = defaultdict(list)
         raw_decisions = defaultdict(list)
+        validation_errors = defaultdict(list)
         error = ""
         failure_kind = None
         response_received = False
@@ -216,7 +229,7 @@ def classify_native_legend(
             if run_state.stop_reason:
                 raise RuntimeError(run_state.stop_reason)
             response = client.messages_create(
-                system=_SYSTEM,
+                system=_SYSTEM + CHINESE_EXPLANATIONS,
                 messages=[{"role": "user", "content": content}],
                 tools=[_TOOL],
                 tool_choice={"type": "tool", "name": _TOOL["name"]},
@@ -244,7 +257,11 @@ def classify_native_legend(
                     try:
                         d = RowDecision.model_validate(value)
                         decisions[d.row_id].append(d)
-                    except ValidationError:
+                    except ValidationError as exc:
+                        if isinstance(value, dict) and isinstance(value.get("row_id"), str):
+                            validation_errors[value["row_id"]].extend(
+                                exc.errors(include_url=False, include_context=False, include_input=False)
+                            )
                         continue
         except Exception as exc:
             if is_non_retryable_api_error(exc):
@@ -265,18 +282,34 @@ def classify_native_legend(
             unique = {d.model_dump_json(exclude={"reason"}): d for d in outcomes}
             valid = len(unique) == 1 and len(outcomes) == len(raw_decisions[row.id])
             bad_rows += int(not valid)
+            if not valid:
+                errors = validation_errors[row.id]
+                if not raw_decisions[row.id]:
+                    errors.append({"type": "missing_decision", "msg": "Return exactly one decision for this supplied row_id."})
+                elif len(unique) > 1:
+                    errors.append({"type": "conflicting_decisions", "msg": "Conflicting decisions were returned for this row_id. Return one source-supported decision, or uncertain."})
+                # Repair the response contract once, using the same source
+                # evidence. Valid uncertainty is never retried into acceptance.
+                # A rejection recheck already spent the row's second attempt.
+                if response_received and not (verifying_rejection or repairing_contract):
+                    repair_evidence[row.id] = {
+                        "previous_response": raw_decisions[row.id],
+                        "validation_errors": errors or [{"type": "invalid_response", "msg": error or "Return one valid decision using the supplied schema."}],
+                    }
+                    repair_next.append(row)
+                    continue
             decision = (
                 next(iter(unique.values()))
                 if valid
                 else RowDecision(
                     row_id=row.id,
                     decision="uncertain",
-                    reason=error or "Missing, malformed or conflicting row classification",
+                    reason=error or "; ".join(e["msg"] for e in validation_errors[row.id]) or "Missing, malformed or conflicting row classification",
                 )
             )
             if decision.decision == "accept" and suspicious_legend_label(row.label):
                 decision = decision.model_copy(update={"decision": "uncertain", "reason": "Source grouping includes metadata, numbering examples or multiple definitions; split and review its source regions."})
-            if decision.decision == "reject" and not verifying_rejection:
+            if decision.decision == "reject" and not (verifying_rejection or repairing_contract):
                 # A valid source definition was previously rejected despite a
                 # correct descriptive reason. Verify negatives once, without
                 # changing accepted siblings or treating rejection as failure.
@@ -288,7 +321,7 @@ def classify_native_legend(
                     LegendRegionCoverage(
                         page_index=page.page_index,
                         source_row_id=row.id,
-                        verification_passes=2 if verifying_rejection else 1,
+                        verification_passes=2 if verifying_rejection or repairing_contract else 1,
                         bbox=union_boxes([row.bbox, row.label_bbox]),
                         status="partial" if decision.decision == "uncertain" else "complete",
                         failure_kind=(failure_kind or "contract")
@@ -297,7 +330,15 @@ def classify_native_legend(
                         if decision.decision == "uncertain"
                         else None,
                         entry_count=int(decision.decision != "reject"),
-                        reason=f"{row.id} ({row.label}): {decision.reason or decision.decision}",
+                        reason=(
+                            f"{row.id} ({row.label}): {decision.reason or decision.decision}"
+                            + (
+                                "; Initial response repair evidence: "
+                                + json.dumps(repair_evidence[row.id], ensure_ascii=False)
+                                if repairing_contract
+                                else ""
+                            )
+                        ),
                     )
                 )
             if decision.decision == "reject":
@@ -325,6 +366,10 @@ def classify_native_legend(
             )
             if verifying_rejection:
                 attrs["previous_rejection_reason"] = previous_rejections.get(row.id, "")
+            if repairing_contract:
+                attrs["classification_repair_evidence"] = json.dumps(
+                    repair_evidence[row.id], ensure_ascii=False
+                )
             entries.append(
                 LegendEntry(
                     label=row.label,
@@ -347,7 +392,9 @@ def classify_native_legend(
         ):
             run_state.observe(bad_rows >= max(1, len(batch) / 2), cfg.symbol_perception)
         if verify_next:
-            batches.appendleft((verify_next, True))
+            batches.appendleft((verify_next, True, False))
+        if repair_next:
+            batches.appendleft((repair_next, False, True))
     if not rows and coverage is not None:
         coverage.append(
             LegendRegionCoverage(

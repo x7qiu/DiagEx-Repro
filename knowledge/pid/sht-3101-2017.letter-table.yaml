@@ -1,0 +1,816 @@
+id: sht-3101-2017.letter-table
+version: 2
+concept: SH/T 3101-2017 — 仪表字母代号表 / Instrument letter table
+catalog:
+  role: supporting
+  short_name: SH/T 3101-2017 — 仪表字母代号表 / Instrument letter table
+  interpretation: Instrument letter meanings transcribed from Table 4.4. Read each cell by its letter
+    position and column; preserve blank cells and user-choice meanings. The original bilingual wording
+    is retained; semicolons join printed line breaks. Explicit drawing definitions take precedence for
+    extraction; retain differences from other selected standards. These rules do not supply missing tags
+    or establish that objects exist.
+  search_terms:
+  - instrument letters
+  - letter table
+  - 仪表字母代号
+  - 字母含义
+curation: curated
+source_status: normative
+table_data: []
+aliases:
+- Instrument letter matrix
+- 字母含义表
+- Table 4.4
+reference_type: convention
+kind: definition
+explanation: Instrument letter meanings transcribed from Table 4.4. Read each cell by its letter position
+  and column; preserve blank cells and user-choice meanings. The original bilingual wording is retained;
+  semicolons join printed line breaks.
+exceptions:
+- User-choice cells require documented project definitions. Blank cells are not equivalent to user-choice
+  cells.
+- Printed footnote (8) remains unresolved; do not import a different standard’s note.
+applicability:
+  unit_types: []
+  conventions: []
+  standards:
+  - name: SH/T 3101
+    edition: '2017'
+tasks:
+- symbol_interpretation
+- text_assignment
+tags: []
+source:
+  document: SH/T 3101—2017 石油化工流程图图例
+  page: '10'
+  edition: '2017'
+  image: illustrations/sht-3101-2017/letter-table/complete-table.png
+  document_id: sht-3101-2017
+  pdf_page: 14
+  table: '4.4'
+assets:
+- id: context
+  role: context
+  label: Source context
+  path: illustrations/sht-3101-2017/letter-table/context.png
+  sha256: 9440d0b03c427c92944b15e0532a5d8ecba1dac2eff91f6d627529c7cdb394fd
+  width: 935
+  height: 1260
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 14
+    printed_page: '10'
+    table: '4.4'
+    rect:
+    - 125.0
+    - 285.0
+    - 1060.0
+    - 1545.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; crop only, no resampling, thresholding, sharpening or reconstructed
+      strokes
+    excluded_annotations: []
+  derived_from: []
+  quality: clear
+  depiction: source_panel
+- id: complete-table
+  role: context
+  label: Complete Table 4.4, printed page 10
+  path: illustrations/sht-3101-2017/letter-table/complete-table.png
+  sha256: 656dcb191b02fa8cce90dfb15b5263b5ff573be3e8a2dd5f6538e537b5fd0a15
+  width: 960
+  height: 1305
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 14
+    printed_page: '10'
+    table: '4.4'
+    rect:
+    - 110
+    - 245
+    - 1070
+    - 1550
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; complete source crop, no resampling or reconstructed text
+  quality: clear
+  depiction: source_panel
+- id: complete-notes
+  role: note
+  label: Complete letter-table notes a-g, printed page 11
+  path: illustrations/sht-3101-2017/letter-table/complete-notes.png
+  sha256: 681c3a6d14d793334495e69d7436f30441964ad52e47d8c7cdccfe37c3cb283a
+  width: 930
+  height: 590
+  crop:
+    document_id: sht-3101-2017
+    pdf_page: 15
+    printed_page: '11'
+    table: '4.4'
+    rect:
+    - 180
+    - 200
+    - 1110
+    - 790
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 72
+    renderer: PyMuPDF 1.28.0
+    processing: Native scan pixels; complete source crop, no resampling or reconstructed text
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+letter_matrix:
+  rows:
+  - letter: A
+    cells:
+      measured_variable:
+        state: defined
+        text: 分析 Analysis
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 报警 Alarm
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: B
+    cells:
+      measured_variable:
+        state: defined
+        text: 燃烧器 Burner; 燃烧 Combustion
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: user_choice
+        text: 供选用 User’s Choice
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: user_choice
+        text: 供选用 User’s Choice
+        footnotes: []
+  - letter: C
+    cells:
+      measured_variable:
+        state: defined
+        text: 电导率 Conductivity
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: blank
+        text: null
+        footnotes: []
+      output_function:
+        state: defined
+        text: 控制 Control
+        footnotes: []
+      function_modifier:
+        state: defined
+        text: 关 Close
+        footnotes: []
+  - letter: D
+    cells:
+      measured_variable:
+        state: defined
+        text: 密度 Density; 比重 Specific gravity
+        footnotes: []
+      variable_modifier:
+        state: defined
+        text: 差 Difference; 差 Differential
+        footnotes: []
+      readout_function:
+        state: blank
+        text: null
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: defined
+        text: 偏差 Deviation
+        footnotes: []
+  - letter: E
+    cells:
+      measured_variable:
+        state: defined
+        text: 电压 Voltage
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 传感器 Sensor; 一次元件 Primary Element
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: F
+    cells:
+      measured_variable:
+        state: defined
+        text: 流量 Flow; 流率 Flow Rate
+        footnotes: []
+      variable_modifier:
+        state: defined
+        text: 比 Ratio
+        footnotes: []
+      readout_function:
+        state: blank
+        text: null
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: G
+    cells:
+      measured_variable:
+        state: defined
+        text: 测量（尺寸）Gauging (Dimensional); 气体检测 Gas Detection
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 玻璃视镜 Glass, Gauge; 现场直读设备 Viewing Device
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: H
+    cells:
+      measured_variable:
+        state: defined
+        text: 手动 Hand
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: blank
+        text: null
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: defined
+        text: 高 High
+        footnotes: []
+  - letter: I
+    cells:
+      measured_variable:
+        state: defined
+        text: 电流 Current
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 指示 Indicate
+        footnotes: []
+      output_function:
+        state: defined
+        text: 输入 Input
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: J
+    cells:
+      measured_variable:
+        state: defined
+        text: 功率 Power
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 扫描 Scan
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: K
+    cells:
+      measured_variable:
+        state: defined
+        text: 时间 Time; 时间程序 Schedule
+        footnotes: []
+      variable_modifier:
+        state: defined
+        text: 变化速率 Time Rate of Change
+        footnotes: []
+      readout_function:
+        state: blank
+        text: null
+        footnotes: []
+      output_function:
+        state: defined
+        text: 操作器 Manipulator
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: L
+    cells:
+      measured_variable:
+        state: defined
+        text: 物位 Level
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 灯 Light
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: defined
+        text: 低 Low
+        footnotes: []
+  - letter: M
+    cells:
+      measured_variable:
+        state: defined
+        text: 水份 Moisture; 湿度 Humidity; 电动 Motor
+        footnotes: []
+      variable_modifier:
+        state: defined
+        text: 瞬动 Momentary
+        footnotes: []
+      readout_function:
+        state: blank
+        text: null
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: defined
+        text: 中 Middle; 中间 Intermediate
+        footnotes: []
+  - letter: N
+    cells:
+      measured_variable:
+        state: user_choice
+        text: 供选用 User’s Choice
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: user_choice
+        text: 供选用 User’s Choice
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: user_choice
+        text: 供选用 User’s Choice
+        footnotes: []
+  - letter: O
+    cells:
+      measured_variable:
+        state: user_choice
+        text: 供选用 User’s Choice
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 节流孔 Orifice, Restriction
+        footnotes: []
+      output_function:
+        state: defined
+        text: 输出 Output
+        footnotes: []
+      function_modifier:
+        state: defined
+        text: 开 Open
+        footnotes: []
+  - letter: P
+    cells:
+      measured_variable:
+        state: defined
+        text: 压力 Pressure; 真空 Vacuum
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 连接或测试点 Point (Test Connection)
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: Q
+    cells:
+      measured_variable:
+        state: defined
+        text: 数量 Quantity; 热负荷 Heat duty
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 积分 Integrate; 累积 Totalize
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: R
+    cells:
+      measured_variable:
+        state: defined
+        text: 核辐射 Radiation
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 记录 Record; 打印 Print
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: S
+    cells:
+      measured_variable:
+        state: defined
+        text: 速度 Speed; 频率 Frequency
+        footnotes: []
+      variable_modifier:
+        state: defined
+        text: 安全 Safety
+        footnotes: []
+      readout_function:
+        state: blank
+        text: null
+        footnotes: []
+      output_function:
+        state: defined
+        text: 开关 Switch; 联锁 Interlock
+        footnotes: []
+      function_modifier:
+        state: defined
+        text: 停止 Stop
+        footnotes: []
+  - letter: T
+    cells:
+      measured_variable:
+        state: defined
+        text: 温度 Temperature
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: blank
+        text: null
+        footnotes: []
+      output_function:
+        state: defined
+        text: 变送 Transmit
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: U
+    cells:
+      measured_variable:
+        state: defined
+        text: 多变量 Multivariable
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 多功能 Multifunction
+        footnotes: []
+      output_function:
+        state: defined
+        text: 多功能 Multifunction
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: V
+    cells:
+      measured_variable:
+        state: defined
+        text: 振动 Vibration; 机械监视 Mechanical Analysis
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: blank
+        text: null
+        footnotes: []
+      output_function:
+        state: defined
+        text: 阀 Valve; 风门 Damper; 百叶窗 Louver
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: W
+    cells:
+      measured_variable:
+        state: defined
+        text: 重量 Weight; 力 Force
+        footnotes: []
+      variable_modifier:
+        state: blank
+        text: null
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 套管 Well; 探头 Probe
+        footnotes: []
+      output_function:
+        state: blank
+        text: null
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: X
+    cells:
+      measured_variable:
+        state: defined
+        text: 开关阀 On off Valve
+        footnotes: []
+      variable_modifier:
+        state: defined
+        text: X轴 X axis
+        footnotes: []
+      readout_function:
+        state: defined
+        text: 未定义 Unclassified
+        footnotes:
+        - '8'
+      output_function:
+        state: defined
+        text: 未定义 Unclassified
+        footnotes: []
+      function_modifier:
+        state: defined
+        text: 未分类 Unclassified
+        footnotes: []
+  - letter: Y
+    cells:
+      measured_variable:
+        state: defined
+        text: 事件 Event; 状态 State; 存在 Presence
+        footnotes: []
+      variable_modifier:
+        state: defined
+        text: Y轴 Y axis
+        footnotes: []
+      readout_function:
+        state: blank
+        text: null
+        footnotes: []
+      output_function:
+        state: defined
+        text: 继电器 Relay; 计算 Compute; 转换 Convert
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  - letter: Z
+    cells:
+      measured_variable:
+        state: defined
+        text: 位置 Position; 尺寸 Dimension
+        footnotes: []
+      variable_modifier:
+        state: defined
+        text: Z轴 Z axis
+        footnotes: []
+      readout_function:
+        state: blank
+        text: null
+        footnotes: []
+      output_function:
+        state: defined
+        text: 驱动 Driver; 执行器 Actuator; 未分类的执行元件 Unclassified final control element
+        footnotes: []
+      function_modifier:
+        state: blank
+        text: null
+        footnotes: []
+  notes:
+  - marker: a
+    text: 首位字母代表被测/初始变量；当需要的时候，它也可以是被测/初始变量和变量修饰词的组合以表达组合意义；
+    source:
+      document: SH/T 3101—2017 石油化工流程图图例
+      page: '11'
+      edition: '2017'
+      image: illustrations/sht-3101-2017/letter-table/complete-notes.png
+      document_id: sht-3101-2017
+      pdf_page: 15
+      table: '4.4'
+      passage: Table 4.4 explanatory notes
+      item: a
+  - marker: b
+    text: 仪表编号时应把可被直接测量的变量作为被测/初始变量，不应把通过对直接测量的变量进行推导、运算而得出的变量作为被测/初始变量；
+    source:
+      document: SH/T 3101—2017 石油化工流程图图例
+      page: '11'
+      edition: '2017'
+      image: illustrations/sht-3101-2017/letter-table/complete-notes.png
+      document_id: sht-3101-2017
+      pdf_page: 15
+      table: '4.4'
+      passage: Table 4.4 explanatory notes
+      item: b
+  - marker: c
+    text: “A”作为首位字母使用时代表对于所有类型的物流组分及物理参数的分析，分析仪的类型和被测物流中的分析项目（成分）可以标注在仪表圆圈外；
+    source:
+      document: SH/T 3101—2017 石油化工流程图图例
+      page: '11'
+      edition: '2017'
+      image: illustrations/sht-3101-2017/letter-table/complete-notes.png
+      document_id: sht-3101-2017
+      pdf_page: 15
+      table: '4.4'
+      passage: Table 4.4 explanatory notes
+      item: c
+  - marker: d
+    text: “A”作为首位字母使用时不得代表对于振动和其他机械类物理参数的分析，这类分析通常使用“V”作为首位字母来表示，把振动作为被测/初始变量或用“V”作为首位字母倾向于指对机械物理参数的监测；
+    source:
+      document: SH/T 3101—2017 石油化工流程图图例
+      page: '11'
+      edition: '2017'
+      image: illustrations/sht-3101-2017/letter-table/complete-notes.png
+      document_id: sht-3101-2017
+      pdf_page: 15
+      table: '4.4'
+      passage: Table 4.4 explanatory notes
+      item: d
+  - marker: e
+    text: 因未被定义而作为“供选用”的字母：“N”和“O”，当其被选用时，它作为首位字母和后继字母应具有不同的意义并且只能被使用者定义一次。例如，“N”作为首位字母时，可规定其意义为“弹性模数”；作为后继字母，可规定为“示波器”；
+    source:
+      document: SH/T 3101—2017 石油化工流程图图例
+      page: '11'
+      edition: '2017'
+      image: illustrations/sht-3101-2017/letter-table/complete-notes.png
+      document_id: sht-3101-2017
+      pdf_page: 15
+      table: '4.4'
+      passage: Table 4.4 explanatory notes
+      item: e
+  - marker: f
+    text: 带有修饰词“D”、“F”、“Q”等的变量，应与不带修饰词的变量合在一起编写仪表位号，不作为单独的变量另行编写仪表位号；例如：温差指示仪 TDI-105 应与温度指示仪 TI-104，温度指示调节
+      TIC-106 按统一顺序编写仪表位号；
+    source:
+      document: SH/T 3101—2017 石油化工流程图图例
+      page: '11'
+      edition: '2017'
+      image: illustrations/sht-3101-2017/letter-table/complete-notes.png
+      document_id: sht-3101-2017
+      pdf_page: 15
+      table: '4.4'
+      passage: Table 4.4 explanatory notes
+      item: f
+  - marker: g
+    text: 对于读出/被动功能，使用字母“G”代替字母“I”来表征玻璃视镜和现场直读设备，如玻璃板液位计、压力表、双金属温度计和流量视镜；而字母“I”用于表征间接观察的仪表或设备。
+    source:
+      document: SH/T 3101—2017 石油化工流程图图例
+      page: '11'
+      edition: '2017'
+      image: illustrations/sht-3101-2017/letter-table/complete-notes.png
+      document_id: sht-3101-2017
+      pdf_page: 15
+      table: '4.4'
+      passage: Table 4.4 explanatory notes
+      item: g
+  - marker: '8'
+    status: unresolved
+    text: The scan prints (8) after Unclassified in the X readout cell. The accompanying notes are lettered
+      a-g; a matching note (8) has not been identified in these source pages. Do not substitute ISA note
+      (8).
+    source:
+      document: SH/T 3101—2017 石油化工流程图图例
+      page: '10'
+      edition: '2017'
+      image: illustrations/sht-3101-2017/letter-table/complete-table.png
+      document_id: sht-3101-2017
+      pdf_page: 14
+      table: '4.4'
+      item: X, readout function
+  header_footnotes:
+    first_letters:
+    - a
+    - b
+    - c
+    - d
+    - e
+    - f
+    succeeding_letters:
+    - e
+    - g

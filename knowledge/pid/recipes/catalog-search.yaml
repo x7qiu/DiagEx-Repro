@@ -1,0 +1,70 @@
+version: 1
+policy: Search vocabulary only; not a DEXPI class, standard declaration or verification
+  of website glyphs. Source-section membership alone never establishes equipment family.
+families:
+- name: Heat exchanger
+  terms:
+  - heat exchanger
+  - 换热器
+  - HX
+  reference_ids:
+  - projectmaterials.pid-symbols.heat-exchangers.air-cooled-exchanger-2
+  - projectmaterials.pid-symbols.heat-exchangers.air-cooled-exchanger
+  - projectmaterials.pid-symbols.heat-exchangers.coil-tubes-hx
+  - projectmaterials.pid-symbols.heat-exchangers.double-pipe-heat
+  - projectmaterials.pid-symbols.heat-exchangers.double-pipe-hx
+  - projectmaterials.pid-symbols.heat-exchangers.exchanger
+  - projectmaterials.pid-symbols.heat-exchangers.finned-tubes-hx
+  - projectmaterials.pid-symbols.heat-exchangers.floating-head-hx
+  - projectmaterials.pid-symbols.heat-exchangers.hairpin-exchanger-2
+  - projectmaterials.pid-symbols.heat-exchangers.hairpin-exchanger
+  - projectmaterials.pid-symbols.heat-exchangers.heat-exchanger-2
+  - projectmaterials.pid-symbols.heat-exchangers.heat-exchanger-3
+  - projectmaterials.pid-symbols.heat-exchangers.heat-exchanger
+  - projectmaterials.pid-symbols.heat-exchangers.kettle-heat-exchanger
+  - projectmaterials.pid-symbols.heat-exchangers.plate-and-frame
+  - projectmaterials.pid-symbols.heat-exchangers.plate-exchanger
+  - projectmaterials.pid-symbols.heat-exchangers.plate-heat-exchanger
+  - projectmaterials.pid-symbols.heat-exchangers.reboiler-heat-exchanger
+  - projectmaterials.pid-symbols.heat-exchangers.shell-and-tube-2
+  - projectmaterials.pid-symbols.heat-exchangers.shell-and-tube-3
+  - projectmaterials.pid-symbols.heat-exchangers.shell-and-tube-4
+  - projectmaterials.pid-symbols.heat-exchangers.shell-and-tube-5
+  - projectmaterials.pid-symbols.heat-exchangers.shell-and-tube-6
+  - projectmaterials.pid-symbols.heat-exchangers.shell-and-tube
+  - projectmaterials.pid-symbols.heat-exchangers.single-pass-heat-exchanger
+  - projectmaterials.pid-symbols.heat-exchangers.single-pass-heat
+  - projectmaterials.pid-symbols.heat-exchangers.single-pass-hx-2
+  - projectmaterials.pid-symbols.heat-exchangers.spiral-heat-exchanger
+  - projectmaterials.pid-symbols.heat-exchangers.spiral-hx-2
+  - projectmaterials.pid-symbols.heat-exchangers.straight-tubes-hx
+  - projectmaterials.pid-symbols.heat-exchangers.tema-type-ael
+  - projectmaterials.pid-symbols.heat-exchangers.tema-type-aem
+  - projectmaterials.pid-symbols.heat-exchangers.tema-type-bem
+  - projectmaterials.pid-symbols.heat-exchangers.tema-type-beu
+  - projectmaterials.pid-symbols.heat-exchangers.tema-type-bku
+  - projectmaterials.pid-symbols.heat-exchangers.tema-type-nen
+  - projectmaterials.pid-symbols.heat-exchangers.u-tube-heat-exchanger-2
+  - projectmaterials.pid-symbols.heat-exchangers.u-tube-heat-exchanger
+  - sht-3101-2017.t4.16-4
+  - sht-3101-2017.t4.16-5
+  - sht-3101-2017.t4.16-6
+  - sht-3101-2017.t4.16-7
+  - sht-3101-2017.t4.16-11
+  - sht-3101-2017.t4.16-14
+  - sht-3101-2017.t4.16-17
+  - sht-3101-2017.t4.16-21
+  - sht-3101-2017.t4.16-22
+excluded_from_family:
+- projectmaterials.pid-symbols.heat-exchangers.boiler
+- projectmaterials.pid-symbols.heat-exchangers.boiler-2
+- projectmaterials.pid-symbols.heat-exchangers.heater
+- projectmaterials.pid-symbols.heat-exchangers.cooling-tower
+- projectmaterials.pid-symbols.heat-exchangers.condenser
+- projectmaterials.pid-symbols.heat-exchangers.condenser-2
+- projectmaterials.pid-symbols.heat-exchangers.evaporative-condenser
+- projectmaterials.pid-symbols.heat-exchangers.reboiler
+qualification: Generic condensers/reboilers are thermally related, but search does
+  not automatically treat their captions as an exact exchanger-family label. Use their
+  names or the optional broad text search. Explicitly named reboiler heat exchangers
+  remain in the family.

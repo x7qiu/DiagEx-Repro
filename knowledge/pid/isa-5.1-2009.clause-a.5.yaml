@@ -1,0 +1,163 @@
+id: isa-5.1-2009.clause-a.5
+version: 2
+concept: A.5 — Loop identification number letters
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.5 Loop identification number letters
+
+  A.5.1 Loop Identification Number letters should be selected from Table 4.1 to identify
+  the loop
+
+  Measured/Initiating Variable according to one of the following methods selected
+  by the end user:
+
+  a) Measured/Initiating Variable: only a Measured/Initiating Variable is selected,
+  such as
+
+  analysis [A], flow [F], level [L], pressure [P], temperature [T], etc.
+
+  b) Measured/Initiating Variable with Variable Modifier: a Measured/Initiating Variable
+  and,
+
+  when applicable, a Variable Modifier is selected, such as analysis [A], flow [F],
+  flow quantity
+
+  [FQ], level [L], pressure [P], differential pressure [PD], temperature [T], differential
+  temperature
+
+  [TD], etc.
+
+  c) First-Letters: a Measured/Initiating Variable and, when applicable, a Variable
+  Modifier,
+
+  only if the resulting First-Letter combination defines a loop variable that can
+  be measured
+
+  directly, such as pressure differential [PD] as opposed to one that is mathematically
+  derived,
+
+  such as flow ratio [FF].
+
+  A.5.2 A Measured/Initiating Variable in combination with the safety Variable Modifier
+  [S] is always
+
+  treated as a loop variable in each of the preceding selection methods to identify
+  self-acting
+
+  devices intended to protect against emergency conditions that may be hazardous to
+  plant
+
+  personnel, plant equipment, or the environment.
+
+  A.5.3 A Measured/Initiating Variable is selected according to the physical or mechanical
+  property that is
+
+  being measured, derived or initiates an action and not according to the construction
+  or mode of
+
+  actuation of the measuring device or the property or the action it initiates:
+
+  a) A loop that controls pressure in a vessel by manipulating gas or vapor flow to
+  or from the
+
+  vessel is a pressure [P] loop and not a flow [F] loop.
+
+  b) A loop that measures pressure differential across:
+
+  1) An orifice plate from which flow rate is calculated is a flow [F] loop and not
+  a
+
+  pressure [P] or pressure differential [PD] loop.
+
+  2) A fluid interface in a vessel is a level [L] loop and not a pressure [P] or pressure
+
+  differential [PD] loop.
+
+  3) A filter bed or element is a pressure [P] or pressure differential [PD]-loop.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Loop identification number letters
+- A.5
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '88'
+  pdf_page: 88
+  table: null
+  item: null
+  passage: Clause A.5
+  image: illustrations/isa-5.1-2009/complete/clause-a.5-p88.png
+assets:
+- id: clause-a.5-p88
+  role: context
+  label: Clause A.5, page 88
+  path: illustrations/isa-5.1-2009/complete/clause-a.5-p88.png
+  sha256: 89f1da795ceeb5394f980008a85d2aeb7b96a7a180b1934532deb47b441c179c
+  width: 2010
+  height: 2040
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 88
+    printed_page: '88'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 152.1915
+    - 547.0
+    - 641.6096
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-88
+  role: context
+  label: Complete technical content on page 88
+  path: illustrations/isa-5.1-2009/complete/page-88.png
+  sha256: 2bf2179008b21e874d11ae071297c6227357b791cb323c71299acad4303dbf8e
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 88
+    printed_page: '88'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

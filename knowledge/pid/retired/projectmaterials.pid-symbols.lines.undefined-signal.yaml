@@ -1,0 +1,65 @@
+id: projectmaterials.pid-symbols.lines.undefined-signal
+version: 1
+concept: Undefined Signal
+catalog:
+  role: catalog
+  category: lines_signals
+  short_name: Undefined Signal
+  interpretation: Projectmaterials labels this illustration ‘Undefined Signal’ (Lines
+    P&ID Symbols).
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Undefined Signal
+reference_type: line_style
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Undefined Signal’ (Lines P&ID
+  Symbols).
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit
+  drawing legends and applicable project definitions take precedence. Match visible
+  geometry and drawing text; do not infer objects or connections from this reference
+  alone. Labels and numbers in this example are not drawing tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+- line_interpretation
+tags:
+- Lines P&ID Symbols
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Undefined Signal
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#lines-pid-symbols
+  section: Lines P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Undefined Signal
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.lines.undefined-signal.png
+  sha256: a60f5c7fb0539d292e83a0a1062538b57c17aac00c1bf42f8e47be2a1b7b2dc2
+  width: 150
+  height: 60
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/UNDEFINED-INSTRUMENT-SIGNAL-PID-SYMBOL-150x60.4mh7jPK8_jwNT7.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 687118013319137af32d3464c502ee2b880deb858bfeed7a73c558b46b5147d6
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

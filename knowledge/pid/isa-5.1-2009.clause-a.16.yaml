@@ -1,0 +1,98 @@
+id: isa-5.1-2009.clause-a.16
+version: 2
+concept: A.16 — Identification system guideline table explanatory notes
+aliases: []
+reference_type: convention
+kind: common_practice
+curation: source_transcribed
+source_status: informative
+explanation: 'A.16 Identification system guideline table explanatory notes
+
+  The following notes, indicated in Tables A.1, A.2, A.3, and A.4 by parentheses,
+  are used as an aid in
+
+  understanding the meanings and usage of the lettering.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- Identification system guideline table explanatory notes
+- A.16
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '96'
+  pdf_page: 96
+  table: null
+  item: null
+  passage: Clause A.16
+  image: illustrations/isa-5.1-2009/complete/clause-a.16-p96.png
+assets:
+- id: clause-a.16-p96
+  role: context
+  label: Clause A.16, page 96
+  path: illustrations/isa-5.1-2009/complete/clause-a.16-p96.png
+  sha256: 16b2bc9ee1b32a3e592786621d599d7d76191bb8252bf95873372ddbe9eaaa04
+  width: 2010
+  height: 244
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 96
+    printed_page: '96'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 152.1915
+    - 547.0
+    - 210.6914
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-96
+  role: context
+  label: Complete technical content on page 96
+  path: illustrations/isa-5.1-2009/complete/page-96.png
+  sha256: 15303720486b4d97d4f1847e0aa3acc96780e358efc9266fa2899d42677236f9
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 96
+    printed_page: '96'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

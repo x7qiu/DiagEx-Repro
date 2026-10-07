@@ -1,0 +1,246 @@
+id: isa-5.1-2009.t5.2.3-7
+version: 3
+concept: Orifice plate in quick-change fitting
+aliases: []
+reference_type: symbol
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: • Orifice plate in quick-change fitting.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'Measurement symbols: primary elements'
+- 5.2.3
+- Orifice plate in quick-change fitting
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '40'
+  pdf_page: 40
+  table: 5.2.3
+  item: '7'
+  passage: 'Table 5.2.3, item 7: • Orifice plate in quick-change fitting.'
+  image: illustrations/isa-5.1-2009/complete/t5.2.3-7-context.png
+assets:
+- id: t5.2.3-7-context
+  role: context
+  label: 'Complete row: Table 5.2.3, item 7'
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-7-context.png
+  sha256: 4b28ee2e12bc3d4d4b81860ad622f1889127ca67f0719e445c8768835899a6f6
+  width: 1960
+  height: 168
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 40
+    printed_page: '40'
+    table: 5.2.3
+    item: '7'
+    rect:
+    - 70.8125
+    - 364.16
+    - 541.1275
+    - 404.32
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-40
+  role: context
+  label: Complete technical content on page 40
+  path: illustrations/isa-5.1-2009/complete/page-40.png
+  sha256: 3b1819961d2f7c485737a63902430b285cf962d0350ab4b5d14aef42ceda7b68
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 40
+    printed_page: '40'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: t5.2.3-7-panel-2
+  role: variant
+  label: Symbol panel (includes source annotations)
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-7-panel-2.png
+  sha256: 5d5c5e0281401a2766f8052471798ffa0eab61eaf68e7c3dfeb59c87f1cbec04
+  width: 445
+  height: 154
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 40
+    printed_page: '40'
+    table: 5.2.3
+    item: '7'
+    rect:
+    - 126.68
+    - 365.96
+    - 233.14
+    - 402.52
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-5.3.2-p33
+  role: note
+  label: Clause 5.3.2, page 33
+  path: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  sha256: d2f5ace70e1c2b4cd4aad60f721e55f09798bdc8204c96571e3303a71de825df
+  width: 2010
+  height: 930
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 33
+    printed_page: '33'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 397.1707
+    - 547.0
+    - 620.1298
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: variants
+  role: variant_sheet
+  label: Labeled reference panels
+  path: illustrations/isa-5.1-2009/complete/t5.2.3-7-variants.png
+  sha256: 6a2c1f2462bccba1328b73f5de137ef9c5d13cac5976d4c138162a7e51b2ba46
+  width: 1000
+  height: 219
+  derived_from:
+  - t5.2.3-7-panel-2
+  quality: clear
+  depiction: source_panel
+- id: catalog-t5.2.3-7-panel-2
+  role: variant
+  label: Symbol / illustrated alternatives
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-7.catalog-t5.2.3-7-panel-2.png
+  sha256: 22a818373929b02bedd7707c250220c316497ec8668074cea0feff69f77ade91
+  width: 63
+  height: 138
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 40
+    printed_page: '40'
+    table: 5.2.3
+    item: '7'
+    rect:
+    - 176.16
+    - 366.23999999999995
+    - 191.27999999999997
+    - 399.35999999999996
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: Top-margin source-note citations removed using text-only PDF redaction;
+      blank margins trimmed; vector geometry, alternative labels and placeholders
+      retained
+    excluded_annotations: []
+  quality: clear
+  depiction: source_panel
+- id: catalog-sheet
+  role: variant_sheet
+  label: Selected catalog variants
+  path: illustrations/isa-5.1-2009/catalog/isa-5.1-2009.t5.2.3-7.sheet.png
+  sha256: 28173d834b246dc65614e9b26abbc85e93c0a4073cfd3ef43721b21ff19d3cb1
+  width: 1100
+  height: 260
+  derived_from:
+  - catalog-t5.2.3-7-panel-2
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: '33'
+    pdf_page: 33
+    table: null
+    item: null
+    passage: Clause 5.3.2
+    image: illustrations/isa-5.1-2009/complete/clause-5.3.2-p33.png
+  explanation: '5.3.2 Tables 5.2.1, 5.2.2, 5.2.3, 5.2.4, and 5.2.5 — Measurement symbols
+
+    (1) Measurements are depicted by:
+
+    (a) Bubbles only.
+
+    (b) Bubbles and graphics.
+
+    (2) These symbols shall be used for process or equipment measurements if:
+
+    (a) A graphic symbol does not exist.
+
+    (b) The user does not use graphic symbols.
+
+    (3) Transmitter [T] may be controller [C], indicator [I], recorder [R], or switch
+    [S].
+
+    (4) User engineering and design standards, practices, and/or guidelines shall
+    document which
+
+    choices are selected.'
+  asset_id: clause-5.3.2-p33
+text_slots: []
+interpretation:
+- The panels retain all source alternatives and annotations; they are not tight drawing-object
+  bounding boxes.
+- Item numbers, method labels, note markers, equations, and illustrative tags are
+  not automatically symbol geometry or actual drawing tags.
+- Apply each placeholder according to its own row and linked notes. Asterisks, question
+  marks, letters, and numbers do not have one universal meaning.
+- Assign text, ports, coordinates, and connections only from the drawing occurrence;
+  preserve uncertainty.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-5.3.2
+  explanation: 'Explanatory notes for Table 5.2.3: clause 5.3.2.'
+catalog:
+  role: catalog
+  category: measurement
+  short_name: Orifice plate in quick-change fitting
+  interpretation: Orifice plate in quick-change fitting.
+  displayed_asset_ids:
+  - catalog-t5.2.3-7-panel-2
+  model_asset_id: catalog-sheet
+  supporting_reference_ids:
+  - isa-5.1-2009.clause-5.3.2
+  - isa-5.1-2009.clause-4.1

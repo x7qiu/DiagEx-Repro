@@ -1,0 +1,95 @@
+id: isa-5.1-2009.clause-6.3.5
+version: 2
+concept: 6.3.5 — Table 6.5 — Dimensions for functional diagramming symbols, Table
+  5.5
+aliases: []
+reference_type: convention
+kind: drawing_quality_recommendation
+curation: source_transcribed
+source_status: informative
+explanation: '6.3.5 Table 6.5 — Dimensions for functional diagramming symbols, Table
+  5.5
+
+  (1) Graphics shown for top-to-bottom signal flow.
+
+  (2) Rotate graphics 90 degrees counterclockwise for left-to-right signal flow.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- review
+tags:
+- Table 6.5 — Dimensions for functional diagramming symbols, Table 5.5
+- 6.3.5
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '77'
+  pdf_page: 77
+  table: null
+  item: null
+  passage: Clause 6.3.5
+  image: illustrations/isa-5.1-2009/complete/clause-6.3.5-p77.png
+assets:
+- id: clause-6.3.5-p77
+  role: context
+  label: Clause 6.3.5, page 77
+  path: illustrations/isa-5.1-2009/complete/clause-6.3.5-p77.png
+  sha256: d5896e01baddd8d0dbc58d250d56b8b83e39ec6a1010abdb3bc6319a2701fd0d
+  width: 2010
+  height: 295
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 258.1511
+    - 547.0
+    - 328.6508
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-77
+  role: context
+  label: Complete technical content on page 77
+  path: illustrations/isa-5.1-2009/complete/page-77.png
+  sha256: 9399e445b5169885912f8143eea91ba0683a87325296cd0e97df2efb7121a3fb
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 77
+    printed_page: '77'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

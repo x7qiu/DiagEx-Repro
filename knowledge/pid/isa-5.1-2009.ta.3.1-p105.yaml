@@ -1,0 +1,372 @@
+id: isa-5.1-2009.ta.3.1-p105
+version: 2
+concept: Table A.3.1 — Allowable succeeding letter combinations for readout/passive
+  functions (1) (4b) (page 105)
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: informative
+explanation: Allowable succeeding letter combinations for readout/passive functions
+  (1) (4b). Use the source table with its column headings and linked explanatory notes.
+  Blank or merged cells must not be interpreted as new definitions.
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- text_assignment
+- symbol_interpretation
+- review
+tags:
+- Allowable succeeding letter combinations for readout/passive functions (1) (4b)
+- A.3.1
+- identification
+- tag
+- letters
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '105'
+  pdf_page: 105
+  table: A.3.1
+  item: null
+  passage: "         Table A.3.1 — Allowable succeeding letter combinations for readout/passive\
+    \ functions (1) (4b)\n\n\nNote: Numbers in parentheses refer to explanatory notes\
+    \ in Clause A.16.3.\n         First Letters (2)                 A            \
+    \  B       E      G                  I        L       N      O       P      Q\
+    \       R     W       X\n                              Absolute  Function  Deviation\
+    \    User’s                                                 User’s    Orifice,\
+    \   Point                                                                    \
+    \    Primary  Gauge,                                                    Integrate,\
+    \            Well,   Unclass-\n Measured/Initiating Variables    Alarm     Modifier\
+    \    Alarm    Choice                      Indicate   Light    Choice   Restrict-\
+    \   (Test           Record                                                   \
+    \                  Element   Glass                                           \
+    \         Total            Probe     ified\n     w/ and w/o Modifiers       A\
+    \        [*] (3) (4d)   AD         (4a)                                      \
+    \                     (4a)      ion    Conn.)\n ZDY  Position Difference Y Axis\
+    \   ZDYA[*]             ZDYAD[*]            ZDYE    ZDYG     ZDYI     ZDYL   \
+    \          NA      NA      NA     ZDYR     NA     ZDYX\n ZDZ  Position Difference\
+    \ Z Axis   ZDZA[*]             ZDZAD[*]            ZDZE    ZDZG      ZDZI    \
+    \ ZDZL             NA      NA      NA     ZDZR     NA     ZDZX"
+  image: illustrations/isa-5.1-2009/complete/page-105.png
+assets:
+- id: page-105
+  role: context
+  label: Complete technical content on page 105
+  path: illustrations/isa-5.1-2009/complete/page-105.png
+  sha256: ff05d4eebf7827bed252f6f33dfa63850177c2e7266a83b09e8d41d2984ba562
+  width: 2800
+  height: 2030
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 105
+    printed_page: '105'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 547.0
+    - 732.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 90
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p97
+  role: note
+  label: Clause A.16.3, page 97
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  sha256: b7ec4cfea46cb1b9444d0b4ffb603531b7529d52c9089278a2196523f43c1730
+  width: 2010
+  height: 2592
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 97
+    printed_page: '97'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 105.1516
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: clause-a.16.3-p98
+  role: note
+  label: Clause A.16.3, page 98
+  path: illustrations/isa-5.1-2009/complete/clause-a.16.3-p98.png
+  sha256: 0cd9d653b9062fc95e4155ae84249a1f0aeb22953a24b928162727a860100442
+  width: 2010
+  height: 195
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 98
+    printed_page: '98'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 70.1718
+    - 547.0
+    - 116.6716
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes:
+- source:
+    document_id: isa-5.1-2009
+    document: ANSI/ISA-5.1-2009
+    edition: '2009'
+    page: 97, 98
+    pdf_page: 97
+    table: null
+    item: null
+    passage: Clause A.16.3
+    image: illustrations/isa-5.1-2009/complete/clause-a.16.3-p97.png
+  explanation: 'A.16.3 Tables A.3.1 and A.3.2 — Allowable succeeding letter combinations
+    for readout/passive and
+
+    output/active function letters and first-letters.
+
+    (1) Cells marked NA indicate not allowable combinations.
+
+    (2) First Letters are assigned according to Table A.2.
+
+    (3) Function Modifiers are added where indicated to right of alarm function combinations.
+
+    (4) Users should assign, as needed, meanings to:
+
+    (a) Users Choice Function letters [B] and [N].
+
+    (b) Readout/Passive Function blanks [C], [D], [F], [H], [J], [K], [M], [S], [T],
+    [V], [Y], and [Z].
+
+    (c) Output/Active Function blanks [A], [D], [E], [F], [G], [H], [I], [J], [L],
+    [M], [O], [P], [Q], [R],
+
+    and [W].
+
+    (d) Function Modifier blanks [A], [E], [F], [G], [I], [J], [K], [P], [Q], [T],
+    [U], [V], [W], [Y], and [Z].
+
+    (5) Readout/Passive Function [G] (glass, gauge) is used for local direct connected
+    devices, such as
+
+    flow sight glasses, level glasses, pressure gauges, thermometers weigh scales
+    and position
+
+    indicators. These devices provide a simple view of a process condition.
+
+    (a) Readout/Passive Function [I] (indicate) may continue to be used in facilities
+    where it is
+
+    currently used.
+
+    (6) Pressure rupture disc [PSE] and fusible link [TSE] apply to all sensors or
+    primary elements
+
+    intended to protect against emergency pressure or temperature conditions.
+
+    (7) The combinations in the [C] column are used for:
+
+    (a) Discrete single case instruments that do not have operator-visible indication
+    of measured
+
+    variable, setpoint, or output signal.
+
+    (b) Controller functions configured in shared display, shared control systems
+    where
+
+    indication and recording are configurable functions available on demand.
+
+    (8) The combinations in the [IC] and [RC] columns indicate the order to be followed
+    in forming the
+
+    Functional Identification of a controller device or function that also provides
+    indication or
+
+    recording.
+
+    (9) The combinations in the [CV] column indicate the order to be followed in forming
+    the Functional
+
+    Identification for self-actuated control valves.
+
+    (10) Flow safety valve [FSV] applies to valves intended to protect against an
+    emergency excess flow
+
+    or loss of flow condition. Pressure safety valve [PSV], and temperature safety
+    valve [TSV] apply
+
+    to valves intended to protect against emergency pressure and temperature conditions
+
+    (11) A self-actuated pressure valve that prevents operation of a fluid system
+    at a higher-than-desired
+
+    pressure by bleeding fluid from the system is a backpressure control valve [PCV],
+    even if the
+
+    valve is not normally used.
+
+    (a) This valve should be designated a pressure safety valve [PSV] if it protects
+    against
+
+    emergency conditions hazardous to personnel and/or equipment that are not expected
+    to arise
+
+    normally.'
+  asset_id: clause-a.16.3-p97
+text_slots: []
+interpretation:
+- Table cells are source transcriptions; retain headers and merged-cell context when
+  interpreting them. Use the image to resolve superscripts or extraction ambiguity.
+- Example tags and numbering schemes illustrate conventions; never copy them as actual
+  drawing identifiers.
+relations:
+- relation: related
+  reference_id: isa-5.1-2009.clause-a.16.3
+  explanation: 'Explanatory notes for Table A.3.1: clause A.16.3.'
+table_data:
+- - - 'First Letters (2)
+
+      Measured/Initiating Variables
+
+      w/ and w/o Modifiers'
+    - null
+    - A
+    - null
+    - null
+    - B
+    - E
+    - G
+    - I
+    - L
+    - N
+    - O
+    - P
+    - Q
+    - R
+    - W
+    - X
+  - - null
+    - null
+    - 'Absolute
+
+      Alarm'
+    - 'Function
+
+      Modifier'
+    - 'Deviation
+
+      Alarm'
+    - 'User’s
+
+      Choice
+
+      (4a)'
+    - 'Primary
+
+      Element'
+    - 'Gauge,
+
+      Glass'
+    - Indicate
+    - Light
+    - 'User’s
+
+      Choice
+
+      (4a)'
+    - 'Orifice,
+
+      Restrict-
+
+      ion'
+    - 'Point
+
+      (Test
+
+      Conn.)'
+    - 'Integrate,
+
+      Total'
+    - Record
+    - 'Well,
+
+      Probe'
+    - 'Unclass-
+
+      ified'
+  - - null
+    - null
+    - A
+    - '[*] (3) (4d)'
+    - AD
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+  - - ZDY
+    - Position Difference Y Axis
+    - ZDYA[*]
+    - ''
+    - ZDYAD[*]
+    - ''
+    - ZDYE
+    - ZDYG
+    - ZDYI
+    - ZDYL
+    - ''
+    - NA
+    - NA
+    - NA
+    - ZDYR
+    - NA
+    - ZDYX
+  - - ZDZ
+    - Position Difference Z Axis
+    - ZDZA[*]
+    - null
+    - ZDZAD[*]
+    - ''
+    - ZDZE
+    - ZDZG
+    - ZDZI
+    - ZDZL
+    - ''
+    - NA
+    - NA
+    - NA
+    - ZDZR
+    - NA
+    - ZDZX
+catalog:
+  role: background

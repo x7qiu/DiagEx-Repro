@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.vessels.drum
+version: 2
+concept: Drum
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Drum
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Drum’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Drum
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Drum’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Drum
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#vessels-pid-symbols
+  section: Vessels P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Drum
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.vessels.drum.png
+  sha256: c3de29983da13b5e8521358957ef44ade57a3e8d54dc253b5ecfa8fdaf89da23
+  width: 62
+  height: 31
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/drum.Cu8nWbyk_Z2um8gH.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 92fbbd57119b4842846b2f43d4efdce4da8b81d72e94497dfde1378f71599f81
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -1,0 +1,98 @@
+id: isa-5.1-2009.clause-3.1.15
+version: 2
+concept: computing device
+aliases: []
+reference_type: convention
+kind: definition
+curation: source_transcribed
+source_status: normative
+explanation: '3.1.15 computing device:
+
+  the preferred term for a device that performs one or more calculations or logic
+  operations, or both, and
+
+  transmits one or more resultant output signals; see also computing relay.'
+exceptions:
+- Explicit drawing legends and confirmed project definitions take precedence.
+- Source illustrations are reference material, not evidence that objects or connections
+  exist in a drawing.
+applicability:
+  standards:
+  - name: ISA 5.1
+    edition: '2009'
+tasks:
+- symbol_interpretation
+- text_assignment
+- line_interpretation
+- connections
+- review
+tags:
+- 'computing device:'
+- 3.1.15
+source:
+  document_id: isa-5.1-2009
+  document: ANSI/ISA-5.1-2009
+  edition: '2009'
+  page: '18'
+  pdf_page: 18
+  table: null
+  item: null
+  passage: Clause 3.1.15
+  image: illustrations/isa-5.1-2009/complete/clause-3.1.15-p18.png
+assets:
+- id: clause-3.1.15-p18
+  role: context
+  label: Clause 3.1.15, page 18
+  path: illustrations/isa-5.1-2009/complete/clause-3.1.15-p18.png
+  sha256: 64b21c04952d4390c1af61e1c397afe1a471ee412da51959d5a65c50e151443c
+  width: 2010
+  height: 303
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 18
+    printed_page: '18'
+    table: null
+    item: null
+    rect:
+    - 65.0
+    - 654.6296
+    - 547.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+- id: page-18
+  role: context
+  label: Complete technical content on page 18
+  path: illustrations/isa-5.1-2009/complete/page-18.png
+  sha256: 85bccc007282cf6896bc916040e6165fe395b61cfb71ec759aac39bb54691a84
+  width: 2050
+  height: 2780
+  crop:
+    document_id: isa-5.1-2009
+    pdf_page: 18
+    printed_page: '18'
+    table: null
+    item: null
+    rect:
+    - 60.0
+    - 60.0
+    - 552.0
+    - 727.0
+    coordinates: unrotated_pdf_points_top_left
+    page_rotation: 0
+    dpi: 300
+    renderer: PyMuPDF 1.28.0
+    processing: display orientation retained; lossless source crop
+  quality: clear
+  depiction: source_panel
+notes: []
+text_slots: []
+interpretation: []
+relations: []
+catalog:
+  role: background

@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.general-plant-equipment.thin-film-evaporator
+version: 2
+concept: Thin-Film Evaporator
+catalog:
+  role: catalog
+  category: equipment
+  short_name: Thin-Film Evaporator
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Thin-Film Evaporator’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Thin-Film Evaporator
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Thin-Film Evaporator’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Thin-Film Evaporator
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#general-plant-equipment-pid-symbols
+  section: General Plant Equipment P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Thin-Film Evaporator
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.general-plant-equipment.thin-film-evaporator.png
+  sha256: 3a9d09487e7e8354da23fedc5a5381fd4880150ef3928456453a07b66796bd72
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Thin-Film-Evaporator-PID-Symbol-150x150.IuJSXv0l_BQAgK.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: 35ddc53b8810bb0b4acdd2fe71921f3b7ef96b95190d017d4b9afbab0ff26c38
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []

@@ -295,7 +295,7 @@ attribute `structural_description` to a short shape-level description --
 include overall shape, internal features, nozzle count, and any visible
 internal text (e.g. "tall vertical vessel, packed bed interior, 3 side
 nozzles"). This description lands on the pyDEXPI CustomEquipment.typeName
-so a reviewer can identify the symbol later; leaving it blank produces a
+to preserve the symbol’s visible identity; leaving it blank produces a
 generic placeholder and logs an issue in the confidence report. It is
 always acceptable to mark something unclassified with a shape description
 -- that is far better than a wrong class label.

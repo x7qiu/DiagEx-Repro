@@ -1,0 +1,62 @@
+id: projectmaterials.pid-symbols.piping.flange-general
+version: 2
+concept: Flange General
+catalog:
+  role: catalog
+  category: piping
+  short_name: Flange General
+  search_terms: []
+  interpretation: Projectmaterials labels this illustration ‘Flange General’.
+  displayed_asset_ids:
+  - symbol
+  model_asset_id: symbol
+  supporting_reference_ids: []
+curation: source_transcribed
+source_status: informative
+table_data: []
+aliases:
+- Flange General
+reference_type: symbol
+kind: common_practice
+explanation: Projectmaterials labels this illustration ‘Flange General’.
+exceptions:
+- Publisher-provided visual reference, not a verified ISA or ISO definition. Explicit drawing legends
+  and applicable project definitions take precedence. Match visible geometry and drawing text; do not
+  infer objects or connections from this reference alone. Labels and numbers in this example are not drawing
+  tags.
+applicability:
+  unit_types: []
+  conventions: []
+  standards: []
+tasks:
+- symbol_interpretation
+tags:
+- Projectmaterials
+source:
+  document: Projectmaterials — P&ID Symbols List
+  document_id: projectmaterials.pid-symbols
+  item: Flange General
+  url: https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/#piping-pid-symbols
+  section: Piping P&ID Symbols
+assets:
+- id: symbol
+  role: variant
+  label: Flange General
+  path: illustrations/projectmaterials/projectmaterials.pid-symbols.piping.flange-general.png
+  sha256: b3888acfe4bd8958fc25611957d4a4535b9fe56e12e567cf746c630fa4df763b
+  width: 150
+  height: 150
+  web:
+    document_id: projectmaterials.pid-symbols
+    url: https://blog.projectmaterials.com/_astro/Flange-General-PID-SYMBOL-150x150.EtSZOTVu_Z1Jepfo.webp
+    retrieved_at: '2026-10-02T14:12:01.655670+00:00'
+    original_sha256: ae859a7a75a7cf55db1e8ced4de7b49ad422310940af06d7d931dff99541c02b
+    original_format: WEBP
+    processing: Lossless PNG conversion; no resizing or geometry edits
+  derived_from: []
+  quality: clear
+  depiction: isolated_symbol
+notes: []
+text_slots: []
+interpretation: []
+relations: []
