@@ -18,7 +18,7 @@ _CONNECTABLE_KINDS = {"equipment", "instrument", "opc"}
 
 
 class QualityReport(BaseModel):
-    schema_version: str = "1.1.0"
+    schema_version: str = "1.2.0"
     engine: Literal["evidence-v2"] = "evidence-v2"
     status: QualityStatus
     critical_violations: list[dict[str, Any]] = Field(default_factory=list)
@@ -130,6 +130,13 @@ def assess_quality(
         endpoint for edge in graph.edges for endpoint in (edge.from_node, edge.to_node)
     }
     isolated_node_ids = [node.id for node in graph.nodes if node.id not in attached_node_ids]
+    accepted_edges = [
+        edge for edge in graph.edges if not edge.attributes.get("provisional_review_only")
+    ]
+    accepted_attached_ids = {
+        endpoint for edge in accepted_edges for endpoint in (edge.from_node, edge.to_node)
+    }
+    accepted_isolated_count = sum(node.id not in accepted_attached_ids for node in graph.nodes)
     duplicate_tag_groups = _duplicate_tag_groups(graph)
     visual_style_counts = Counter(
         evidence.visual_style for result in topology for evidence in result.line_style_evidence
@@ -203,6 +210,11 @@ def assess_quality(
         metrics={
             "node_count": len(graph.nodes),
             "edge_count": len(graph.edges),
+            "accepted_edge_count": len(accepted_edges),
+            "provisional_edge_count": len(graph.edges) - len(accepted_edges),
+            "accepted_isolated_node_count": accepted_isolated_count,
+            "accepted_isolated_node_ratio": round(accepted_isolated_count / len(graph.nodes), 4)
+            if graph.nodes else 0.0,
             "edge_type_counts": dict(sorted(edge_type_counts.items())),
             "dangling_opc_count": len(graph.dangling_opcs),
             "conflict_count": len(graph.conflicts),
@@ -247,12 +259,13 @@ def add_dexpi_results(
 
 
 def _duplicate_tag_groups(graph: ReconciledGraph) -> list[dict[str, Any]]:
-    groups: dict[tuple[int, str, str], list[str]] = {}
+    groups: dict[tuple[int, str, str, tuple[str, ...]], list[str]] = {}
     for node in graph.nodes:
         label = re.sub(r"[^a-z0-9]+", "", node.label.casefold())
         if not label or not any(character.isdigit() for character in label):
             continue
-        groups.setdefault((node.page_index, node.kind, label), []).append(node.id)
+        scope = tuple(sorted(a.id for a in graph.assemblies if node.id in a.member_node_ids))
+        groups.setdefault((node.page_index, node.kind, label, scope), []).append(node.id)
     return [
         {
             "page": page_index + 1,
@@ -260,6 +273,6 @@ def _duplicate_tag_groups(graph: ReconciledGraph) -> list[dict[str, Any]]:
             "normalised_label": label,
             "node_ids": sorted(node_ids),
         }
-        for (page_index, kind, label), node_ids in sorted(groups.items())
+        for (page_index, kind, label, scope), node_ids in sorted(groups.items())
         if len(node_ids) > 1
     ]

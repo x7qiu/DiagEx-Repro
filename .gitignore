@@ -18,3 +18,4 @@ dist/
 runs/
 tmp/
 *.json
+.venv-cv/

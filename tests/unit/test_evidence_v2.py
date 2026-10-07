@@ -53,7 +53,11 @@ from diagex.vision.perception import (
 )
 from diagex.vision.quality import assess_quality
 from diagex.vision.tiling import FixedGridStrategy, ownership_core, tile
-from diagex.vision.topology import TopologyResult, build_page_topology
+from diagex.vision.topology import (
+    TopologyResult,
+    build_page_topology,
+    learn_legend_line_profile,
+)
 from diagex.vision.views import ViewInfo
 
 
@@ -72,6 +76,28 @@ def _page_evidence(*, paths: list[PathEvidence] | None = None) -> PageEvidence:
         fail_open=False,
         paths=paths or [],
     )
+
+
+def test_derived_pipeline_upgrade_preserves_raw_configuration_identity(monkeypatch):
+    from diagex.extractors import pid_evidence
+
+    options = dict(
+        cfg=Config(),
+        symbol_standard="ISA",
+        vision_model="vision",
+        reasoning_model="reasoning",
+        legend_path=None,
+        legend_pages=None,
+        legend_region=None,
+        no_legend=True,
+        legend_key=None,
+        effort="medium",
+    )
+    original = pid_evidence._configuration_hash(**options)
+    monkeypatch.setattr(pid_evidence, "PAGE_GRAPH_PIPELINE_VERSION", "future-version")
+    assert pid_evidence._configuration_hash(**options) == original
+    options["vision_model"] = "different-vision"
+    assert pid_evidence._configuration_hash(**options) != original
 
 
 def _node(node_id: str, x: int, *, kind: str = "equipment") -> ReconciledNode:
@@ -388,8 +414,11 @@ def test_checkpoint_stage_version_reuses_perception_but_rebuilds_postprocess(
 
 def test_perception_tool_advertises_only_typed_object_output() -> None:
     schema = _SUBMIT_TOOL["input_schema"]
-    assert set(schema["properties"]) == {"objects"}
-    object_properties = schema["properties"]["objects"]["items"]["properties"]
+    assert set(schema["properties"]) == {"candidate_results", "proposals"}
+    object_properties = schema["properties"]["candidate_results"]["items"]["properties"]
+    assert "candidate_id" in object_properties
+    assert "symbol" not in object_properties
+    assert "bbox" not in object_properties
     assert "printed_tag" in object_properties
     assert "canonical_tag" in object_properties
     assert "opc_direction" in object_properties
@@ -537,7 +566,8 @@ def test_perception_forces_tool_and_recovers_once_from_prose() -> None:
     )
 
     assert outcome.attempts == 2
-    assert [item.label for item in outcome.detections] == ["PI-101"]
+    assert outcome.detections == []
+    assert outcome.batch.candidate_reviews[0]["object"]["printed_tag"] == "PI-101"
     assert len(outcome.recovery_diagnostics) == 1
     assert outcome.recovery_diagnostics[0]["response"]["content"][0]["text"] == (
         "I will analyze the image first."
@@ -679,7 +709,8 @@ def test_perception_retries_malformed_provider_tool_json_once() -> None:
 
     assert MalformedThenValidClient.calls == 2
     assert outcome.attempts == 2
-    assert [item.label for item in outcome.detections] == ["PI-101"]
+    assert outcome.detections == []
+    assert outcome.batch.candidate_reviews[0]["object"]["printed_tag"] == "PI-101"
     assert outcome.recovery_diagnostics == [
         {
             "attempt": 1,
@@ -1131,6 +1162,28 @@ def test_topology_attaches_both_sides_of_an_inline_component() -> None:
     }
 
 
+def test_topology_does_not_attach_symbol_outline_away_from_a_port() -> None:
+    path = PathEvidence(
+        id="symbol-top-stroke",
+        page_index=0,
+        points=[(400, 270), (600, 270)],
+        bbox=BBox(x=400, y=270, w=200, h=1),
+        origin="pdf_vector",
+        primitive="line",
+    )
+    instrument = ReconciledNode(
+        id="n-instrument",
+        kind="instrument",
+        label="PI-101",
+        bbox_global=BBox(x=480, y=270, w=40, h=80),
+        page_index=0,
+        confidence="high",
+    )
+    result = build_page_topology(page=_page_evidence(paths=[path]), nodes=[instrument])
+    assert result.edges == []
+    assert result.unattached_node_ids == ["n-instrument"]
+
+
 def test_proper_crossing_is_reported_but_not_joined() -> None:
     paths = [
         PathEvidence(
@@ -1315,6 +1368,28 @@ def test_fusion_rejects_unsupported_opc_and_normalises_taxonomy() -> None:
     assert "instrument_class" not in instrument.attributes
 
 
+def test_drawing_reference_is_not_kept_as_equipment_identity() -> None:
+    fused = fuse_objects(
+        source_name="drawing.pdf",
+        pages=[_page_evidence()],
+        detections=[
+            DetectionRecord(
+                id="det-drawing-ref",
+                page_index=0,
+                tile_id="p0-r1-c4",
+                kind="equipment",
+                label="DW02-0010",
+                bbox=BBox(x=700, y=250, w=120, h=30),
+                confidence="medium",
+            )
+        ],
+        per_page_status={0: "ok"},
+    )
+
+    assert fused.graph.nodes == []
+    assert fused.graph.conflicts[0]["type"] == "rejected_non_connectable_text"
+
+
 def test_fusion_cautiously_filters_native_text_and_retypes_instrument_tag() -> None:
     page = _page_evidence().model_copy(
         update={
@@ -1483,14 +1558,14 @@ def test_native_identity_prevents_nearby_tag_attributes_from_contaminating_node(
         per_page_status={0: "ok"},
     )
 
-    assert len(fused.graph.nodes) == 1
-    node = fused.graph.nodes[0]
-    assert node.label == "2401-V-001"
+    assert len(fused.graph.nodes) == 2
+    node = next(n for n in fused.graph.nodes if n.label == "2401-V-001")
     assert node.attributes["equipment_class"] == "vessel"
     assert "valve_type" not in node.attributes
     assert "instrument_function" not in node.attributes
     assert "loop_number" not in node.attributes
-    assert any(conflict["type"] == "evidence_label_conflict" for conflict in fused.graph.conflicts)
+    conflict = next(c for c in fused.graph.conflicts if c["type"] == "fusion_instance_uncertainty")
+    assert len(conflict["node_ids"]) == 2
 
 
 def test_native_text_inventory_separates_assigned_unresolved_and_excluded_text() -> None:
@@ -1545,6 +1620,100 @@ def test_native_text_inventory_separates_assigned_unresolved_and_excluded_text()
     assert not by_text["DN20"].blocking
 
 
+def test_native_qv_tags_are_assigned_one_to_one_to_adjacent_unlabelled_valves() -> None:
+    page = _page_evidence().model_copy(
+        update={
+            "text_spans": [
+                TextEvidence(id="txt-qv08", text="QV08", bbox=BBox(x=100, y=100, w=48, h=24)),
+                TextEvidence(id="txt-qv09", text="QV09", bbox=BBox(x=100, y=146, w=48, h=24)),
+            ]
+        }
+    )
+    fused = fuse_objects(
+        source_name="drawing.pdf",
+        pages=[page],
+        detections=[
+            DetectionRecord(
+                id="det-qv08",
+                page_index=0,
+                tile_id="p0-r1-c1",
+                kind="equipment",
+                label="",
+                bbox=BBox(x=92, y=94, w=32, h=54),
+                confidence="medium",
+                attributes={"valve_type": "other"},
+            ),
+            DetectionRecord(
+                id="det-qv09",
+                page_index=0,
+                tile_id="p0-r1-c1",
+                kind="equipment",
+                label="",
+                bbox=BBox(x=92, y=140, w=32, h=54),
+                confidence="medium",
+                attributes={"valve_type": "other"},
+            ),
+        ],
+        per_page_status={0: "ok"},
+    )
+
+    assert [node.label for node in fused.graph.nodes] == ["QV08", "QV09"]
+    assert all(
+        node.attributes["native_tag_assignment"] == "mutual_best_geometry"
+        for node in fused.graph.nodes
+    )
+    assert all(
+        node.attributes["system_confidence_evidence"]["native_text_agreement"]
+        for node in fused.graph.nodes
+    )
+
+
+def test_native_qv_tag_does_not_label_an_oversized_false_detection() -> None:
+    page = _page_evidence().model_copy(
+        update={
+            "text_spans": [
+                TextEvidence(id="txt-qv8", text="QV8", bbox=BBox(x=100, y=100, w=40, h=20))
+            ]
+        }
+    )
+    fused = fuse_objects(
+        source_name="drawing.pdf",
+        pages=[page],
+        detections=[
+            DetectionRecord(
+                id="det-large",
+                page_index=0,
+                tile_id="p0-r1-c1",
+                kind="equipment",
+                label="",
+                bbox=BBox(x=80, y=80, w=130, h=350),
+                confidence="medium",
+                attributes={"valve_type": "other"},
+            )
+        ],
+        per_page_status={0: "ok"},
+    )
+
+    assert fused.graph.nodes[0].label == "unlabelled"
+
+
+def test_native_inventory_includes_one_digit_packaged_valve_tags() -> None:
+    page = _page_evidence().model_copy(
+        update={
+            "text_spans": [
+                TextEvidence(id="txt-qv8", text="QV8", bbox=BBox(x=100, y=100, w=40, h=20))
+            ]
+        }
+    )
+    inventory = build_native_text_inventory(
+        pages=[page], graph=ReconciledGraph(source_path="drawing.pdf")
+    )
+
+    assert inventory.items[0].text == "QV8"
+    assert inventory.items[0].candidate_kind == "unknown_tag"
+    assert inventory.items[0].status == "unresolved"
+
+
 def test_fusion_rejects_dn_size_as_a_node_even_when_bbox_misses_native_text() -> None:
     fused = _fuse_evidence(
         source_name="drawing.pdf",
@@ -1566,6 +1735,254 @@ def test_fusion_rejects_dn_size_as_a_node_even_when_bbox_misses_native_text() ->
 
     assert not fused.graph.nodes
     assert fused.graph.conflicts[0]["type"] == "rejected_non_connectable_text"
+
+
+def test_fusion_cleans_line_text_fragments_and_attaches_fail_action() -> None:
+    fused = fuse_objects(
+        source_name="drawing.pdf",
+        pages=[_page_evidence()],
+        detections=[
+            DetectionRecord(
+                id="det-line-number",
+                page_index=0,
+                tile_id="p0-full",
+                kind="instrument",
+                label="50-PA-00901-M15B-N",
+                bbox=BBox(x=100, y=100, w=180, h=20),
+                confidence="medium",
+            ),
+            DetectionRecord(
+                id="det-tag",
+                page_index=0,
+                tile_id="p0-full",
+                kind="instrument",
+                label="PI-00305",
+                bbox=BBox(x=300, y=200, w=80, h=70),
+                confidence="high",
+            ),
+            DetectionRecord(
+                id="det-prefix",
+                page_index=0,
+                tile_id="p0-full",
+                kind="instrument",
+                label="PI",
+                bbox=BBox(x=305, y=205, w=25, h=20),
+                confidence="medium",
+            ),
+            DetectionRecord(
+                id="det-number",
+                page_index=0,
+                tile_id="p0-full",
+                kind="instrument",
+                label="00305",
+                bbox=BBox(x=310, y=235, w=45, h=20),
+                confidence="medium",
+            ),
+            DetectionRecord(
+                id="det-valve",
+                page_index=0,
+                tile_id="p0-full",
+                kind="equipment",
+                label="FV-101",
+                bbox=BBox(x=600, y=300, w=80, h=60),
+                confidence="high",
+                attributes={"valve_type": "control"},
+            ),
+            DetectionRecord(
+                id="det-fo",
+                page_index=0,
+                tile_id="p0-full",
+                kind="equipment",
+                label="FO",
+                bbox=BBox(x=620, y=255, w=30, h=20),
+                confidence="medium",
+            ),
+        ],
+        per_page_status={0: "ok"},
+    )
+
+    assert {node.label for node in fused.graph.nodes} == {"PI-00305", "FV-101"}
+    valve = next(node for node in fused.graph.nodes if node.label == "FV-101")
+    assert valve.attributes["fail_action"] == "open"
+    conflict_types = {item["type"] for item in fused.graph.conflicts}
+    assert "rejected_non_connectable_text" in conflict_types
+    assert "rejected_redundant_tag_fragment" in conflict_types
+    assert "attached_valve_state_annotation" in conflict_types
+
+
+def test_strong_project_valve_legend_corrects_generic_instrument_kind() -> None:
+    legend = LegendPack(
+        entries=[
+            LegendEntry(
+                label="PSV",
+                description="pressure safety valve",
+                symbol_class="safety_relief",
+                kind="valve",
+                attributes={"valve_type": "safety_relief"},
+                source="legend_extracted",
+            )
+        ]
+    )
+    fused = fuse_objects(
+        source_name="drawing.pdf",
+        pages=[_page_evidence()],
+        detections=[
+            DetectionRecord(
+                id="det-psv",
+                page_index=0,
+                tile_id="p0-full",
+                kind="instrument",
+                label="PSV-101",
+                bbox=BBox(x=300, y=200, w=80, h=70),
+                confidence="high",
+                attributes={"instrument_function": "controller"},
+            )
+        ],
+        per_page_status={0: "ok"},
+        legend_pack=legend,
+    )
+
+    node = fused.graph.nodes[0]
+    assert node.kind == "equipment"
+    assert node.attributes["valve_type"] == "safety_relief"
+    assert node.attributes["model_original_kind"] == "instrument"
+    assert node.attributes["model_instrument_function"] == "controller"
+
+
+def test_conflicted_project_valve_abbreviation_remains_cautious() -> None:
+    legend = LegendPack(
+        entries=[
+            LegendEntry(
+                label="PV",
+                description="project abbreviation conflict",
+                symbol_class="control",
+                kind="valve",
+                attributes={"valve_type": "control", "abbreviation_conflict": "true"},
+                source="legend_extracted",
+            )
+        ]
+    )
+    fused = fuse_objects(
+        source_name="drawing.pdf",
+        pages=[_page_evidence()],
+        detections=[
+            DetectionRecord(
+                id="det-pv",
+                page_index=0,
+                tile_id="p0-full",
+                kind="instrument",
+                label="PV-101",
+                bbox=BBox(x=300, y=200, w=80, h=70),
+                confidence="high",
+                attributes={"instrument_function": "controller"},
+            )
+        ],
+        per_page_status={0: "ok"},
+        legend_pack=legend,
+    )
+
+    assert fused.graph.nodes[0].kind == "instrument"
+    assert any(item["type"] == "tag_kind_conflict" for item in fused.graph.conflicts)
+
+
+def test_project_vector_legend_signature_types_matching_drawing_path() -> None:
+    legend_path = PathEvidence(
+        id="legend-electric",
+        page_index=0,
+        points=[(100, 120), (360, 120)],
+        bbox=BBox(x=100, y=120, w=260, h=1),
+        origin="pdf_vector",
+        primitive="line",
+        stroke_width=2.0,
+        dashes="[12 6] 0",
+    )
+    legend_page = _page_evidence(paths=[legend_path]).model_copy(update={"role": "legend"})
+    legend = LegendPack(
+        entries=[
+            LegendEntry(
+                label="电信号线",
+                description="Electric signal",
+                symbol_class="signal_electric",
+                kind="line",
+                source="legend_extracted",
+                source_page_index=0,
+                source_bbox=BBox(x=400, y=100, w=100, h=40),
+            )
+        ]
+    )
+    profile = learn_legend_line_profile(pages=[legend_page], legend_pack=legend)
+    assert profile.signatures[0].line_type == "signal_electric"
+
+    drawing_path = PathEvidence(
+        id="drawing-electric",
+        page_index=1,
+        points=[(100, 300), (900, 300)],
+        bbox=BBox(x=100, y=300, w=800, h=1),
+        origin="pdf_vector",
+        primitive="line",
+        stroke_width=2.0,
+        dashes="[12 6] 0",
+    )
+    page = _page_evidence(paths=[drawing_path]).model_copy(
+        update={"page_index": 1, "source_ref": "drawing#page=2"}
+    )
+    left = _node("n-left", 80).model_copy(update={"page_index": 1})
+    right = _node("n-right", 880).model_copy(update={"page_index": 1})
+    result = build_page_topology(
+        page=page,
+        nodes=[left, right],
+        legend_line_profile=profile,
+    )
+    assert result.edges[0].line_type == "signal_electric"
+
+
+def test_fragmented_project_legend_signature_types_matching_drawing_fragments() -> None:
+    def fragments(page_index: int, y: int, prefix: str) -> list[PathEvidence]:
+        return [
+            PathEvidence(
+                id=f"{prefix}-{index}",
+                page_index=page_index,
+                points=[(start, y), (end, y)],
+                bbox=BBox(x=start, y=y, w=end - start, h=1),
+                origin="pdf_vector",
+                primitive="line",
+                stroke_width=2.0,
+            )
+            for index, (start, end) in enumerate(
+                [(100, 160), (180, 240), (260, 320), (340, 400), (420, 480)]
+            )
+        ]
+
+    legend_page = _page_evidence(paths=fragments(0, 120, "legend-frag")).model_copy(
+        update={"role": "legend"}
+    )
+    legend = LegendPack(
+        entries=[
+            LegendEntry(
+                label="电信号线",
+                description="Electric signal",
+                symbol_class="signal_electric",
+                kind="line",
+                source="legend_extracted",
+                source_page_index=0,
+                source_bbox=BBox(x=700, y=100, w=100, h=40),
+            )
+        ]
+    )
+    profile = learn_legend_line_profile(pages=[legend_page], legend_pack=legend)
+    assert any(item.line_type == "signal_electric" for item in profile.signatures)
+
+    page = _page_evidence(paths=fragments(1, 300, "drawing-frag")).model_copy(
+        update={"page_index": 1, "source_ref": "drawing#page=2"}
+    )
+    left = _node("n-left", 80).model_copy(update={"page_index": 1})
+    right = _node("n-right", 460).model_copy(update={"page_index": 1})
+    result = build_page_topology(
+        page=page,
+        nodes=[left, right],
+        legend_line_profile=profile,
+    )
+    assert result.edges[0].line_type == "signal_electric"
 
 
 def test_interior_opc_with_explicit_reference_is_kept_for_page_graph_review() -> None:
@@ -1705,6 +2122,176 @@ def test_reciprocal_title_block_opcs_create_high_confidence_cross_sheet_edge() -
     assert edge.confidence == "high"
     assert edge.attributes["match_basis"] == "reciprocal_title_block_references"
     assert graph.dangling_opcs == []
+
+
+def test_native_body_references_recover_and_match_missing_opcs() -> None:
+    def page(page_index: int, own_ref: str, target_ref: str, direction: str) -> PageEvidence:
+        return _page_evidence(
+            paths=[
+                PathEvidence(
+                    id=f"connector-{page_index}",
+                    page_index=page_index,
+                    points=[(300, 260), (650, 260)],
+                    bbox=BBox(x=300, y=260, w=350, h=1),
+                    origin="pdf_vector",
+                    primitive="line",
+                )
+            ]
+        ).model_copy(
+            update={
+                "page_index": page_index,
+                "source_ref": f"drawing#page={page_index + 1}",
+                "text_spans": [
+                    TextEvidence(
+                        id=f"title-{page_index}",
+                        text=f"240100ST-{own_ref}",
+                        bbox=BBox(x=800, y=520, w=160, h=20),
+                    ),
+                    TextEvidence(
+                        id=f"body-{page_index}",
+                        text=target_ref,
+                        bbox=BBox(x=500, y=235, w=100, h=20),
+                    ),
+                    TextEvidence(
+                        id=f"service-{page_index}",
+                        text=f"{direction} 压缩空气",
+                        bbox=BBox(x=360, y=235, w=130, h=20),
+                    ),
+                ],
+            }
+        )
+
+    page_a = page(0, "DW02-0003", "DW02-0004", "去往")
+    page_b = page(1, "DW02-0004", "DW02-0003", "来自")
+    graph = _fuse_evidence(
+        source_name="drawing.pdf",
+        pages=[page_a, page_b],
+        detections=[],
+        topology=[],
+        per_page_status={0: "ok", 1: "ok"},
+    ).graph
+
+    assert len([node for node in graph.nodes if node.kind == "opc"]) == 2
+    assert len(graph.edges) == 1
+    assert graph.edges[0].cross_sheet is True
+    assert graph.edges[0].attributes["match_basis"] == "reciprocal_title_block_references"
+    assert graph.dangling_opcs == []
+
+
+def test_one_sided_native_reference_does_not_synthesize_opc_from_plain_pipe() -> None:
+    page = _page_evidence(
+        paths=[
+            PathEvidence(
+                id="plain-pipe",
+                page_index=0,
+                points=[(300, 260), (650, 260)],
+                bbox=BBox(x=300, y=260, w=350, h=1),
+                origin="pdf_vector",
+                primitive="line",
+            )
+        ]
+    ).model_copy(
+        update={
+            "text_spans": [
+                TextEvidence(
+                    id="body-ref",
+                    text="DW02-0999",
+                    bbox=BBox(x=500, y=235, w=100, h=20),
+                )
+            ]
+        }
+    )
+    graph = _fuse_evidence(
+        source_name="drawing.pdf",
+        pages=[page],
+        detections=[],
+        topology=[],
+        per_page_status={0: "ok"},
+    ).graph
+
+    assert [node for node in graph.nodes if node.kind == "opc"] == []
+    assert any(item["type"] == "unassigned_native_drawing_reference" for item in graph.conflicts)
+
+
+def test_native_reference_reuses_same_ref_opc_even_when_bbox_is_far() -> None:
+    page = _page_evidence().model_copy(
+        update={
+            "text_spans": [
+                TextEvidence(
+                    id="body-ref",
+                    text="DW02-0999",
+                    bbox=BBox(x=700, y=235, w=100, h=20),
+                )
+            ]
+        }
+    )
+    graph = _fuse_evidence(
+        source_name="drawing.pdf",
+        pages=[page],
+        detections=[
+            DetectionRecord(
+                id="det-opc",
+                page_index=0,
+                tile_id="p0-full",
+                kind="opc",
+                label="DW02-0999",
+                bbox=BBox(x=10, y=500, w=60, h=30),
+                confidence="medium",
+                attributes={"direction": "out"},
+            )
+        ],
+        topology=[],
+        per_page_status={0: "ok"},
+    ).graph
+
+    opcs = [node for node in graph.nodes if node.kind == "opc"]
+    assert len(opcs) == 1
+    assert opcs[0].attributes["native_reference_verified"] is True
+
+
+def test_native_reference_backfills_an_unlabelled_opc_display_label() -> None:
+    page = _page_evidence().model_copy(
+        update={
+            "text_spans": [
+                TextEvidence(
+                    id="body-ref",
+                    text="DW02-0010",
+                    bbox=BBox(x=820, y=235, w=100, h=20),
+                ),
+                TextEvidence(
+                    id="body-service",
+                    text="氮气",
+                    bbox=BBox(x=790, y=210, w=50, h=20),
+                ),
+            ]
+        }
+    )
+    graph = _fuse_evidence(
+        source_name="drawing.pdf",
+        pages=[page],
+        detections=[
+            DetectionRecord(
+                id="det-opc",
+                page_index=0,
+                tile_id="p0-r1-c4",
+                kind="opc",
+                label="",
+                bbox=BBox(x=810, y=225, w=120, h=40),
+                confidence="medium",
+                attributes={
+                    "direction": "out",
+                    "service": "氮气",
+                    "drawing_ref": "DW02-0010",
+                },
+            )
+        ],
+        topology=[],
+        per_page_status={0: "ok"},
+    ).graph
+
+    opc = next(node for node in graph.nodes if node.kind == "opc")
+    assert opc.label == "氮气 → DW02-0010"
+    assert opc.attributes["native_reference_verified"] is True
 
 
 def test_opc_pairing_uses_group_candidates_and_one_to_one_assignment() -> None:
@@ -1947,13 +2534,21 @@ def test_evidence_v2_stops_after_first_non_retryable_page_graph_error(
                                 {
                                     "kind": "equipment",
                                     "label": "V-101",
-                                    "bbox": {"x": 0.08, "y": 0.38, "w": 0.09, "h": 0.24},
+                                    "candidate_id": json.loads(
+                                        kwargs["messages"][0]["content"][1]["text"].split("\n", 1)[
+                                            1
+                                        ]
+                                    )["native_symbol_candidates"][0]["candidate_id"],
                                     "confidence": "high",
                                 },
                                 {
                                     "kind": "equipment",
                                     "label": "V-102",
-                                    "bbox": {"x": 0.83, "y": 0.38, "w": 0.09, "h": 0.24},
+                                    "candidate_id": json.loads(
+                                        kwargs["messages"][0]["content"][1]["text"].split("\n", 1)[
+                                            1
+                                        ]
+                                    )["native_symbol_candidates"][1]["candidate_id"],
                                     "confidence": "high",
                                 },
                             ]
@@ -2098,14 +2693,22 @@ def test_evidence_v2_end_to_end_with_stateless_fake_model(
                                 {
                                     "kind": "equipment",
                                     "label": "V-101",
-                                    "bbox": {"x": 0.08, "y": 0.38, "w": 0.09, "h": 0.24},
+                                    "candidate_id": json.loads(
+                                        kwargs["messages"][0]["content"][1]["text"].split("\n", 1)[
+                                            1
+                                        ]
+                                    )["native_symbol_candidates"][0]["candidate_id"],
                                     "confidence": "high",
                                     "attributes": {"equipment_class": "vessel"},
                                 },
                                 {
                                     "kind": "equipment",
                                     "label": "V-102",
-                                    "bbox": {"x": 0.83, "y": 0.38, "w": 0.09, "h": 0.24},
+                                    "candidate_id": json.loads(
+                                        kwargs["messages"][0]["content"][1]["text"].split("\n", 1)[
+                                            1
+                                        ]
+                                    )["native_symbol_candidates"][1]["candidate_id"],
                                     "confidence": "high",
                                     "attributes": {"equipment_class": "vessel"},
                                 },
@@ -2138,6 +2741,7 @@ def test_evidence_v2_end_to_end_with_stateless_fake_model(
         effort="medium",
         config=cfg,
         persist=True,
+        fresh=True,
         out_path=None,
         confidence_report_path=None,
         console=None,
@@ -2153,10 +2757,12 @@ def test_evidence_v2_end_to_end_with_stateless_fake_model(
     assert (result.run_dir / "checkpoints" / "manifest.json").is_file()
     assert (result.run_dir / "quality.report.json").is_file()
     assert (result.run_dir / "graph.json").is_file()
-    reuse_report = json.loads(
-        (result.run_dir / "reuse.report.json").read_text(encoding="utf-8")
-    )
+    reuse_report = json.loads((result.run_dir / "reuse.report.json").read_text(encoding="utf-8"))
     assert reuse_report["mode"] == "new"
+    assert reuse_report["fresh_requested"] is True
+    assert reuse_report["decision"]["reason"] == (
+        "fresh run requested; checkpoint discovery skipped"
+    )
     assert reuse_report["reused_total"] == 0
     assert reuse_report["computed_total"] > 0
     public_result = json.loads((result.run_dir / "result.json").read_text(encoding="utf-8"))
@@ -2164,6 +2770,12 @@ def test_evidence_v2_end_to_end_with_stateless_fake_model(
     assert len(result.graph.nodes) == 2
     assert result.cost_summary["tool_call_counts"]["submit_pid_objects"] == 1
     assert result.cost_summary["tool_call_counts"]["submit_page_graph"] == 2
+    symbol_request = next(
+        request for request in FakeClient.requests if request[0] == "submit_pid_objects"
+    )
+    assert symbol_request[2]["reasoning_mode_override"] == "disabled"
+    assert symbol_request[2]["thinking"]["type"] == "disabled"
+    assert symbol_request[2]["max_tokens"] == 6000
     reasoning_request = next(
         request for request in FakeClient.requests if request[0] == "page_graph_reasoning"
     )
@@ -2189,3 +2801,78 @@ def test_evidence_v2_end_to_end_with_stateless_fake_model(
         out_dir=tmp_path / "review",
     )
     assert len(review.public_state()["graph"]["nodes"]) == 2
+
+
+@pytest.mark.parametrize(
+    "rotation,expected",
+    [
+        (0, [(60, 200), (540, 200)]),
+        (90, [(200, 60), (200, 540)]),
+        (180, [(540, 200), (60, 200)]),
+        (270, [(200, 540), (200, 60)]),
+    ],
+)
+def test_native_geometry_aligns_with_rotated_render(tmp_path, rotation, expected):
+    pdf = tmp_path / "rotated.pdf"
+    with fitz.open() as doc:
+        native = doc.new_page(width=300, height=200)
+        native.draw_line((30, 100), (270, 100))
+        native.insert_text((30, 40), "V-101")
+        native.set_rotation(rotation)
+        doc.save(pdf)
+    with fitz.open(pdf) as doc:
+        pix = doc[0].get_pixmap(matrix=fitz.Matrix(2, 2))
+        rendered = DiagramPage(
+            page_index=0,
+            width=pix.width,
+            height=pix.height,
+            dpi=144,
+            effective_dpi=144,
+            is_scanned=False,
+            source_ref="rotated",
+        )
+        evidence = extract_page_evidence(page=rendered, source_path=pdf, pdf_page=doc[0])
+        assert evidence.paths[0].points == expected
+        midpoint = tuple(round((a + b) / 2) for a, b in zip(*expected, strict=True))
+        assert min(pix.pixel(*midpoint)) < 100
+        span = next(s for s in evidence.text_spans if s.text == "V-101")
+        assert 0 <= span.bbox.x < span.bbox.x2 <= pix.width
+        assert 0 <= span.bbox.y < span.bbox.y2 <= pix.height
+        assert any(
+            min(pix.pixel(x, y)) < 100
+            for x in range(span.bbox.x, span.bbox.x2)
+            for y in range(span.bbox.y, span.bbox.y2)
+        )
+        assert evidence.native_coordinate_frame == "rendered_page"
+
+
+def test_cached_rotated_evidence_is_repaired_without_discarding_perception(tmp_path):
+    from diagex.extractors.evidence_checkpoint import CheckpointStore
+    from diagex.extractors.pid_evidence import _inspect_pages
+    from diagex.vision.loader import load
+
+    pdf = tmp_path / "cached.pdf"
+    with fitz.open() as doc:
+        native = doc.new_page(width=300, height=200)
+        native.draw_line((30, 100), (270, 100))
+        native.set_rotation(90)
+        doc.save(pdf)
+    run = tmp_path / "run"
+    store = CheckpointStore.create(
+        run_dir=run, source_sha256="source", config_sha256="config", run_id="run"
+    )
+    first, _ = _inspect_pages(
+        source=load(pdf), diagram=pdf, store=store, run_dir=run, reporter=NullReporter()
+    )
+    public = run / "evidence/page-0001.json"
+    expected = first[0].paths[0].points
+    first[0].native_coordinate_frame = "legacy"
+    first[0].paths[0].points = [(1, 1), (2, 2)]
+    public.write_text(first[0].model_dump_json())
+    store.write_json_artifact("perception", "saved", {"observations": ["retain"]})
+    repaired, _ = _inspect_pages(
+        source=load(pdf), diagram=pdf, store=store, run_dir=run, reporter=NullReporter()
+    )
+    assert repaired[0].paths[0].points == expected
+    assert repaired[0].native_coordinate_frame == "rendered_page"
+    assert store.read_json_artifact("perception", "saved") == {"observations": ["retain"]}

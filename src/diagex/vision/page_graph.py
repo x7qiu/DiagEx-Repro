@@ -29,6 +29,7 @@ from diagex.llm.cost import CostTracker
 from diagex.ui.progress import ProgressReporter
 from diagex.vision.encode import encode_image_block
 from diagex.vision.evidence import PageEvidence, VisualLineStyle
+from diagex.vision.legend_context import select_graph_legend_context
 from diagex.vision.models import (
     BBox,
     Confidence,
@@ -36,7 +37,7 @@ from diagex.vision.models import (
     ReconciledEdge,
     ReconciledNode,
 )
-from diagex.vision.topology import TopologyResult
+from diagex.vision.topology import TopologyResult, build_page_topology, route_evidence_failures
 
 _SIGNAL_TYPES = {
     "signal_electric",
@@ -155,6 +156,16 @@ class PageGraphUncertainty(BaseModel):
         return values[:12] if isinstance(values, list) else values
 
 
+class ConnectionHypothesis(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    from_ref: str
+    to_ref: str
+    line_type: LineType = "process"
+    rationale: str
+    question: str = "Does the drawing contain a continuous route between these endpoints?"
+    context_sources: list[str] = Field(default_factory=list, max_length=8)
+
+
 class PageGraphSubmission(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -162,12 +173,14 @@ class PageGraphSubmission(BaseModel):
     new_relations: list[ProposedRelation] = Field(default_factory=list, max_length=256)
     opc_updates: list[OpcUpdate] = Field(default_factory=list, max_length=64)
     uncertainties: list[PageGraphUncertainty] = Field(default_factory=list, max_length=128)
+    hypotheses: list[ConnectionHypothesis] = Field(default_factory=list, max_length=64)
 
     @field_validator(
         "candidate_decisions",
         "new_relations",
         "opc_updates",
         "uncertainties",
+        "hypotheses",
         mode="before",
     )
     @classmethod
@@ -196,7 +209,10 @@ class VisualCandidateAssessment(BaseModel):
     decide what that evidence means for the engineering graph.
     """
 
-    model_config = ConfigDict(extra="forbid")
+    # Some OpenAI-compatible providers add a short explanatory field beside
+    # the requested schema. It is harmless evidence, not a format failure;
+    # ignore it while retaining strict validation of every field we consume.
+    model_config = ConfigDict(extra="ignore")
 
     candidate_ref: str
     route_visible: Literal["yes", "no", "uncertain"] = "uncertain"
@@ -214,7 +230,7 @@ class VisualCandidateAssessment(BaseModel):
 
 
 class PageLineEvidenceSubmission(BaseModel):
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="ignore")
 
     assessments: list[VisualCandidateAssessment] = Field(default_factory=list, max_length=256)
 
@@ -267,6 +283,7 @@ class PageGraphResult(BaseModel):
     rejected_candidate_ids: list[str] = Field(default_factory=list)
     format_recovery: list[dict[str, Any]] = Field(default_factory=list)
     reasoning_trace: list[dict[str, Any]] = Field(default_factory=list)
+    hypotheses: list[dict[str, Any]] = Field(default_factory=list)
 
 
 _TOOL = {
@@ -382,6 +399,7 @@ def classify_page_line_evidence(
     legend_line_images: list[dict[str, Any]] | None = None,
     max_tokens: int = 6000,
     on_attempt: Callable[[], None] | None = None,
+    inspection_attempts: int = 2,
 ) -> PageLineEvidence:
     """Collect bounded, non-thinking visual facts for topology candidates."""
 
@@ -405,7 +423,7 @@ def classify_page_line_evidence(
         image_blocks.append(encode_image_block(legend_montage))
 
     invalid_responses: list[dict[str, Any]] = []
-    for attempt in range(1, 3):
+    for attempt in range(1, inspection_attempts + 1):
         recovery = ""
         if attempt == 2:
             recovery = (
@@ -448,7 +466,7 @@ def classify_page_line_evidence(
                     "response": None,
                 }
             )
-            if attempt == 2:
+            if attempt == inspection_attempts:
                 raise PageGraphResponseFormatError(
                     "line-evidence tool arguments were malformed after one recovery attempt",
                     attempts=attempt,
@@ -475,7 +493,7 @@ def classify_page_line_evidence(
                     "response": _response_diagnostic(response),
                 }
             )
-            if attempt == 2:
+            if attempt == inspection_attempts:
                 raise PageGraphResponseFormatError(
                     "line-evidence response was unstructured after one recovery attempt",
                     attempts=attempt,
@@ -547,6 +565,9 @@ def solve_page_graph(
     visual_evidence: PageLineEvidence | None = None,
     on_attempt: Callable[[], None] | None = None,
     include_visual_context: bool = True,
+    process_context: list[dict[str, Any]] | None = None,
+    inspection_client: LLMClient | None = None,
+    escalation_client: LLMClient | None = None,
 ) -> PageGraphResult:
     """Reason in bounded batches, then serialize each memo without thinking.
 
@@ -608,6 +629,8 @@ def solve_page_graph(
         allow_document_relations = batch_index == 1
         payload = {
             "page": page.page_index + 1,
+            "process_context": list(process_context or []) if allow_document_relations else [],
+            "hypothesis_instruction": "Process context and engineering rules can suggest hypotheses, never prove a drawn connection. Put plausible but unverified connections in hypotheses with context_sources and a concrete inspection question. Use only enumerated node refs. Do not keep or retype a candidate merely because a process rule predicts it.",
             "batch": {"index": batch_index, "count": len(batches)},
             "scope": {
                 "candidate_refs": batch_refs,
@@ -620,7 +643,7 @@ def solve_page_graph(
                 for ref, edge in batch
             ],
             "document_sheets": _sheet_table(pages) if allow_document_relations else [],
-            "legend_entries": list(legend_summary or [])[:80],
+            "legend_entries": select_graph_legend_context(list(legend_summary or []), [node.label for node in node_refs.values()]),
             "other_page_opcs": (
                 [
                     _node_payload(ref, node)
@@ -811,7 +834,77 @@ def solve_page_graph(
     )
     result.format_recovery = invalid_responses
     result.reasoning_trace = reasoning_trace
+    for hypothesis in result.hypotheses:
+        hypothesis["context_documents"] = [{k: d[k] for k in ("kind", "source", "sha256") if k in d} for d in process_context or []]
+    if inspection_client is not None and result.hypotheses:
+        _inspect_proposed_routes(
+            result=result, page=page, pages=pages, nodes=nodes, rendered_image=rendered_image,
+            client=inspection_client, escalation_client=escalation_client, cost_tracker=cost_tracker,
+            reporter=reporter, legend_line_images=legend_line_images, on_attempt=on_attempt,
+        )
     return result
+
+
+def _inspect_proposed_routes(*, result, page, pages, nodes, rendered_image, client,
+                             escalation_client, cost_tracker, reporter, legend_line_images,
+                             on_attempt):
+    """Re-query all source strokes for at most four proposed endpoint pairs.
+
+    No artificial connection or relaxed port/crossing tolerance is introduced.
+    Reinspection can select a source route omitted by the global spanning tree.
+    Both source geometry and a separate visual assessment must pass acceptance.
+    """
+    local_ids={n.id for n in nodes}
+    proposals=[h for h in result.hypotheses if h['from_node'] in local_ids and h['to_node'] in local_ids][:4]
+    pairs={frozenset((h['from_node'],h['to_node'])) for h in proposals}
+    if not pairs:
+        return
+    recovered=build_page_topology(page=page,nodes=nodes,raster_image=rendered_image,requested_pairs=pairs)
+    recovered.edges=[e for e in recovered.edges if not route_evidence_failures(e,page)]
+    # One candidate per pair, deterministic shortest valid source route.
+    unique={}
+    for edge in sorted(recovered.edges,key=lambda e:(len(e.polyline_global),e.id)):
+        unique.setdefault(frozenset((edge.from_node,edge.to_node)),edge)
+    recovered.edges=list(unique.values())
+    for h in proposals:
+        edge=unique.get(frozenset((h['from_node'],h['to_node'])))
+        h['targeted_inspection']={'native_paths_queried':len(page.paths),'source_route_found':edge is not None,'attempts':0}
+    if not recovered.edges:
+        return
+    clients=[client]+([escalation_client] if escalation_client is not None else [])
+    refs,by_ref=_node_reference_table(page.page_index,nodes,nodes)
+    for attempt,active in enumerate(clients,1):
+        edge_refs,edges_by_ref=_edge_reference_table(recovered.edges)
+        try:
+            facts=classify_page_line_evidence(client=active,cost_tracker=cost_tracker,reporter=reporter,
+                page=page,rendered_image=rendered_image,nodes=nodes,topology=recovered,
+                step=max((s.step for s in cost_tracker.steps),default=0)+1,
+                legend_line_images=legend_line_images,on_attempt=on_attempt,inspection_attempts=1)
+            checked=validate_page_graph_submission(page=page,pages=pages,
+                submission=PageGraphSubmission(),nodes_by_ref=by_ref,edges_by_ref=edges_by_ref,
+                local_node_refs=refs,visual_evidence=facts)
+        except Exception as exc:
+            from diagex.llm.client import is_non_retryable_api_error
+            if is_non_retryable_api_error(exc):
+                raise
+            for h in proposals:
+                h['targeted_inspection'].update(attempts=attempt,error=str(exc)[:500])
+            continue
+        accepted=[e for e in checked.edges if not e.attributes.get('provisional_review_only')]
+        for h in proposals:
+            h['targeted_inspection'].update(attempts=attempt,visual_evidence=facts.model_dump(mode='json'))
+        for edge in accepted:
+            pair=frozenset((edge.from_node,edge.to_node))
+            edge.attributes['targeted_source_inspection']=True
+            if not any(frozenset((e.from_node,e.to_node))==pair and e.line_type==edge.line_type for e in result.edges):
+                result.edges.append(edge)
+            for h in proposals:
+                if frozenset((h['from_node'],h['to_node']))==pair:
+                    h.update(status='source_route_recovered',resolved_edge_id=edge.id)
+        accepted_ids={e.id for e in accepted}
+        recovered.edges=[e for e in recovered.edges if e.id not in accepted_ids]
+        if not recovered.edges:
+            break
 
 
 def parse_page_graph_response(response: Any) -> PageGraphSubmission:
@@ -874,7 +967,10 @@ def _merge_page_graph_submissions(
     relations: dict[tuple[str, str, str, bool], ProposedRelation] = {}
     opc_updates: dict[str, OpcUpdate] = {}
     uncertainties: dict[tuple[tuple[str, ...], tuple[str, ...], str], PageGraphUncertainty] = {}
+    hypotheses = {}
     for submission in submissions:
+        for hypothesis in submission.hypotheses:
+            hypotheses.setdefault((hypothesis.from_ref, hypothesis.to_ref, hypothesis.line_type), hypothesis)
         for decision in submission.candidate_decisions:
             decisions.setdefault(decision.candidate_ref, decision)
         for relation in submission.new_relations:
@@ -899,6 +995,7 @@ def _merge_page_graph_submissions(
         new_relations=list(relations.values()),
         opc_updates=list(opc_updates.values()),
         uncertainties=list(uncertainties.values()),
+        hypotheses=list(hypotheses.values())[:64],
     )
 
 
@@ -988,9 +1085,6 @@ def _provisional_review_edge(
         visual=visual,
         decision=decision,
     )
-    provisional.system_confidence = min(provisional.system_confidence or 0.35, 0.35)
-    provisional.system_confidence_level = "low"
-    provisional.confidence = "low"
     return provisional
 
 
@@ -1009,6 +1103,18 @@ def validate_page_graph_submission(
         submission=submission.model_dump(mode="json"),
     )
     effective_nodes_by_ref = {ref: node.model_copy(deep=True) for ref, node in nodes_by_ref.items()}
+    for hypothesis in submission.hypotheses:
+        source, target = nodes_by_ref.get(hypothesis.from_ref), nodes_by_ref.get(hypothesis.to_ref)
+        if source is None or target is None or source.id == target.id or page.page_index not in {source.page_index, target.page_index}:
+            result.diagnostics.append("hypothesis has invalid or out-of-scope endpoints")
+            continue
+        result.hypotheses.append({
+            "id": "hypothesis-" + _stable_relation_id(source.id, target.id, hypothesis.line_type, source.page_index != target.page_index),
+            "page_index": page.page_index, "from_node": source.id, "to_node": target.id,
+            "line_type": hypothesis.line_type, "basis": "engineering_hypothesis", "status": "unresolved",
+            "rationale": hypothesis.rationale, "question": hypothesis.question,
+            "context_sources": hypothesis.context_sources,
+        })
     local_nodes_by_id = {node.id: node for node in local_node_refs.values()}
     visual_by_ref = visual_evidence.assessments if visual_evidence is not None else {}
     decisions: dict[str, CandidateDecision] = {}
@@ -1027,6 +1133,23 @@ def validate_page_graph_submission(
             local_nodes_by_id.get(node_id) for node_id in (edge.from_node, edge.to_node)
         ]
         visual = visual_by_ref.get(ref)
+        structural_failures = route_evidence_failures(edge, page)
+        explicit_decision = decisions.get(ref)
+        if structural_failures and (explicit_decision is None or explicit_decision.decision != "reject"):
+            reason = "; ".join(structural_failures)
+            result.conflicts.append({
+                "type": "unsupported_vector_route", "page_index": page.page_index,
+                "edge_id": edge.id, "candidate_ref": ref,
+                "node_ids": [edge.from_node, edge.to_node], "status": "unresolved",
+                "reason": reason, "source_path_ids": edge.source_evidence_ids,
+            })
+            result.edges.append(_provisional_review_edge(
+                edge, endpoint_nodes, visual=visual, decision=explicit_decision,
+                conflict_type="unsupported_vector_route", reason=reason,
+                proposed_line_type=explicit_decision.line_type if explicit_decision else None,
+            ))
+            result.provisional_candidate_ids.append(edge.id)
+            continue
         requires_review = any(
             node and node.kind in {"instrument", "opc"} for node in endpoint_nodes
         )
@@ -1037,6 +1160,8 @@ def validate_page_graph_submission(
             in {"dashed", "dotted", "dash_dot"}
         )
         decision = decisions.get(ref)
+        edge = _orient_supported_route(edge, visual)
+        endpoint_nodes = [local_nodes_by_id.get(node_id) for node_id in (edge.from_node, edge.to_node)]
         if decision is None and visual is not None:
             decision = _automatic_visual_decision(edge, endpoint_nodes, visual)
         if decision is None and not requires_review:
@@ -1098,7 +1223,54 @@ def validate_page_graph_submission(
         if decision.decision == "reject":
             result.rejected_candidate_ids.append(edge.id)
             continue
-        line_type = decision.line_type if decision.decision == "retype" else edge.line_type
+        # Some providers use ``keep`` to mean "keep this candidate" while
+        # still returning the engineering classification they selected.  Do
+        # not silently discard that classification when deterministic
+        # topology could only initialise the edge as ``other``.  Implicit
+        # retyping remains conservative: it needs independent visual and
+        # endpoint-semantic support before it can enter the graph.
+        line_type = decision.line_type or edge.line_type
+        implicit_retype = (
+            decision.decision == "keep"
+            and decision.line_type is not None
+            and decision.line_type != edge.line_type
+        )
+        if implicit_retype and not _implicit_retype_supported(
+            edge,
+            endpoint_nodes,
+            proposed_line_type=line_type,
+            visual=visual,
+        ):
+            reason = (
+                "page solver supplied a different line type with a keep decision, "
+                "but independent visual and endpoint evidence did not corroborate it"
+            )
+            result.conflicts.append(
+                {
+                    "type": "endpoint_role_uncertain",
+                    "page_index": page.page_index,
+                    "edge_id": edge.id,
+                    "candidate_ref": ref,
+                    "node_ids": [node.id for node in endpoint_nodes if node is not None],
+                    "proposed_line_type": line_type,
+                    "status": "unresolved",
+                    "endpoint_roles": [_endpoint_role(node) for node in endpoint_nodes],
+                    "reason": reason,
+                }
+            )
+            result.edges.append(
+                _provisional_review_edge(
+                    edge,
+                    endpoint_nodes,
+                    visual=visual,
+                    decision=decision,
+                    conflict_type="endpoint_role_uncertain",
+                    reason=reason,
+                    proposed_line_type=line_type,
+                )
+            )
+            result.provisional_candidate_ids.append(edge.id)
+            continue
         compatibility = _endpoint_compatibility(line_type, endpoint_nodes)
         if compatibility != "valid":
             conflict_type = (
@@ -1168,14 +1340,6 @@ def validate_page_graph_submission(
             result.provisional_candidate_ids.append(edge.id)
             continue
         update_values: dict[str, Any] = {"line_type": line_type}
-        if decision.reverse:
-            update_values.update(
-                {
-                    "from_node": edge.to_node,
-                    "to_node": edge.from_node,
-                    "polyline_global": list(reversed(edge.polyline_global)),
-                }
-            )
         updated = edge.model_copy(deep=True, update=update_values)
         updated.attributes.update(
             {
@@ -1183,6 +1347,8 @@ def validate_page_graph_submission(
                 "page_graph_evidence": decision.evidence,
             }
         )
+        if implicit_retype:
+            updated.attributes["line_type_source"] = "page_graph_keep_classification"
         updated = _score_edge_evidence(
             updated,
             endpoint_nodes,
@@ -1262,6 +1428,13 @@ def validate_page_graph_submission(
             continue
         if not cross_sheet and relation.line_type == "process":
             result.diagnostics.append("new process relations require deterministic topology")
+            result.hypotheses.append({
+                "id": "hypothesis-" + _stable_relation_id(source.id, target.id, relation.line_type, False),
+                "page_index": page.page_index, "from_node": source.id, "to_node": target.id,
+                "line_type": relation.line_type, "basis": "unverified_visual_proposal", "status": "unresolved",
+                "rationale": "; ".join(relation.evidence),
+                "question": "Can a continuous source route be traced between these endpoints?",
+            })
             continue
         compatibility = _endpoint_compatibility(relation.line_type, [source, target])
         if compatibility != "valid":
@@ -1314,6 +1487,13 @@ def validate_page_graph_submission(
             visual=None,
             decision=None,
         )
+        if not cross_sheet:
+            proposed_edge = _provisional_review_edge(
+                proposed_edge, [source, target], visual=None, decision=None,
+                conflict_type="relationship_geometry_missing",
+                reason="model-supported relationship has no deterministic source polyline",
+            )
+            result.provisional_candidate_ids.append(proposed_edge.id)
         result.edges.append(proposed_edge)
         if not cross_sheet:
             result.conflicts.append(
@@ -1344,6 +1524,30 @@ def validate_page_graph_submission(
             }
         )
     return result
+
+
+def _orient_supported_route(
+    edge: ReconciledEdge, visual: VisualCandidateAssessment | None,
+) -> ReconciledEdge:
+    """Endpoint ordering is not flow evidence. Native arrows take precedence."""
+    updated = edge.model_copy(deep=True)
+    if updated.attributes.get("direction_source") == "native_vector_arrow":
+        return updated
+    updated.attributes["flow_direction"] = "unknown"
+    updated.attributes["direction_source"] = "unknown"
+    if visual is None or visual.confidence != "high" or visual.arrow_direction not in {"forward", "reverse"}:
+        return updated
+    updated.attributes["flow_direction"] = "forward"
+    updated.attributes["direction_source"] = "visual_arrow"
+    if visual.arrow_direction == "reverse":
+        updated.from_node, updated.to_node = updated.to_node, updated.from_node
+        updated.polyline_global.reverse()
+        if "endpoint_labels" in updated.attributes:
+            updated.attributes["endpoint_labels"].reverse()
+        proof = updated.attributes.get("route_evidence")
+        if proof:
+            proof["ports"].reverse()
+    return updated
 
 
 def _candidate_requires_semantic_reasoning(
@@ -1392,7 +1596,6 @@ def _automatic_visual_decision(
         candidate_ref="",  # filled below; only the decision fields are consumed
         decision="keep" if proposed_type == edge.line_type else "retype",
         line_type=proposed_type,
-        reverse=visual.arrow_direction == "reverse",
         confidence="high",
         evidence=[*visual.evidence, "automatic visual/structural decision"][:8],
     )
@@ -1431,6 +1634,145 @@ def _endpoint_role(node: ReconciledNode | None) -> str:
     if re.search(r"(?:power\s*(?:source|supply)|电源|switchgear|mcc)", text):
         return "power_source"
     return "equipment"
+
+
+def _node_loop_number(node: ReconciledNode | None) -> str | None:
+    if node is None:
+        return None
+    for key in ("loop_number", "tag_number"):
+        value = re.sub(r"[^A-Z0-9]", "", str(node.attributes.get(key) or "").upper())
+        if value:
+            return value
+    compact = re.sub(
+        r"[^A-Z0-9]",
+        "",
+        str(node.attributes.get("canonical_tag") or node.label or "").upper(),
+    )
+    match = re.search(r"(\d{2,6}[A-Z]?)$", compact)
+    return match.group(1) if match is not None else None
+
+
+def _node_instrument_function(node: ReconciledNode | None) -> str | None:
+    if node is None or node.kind != "instrument":
+        return None
+    explicit = str(node.attributes.get("instrument_function") or "").strip().lower()
+    if explicit and explicit != "unclassified_instrument":
+        return explicit
+    compact = re.sub(
+        r"[^A-Z0-9]",
+        "",
+        str(node.attributes.get("canonical_tag") or node.label or "").upper(),
+    )
+    match = re.match(r"([A-Z]{1,6})\d", compact)
+    if match is None:
+        return None
+    functions = match.group(1)[1:]
+    for letter, function in (
+        ("C", "controller"),
+        ("T", "transmitter"),
+        ("I", "indicator"),
+        ("R", "recorder"),
+        ("E", "element"),
+        ("S", "switch"),
+        ("A", "alarm"),
+        ("V", "valve_actuator"),
+    ):
+        if letter in functions:
+            return function
+    return None
+
+
+def _node_measured_variable(node: ReconciledNode | None) -> str | None:
+    if node is None or node.kind != "instrument":
+        return None
+    explicit = str(node.attributes.get("measured_variable") or "").strip().lower()
+    if explicit and explicit != "other":
+        return explicit
+    compact = re.sub(
+        r"[^A-Z0-9]",
+        "",
+        str(node.attributes.get("canonical_tag") or node.label or "").upper(),
+    )
+    return {
+        "A": "analysis",
+        "F": "flow",
+        "L": "level",
+        "P": "pressure",
+        "T": "temperature",
+    }.get(compact[:1])
+
+
+_INSTRUMENT_SIGNAL_FLOW: dict[str, set[str]] = {
+    "element": {"transmitter", "indicator", "controller", "recorder"},
+    "transmitter": {"indicator", "controller", "recorder", "alarm"},
+    "switch": {"controller", "alarm"},
+    "controller": {"indicator", "recorder"},
+}
+
+
+def _instrument_pair_evidence(
+    endpoints: list[ReconciledNode | None],
+) -> dict[str, Any] | None:
+    if len(endpoints) != 2 or any(node is None or node.kind != "instrument" for node in endpoints):
+        return None
+    left, right = endpoints
+    left_loop, right_loop = _node_loop_number(left), _node_loop_number(right)
+    left_function = _node_instrument_function(left)
+    right_function = _node_instrument_function(right)
+    left_variable = _node_measured_variable(left)
+    right_variable = _node_measured_variable(right)
+    same_loop = bool(left_loop and right_loop and left_loop == right_loop)
+    variable_compatible = not (
+        left_variable and right_variable and left_variable != right_variable
+    )
+    direction = None
+    if right_function in _INSTRUMENT_SIGNAL_FLOW.get(left_function or "", set()):
+        direction = "forward"
+    elif left_function in _INSTRUMENT_SIGNAL_FLOW.get(right_function or "", set()):
+        direction = "reverse"
+    return {
+        "same_loop": same_loop,
+        "loop_number": left_loop if same_loop else None,
+        "functions": [left_function, right_function],
+        "measured_variables": [left_variable, right_variable],
+        "functional_direction": direction,
+        "compatible": bool(same_loop and variable_compatible and direction),
+    }
+
+
+def _implicit_retype_supported(
+    edge: ReconciledEdge,
+    endpoints: list[ReconciledNode | None],
+    *,
+    proposed_line_type: LineType,
+    visual: VisualCandidateAssessment | None,
+) -> bool:
+    """Require independent evidence for ``keep`` plus a changed line type."""
+
+    if edge.line_type not in {"other", proposed_line_type}:
+        return False
+    if _endpoint_compatibility(proposed_line_type, endpoints) != "valid":
+        return False
+    visual_route = bool(
+        visual is not None
+        and visual.route_visible == "yes"
+        and visual.endpoint_alignment == "both"
+    )
+    legend_match = bool(visual_route and visual.legend_class == proposed_line_type)
+    if proposed_line_type in {
+        "signal_electric",
+        "signal_pneumatic",
+        "instrument_capillary",
+    }:
+        pair = _instrument_pair_evidence(endpoints)
+        return bool(legend_match and pair and pair["compatible"])
+    if proposed_line_type == "process":
+        return bool(
+            visual_route
+            and visual is not None
+            and (visual.legend_class == "process" or visual.observed_style == "solid")
+        )
+    return legend_match
 
 
 def _endpoint_compatibility(
@@ -1489,7 +1831,7 @@ def _score_edge_evidence(
 
     if edge.attributes.get("topology_source") == "deterministic_vector":
         add("vector_topology", 0.08)
-    if edge.polyline_global:
+    if len(set(edge.polyline_global)) >= 2:
         add("recovered_geometry", 0.06)
     else:
         add("missing_geometry", -0.14)
@@ -1498,6 +1840,9 @@ def _score_edge_evidence(
         "endpoint_compatibility",
         0.10 if compatibility == "valid" else -0.08 if compatibility == "uncertain" else -0.35,
     )
+    instrument_pair = _instrument_pair_evidence(endpoints)
+    if edge.line_type in _SIGNAL_TYPES and instrument_pair and instrument_pair["compatible"]:
+        add("same_loop_instrument_semantics", 0.08)
     if visual is not None:
         add(
             "route_visibility",
@@ -1534,8 +1879,13 @@ def _score_edge_evidence(
             if decision.confidence == "medium"
             else -0.08,
         )
+    if edge.attributes.get("provisional_review_only"):
+        contributions["structural_or_semantic_gate"] = round(min(0., .35-score), 3)
+        score = min(score, .35)
     score = round(max(0.05, min(0.98, score)), 3)
     updated = edge.model_copy(deep=True)
+    if edge.attributes.get("provisional_review_only"):
+        updated.confidence = "low"
     updated.system_confidence = score
     updated.system_confidence_level = (
         "high" if score >= 0.80 else "medium" if score >= 0.55 else "low"
@@ -1544,6 +1894,7 @@ def _score_edge_evidence(
         "score": score,
         "contributions": contributions,
         "endpoint_roles": [_endpoint_role(node) for node in endpoints],
+        "instrument_pair": instrument_pair,
         "visual_assessment": visual.model_dump(mode="json") if visual is not None else None,
     }
     return updated

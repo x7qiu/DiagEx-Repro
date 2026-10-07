@@ -220,6 +220,36 @@ def test_public_conflicts_include_compact_review_candidates(tmp_path: Path) -> N
     )
 
 
+def test_conflict_candidates_resolve_detection_provenance_to_visible_node(
+    tmp_path: Path,
+) -> None:
+    source = tmp_path / "source.pdf"
+    _write_source(source)
+    run = _write_run(tmp_path / "run")
+    graph_path = run / "graph.json"
+    graph = json.loads(graph_path.read_text(encoding="utf-8"))
+    graph["nodes"][1]["source_annotation_ids"] = ["det-pump"]
+    graph["conflicts"] = [
+        {
+            "type": "tag_kind_conflict",
+            "detection_id": "det-pump",
+            "page_index": 0,
+            "status": "unresolved",
+        }
+    ]
+    graph_path.write_text(json.dumps(graph), encoding="utf-8")
+
+    store = ReviewStore.open(
+        run,
+        source_path=source,
+        rater="Ada",
+        out_dir=tmp_path / "review",
+    )
+
+    conflict = next(iter(store.public_state()["reviews"]["conflicts"].values()))
+    assert [node["id"] for node in conflict["candidates"]["nodes"]] == ["n-b"]
+
+
 def test_resolved_model_conflict_does_not_require_human_disposition(
     tmp_path: Path,
 ) -> None:
@@ -275,9 +305,7 @@ def test_native_text_inventory_links_matches_and_audits_missing_tags(tmp_path: P
     _write_source(source)
     run = _write_run(tmp_path / "run")
     _write_native_evidence(run)
-    store = ReviewStore.open(
-        run, source_path=source, rater="Ada", out_dir=tmp_path / "review"
-    )
+    store = ReviewStore.open(run, source_path=source, rater="Ada", out_dir=tmp_path / "review")
 
     state = store.public_state()
     candidates = state["inventory"]["evidence"]
@@ -308,9 +336,7 @@ def test_native_text_inventory_links_matches_and_audits_missing_tags(tmp_path: P
         "dismiss",
         {"disposition": "line_number"},
     )
-    resumed = ReviewStore.open(
-        run, source_path=source, rater="Ada", out_dir=tmp_path / "review"
-    )
+    resumed = ReviewStore.open(run, source_path=source, rater="Ada", out_dir=tmp_path / "review")
     assert resumed.state["evidence_reviews"][line["id"]]["status"] == "dismissed"
 
 
@@ -459,3 +485,197 @@ def test_page_assets_support_multipage_and_persisted_coordinate_frames(tmp_path:
         (240, 160, 72.0),
         (240, 160, 72.0),
     ]
+
+
+@pytest.mark.parametrize("operation", ["approve", "reject", "modify"])
+def test_connection_decision_resolves_linked_conflicts_and_undo_restores_them(review, operation):
+    linked = {
+        "status": "unreviewed",
+        "conflict": {
+            "type": "unsupported_vector_route",
+            "edge_id": "e-a",
+            "node_ids": ["n-a", "n-b"],
+        },
+    }
+    review.state["conflict_reviews"]["linked"] = linked
+    # Unrelated identity conflicts must remain independent of connection review.
+    unrelated = next(iter(review.state["conflict_reviews"]))
+    before = review.public_state()
+    assert before["reviews"]["conflicts"]["linked"]["decision_target"] == {
+        "type": "edge",
+        "id": "e-a",
+    }
+    assert (
+        "graph conflict" in next(r for r in before["queue"] if r["target_id"] == "n-a")["reasons"]
+    )
+    _action(review, "edge", "e-a", operation)
+    assert review.state["conflict_reviews"]["linked"]["status"] == "resolved"
+    assert review.state["conflict_reviews"][unrelated]["status"] == "unreviewed"
+    assert (
+        "graph conflict"
+        not in next(r for r in review._queue() if r["target_id"] == "n-a")["reasons"]
+    )
+    _action(review, "edge", "e-a", "undo")
+    assert review.state["conflict_reviews"]["linked"] == linked
+    assert (
+        "graph conflict" in next(r for r in review._queue() if r["target_id"] == "n-a")["reasons"]
+    )
+
+
+def test_grouped_connection_requires_choice_and_exports_only_chosen_route(review):
+    import copy
+
+    edge = review.state["graph"]["edges"][0]
+    alternative = copy.deepcopy(edge)
+    alternative.update(
+        id="alternate",
+        polyline_global=[[220, 160], [220, 200], [500, 160]],
+        source_evidence_ids=["alternate-ink"],
+    )
+    edge["attributes"].update(
+        provisional_review_only=True, route_alternatives=[copy.deepcopy(edge), alternative]
+    )
+    with pytest.raises(ValueError, match="select a route"):
+        _action(review, "edge", "e-a", "approve")
+    _action(review, "edge", "e-a", "approve", {"route_candidate_id": "alternate"})
+    chosen = review.reviewed_graph().edges[0]
+    assert chosen.polyline_global == [(220, 160), (220, 200), (500, 160)]
+    assert chosen.source_evidence_ids == ["alternate-ink"]
+    assert chosen.attributes["human_review_confirmed"]
+    assert len(review.reviewed_graph().edges) == 1
+    _action(review, "edge", "e-a", "undo")
+    assert review.state["graph"]["edges"][0]["polyline_global"] == [[220, 160], [500, 160]]
+
+
+def test_reviewed_legacy_edge_does_not_hide_unresolved_conflict(review):
+    review.state["edge_reviews"]["e-a"] = "approved"
+    review.state["conflict_reviews"]["legacy"] = {
+        "status": "unreviewed",
+        "conflict": {
+            "type": "unsupported_vector_route",
+            "edge_id": "e-a",
+        },
+    }
+    assert "decision_target" not in review.public_state()["reviews"]["conflicts"]["legacy"]
+
+
+def test_assembly_identity_review_is_atomic_and_does_not_create_pipe_objects(tmp_path):
+    source = tmp_path / "source.pdf"
+    _write_source(source)
+    run = _write_run(tmp_path / "run")
+    raw = json.loads((run / "graph.json").read_text())
+    raw["assemblies"] = [
+        {
+            "id": "assembly-a",
+            "page_index": 0,
+            "bbox_global": {"x": 80, "y": 100, "w": 540, "h": 180},
+            "label": None,
+            "label_candidates": ["K-101", "K-102"],
+            "member_node_ids": ["n-a", "n-b"],
+            "status": "conflicting",
+        }
+    ]
+    raw["text_bindings"] = [{"assembly_ids": ["assembly-a"], "node_ids": []}]
+    raw["conflicts"] = [
+        {
+            "type": "assembly_identity_uncertainty",
+            "assembly_id": "assembly-a",
+            "node_ids": ["n-a", "n-b"],
+            "labels": ["K-101", "K-102"],
+        }
+    ]
+    (run / "graph.json").write_text(json.dumps(raw))
+    store = ReviewStore.open(run, source_path=source, rater="Ada", out_dir=tmp_path / "review")
+    cid = next(iter(store.state["conflict_reviews"]))
+    assert store.completion()["unreviewed_assemblies"] == ["assembly-a"]
+    assert (
+        store.public_state()["reviews"]["conflicts"][cid]["decision_target"]["type"] == "assembly"
+    )
+    with pytest.raises(ValueError, match="choose an assembly identity"):
+        _action(store, "assembly", "assembly-a", "approve")
+    _action(store, "assembly", "assembly-a", "modify", {"label": "K-101"})
+    assert store.state["conflict_reviews"][cid]["status"] == "resolved"
+    assert store.state["node_reviews"] == {"n-a": "unreviewed", "n-b": "unreviewed"}
+    reopened = ReviewStore.open(run, source_path=source, rater="Ada", out_dir=tmp_path / "review")
+    assert reopened.state["graph"]["assemblies"][0]["label"] == "K-101"
+    _action(reopened, "assembly", "assembly-a", "undo")
+    assert reopened.state["graph"]["assemblies"][0]["label"] is None
+    assert reopened.state["conflict_reviews"][cid]["status"] == "unreviewed"
+    _action(reopened, "assembly", "assembly-a", "reject")
+    rejected = reopened.reviewed_graph()
+    assert not rejected.assemblies and not rejected.text_bindings[0]["assembly_ids"]
+    assert len(rejected.nodes) == 2
+    _action(reopened, "assembly", "assembly-a", "undo")
+    _action(reopened, "assembly", "assembly-a", "modify", {"label": "K-102"})
+    for nid in ["n-a", "n-b"]:
+        _action(reopened, "node", nid, "approve")
+    _action(reopened, "edge", "e-a", "approve")
+    _action(reopened, "page", "0", "approve", {"role": "pid"})
+    assert reopened.finish()["finished"]
+    exported = json.loads((reopened.out_dir / "graph.reviewed.json").read_text())
+    assert len(exported["nodes"]) == 2 and len(exported["edges"]) == 1
+    assert exported["assemblies"][0]["label"] == "K-102"
+    assert "assembly-a" not in (reopened.out_dir / "pid.reviewed.dexpi.xml").read_text()
+
+
+def _write_review_findings(review: ReviewStore, records: list[dict]) -> Path:
+    path = review.graph_path.parent / 'review-findings.json'
+    path.write_text(json.dumps({
+        'graph_sha256': review.session['graph_sha256'],
+        'source_sha256': review.session['source_sha256'],
+        'findings': records,
+    }), encoding='utf-8')
+    return path
+
+
+def test_imported_findings_keep_review_history_and_human_gate(review: ReviewStore):
+    records = [{'id': 'source-label', 'conflict': {
+        'type': 'source_identifier_conflict', 'title': 'T-101 or T-102?',
+        'question': 'Which printed label governs?', 'page_index': 0,
+        'source_locations': [{'page_index': 0, 'bbox_global': {'x': 20, 'y': 30, 'w': 50, 'h': 20}, 'label': 'T-102'}],
+    }}]
+    path = _write_review_findings(review, records)
+    def reopen():
+        return ReviewStore.open(review.graph_path, source_path=review.source_path,
+                                rater='Ada', out_dir=review.out_dir)
+    current = reopen()
+    state = current.public_state()
+    assert state['findings'][0]['target_id'] == 'audit-source-label'
+    assert state['findings'][0]['category'] == 'identifiers'
+    assert set(state['reviews']['nodes'].values()) == {'unreviewed'}
+    assert not state['completion']['complete']
+    with pytest.raises(ValueError, match='record a decision'):
+        _action(current, 'conflict', 'audit-source-label', 'resolve')
+    _action(current, 'conflict', 'audit-source-label', 'resolve', reason='Retain T-101 per owner clarification')
+    current = reopen()
+    assert current.state['conflict_reviews']['audit-source-label']['reason'] == 'Retain T-101 per owner clarification'
+    assert all(row['target_id'] != 'audit-source-label' for row in current.public_state()['findings'])
+    assert len(current.session['conflicts']) == 2
+    _action(current, '', '', 'undo')
+    assert current.public_state()['findings'][0]['target_id'] == 'audit-source-label'
+    records[0]['conflict']['title'] = 'Changed meaning must get a new ID'
+    _write_review_findings(current, records)
+    with pytest.raises(ReviewConflictError, match='changed'):
+        reopen()
+    payload = json.loads(path.read_text())
+    payload['graph_sha256'] = 'wrong'
+    path.write_text(json.dumps(payload))
+    with pytest.raises(ReviewConflictError, match='do not match'):
+        reopen()
+
+
+def test_findings_group_connection_warnings_and_exclude_routine_signoff(review: ReviewStore):
+    graph = review.state['graph']
+    conflict = {'type': 'endpoint_role_uncertain', 'edge_id': 'e-a', 'page_index': 0, 'reason': 'Check line meaning'}
+    for key in ['warning-one', 'warning-two']:
+        review.state['conflict_reviews'][key] = {'conflict': conflict, 'status': 'unreviewed', 'reason': None}
+    graph['edges'][0]['attributes']['provisional_review_only'] = True
+    state = review.public_state()
+    edge_rows = [row for row in state['findings'] if row['target_id'] == 'e-a']
+    assert len(edge_rows) == 1
+    assert edge_rows[0]['conflict_ids'] == ['warning-one', 'warning-two']
+    assert edge_rows[0]['category'] == 'connections'
+    assert all(row['target_type'] != 'node' for row in state['findings'])
+    assert len(state['queue']) == 3  # Ordinary objects remain available for full sign-off.
+    _action(review, 'edge', 'e-a', 'approve')
+    assert all(row['target_id'] != 'e-a' for row in review.public_state()['findings'])

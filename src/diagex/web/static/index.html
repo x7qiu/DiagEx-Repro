@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DiagEx Workbench</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <div class="brand"><span class="brand-mark">D</span><strong>DiagEx</strong></div>
+      <p data-i18n="subtitle">P&amp;ID extraction and human review workbench</p>
+    </div>
+    <div class="header-actions">
+      <span id="serverStatus" class="status-dot"><i></i><span data-i18n="connecting">Connecting</span></span>
+      <select id="languageSwitch" aria-label="Language">
+        <option value="en">English</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <div>
+        <span class="eyebrow" data-i18n="localWorkbench">LOCAL WORKBENCH</span>
+        <h1 data-i18n="title">Turn a P&amp;ID into an editable engineering graph</h1>
+        <p data-i18n="intro">Configure the models, upload a drawing, run extraction, then open the result directly in human review.</p>
+      </div>
+      <div class="privacy-note">
+        <strong data-i18n="credentialsStayLocal">Credentials are not saved</strong>
+        <span data-i18n="credentialsDetail">Keys are sent only to the selected API endpoint and are never saved to .env or run artifacts.</span>
+      </div>
+    </section>
+
+    <section class="workflow-grid">
+      <article class="card settings-card">
+        <div class="card-heading">
+          <span class="step">1</span>
+          <div><h2 data-i18n="configure">Configure extraction</h2><p data-i18n="configureHint">Choose the provider and models used for this run.</p></div>
+        </div>
+        <div class="form-grid">
+          <label>
+            <span data-i18n="provider">Provider</span>
+            <select id="provider">
+              <option value="openrouter">OpenRouter</option>
+              <option value="kimi">Kimi</option>
+              <option value="anthropic">Anthropic</option>
+              <option value="azure">Azure AI</option>
+            </select>
+          </label>
+          <label id="baseUrlField">
+            <span data-i18n="baseUrl">API endpoint</span>
+            <input id="baseUrl" type="url" spellcheck="false" autocomplete="off">
+          </label>
+          <label class="wide">
+            <span data-i18n="apiKey">API key</span>
+            <div class="password-wrap">
+              <input id="apiKey" type="password" autocomplete="off" data-i18n-placeholder="apiKeyPlaceholder" placeholder="Leave blank to use the configured environment key">
+              <button id="toggleKey" class="icon-button" type="button" data-i18n="show">Show</button>
+            </div>
+            <small id="keyStatus"></small>
+          </label>
+          <label class="wide">
+            <span data-i18n="visionModel">Vision model</span>
+            <input id="visionModel" list="modelSuggestions" spellcheck="false" autocomplete="off" placeholder="provider/model-slug">
+            <small data-i18n="visionHint">Used for raw symbol detection. Enable reasoning below for difficult symbols.</small>
+          </label>
+          <label class="wide">
+            <span data-i18n="reasoningModel">Reasoning model</span>
+            <input id="reasoningModel" list="modelSuggestions" spellcheck="false" autocomplete="off" placeholder="Same as vision model when blank">
+            <small data-i18n="reasoningModelHint">Used for page-level relationship and cross-sheet reasoning.</small>
+          </label>
+          <label>
+            <span data-i18n="reasoning">Reasoning</span>
+            <select id="reasoningMode">
+              <option value="auto" data-i18n="automatic">Automatic</option>
+              <option value="enabled" data-i18n="enabled">Enabled</option>
+              <option value="disabled" data-i18n="disabled">Disabled</option>
+            </select>
+            <small data-i18n="reasoningHint">Symbol detection starts with a fast pass. Enabled allows one reasoning check for uncertain symbols, with time limits.</small>
+          </label>
+          <label>
+            <span data-i18n="effort">Reasoning effort</span>
+            <select id="effort">
+              <option value="low" data-i18n="low">Low</option>
+              <option value="medium" data-i18n="medium">Medium</option>
+              <option value="high" data-i18n="high">High</option>
+              <option value="xhigh" data-i18n="xhigh">Extra high</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="engine">Extraction engine</span>
+            <select id="engine">
+              <option value="evidence-v2">Evidence v2</option>
+              <option value="legacy">Legacy</option>
+            </select>
+          </label>
+        </div>
+        <datalist id="modelSuggestions">
+          <option value="qwen/qwen3.5-35b-a3b"></option>
+          <option value="qwen/qwen3.5-122b-a10b"></option>
+          <option value="deepseek/deepseek-v4-flash-vision-exp"></option>
+          <option value="deepseek/deepseek-v4-flash-latest"></option>
+          <option value="qwen/qwen3.7-flash"></option>
+        </datalist>
+      </article>
+
+      <article class="card source-card">
+        <label class="wide">
+          <span>Model profile / 模型方案</span>
+          <select id="modelPolicy">
+            <option value="deepseek-flash">DeepSeek V4.1 Flash (default / 默认)</option>
+            <option value="production-open-weight">Open-weight production profile / 开放权重方案</option>
+            <option value="evaluation">Custom evaluation models / 自定义评测模型</option>
+          </select>
+          <small id="modelPolicyHint">DeepSeek V4.1 Flash handles vision, reasoning, and bounded source reinspection.</small>
+        </label>
+        <label class="wide"><span>Process overview / 工艺说明（可选）</span><textarea id="processOverview" rows="3" maxlength="40000" placeholder="Source and process description"></textarea></label>
+        <label class="wide"><span>Engineering rules / 工程规则（可选）</span><textarea id="engineeringRules" rows="3" maxlength="40000" placeholder="Used to propose connections for source inspection"></textarea></label>
+        <div class="card-heading">
+          <span class="step">2</span>
+          <div><h2 data-i18n="chooseDrawing">Choose the drawing</h2><p data-i18n="chooseDrawingHint">PDF is recommended; vector PDFs give the strongest line evidence.</p></div>
+        </div>
+        <label id="dropZone" class="drop-zone">
+          <input id="fileInput" type="file" accept="application/pdf,image/png,image/jpeg,image/tiff">
+          <span class="upload-icon">⇧</span>
+          <strong data-i18n="dropDrawing">Drop a P&amp;ID here</strong>
+          <span data-i18n="orBrowse">or click to choose a file</span>
+          <small>PDF · PNG · JPEG · TIFF</small>
+        </label>
+        <div id="reviewedBuild" class="hidden"><strong data-i18n="reviewedBuildTitle">Build graph from reviewed symbols</strong><p data-i18n="reviewedBuildHint">Uses the saved legend and symbol decisions. Check the model settings, then start the graph build.</p><button id="buildReviewedButton" class="primary" type="button" data-i18n="buildReviewed">Build reviewed graph</button></div>
+        <div id="uploadProgress" class="upload-progress hidden"><div></div></div>
+        <div id="fileSummary" class="file-summary hidden">
+          <div class="file-icon">PDF</div>
+          <div><strong id="fileName"></strong><span id="fileSize"></span></div>
+          <button id="replaceFile" class="quiet" type="button" data-i18n="replace">Replace</button>
+        </div>
+
+        <fieldset class="run-mode">
+          <legend data-i18n="artifactReuse">Artifact reuse</legend>
+          <label class="choice-card">
+            <input type="radio" name="runMode" value="reuse" checked>
+            <span><strong data-i18n="reuseArtifacts">Resume compatible artifacts</strong><small data-i18n="reuseHint">Continue an interrupted matching run when possible.</small></span>
+          </label>
+          <label class="choice-card">
+            <input type="radio" name="runMode" value="fresh">
+            <span><strong data-i18n="startFresh">Start a brand-new run</strong><small data-i18n="freshHint">Bypass machine legend and symbol caches; preserve reviewed artifacts.</small></span>
+          </label>
+        </fieldset>
+        <button id="detectButton" class="primary" type="button" data-i18n="detectSymbols">Detect legends &amp; symbols</button>
+        <p data-i18n="detectHint">Stop before graph construction. Review the legend and symbols first.</p>
+        <button id="startButton" class="primary large" type="button" disabled><span data-i18n="startExtraction">Start extraction</span><b>→</b></button>
+        <div id="formError" class="message error hidden"></div>
+      </article>
+    </section>
+
+    <section id="runSection" class="card run-card hidden">
+      <div class="run-heading">
+        <div>
+          <span id="jobState" class="pill running" data-i18n="queued">Queued</span>
+          <h2 id="jobTitle" data-i18n="extractionProgress">Extraction progress</h2>
+          <p id="jobSubtitle"></p>
+        </div>
+        <div class="run-time"><span data-i18n="elapsed">Elapsed</span><strong id="elapsedTime">00:00</strong></div>
+      </div>
+      <div id="activityBar" class="activity-bar"><div></div></div>
+      <div class="log-toolbar">
+        <strong data-i18n="liveLog">Live extraction log</strong>
+        <div><label><input id="autoScroll" type="checkbox" checked> <span data-i18n="autoScroll">Auto-scroll</span></label><button id="copyLog" class="quiet" type="button" data-i18n="copy">Copy</button></div>
+      </div>
+      <pre id="jobLog" class="job-log"></pre>
+      <div id="jobError" class="message error hidden"></div>
+    </section>
+
+    <section id="resultSection" class="card result-card hidden">
+      <div class="result-heading">
+        <div class="result-check">✓</div>
+        <div><h2 data-i18n="extractionFinished">Extraction finished</h2><p id="resultSummary"></p></div>
+        <span id="qualityBadge" class="pill"></span>
+      </div>
+      <div id="metricGrid" class="metric-grid"></div>
+      <div class="run-path"><span data-i18n="runDirectory">Run directory</span><code id="runPath"></code></div>
+      <div class="review-row">
+        <label><span data-i18n="reviewerName">Reviewer name</span><input id="raterName" autocomplete="name" placeholder="Engineer"></label>
+        <button id="detectionReviewButton" class="primary" type="button" data-i18n="reviewSymbols">Review legends &amp; symbols</button><button id="reviewButton" class="primary large" type="button"><span data-i18n="openReview">Open human review</span><b>↗</b></button>
+      </div>
+      <div id="reviewError" class="message error hidden"></div>
+    </section>
+
+    <section id="recentSection" class="card recent-card hidden">
+      <div class="card-heading compact"><div><h2 data-i18n="recentRuns">Open an existing run</h2><p data-i18n="recentRunsHint">Review any extraction in the configured runs directory without rerunning it.</p></div></div>
+      <div class="existing-run-toolbar">
+        <label><span data-i18n="filterRuns">Find a run</span><input id="runFilter" type="search" data-i18n-placeholder="filterRunsPlaceholder" placeholder="Drawing, run ID, or model"></label>
+        <label><span data-i18n="reviewerName">Reviewer name</span><input id="existingRaterName" autocomplete="name" placeholder="Engineer"></label>
+        <button id="refreshRuns" class="quiet" type="button" data-i18n="refreshRuns">Refresh runs</button>
+      </div>
+      <input id="existingSourceInput" class="hidden" type="file" accept="application/pdf,image/png,image/jpeg,image/tiff">
+      <div id="existingReviewError" class="message error hidden"></div>
+      <div id="recentRuns" class="recent-runs"></div>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

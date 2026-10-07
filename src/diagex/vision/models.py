@@ -69,7 +69,7 @@ class BBox(BaseModel):
     def y2(self) -> int:
         return self.y + self.h
 
-    def iou(self, other: "BBox") -> float:
+    def iou(self, other: BBox) -> float:
         ix1 = max(self.x, other.x)
         iy1 = max(self.y, other.y)
         ix2 = min(self.x2, other.x2)
@@ -212,6 +212,22 @@ class ReconciledEdge(BaseModel):
         return v
 
 
+class EquipmentAssembly(BaseModel):
+    """Logical equipment scope. Membership never implies a pipe connection."""
+
+    id: str
+    page_index: int
+    bbox_global: BBox
+    label: str | None = None
+    label_candidates: list[str] = Field(default_factory=list)
+    member_node_ids: list[str] = Field(default_factory=list)
+    parent_assembly_id: str | None = None
+    status: Literal["supported", "uncertain", "conflicting"] = "uncertain"
+    source_text_ids: list[str] = Field(default_factory=list)
+    boundary_segments: list[tuple] = Field(default_factory=list)
+    evidence: dict[str, Any] = Field(default_factory=dict)
+
+
 class ReconciledGraph(BaseModel):
     model_config = ConfigDict(arbitrary_types_allowed=True)
 
@@ -219,6 +235,8 @@ class ReconciledGraph(BaseModel):
     source_path: str              # relative stem, not absolute (spec §6.5)
     nodes: list[ReconciledNode] = Field(default_factory=list)
     edges: list[ReconciledEdge] = Field(default_factory=list)
+    assemblies: list[EquipmentAssembly] = Field(default_factory=list)
+    text_bindings: list[dict[str, Any]] = Field(default_factory=list)
     dangling_opcs: list[dict] = Field(default_factory=list)
     conflicts: list[dict] = Field(default_factory=list)
     per_page_status: dict[

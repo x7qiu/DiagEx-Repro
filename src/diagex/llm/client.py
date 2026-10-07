@@ -27,12 +27,16 @@ from collections.abc import Callable
 from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
 from math import isfinite
+from pathlib import Path
 from typing import Any, Literal
 
 import anthropic
 import httpx
 
 from diagex.config import LLMConfig, RuntimeBudgets
+from diagex.llm.billing import AccountedSpendingLedger
+from diagex.llm.budget import BudgetExceeded, SpendingLedger
+from diagex.llm.model_policy import validate_production_models
 
 
 def is_non_retryable_api_error(exc: BaseException) -> bool:
@@ -43,6 +47,8 @@ def is_non_retryable_api_error(exc: BaseException) -> bool:
     unsupported parameters, or missing models. Continuing a batch after one of
     those failures only repeats the same deterministic error.
     """
+    if isinstance(exc, BudgetExceeded):
+        return True
     if not isinstance(exc, anthropic.APIStatusError):
         return False
     status = getattr(exc, "status_code", None)
@@ -98,6 +104,14 @@ class LLMClient:
     def __init__(self, config: LLMConfig, budgets: RuntimeBudgets | None = None) -> None:
         self.config = config
         self.budgets = budgets or RuntimeBudgets()
+        validate_production_models(config)
+        if config.spending_ledger and not config.verified_prices:
+            raise ValueError("A spending ledger requires verified model prices")
+        self.spending = None
+        if config.spending_ledger:
+            state = json.loads(Path(config.spending_ledger).read_text())
+            ledger_type = AccountedSpendingLedger if state.get("schema_version") == 2 else SpendingLedger
+            self.spending = ledger_type(config.spending_ledger, config.verified_prices, config.spending_category)
         self._client = self._build_client(config)
         # Cumulative retry count: every backoff attempt increments this. The
         # extractor snapshots it before/after a run so the per-extractor row
@@ -282,11 +296,13 @@ class LLMClient:
         )
         return cooldown
 
-    def _wait_for_rate_limit_cooldown(self) -> None:
+    def _wait_for_rate_limit_cooldown(self, *, deadline: float | None = None) -> None:
         """Pace a new request according to 429 state from earlier requests."""
         remaining = self._rate_limit_not_before - time.monotonic()
         if remaining <= 0:
             return
+        if deadline is not None and time.monotonic() + remaining >= deadline:
+            raise TimeoutError("request time budget cannot accommodate provider cooldown")
         print(
             f"[diagex.llm] rate-limit cooldown; next request in {remaining:.1f}s",
             file=sys.stderr,
@@ -339,6 +355,9 @@ class LLMClient:
         output_config: dict[str, Any] | None = None,
         extra_cache_breakpoints: list[dict[str, Any]] | None = None,
         on_stream_delta: Callable[[str, str], None] | None = None,
+        time_budget_s: float | None = None,
+        max_attempts: int | None = None,
+        on_transport_event: Callable[[dict[str, Any]], None] | None = None,
     ) -> Any:
         """Send a Messages request with caching + spec-compliant retry.
 
@@ -349,9 +368,8 @@ class LLMClient:
         `thinking` on Opus 4.7 must be `{"type": "adaptive"}` or `{"type": "disabled"}`
         — the legacy `{"type": "enabled", "budget_tokens": N}` shape is rejected.
         `output_config={"effort": "low|medium|high|xhigh|max"}` controls thinking depth.
-        ``reasoning_mode_override`` is reserved for bounded recovery calls that
-        must produce structured output after a thinking-only response exhausted
-        its token budget; normal calls continue to follow ``DIAGEX_REASONING``.
+        ``reasoning_mode_override`` supports explicit per-stage policy and bounded
+        recovery calls. Without an override, calls follow ``DIAGEX_REASONING``.
 
         Opus 4.7 also rejects `temperature` / `top_p` / `top_k`, so we never send them.
         """
@@ -385,6 +403,14 @@ class LLMClient:
             "system": system_blocks,
             "messages": messages,
         }
+        if self.spending and self.config.transport == "openrouter":
+            price = self.spending.prices.get(self.config.model)
+            if price:
+                kwargs["extra_body"] = {"provider": {
+                    "only": price["provider_tags"], "require_parameters": True,
+                    "max_price": {"prompt": price["input_per_token"] * 1_000_000,
+                                  "completion": price["output_per_token"] * 1_000_000},
+                }}
         if tools_payload is not None:
             kwargs["tools"] = tools_payload
         if tool_choice is not None:
@@ -407,26 +433,74 @@ class LLMClient:
                 if self.config.transport == "kimi"
                 else effective_thinking
             )
-        if output_config is not None:
+        # Qwen hosted endpoints expose binary thinking, not Anthropic effort.
+        # Passing effort while requiring supported parameters makes OpenRouter
+        # reject every route, even though image/tool smoke checks succeed.
+        qwen_binary_thinking = (
+            self.config.transport == "openrouter"
+            and self.config.model.startswith("qwen/qwen3.5-")
+        )
+        # OpenRouter translates effort into a reasoning parameter even when
+        # thinking is disabled. With require_parameters this contradictory
+        # combination can eliminate otherwise valid tool/image providers.
+        disabled_openrouter_thinking = (
+            self.config.transport == "openrouter"
+            and effective_thinking is not None
+            and effective_thinking.get("type") == "disabled"
+        )
+        if output_config is not None and not qwen_binary_thinking and not disabled_openrouter_thinking:
             kwargs["output_config"] = output_config
 
         # Stream for long outputs. High `max_tokens` + adaptive thinking can exceed the
         # SDK's 10-minute non-streaming timeout; `.stream(...).get_final_message()` returns
         # the same Message object but keeps the connection alive via chunked transfer.
-        self._wait_for_rate_limit_cooldown()
+        if time_budget_s is not None and time_budget_s <= 0:
+            raise TimeoutError("request time budget exhausted before dispatch")
+        deadline = time.monotonic() + time_budget_s if time_budget_s is not None else None
+        attempts = min(
+            self.budgets.retry_attempts,
+            max_attempts if max_attempts is not None else self.budgets.retry_attempts,
+        )
+        if attempts < 1:
+            raise ValueError("max_attempts must be positive")
+        self._wait_for_rate_limit_cooldown(deadline=deadline)
         last_exc: Exception | None = None
-        for attempt in range(self.budgets.retry_attempts):
+        for attempt in range(attempts):
+            attempt_started = time.monotonic()
+            if deadline is not None:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise TimeoutError("request time budget exhausted") from last_exc
+                # The deadline is checked while consuming events. A stalled read
+                # is bounded separately, including when no visible delta is emitted.
+                kwargs["timeout"] = httpx.Timeout(min(remaining, 15.0))
             retry_after: float | None = None
             rate_limit_cooldown: float | None = None
+            reservation = self.spending.reserve(self.config.model, max_tokens) if self.spending else None
             try:
+                if on_transport_event is not None:
+                    on_transport_event({"event": "dispatch", "attempt": attempt + 1, "started_at": time.time(), "model": self.config.model, "thinking": kwargs.get("thinking"), "max_tokens": max_tokens})
                 with self._client.messages.stream(**kwargs) as stream:
-                    if on_stream_delta is not None:
+                    if on_stream_delta is not None or deadline is not None or isinstance(self.spending, AccountedSpendingLedger):
                         for event in stream:
-                            self._forward_stream_delta(event, on_stream_delta)
+                            if reservation and isinstance(self.spending, AccountedSpendingLedger):
+                                self.spending.observe_stream_event(reservation, event)
+                            if deadline is not None and time.monotonic() >= deadline:
+                                raise TimeoutError("stream exceeded request time budget")
+                            if on_stream_delta is not None:
+                                self._forward_stream_delta(event, on_stream_delta)
                     message = stream.get_final_message()
+                    if reservation:
+                        self.spending.settle(reservation, message)
+                    if deadline is not None and time.monotonic() >= deadline:
+                        raise TimeoutError("response exceeded request time budget")
                     self._record_success_after_rate_limit()
+                    if on_transport_event is not None:
+                        on_transport_event({"event": "response", "attempt": attempt + 1, "elapsed_s": time.monotonic() - attempt_started})
                     return message
             except anthropic.APIStatusError as exc:
+                if reservation and isinstance(self.spending, AccountedSpendingLedger):
+                    self.spending.observe_error(reservation, exc)
                 status = getattr(exc, "status_code", None)
                 # 4xx (except 429) = validation/auth/policy → surface immediately.
                 if is_non_retryable_api_error(exc):
@@ -444,17 +518,31 @@ class LLMClient:
                 # outside the SDK's APIConnectionError wrapper. Incomplete
                 # chunked reads and raw protocol resets are still transient.
                 last_exc = exc
+            except TimeoutError as exc:
+                if on_transport_event is not None:
+                    on_transport_event({"event": "deadline", "attempt": attempt + 1, "elapsed_s": time.monotonic() - attempt_started, "error": str(exc)})
+                raise
+            finally:
+                if reservation and isinstance(self.spending, AccountedSpendingLedger):
+                    self.spending.finish_attempt(reservation)
 
-            if attempt == self.budgets.retry_attempts - 1:
+            if on_transport_event is not None:
+                on_transport_event({"event": "error", "attempt": attempt + 1, "elapsed_s": time.monotonic() - attempt_started, "error": self._exception_detail(last_exc)})
+
+            if attempt == attempts - 1:
                 break
 
-            self.retries_total += 1
             delay = self._sleep_for_attempt(attempt)
             delay = max(
                 delay,
                 retry_after or 0.0,
                 rate_limit_cooldown or 0.0,
             )
+            if deadline is not None and time.monotonic() + delay >= deadline:
+                raise TimeoutError("retry delay exceeds remaining request time budget") from last_exc
+            self.retries_total += 1
+            if on_transport_event is not None:
+                on_transport_event({"event": "retry_wait", "attempt": attempt + 1, "seconds": delay})
             notes: list[str] = []
             if retry_after is not None:
                 notes.append(f"Retry-After={retry_after:.1f}s")
@@ -466,7 +554,7 @@ class LLMClient:
             error_detail = self._exception_detail(last_exc)
             print(
                 f"[diagex.llm] transient failure ({error_detail}); "
-                f"retry {attempt + 1}/{self.budgets.retry_attempts} in {delay:.1f}s"
+                f"retry {attempt + 1}/{attempts} in {delay:.1f}s"
                 f"{retry_note}",
                 file=sys.stderr,
             )

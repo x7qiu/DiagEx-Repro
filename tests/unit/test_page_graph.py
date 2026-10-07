@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw
 
 from diagex.llm.cost import CostTracker
 from diagex.ui.progress import NullReporter
-from diagex.vision.evidence import PageEvidence
+from diagex.vision.evidence import PageEvidence, PathEvidence
 from diagex.vision.fusion import FusionResult, assemble_graph
 from diagex.vision.models import BBox, ReconciledEdge, ReconciledGraph, ReconciledNode
 from diagex.vision.page_graph import (
@@ -24,10 +24,11 @@ from diagex.vision.page_graph import (
     _legend_line_montage,
     _legend_line_priority,
     classify_page_line_evidence,
+    parse_line_evidence_response,
     solve_page_graph,
     validate_page_graph_submission,
 )
-from diagex.vision.topology import TopologyResult
+from diagex.vision.topology import TopologyResult, build_page_topology
 
 
 def _page(index: int = 0) -> PageEvidence:
@@ -43,6 +44,28 @@ def _page(index: int = 0) -> PageEvidence:
         role_confidence="high",
         role_reason="test",
         fail_open=False,
+        paths=[
+            PathEvidence(
+                id="test-pipe",
+                page_index=index,
+                points=[(120, 120), (500, 120)],
+                bbox=BBox(x=120, y=120, w=380, h=1),
+                origin="pdf_vector",
+                primitive="line",
+            ),
+            *[
+                PathEvidence(
+                    id=f"body-{x}",
+                    page_index=index,
+                    origin="pdf_vector",
+                    primitive="rect",
+                    closed=True,
+                    points=[(x, 100), (x + 40, 100), (x + 40, 140), (x, 140), (x, 100)],
+                    bbox=BBox(x=x, y=100, w=40, h=40),
+                )
+                for x in (80, 500)
+            ],
+        ],
     )
 
 
@@ -71,14 +94,54 @@ def _node(
 
 
 def _edge(left: str, right: str) -> ReconciledEdge:
-    return ReconciledEdge(
-        id="edge-1",
-        from_node=left,
-        to_node=right,
-        line_type="process",
-        polyline_global=[(120, 120), (500, 120)],
-        confidence="high",
+    # Semantic tests start with a physically supported native route. Structural
+    # rejection, including forged proofs, is exercised in test_native_scene.
+    endpoints = [
+        ReconciledNode(
+            id=name,
+            label=name,
+            kind="equipment",
+            page_index=0,
+            bbox_global=BBox(x=x, y=100, w=40, h=40),
+            confidence="high",
+        )
+        for name, x in [(left, 80), (right, 500)]
+    ]
+    edge = build_page_topology(page=_page(), nodes=endpoints).edges[0]
+    edge.id = "edge-1"
+    if edge.from_node != left:
+        edge.from_node, edge.to_node = edge.to_node, edge.from_node
+        edge.polyline_global.reverse()
+        edge.attributes["route_evidence"]["ports"].reverse()
+    return edge
+
+
+def test_line_evidence_ignores_harmless_provider_explanation_fields() -> None:
+    response = SimpleNamespace(
+        content=[
+            {
+                "type": "tool_use",
+                "name": "submit_line_evidence",
+                "input": {
+                    "assessments": [
+                        {
+                            "candidate_ref": "e001",
+                            "route_visible": "yes",
+                            "endpoint_alignment": "both",
+                            "observed_style": "dashed",
+                            "endpoint_alignment_note": "both boxes touch the route",
+                        }
+                    ],
+                    "summary_note": "all visible candidates assessed",
+                },
+            }
+        ]
     )
+
+    parsed = parse_line_evidence_response(response)
+
+    assert len(parsed.assessments) == 1
+    assert parsed.assessments[0].candidate_ref == "e001"
 
 
 def _page_graph_response(*, structured: bool) -> SimpleNamespace:
@@ -172,9 +235,7 @@ def test_page_graph_preserves_reasoning_and_recovers_serializer_once(
     serializer_text = client.requests[1]["messages"][0]["content"][-1]["text"]  # type: ignore[index]
     assert "I need to inspect the diagram first." in serializer_text
     assert result.reasoning_trace[0]["memo"] == "I need to inspect the diagram first."
-    expected_cost_steps = (
-        [10, 11] if serializer_failure == "malformed_tool_json" else [10, 11, 12]
-    )
+    expected_cost_steps = [10, 11] if serializer_failure == "malformed_tool_json" else [10, 11, 12]
     assert [row.step for row in cost.steps] == expected_cost_steps
 
 
@@ -462,9 +523,7 @@ def test_page_graph_batches_ambiguities_and_merges_submissions() -> None:
 
     nodes = [_node(f"instrument-{index}", kind="instrument") for index in range(10)]
     edges = [
-        _edge(nodes[index].id, nodes[index + 1].id).model_copy(
-            update={"id": f"edge-{index}"}
-        )
+        _edge(nodes[index].id, nodes[index + 1].id).model_copy(update={"id": f"edge-{index}"})
         for index in range(9)
     ]
     client = BatchClient()
@@ -743,9 +802,11 @@ def test_instrument_candidate_is_retyped_and_keeps_geometry() -> None:
 
     assert len(result.edges) == 1
     assert result.edges[0].line_type == "signal_pneumatic"
-    assert result.edges[0].from_node == equipment.id
-    assert result.edges[0].to_node == instrument.id
-    assert result.edges[0].polyline_global == list(reversed(candidate.polyline_global))
+    # A model's reverse flag without an observed arrow is not flow evidence.
+    assert result.edges[0].from_node == instrument.id
+    assert result.edges[0].to_node == equipment.id
+    assert result.edges[0].polyline_global == candidate.polyline_global
+    assert result.edges[0].attributes["flow_direction"] == "unknown"
     assert result.conflicts == []
 
 
@@ -774,6 +835,124 @@ def test_generic_equipment_signal_is_retained_as_provisional_for_review() -> Non
     assert result.edges[0].attributes["provisional_review_only"] is True
     assert result.edges[0].attributes["proposed_line_type"] == "signal_pneumatic"
     assert result.conflicts[0]["type"] == "unsupported_endpoint_combination"
+
+
+def test_keep_decision_retains_corroborated_same_loop_electric_classification() -> None:
+    element = _node("TE-00201", kind="instrument")
+    element.attributes.update(
+        {
+            "instrument_function": "element",
+            "measured_variable": "temperature",
+            "loop_number": "00201",
+        }
+    )
+    indicator = _node("TI-00201", kind="instrument")
+    indicator.attributes.update(
+        {
+            "instrument_function": "indicator",
+            "measured_variable": "temperature",
+            "loop_number": "00201",
+        }
+    )
+    candidate = _edge(element.id, indicator.id)
+    candidate.line_type = "other"
+    candidate.attributes.update(
+        {
+            "topology_source": "deterministic_vector",
+            "visual_style": "dashed",
+            "visual_style_confidence": 0.91,
+        }
+    )
+    result = validate_page_graph_submission(
+        page=_page(),
+        pages=[_page()],
+        submission=PageGraphSubmission(
+            candidate_decisions=[
+                CandidateDecision(
+                    candidate_ref="E001",
+                    decision="keep",
+                    line_type="signal_electric",
+                    confidence="high",
+                    evidence=["same-loop TE to TI measurement signal"],
+                )
+            ]
+        ),
+        nodes_by_ref={"N001": element, "N002": indicator},
+        edges_by_ref={"E001": candidate},
+        local_node_refs={"N001": element, "N002": indicator},
+        visual_evidence=PageLineEvidence(
+            page_index=0,
+            assessments={
+                "E001": VisualCandidateAssessment(
+                    candidate_ref="E001",
+                    route_visible="yes",
+                    endpoint_alignment="both",
+                    observed_style="dashed",
+                    legend_class="signal_electric",
+                    confidence="high",
+                    evidence=["project-legend electric signal pattern"],
+                )
+            },
+        ),
+    )
+
+    assert result.conflicts == []
+    assert result.accepted_candidate_ids == ["edge-1"]
+    assert result.edges[0].line_type == "signal_electric"
+    assert result.edges[0].attributes["line_type_source"] == ("page_graph_keep_classification")
+    pair = result.edges[0].attributes["system_confidence_evidence"]["instrument_pair"]
+    assert pair == {
+        "same_loop": True,
+        "loop_number": "00201",
+        "functions": ["element", "indicator"],
+        "measured_variables": ["temperature", "temperature"],
+        "functional_direction": "forward",
+        "compatible": True,
+    }
+
+
+def test_keep_decision_does_not_retype_uncorroborated_instrument_pair() -> None:
+    element = _node("TE-00201", kind="instrument")
+    element.attributes.update({"instrument_function": "element", "loop_number": "00201"})
+    indicator = _node("TI-00999", kind="instrument")
+    indicator.attributes.update({"instrument_function": "indicator", "loop_number": "00999"})
+    candidate = _edge(element.id, indicator.id)
+    candidate.line_type = "other"
+    result = validate_page_graph_submission(
+        page=_page(),
+        pages=[_page()],
+        submission=PageGraphSubmission(
+            candidate_decisions=[
+                CandidateDecision(
+                    candidate_ref="E001",
+                    decision="keep",
+                    line_type="signal_electric",
+                    confidence="high",
+                )
+            ]
+        ),
+        nodes_by_ref={"N001": element, "N002": indicator},
+        edges_by_ref={"E001": candidate},
+        local_node_refs={"N001": element, "N002": indicator},
+        visual_evidence=PageLineEvidence(
+            page_index=0,
+            assessments={
+                "E001": VisualCandidateAssessment(
+                    candidate_ref="E001",
+                    route_visible="yes",
+                    endpoint_alignment="both",
+                    observed_style="dashed",
+                    legend_class="signal_electric",
+                    confidence="high",
+                )
+            },
+        ),
+    )
+
+    assert result.edges[0].line_type == "other"
+    assert result.edges[0].attributes["provisional_review_only"] is True
+    assert result.edges[0].attributes["proposed_line_type"] == "signal_electric"
+    assert result.conflicts[0]["type"] == "endpoint_role_uncertain"
 
 
 def test_generic_equipment_electric_signal_is_withheld_from_graph() -> None:
@@ -862,6 +1041,8 @@ def test_equipment_process_candidate_is_accepted_without_model_decision() -> Non
     )
 
     assert [edge.id for edge in result.edges] == ["edge-1"]
+    assert result.accepted_candidate_ids == ["edge-1"]
+    assert not result.provisional_candidate_ids
 
 
 def test_styled_equipment_candidate_requires_legend_backed_page_decision() -> None:

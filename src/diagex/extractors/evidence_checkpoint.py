@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 from pathlib import Path
 from typing import Any, Literal
 
@@ -24,7 +25,8 @@ class CheckpointManifest(BaseModel):
     source_sha256: str
     config_sha256: str
     run_id: str
-    status: Literal["running", "partial", "complete", "error"] = "running"
+    status: Literal["running", "partial", "paused", "complete", "error"] = "running"
+    pause_reason: str | None = None
     completed: dict[str, list[str]] = Field(default_factory=dict)
     errors: list[CheckpointError] = Field(default_factory=list)
     stage_versions: dict[str, str] = Field(default_factory=dict)
@@ -104,6 +106,33 @@ class CheckpointStore:
     def is_done(self, stage: str, item: str) -> bool:
         return item in self.manifest.completed.get(stage, [])
 
+    def seed_raw_evidence_from(
+        self, source: CheckpointStore, *, include_contextual: bool = False,
+    ) -> None:
+        """Upgrade a completed run in a new directory, preserving its review.
+
+        Copy bytes rather than linking them: subsequent checkpoint writes must
+        never change the original graph, evidence, or human review history.
+        """
+        if self.manifest.completed or not source.matches(
+            source_sha256=self.manifest.source_sha256,
+            config_sha256=self.manifest.config_sha256,
+        ):
+            raise ValueError("raw evidence reuse requires a fresh compatible checkpoint")
+        stages = ("inspection", "perception", "contextual") if include_contextual else ("inspection", "perception")
+        for relative in ("evidence", *(f"checkpoints/{stage}" for stage in stages)):
+            folder = source.run_dir / relative
+            if folder.is_dir():
+                # Run preparation already creates evidence/. Populate that
+                # directory while still copying independent checkpoint bytes.
+                shutil.copytree(folder, self.run_dir / relative, dirs_exist_ok=True)
+        self.manifest.completed = {
+            stage: list(source.manifest.completed[stage])
+            for stage in stages if stage in source.manifest.completed
+        }
+        self.manifest.stage_versions = dict(source.manifest.stage_versions)
+        self.save()
+
     def record_reuse(self, stage: str, item: str) -> None:
         self._reused.setdefault(stage, set()).add(item)
 
@@ -133,6 +162,7 @@ class CheckpointStore:
             if not (error.stage == stage and error.item == item)
         ]
         self.manifest.status = "running"
+        self.manifest.pause_reason = None
         self.save()
 
     def mark_error(self, stage: str, item: str, detail: str) -> None:
@@ -170,12 +200,22 @@ class CheckpointStore:
         if self.manifest.stage_versions.get(stage_group) == version:
             return False
         self.invalidate(*invalidate)
+        # A copied checkpoint of an older version must not survive as apparent
+        # output when recomputing its replacement fails. Keep source evidence.
+        for name in invalidate:
+            folder = self.root / name
+            if folder.is_dir():
+                shutil.rmtree(folder)
+            if name == "perception":
+                diagnostics = self.root / "perception_diagnostics"
+                if diagnostics.is_dir():
+                    shutil.rmtree(diagnostics)
         self.manifest.stage_versions[stage_group] = version
         self.manifest.status = "running"
         self.save()
         return True
 
-    def set_status(self, status: Literal["running", "partial", "complete", "error"]) -> None:
+    def set_status(self, status: Literal["running", "partial", "paused", "complete", "error"]) -> None:
         self.manifest.status = status
         self.save()
 
@@ -214,6 +254,7 @@ def find_resumable_run_with_report(
     runs_root: Path,
     source_sha256: str,
     config_sha256: str,
+    required_stage_versions: dict[str, str] | None = None,
 ) -> tuple[CheckpointStore | None, dict[str, Any]]:
     """Find a resumable run and explain why a new run may be required."""
 
@@ -232,6 +273,7 @@ def find_resumable_run_with_report(
         key=lambda path: path.name,
         reverse=True,
     )
+    current_complete_seen = False
     for candidate in candidates:
         path = candidate / "checkpoints" / "manifest.json"
         if not path.is_file():
@@ -250,7 +292,19 @@ def find_resumable_run_with_report(
             continue
         if store.manifest.status == "complete":
             report["matching_complete_runs"] += 1
-            continue
+            if not any(
+                store.manifest.stage_versions.get(group) != version
+                for group, version in (required_stage_versions or {}).items()
+            ):
+                current_complete_seen = bool(required_stage_versions)
+                continue
+            if current_complete_seen:
+                # A newer run has already performed this upgrade. Do not
+                # repeatedly seed another run from the older completed input.
+                continue
+            report["reason"] = "matching checkpoint needs derived-stage upgrade"
+            report["selected_run_dir"] = str(candidate)
+            return store, report
         report["reason"] = "matching incomplete checkpoint found"
         report["selected_run_dir"] = str(candidate)
         return store, report

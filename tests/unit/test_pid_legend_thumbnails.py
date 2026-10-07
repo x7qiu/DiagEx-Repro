@@ -163,3 +163,125 @@ def test_old_or_different_extractor_cache_is_not_loaded(tmp_path: Path) -> None:
 
     assert _load_cached(path, "source", "current") is None
 
+
+def test_recovery_cache_requires_matching_inputs_and_verified_negative_rows(tmp_path):
+    from diagex.vision.legend_models import LegendRegionCoverage
+
+    path = tmp_path / "legend.cache.json"
+    pack = LegendPack(
+        source_hash="source",
+        extractor_fingerprint="current",
+        coverage=[
+            LegendRegionCoverage(
+                page_index=0,
+                source_row_id="row-1",
+                bbox=BBox(x=0, y=0, w=20, h=20),
+                status="complete",
+                entry_count=0,
+                verification_passes=1,
+            ),
+        ],
+    )
+    path.write_text(pack.model_dump_json())
+    assert _load_cached(path, "source", "current") is None
+    assert _load_cached(path, "source", "current", allow_partial=True) == pack
+    assert _load_cached(path, "changed", "current", allow_partial=True) is None
+    assert _load_cached(path, "source", "changed", allow_partial=True) is None
+    pack.coverage[0].verification_passes = 2
+    path.write_text(pack.model_dump_json())
+    assert _load_cached(path, "source", "current") == pack
+    pack.coverage[0].status = "partial"
+    pack.coverage[0].failure_kind = "transport"
+    path.write_text(pack.model_dump_json())
+    assert _load_cached(path, "source", "current") is None
+    assert _load_cached(path, "source", "current", allow_partial=True) == pack
+
+
+def test_all_legend_regions_are_scheduled_and_failures_keep_other_regions(monkeypatch):
+    from diagex.config import Config
+    from diagex.extractors import pid_legend
+    from diagex.llm.cost import CostTracker
+    from diagex.vision.legend_models import LegendRegionCoverage
+    from diagex.vision.tiling import AspectAwareStrategy
+
+    page, evidence = _page_and_evidence()
+    cfg = Config()
+    cfg.tiling.max_tokens_per_tile = 20
+    planned = AspectAwareStrategy(
+        max_tokens_per_tile=20,
+        overlap_frac=cfg.tiling.overlap_frac,
+        token_per_pixel=cfg.tiling.token_per_pixel,
+    ).plan(page)
+    calls = []
+
+    class Runtime:
+        def __init__(self, **kwargs):
+            pass
+
+        def run(self, *, state, view_provider, run_cfg):
+            assert run_cfg.require_tile_coverage
+            detail = view_provider.tiles[0]
+            image, _ = view_provider.get_tile(detail.id)
+            assert image.size == (state.page.width, state.page.height)
+            calls.append(state.page.source_ref)
+            state.tile_fetch_counts[detail.id] = 1
+            annotation = _annotation()
+            annotation.bbox_global = BBox(x=10, y=10, w=20, h=20)
+            annotation.label = f"row-{len(calls)}"
+            state.annotations.add(annotation)
+            if len(calls) == 2:
+                raise RuntimeError("temporary failure")
+            state.completion_status = "complete"
+            state.completion_reason = "finish"
+
+    monkeypatch.setattr(pid_legend, "ReactRuntime", Runtime)
+    coverage = []
+    entries = pid_legend._extract_from_page(
+        page=page,
+        region=None,
+        client=object(),
+        cost_tracker=CostTracker(),
+        cfg=cfg,
+        page_evidence=None,
+        coverage=coverage,
+    )
+    assert len(calls) == len(planned) > 2
+    assert len(entries) == len(planned)  # Even pre-failure annotations survive.
+    assert [r.status for r in coverage].count("partial") == 1
+    for row, (x, y, w, h) in zip(coverage, planned, strict=True):
+        assert row.bbox == BBox(x=x, y=y, w=w, h=h)
+    pack = LegendPack(entries=entries, coverage=coverage)
+    cached = LegendPack.model_validate_json(pack.model_dump_json())
+    assert cached.merge(LegendPack()).coverage == coverage
+    assert isinstance(cached.coverage[0], LegendRegionCoverage)
+
+
+def test_legend_early_finish_is_partial_and_crop_origin_is_preserved(monkeypatch):
+    from diagex.config import Config
+    from diagex.extractors import pid_legend
+    from diagex.llm.cost import CostTracker
+
+    page, _ = _page_and_evidence()
+
+    class Runtime:
+        def __init__(self, **kwargs):
+            pass
+
+        def run(self, *, state, **kwargs):
+            state.completion_status = "complete"  # No detail was inspected.
+
+    monkeypatch.setattr(pid_legend, "ReactRuntime", Runtime)
+    coverage = []
+    assert (
+        pid_legend._extract_from_page(
+            page=page,
+            region=(100, 50, 150, 100),
+            client=object(),
+            cost_tracker=CostTracker(),
+            cfg=Config(),
+            coverage=coverage,
+        )
+        == []
+    )
+    assert len(coverage) == 1 and coverage[0].status == "partial"
+    assert coverage[0].bbox == BBox(x=100, y=50, w=150, h=100)

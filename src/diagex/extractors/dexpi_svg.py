@@ -18,9 +18,9 @@ Visual conventions:
 from __future__ import annotations
 
 import json
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable
 from xml.sax.saxutils import escape as _xml_escape
 
 from diagex.dexpi_schema import EQUIPMENT_REGISTRY, VALVE_REGISTRY
@@ -717,7 +717,7 @@ def _glyph_fired_heater(x0: float, y0: float, w: float, h: float, fill: str, das
     )
     # Three small triangles along the bottom gesturing at burners.
     flames = []
-    for i, frac in enumerate((0.25, 0.5, 0.75)):
+    for frac in (0.25, 0.5, 0.75):
         fx = x0 + w * frac
         fy = y0 + h
         flame_w = w * 0.08
@@ -765,7 +765,7 @@ def _render_valve(
     h: float,
     label: str,
     dash: str,
-    layout: "LabelSlot | None" = None,
+    layout: LabelSlot | None = None,
 ) -> str:
     vt = str(node.attributes.get("valve_type", "other"))
     subtype = str(node.attributes.get("subtype", "")).lower()
@@ -1006,7 +1006,7 @@ def _glyph_safety_relief_valve(
     r: float,
     fill: str,
     dash: str,
-    layout: "LabelSlot | None",
+    layout: LabelSlot | None,
     label: str,
 ) -> str:
     """ISA safety-relief valve: body diamond + spring symbol above + discharge arrow."""
@@ -1020,7 +1020,7 @@ def _glyph_safety_relief_valve(
         dx = (-1) ** i * 4
         spring_points.append(f"{cx + dx:.1f},{sy - i * spring_h / 4:.1f}")
     spring = (
-        f'<polyline fill="none" stroke="#111827" stroke-width="1" points="'
+        '<polyline fill="none" stroke="#111827" stroke-width="1" points="'
         + " ".join(spring_points)
         + '" />'
     )
@@ -1056,7 +1056,7 @@ def _render_opc(
     direction: str,
     label: str,
     dash: str,
-    layout: "LabelSlot | None" = None,
+    layout: LabelSlot | None = None,
     subtitle: str = "",
 ) -> str:
     half = size / 2
@@ -1145,7 +1145,7 @@ def _equipment_subtitle(node: ReconciledNode) -> str:
     return " · ".join(bits)
 
 
-def _label_with_subtitle(slot: "LabelSlot", label: str, subtitle: str) -> str:
+def _label_with_subtitle(slot: LabelSlot, label: str, subtitle: str) -> str:
     primary = _label_text_positioned(slot, label)
     if not subtitle:
         return primary
@@ -1294,8 +1294,8 @@ def _detect_crossings(prepared: list[_PreparedEdge]) -> dict[str, list[_Hop]]:
         for j in range(i + 1, n):
             a = prepared[i]
             b = prepared[j]
-            for ai, seg_a in enumerate(zip(a.poly, a.poly[1:])):
-                for bj, seg_b in enumerate(zip(b.poly, b.poly[1:])):
+            for ai, seg_a in enumerate(zip(a.poly, a.poly[1:], strict=False)):
+                for bj, seg_b in enumerate(zip(b.poly, b.poly[1:], strict=False)):
                     inter = _segment_intersect(seg_a[0], seg_a[1], seg_b[0], seg_b[1])
                     if inter is None:
                         continue
@@ -1312,7 +1312,7 @@ def _detect_crossings(prepared: list[_PreparedEdge]) -> dict[str, list[_Hop]]:
                     else:
                         hops[b.edge.id].append(_Hop(seg_index=bj, t=tb, x=px, y=py))
     # Sort each edge's hops along its polyline (by segment index, then t).
-    for eid, lst in hops.items():
+    for lst in hops.values():
         lst.sort(key=lambda h: (h.seg_index, h.t))
     return hops
 
@@ -1381,7 +1381,7 @@ def _render_prepared_edge(
     dash_attr = f' stroke-dasharray="{pe.dash_pattern}"' if pe.dash_pattern != "none" else ""
     marker_attr = (
         f' marker-end="url(#arrow-{_marker_key_for(pe.edge.line_type or "other")})"'
-        if pe.dst is not None else ""
+        if pe.dst is not None and pe.edge.attributes.get("flow_direction") not in {"unknown", "conflicting"} else ""
     )
     width = "1.0" if pe.is_inferred else "1.5"
     opacity = ' opacity="0.6"' if pe.is_inferred else ""
@@ -1429,7 +1429,7 @@ def _build_path_d(
     for h in hops:
         hops_by_seg.setdefault(h.seg_index, []).append(h)
 
-    for i, (p, q) in enumerate(zip(poly, poly[1:])):
+    for i, (p, q) in enumerate(zip(poly, poly[1:], strict=False)):
         seg_hops = hops_by_seg.get(i, [])
         if not seg_hops:
             qx, qy = project(q[0], q[1])
@@ -1477,7 +1477,7 @@ def _line_id_pill(
     # Pick the longest segment in page space.
     best = 0
     best_len = 0.0
-    for i, (p, q) in enumerate(zip(poly, poly[1:])):
+    for i, (p, q) in enumerate(zip(poly, poly[1:], strict=False)):
         d = (q[0] - p[0]) ** 2 + (q[1] - p[1]) ** 2
         if d > best_len:
             best_len = d

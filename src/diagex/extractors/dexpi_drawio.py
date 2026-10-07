@@ -399,6 +399,8 @@ def _render_edge_cell(
 ) -> str:
     line_type = pe.edge.line_type or "other"
     base_style = _EDGE_STYLE.get(line_type, _EDGE_STYLE["other"])
+    if pe.edge.attributes.get("flow_direction") in {"unknown", "conflicting"}:
+        base_style = base_style.replace("endArrow=classic;", "endArrow=none;")
     if pe.edge.confidence == "low":
         base_style = base_style + _LOW_CONF_EDGE_STYLE
     label = _xml_escape(pe.line_id or "")

@@ -7,6 +7,7 @@ import hashlib
 import io
 import json
 import re
+import shutil
 import time
 from dataclasses import asdict, replace
 from pathlib import Path
@@ -45,6 +46,7 @@ from diagex.vision.evidence import (
     sha256_file,
 )
 from diagex.vision.fusion import assemble_graph, fuse_objects
+from diagex.vision.instance_matching import FUSION_DEPENDENT_STAGES, FUSION_VERSION
 from diagex.vision.legend_models import LegendPack, SymbolStandard
 from diagex.vision.native_text import build_native_text_inventory
 from diagex.vision.page_graph import (
@@ -53,14 +55,29 @@ from diagex.vision.page_graph import (
     classify_page_line_evidence,
     solve_page_graph,
 )
-from diagex.vision.perception import DetectionRecord, perceive_tile
+from diagex.vision.perception import DetectionRecord, PerceptionRunGuard, perceive_tile
 from diagex.vision.quality import QualityReport, add_dexpi_results, assess_quality
+from diagex.vision.symbol_candidates import (
+    PERCEPTION_DEPENDENT_STAGES,
+    SYMBOL_PERCEPTION_VERSION,
+    symbol_candidates,
+)
 from diagex.vision.tiling import AspectAwareStrategy, ownership_core, tile
-from diagex.vision.topology import TopologyResult, build_page_topology
+from diagex.vision.topology import (
+    TOPOLOGY_DEPENDENT_STAGES,
+    TOPOLOGY_VERSION,
+    LegendLineProfile,
+    TopologyResult,
+    build_page_topology,
+    learn_legend_line_profile,
+)
 from diagex.vision.views import ViewProvider
 
 if TYPE_CHECKING:
     from rich.console import Console
+
+
+PAGE_GRAPH_PIPELINE_VERSION = "2.1.0"
 
 
 def run_pid_evidence_extract(
@@ -75,20 +92,56 @@ def run_pid_evidence_extract(
     effort: EffortLevel,
     config: Config,
     persist: bool,
+    fresh: bool = False,
     out_path: Path | None,
     confidence_report_path: Path | None,
     console: Console | None,
+    stop_after: str = "graph",
+    reviewed_inputs: dict | None = None,
 ) -> PidExtractionResult:
     from rich.console import Console as RichConsole
 
-    from diagex.extractors.pid_legend import load_builtin_pack, resolve_evidence_legend
+    from diagex.extractors.pid_legend import (
+        LEGEND_EXTRACTOR_VERSION,
+        load_builtin_pack,
+        resolve_evidence_legend,
+    )
     from diagex.ui.progress import make_reporter
     from diagex.vision.loader import load
 
+    if stop_after not in {"graph", "detection"}:
+        raise ValueError("stop_after must be graph or detection")
+    # Reviewed inputs are frozen for this job and never resume derived checkpoints.
+    if reviewed_inputs is not None:
+        fresh = True
     cfg = config
     stem = _safe_stem(diagram)
     started = time.perf_counter()
     source_hash = sha256_file(diagram)
+    if cfg.raster_symbol_mode not in {"baseline", "broad_review"}:
+        raise ValueError("Unsupported raster symbol mode")
+    if cfg.raster_symbol_mode == "broad_review" and cfg.raster_proposals is None:
+        raise ValueError("Broad review requires source-bound raster proposals")
+    if cfg.raster_symbol_mode == "broad_review" and reviewed_inputs is None:
+        if not persist:
+            raise ValueError("Broad review requires persisted observations for symbol review")
+        stop_after = "detection"
+    if cfg.raster_ink_filter:
+        from diagex.vision.raster_ink import validate_source
+        validate_source(diagram)
+        if cfg.scan.deskew or cfg.symbol_perception.workflow != "fixed":
+            raise ValueError("Raster ink filtering requires fixed inspection with deskew disabled")
+    if cfg.raster_proposals is not None:
+        if diagram.suffix.lower() == ".pdf":
+            from diagex.vision.pdf_raster_guidance import validate_pdf_guidance
+            validate_pdf_guidance(cfg.raster_proposals, diagram, cfg, source_sha256=source_hash)
+        else:
+            from diagex.vision.raster_guidance import validate_guidance
+            validate_guidance(cfg.raster_proposals, diagram, source_sha256=source_hash)
+        if cfg.scan.deskew or cfg.symbol_perception.workflow != "fixed":
+            raise ValueError("Experimental raster guidance requires fixed inspection with deskew disabled")
+    if reviewed_inputs is not None and reviewed_inputs["source_sha256"] != source_hash:
+        raise ValueError("Reviewed inputs do not match the source drawing")
     vision_model = cfg.llm.vision_model or cfg.llm.model
     reasoning_model = cfg.llm.reasoning_model or cfg.llm.model
     config_hash = _configuration_hash(
@@ -104,6 +157,11 @@ def run_pid_evidence_extract(
         effort=effort,
     )
 
+    if reviewed_inputs is not None:
+        config_hash = hashlib.sha256(
+            (config_hash + json.dumps(reviewed_inputs, sort_keys=True)).encode()
+        ).hexdigest()
+
     run_dir: Path | None = None
     run_id = _new_run_id()
     store: CheckpointStore | None = None
@@ -114,12 +172,47 @@ def run_pid_evidence_extract(
     runs_root = cfg.runs_dir / stem
     if persist:
         runs_root.mkdir(parents=True, exist_ok=True)
-        store, resume_report = find_resumable_run_with_report(
-            runs_root=runs_root,
-            source_sha256=source_hash,
-            config_sha256=config_hash,
-        )
-        if store is not None:
+        if fresh:
+            resume_report = {
+                "reason": "fresh run requested; checkpoint discovery skipped",
+                "considered_runs": 0,
+                "fresh_requested": True,
+            }
+        else:
+            store, resume_report = find_resumable_run_with_report(
+                runs_root=runs_root,
+                source_sha256=source_hash,
+                config_sha256=config_hash,
+                required_stage_versions={
+                    "legend_extraction": LEGEND_EXTRACTOR_VERSION,
+                    "symbol_perception": SYMBOL_PERCEPTION_VERSION,
+                    "object_fusion": FUSION_VERSION,
+                    "port_topology": TOPOLOGY_VERSION,
+                },
+            )
+        if store is not None and (
+            store.manifest.status == "complete" or (store.run_dir / "detection.json").exists()
+        ):
+            source_store = store
+            run_dir, run_id = _prepare_v2_run_dir(cfg, stem, vision_model)
+            store = CheckpointStore.create(
+                run_dir=run_dir,
+                source_sha256=source_hash,
+                config_sha256=config_hash,
+                run_id=run_id,
+            )
+            store.seed_raw_evidence_from(
+                source_store,
+                include_contextual=(
+                    source_store.manifest.stage_versions.get("object_fusion") == FUSION_VERSION
+                    and source_store.manifest.stage_versions.get("page_graph_pipeline")
+                    == PAGE_GRAPH_PIPELINE_VERSION
+                ),
+            )
+            resume_report["source_run_dir"] = str(source_store.run_dir)
+            resume_report["reason"] = "completed run evidence copied for derived-stage upgrade"
+            resumed = True
+        elif store is not None:
             run_dir = store.run_dir
             run_id = store.manifest.run_id
             resumed = True
@@ -133,18 +226,48 @@ def run_pid_evidence_extract(
             )
 
     prior_cost = _load_prior_cost(run_dir) if resumed and run_dir is not None else {}
+    if run_dir is not None and cfg.raster_proposals is not None:
+        from diagex.vision.raster_guidance import implementation_sha256
+        atomic_write_json(run_dir / "raster-proposals.json", {
+            **cfg.raster_proposals, "guidance_implementation_sha256": implementation_sha256(),
+        })
     if store is not None:
         initial_completed = {
             stage: len(items) for stage, items in sorted(store.manifest.completed.items())
         }
         store.ensure_stage_version(
-            "page_graph_pipeline",
-            "1.7.0",
-            invalidate=("contextual", "topology", "line_evidence", "page_graph", "assembly", "export"),
+            "legend_extraction",
+            LEGEND_EXTRACTOR_VERSION,
+            invalidate=PERCEPTION_DEPENDENT_STAGES,
         )
-        remaining = {
-            stage: len(items) for stage, items in sorted(store.manifest.completed.items())
-        }
+        store.ensure_stage_version(
+            "symbol_perception",
+            SYMBOL_PERCEPTION_VERSION,
+            invalidate=PERCEPTION_DEPENDENT_STAGES,
+        )
+        store.ensure_stage_version(
+            "page_graph_pipeline",
+            PAGE_GRAPH_PIPELINE_VERSION,
+            invalidate=(
+                "contextual",
+                "topology",
+                "line_evidence",
+                "page_graph",
+                "assembly",
+                "export",
+            ),
+        )
+        store.ensure_stage_version(
+            "object_fusion",
+            FUSION_VERSION,
+            invalidate=FUSION_DEPENDENT_STAGES,
+        )
+        store.ensure_stage_version(
+            "port_topology",
+            TOPOLOGY_VERSION,
+            invalidate=TOPOLOGY_DEPENDENT_STAGES,
+        )
+        remaining = {stage: len(items) for stage, items in sorted(store.manifest.completed.items())}
         invalidated_completed = {
             stage: count - remaining.get(stage, 0)
             for stage, count in initial_completed.items()
@@ -157,10 +280,7 @@ def run_pid_evidence_extract(
         resumed=resumed,
         run_dir=run_dir,
         reason=str(resume_report.get("reason") or ""),
-        available={
-            stage: len(items)
-            for stage, items in sorted(store.manifest.completed.items())
-        }
+        available={stage: len(items) for stage, items in sorted(store.manifest.completed.items())}
         if store is not None
         else {},
         invalidated=invalidated_completed,
@@ -170,12 +290,12 @@ def run_pid_evidence_extract(
             run_dir / "reuse.report.json",
             {
                 "mode": "resumed" if resumed else "new",
+                "fresh_requested": fresh,
                 "run_dir": str(run_dir),
                 "decision": resume_report,
                 "initial_completed_by_stage": initial_completed,
                 "available_after_invalidation_by_stage": {
-                    stage: len(items)
-                    for stage, items in sorted(store.manifest.completed.items())
+                    stage: len(items) for stage, items in sorted(store.manifest.completed.items())
                 }
                 if store is not None
                 else {},
@@ -201,8 +321,20 @@ def run_pid_evidence_extract(
     )
     vision_llm = LLMClient(vision_cfg, budgets=cfg.budgets)
     reasoning_llm = LLMClient(reasoning_cfg, budgets=cfg.budgets)
+    escalation_llm = LLMClient(replace(cfg.llm, model=cfg.llm.escalation_model, reasoning_mode="enabled"), budgets=cfg.budgets) if cfg.llm.escalation_model else None
     vision_llm.reset_retry_counter()
     reasoning_llm.reset_retry_counter()
+
+    if reviewed_inputs is not None and run_dir is not None:
+        atomic_write_json(run_dir / "reviewed.inputs.json", reviewed_inputs)
+        # Only page evidence is reused: legend and symbol decisions come from review.
+        origin = Path(reviewed_inputs["source_run"])
+        for path in sorted((origin / "evidence").glob("page-*.json")):
+            destination = run_dir / "evidence" / path.name
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(path, destination)
+            if store is not None:
+                store.mark_done("inspection", path.stem)
 
     # 1. Inspect pages and persist immutable native evidence.
     evidence_pages, page_states = _inspect_pages(
@@ -212,45 +344,82 @@ def run_pid_evidence_extract(
         run_dir=run_dir,
         reporter=reporter_factory(),
     )
+    if cfg.raster_proposals is not None and cfg.raster_proposals.get("format") == "pdf_page_proposals_v1":
+        from diagex.vision.pdf_raster_guidance import route_guided_pages
+
+        routing = route_guided_pages(evidence_pages, cfg.raster_proposals, legend_pages=legend_pages)
+        if routing and run_dir is not None:
+            atomic_write_json(run_dir / "pdf-proposal-routing.json", {
+                "source_sha256": source_hash, "changes": routing,
+                "scope": "Fail-open routing for explicitly guided scans; native text and geometry unchanged",
+            })
+            changed_pages = {row["page_index"] for row in routing}
+            for page in evidence_pages:
+                if page.page_index in changed_pages:
+                    atomic_write_json(run_dir / "evidence" / f"page-{page.page_index + 1:04d}.json",
+                                      page.model_dump(mode="json"))
     # 2. Resolve only explicitly selected or deterministically classified legend pages.
     detected_legends = [page.page_index for page in evidence_pages if page.role == "legend"]
 
     legend_pack: LegendPack
     legend_source = ""
     legend_reporter = reporter_factory()
-    try:
-        with legend_reporter:
-            legend_reporter.on_phase_start(
-                name="v2 legend resolution", total_items=len(detected_legends) or 1
-            )
-            routed = resolve_evidence_legend(
-                source=source,
-                pages=evidence_pages,
-                symbol_standard=symbol_standard,
-                cfg=cfg,
-                client=vision_llm,
-                cost_tracker=cost,
-                legend_path=legend_path,
-                legend_pages=legend_pages,
-                legend_region=legend_region,
-                no_legend=no_legend,
-                legend_key=legend_key,
-                runs_dir_for_stem=runs_root if persist else None,
-                reporter=legend_reporter,
-            )
-            resolution = routed.resolution
-            legend_pack = resolution.pack
-            legend_source = resolution.source
-            legend_reporter.on_phase_end(
-                detail=f"{len(legend_pack.entries)} entries · source={legend_source}"
-            )
-    except Exception as exc:  # noqa: BLE001 - built-in pack is a safe fallback
-        if is_non_retryable_api_error(exc):
-            raise
-        legend_pack = load_builtin_pack(symbol_standard)
-        legend_source = f"fallback_builtin(error={exc!r})"
+    if reviewed_inputs is not None:
+        legend_pack = LegendPack.model_validate(reviewed_inputs["legend_pack"])
+        legend_source = f"{reviewed_inputs.get('review_origin', 'human')}_reviewed"
+    else:
+        try:
+            with legend_reporter:
+                legend_reporter.on_phase_start(
+                    name="v2 legend resolution", total_items=len(detected_legends) or 1
+                )
+                routed = resolve_evidence_legend(
+                    source=source,
+                    pages=evidence_pages,
+                    symbol_standard=symbol_standard,
+                    cfg=cfg,
+                    client=vision_llm,
+                    cost_tracker=cost,
+                    legend_path=legend_path,
+                    legend_pages=legend_pages,
+                    legend_region=legend_region,
+                    no_legend=no_legend,
+                    legend_key=legend_key,
+                    runs_dir_for_stem=runs_root if persist else None,
+                    reporter=legend_reporter,
+                    fresh=fresh,
+                )
+                resolution = routed.resolution
+                legend_pack = resolution.pack
+                legend_source = resolution.source
+                legend_reporter.on_phase_end(
+                    detail=f"{len(legend_pack.entries)} entries · source={legend_source}"
+                )
+        except Exception as exc:  # noqa: BLE001 - built-in pack is a safe fallback
+            if is_non_retryable_api_error(exc):
+                raise
+            legend_pack = load_builtin_pack(symbol_standard)
+            legend_source = f"fallback_builtin(error={exc!r})"
     _checkpoint_cost(run_dir, prior_cost, cost)
 
+    legend_failure = _legend_prerequisite_error(legend_pack, legend_source)
+    if store is not None:
+        store.manifest.errors = [e for e in store.manifest.errors if e.stage != "legend"]
+        if legend_failure:
+            store.mark_error("legend", "coverage", legend_failure)
+        else:
+            store.save()
+
+    # Keep uncertain definitions in the review bundle, but do not use them as
+    # interpretation rules. Reviewed input packs contain only confirmed rows.
+    interpretation_entries = [
+        entry
+        for entry in legend_pack.entries
+        if reviewed_inputs is not None
+        or entry.source == "customer_override"
+        or entry.attributes.get("row_status") not in {"uncertain", "reject"}
+    ]
+    interpretation_pack = legend_pack.model_copy(update={"entries": interpretation_entries})
     legend_summary = [
         {
             "label": entry.label,
@@ -259,22 +428,31 @@ def run_pid_evidence_extract(
             "description": entry.description or "",
             "attributes": dict(entry.attributes),
         }
-        for entry in legend_pack.entries
+        for entry in interpretation_entries
     ]
-    legend_visual_entries = [entry.model_dump(mode="json") for entry in legend_pack.entries]
+    legend_visual_entries = [entry.model_dump(mode="json") for entry in interpretation_entries]
+    if store is not None and reviewed_inputs is None:
+        # A repaired partial legend changes the evidence supplied to symbols
+        # even when source/model/implementation versions remain identical.
+        content_hash = hashlib.sha256(
+            json.dumps(legend_visual_entries, sort_keys=True).encode()
+        ).hexdigest()
+        store.ensure_stage_version(
+            "legend_content", content_hash, invalidate=PERCEPTION_DEPENDENT_STAGES
+        )
     fallback_legend_line_images = [
         {
             "label": entry.label,
             "description": entry.description or "",
             "image_b64": entry.image_b64,
         }
-        for entry in legend_pack.entries
+        for entry in interpretation_entries
         if entry.kind == "line" and entry.image_b64
     ]
     native_legend_line_images = _native_line_legend_images(
         source=source,
         pages=evidence_pages,
-        legend_pack=legend_pack,
+        legend_pack=interpretation_pack,
     )
     native_labels = {_legend_text_key(entry["label"]) for entry in native_legend_line_images}
     legend_line_images = [
@@ -286,19 +464,119 @@ def run_pid_evidence_extract(
         ),
     ]
 
-    # 3. Deterministic full-page crop coverage and low-thinking perception.
-    detections, per_page_status, perception_call_counts = _run_perception(
-        source=source,
-        pages=evidence_pages,
-        cfg=cfg,
-        client=vision_llm,
-        cost=cost,
-        reporter=reporter_factory(),
-        store=store,
-        legend_summary=legend_summary,
-        run_dir=run_dir,
-        prior_cost=prior_cost,
-    )
+    # 3. Deterministic crop coverage and raw instance classification.
+    perception_stop_reason = None
+    if reviewed_inputs is not None:
+        detections = [DetectionRecord.model_validate(d) for d in reviewed_inputs["detections"]]
+        per_page_status = {p.page_index: "ok" for p in evidence_pages}
+        perception_call_counts = {}
+    else:
+        detections, per_page_status, perception_call_counts, perception_stop_reason = (
+            _run_perception(
+                source=source,
+                pages=evidence_pages,
+                cfg=cfg,
+                client=vision_llm,
+                cost=cost,
+                reporter=reporter_factory(),
+                store=store,
+                legend_summary=legend_visual_entries,
+                run_dir=run_dir,
+                prior_cost=prior_cost,
+                prerequisite_error=legend_failure,
+                escalation_client=escalation_llm,
+            )
+        )
+
+    if reviewed_inputs is None:
+        for region_coverage in legend_pack.coverage:
+            if region_coverage.status != "complete":
+                per_page_status[region_coverage.page_index] = "partial"
+
+    if run_dir is not None and reviewed_inputs is None:
+        from diagex.review.detection import write_detection_bundle
+
+        audit_path = run_dir / "perception.review.json"
+        reviews = (
+            json.loads(audit_path.read_text()).get("reviews", []) if audit_path.exists() else []
+        )
+        write_detection_bundle(
+            run_dir,
+            source_hash=source_hash,
+            pages=evidence_pages,
+            detections=detections,
+            legend_pack=legend_pack,
+            per_page_status=per_page_status,
+            candidates=[
+                c.model_dump(mode="json")
+                for p in evidence_pages
+                if p.role == "pid"
+                for c in symbol_candidates(p)
+            ],
+            reviews=reviews,
+        )
+        atomic_write_json(run_dir / "legend.json", legend_pack.model_dump(mode="json"))
+    if stop_after == "detection" or perception_stop_reason:
+        from diagex.vision.models import ReconciledGraph
+
+        current_cost = cost.summary()
+        current_cost["tool_call_counts"] = perception_call_counts
+        current_cost["n_tool_calls"] = sum(perception_call_counts.values())
+        current_cost["wall_clock_s"] = round(time.perf_counter() - started, 3)
+        current_cost["retries"] = vision_llm.retries_total
+        cost_summary = _merge_cost_summaries(prior_cost, current_cost)
+        quality_status = (
+            "partial" if any(v != "ok" for v in per_page_status.values()) else "needs_review"
+        )
+        if run_dir is not None:
+            atomic_write_json(run_dir / "cost.json", cost_summary)
+            atomic_write_json(
+                run_dir / "result.json",
+                {
+                    "run_id": run_id,
+                    "engine": "evidence-v2",
+                    "model": vision_model,
+                    "workflow_stage": "detection",
+                    "quality_status": quality_status,
+                    "detection_count": len(detections),
+                    "legend_entry_count": len(legend_pack.entries),
+                    "stop_reason": perception_stop_reason,
+                },
+            )
+            if store is not None:
+                store.manifest.pause_reason = perception_stop_reason
+                store.set_status(
+                    "paused" if perception_stop_reason else "partial"
+                    if store.manifest.errors
+                    or perception_stop_reason
+                    or quality_status == "partial"
+                    else "complete"
+                )
+            atomic_write_json(
+                run_dir / "reuse.report.json",
+                {
+                    "mode": "resumed" if resumed else "new",
+                    "decision": resume_report,
+                    "workflow_stage": "detection",
+                    "status": quality_status,
+                },
+            )
+        return PidExtractionResult(
+            diagram_stem=stem,
+            effort=effort,
+            model=vision_model,
+            graph=ReconciledGraph(source_path=diagram.name),
+            dexpi_json_path=None,
+            dexpi_stats={"detection_count": len(detections)},
+            cost_summary=cost_summary,
+            legend_source=legend_source,
+            legend_entry_count=len(legend_pack.entries),
+            run_dir=run_dir,
+            run_id=run_id,
+            engine="evidence-v2",
+            quality_status=quality_status,
+            workflow_stage="detection",
+        )
 
     # 4. Fuse overlapping object observations exactly once.
     object_fusion = fuse_objects(
@@ -306,44 +584,75 @@ def run_pid_evidence_extract(
         pages=evidence_pages,
         detections=detections,
         per_page_status=per_page_status,
-        legend_pack=legend_pack,
+        legend_pack=interpretation_pack,
+        reviewed_instances=reviewed_inputs is not None,
     )
     if store is not None:
         store.write_json_artifact(
             "assembly",
             "objects",
-            {"nodes": [node.model_dump(mode="json") for node in object_fusion.graph.nodes]},
+            object_fusion.graph.model_dump(
+                mode="json", include={"source_path", "nodes", "assemblies", "text_bindings"}
+            ),
         )
 
     # 5. Resolve only ambiguous small glyphs attached to valve bodies, using
     # project-specific legend crops and page context before topology can snap
     # symbol strokes as process connections.
-    contextual_results, contextual_calls = _run_contextual_resolution(
-        source=source,
-        pages=evidence_pages,
-        nodes=object_fusion.graph.nodes,
-        legend_entries=legend_visual_entries,
-        client=vision_llm,
-        cost=cost,
-        reporter=reporter_factory(),
-        store=store,
-        per_page_status=per_page_status,
-        run_dir=run_dir,
-        prior_cost=prior_cost,
-    )
-    object_fusion = apply_contextual_results(object_fusion, contextual_results)
+    if reviewed_inputs is not None:
+        contextual_results, contextual_calls = [], 0
+    else:
+        contextual_results, contextual_calls = _run_contextual_resolution(
+            source=source,
+            pages=evidence_pages,
+            nodes=object_fusion.graph.nodes,
+            legend_entries=legend_visual_entries,
+            client=vision_llm,
+            cost=cost,
+            reporter=reporter_factory(),
+            store=store,
+            per_page_status=per_page_status,
+            run_dir=run_dir,
+            prior_cost=prior_cost,
+        )
+    if contextual_results:
+        object_fusion = apply_contextual_results(object_fusion, contextual_results)
     if store is not None:
         store.write_json_artifact(
             "assembly",
             "contextual_objects",
-            {"nodes": [node.model_dump(mode="json") for node in object_fusion.graph.nodes]},
+            object_fusion.graph.model_dump(
+                mode="json", include={"source_path", "nodes", "assemblies", "text_bindings"}
+            ),
         )
 
     # 6. Build deterministic topology candidates from PDF/raster line evidence.
+    # Native inspection survives legend upgrades. A learned line profile must
+    # instead follow the exact definitions used by this run/review snapshot.
+    profile_item = (
+        "legend_line_profile-"
+        + hashlib.sha256(interpretation_pack.model_dump_json().encode("utf-8")).hexdigest()[:16]
+    )
+    if store is not None and store.is_done("inspection", profile_item):
+        legend_line_profile = LegendLineProfile.model_validate(
+            store.read_json_artifact("inspection", profile_item)
+        )
+    else:
+        legend_line_profile = learn_legend_line_profile(
+            pages=evidence_pages,
+            legend_pack=interpretation_pack,
+        )
+    if store is not None and not store.is_done("inspection", profile_item):
+        store.write_json_artifact(
+            "inspection",
+            profile_item,
+            legend_line_profile.model_dump(mode="json"),
+        )
     topology_results = _run_topology(
         source=source,
         pages=evidence_pages,
         nodes=object_fusion.graph.nodes,
+        legend_line_profile=legend_line_profile,
         reporter=reporter_factory(),
         store=store,
         per_page_status=per_page_status,
@@ -381,6 +690,9 @@ def run_pid_evidence_extract(
         legend_line_images=legend_line_images,
         line_evidence=line_evidence,
         include_visual_context=False,
+        process_context=cfg.process_context,
+        inspection_client=vision_llm,
+        escalation_client=escalation_llm,
     )
     fusion = assemble_graph(
         objects=object_fusion,
@@ -388,14 +700,22 @@ def run_pid_evidence_extract(
         topology=topology_results,
         page_graph_results=page_graph_results,
         per_page_status=per_page_status,
+        reviewed_instances=reviewed_inputs is not None,
     )
     graph = fusion.graph
+    if run_dir is not None:
+        atomic_write_json(run_dir / "hypotheses.json", {
+            "status": "review_only", "hypotheses": [h for result in page_graph_results for h in result.hypotheses],
+            "process_context": cfg.process_context,
+        })
+        if reviewed_inputs is not None:
+            atomic_write_json(run_dir / "review.exceptions.json", reviewed_inputs.get("unresolved", {}))
     _checkpoint_cost(run_dir, prior_cost, cost)
 
     native_text_inventory = build_native_text_inventory(
         pages=evidence_pages,
         graph=graph,
-        legend_pack=legend_pack,
+        legend_pack=interpretation_pack,
     )
     quality = assess_quality(
         graph=graph,
@@ -599,6 +919,7 @@ def run_pid_evidence_extract(
                 run_dir / "reuse.report.json",
                 {
                     "mode": "resumed" if resumed else "new",
+                    "fresh_requested": fresh,
                     "run_dir": str(run_dir),
                     "decision": resume_report,
                     "initial_completed_by_stage": initial_completed,
@@ -682,7 +1003,17 @@ def _inspect_pages(
                     page_evidence = PageEvidence.model_validate_json(
                         public_path.read_text(encoding="utf-8")
                     )
-                    store.record_reuse("inspection", item)
+                    if (
+                        pdf_doc is not None
+                        and pdf_doc[page.page_index].rotation
+                        and page_evidence.native_coordinate_frame != "rendered_page"
+                    ):
+                        page_evidence = extract_page_evidence(
+                            page=page, source_path=diagram, pdf_page=pdf_doc[page.page_index]
+                        )
+                        atomic_write_text(public_path, page_evidence.model_dump_json(indent=2))
+                    else:
+                        store.record_reuse("inspection", item)
                 else:
                     page_evidence = extract_page_evidence(
                         page=page,
@@ -713,6 +1044,15 @@ def _inspect_pages(
     return evidence, states
 
 
+def _legend_prerequisite_error(pack, source):
+    failed = [c for c in pack.coverage if c.status != "complete" and c.failure_kind != "ambiguity"]
+    if failed:
+        return f"Symbol extraction paused: {len(failed)} source legend rows/regions were not successfully inspected. Completed legend rows are saved; retry the unresolved rows before symbol extraction."
+    if source.startswith("fallback_builtin(error="):
+        return "Symbol extraction paused because source legend extraction failed; built-in definitions do not replace the missing source review."
+    return None
+
+
 def _run_perception(
     *,
     source: Any,
@@ -725,7 +1065,9 @@ def _run_perception(
     legend_summary: list[dict[str, Any]],
     run_dir: Path | None,
     prior_cost: dict[str, Any],
-) -> tuple[list[DetectionRecord], dict[int, str], dict[str, int]]:
+    prerequisite_error: str | None = None,
+    escalation_client: LLMClient | None = None,
+) -> tuple[list[DetectionRecord], dict[int, str], dict[str, int], str | None]:
     from diagex.vision.loader import iter_pages
 
     evidence_by_index = {page.page_index: page for page in pages}
@@ -740,6 +1082,19 @@ def _run_perception(
     page_error_counts: dict[int, int] = {page.page_index: 0 for page in pid_pages}
     page_view_counts: dict[int, int] = {page.page_index: 0 for page in pid_pages}
     call_counts = {"submit_pid_objects": 0}
+    perception_reviews: list[dict[str, Any]] = []
+    guard = PerceptionRunGuard(cfg.symbol_perception)
+    deadline = time.monotonic() + cfg.symbol_perception.run_timeout_s
+    stop_reason: str | None = prerequisite_error
+    if run_dir is not None:
+        (run_dir / "perception.stop.json").unlink(missing_ok=True)
+    if store is not None:
+        store.manifest.errors = [
+            e
+            for e in store.manifest.errors
+            if not (e.stage == "perception" and e.item == "run_guard")
+        ]
+        store.save()
 
     def next_step() -> int:
         # Parsing can fail after the provider has returned billable usage.  In
@@ -748,8 +1103,8 @@ def _run_perception(
         # successful-call counters to avoid duplicate step identifiers.
         return max((row.step for row in cost.steps), default=0) + 1
 
-    def record_model_attempt() -> None:
-        call_counts["submit_pid_objects"] += 1
+    def record_model_attempt(tool_name="submit_pid_objects") -> None:
+        call_counts[tool_name] = call_counts.get(tool_name, 0) + 1
 
     planned_total = sum(
         len(tile(rendered_page, strategy))
@@ -761,13 +1116,29 @@ def _run_perception(
     with reporter:
         reporter.on_phase_start(name="v2 fixed-crop object perception", total_items=planned_total)
         for rendered_page in iter_pages(source):
+            if stop_reason:
+                break
             evidence = evidence_by_index[rendered_page.page_index]
             if evidence.role != "pid":
                 continue
             fixed_tiles = tile(rendered_page, strategy)
+            candidates = symbol_candidates(evidence)
             page_view_counts[evidence.page_index] = len(fixed_tiles)
             provider = ViewProvider(rendered_page, fixed_tiles)
+            raster_hints = None
+            raster_scale = (1, 1)
+            if cfg.raster_proposals is not None:
+                if cfg.raster_proposals.get("format") == "pdf_page_proposals_v1":
+                    from diagex.vision.pdf_raster_guidance import page_proposals
+                    raster_hints = page_proposals(cfg.raster_proposals, rendered_page)
+                else:
+                    width, height = cfg.raster_proposals["size"]
+                    raster_scale = (width / rendered_page.width, height / rendered_page.height)
+                    raster_hints = cfg.raster_proposals["predictions"]
             for current_tile in fixed_tiles:
+                if time.monotonic() >= deadline:
+                    stop_reason = "Symbol extraction stopped early at its configured time limit; completed crops are saved."
+                    break
                 progress_item += 1
                 item = f"p{rendered_page.page_index + 1:04d}__{current_tile.id}"
                 reporter.on_phase_item_start(
@@ -775,14 +1146,34 @@ def _run_perception(
                     total_items=planned_total,
                     label=(f"page {rendered_page.page_index + 1} · {current_tile.id}"),
                 )
+                failed: bool | None = None
+                diagnostic_events: list[dict[str, Any]] = []
+
+                def record_diagnostic(
+                    event: dict[str, Any],
+                    events: list[dict[str, Any]] = diagnostic_events,
+                    artifact_item: str = item,
+                    tile_id: str = current_tile.id,
+                ) -> None:
+                    events.append(event)
+                    if store is not None:
+                        atomic_write_json(
+                            store.artifact_path("perception_diagnostics", artifact_item),
+                            {"tile_id": tile_id, "events": events},
+                        )
+
                 try:
                     if store is not None and store.is_done("perception", item):
                         saved = store.read_json_artifact("perception", item)
+                        failed = (
+                            saved.get("contract_failed") if saved.get("native_candidates") else None
+                        )
                         tile_detections = [
                             DetectionRecord.model_validate(value)
                             for value in saved.get("detections", [])
                         ]
                         detail = f"checkpoint · {len(tile_detections)} objects"
+                        perception_reviews.extend(saved.get("candidate_reviews", []))
                         rejected_count = len(saved.get("rejected_objects", []))
                         if rejected_count:
                             page_error_counts[evidence.page_index] += 1
@@ -790,7 +1181,17 @@ def _run_perception(
                     else:
                         view_image, view_info = provider.get_tile(current_tile.id)
                         core = ownership_core(current_tile, fixed_tiles)
-                        outcome = perceive_tile(
+                        page_context = {"coverage": "deterministic fixed grid"}
+                        if raster_hints is not None:
+                            from diagex.vision.raster_guidance import view_guidance
+                            page_context.update(view_guidance(
+                                raster_hints, view_info.page_bbox, raster_scale,
+                            ))
+                        tile_perception = perceive_tile
+                        if cfg.raster_symbol_mode == "broad_review" and raster_hints is not None:
+                            from diagex.vision.raster_pipeline import perceive_broad_with_semantics
+                            tile_perception = perceive_broad_with_semantics
+                        outcome = tile_perception(
                             client=client,
                             cost_tracker=cost,
                             reporter=reporter,
@@ -801,14 +1202,31 @@ def _run_perception(
                             ownership_bbox=core,
                             legend_summary=legend_summary,
                             step=next_step(),
-                            page_context={"coverage": "deterministic fixed grid"},
+                            page_context=page_context,
+                            overview_image=provider.get_overview()[0] if cfg.symbol_perception.workflow == "adaptive" else None,
+                            region_provider=provider.get_region,
+                            escalation_client=escalation_client,
                             on_attempt=record_model_attempt,
+                            candidates=candidates,
+                            reasoning_mode=cfg.llm.reasoning_mode,
+                            policy=cfg.symbol_perception,
+                            deadline=deadline,
+                            on_diagnostic=record_diagnostic,
                         )
+                        failed = outcome.contract_failed if outcome.candidates else None
                         tile_detections = outcome.detections
                         batch = outcome.batch
+                        for review in batch.candidate_reviews:
+                            review.update(page_index=evidence.page_index, tile_id=current_tile.id)
+                        perception_reviews.extend(batch.candidate_reviews)
                         if store is not None:
                             store.invalidate(
-                                "contextual", "topology", "line_evidence", "page_graph", "assembly", "export"
+                                "contextual",
+                                "topology",
+                                "line_evidence",
+                                "page_graph",
+                                "assembly",
+                                "export",
                             )
                             store.write_json_artifact(
                                 "perception",
@@ -820,22 +1238,31 @@ def _run_perception(
                                     "observations": batch.observations,
                                     "uncertainties": batch.uncertainties,
                                     "rejected_objects": batch.rejected_objects,
+                                    "symbol_perception_version": SYMBOL_PERCEPTION_VERSION,
+                                    "native_candidates": [
+                                        c.model_dump(mode="json") for c in outcome.candidates
+                                    ],
+                                    "candidate_reviews": batch.candidate_reviews,
                                     "ownership_core": core.model_dump(mode="json"),
                                     "reason": "deterministic fixed grid",
                                     "model_attempts": outcome.attempts,
                                     "format_recovery": outcome.recovery_diagnostics,
+                                    "contract_failed": outcome.contract_failed,
                                 },
                             )
                         _checkpoint_cost(run_dir, prior_cost, cost)
                         detail = f"{len(tile_detections)} objects"
                         if outcome.attempts > 1:
-                            detail += f" · recovered after {outcome.attempts} attempts"
+                            detail += f" · {outcome.attempts} attempts"
                         if batch.rejected_objects:
                             page_error_counts[evidence.page_index] += 1
                             detail += f", {len(batch.rejected_objects)} malformed object(s) skipped"
+                        if any(r.get("status") == "unreviewed" for r in batch.candidate_reviews):
+                            page_error_counts[evidence.page_index] += 1
                     detections.extend(tile_detections)
                     reporter.on_phase_item_end(detail=detail)
                 except Exception as exc:  # noqa: BLE001 - preserve other tiles and resume later
+                    failed = True
                     page_error_counts[evidence.page_index] += 1
                     if store is not None:
                         diagnostics = getattr(exc, "diagnostics", None)
@@ -853,12 +1280,53 @@ def _run_perception(
                     reporter.on_phase_item_end(detail=repr(exc), is_error=True)
                     if is_non_retryable_api_error(exc):
                         raise
+                stop_reason = guard.observe(failed)
+                if stop_reason:
+                    break
+            if stop_reason:
+                break
         reporter.on_phase_end(
             detail=(
-                f"{len(detections)} raw detections; "
-                f"{call_counts['submit_pid_objects']} fixed-crop calls"
+                stop_reason
+                or f"{len(detections)} raw detections; {sum(call_counts.values())} fixed-crop calls"
             )
         )
+
+    if stop_reason:
+        if store is not None:
+            store.mark_error("perception", "run_guard", stop_reason)
+        if run_dir is not None:
+            atomic_write_json(
+                run_dir / "perception.stop.json",
+                {
+                    "reason": stop_reason,
+                    "processed_crops": progress_item,
+                    "planned_crops": planned_total,
+                },
+            )
+        assessed = {r.get("candidate_id") for r in perception_reviews}
+        for page in pid_pages:
+            statuses[page.page_index] = "partial"
+            perception_reviews.extend(
+                {
+                    "candidate_id": c.id,
+                    "page_index": page.page_index,
+                    "bbox": c.bbox.model_dump(mode="json"),
+                    "source_path_ids": c.source_path_ids,
+                    "status": "unreviewed",
+                    "reason": stop_reason,
+                }
+                for c in symbol_candidates(page)
+                if c.id not in assessed
+            )
+
+    if cfg.raster_ink_filter:
+        from diagex.vision.raster_ink import filter_observations
+        detections, perception_reviews, ink_audit = filter_observations(
+            source.path, pages, detections, perception_reviews,
+        )
+        if run_dir is not None:
+            atomic_write_json(run_dir / "raster-ink-filter.json", ink_audit)
 
     for page in pid_pages:
         errors = page_error_counts.get(page.page_index, 0)
@@ -869,7 +1337,16 @@ def _run_perception(
                 "error" if not page_detections and errors >= inspected else "partial"
             )
 
-    return detections, statuses, call_counts
+    if run_dir is not None:
+        atomic_write_json(
+            run_dir / "perception.review.json",
+            {
+                "version": SYMBOL_PERCEPTION_VERSION,
+                "reviews": perception_reviews,
+                "note": "Unreviewed candidates and unanchored proposals are not confirmed detections.",
+            },
+        )
+    return detections, statuses, call_counts, stop_reason
 
 
 def _native_line_legend_images(
@@ -1027,7 +1504,9 @@ def _run_contextual_resolution(
                         on_attempt=record_attempt,
                     )
                     if store is not None:
-                        store.invalidate("topology", "line_evidence", "page_graph", "assembly", "export")
+                        store.invalidate(
+                            "topology", "line_evidence", "page_graph", "assembly", "export"
+                        )
                         store.write_json_artifact(
                             "contextual", item, result.model_dump(mode="json")
                         )
@@ -1060,6 +1539,7 @@ def _run_topology(
     source: Any,
     pages: list[PageEvidence],
     nodes: list[Any],
+    legend_line_profile: LegendLineProfile,
     reporter: Any,
     store: CheckpointStore | None,
     per_page_status: dict[int, str],
@@ -1090,6 +1570,7 @@ def _run_topology(
                     page=evidence,
                     nodes=nodes_by_page.get(rendered_page.page_index, []),
                     raster_image=rendered_page.image,
+                    legend_line_profile=legend_line_profile,
                 )
                 if store is not None:
                     store.write_json_artifact("topology", item, result.model_dump(mode="json"))
@@ -1249,6 +1730,9 @@ def _run_page_graphs(
     legend_line_images: list[dict[str, Any]],
     line_evidence: list[PageLineEvidence],
     include_visual_context: bool,
+    process_context: list[dict[str, Any]] | None = None,
+    inspection_client: LLMClient | None = None,
+    escalation_client: LLMClient | None = None,
 ) -> tuple[list[PageGraphResult], int]:
     """Run one relationship solve for each non-empty P&ID page."""
     from diagex.vision.loader import iter_pages
@@ -1314,6 +1798,9 @@ def _run_page_graphs(
                         legend_line_images=legend_line_images,
                         visual_evidence=line_evidence_by_page.get(rendered_page.page_index),
                         on_attempt=record_page_graph_attempt,
+                        process_context=process_context,
+                        inspection_client=inspection_client,
+                        escalation_client=escalation_client,
                         include_visual_context=include_visual_context,
                     )
                     if store is not None:
@@ -1358,9 +1845,16 @@ def _run_page_graphs(
 def _prepare_v2_run_dir(cfg: Config, stem: str, vision_model: str) -> tuple[Path, str]:
     runs_root = cfg.runs_dir / stem
     runs_root.mkdir(parents=True, exist_ok=True)
-    run_id = _new_run_id()
-    run_dir = runs_root / f"{_timestamp()}_{_safe_model_name(vision_model)}_{run_id}"
-    run_dir.mkdir(parents=True, exist_ok=False)
+    for _ in range(16):
+        run_id = _new_run_id()
+        run_dir = runs_root / f"{_timestamp()}_{_safe_model_name(vision_model)}_{run_id}"
+        try:
+            run_dir.mkdir(parents=True, exist_ok=False)
+            break
+        except FileExistsError:
+            continue
+    else:
+        raise FileExistsError("Could not allocate a unique run directory after 16 attempts")
     (run_dir / "evidence").mkdir(exist_ok=True)
     return run_dir, run_id
 
@@ -1401,12 +1895,10 @@ def _print_reuse_end(console: Any, *, summary: dict[str, Any]) -> None:
         f"({summary['reuse_percent']:.1f}% reused)"
     )
     console.print(
-        "[diagex.cache] reused by stage: "
-        + _stage_count_text(summary["reused_by_stage"])
+        "[diagex.cache] reused by stage: " + _stage_count_text(summary["reused_by_stage"])
     )
     console.print(
-        "[diagex.cache] computed by stage: "
-        + _stage_count_text(summary["computed_by_stage"])
+        "[diagex.cache] computed by stage: " + _stage_count_text(summary["computed_by_stage"])
     )
     console.print("[diagex.cache] details saved to reuse.report.json")
 
@@ -1427,11 +1919,15 @@ def _configuration_hash(
     legend_hash = sha256_file(legend_path) if legend_path is not None else None
     payload = {
         "engine": "evidence-v2",
-        "engine_schema": "3.5.0",
+        "engine_schema": "3.6.0",
         "transport": cfg.llm.transport,
         "vision_model": vision_model,
         "reasoning_model": reasoning_model,
         "reasoning_mode": cfg.llm.reasoning_mode,
+        "escalation_model": cfg.llm.escalation_model,
+        "production_open_weight": cfg.llm.production_open_weight,
+        "process_context": cfg.process_context,
+        "symbol_perception": asdict(cfg.symbol_perception),
         "effort": effort,
         "tiling": asdict(cfg.tiling),
         "scan": asdict(cfg.scan),
@@ -1443,8 +1939,27 @@ def _configuration_hash(
             "disabled": no_legend,
             "key": legend_key,
         },
-        "page_graph_pipeline": "1.7.0",
+        # Preserve the historical raw-evidence cache key. Derived behavior is
+        # versioned in manifest.stage_versions; changing this field would also
+        # discard compatible native evidence and perception before invalidation.
+        "page_graph_pipeline": "1.9.0",
     }
+    if cfg.raster_ink_filter:
+        from diagex.vision.raster_ink import implementation_sha256 as ink_implementation_sha256
+        payload["raster_ink_filter"] = {"implementation_sha256": ink_implementation_sha256()}
+    if cfg.raster_proposals is not None:
+        from diagex.vision.raster_guidance import implementation_sha256
+        payload["raster_proposals"] = cfg.raster_proposals
+        payload["raster_guidance_implementation_sha256"] = implementation_sha256()
+        if cfg.raster_proposals.get("format") == "pdf_page_proposals_v1":
+            from diagex.vision.pdf_raster_guidance import (
+                implementation_sha256 as pdf_guidance_sha256,
+            )
+            payload["pdf_raster_guidance_implementation_sha256"] = pdf_guidance_sha256()
+    if cfg.raster_symbol_mode != "baseline":
+        from diagex.vision.raster_pipeline import implementation_sha256 as raster_pipeline_sha256
+        payload["raster_symbol_mode"] = cfg.raster_symbol_mode
+        payload["raster_pipeline_implementation_sha256"] = raster_pipeline_sha256()
     return hashlib.sha256(
         json.dumps(payload, sort_keys=True, default=str).encode("utf-8")
     ).hexdigest()

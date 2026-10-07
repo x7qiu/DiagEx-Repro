@@ -290,7 +290,8 @@ def _semantics(
     code: str, description: str, section: AbbreviationSection
 ) -> tuple[str, str, dict[str, str]]:
     attrs: dict[str, str] = {}
-    if "阀" in description or "valve" in description.casefold():
+    position_instrument = "阀位" in description or "valve position" in description.casefold()
+    if ("阀" in description or "valve" in description.casefold()) and not position_instrument:
         lowered = description.casefold()
         valve_type = "other"
         for marker, resolved in (
@@ -313,14 +314,37 @@ def _semantics(
         attrs["valve_type"] = valve_type
         return "valve", "valve", attrs
     if section == "instrument_type":
-        attrs["instrument_function"] = _instrument_function(code)
-        attrs["measured_variable"] = _VARIABLES.get(code[:1], "other")
+        if code == "DEV":
+            return "other", "abbreviation", attrs
+        attrs["instrument_function"] = _instrument_function(code, description)
+        attrs["measured_variable"] = "position" if position_instrument else _VARIABLES.get(code[:1], "other")
         return "instrument", attrs["instrument_function"], attrs
     return "other", "abbreviation", attrs
 
 
-def _instrument_function(code: str) -> str:
-    suffix = code[1:]
+def _instrument_function(code: str, description: str = "") -> str:
+    # The printed definition outranks letters in parenthesized qualifiers and
+    # project-specific command codes (e.g. HST is a start command, not a transmitter).
+    if "转换器" in description or "converter" in description.casefold():
+        return "signal_converter"
+    if "命令" in description or "选择器" in description:
+        return "switch"
+    if "开关或报警" in description:
+        return "unclassified_instrument"
+    for markers, function in (
+        (("控制", "调节器", "controller"), "controller"),
+        (("变送器", "transmitter"), "transmitter"),
+        (("开关", "switch"), "switch"),
+        (("报警", "alarm"), "alarm"),
+        (("记录", "recorder"), "recorder"),
+        (("指示", "压力表", "物位表", "物位计", "视镜", "indicator"), "indicator"),
+        (("测量元件", "分析元件", "element"), "element"),
+    ):
+        if any(marker in description.casefold() for marker in markers):
+            return function
+    if description and any(marker in description for marker in ("探测器", "液位,温度,密度", "偏离")):
+        return "unclassified_instrument"
+    suffix = code.split("(", 1)[0][1:]
     if "C" in suffix:
         return "controller"
     if "T" in suffix:

@@ -9,7 +9,6 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
-from typing import Optional
 
 import typer
 from rich.console import Console
@@ -39,14 +38,14 @@ def _parse_pages(spec: str, total: int) -> list[int]:
 @app.command()
 def query(
     diagram: Path = typer.Argument(..., exists=True, readable=True, help="Path to a PDF or image."),
-    question: Optional[str] = typer.Option(None, "--question", "-q", help="Natural-language question."),
-    question_file: Optional[Path] = typer.Option(
+    question: str | None = typer.Option(None, "--question", "-q", help="Natural-language question."),
+    question_file: Path | None = typer.Option(
         None, "--question-file", exists=True, readable=True,
         help="File containing the question (mutually exclusive with --question).",
     ),
     page: str = typer.Option("1", "--page", help="Page spec: N, N-M, or 'all'. 1-based."),
     effort: str = typer.Option("high", "--effort", help="Reasoning depth: low|medium|high|xhigh."),
-    out_dir: Optional[Path] = typer.Option(None, "--out-dir", help="Override default runs/ directory."),
+    out_dir: Path | None = typer.Option(None, "--out-dir", help="Override default runs/ directory."),
     fmt: str = typer.Option("both", "--format", help="Stdout format: text|json|both."),
     no_persist: bool = typer.Option(False, "--no-persist", help="Skip on-disk artefact writes."),
 ) -> None:
@@ -139,12 +138,12 @@ def inspect_pid_evidence(
         "--symbol-standard",
         help="Built-in symbol library: isa-5.1 | iso-10628 | sama | none.",
     ),
-    legend_key: Optional[str] = typer.Option(
+    legend_key: str | None = typer.Option(
         None,
         "--legend-key",
         help="Optional shared cache key for this project's automatically detected legend.",
     ),
-    out_dir: Optional[Path] = typer.Option(
+    out_dir: Path | None = typer.Option(
         None,
         "--out-dir",
         help="Override the runs root; a new inspection run directory is created beneath it.",
@@ -187,15 +186,15 @@ def extract_pid(
         "isa-5.1", "--symbol-standard",
         help="Built-in symbol library: isa-5.1 | iso-10628 | sama | none.",
     ),
-    legend: Optional[Path] = typer.Option(
+    legend: Path | None = typer.Option(
         None, "--legend", exists=True, readable=True,
         help="Legend source file (PDF/image). Mutually exclusive with --legend-pages / --legend-region / --no-legend.",
     ),
-    legend_pages: Optional[str] = typer.Option(
+    legend_pages: str | None = typer.Option(
         None, "--legend-pages",
         help="Comma-separated 1-based page numbers of the input that contain the legend.",
     ),
-    legend_region: Optional[str] = typer.Option(
+    legend_region: str | None = typer.Option(
         None, "--legend-region",
         help="Legend region on the input, formatted 'p<n>:x,y,w,h' in page pixels.",
     ),
@@ -203,20 +202,36 @@ def extract_pid(
         False, "--no-legend",
         help="Skip legend detection; use the built-in library only.",
     ),
-    legend_key: Optional[str] = typer.Option(
+    legend_key: str | None = typer.Option(
         None, "--legend-key",
         help="Shared legend-cache key (e.g. 'acme-2024') across a customer's drawing series.",
+    ),
+    process_overview: Path | None = typer.Option(None, "--process-overview", exists=True, dir_okay=False, help="Source-attributed process overview text file (Evidence v2)."),
+    engineering_rules: Path | None = typer.Option(None, "--engineering-rules", exists=True, dir_okay=False, help="Engineering context for review-only connection hypotheses (Evidence v2)."),
+    production_open_weight: bool = typer.Option(False, "--production-open-weight", help="Use the verified fast/strong open-weight production profile."),
+    adaptive_inspection: bool = typer.Option(False, "--adaptive-inspection", help="Opt into the experimental bounded visual reinspection workflow."),
+    raster_proposals: Path | None = typer.Option(  # noqa: B008 - Typer declares CLI options in defaults.
+        None, "--raster-proposals", exists=True, dir_okay=False, readable=True,
+        help="Experimental source-bound image or PDF-page detector proposals; guides VLM inspection (Evidence v2).",
+    ),
+    raster_ink_filter: bool = typer.Option(
+        False, "--raster-ink-filter",
+        help="Filter nearly blank raster symbol boxes before review; retain an audit (Evidence v2).",
+    ),
+    raster_symbol_mode: str = typer.Option(  # noqa: B008 - Typer declares CLI options in defaults.
+        "baseline", "--raster-symbol-mode",
+        help="Experimental symbol route: baseline or broad_review (requires raster proposals; keeps symbols pending for legend-informed review).",
     ),
     effort: str = typer.Option(
         "medium", "--effort",
         help="Reasoning depth: low|medium|high|xhigh (independent of page step limit).",
     ),
-    engine: Optional[str] = typer.Option(
+    engine: str | None = typer.Option(
         None,
         "--engine",
         help="Extraction engine: legacy | evidence-v2 (default: DIAGEX_PID_ENGINE or legacy).",
     ),
-    max_steps: Optional[int] = typer.Option(
+    max_steps: int | None = typer.Option(
         None,
         "--max-steps",
         min=1,
@@ -226,15 +241,23 @@ def extract_pid(
             "on tile count and clamped to 20-60."
         ),
     ),
-    out: Optional[Path] = typer.Option(
+    out: Path | None = typer.Option(
         None, "--out", help="Path for the DEXPI JSON output (default: run_dir/pid.dexpi.json).",
     ),
-    confidence_report: Optional[Path] = typer.Option(
+    confidence_report: Path | None = typer.Option(
         None, "--confidence-report",
         help="Path for the HTML confidence report (default: run_dir/confidence_report.html).",
     ),
-    out_dir: Optional[Path] = typer.Option(None, "--out-dir", help="Override default runs/ directory."),
+    out_dir: Path | None = typer.Option(None, "--out-dir", help="Override default runs/ directory."),
     no_persist: bool = typer.Option(False, "--no-persist", help="Skip on-disk artefact writes."),
+    fresh: bool = typer.Option(
+        False,
+        "--fresh",
+        help=(
+            "Start a new run directory instead of resuming a matching incomplete "
+            "evidence-v2 checkpoint. Shared legend caches remain available."
+        ),
+    ),
     no_arbitrate_low_confidence: bool = typer.Option(
         False, "--no-arbitrate-low-confidence",
         help="Disable the low-confidence second-pass arbitration "
@@ -267,7 +290,12 @@ def extract_pid(
     parsed_pages = _parse_legend_pages(legend_pages) if legend_pages else None
     parsed_region = _parse_legend_region(legend_region) if legend_region else None
 
-    cfg = load_config()
+    cfg = load_config(production_open_weight=True) if production_open_weight else load_config()
+    if production_open_weight:
+        from diagex.llm.model_policy import apply_production_profile
+        apply_production_profile(cfg, workflow="adaptive" if adaptive_inspection else "fixed")
+    elif adaptive_inspection:
+        cfg.symbol_perception.workflow = "adaptive"
     if engine is not None:
         normalised_engine = engine.strip().lower().replace("_", "-")
         if normalised_engine not in {"legacy", "evidence-v2"}:
@@ -276,10 +304,38 @@ def extract_pid(
             )
             raise typer.Exit(2)
         cfg.pid.engine = normalised_engine  # type: ignore[assignment]
+    if production_open_weight and cfg.pid.engine != "evidence-v2":
+        raise typer.BadParameter("The open-weight production profile requires evidence-v2")
     if out_dir is not None:
         cfg.runs_dir = out_dir
     if no_arbitrate_low_confidence:
         cfg.pid.arbitrate_low_confidence = False
+    from diagex.vision.process_context import context_file
+    cfg.process_context = [context_file(path, kind=kind) for path, kind in
+                           ((process_overview, "process_overview"), (engineering_rules, "engineering_rules")) if path]
+    if cfg.process_context and cfg.pid.engine != "evidence-v2":
+        raise typer.BadParameter("Process context requires --engine evidence-v2")
+    if raster_ink_filter:
+        if cfg.pid.engine != "evidence-v2":
+            raise typer.BadParameter("Raster ink filtering requires --engine evidence-v2")
+        cfg.raster_ink_filter = True
+    if raster_proposals is not None:
+        if cfg.pid.engine != "evidence-v2":
+            raise typer.BadParameter("Raster proposal guidance requires --engine evidence-v2")
+        from diagex.vision.raster_guidance import load_guidance
+        try:
+            if diagram.suffix.lower() == ".pdf":
+                from diagex.vision.pdf_raster_guidance import load_pdf_guidance
+                cfg.raster_proposals = load_pdf_guidance(raster_proposals, diagram, cfg)
+            else:
+                cfg.raster_proposals = load_guidance(raster_proposals, diagram)
+        except (ValueError, OSError) as exc:
+            raise typer.BadParameter(str(exc), param_hint="--raster-proposals") from exc
+    if raster_symbol_mode not in {"baseline", "broad_review"}:
+        raise typer.BadParameter("Choose baseline or broad_review", param_hint="--raster-symbol-mode")
+    if raster_symbol_mode == "broad_review" and cfg.raster_proposals is None:
+        raise typer.BadParameter("broad_review requires --raster-proposals", param_hint="--raster-symbol-mode")
+    cfg.raster_symbol_mode = raster_symbol_mode
 
     # Deferred import: heavy deps shouldn't load for `--help`.
     from diagex.extractors.pid import run_pid_extract
@@ -298,6 +354,7 @@ def extract_pid(
             engine=cfg.pid.engine,
             config=cfg,
             persist=not no_persist,
+            fresh=fresh,
             out_path=out,
             confidence_report_path=confidence_report,
             console=console,
@@ -316,11 +373,11 @@ def render_dexpi(
         ..., exists=True, readable=True,
         help="Path to a graph.json emitted by `diagex extract-pid` (or a run_dir).",
     ),
-    out: Optional[Path] = typer.Option(
+    out: Path | None = typer.Option(
         None, "--out",
         help="Output SVG path (default: sibling of graph.json with .svg suffix).",
     ),
-    title: Optional[str] = typer.Option(
+    title: str | None = typer.Option(
         None, "--title", help="Title shown in the SVG header (default: source_path)."
     ),
     ortho: bool = typer.Option(
@@ -359,11 +416,11 @@ def render_drawio(
         ..., exists=True, readable=True,
         help="Path to a graph.json emitted by `diagex extract-pid` (or a run_dir).",
     ),
-    out: Optional[Path] = typer.Option(
+    out: Path | None = typer.Option(
         None, "--out",
         help="Output .drawio path (default: sibling of graph.json with .drawio suffix).",
     ),
-    title: Optional[str] = typer.Option(
+    title: str | None = typer.Option(
         None, "--title", help="Title shown in the title block (default: source_path)."
     ),
     ortho: bool = typer.Option(
@@ -402,7 +459,7 @@ def dexpi_validate(
         ..., exists=True, readable=True,
         help="Path to a DEXPI XML file (.xml) or a diagex JSON model (.json / .dexpi.json).",
     ),
-    rules: Optional[str] = typer.Option(
+    rules: str | None = typer.Option(
         None, "--rules",
         help="Comma-separated list of rule IDs to enable (e.g. DEX0001,DEX0003). "
              "Default: all rules.",
@@ -461,7 +518,7 @@ def dexpi_render(
         ..., exists=True, readable=True,
         help="Path to a diagex JSON model (e.g. pid.dexpi.json).",
     ),
-    out: Optional[Path] = typer.Option(
+    out: Path | None = typer.Option(
         None, "--out",
         help="Output XML path (default: sibling of input with .xml suffix).",
     ),
@@ -492,11 +549,11 @@ def render_debug(
         ..., exists=True, readable=True,
         help="Path to a graph.json emitted by `diagex extract-pid` (or a run_dir).",
     ),
-    out: Optional[Path] = typer.Option(
+    out: Path | None = typer.Option(
         None, "--out",
         help="Output Markdown path (default: sibling of graph.json with .debug.md suffix).",
     ),
-    title: Optional[str] = typer.Option(
+    title: str | None = typer.Option(
         None, "--title", help="Title shown in the report header (default: source_path)."
     ),
     coords: bool = typer.Option(
@@ -535,6 +592,45 @@ def version() -> None:
     console.print(__version__)
 
 
+@app.command("web")
+def web_workbench(
+    host: str = typer.Option("127.0.0.1", "--host", help="Local server bind address."),
+    port: int = typer.Option(
+        8765,
+        "--port",
+        min=0,
+        max=65535,
+        help="Local server port; 0 selects a free port.",
+    ),
+    no_open: bool = typer.Option(
+        False,
+        "--no-open",
+        help="Do not open the browser automatically.",
+    ),
+) -> None:
+    """Configure, run, and review P&ID extraction in a local browser."""
+    from diagex.web.server import Workbench, serve_workbench
+
+    cfg = load_config()
+    workbench = Workbench(cfg)
+    if host not in {"127.0.0.1", "localhost", "::1"}:
+        console.print(
+            "[yellow]warning:[/yellow] the workbench has no authentication or TLS; "
+            "API keys entered in a remotely accessed page would travel unencrypted"
+        )
+    console.print(
+        f"runs: {Path(cfg.runs_dir).expanduser().resolve()}   "
+        "credentials: memory only   (Ctrl+C stops safely)"
+    )
+    serve_workbench(
+        workbench,
+        host=host,
+        port=port,
+        open_browser=not no_open,
+        on_ready=lambda url: console.print(f"workbench: [cyan]{url}[/cyan]"),
+    )
+
+
 @app.command("review")
 def review_pid(
     target: Path = typer.Argument(
@@ -551,7 +647,7 @@ def review_pid(
         help="Original source PDF or image used for extraction.",
     ),
     rater: str = typer.Option(..., "--rater", help="Reviewer name recorded in the audit log."),
-    out_dir: Optional[Path] = typer.Option(
+    out_dir: Path | None = typer.Option(
         None,
         "--out-dir",
         help="Review directory (default: <run-dir>/review).",
@@ -657,7 +753,7 @@ def gt_edit(
         dir_okay=True,
         help="Fixture directory under eval/datasets/ (must contain graph.bootstrap.json).",
     ),
-    resume: Optional[bool] = typer.Option(
+    resume: bool | None = typer.Option(
         None, "--resume/--no-resume",
         help="Continue from graph.truth.history.json if it exists (default: prompt).",
     ),

@@ -31,8 +31,10 @@ accuracy of label + class matters more than geometric precision.
 
 Your approach:
 1. Call get_overview first to see the layout of rows / columns.
-2. Call list_tiles and walk only the tiles that actually contain legend
-   entries. Skip title blocks, revision tables, and page borders.
+2. Call list_tiles and inspect every assigned detail tile. Python schedules
+   the regions of the legend page. Inspect all columns and bottom rows within
+   this region before finishing. Title blocks, revision tables, and borders
+   are not legend entries; a region containing only these can yield no entries.
 3. For each legible entry -- symbol glyph with a printed label -- emit one
    annotate call:
      - Annotate immediately after viewing the image that contains the glyph.

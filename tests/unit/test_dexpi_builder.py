@@ -241,6 +241,37 @@ def test_instrument_signal_has_valid_source_and_target() -> None:
     assert validate_model(xml_io.loads(xml_io.dumps(result.model))) == []
 
 
+def test_equipment_instrument_capillary_uses_sensing_location() -> None:
+    graph = ReconciledGraph(
+        source_path="t.pdf",
+        nodes=[
+            _node("tank", "equipment", "T-101", {"equipment_class": "tank"}),
+            _node(
+                "pt",
+                "instrument",
+                "PT-101",
+                {"instrument_function": "transmitter", "loop_number": "101"},
+            ),
+        ],
+        edges=[_edge("cap-1", "tank", "pt", "instrument_capillary")],
+    )
+
+    result = build_dexpi(graph)
+    plant = result.model.conceptual_model
+    instrument = plant.ProcessInstrumentationFunctions[0]
+    equipment = plant.TaggedPlantItems[0]
+    generating = instrument.ProcessSignalGeneratingFunctions[0]
+    measuring = instrument.SignalConveyingFunctions[0]
+
+    assert generating.sensing_location in equipment.Nozzles
+    assert measuring.Source is generating
+    assert measuring.Target is instrument
+    assert measuring.SignalConveyingType.value == "CapillarySignalConveying"
+    assert result.stats["dropped_edges"] == 0
+    assert validate_model(result.model) == []
+    assert validate_model(xml_io.loads(xml_io.dumps(result.model))) == []
+
+
 def test_instrument_to_valve_signal_uses_actuating_function() -> None:
     graph = ReconciledGraph(
         source_path="t.pdf",
@@ -760,3 +791,22 @@ def test_instrument_class_unknown_value_logs_issue_and_falls_back():
     pifs = result.model.conceptual_model.ProcessInstrumentationFunctions
     assert type(pifs[0]).__name__ == "ProcessInstrumentationFunction"
     assert any("unknown instrument_class" in msg for msg in result.issues), result.issues
+
+
+def test_export_distinguishes_unknown_direction_from_proven_flow():
+    from diagex.dexpi._generated.enums import PipingNetworkSegmentFlowClassification
+
+    for direction in ["unknown", "forward"]:
+        edge = _edge("route", "left", "right")
+        edge.attributes["flow_direction"] = direction
+        graph = ReconciledGraph(source_path="vector.pdf", nodes=[
+            _node("left","equipment","A",{"equipment_class":"vessel"}),
+            _node("right","equipment","B",{"equipment_class":"vessel"}),
+        ], edges=[edge])
+        result = build_dexpi(graph)
+        segment = result.model.conceptual_model.PipingNetworkSystems[0].Segments[0]
+        assert segment.FlowDirection == (
+            PipingNetworkSegmentFlowClassification.SingleFlowPipingNetworkSegment
+            if direction == "forward" else None
+        )
+        assert any(attr.name == "agent_flow_direction" and attr.value == direction for attr in segment.customAttributes)

@@ -37,14 +37,23 @@
     <aside class="queue-panel">
       <div class="panel-heading">
         <h2 data-i18n="reviewQueue">Review queue</h2>
-        <span id="progressBadge" class="badge" data-i18n="loading">Loading…</span>
+        <span id="findingBadge" class="badge" data-i18n="loading">Loading…</span>
       </div>
-      <div class="filters">
-        <select id="queueFilter"><option value="unreviewed" data-i18n="needsReview">Needs review</option><option value="all" data-i18n="allItems">All items</option></select>
-        <select id="queueType"><option value="all" data-i18n="allTypes">All types</option><option value="node" data-i18n="entities">Entities</option><option value="edge" data-i18n="connections">Connections</option><option value="conflict" data-i18n="conflicts">Conflicts</option></select>
+      <div class="queue-controls">
+        <label for="queueFilter" data-i18n="reviewScope">Review scope</label>
+        <select id="queueFilter"><option value="findings" data-i18n="decisionQueue">Needs your decision</option><option value="unreviewed" data-i18n="humanSignoff">Awaiting human approval</option><option value="all" data-i18n="allItems">All items</option></select>
+        <p id="queueHelp" class="queue-help"></p>
+        <div id="queueCategories" class="queue-categories" aria-label="Finding categories" data-i18n-aria-label="findingCategories"></div>
+        <input id="queueSearch" type="search" data-i18n-placeholder="searchFindings" data-i18n-aria-label="searchFindings" placeholder="Search label, reason or ID" aria-label="Search label, reason or ID">
+        <div class="filters">
+          <select id="queuePage" aria-label="Filter by page" data-i18n-aria-label="filterByPage"></select>
+          <select id="queueType" aria-label="Filter by type" data-i18n-aria-label="allTypes"><option value="all" data-i18n="allTypes">All types</option><option value="node" data-i18n="entities">Entities</option><option value="edge" data-i18n="connections">Connections</option><option value="assembly" data-i18n="assemblies">Assemblies</option><option value="conflict" data-i18n="conflicts">Conflicts</option></select>
+        </div>
+        <div class="queue-navigation"><span id="queueCount" role="status"></span><button id="nextFinding" class="primary" data-i18n="nextFinding">Next finding →</button></div>
       </div>
       <div id="warningBox" class="warnings hidden"></div>
       <div id="queue" class="queue"></div>
+      <div class="approval-progress"><span data-i18n="fullReview">Full human review</span><strong id="progressBadge"></strong></div>
     </aside>
 
     <section class="compare-panel">
@@ -59,11 +68,12 @@
           <option value="side-by-side" data-i18n="sideBySide">Side by side</option>
           <option value="stacked" data-i18n="stacked">Stacked</option>
         </select>
+        <button id="showIssue" class="primary" disabled data-i18n="showIssue">Show issue</button>
         <button id="toggleQueue" class="quiet">Hide queue</button>
         <button id="toggleInspector" class="quiet">Hide inspector</button>
       </div>
       <div class="pane source-pane">
-        <div class="pane-title" data-i18n="originalSource">Original source</div>
+        <div class="pane-title"><span data-i18n="originalSource">Original source</span><span id="issueLocationStatus" class="issue-location-status hidden" role="status"></span></div>
         <div id="sourceViewport" class="viewport">
           <div id="sourceStage" class="stage">
             <img id="sourceImage" alt="Original P&amp;ID page" data-i18n-alt="originalPidPage">

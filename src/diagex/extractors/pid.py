@@ -18,7 +18,7 @@ import secrets
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from diagex.config import Config, EffortLevel, PidConfig, PidEngine, load_config
 from diagex.llm.cost import (
@@ -33,21 +33,7 @@ if TYPE_CHECKING:  # optional rich console for progress display
     from rich.console import Console
 
 
-# Legend resolver lives in a sibling module being built by another agent. Keep the
-# import deferred so this module imports cleanly if pid_legend.py is not yet on disk;
-# `run_pid_extract` fails fast with a clear error if it's still missing at call time.
-try:  # pragma: no cover - import shape depends on parallel work
-    from diagex.extractors.pid_legend import (  # type: ignore[attr-defined]
-        LegendResolution,
-        resolve_legend,
-    )
-
-    _LEGEND_IMPORT_ERROR: Exception | None = None
-except Exception as _exc:  # noqa: BLE001 - surface the real cause at call time
-    LegendResolution = None  # type: ignore[assignment,misc]
-    resolve_legend = None  # type: ignore[assignment]
-    _LEGEND_IMPORT_ERROR = _exc
-
+from diagex.extractors.pid_legend import resolve_legend
 
 # ---------------------------------------------------------------------------
 # Result container
@@ -60,17 +46,18 @@ class PidExtractionResult:
     effort: EffortLevel
     model: str
     graph: ReconciledGraph
-    dexpi_json_path: Optional[Path]
+    dexpi_json_path: Path | None
     dexpi_stats: dict = field(default_factory=dict)
     dexpi_issues: list[str] = field(default_factory=list)
     validation_issues: list[dict] = field(default_factory=list)
     legend_source: str = ""
     legend_entry_count: int = 0
     cost_summary: dict = field(default_factory=dict)
-    run_dir: Optional[Path] = None
+    run_dir: Path | None = None
     run_id: str = ""
     engine: str = "legacy"
     quality_status: str = ""
+    workflow_stage: str = "graph"
 
     def to_text(self) -> str:
         lines: list[str] = []
@@ -181,19 +168,6 @@ def _append_index(runs_root: Path, run_id: str, action: str, snippet: str) -> No
         f.write(f"{ts}  {run_id}  {action!r} → {snippet_one_line}\n")
 
 
-def _cost_accepts_pricing() -> bool:
-    """CostTracker may or may not accept a `pricing=` kwarg depending on impl."""
-    try:
-        import inspect
-
-        from diagex.llm.cost import CostTracker as _CT
-
-        sig = inspect.signature(_CT.__init__)
-        return "pricing" in sig.parameters
-    except Exception:
-        return False
-
-
 def _coerce_status(s: str) -> str:
     if s in ("ok", "partial", "cost_exhausted", "error"):
         return s
@@ -219,22 +193,29 @@ def run_pid_extract(
     *,
     diagram: Path,
     symbol_standard: SymbolStandard = "isa-5.1",
-    legend_path: Optional[Path] = None,
-    legend_pages: Optional[list[int]] = None,
-    legend_region: Optional[tuple[int, int, int, int, int]] = None,
+    legend_path: Path | None = None,
+    legend_pages: list[int] | None = None,
+    legend_region: tuple[int, int, int, int, int] | None = None,
     no_legend: bool = False,
-    legend_key: Optional[str] = None,
+    legend_key: str | None = None,
     effort: EffortLevel = "medium",
     max_steps: int | None = None,
     engine: PidEngine | None = None,
-    config: Optional[Config] = None,
+    config: Config | None = None,
     persist: bool = True,
-    out_path: Optional[Path] = None,
-    confidence_report_path: Optional[Path] = None,
+    fresh: bool = False,
+    out_path: Path | None = None,
+    confidence_report_path: Path | None = None,
     console: Console | None = None,
+    stop_after: str = "graph",
+    reviewed_inputs: dict | None = None,
 ) -> PidExtractionResult:
     cfg = config or load_config()
     selected_engine = engine or cfg.pid.engine
+    if stop_after not in {"graph", "detection"}:
+        raise ValueError("stop_after must be graph or detection")
+    if selected_engine != "evidence-v2" and (stop_after != "graph" or reviewed_inputs is not None):
+        raise ValueError("Staged detection review requires evidence-v2")
     if selected_engine == "evidence-v2":
         from diagex.extractors.pid_evidence import run_pid_evidence_extract
 
@@ -249,6 +230,9 @@ def run_pid_extract(
             effort=effort,
             config=cfg,
             persist=persist,
+            fresh=fresh,
+            stop_after=stop_after,
+            reviewed_inputs=reviewed_inputs,
             out_path=out_path,
             confidence_report_path=confidence_report_path,
             console=console,
@@ -268,14 +252,6 @@ def run_pid_extract(
     from diagex.vision.reconcile import reconcile
     from diagex.vision.tiling import AspectAwareStrategy, tile
     from diagex.vision.views import ViewProvider
-
-    # Legend resolver must be resolvable by the time we run. If import failed,
-    # it means the parallel agent's module isn't in place yet.
-    if resolve_legend is None:
-        raise RuntimeError(
-            "diagex.extractors.pid_legend.resolve_legend is not available "
-            f"({_LEGEND_IMPORT_ERROR!r}). Phase 2 cannot proceed without it."
-        )
 
     stem = _safe_stem(diagram)
     _t_run_start = time.perf_counter()
@@ -297,7 +273,7 @@ def run_pid_extract(
     reporter_factory = lambda: make_reporter(progress_console, effort=effort)  # noqa: E731
 
     # --- 2. Shared infrastructure ----------------------------------------------
-    cost = CostTracker(pricing=cfg.pricing) if _cost_accepts_pricing() else CostTracker()
+    cost = CostTracker(pricing=cfg.pricing)
     llm = LLMClient(cfg.llm, budgets=cfg.budgets)
     llm.reset_retry_counter()
 

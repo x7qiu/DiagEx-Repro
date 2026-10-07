@@ -13,6 +13,69 @@ from diagex.config import LLMConfig, RuntimeBudgets
 from diagex.llm.client import LLMClient, is_non_retryable_api_error
 
 
+def test_request_deadline_stops_active_stream_without_retry(monkeypatch):
+    now = [100.0]
+    monkeypatch.setattr("diagex.llm.client.time.monotonic", lambda: now[0])
+    calls = []
+
+    class Stream:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            pass
+
+        def __iter__(self):
+            for _ in range(20):
+                now[0] += 1
+                yield {"type": "ping"}
+
+        def get_final_message(self):
+            pytest.fail("An over-budget stream must not be accepted")
+
+    client = LLMClient(LLMConfig(model="test", anthropic_api_key="test"))
+
+    def stream(**kwargs):
+        calls.append(kwargs)
+        return Stream()
+
+    monkeypatch.setattr(client._client.messages, "stream", stream)
+    with pytest.raises(TimeoutError, match="stream exceeded"):
+        client.messages_create(system="test", messages=[], max_tokens=100, time_budget_s=3, max_attempts=2)
+    assert len(calls) == 1 and client.retries_total == 0
+    assert calls[0]["timeout"].read == 3
+    client._client.close()
+
+
+def test_bounded_request_does_not_wait_past_provider_cooldown(monkeypatch):
+    monkeypatch.setattr("diagex.llm.client.time.monotonic", lambda: 100)
+    monkeypatch.setattr("diagex.llm.client.time.sleep", lambda _: pytest.fail("must not wait"))
+    client = LLMClient(LLMConfig(model="test", anthropic_api_key="test"))
+    client._rate_limit_not_before = 200
+    with pytest.raises(TimeoutError, match="cooldown"):
+        client.messages_create(system="test", messages=[], max_tokens=100, time_budget_s=10)
+    client._client.close()
+
+
+def test_per_request_attempt_limit_overrides_long_global_retry_ladder(monkeypatch):
+    calls = []
+    events = []
+    client = LLMClient(LLMConfig(model="test", anthropic_api_key="test"), RuntimeBudgets(retry_attempts=6, retry_base_s=0))
+
+    def stream(**kwargs):
+        calls.append(kwargs)
+        raise anthropic.APIConnectionError(request=httpx.Request("POST", "https://test.invalid"))
+
+    monkeypatch.setattr(client._client.messages, "stream", stream)
+    monkeypatch.setattr("diagex.llm.client.time.sleep", lambda _: None)
+    with pytest.raises(anthropic.APIConnectionError):
+        client.messages_create(system="test", messages=[], max_tokens=100, time_budget_s=45, max_attempts=2, on_transport_event=events.append)
+    assert len(calls) == 2 and client.retries_total == 1
+    assert [e["event"] for e in events] == ["dispatch", "error", "retry_wait", "dispatch", "error"]
+    assert "Connection error" in events[-1]["error"]
+    client._client.close()
+
+
 def _clear_provider_env(monkeypatch: pytest.MonkeyPatch) -> None:
     for name in (
         "DIAGEX_LLM_PROVIDER",

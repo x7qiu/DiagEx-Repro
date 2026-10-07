@@ -121,6 +121,21 @@ class RuntimeBudgets:
 
 
 @dataclass
+class SymbolPerceptionConfig:
+    """Bounded raw-symbol requests; independent of downstream graph reasoning."""
+
+    first_pass_tokens: int = 6000
+    reasoning_tokens: int = 16000
+    request_timeout_s: float = 45.0
+    reasoning_timeout_s: float = 120.0
+    transport_attempts: int = 2
+    run_timeout_s: float = 1800.0
+    consecutive_failure_limit: int = 3
+    total_failure_limit: int = 5
+    workflow: Literal["fixed", "adaptive"] = "fixed"
+
+
+@dataclass
 class LLMConfig:
     """LLM transport settings for Anthropic-compatible Messages endpoints.
 
@@ -134,6 +149,11 @@ class LLMConfig:
     # model behaviour.
     vision_model: str | None = None
     reasoning_model: str | None = None
+    escalation_model: str | None = field(default_factory=lambda: os.environ.get("DIAGEX_ESCALATION_MODEL") or None)
+    production_open_weight: bool = field(default_factory=lambda: os.environ.get("DIAGEX_MODEL_POLICY", "evaluation") == "production-open-weight")
+    spending_ledger: str | None = field(default_factory=lambda: os.environ.get("DIAGEX_SPENDING_LEDGER") or None)
+    verified_prices: str | None = field(default_factory=lambda: os.environ.get("DIAGEX_VERIFIED_PRICES") or None)
+    spending_category: str = field(default_factory=lambda: os.environ.get("DIAGEX_SPENDING_CATEGORY", "graph"))
     # Global override for model thinking. ``auto`` preserves each caller's
     # existing effort-based choice; enabled/disabled applies to every call,
     # including legend extraction and arbitration.
@@ -334,9 +354,22 @@ class Config:
     tiling: TilingConfig = field(default_factory=TilingConfig)
     scan: ScanConfig = field(default_factory=ScanConfig)
     budgets: RuntimeBudgets = field(default_factory=RuntimeBudgets)
+    symbol_perception: SymbolPerceptionConfig = field(default_factory=SymbolPerceptionConfig)
     pid: PidConfig = field(default_factory=PidConfig)
     runs_dir: Path = field(default_factory=lambda: Path("runs"))
+    process_context: list[dict] = field(default_factory=list)
+    raster_proposals: dict | None = None
+    raster_ink_filter: bool = False
+    raster_symbol_mode: Literal["baseline", "broad_review"] = "baseline"
 
 
-def load_config() -> Config:
-    return Config()
+def load_config(*, production_open_weight: bool = False) -> Config:
+    if not production_open_weight:
+        return Config()
+    from diagex.llm.model_policy import FAST_MODEL, apply_production_profile
+    llm = LLMConfig(
+        transport="openrouter", model=FAST_MODEL,
+        openrouter_api_key=os.environ.get("OPENROUTER_API_KEY"),
+        openrouter_base_url=os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api").rstrip("/"),
+    )
+    return apply_production_profile(Config(llm=llm))

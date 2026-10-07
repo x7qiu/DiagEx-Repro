@@ -31,15 +31,15 @@ import json
 from dataclasses import dataclass
 from importlib import resources
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 from PIL import Image, ImageStat
 from pydantic import ValidationError
 
 from diagex.agent.runtime import ReactRuntime, RunConfig
 from diagex.agent.state import AgentState
-from diagex.agent.tools import build_phase2_tools
 from diagex.config import EFFORT_PROFILES, Config, PidConfig
+from diagex.extractors.evidence_checkpoint import atomic_write_text
 from diagex.llm.client import LLMClient, is_non_retryable_api_error
 from diagex.llm.cost import CostTracker
 from diagex.llm.prompts.phase2_legend import build_legend_system_prompt
@@ -51,18 +51,20 @@ from diagex.vision.legend_models import (
     LegendBudget,
     LegendEntry,
     LegendPack,
+    LegendRegionCoverage,
     SymbolStandard,
+    merge_source_row,
 )
 from diagex.vision.legend_tables import (
     AbbreviationInventory,
     extract_abbreviation_tables,
 )
 from diagex.vision.loader import iter_pages
-from diagex.vision.models import BBox, DiagramPage, DiagramSource
-from diagex.vision.tiling import AspectAwareStrategy, tile
+from diagex.vision.models import BBox, DiagramPage, DiagramSource, Tile
+from diagex.vision.tiling import AspectAwareStrategy
 from diagex.vision.views import ViewProvider
 
-LEGEND_EXTRACTOR_VERSION = "2.1.0"
+LEGEND_EXTRACTOR_VERSION = "3.2.0"
 
 # ---------------------------------------------------------------------------
 # Result container
@@ -77,7 +79,7 @@ class LegendResolution:
     budget: LegendBudget  # pack split into few_shot + lookup_only
     source: str  # "explicit_file" | "explicit_pages" | "explicit_region"
     #  | "auto_detected" | "no_legend" | "cache_hit" | "built_in_only"
-    cache_path: Optional[Path]  # where the *extracted* pack was persisted
+    cache_path: Path | None  # where the *extracted* pack was persisted
 
 
 @dataclass
@@ -106,6 +108,7 @@ def resolve_evidence_legend(
     legend_key: str | None = None,
     runs_dir_for_stem: Path | None = None,
     reporter: ProgressReporter | None = None,
+    fresh: bool = False,
 ) -> EvidenceLegendResolution:
     """Resolve a legend using the exact page-routing policy shared by evidence-v2.
 
@@ -138,6 +141,7 @@ def resolve_evidence_legend(
         runs_dir_for_stem=runs_dir_for_stem,
         reporter=reporter,
         evidence_pages=pages,
+        fresh=fresh,
     )
     # Native vector text is the source of truth for abbreviation tables.  Add
     # the reconstructed rows after ordinary legend resolution (including a
@@ -194,9 +198,9 @@ def load_builtin_pack(standard: SymbolStandard) -> LegendPack:
 
 def compute_source_hash(
     *,
-    path: Optional[Path] = None,
-    page_bytes: Optional[list[bytes]] = None,
-    region_bytes: Optional[bytes] = None,
+    path: Path | None = None,
+    page_bytes: list[bytes] | None = None,
+    region_bytes: bytes | None = None,
 ) -> str:
     """sha256 hex over the legend input bytes. Exactly one kwarg must be set."""
     provided = [x is not None for x in (path, page_bytes, region_bytes)]
@@ -256,11 +260,7 @@ def apply_budget(pack: LegendPack, cfg_pid: PidConfig) -> LegendBudget:
         # normalisation and lookup, but should never crowd project symbol
         # thumbnails out of the visual few-shot block.
         p_visual = (
-            0
-            if e.image_b64
-            else 2
-            if e.attributes.get("legend_kind") == "abbreviation"
-            else 1
+            0 if e.image_b64 else 2 if e.attributes.get("legend_kind") == "abbreviation" else 1
         )
         p2 = 0 if (e.standard == target_standard) else 1
         p3 = kind_rank.get(e.kind, 2)
@@ -300,10 +300,10 @@ def _entry_token_estimate(e: LegendEntry) -> int:
 
 def _cache_path_for(
     *,
-    legend_key: Optional[str],
+    legend_key: str | None,
     cfg_pid: PidConfig,
-    runs_dir_for_stem: Optional[Path],
-) -> Optional[Path]:
+    runs_dir_for_stem: Path | None,
+) -> Path | None:
     """Resolve the cache file path.
 
     Shared (`legend_key` set) takes priority over per-diagram (`runs_dir_for_stem`).
@@ -329,10 +329,12 @@ def _legend_extractor_fingerprint(cfg: Config, client: LLMClient) -> str:
 
 
 def _load_cached(
-    path: Optional[Path],
+    path: Path | None,
     expected_hash: str,
     expected_fingerprint: str,
-) -> Optional[LegendPack]:
+    *,
+    allow_partial: bool = False,
+) -> LegendPack | None:
     """Return a cache only when its source and extraction contract match."""
     if path is None or not path.exists():
         return None
@@ -342,22 +344,38 @@ def _load_cached(
     except (json.JSONDecodeError, ValidationError, OSError):
         # Corrupt or schema-shifted cache -> treat as miss; will be overwritten.
         return None
+    if not allow_partial:
+        from diagex.extractors.legend_rows import suspicious_legend_label
+        if any(e.attributes.get("row_status") == "accept" and suspicious_legend_label(e.label) for e in pack.entries):
+            return None
     if (
         pack.schema_version != LEGEND_CACHE_SCHEMA_VERSION
         or pack.source_hash != expected_hash
         or pack.extractor_fingerprint != expected_fingerprint
+        or (
+            not allow_partial
+            and any(
+                region.status != "complete"
+                or (
+                    region.source_row_id
+                    and region.entry_count == 0
+                    and region.verification_passes < 2
+                )
+                for region in pack.coverage
+            )
+        )
     ):
         return None
     return pack
 
 
-def _persist(path: Optional[Path], pack: LegendPack) -> Optional[Path]:
+def _persist(path: Path | None, pack: LegendPack) -> Path | None:
     """Write `pack` to `path`. Creates parent dirs. Returns the path or None."""
     if path is None:
         return None
     path.parent.mkdir(parents=True, exist_ok=True)
     # model_dump_json handles Path / Literal / nested models cleanly.
-    path.write_text(pack.model_dump_json(indent=2), encoding="utf-8")
+    atomic_write_text(path, pack.model_dump_json(indent=2))
     return path
 
 
@@ -448,9 +466,7 @@ def _normalise_legend_text(value: str) -> str:
 
 
 def _intersection_area(a: BBox, b: BBox) -> int:
-    return max(0, min(a.x2, b.x2) - max(a.x, b.x)) * max(
-        0, min(a.y2, b.y2) - max(a.y, b.y)
-    )
+    return max(0, min(a.x2, b.x2) - max(a.x, b.x)) * max(0, min(a.y2, b.y2) - max(a.y, b.y))
 
 
 def _bbox_distance(a: BBox, b: BBox) -> tuple[int, int]:
@@ -463,13 +479,10 @@ def _matching_label_span(label: str, evidence: PageEvidence) -> TextEvidence | N
     target = _normalise_legend_text(label)
     if not target:
         return None
-    exact = [
-        span
-        for span in evidence.text_spans
-        if _normalise_legend_text(span.text) == target
-    ]
+    exact = [span for span in evidence.text_spans if _normalise_legend_text(span.text) == target]
     if not exact:
         return None
+
     # Duplicate labels can occur in notes. Prefer the occurrence with nearby
     # compact vector geometry, which is the likely legend row.
     def score(span: TextEvidence) -> tuple[int, int, int]:
@@ -494,8 +507,7 @@ def _cluster_path_boxes(paths: list[PathEvidence], gap: int) -> list[list[BBox]]
         touching: list[int] = []
         for index, cluster in enumerate(clusters):
             if any(
-                _bbox_distance(box, existing)[0] <= gap
-                and _bbox_distance(box, existing)[1] <= gap
+                _bbox_distance(box, existing)[0] <= gap and _bbox_distance(box, existing)[1] <= gap
                 for existing in cluster
             ):
                 touching.append(index)
@@ -641,21 +653,6 @@ def _select_legend_crop(
                 "accepted",
             )
 
-    if evidence is not None and label_span is not None:
-        recovered_bbox = _native_symbol_bbox(label_span, evidence)
-        if recovered_bbox is not None:
-            recovered = page.image.crop(
-                (recovered_bbox.x, recovered_bbox.y, recovered_bbox.x2, recovered_bbox.y2)
-            )
-            if _image_rejection_reason(recovered) is None:
-                return (
-                    recovered,
-                    recovered_bbox,
-                    label_span.bbox,
-                    "native_text_paths",
-                    "recovered",
-                )
-
     rejected = "rejected_text_overlap" if model_reason else "rejected_blank"
     return None, model_bbox, label_span.bbox if label_span else None, None, rejected
 
@@ -682,7 +679,7 @@ def _auto_detect_page(
     page: DiagramPage,
     client: LLMClient,
     cost_tracker: CostTracker,
-) -> tuple[bool, Optional[tuple[int, int, int, int]]]:
+) -> tuple[bool, tuple[int, int, int, int] | None]:
     """One-shot yes/no classifier over the page overview.
 
     Returns `(is_legend, bbox_or_None)` where bbox is in page-pixel coords.
@@ -751,7 +748,7 @@ def _extract_text(resp: Any) -> str:
 
 def _parse_auto_detect(
     text: str, *, page_w: int, page_h: int
-) -> tuple[bool, Optional[tuple[int, int, int, int]]]:
+) -> tuple[bool, tuple[int, int, int, int] | None]:
     """Parse the yes/no + bbox response.
 
     Robust to stray whitespace, trailing punctuation, and case; bails to
@@ -791,91 +788,142 @@ def _parse_auto_detect(
 # ---------------------------------------------------------------------------
 
 
+def _native_page_evidence(page: DiagramPage, source_path: Path) -> PageEvidence:
+    from diagex.vision.evidence import extract_page_evidence
+
+    return extract_page_evidence(page=page, source_path=source_path)
+
+
 def _extract_from_page(
     *,
     page: DiagramPage,
-    region: Optional[tuple[int, int, int, int]],
+    region: tuple[int, int, int, int] | None,
     client: LLMClient,
     cost_tracker: CostTracker,
     cfg: Config,
     page_evidence: PageEvidence | None = None,
+    coverage: list[LegendRegionCoverage] | None = None,
+    prior: LegendPack | None = None,
+    run_state: Any = None,
 ) -> list[LegendEntry]:
-    """Run a ReAct extraction pass over one page (optionally cropped) and
-    harvest LegendEntry rows from the agent's annotations.
+    """Classify whole native rows; retain detail-region navigation for raster input.
 
-    On any failure (step limit, API error, validation error) returns an
-    empty list — the caller falls back to built-in-only and logs the reason.
+    Uncertain rows survive with partial coverage. Built-in fallback entries never
+    count as inspected source rows.
     """
-    # If a sub-region was given, build a synthetic page containing just the
-    # crop so tiling / views stay aligned with what the agent actually sees.
-    work_page = page
-    origin = (0, 0)
-    if region is not None:
-        x, y, w, h = region
-        crop = _crop_region(page, x, y, w, h)
-        origin = (x, y)
-        work_page = DiagramPage(
-            page_index=page.page_index,
-            image=crop,
-            width=crop.size[0],
-            height=crop.size[1],
-            dpi=page.dpi,
-            effective_dpi=page.effective_dpi,
-            is_scanned=page.is_scanned,
-            rotation_deg=page.rotation_deg,
-            source_ref=f"{page.source_ref}#legend-region",
-        )
+    x, y, w, h = region or (0, 0, page.width, page.height)
+    x0, y0 = max(0, x), max(0, y)
+    x1, y1 = min(page.width, x + w), min(page.height, y + h)
+    if x1 <= x0 or y1 <= y0:
+        raise ValueError("Empty legend extraction region")
+    if (
+        page_evidence is not None
+        and not page_evidence.is_scanned
+        and page_evidence.paths
+        and page_evidence.text_spans
+    ):
+        from diagex.extractors.legend_rows import classify_native_legend
 
-    tiles = tile(
-        work_page,
-        AspectAwareStrategy(
-            max_tokens_per_tile=cfg.tiling.max_tokens_per_tile,
-            overlap_frac=cfg.tiling.overlap_frac,
-            token_per_pixel=cfg.tiling.token_per_pixel,
-        ),
-    )
-    vp = ViewProvider(work_page, tiles)
-
-    profile = EFFORT_PROFILES["medium"]
-    system_blocks = build_legend_system_prompt(effort_max_steps=profile.max_steps)
-
-    # Legend extraction MUST NOT carry a lookup_symbol tool — otherwise the
-    # agent could recurse into its own overflow pack. Keep `lookup_legend`
-    # on state as None; only the 7-tool base set is offered.
-    state = AgentState(question="Extract the symbol legend on this page.", page=work_page)
-    state.lookup_legend = None
-
-    # Fresh local runtime so we can override the tools list. The standard
-    # runtime reads TOOL_SCHEMAS at dispatch time; we ensure no lookup tool
-    # is registered by simply not extending that list.
-    runtime = ReactRuntime(
-        client=client,
-        system_blocks=system_blocks,
-        cost_tracker=cost_tracker,
-        budgets=cfg.budgets,
-    )
-    # Sanity: build_phase2_tools(with_lookup=False) == TOOL_SCHEMAS for the
-    # base set. We invoke it to match the spec's wording; the runtime does
-    # not consume this list directly (it reads TOOL_SCHEMAS itself), but
-    # keeping the call documents intent + guards against future refactors.
-    _ = build_phase2_tools(with_lookup=False)
-
-    try:
-        runtime.run(state=state, view_provider=vp, run_cfg=RunConfig(effort="medium"))
-    except Exception:
-        return []
-
-    entries: list[LegendEntry] = []
-    for a in state.annotations.all():
-        entry = _annotation_to_entry(
-            annotation=a,
+        return classify_native_legend(
             page=page,
-            origin=origin,
-            cfg_pid=cfg.pid,
-            page_evidence=page_evidence,
+            evidence=page_evidence,
+            region=(x0, y0, x1 - x0, y1 - y0),
+            client=client,
+            cost_tracker=cost_tracker,
+            cfg=cfg,
+            coverage=coverage,
+            prior=prior,
+            run_state=run_state,
         )
-        if entry is not None:
-            entries.append(entry)
+    area = page.model_copy(update={"width": x1 - x0, "height": y1 - y0})
+    strategy = AspectAwareStrategy(
+        max_tokens_per_tile=cfg.tiling.max_tokens_per_tile,
+        overlap_frac=cfg.tiling.overlap_frac,
+        token_per_pixel=cfg.tiling.token_per_pixel,
+    )
+    regions = strategy.plan(area)
+    profile = EFFORT_PROFILES["medium"]
+    entries: list[LegendEntry] = []
+    for index, (rx, ry, rw, rh) in enumerate(regions):
+        origin = (x0 + rx, y0 + ry)
+        box = BBox(x=origin[0], y=origin[1], w=rw, h=rh)
+        work_page = page.model_copy(
+            update={
+                "image": _crop_region(page, box.x, box.y, box.w, box.h),
+                "width": rw,
+                "height": rh,
+                "source_ref": f"{page.source_ref}#legend-region-{index}",
+            }
+        )
+        # A single mandatory full-detail tile makes coverage measurable. The
+        # next region is scheduled even if this agent finishes early or fails.
+        detail = Tile(
+            id=f"legend-{index}", page_index=page.page_index, bbox=BBox(x=0, y=0, w=rw, h=rh)
+        )
+        vp = ViewProvider(work_page, [detail])
+        state = AgentState(
+            question=(
+                "Extract every legend row in this detail region, including every "
+                "column and the bottom rows. Inspect the detail tile before finishing. "
+                "Keep clipped/unclear rows explicit; do not invent labels or classes."
+            ),
+            page=work_page,
+        )
+        runtime = ReactRuntime(
+            client=client,
+            system_blocks=build_legend_system_prompt(effort_max_steps=profile.max_steps),
+            cost_tracker=cost_tracker,
+            budgets=cfg.budgets,
+        )
+        try:
+            runtime.run(
+                state=state,
+                view_provider=vp,
+                run_cfg=RunConfig(
+                    effort="medium",
+                    require_tile_coverage=True,
+                    no_progress_step_limit=3,
+                ),
+            )
+        except Exception as exc:
+            if is_non_retryable_api_error(exc):
+                raise
+            state.completion_status = "partial"
+            state.completion_reason = f"extraction failed: {exc}"
+        # Scope native label recovery to this region, especially for repeated
+        # labels in separate columns. Geometry stays in original page pixels.
+        scoped = page_evidence
+        if scoped is not None:
+            scoped = scoped.model_copy(
+                update={
+                    "text_spans": [t for t in scoped.text_spans if _intersection_area(t.bbox, box)],
+                    "paths": [p for p in scoped.paths if _intersection_area(p.bbox, box)],
+                }
+            )
+        region_entries = []
+        for annotation in state.annotations.all():
+            entry = _annotation_to_entry(
+                annotation=annotation,
+                page=page,
+                origin=origin,
+                cfg_pid=cfg.pid,
+                page_evidence=scoped,
+            )
+            if entry is not None:
+                region_entries.append(entry)
+        entries.extend(region_entries)
+        if coverage is not None:
+            complete = state.completion_status == "complete" and bool(state.tile_fetch_counts)
+            coverage.append(
+                LegendRegionCoverage(
+                    page_index=page.page_index,
+                    bbox=box,
+                    status="complete" if complete else "partial",
+                    failure_kind=None if complete else "not_inspected",
+                    entry_count=len(region_entries),
+                    reason=state.completion_reason or "Detail inspection not completed",
+                )
+            )
     return entries
 
 
@@ -886,7 +934,7 @@ def _annotation_to_entry(
     origin: tuple[int, int],
     cfg_pid: PidConfig,
     page_evidence: PageEvidence | None = None,
-) -> Optional[LegendEntry]:
+) -> LegendEntry | None:
     """Convert a legend-pass Annotation into a LegendEntry.
 
     Rules:
@@ -931,13 +979,11 @@ def _annotation_to_entry(
         crop_quality = "omitted_abbreviation"
     else:
         try:
-            crop, source_bbox, source_label_bbox, crop_method, crop_quality = (
-                _select_legend_crop(
-                    page=page,
-                    evidence=page_evidence,
-                    label=label,
-                    model_bbox=page_bbox,
-                )
+            crop, source_bbox, source_label_bbox, crop_method, crop_quality = _select_legend_crop(
+                page=page,
+                evidence=page_evidence,
+                label=label,
+                model_bbox=page_bbox,
             )
             if crop is not None:
                 image_b64 = _thumbnail_b64(crop, cfg_pid.legend_thumb_max_dim)
@@ -1002,14 +1048,15 @@ def resolve_legend(
     cfg: Config,
     client: LLMClient,
     cost_tracker: CostTracker,
-    legend_path: Optional[Path] = None,
-    legend_pages: Optional[list[int]] = None,
-    legend_region: Optional[tuple[int, int, int, int, int]] = None,
+    legend_path: Path | None = None,
+    legend_pages: list[int] | None = None,
+    legend_region: tuple[int, int, int, int, int] | None = None,
     no_legend: bool = False,
-    legend_key: Optional[str] = None,
-    runs_dir_for_stem: Optional[Path] = None,
+    legend_key: str | None = None,
+    runs_dir_for_stem: Path | None = None,
     reporter: ProgressReporter | None = None,
     evidence_pages: list[PageEvidence] | None = None,
+    fresh: bool = False,
 ) -> LegendResolution:
     """Resolve, extract, cache, merge, and budget-split the legend.
 
@@ -1038,9 +1085,7 @@ def resolve_legend(
         cfg_pid=cfg.pid,
         runs_dir_for_stem=runs_dir_for_stem,
     )
-    evidence_by_page = {
-        page.page_index: page for page in (evidence_pages or [])
-    }
+    evidence_by_page = {page.page_index: page for page in (evidence_pages or [])}
     extractor_fingerprint = _legend_extractor_fingerprint(cfg, client)
 
     # --- rule 4: --no-legend -------------------------------------------------
@@ -1069,6 +1114,7 @@ def resolve_legend(
             cost_tracker=cost_tracker,
             cache_path=cache_path,
             extractor_fingerprint=extractor_fingerprint,
+            fresh=fresh,
         )
 
     # --- rule 2: --legend-pages ---------------------------------------------
@@ -1084,6 +1130,7 @@ def resolve_legend(
             cache_path=cache_path,
             evidence_by_page=evidence_by_page,
             extractor_fingerprint=extractor_fingerprint,
+            fresh=fresh,
         )
 
     # --- rule 3: --legend-region --------------------------------------------
@@ -1099,6 +1146,7 @@ def resolve_legend(
             cache_path=cache_path,
             evidence_by_page=evidence_by_page,
             extractor_fingerprint=extractor_fingerprint,
+            fresh=fresh,
         )
 
     # --- rule 5 (default): auto-detect --------------------------------------
@@ -1113,6 +1161,7 @@ def resolve_legend(
         reporter=progress,
         evidence_by_page=evidence_by_page,
         extractor_fingerprint=extractor_fingerprint,
+            fresh=fresh,
     )
 
 
@@ -1128,7 +1177,7 @@ def _finalise(
     symbol_standard: SymbolStandard,
     cfg_pid: PidConfig,
     source_label: str,
-    cache_path: Optional[Path],
+    cache_path: Path | None,
 ) -> LegendResolution:
     """Persist extracted, merge with built-in (extracted wins), budget-split."""
     persisted = _persist(cache_path, extracted)
@@ -1142,6 +1191,7 @@ def _finalise(
         source_ref=merged.source_ref,
         standard=symbol_standard,
         entries=merged.entries,
+        coverage=merged.coverage,
         notes=merged.notes,
     )
     return LegendResolution(
@@ -1161,14 +1211,15 @@ def _resolve_from_explicit_path(
     cfg: Config,
     client: LLMClient,
     cost_tracker: CostTracker,
-    cache_path: Optional[Path],
+    cache_path: Path | None,
     extractor_fingerprint: str,
+    fresh: bool = False,
 ) -> LegendResolution:
     if not legend_path.exists():
         raise FileNotFoundError(f"--legend file not found: {legend_path}")
     src_hash = compute_source_hash(path=legend_path)
 
-    cached = _load_cached(cache_path, src_hash, extractor_fingerprint)
+    cached = None if fresh else _load_cached(cache_path, src_hash, extractor_fingerprint)
     if cached is not None:
         return _finalise(
             extracted=cached,
@@ -1180,11 +1231,17 @@ def _resolve_from_explicit_path(
         )
 
     # Extract: load the legend file as its own DiagramSource; walk every page.
+    from diagex.extractors.legend_rows import LegendRunState
     from diagex.vision.loader import load as _load  # local import; avoids cycle
 
+    prior = None if fresh else _load_cached(cache_path, src_hash, extractor_fingerprint, allow_partial=True)
+    run_state = LegendRunState()
     legend_source = _load(legend_path, tiling=cfg.tiling, scan_cfg=cfg.scan)
     all_entries: list[LegendEntry] = []
+    coverage: list[LegendRegionCoverage] = []
     notes = ""
+    from diagex.vision.evidence import extract_page_evidence
+
     for page in iter_pages(legend_source):
         try:
             entries = _extract_from_page(
@@ -1193,11 +1250,24 @@ def _resolve_from_explicit_path(
                 client=client,
                 cost_tracker=cost_tracker,
                 cfg=cfg,
+                page_evidence=extract_page_evidence(page=page, source_path=legend_source.path),
+                coverage=coverage,
+                prior=prior,
+                run_state=run_state,
             )
         except Exception as exc:
             if is_non_retryable_api_error(exc):
                 raise
             notes = f"extraction failed on page {page.page_index}: {exc}".strip()
+            coverage.append(
+                LegendRegionCoverage(
+                    page_index=page.page_index,
+                    bbox=BBox(x=0, y=0, w=page.width, h=page.height),
+                    status="partial",
+                    failure_kind="not_inspected",
+                    reason=notes,
+                )
+            )
             continue
         all_entries.extend(entries)
 
@@ -1207,6 +1277,7 @@ def _resolve_from_explicit_path(
         source_ref=f"file:{legend_path.name}",
         standard=symbol_standard,
         entries=_dedupe(all_entries),
+        coverage=coverage,
         notes=notes,
     )
     if not extracted.entries and not notes:
@@ -1230,9 +1301,10 @@ def _resolve_from_pages(
     cfg: Config,
     client: LLMClient,
     cost_tracker: CostTracker,
-    cache_path: Optional[Path],
+    cache_path: Path | None,
     evidence_by_page: dict[int, PageEvidence],
     extractor_fingerprint: str,
+    fresh: bool = False,
 ) -> LegendResolution:
     pages = _iter_legend_pages(source, page_indices)
     if not pages:
@@ -1242,7 +1314,7 @@ def _resolve_from_pages(
     page_pngs = [_page_png_bytes(p) for p in pages]
     src_hash = compute_source_hash(page_bytes=page_pngs)
 
-    cached = _load_cached(cache_path, src_hash, extractor_fingerprint)
+    cached = None if fresh else _load_cached(cache_path, src_hash, extractor_fingerprint)
     if cached is not None:
         return _finalise(
             extracted=cached,
@@ -1253,7 +1325,14 @@ def _resolve_from_pages(
             cache_path=cache_path,
         )
 
+    # Matching partial caches are evidence for completed source rows, never a
+    # completed legend. Retry only the unresolved rows under a shared guard.
+    from diagex.extractors.legend_rows import LegendRunState
+
+    prior = None if fresh else _load_cached(cache_path, src_hash, extractor_fingerprint, allow_partial=True)
+    run_state = LegendRunState()
     all_entries: list[LegendEntry] = []
+    coverage: list[LegendRegionCoverage] = []
     notes = ""
     for page in pages:
         try:
@@ -1263,12 +1342,25 @@ def _resolve_from_pages(
                 client=client,
                 cost_tracker=cost_tracker,
                 cfg=cfg,
-                page_evidence=evidence_by_page.get(page.page_index),
+                page_evidence=evidence_by_page.get(page.page_index)
+                or _native_page_evidence(page, source.path),
+                coverage=coverage,
+                prior=prior,
+                run_state=run_state,
             )
         except Exception as exc:
             if is_non_retryable_api_error(exc):
                 raise
             notes = f"extraction failed on page {page.page_index}: {exc}".strip()
+            coverage.append(
+                LegendRegionCoverage(
+                    page_index=page.page_index,
+                    bbox=BBox(x=0, y=0, w=page.width, h=page.height),
+                    status="partial",
+                    failure_kind="not_inspected",
+                    reason=notes,
+                )
+            )
             continue
         all_entries.extend(entries)
 
@@ -1278,6 +1370,7 @@ def _resolve_from_pages(
         source_ref=f"{source.path.stem}#pages={','.join(str(i) for i in page_indices)}",
         standard=symbol_standard,
         entries=_dedupe(all_entries),
+        coverage=coverage,
         notes=notes,
     )
     return _finalise(
@@ -1299,9 +1392,10 @@ def _resolve_from_region(
     cfg: Config,
     client: LLMClient,
     cost_tracker: CostTracker,
-    cache_path: Optional[Path],
+    cache_path: Path | None,
     evidence_by_page: dict[int, PageEvidence],
     extractor_fingerprint: str,
+    fresh: bool = False,
 ) -> LegendResolution:
     page_idx, x, y, w, h = region
     pages = _iter_legend_pages(source, [page_idx])
@@ -1314,7 +1408,7 @@ def _resolve_from_region(
     crop.save(buf, format="PNG")
     src_hash = compute_source_hash(region_bytes=buf.getvalue())
 
-    cached = _load_cached(cache_path, src_hash, extractor_fingerprint)
+    cached = None if fresh else _load_cached(cache_path, src_hash, extractor_fingerprint)
     if cached is not None:
         return _finalise(
             extracted=cached,
@@ -1325,6 +1419,7 @@ def _resolve_from_region(
             cache_path=cache_path,
         )
 
+    coverage: list[LegendRegionCoverage] = []
     try:
         entries = _extract_from_page(
             page=page,
@@ -1332,7 +1427,10 @@ def _resolve_from_region(
             client=client,
             cost_tracker=cost_tracker,
             cfg=cfg,
-            page_evidence=evidence_by_page.get(page.page_index),
+            page_evidence=evidence_by_page.get(page.page_index)
+            or _native_page_evidence(page, source.path),
+            coverage=coverage,
+            prior=None if fresh else _load_cached(cache_path, src_hash, extractor_fingerprint, allow_partial=True),
         )
         notes = ""
     except Exception as exc:
@@ -1340,6 +1438,15 @@ def _resolve_from_region(
             raise
         entries = []
         notes = f"extraction failed: {exc}"
+        coverage.append(
+            LegendRegionCoverage(
+                page_index=page.page_index,
+                bbox=BBox(x=x, y=y, w=w, h=h),
+                status="partial",
+                failure_kind="not_inspected",
+                reason=notes,
+            )
+        )
 
     extracted = LegendPack(
         source_hash=src_hash,
@@ -1347,6 +1454,7 @@ def _resolve_from_region(
         source_ref=f"{source.path.stem}#region=p{page_idx}:{x},{y},{w},{h}",
         standard=symbol_standard,
         entries=_dedupe(entries),
+        coverage=coverage,
         notes=notes,
     )
     return _finalise(
@@ -1367,13 +1475,14 @@ def _resolve_auto(
     cfg: Config,
     client: LLMClient,
     cost_tracker: CostTracker,
-    cache_path: Optional[Path],
+    cache_path: Path | None,
     reporter: ProgressReporter,
     evidence_by_page: dict[int, PageEvidence],
     extractor_fingerprint: str,
+    fresh: bool = False,
 ) -> LegendResolution:
     """Default path: classify each page, extract detected legends, merge."""
-    detected: list[tuple[DiagramPage, Optional[tuple[int, int, int, int]]]] = []
+    detected: list[tuple[DiagramPage, tuple[int, int, int, int] | None]] = []
     detected_page_bytes: list[bytes] = []
     raw_total = source.metadata.get("page_count")
     total_pages = raw_total if isinstance(raw_total, int) else None
@@ -1420,7 +1529,7 @@ def _resolve_auto(
     # Cache key includes the detected page bytes AND each bbox (or 'full')
     # so changing either forces re-extraction.
     h = hashlib.sha256()
-    for (_, bbox), b in zip(detected, detected_page_bytes):
+    for (_, bbox), b in zip(detected, detected_page_bytes, strict=True):
         h.update(len(b).to_bytes(4, "big"))
         h.update(b)
         marker = b"full" if bbox is None else f"{bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]}".encode()
@@ -1428,7 +1537,7 @@ def _resolve_auto(
         h.update(marker)
     src_hash = h.hexdigest()
 
-    cached = _load_cached(cache_path, src_hash, extractor_fingerprint)
+    cached = None if fresh else _load_cached(cache_path, src_hash, extractor_fingerprint)
     if cached is not None:
         return _finalise(
             extracted=cached,
@@ -1440,6 +1549,7 @@ def _resolve_auto(
         )
 
     all_entries: list[LegendEntry] = []
+    coverage: list[LegendRegionCoverage] = []
     notes_parts: list[str] = []
     reporter.on_phase_start(name="legend extraction", total_items=len(detected))
     for item, (page, bbox) in enumerate(detected, start=1):
@@ -1455,7 +1565,9 @@ def _resolve_auto(
                 client=client,
                 cost_tracker=cost_tracker,
                 cfg=cfg,
-                page_evidence=evidence_by_page.get(page.page_index),
+                page_evidence=evidence_by_page.get(page.page_index)
+                or _native_page_evidence(page, source.path),
+                coverage=coverage,
             )
         except Exception as exc:
             notes_parts.append(f"page {page.page_index}: {exc}")
@@ -1474,6 +1586,7 @@ def _resolve_auto(
         source_ref=f"{source.path.stem}#auto-detected",
         standard=symbol_standard,
         entries=_dedupe(all_entries),
+        coverage=coverage,
         notes="; ".join(notes_parts),
     )
     return _finalise(
@@ -1492,11 +1605,15 @@ def _resolve_auto(
 
 
 def _dedupe(entries: list[LegendEntry]) -> list[LegendEntry]:
-    """Dedupe labels and conservatively sanitize cached visual evidence."""
+    """Consolidate source rows, retain repeated instances, and sanitize image evidence."""
     seen: set[str] = set()
     out: list[LegendEntry] = []
     for e in entries:
-        key = e.label.strip().lower()
+        key = e.source_row_id or e.label.strip().lower()
+        if key in seen and e.source_row_id:
+            index = next(i for i, row in enumerate(out) if row.source_row_id == e.source_row_id)
+            out[index] = merge_source_row(out[index], e)
+            continue
         if not key or key in seen:
             continue
         seen.add(key)
@@ -1529,7 +1646,7 @@ def _dedupe(entries: list[LegendEntry]) -> list[LegendEntry]:
                     }
                 )
         sanitized.append(updated)
-        if updated.image_b64:
+        if updated.image_b64 and not updated.source_row_id:
             digest = hashlib.sha256(updated.image_bytes() or b"").hexdigest()
             hashes.setdefault(digest, []).append(len(sanitized) - 1)
 

@@ -77,9 +77,12 @@ def test_already_classified_s_valve_does_not_pair_with_itself() -> None:
 
 
 def test_high_confidence_project_legend_merge_sets_actuation_before_topology() -> None:
+    from diagex.vision.models import EquipmentAssembly
+
     valve = _valve("valve", 100, 160)
     glyph = _glyph("s", 98, 105)
     nodes = [valve, glyph]
+    glyph.attributes["assembly_ids"] = ["assembly"]
     group = find_contextual_candidates(nodes, page_index=0)[0]
     node_refs = {"N001": glyph, "N002": valve}
     ref_by_id = {node.id: ref for ref, node in node_refs.items()}
@@ -114,7 +117,18 @@ def test_high_confidence_project_legend_merge_sets_actuation_before_topology() -
         },
     )
     fused = FusionResult(
-        graph=ReconciledGraph(source_path="drawing.pdf", nodes=nodes),
+        graph=ReconciledGraph(
+            source_path="drawing.pdf",
+            nodes=nodes,
+            assemblies=[
+                EquipmentAssembly(
+                    id="assembly",
+                    page_index=0,
+                    bbox_global=BBox(x=50, y=50, w=300, h=300),
+                    member_node_ids=["s", "valve"],
+                )
+            ],
+        ),
         ambiguities=[],
     )
     corrected = apply_contextual_results(fused, [result])
@@ -124,10 +138,11 @@ def test_high_confidence_project_legend_merge_sets_actuation_before_topology() -
     assert [node.id for node in corrected.graph.nodes] == ["valve"]
     corrected_valve = corrected.graph.nodes[0]
     assert corrected_valve.attributes["actuation"] == "solenoid"
+    assert corrected_valve.attributes["assembly_ids"] == ["assembly"]
+    assert corrected.graph.assemblies[0].member_node_ids == ["valve"]
+    assert fused.graph.assemblies[0].member_node_ids == ["s", "valve"]
     assert corrected_valve.source_evidence_ids == ["txt-s"]
-    assert corrected_valve.attributes["contextual_resolutions"][0]["absorbed_node_ids"] == [
-        "s"
-    ]
+    assert corrected_valve.attributes["contextual_resolutions"][0]["absorbed_node_ids"] == ["s"]
 
 
 def test_merge_is_not_applied_without_matching_project_legend_evidence() -> None:

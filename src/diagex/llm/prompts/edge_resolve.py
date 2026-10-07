@@ -10,7 +10,6 @@ from __future__ import annotations
 
 from typing import Any
 
-
 STARTER_EDGE_RESOLVE_PROMPT = """\
 You are auditing one suspect line endpoint on a P&ID extraction. The first
 view returned by get_overview is a focused crop of the page centred on a

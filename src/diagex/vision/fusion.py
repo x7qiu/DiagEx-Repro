@@ -5,9 +5,7 @@ from __future__ import annotations
 import hashlib
 import math
 import re
-import statistics
 from collections import Counter
-from dataclasses import dataclass, field
 from functools import cache
 from typing import Any
 
@@ -20,6 +18,7 @@ from diagex.dexpi_schema import (
     VALVE_TYPE_KEYS,
 )
 from diagex.vision.evidence import PageEvidence, TextEvidence
+from diagex.vision.instance_matching import FUSION_VERSION, InstanceCluster, match_instances
 from diagex.vision.legend_models import LegendPack
 from diagex.vision.models import (
     BBox,
@@ -32,10 +31,11 @@ from diagex.vision.native_text import infer_tag_semantics
 from diagex.vision.page_graph import PageGraphResult
 from diagex.vision.perception import DetectionRecord
 from diagex.vision.reconcile import normalise_label
-from diagex.vision.topology import TopologyResult
+from diagex.vision.topology import TopologyResult, route_evidence_failures
+from diagex.vision.vector_geometry import SCENE_VERSION, unobserved_symbols
 
 _CONF_RANK: dict[str, int] = {"low": 0, "medium": 1, "high": 2}
-_TAG_RE = re.compile(r"(?:[A-Z]{1,5}[- ]?\d{2,6}[A-Z]?|DN\s*\d+)", re.IGNORECASE)
+_TAG_RE = re.compile(r"(?:[A-Z]{2,5}[- ]?\d{1,6}[A-Z]?|DN\s*\d+)", re.IGNORECASE)
 _OPC_HINT_RE = re.compile(
     r"(?:off[- ]?page|continuation|to\s+sheet|from\s+sheet|\bDW\d{2}[- ]?\d{3,5}\b|去往|来自|接续)",
     re.IGNORECASE,
@@ -45,11 +45,15 @@ _NON_CONNECTABLE_TEXT_RE = re.compile(
     r"^(?:"
     r"DN\s*\d+(?:\s*[x×/]\s*\d+)?|"
     r"\d+(?:\.\d+)?\s*(?:[\"”′]|mm|cm)|"
-    r"(?:CSO|CSC|LO|LC)|"
-    r"\d{1,4}[- ](?:GA|CWS|CWR|IA|PA|N2?|VT|DW|FG|FO|NG)[- ][A-Z0-9-]+"
+    r"(?:FO|FC|CSO|CSC|LO|LC)|"
+    r"(?:SHEET|SHT|PAGE|REV|DWG)\s*[A-Z0-9-]+|"
+    r"(?:\d{1,4}[\"”']?[- ])?[A-Z]{1,6}-\d{3,}(?:-[A-Z0-9]+){1,}"
     r")$",
     re.IGNORECASE,
 )
+_VALVE_STATE_RE = re.compile(r"^(FO|FC|CSO|CSC|LO|LC)$", re.IGNORECASE)
+_TAG_FRAGMENT_RE = re.compile(r"^(?:[A-Z]{1,6}|\d{2,6}[A-Z]?)$", re.IGNORECASE)
+_GENERIC_LABEL_KEYS = {"", "UNLABELLED", "UNLABELED", "UNKNOWN", "NONE", "NA"}
 _EQUIPMENT_ALIASES = {
     "exchanger": "heat_exchanger",
     "heat_exchanger_unit": "heat_exchanger",
@@ -103,11 +107,6 @@ class FusionResult(BaseModel):
     native_text_assignment_count: int = 0
 
 
-@dataclass
-class _Cluster:
-    detections: list[DetectionRecord] = field(default_factory=list)
-
-
 def fuse_objects(
     *,
     source_name: str,
@@ -115,13 +114,46 @@ def fuse_objects(
     detections: list[DetectionRecord],
     per_page_status: dict[int, str],
     legend_pack: LegendPack | None = None,
+    reviewed_instances: bool = False,
 ) -> FusionResult:
     """Fuse overlapping object detections once, without constructing edges."""
+    if reviewed_instances:
+        # Reviewed decisions describe physical instances, not crop observations.
+        # Do not merge, resnap, relabel or resurrect rejected native candidates.
+        nodes = [
+            ReconciledNode(
+                id="n-review-" + d.id,
+                kind=d.kind,
+                label=d.label,
+                bbox_global=d.bbox,
+                page_index=d.page_index,
+                confidence=d.confidence,
+                source_quote=d.raw_text,
+                attributes={
+                    **d.attributes,
+                    "human_reviewed": d.attributes.get("review_origin", "human") == "human",
+                },
+                source_annotation_ids=[d.id],
+                source_evidence_ids=d.source_text_ids
+                + list(d.attributes.get("source_path_ids", [])),
+            )
+            for d in detections
+        ]
+        from diagex.vision.native_hierarchy import build_native_hierarchy
+
+        scenes = [build_native_hierarchy(p, nodes) for p in pages if p.role == "pid"]
+        return FusionResult(
+            graph=ReconciledGraph(
+                source_path=source_name,
+                nodes=nodes,
+                per_page_status=per_page_status,
+                assemblies=[a for scene in scenes for a in scene.assemblies],
+                text_bindings=[b for scene in scenes for b in scene.text_bindings],
+            )
+        )
     pages_by_index = {page.page_index: page for page in pages}
-    accepted, rejected = _prepare_detections(
-        detections, pages_by_index, legend_pack=legend_pack
-    )
-    clusters = _cluster_detections(accepted, pages_by_index)
+    accepted, rejected = _prepare_detections(detections, pages_by_index, legend_pack=legend_pack)
+    clusters, instance_conflicts = match_instances(accepted, pages_by_index)
     nodes: list[ReconciledNode] = []
     ambiguities: list[dict[str, Any]] = list(rejected)
     assigned_native_text = 0
@@ -132,9 +164,69 @@ def fuse_objects(
         ambiguities.extend(node_ambiguities)
         assigned_native_text += assigned_count
 
+    node_for_detection = {
+        detection_id: node.id for node in nodes for detection_id in node.source_annotation_ids
+    }
+    for conflict in instance_conflicts:
+        conflict["node_ids"] = sorted(
+            {node_for_detection[did] for did in conflict["detection_ids"]}
+        )
+    ambiguities.extend(instance_conflicts)
+
+    for page in pages:
+        if page.role != "pid":
+            continue
+        local = [node for node in nodes if node.page_index == page.page_index]
+        for symbol in unobserved_symbols(page, local):
+            node_id = "n-" + symbol.id
+            nodes.append(
+                ReconciledNode(
+                    id=node_id,
+                    page_index=page.page_index,
+                    kind="equipment",
+                    label="unlabelled",
+                    bbox_global=symbol.bbox,
+                    confidence="low",
+                    attributes={
+                        "native_symbol_candidate": True,
+                        "requires_human_review": True,
+                        "physical_symbol_id": symbol.id,
+                        "scene_version": SCENE_VERSION,
+                        "equipment_class": "unclassified",
+                    },
+                    source_evidence_ids=symbol.path_ids,
+                )
+            )
+            ambiguities.append(
+                {
+                    "type": "unobserved_native_symbol",
+                    "status": "unresolved",
+                    "page_index": page.page_index,
+                    "node_ids": [node_id],
+                    "source_path_ids": symbol.path_ids,
+                    "reason": "Native body outline has no supported perception instance; identity requires review",
+                }
+            )
+
+    from diagex.vision.native_hierarchy import apply_assembly_bindings, build_native_hierarchy
+
+    scenes = [build_native_hierarchy(page, nodes) for page in pages if page.role == "pid"]
+    excluded = set().union(*(scene.excluded_node_ids for scene in scenes))
+    nodes = [node for node in nodes if node.id not in excluded]
+    for scene in scenes:
+        ambiguities.extend(apply_assembly_bindings(scene, nodes))
+    assigned_native_text += _assign_native_tags_to_nodes(
+        nodes,
+        pages_by_index=pages_by_index,
+        legend_pack=legend_pack,
+        reserved_text_ids=set().union(*(scene.reserved_text_ids for scene in scenes)),
+    )
+
     graph = ReconciledGraph(
         schema_version="0.3.0",
         source_path=source_name,
+        assemblies=[a for scene in scenes for a in scene.assemblies],
+        text_bindings=[b for scene in scenes for b in scene.text_bindings],
         nodes=sorted(
             nodes,
             key=lambda node: (node.page_index, node.bbox_global.y, node.bbox_global.x, node.id),
@@ -158,11 +250,31 @@ def assemble_graph(
     topology: list[TopologyResult],
     page_graph_results: list[PageGraphResult],
     per_page_status: dict[int, str],
+    reviewed_instances: bool = False,
 ) -> FusionResult:
     """Assemble validated page decisions and deterministic cross-sheet matches."""
     pages_by_index = {page.page_index: page for page in pages}
     nodes = [node.model_copy(deep=True) for node in objects.graph.nodes]
     ambiguities = [dict(value) for value in objects.ambiguities]
+    synthesized_opcs, opc_enrichment = (
+        ([], []) if reviewed_instances else _enrich_opcs_from_native_text(nodes, pages_by_index)
+    )
+    nodes.extend(synthesized_opcs)
+    ambiguities.extend(opc_enrichment)
+    verified_opcs = {
+        node.id
+        for node in nodes
+        if node.kind == "opc" and node.attributes.get("native_reference_verified")
+    }
+    if verified_opcs:
+        ambiguities = [
+            value
+            for value in ambiguities
+            if not (
+                value.get("type") == "opc_context_validation"
+                and value.get("node_id") in verified_opcs
+            )
+        ]
     node_ids = {node.id for node in nodes}
     results_by_page = {result.page_index: result for result in page_graph_results}
     graph_edges: list[ReconciledEdge] = []
@@ -204,6 +316,29 @@ def assemble_graph(
                         }
                     )
         for edge in selected_edges:
+            if not edge.cross_sheet and not edge.attributes.get("provisional_review_only"):
+                failures = route_evidence_failures(edge, pages_by_index[result.page_index])
+                if failures:
+                    edge = edge.model_copy(deep=True)
+                    edge.attributes.update(
+                        {
+                            "provisional_review_only": True,
+                            "requires_human_review": True,
+                            "review_conflict_type": "unsupported_vector_route",
+                            "review_reason": "; ".join(failures),
+                        }
+                    )
+                    edge.system_confidence, edge.system_confidence_level = 0.35, "low"
+                    edge.confidence = "low"
+                    ambiguities.append(
+                        {
+                            "type": "unsupported_vector_route",
+                            "page_index": result.page_index,
+                            "edge_id": edge.id,
+                            "status": "unresolved",
+                            "reason": "; ".join(failures),
+                        }
+                    )
             if edge.from_node == edge.to_node:
                 ambiguities.append(
                     {
@@ -254,6 +389,8 @@ def assemble_graph(
     graph = ReconciledGraph(
         schema_version="0.3.0",
         source_path=objects.graph.source_path,
+        assemblies=objects.graph.assemblies,
+        text_bindings=objects.graph.text_bindings,
         nodes=sorted(
             nodes,
             key=lambda node: (node.page_index, node.bbox_global.y, node.bbox_global.x, node.id),
@@ -279,6 +416,7 @@ def _prepare_detections(
     legend_pack: LegendPack | None = None,
 ) -> tuple[list[DetectionRecord], list[dict[str, Any]]]:
     accepted: list[DetectionRecord] = []
+    annotations: list[DetectionRecord] = []
     rejected: list[dict[str, Any]] = []
     for detection in detections:
         item = detection.model_copy(deep=True)
@@ -314,7 +452,11 @@ def _prepare_detections(
         retyped = _deterministic_tag_normalise(item, legend_pack=legend_pack)
         if retyped:
             rejected.append(retyped)
-        if item.kind == "equipment" and _is_native_text_only_detection(item, page):
+        if _is_native_text_only_detection(item, page):
+            if _VALVE_STATE_RE.fullmatch(
+                " ".join((item.label or item.raw_text or "").split()).strip()
+            ):
+                annotations.append(item)
             rejected.append(
                 {
                     "type": "rejected_non_connectable_text",
@@ -349,6 +491,9 @@ def _prepare_detections(
                 )
                 continue
         accepted.append(item)
+    accepted, fragment_conflicts = _suppress_redundant_tag_fragments(accepted)
+    rejected.extend(fragment_conflicts)
+    rejected.extend(_attach_valve_state_annotations(accepted, annotations))
     return accepted, rejected
 
 
@@ -367,10 +512,21 @@ def _deterministic_tag_normalise(
         original_kind == "equipment"
         and semantics.expected_kind == "instrument"
         and not attrs.get("valve_type")
-        and attrs.get("equipment_class")
-        in (None, "", "equipment", "unclassified_equipment")
+        and attrs.get("equipment_class") in (None, "", "equipment", "unclassified_equipment")
     )
-    compatible = original_kind == semantics.expected_kind or can_retype_to_instrument
+    can_retype_to_equipment = (
+        original_kind == "instrument"
+        and semantics.expected_kind == "equipment"
+        and semantics.basis == "project_legend"
+        and bool(semantics.attributes.get("valve_type"))
+        and str(semantics.attributes.get("abbreviation_conflict") or "").casefold()
+        not in {"true", "1", "yes"}
+    )
+    compatible = (
+        original_kind == semantics.expected_kind
+        or can_retype_to_instrument
+        or can_retype_to_equipment
+    )
     if not compatible:
         return {
             "type": "tag_kind_conflict",
@@ -386,6 +542,10 @@ def _deterministic_tag_normalise(
 
     if can_retype_to_instrument:
         detection.kind = "instrument"
+    elif can_retype_to_equipment:
+        detection.kind = "equipment"
+        if attrs.get("instrument_function") not in (None, "", "unclassified_instrument"):
+            attrs = {**attrs, "model_instrument_function": attrs.get("instrument_function")}
     detection.attributes = {
         **attrs,
         **{key: value for key, value in semantics.attributes.items() if value not in (None, "")},
@@ -393,21 +553,21 @@ def _deterministic_tag_normalise(
         "tag_semantics_basis": semantics.basis,
         "tag_legend_labels": semantics.legend_labels,
     }
-    if can_retype_to_instrument:
+    if can_retype_to_instrument or can_retype_to_equipment:
         detection.attributes.update(
             {
                 "model_original_kind": original_kind,
                 "deterministic_retype_basis": "unambiguous_tag_and_legend_semantics",
             }
         )
-    if not can_retype_to_instrument:
+    if not (can_retype_to_instrument or can_retype_to_equipment):
         return None
     return {
         "type": "deterministic_kind_correction",
         "page_index": detection.page_index,
         "detection_id": detection.id,
         "label": detection.label,
-        "from_kind": "equipment",
+        "from_kind": original_kind,
         "to_kind": detection.kind,
         "status": "resolved",
         "reason": "printed tag and project/standard legend semantics identify the node kind",
@@ -420,13 +580,31 @@ def _is_native_text_only_detection(
     page: PageEvidence,
 ) -> bool:
     label = " ".join((detection.label or detection.raw_text or "").split()).strip()
-    if not label or _NON_CONNECTABLE_TEXT_RE.fullmatch(label) is None:
+    if not label:
+        return False
+    # A DWxx-xxxx value identifies another drawing sheet.  It can enrich an
+    # OPC, but it is never an equipment or instrument identity by itself.
+    if detection.kind != "opc" and _EXPLICIT_OPC_REF_RE.fullmatch(label):
+        return True
+    title_block_text = _is_title_block_bbox(detection.bbox, page) and any(
+        normalise_label(span.text) == normalise_label(label)
+        and _bbox_centres_overlap(detection.bbox, span.bbox)
+        for span in page.text_spans
+    )
+    if _NON_CONNECTABLE_TEXT_RE.fullmatch(label) is None and not title_block_text:
         return False
     # Nominal sizes and dimensions are intrinsically document/line evidence,
     # never connectable graph entities.  Reject them even when the model bbox
     # is offset from the exact native-text box (a common crop-projection error).
     if re.fullmatch(
         r"(?:DN\s*\d+(?:\s*[x×/]\s*\d+)?|\d+(?:\.\d+)?\s*(?:[\"”′]|mm|cm))",
+        label,
+        re.IGNORECASE,
+    ):
+        return True
+    if _VALVE_STATE_RE.fullmatch(label) or re.fullmatch(
+        r"(?:(?:\d{1,4}[\"”']?[- ])?[A-Z]{1,6}-\d{3,}(?:-[A-Z0-9]+){1,}|"
+        r"(?:SHEET|SHT|PAGE|REV|DWG)\s*[A-Z0-9-]+)",
         label,
         re.IGNORECASE,
     ):
@@ -449,6 +627,127 @@ def _is_native_text_only_detection(
         ):
             return True
     return False
+
+
+def _is_title_block_bbox(bbox: BBox, page: PageEvidence) -> bool:
+    center_x = bbox.x + bbox.w / 2
+    center_y = bbox.y + bbox.h / 2
+    return center_x >= page.width * 0.55 and center_y >= page.height * 0.78
+
+
+def _bbox_centres_overlap(left: BBox, right: BBox) -> bool:
+    center_x = right.x + right.w / 2
+    center_y = right.y + right.h / 2
+    return left.x <= center_x <= left.x2 and left.y <= center_y <= left.y2
+
+
+def _suppress_redundant_tag_fragments(
+    detections: list[DetectionRecord],
+) -> tuple[list[DetectionRecord], list[dict[str, Any]]]:
+    """Drop OCR fragments only when a complete nearby tag already exists."""
+    complete = [
+        item
+        for item in detections
+        if infer_tag_semantics(item.label or "") is not None
+        or bool(re.fullmatch(r"[A-Z]{1,6}[- ]?\d{2,6}[A-Z]?", item.label or "", re.I))
+    ]
+    kept: list[DetectionRecord] = []
+    conflicts: list[dict[str, Any]] = []
+    for item in detections:
+        fragment = normalise_label(item.label or "")
+        if not fragment or _TAG_FRAGMENT_RE.fullmatch(item.label or "") is None:
+            kept.append(item)
+            continue
+        owner = next(
+            (
+                candidate
+                for candidate in complete
+                if candidate.id != item.id
+                and candidate.page_index == item.page_index
+                and fragment in normalise_label(candidate.label or "")
+                and _center_distance(item.bbox, candidate.bbox)
+                <= max(180.0, max(candidate.bbox.w, candidate.bbox.h) * 3.5)
+            ),
+            None,
+        )
+        if owner is None:
+            kept.append(item)
+            continue
+        conflicts.append(
+            {
+                "type": "rejected_redundant_tag_fragment",
+                "page_index": item.page_index,
+                "detection_id": item.id,
+                "label": item.label,
+                "complete_detection_id": owner.id,
+                "complete_label": owner.label,
+                "status": "resolved",
+                "reason": "nearby complete printed tag supersedes this OCR fragment",
+            }
+        )
+    return kept, conflicts
+
+
+def _attach_valve_state_annotations(
+    detections: list[DetectionRecord],
+    annotations: list[DetectionRecord],
+) -> list[dict[str, Any]]:
+    """Move FO/FC-like text onto a nearby valve instead of making a node."""
+    results: list[dict[str, Any]] = []
+    valves = [item for item in detections if item.attributes.get("valve_type")]
+    mappings = {
+        "FO": ("fail_action", "open"),
+        "FC": ("fail_action", "closed"),
+        "CSO": ("normal_state", "car_sealed_open"),
+        "CSC": ("normal_state", "car_sealed_closed"),
+        "LO": ("normal_state", "locked_open"),
+        "LC": ("normal_state", "locked_closed"),
+    }
+    for annotation in annotations:
+        code = " ".join((annotation.label or annotation.raw_text or "").split()).upper()
+        key, value = mappings[code]
+        candidates = sorted(
+            (
+                (_center_distance(annotation.bbox, valve.bbox), valve)
+                for valve in valves
+                if valve.page_index == annotation.page_index
+            ),
+            key=lambda row: (row[0], row[1].id),
+        )
+        limit = max(180.0, max(annotation.bbox.w, annotation.bbox.h) * 8.0)
+        if not candidates or candidates[0][0] > limit:
+            continue
+        distance, valve = candidates[0]
+        competing = len(candidates) > 1 and candidates[1][0] <= max(distance * 1.2, distance + 30)
+        if competing or valve.attributes.get(key) not in (None, value):
+            results.append(
+                {
+                    "type": "ambiguous_valve_state_annotation",
+                    "page_index": annotation.page_index,
+                    "detection_id": annotation.id,
+                    "label": code,
+                    "candidate_valve_ids": [row[1].id for row in candidates[:3]],
+                    "status": "unresolved",
+                    "reason": "valve-state annotation has no unique compatible nearby valve",
+                }
+            )
+            continue
+        valve.attributes[key] = value
+        valve.attributes.setdefault("state_annotation_source_ids", []).append(annotation.id)
+        results.append(
+            {
+                "type": "attached_valve_state_annotation",
+                "page_index": annotation.page_index,
+                "detection_id": annotation.id,
+                "label": code,
+                "valve_detection_id": valve.id,
+                "attribute": key,
+                "value": value,
+                "status": "resolved",
+                "reason": "project annotation was attached to the unique nearby valve",
+            }
+        )
+    return results
 
 
 def _opc_has_boundary_support(detection: DetectionRecord, page: PageEvidence) -> bool:
@@ -486,77 +785,8 @@ def _opc_has_explicit_reference(detection: DetectionRecord) -> bool:
     return any(_EXPLICIT_OPC_REF_RE.search(str(value or "")) for value in candidates)
 
 
-def _nearest_tag_anchor(page: PageEvidence, bbox: BBox) -> str | None:
-    candidates = _nearby_tag_text(page.text_spans, bbox)
-    return candidates[0].id if candidates else None
-
-
-def _cluster_detections(
-    detections: list[DetectionRecord],
-    pages_by_index: dict[int, PageEvidence],
-) -> list[_Cluster]:
-    clusters: list[_Cluster] = []
-    anchors = {
-        item.id: _nearest_tag_anchor(pages_by_index[item.page_index], item.bbox)
-        for item in detections
-    }
-    ordered = sorted(
-        detections,
-        key=lambda item: (
-            item.page_index,
-            item.bbox.y,
-            item.bbox.x,
-            item.kind,
-            item.tile_id,
-            item.id,
-        ),
-    )
-    for detection in ordered:
-        best: _Cluster | None = None
-        best_score = -1.0
-        for cluster in clusters:
-            for member in cluster.detections:
-                if member.page_index != detection.page_index:
-                    continue
-                iou = member.bbox.iou(detection.bbox)
-                member_label = normalise_label(member.label)
-                detection_label = normalise_label(detection.label)
-                same_label = bool(member_label and member_label == detection_label)
-                shared_anchor = bool(
-                    anchors.get(member.id) and anchors.get(member.id) == anchors.get(detection.id)
-                )
-                center_distance = _center_distance(member.bbox, detection.bbox)
-                scale = max(
-                    member.bbox.w,
-                    member.bbox.h,
-                    detection.bbox.w,
-                    detection.bbox.h,
-                    1,
-                )
-                geometry_factor = 0.35 if member.kind == detection.kind == "opc" else 0.65
-                label_factor = 0.4 if member.kind == detection.kind == "opc" else 1.75
-                same_kind_geometry = member.kind == detection.kind and (
-                    iou >= 0.18 or center_distance <= scale * geometry_factor
-                )
-                label_geometry = same_label and center_distance <= scale * label_factor
-                anchor_geometry = shared_anchor and center_distance <= scale * 2.25
-                if not (same_kind_geometry or label_geometry or anchor_geometry):
-                    continue
-                if member.kind != detection.kind and not shared_anchor:
-                    continue
-                score = iou + (0.5 if same_label else 0.0) + (0.65 if shared_anchor else 0.0)
-                if score > best_score:
-                    best = cluster
-                    best_score = score
-        if best is None:
-            clusters.append(_Cluster([detection]))
-        else:
-            best.detections.append(detection)
-    return clusters
-
-
 def _node_from_cluster(
-    cluster: _Cluster,
+    cluster: InstanceCluster,
     pages_by_index: dict[int, PageEvidence],
 ) -> tuple[ReconciledNode, list[dict[str, Any]], int]:
     kind_counts = Counter(item.kind for item in cluster.detections)
@@ -579,13 +809,18 @@ def _node_from_cluster(
         reverse=True,
     )
     canonical = ordered[0]
-    fused_bbox = _median_bbox(ordered)
+    fused_bbox = cluster.bbox or canonical.bbox.model_copy()
     labels = _ordered_unique(item.label for item in ordered if item.label)
     raw_readings = _ordered_unique(item.raw_text for item in ordered if item.raw_text)
     source_tiles = sorted({item.tile_id for item in ordered})
 
     page = pages_by_index[canonical.page_index]
-    native_candidates = _nearby_tag_text(page.text_spans, fused_bbox)
+    label_keys = {normalise_label(label) for label in labels}
+    native_candidates = [
+        span
+        for span in _nearby_tag_text(page.text_spans, fused_bbox)
+        if normalise_label(span.text) in label_keys
+    ]
     label_conflict = len({normalise_label(label) for label in labels if normalise_label(label)}) > 1
     native_label_matches = [
         label
@@ -606,22 +841,19 @@ def _node_from_cluster(
     # the conflict as evidence, but never let semantic attributes learned for
     # one identity silently contaminate the identity selected by native text.
     selected_key = normalise_label(selected_label)
-    generic_keys = {"", "unlabelled", "unlabeled", "unknown", "none", "na"}
     identity_contributors = [
         item
         for item in ordered
         if item.kind == selected_kind
         and (
             normalise_label(item.label or "") == selected_key
-            or normalise_label(item.label or "") in generic_keys
+            or normalise_label(item.label or "") in _GENERIC_LABEL_KEYS
         )
     ]
     if not identity_contributors:
         identity_contributors = [canonical]
     identity_canonical = identity_contributors[0]
-    text_ids = sorted(
-        {value for item in identity_contributors for value in item.source_text_ids}
-    )
+    text_ids = sorted({value for item in identity_contributors for value in item.source_text_ids})
     evidence_ids = sorted({item.id for item in ordered} | set(text_ids))
 
     attributes: dict[str, Any] = {}
@@ -630,6 +862,16 @@ def _node_from_cluster(
             if key not in attributes and value not in (None, "", [], {}):
                 attributes[key] = value
     attributes["source_tiles"] = source_tiles
+    attributes["fusion_evidence"] = {
+        "version": FUSION_VERSION,
+        "geometry_basis": cluster.geometry_basis,
+        "physical_symbol_id": cluster.symbol_id,
+        "scene_version": SCENE_VERSION,
+        "representative_detection_id": cluster.representative_id,
+        "source_path_ids": cluster.path_ids,
+        "member_detection_ids": sorted(item.id for item in ordered),
+    }
+    evidence_ids = sorted(set(evidence_ids) | set(cluster.path_ids))
     attributes["model_confidence"] = identity_canonical.confidence
     attributes = _normalise_taxonomy(attributes, kind=selected_kind)
     for span in native_candidates:
@@ -754,13 +996,182 @@ def _nearby_tag_text(spans: list[TextEvidence], bbox: BBox) -> list[TextEvidence
     return sorted(candidates, key=lambda span: _center_distance(span.bbox, bbox))[:8]
 
 
-def _median_bbox(detections: list[DetectionRecord]) -> BBox:
-    values = (
-        statistics.median(getattr(item.bbox, field_name) for item in detections)
-        for field_name in ("x", "y", "w", "h")
-    )
-    x, y, w, h = (int(round(value)) for value in values)
-    return BBox(x=max(0, x), y=max(0, y), w=max(1, w), h=max(1, h))
+def _assign_native_tags_to_nodes(
+    nodes: list[ReconciledNode],
+    *,
+    pages_by_index: dict[int, PageEvidence],
+    legend_pack: LegendPack | None,
+    reserved_text_ids: set[str] | None = None,
+) -> int:
+    """Promote native PDF tags only for mutual-best compatible matches.
+
+    The visual model remains responsible for finding the object.  Positioned
+    vector text supplies its identity when the tag and object select each
+    other as their best local match.  Competing readings are retained as
+    ``label_candidates`` for human review instead of being guessed.
+    """
+
+    assigned = 0
+    nodes_by_page: dict[int, list[ReconciledNode]] = {}
+    for node in nodes:
+        nodes_by_page.setdefault(node.page_index, []).append(node)
+
+    for page_index, page_nodes in nodes_by_page.items():
+        page = pages_by_index.get(page_index)
+        if page is None:
+            continue
+        tags = [
+            t for t in _native_entity_tag_spans(page) if t.id not in (reserved_text_ids or set())
+        ]
+        generic_nodes = [
+            node for node in page_nodes if normalise_label(node.label or "") in _GENERIC_LABEL_KEYS
+        ]
+        if not tags or not generic_nodes:
+            continue
+
+        pairs: list[tuple[float, str, str, TextEvidence, ReconciledNode]] = []
+        for span in tags:
+            # A tag inside an already identified symbol belongs to that
+            # instance. Do not offer it again to a nearby unlabelled valve.
+            if any(
+                normalise_label(node.label) == normalise_label(span.text)
+                and _bbox_centres_overlap(node.bbox_global, span.bbox)
+                for node in page_nodes
+                if normalise_label(node.label or "") not in _GENERIC_LABEL_KEYS
+            ):
+                continue
+            semantics = infer_tag_semantics(span.text, legend_pack)
+            for node in generic_nodes:
+                score = _native_tag_node_score(span, node, semantics=semantics)
+                if score is not None:
+                    pairs.append((score, span.id, node.id, span, node))
+
+        by_span: dict[str, list[tuple[float, str, str, TextEvidence, ReconciledNode]]] = {}
+        by_node: dict[str, list[tuple[float, str, str, TextEvidence, ReconciledNode]]] = {}
+        for pair in pairs:
+            by_span.setdefault(pair[1], []).append(pair)
+            by_node.setdefault(pair[2], []).append(pair)
+        for values in (*by_span.values(), *by_node.values()):
+            values.sort(key=lambda value: (value[0], value[1], value[2]))
+
+        for node in generic_nodes:
+            candidates = by_node.get(node.id, [])
+            if not candidates:
+                continue
+            labels = _ordered_unique(
+                [
+                    *(node.attributes.get("label_candidates") or []),
+                    *(node.attributes.get("raw_text_candidates") or []),
+                    *(pair[3].text for pair in candidates[:8]),
+                ]
+            )
+            if labels:
+                node.attributes["label_candidates"] = labels
+
+        used_spans: set[str] = set()
+        used_nodes: set[str] = set()
+        for pair in sorted(pairs, key=lambda value: (value[0], value[1], value[2])):
+            score, span_id, node_id, span, node = pair
+            if span_id in used_spans or node_id in used_nodes:
+                continue
+            if by_span[span_id][0][2] != node_id or by_node[node_id][0][1] != span_id:
+                continue
+            if score > 3.0:
+                continue
+            semantics = infer_tag_semantics(span.text, legend_pack)
+            node.label = " ".join(span.text.split())
+            node.source_quote = node.source_quote or node.label
+            node.attributes["canonical_tag"] = node.label
+            node.attributes["native_tag_assignment"] = "mutual_best_geometry"
+            node.attributes["native_tag_assignment_score"] = round(score, 3)
+            node.attributes["source_text_ids"] = sorted(
+                set(node.attributes.get("source_text_ids") or []) | {span.id}
+            )
+            node.source_evidence_ids = sorted(set(node.source_evidence_ids) | {span.id})
+            if semantics is not None:
+                for key, value in semantics.attributes.items():
+                    if value not in (None, "", [], {}):
+                        node.attributes.setdefault(key, value)
+                node.attributes.setdefault("tag_prefix", semantics.prefix)
+                node.attributes.setdefault("tag_semantics_basis", semantics.basis)
+            evidence = dict(node.attributes.get("system_confidence_evidence") or {})
+            evidence["native_text_agreement"] = True
+            node.attributes["system_confidence_evidence"] = evidence
+            score_value = min(0.98, float(node.system_confidence or 0.0) + 0.12)
+            node.system_confidence = round(score_value, 3)
+            node.system_confidence_level = _confidence_level(score_value)
+            node.attributes["system_confidence"] = node.system_confidence
+            used_spans.add(span_id)
+            used_nodes.add(node_id)
+            assigned += 1
+    return assigned
+
+
+def _native_entity_tag_spans(page: PageEvidence) -> list[TextEvidence]:
+    seen: set[tuple[str, int, int]] = set()
+    result: list[TextEvidence] = []
+    for span in page.text_spans:
+        text = " ".join(span.text.strip().split())
+        if not text or _EXPLICIT_OPC_REF_RE.fullmatch(text):
+            continue
+        match = re.fullmatch(r"(?P<prefix>[A-Z]{1,6})[- ]?(?P<number>\d{1,6}[A-Z]?)", text, re.I)
+        area = re.fullmatch(r"\d{3,6}[- ]?[A-Z]{1,4}[- ]?\d{1,5}[A-Z]?", text, re.I)
+        if match is None and area is None:
+            continue
+        if match is not None:
+            prefix = match.group("prefix")
+            digits = re.sub(r"[^0-9]", "", match.group("number"))
+            if prefix.upper() in {"DN", "PN", "SCH", "CL", "NO", "REV", "PAGE"}:
+                continue
+            if len(digits) == 1 and len(prefix) < 2:
+                continue
+        key = (normalise_label(text), span.bbox.x // 4, span.bbox.y // 4)
+        if key in seen:
+            continue
+        seen.add(key)
+        result.append(span)
+    return sorted(result, key=lambda span: (span.bbox.y, span.bbox.x, span.id))
+
+
+def _native_tag_node_score(
+    span: TextEvidence,
+    node: ReconciledNode,
+    *,
+    semantics: Any,
+) -> float | None:
+    attrs = node.attributes or {}
+    if semantics is not None and node.kind != semantics.expected_kind:
+        return None
+    if semantics is None:
+        prefix_match = re.match(r"[A-Z]+", span.text.strip(), re.I)
+        prefix = prefix_match.group(0).upper() if prefix_match else ""
+        # Unknown *V tags may label a visually detected valve.  Other unknown
+        # prefixes remain review evidence until a project legend defines them.
+        if not (
+            prefix.endswith("V") and node.kind == "equipment" and bool(attrs.get("valve_type"))
+        ):
+            return None
+
+    text_scale = max(span.bbox.h, 8)
+    if attrs.get("valve_type") and (
+        node.bbox_global.w > max(220, text_scale * 10)
+        or node.bbox_global.h > max(220, text_scale * 10)
+    ):
+        return None
+    sx = span.bbox.x + span.bbox.w / 2
+    sy = span.bbox.y + span.bbox.h / 2
+    nx = node.bbox_global.x + node.bbox_global.w / 2
+    ny = node.bbox_global.y + node.bbox_global.h / 2
+    x_scale = max(span.bbox.w, node.bbox_global.w, text_scale * 2)
+    y_scale = max(span.bbox.h, node.bbox_global.h, text_scale * 2)
+    dx = abs(nx - sx) / x_scale
+    dy = abs(ny - sy) / y_scale
+    score = math.hypot(dx, dy)
+    if score > 3.6:
+        return None
+    if span.bbox.iou(node.bbox_global) > 0:
+        score -= 0.2
+    return max(0.0, score)
 
 
 def _normalise_taxonomy(attributes: dict[str, Any], *, kind: str) -> dict[str, Any]:
@@ -862,6 +1273,269 @@ def _stable_node_id(
     return "n-" + hashlib.sha256(payload).hexdigest()[:16]
 
 
+def _enrich_opcs_from_native_text(
+    nodes: list[ReconciledNode],
+    pages_by_index: dict[int, PageEvidence],
+) -> tuple[list[ReconciledNode], list[dict[str, Any]]]:
+    """Verify model OPCs and recover explicit body continuation references.
+
+    Drawing references in the sheet title block identify the current page;
+    references in the drawing body identify a continuation.  This distinction
+    is deterministic and does not require the connector to sit on the physical
+    edge of the PDF page.
+    """
+    opcs_by_page: dict[int, list[ReconciledNode]] = {}
+    for node in nodes:
+        if node.kind == "opc":
+            opcs_by_page.setdefault(node.page_index, []).append(node)
+
+    sheet_refs = {
+        page_index: _page_drawing_reference(page) for page_index, page in pages_by_index.items()
+    }
+    pages_for_sheet: dict[str, list[int]] = {}
+    body_refs_by_page: dict[int, set[str]] = {}
+    for page_index, page in pages_by_index.items():
+        own_ref = sheet_refs.get(page_index)
+        if own_ref:
+            pages_for_sheet.setdefault(own_ref, []).append(page_index)
+        body_refs_by_page[page_index] = {
+            reference
+            for span in _body_drawing_reference_spans(page)
+            if (reference := _normalise_drawing_reference(span.text)) is not None
+        }
+
+    synthesized: list[ReconciledNode] = []
+    diagnostics: list[dict[str, Any]] = []
+    for page_index, page in pages_by_index.items():
+        for span in _body_drawing_reference_spans(page):
+            reference = _normalise_drawing_reference(span.text)
+            if reference is None:
+                continue
+            nearby = _nearby_body_text(page, span.bbox)
+            source_ids = sorted({span.id, *(value.id for value in nearby)})
+            source_text = " ".join(value.text for value in [span, *nearby]).strip()
+            direction = _opc_direction_from_text(source_text)
+            service = _opc_service_from_text(source_text, reference)
+            page_opcs = opcs_by_page.get(page_index, [])
+            exact = sorted(
+                (
+                    node
+                    for node in page_opcs
+                    if _opc_visible_reference(node) == reference
+                    or _normalise_drawing_reference(node.attributes.get("drawing_ref")) == reference
+                ),
+                key=lambda node: (
+                    bool(node.attributes.get("system_generated")),
+                    _center_distance(node.bbox_global, span.bbox),
+                    node.id,
+                ),
+            )
+            candidates = sorted(
+                ((_center_distance(node.bbox_global, span.bbox), node) for node in page_opcs),
+                key=lambda row: (row[0], row[1].id),
+            )
+            limit = max(320.0, min(page.width, page.height) * 0.08)
+            target = (
+                exact[0]
+                if exact
+                else (candidates[0][1] if candidates and candidates[0][0] <= limit else None)
+            )
+            if target is not None:
+                target.attributes.update(
+                    {
+                        "drawing_ref": reference,
+                        "native_reference_verified": True,
+                        "continuation_evidence": "native_body_drawing_reference",
+                    }
+                )
+                target.attributes.pop("opc_context_required", None)
+                if direction:
+                    target.attributes["direction"] = direction
+                if service:
+                    target.attributes.setdefault("service", service)
+                _refresh_opc_label(target)
+                target.attributes["source_text_ids"] = sorted(
+                    set(target.attributes.get("source_text_ids") or []) | set(source_ids)
+                )
+                target.source_evidence_ids = sorted(
+                    set(target.source_evidence_ids) | set(source_ids)
+                )
+                diagnostics.append(
+                    {
+                        "type": "native_opc_reference_assignment",
+                        "page_index": page_index,
+                        "node_id": target.id,
+                        "drawing_ref": reference,
+                        "status": "resolved",
+                        "reason": "positioned body text verifies the continuation destination",
+                    }
+                )
+                continue
+
+            current_ref = sheet_refs.get(page_index)
+            destination_pages = pages_for_sheet.get(reference, [])
+            reciprocal_destination = (
+                len(destination_pages) == 1
+                and current_ref is not None
+                and current_ref in body_refs_by_page.get(destination_pages[0], set())
+            )
+            explicit_glyph = _native_ref_has_explicit_connector_glyph(page, span.bbox)
+            if not reciprocal_destination and not explicit_glyph:
+                diagnostics.append(
+                    {
+                        "type": "unassigned_native_drawing_reference",
+                        "page_index": page_index,
+                        "source_text_id": span.id,
+                        "drawing_ref": reference,
+                        "status": "unresolved",
+                        "reason": (
+                            "body drawing reference has no detected OPC, reciprocal destination, "
+                            "or explicit connector glyph"
+                        ),
+                    }
+                )
+                continue
+            bbox = _bbox_union_values([span.bbox, *(value.bbox for value in nearby)])
+            node_id = (
+                "n-opc-"
+                + hashlib.sha256(
+                    repr((page_index, reference, bbox.x // 10, bbox.y // 10)).encode()
+                ).hexdigest()[:12]
+            )
+            attributes: dict[str, Any] = {
+                "drawing_ref": reference,
+                "native_reference_verified": True,
+                "continuation_evidence": (
+                    "reciprocal_native_drawing_references"
+                    if reciprocal_destination
+                    else "native_body_drawing_reference_and_explicit_connector_glyph"
+                ),
+                "source_text_ids": source_ids,
+                "system_generated": True,
+            }
+            if direction:
+                attributes["direction"] = direction
+            if service:
+                attributes["service"] = service
+            node = ReconciledNode(
+                id=node_id,
+                kind="opc",
+                label=service or reference,
+                bbox_global=bbox,
+                page_index=page_index,
+                attributes=attributes,
+                confidence="medium",
+                source_quote=source_text,
+                source_evidence_ids=source_ids,
+                system_confidence=0.78,
+                system_confidence_level="medium",
+            )
+            synthesized.append(node)
+            opcs_by_page.setdefault(page_index, []).append(node)
+            diagnostics.append(
+                {
+                    "type": "native_opc_recovery",
+                    "page_index": page_index,
+                    "node_id": node_id,
+                    "drawing_ref": reference,
+                    "status": "resolved",
+                    "reason": "native drawing reference and nearby vector continuation recovered a missed OPC",
+                }
+            )
+    return synthesized, diagnostics
+
+
+def _refresh_opc_label(node: ReconciledNode) -> None:
+    """Backfill a useful label after native/page-graph OPC enrichment."""
+    if node.kind != "opc" or normalise_label(node.label or "") not in _GENERIC_LABEL_KEYS:
+        return
+    service = " ".join(str(node.attributes.get("service") or "").split())
+    reference = _normalise_drawing_reference(node.attributes.get("drawing_ref"))
+    direction = str(node.attributes.get("direction") or "").casefold()
+    if service and reference:
+        node.label = (
+            f"{reference} → {service}"
+            if direction == "in"
+            else f"{service} → {reference}"
+            if direction == "out"
+            else f"{service} · {reference}"
+        )
+    elif service:
+        node.label = service
+    elif reference:
+        node.label = reference
+
+
+def _body_drawing_reference_spans(page: PageEvidence) -> list[TextEvidence]:
+    return [
+        span
+        for span in page.text_spans
+        if _EXPLICIT_OPC_REF_RE.search(span.text) and not _is_title_block_bbox(span.bbox, page)
+    ]
+
+
+def _normalise_drawing_reference(value: Any) -> str | None:
+    match = _EXPLICIT_OPC_REF_RE.search(str(value or ""))
+    return re.sub(r"\s+", "", match.group(0)).upper() if match else None
+
+
+def _nearby_body_text(page: PageEvidence, bbox: BBox) -> list[TextEvidence]:
+    x_pad = max(260, int(page.width * 0.05))
+    y_pad = max(80, int(page.height * 0.018))
+    return sorted(
+        (
+            span
+            for span in page.text_spans
+            if span.bbox != bbox
+            and not _is_title_block_bbox(span.bbox, page)
+            and span.bbox.x < bbox.x2 + x_pad
+            and span.bbox.x2 > bbox.x - x_pad
+            and span.bbox.y < bbox.y2 + y_pad
+            and span.bbox.y2 > bbox.y - y_pad
+        ),
+        key=lambda span: (_center_distance(span.bbox, bbox), span.id),
+    )[:8]
+
+
+def _opc_direction_from_text(value: str) -> str | None:
+    text = value.casefold()
+    if re.search(r"(?:来自|来?自|\bfrom\b|入口|inlet)", text):
+        return "in"
+    if re.search(r"(?:去往|接至|\bto\b|出口|outlet)", text):
+        return "out"
+    return None
+
+
+def _opc_service_from_text(value: str, reference: str) -> str | None:
+    text = re.sub(re.escape(reference), " ", value, flags=re.IGNORECASE)
+    text = re.sub(r"(?:来自|去往|接至|\bfrom\b|\bto\b)", " ", text, flags=re.IGNORECASE)
+    text = " ".join(text.split()).strip(" -–—:：")
+    return text[:160] or None
+
+
+def _native_ref_has_explicit_connector_glyph(page: PageEvidence, bbox: BBox) -> bool:
+    """Require a compact connector-shaped mark, not merely a nearby pipe."""
+    radius = max(180.0, min(page.width, page.height) * 0.045)
+    for path in page.paths:
+        if path.primitive not in {"line", "curve", "rect", "quad"} or len(path.points) < 2:
+            continue
+        size = max(path.bbox.w, path.bbox.h)
+        if size < 12 or size > 180:
+            continue
+        has_shape = path.closed or path.primitive in {"rect", "quad"} or len(path.points) >= 3
+        if has_shape and _center_distance(path.bbox, bbox) <= radius:
+            return True
+    return False
+
+
+def _bbox_union_values(values: list[BBox]) -> BBox:
+    left = min(value.x for value in values)
+    top = min(value.y for value in values)
+    right = max(value.x2 for value in values)
+    bottom = max(value.y2 for value in values)
+    return BBox(x=left, y=top, w=max(1, right - left), h=max(1, bottom - top))
+
+
 def _match_opcs(
     nodes: list[ReconciledNode],
     *,
@@ -900,7 +1574,15 @@ def _match_opcs(
                 continue
             left_direction = str(left.attributes.get("direction") or "").casefold()
             right_direction = str(right.attributes.get("direction") or "").casefold()
-            if {left_direction, right_direction} != {"in", "out"}:
+            if (
+                left_direction
+                and right_direction
+                and {left_direction, right_direction}
+                != {
+                    "in",
+                    "out",
+                }
+            ):
                 continue
             compatible, service_score = _opc_services_compatible(left, right)
             if not compatible:
@@ -930,17 +1612,26 @@ def _match_opcs(
             )
             continue
         matched.update((left.id, right.id))
+        explicit_opposition = {
+            str(left.attributes.get("direction") or "").casefold(),
+            str(right.attributes.get("direction") or "").casefold(),
+        } == {"in", "out"}
         edges.append(
             _opc_edge(
                 left,
                 right,
-                confidence="high",
-                system_confidence=0.94,
+                confidence="high" if explicit_opposition else "medium",
+                system_confidence=0.94 if explicit_opposition else 0.84,
                 attributes={
                     "match_basis": "reciprocal_title_block_references",
                     "left_sheet_ref": sheet_refs.get(left.page_index),
                     "right_sheet_ref": sheet_refs.get(right.page_index),
                     "candidate_score": round(score, 3),
+                    "direction_basis": (
+                        "opposing_printed_directions"
+                        if explicit_opposition
+                        else "reciprocal_references_without_complete_direction_text"
+                    ),
                 },
             )
         )
@@ -1036,6 +1727,8 @@ def _opc_visible_reference(node: ReconciledNode) -> str | None:
         match = _EXPLICIT_OPC_REF_RE.search(str(value or ""))
         if match:
             return re.sub(r"\s+", "", match.group(0)).upper()
+    if node.attributes.get("native_reference_verified"):
+        return _normalise_drawing_reference(node.attributes.get("drawing_ref"))
     return None
 
 
@@ -1085,7 +1778,13 @@ def _opc_edge(
     attributes: dict[str, Any],
 ) -> ReconciledEdge:
     left_direction = str(left.attributes.get("direction") or "").casefold()
-    outgoing, incoming = (left, right) if left_direction == "out" else (right, left)
+    right_direction = str(right.attributes.get("direction") or "").casefold()
+    if left_direction == "out" or right_direction == "in":
+        outgoing, incoming = left, right
+    elif right_direction == "out" or left_direction == "in":
+        outgoing, incoming = right, left
+    else:
+        outgoing, incoming = sorted((left, right), key=lambda node: (node.page_index, node.id))
     edge_id = "e-opc-" + hashlib.sha256(f"{outgoing.id}|{incoming.id}".encode()).hexdigest()[:12]
     return ReconciledEdge(
         id=edge_id,

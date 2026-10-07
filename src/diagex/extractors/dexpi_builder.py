@@ -22,7 +22,10 @@ from pathlib import Path
 from typing import Any
 
 from diagex.dexpi import json_io
-from diagex.dexpi._generated.enums import SignalConveyingTypeClassification
+from diagex.dexpi._generated.enums import (
+    PipingNetworkSegmentFlowClassification,
+    SignalConveyingTypeClassification,
+)
 from diagex.dexpi.model import customization as cu
 from diagex.dexpi.model import dexpiModel as dm
 from diagex.dexpi.model import equipment as eq
@@ -608,6 +611,13 @@ def _build_piping_segment(
         lt = _custom_string_attr("agent_line_type", edge.line_type)
         if lt is not None:
             segment.customAttributes.append(lt)
+    direction = edge.attributes.get("flow_direction")
+    if direction == "forward":
+        segment.FlowDirection = PipingNetworkSegmentFlowClassification.SingleFlowPipingNetworkSegment
+    if direction is not None:
+        attr = _custom_string_attr("agent_flow_direction", direction)
+        if attr is not None:
+            segment.customAttributes.append(attr)
     source = _piping_endpoint(dexpi_for_node[edge.from_node], as_source=True)
     target = _piping_endpoint(dexpi_for_node[edge.to_node], as_source=False)
     if source is not None:
@@ -660,7 +670,31 @@ def _attach_signal_edge(
     signal_source: Any | None = None
     signal_target: Any | None = None
 
-    if isinstance(source, inst.ProcessInstrumentationFunction) and isinstance(
+    if edge.line_type == "instrument_capillary":
+        instrument = next(
+            (
+                value
+                for value in (source, target)
+                if isinstance(value, inst.ProcessInstrumentationFunction)
+            ),
+            None,
+        )
+        process_endpoint = target if instrument is source else source
+        sensing_location = _sensing_location(process_endpoint)
+        if instrument is not None and sensing_location is not None:
+            generating = inst.ProcessSignalGeneratingFunction(
+                ProcessSignalGeneratingFunctionNumber=(
+                    instrument.ProcessInstrumentationFunctionNumber
+                ),
+                SensingLocation=sensing_location,
+            )
+            instrument.ProcessSignalGeneratingFunctions.append(generating)
+            host = instrument
+            signal_source = generating
+            signal_target = instrument
+        else:
+            host = None
+    elif isinstance(source, inst.ProcessInstrumentationFunction) and isinstance(
         target, inst.ProcessInstrumentationFunction
     ):
         host = source
@@ -726,6 +760,17 @@ def _attach_signal_edge(
         scf.customAttributes.append(lt)
     host.SignalConveyingFunctions.append(scf)
     stats["signal_count"] = stats.get("signal_count", 0) + 1
+
+
+def _sensing_location(obj: Any) -> inst.SensingLocation | None:
+    """Return a DEXPI sensing location for a measured process endpoint."""
+    if isinstance(obj, inst.SensingLocation):
+        return obj
+    if isinstance(obj, eq.ProcessEquipment):
+        nozzle = pp.Nozzle()
+        obj.Nozzles.append(nozzle)
+        return nozzle
+    return None
 
 
 def _record_cross_sheet_edge(

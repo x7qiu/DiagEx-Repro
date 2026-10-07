@@ -58,6 +58,28 @@ export ANTHROPIC_API_KEY=...
 python eval/run_paper_eval.py --conditions baseline --phase 1 --out /tmp/live
 ```
 
+For the browser-based workflow, start the local workbench instead:
+
+```bash
+diagex web
+```
+
+The dashboard configures the provider, API key, vision and reasoning models,
+reasoning mode, effort, and extraction engine. It accepts a P&ID upload, lets
+the operator resume compatible artifacts or start a fresh run, preserves the
+live extraction log, and opens a completed graph in human review. For Evidence v2,
+**Detect legends & symbols** stops before fusion, connectivity and export. Open
+**Review legends & symbols**, check the legend, correct/add/reject symbols and
+check each P&ID page for missed symbols. **Build graph…** returns to model settings;
+**Build reviewed graph** then uses the saved decisions in a new run without
+repeating legend or symbol model calls. The original detection run stays available.
+The dashboard lists runs containing `graph.json` or `detection.json`; older runs can be linked to
+their original PDF before review, with checkpoint source hashes enforced when
+available. API keys entered in the dashboard remain in process memory and are
+not written to run artifacts. The server binds to `127.0.0.1` by default;
+non-loopback use has no authentication or TLS and is intended only for trusted
+networks.
+
 OpenRouter is supported through its Anthropic Messages-compatible endpoint:
 
 ```bash
@@ -81,6 +103,10 @@ this setting; `DIAGEX_REASONING` controls the separate semantic relationship
 solver. Legacy extraction continues to apply it to its model-driven stages.
 
 ### Evidence-first extraction (opt in)
+
+See [How vector P&IDs become a connected graph](docs/PID_RECONSTRUCTION.md)
+for the reconstruction flowchart, ownership rules, assembly review behavior,
+validation procedure and current limitations.
 
 The staged evidence-first engine is available alongside the paper-compatible
 legacy agent:
@@ -119,8 +145,15 @@ Because engineering-object perception is intentionally skipped, tag inventory
 items are candidates rather than node assignments.
 
 Evidence-v2 extracts positioned PDF text and vector paths before making
-stateless, low-thinking calls over a deterministic overlapping crop grid. It
-fuses the objects once, then runs a bounded contextual-symbol check only for
+stateless raw-symbol calls over a deterministic overlapping crop grid. Each native
+candidate gets one symbol, non-symbol, or uncertain outcome; assembly membership
+and graph eligibility are decided later. Every symbol crop starts with reasoning
+off and a 6,000-token allowance. Explicitly enabling reasoning permits one targeted
+16,000-token check for uncertain or rejected native candidates, geometry conflicts,
+and ambiguous rounded equipment bodies, with enlarged source details. Malformed responses get a short
+repair instead. Requests have time and retry limits, and the stage stops early on
+repeated contract failures or after 30 minutes, preserving completed work and
+diagnostics. It fuses the objects once, then runs a bounded contextual-symbol check only for
 small unclassified glyphs next to valve bodies. That check compares an
 annotated page overview and high-resolution local crops with the saved
 project-legend symbol images. A high-confidence, directly attached composite
@@ -151,6 +184,75 @@ Set `DIAGEX_REASONING_MODEL` explicitly when the reasoning model differs from
 the vision model; the selected models are recorded in `result.json`.
 Scanned PDFs use an optional OpenCV fallback, installed with
 `pip install -e '.[vision]'`; raster dash-pattern inference is not yet enabled.
+
+Object fusion requires overlapping observations of compatible physical symbols
+or supporting native vector geometry. Nearby tags and large enclosing boxes
+cannot merge distinct objects; uncertain matches remain separate review candidates.
+Fused geometry retains a representative observed box, or a closed native outline
+when complementary crops prove a single symbol. Fusion provenance is saved in
+node attributes. A fusion-version upgrade reuses native evidence and perception;
+completed runs are upgraded in a new directory to preserve their graph and review.
+Quality metrics report accepted and provisional connectivity separately.
+
+To audit fusion offline without making model calls or changing the original run:
+
+```bash
+python scripts/evaluate_fusion.py --run-dir runs/<drawing>/<run-id> --out tmp/fusion-audit
+```
+
+This also checks reviewed instances from the two public vector fixtures with
+simulated duplicate crop observations. Its scores evaluate fusion, not perception
+or end-to-end connection accuracy.
+
+Fusion and topology share a native-vector symbol scene. Page-wide face recovery
+extends clipped detections to supported physical outlines; open glyphs use local
+non-collinear symbol strokes. Ownership is recorded per segment, so a PDF path
+can contain both a symbol and an external pipe. Separate observations supported
+by one physical symbol share its evidence identity. Conflicting printed tags
+remain review candidates and cannot become accepted connections to each other.
+
+Each accepted local route must have independently checked native ports, source
+segments, and distinct physical endpoints. Box contact alone stays provisional.
+Nozzle/flange chains can establish ports outside the body. Missing large rounded
+bodies are retained as unclassified review candidates, including outlines made
+from flattened curves; these hypotheses cannot certify accepted connections.
+Ordinary closed piping loops are not automatically classified as equipment.
+Crossings remain separate unless native junction evidence supports a connection.
+Model scores cannot override the structural acceptance gate.
+
+A displaced detection can recover a uniquely supported nearby native glyph with
+matching dimensions, overlapping extent and external pipe contact. Another
+object's well-localized glyph cannot be borrowed. Failed route alternatives in
+one native network share a review decision; distinct supported ports remain
+separate. Each alternative retains its original geometry and evidence for route
+selection in the review workbench. Same-symbol and zero-length proposals become
+instance/geometry conflicts instead of connection edges. Connection approval or
+rejection also resolves its linked route conflicts, with atomic undo; object
+risk indicators follow the remaining unresolved conflicts. Independent object
+classification decisions remain explicit.
+
+Native arrowheads determine flow direction independently of endpoint ordering.
+Unknown direction is retained in graph/DEXPI attributes and rendered without a
+flow arrow. Existing graph interfaces remain compatible; `route_evidence` records
+ports, supporting paths, and reasons for uncertainty. The checkpoint marker
+`port_topology: 4.0.0` invalidates topology and downstream results while retaining
+native evidence and perception. Fusion version 4.0.0 also invalidates contextual
+interpretation because instance geometry can change. Native evidence on rotated
+PDF pages is aligned with the rendered page; only legacy rotated native layers
+are regenerated during reuse. Restart a running workbench before reusing a run
+so it loads the new code. Older native evidence without fill metadata leaves
+otherwise ambiguous four-way junctions unresolved.
+
+For an offline topology replay using the fusion audit's saved objects:
+
+```bash
+python scripts/evaluate_topology.py --run-dir runs/<drawing>/<run-id> \
+  --objects tmp/fusion-audit/objects.replayed.json --out tmp/topology-audit
+```
+
+The report compares local endpoint pairs against the public fixture graphs and
+keeps structurally supported candidates separate from provisional candidates.
+It does not rerun semantic review or claim end-to-end extraction accuracy.
 
 Each run writes `evidence/page-XXXX.json`,
 `evidence/native-text-inventory.json` (assigned, excluded, ambiguous, and
@@ -210,6 +312,20 @@ and extraction conflict has an explicit disposition. Completion writes
 `graph.reviewed.json`, `pid.reviewed.dexpi.json`,
 `pid.reviewed.dexpi.xml`, and `review.report.json` without changing the
 original `graph.json`.
+
+The queue opens on **Needs your decision**, with identifier, symbol, and
+connection filters, search, page selection, source-location links, and a
+**Next finding** button. **Awaiting human approval** contains the full sign-off
+worklist. Clearing flagged findings does not complete human review.
+
+Additional audit questions can be supplied in `review-findings.json` beside
+`graph.json`. It contains the matching `graph_sha256` and `source_sha256`, and a
+`findings` list of `{ "id": "stable-id", "conflict": { ... } }` records.
+Each conflict needs a `type`; optional `title`, `question`, `queue_category`,
+`page_index`, `node_id`, and `source_locations` provide the review context.
+Each source location has `page_index`, `bbox_global`, and `label` in the graph's
+page coordinates. Imports preserve existing review events and reject changed
+content under an existing ID. Audit decisions require a written clarification.
 
 ## Layout
 

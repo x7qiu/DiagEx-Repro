@@ -44,7 +44,7 @@ _AREA_EQUIPMENT_TAG_RE = re.compile(
     re.IGNORECASE,
 )
 _SIMPLE_TAG_RE = re.compile(
-    r"^(?P<prefix>[A-Z]{1,6})[- ]?(?P<number>\d{2,6}[A-Z]?)$",
+    r"^(?P<prefix>[A-Z]{1,6})[- ]?(?P<number>\d{1,6}[A-Z]?)$",
     re.IGNORECASE,
 )
 _EXCLUDED_PREFIXES = {"DN", "PN", "SCH", "CL", "NO", "REV", "PAGE"}
@@ -53,10 +53,45 @@ _EXCLUDED_PREFIXES = {"DN", "PN", "SCH", "CL", "NO", "REV", "PAGE"}
 # can add an exact prefix.  Single-letter equipment abbreviations are omitted
 # because P-001/V-001/M-001 are plant-dependent and visually ambiguous.
 _STANDARD_INSTRUMENT_CODES = {
-    "AI", "AIT", "AT", "DI", "DT", "FE", "FI", "FIC", "FIT", "FQ", "FT", "FV",
-    "LG", "LI", "LIC", "LIT", "LS", "LT", "LV", "PI", "PIC", "PIT", "PS", "PT",
-    "PV", "SI", "ST", "TE", "TI", "TIC", "TIT", "TS", "TT", "TV", "XI", "XT",
-    "YL", "ZI", "ZT",
+    "AI",
+    "AIT",
+    "AT",
+    "DI",
+    "DT",
+    "FE",
+    "FI",
+    "FIC",
+    "FIT",
+    "FQ",
+    "FT",
+    "FV",
+    "LG",
+    "LI",
+    "LIC",
+    "LIT",
+    "LS",
+    "LT",
+    "LV",
+    "PI",
+    "PIC",
+    "PIT",
+    "PS",
+    "PT",
+    "PV",
+    "SI",
+    "ST",
+    "TE",
+    "TI",
+    "TIC",
+    "TIT",
+    "TS",
+    "TT",
+    "TV",
+    "XI",
+    "XT",
+    "YL",
+    "ZI",
+    "ZT",
 }
 _VARIABLES = {
     "P": "pressure",
@@ -90,6 +125,10 @@ class NativeTextInventoryItem(BaseModel):
     status: InventoryStatus
     expected_kind: Literal["equipment", "instrument"] | None = None
     matched_node_ids: list[str] = Field(default_factory=list)
+    matched_assembly_ids: list[str] = Field(default_factory=list)
+    ownership_scope: Literal[
+        "physical_symbol", "assembly_label", "specification_reference", "unresolved_scope"
+    ] = "physical_symbol"
     match_method: Literal["source_reference", "exact_label"] | None = None
     reason: str
     tag_semantics: TagSemantics | None = None
@@ -123,6 +162,10 @@ def infer_tag_semantics(text: str, legend_pack: LegendPack | None = None) -> Tag
     if match is None:
         return None
     prefix = match.group("prefix").upper()
+    # Single-digit identifiers such as QV8 are common on packaged-equipment
+    # P&IDs.  Continue to exclude ambiguous single-letter codes such as A1.
+    if len(re.sub(r"[^0-9]", "", match.group("number"))) == 1 and len(prefix) < 2:
+        return None
     if prefix in _EXCLUDED_PREFIXES:
         return None
 
@@ -207,6 +250,8 @@ def build_native_text_inventory(
         if page.role not in {"pid", "other"}:
             continue
         for group in _candidate_span_groups(page.text_spans):
+            if _group_is_in_title_block(group, page):
+                continue
             text = " ".join(span.text.strip() for span in group)
             classified = _classify_candidate(text, legend_pack)
             if classified is None:
@@ -239,9 +284,37 @@ def build_native_text_inventory(
                 nodes=nodes_by_page.get(page.page_index, []),
                 semantics=semantics,
             )
-            item_id = "nt-" + hashlib.sha256(
-                repr((page.page_index, source_ids, key)).encode("utf-8")
-            ).hexdigest()[:12]
+            bindings = [
+                b
+                for b in graph.text_bindings
+                if b.get("page_index") == page.page_index
+                and set(source_ids).intersection(b.get("source_text_ids", []))
+            ]
+            assembly_ids = sorted({aid for b in bindings for aid in b.get("assembly_ids", [])})
+            scope = bindings[0]["role"] if bindings else "physical_symbol"
+            if bindings:
+                matched = sorted({nid for b in bindings for nid in b.get("node_ids", [])})
+                owners = [a for a in graph.assemblies if a.id in assembly_ids]
+                status = (
+                    "ambiguous"
+                    if any(a.status != "supported" for a in owners)
+                    else "assigned"
+                    if owners or matched
+                    else "unresolved"
+                )
+                reason = (
+                    "Native text ownership is recorded at the " + scope.replace("_", " ") + " level"
+                )
+                # The assembly decision owns its caption and specification mentions.
+                # Do not ask for the same identity again as a physical-symbol tag.
+                if owners:
+                    blocking = False
+            item_id = (
+                "nt-"
+                + hashlib.sha256(
+                    repr((page.page_index, source_ids, key)).encode("utf-8")
+                ).hexdigest()[:12]
+            )
             items.append(
                 NativeTextInventoryItem(
                     id=item_id,
@@ -255,6 +328,8 @@ def build_native_text_inventory(
                     status=status,
                     expected_kind=semantics.expected_kind if semantics else None,
                     matched_node_ids=matched,
+                    matched_assembly_ids=assembly_ids,
+                    ownership_scope=scope,
                     match_method=(
                         "source_reference" if referenced else "exact_label" if exact else None
                     ),
@@ -274,6 +349,15 @@ def build_native_text_inventory(
             "candidate_count": len(items),
             "reviewable_tag_count": reviewable,
             "assigned_tag_count": assigned,
+            "assembly_owned_occurrence_count": sum(
+                bool(item.matched_assembly_ids) for item in items
+            ),
+            "ambiguous_assembly_occurrence_count": sum(
+                bool(item.matched_assembly_ids) and item.status == "ambiguous" for item in items
+            ),
+            "specification_reference_count": sum(
+                item.ownership_scope == "specification_reference" for item in items
+            ),
             "unresolved_tag_count": sum(
                 item.blocking and item.status in {"unresolved", "ambiguous"} for item in items
             ),
@@ -282,6 +366,13 @@ def build_native_text_inventory(
             "candidate_kind_counts": dict(sorted(kinds.items())),
         },
     )
+
+
+def _group_is_in_title_block(group: list[TextEvidence], page: PageEvidence) -> bool:
+    bbox = _bbox_union(group)
+    center_x = bbox.x + bbox.w / 2
+    center_y = bbox.y + bbox.h / 2
+    return center_x >= page.width * 0.55 and center_y >= page.height * 0.78
 
 
 def _classify_candidate(
@@ -304,7 +395,14 @@ def _classify_candidate(
         )
         return kind, True, semantics
     match = _SIMPLE_TAG_RE.fullmatch(compact)
-    if match is not None and match.group("prefix").upper() not in _EXCLUDED_PREFIXES:
+    if (
+        match is not None
+        and match.group("prefix").upper() not in _EXCLUDED_PREFIXES
+        and not (
+            len(re.sub(r"[^0-9]", "", match.group("number"))) == 1
+            and len(match.group("prefix")) < 2
+        )
+    ):
         return "unknown_tag", True, None
     return None
 

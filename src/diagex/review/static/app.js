@@ -3,6 +3,15 @@
 const el = id => document.getElementById(id);
 const I18N = {
   en: {
+    showIssue:"Show issue", issueArea:"ISSUE AREA", issuePoint:"CHECK THIS POINT", relatedArea:"RELATED AREA", pageIssue:"Page-level finding: no exact location is recorded.", locatedIssue:"Highlighted in both panes", offPageIssue:"This finding is on another page. Use Show issue.",
+    reviewScope:"Review scope", decisionQueue:"Needs your decision", humanSignoff:"Awaiting human approval", fullReview:"Full human review",
+    findingCategories:"Finding categories", identifiers:"Identifiers", symbols:"Symbols", otherFindings:"Other findings", allFindings:"All findings",
+    searchFindings:"Search label, reason or ID", filterByPage:"Filter by page", nextFinding:"Next finding →", findingCount:"{count} findings",
+    showingFindings:"{count} shown", decisionHelp:"Start with flagged decisions across all pages. Routine approvals are in a separate view.",
+    signoffHelp:"Every object still needs human approval, including items without a flagged problem.", noFindings:"No open findings match. Full human review may still be pending.",
+    sourceLocations:"Jump to source", auditDecision:"Record decision / clarification", decisionNote:"Describe the clarification or why the printed value should be retained.",
+    decisionRequired:"Record your decision before resolving this finding.", sourceAudit:"Source audit evidence", flaggedConnection:"Check the connection route and meaning.",
+    untaggedObject:"Untagged {kind}", conflictVectorTitle:"Connection route needs confirmation", conflictVectorQuestion:"Check the visible route between {nodes}, including crossings and symbol ports.",
     title: "DiagEx Review", humanReview: "human review", previousPage: "Previous page", nextPage: "Next page",
     pageRole: "Page role", approvePage: "Approve page", waive: "Waive", zoomOut: "Zoom out", zoomIn: "Zoom in",
     fit: "Fit", inferenceBackground: "Inference background", backgroundFull: "PDF + overlays",
@@ -18,10 +27,11 @@ const I18N = {
     remaining: "{count} remaining", readyExport: "Ready to export", noMatches: "Nothing matches this filter.",
     entity: "entity", connection: "connection", conflict: "conflict", graphConflict: "Graph conflict",
     modelConfidence: "model confidence", review: "review", label: "Label", kind: "Kind",
+    suggestedLabel: "Suggested label", chooseSuggestedLabel: "Choose a recovered label…", enterManually: "Enter another label…",
     equipmentClass: "Equipment class", valveType: "Valve type", actuatorType: "Actuator type", instrumentFunction: "Instrument function",
     sourceText: "Printed source text", attributesJson: "Attributes (JSON)", from: "From", to: "To", lineType: "Line type",
     visualStyle: "Detected appearance", styleConfidence: "style confidence", styleEvidence: "source style evidence",
-    polylineJson: "Polyline points (JSON)", saveChanges: "Save changes", approve: "Approve", reject: "Reject",
+    conflictInstanceGeometryTitle: "Overlapping object identities", conflictInstanceGeometryQuestion: "Check whether these observations describe one symbol or separate devices; they do not establish a pipe connection.", assembly: "Assembly", assemblies: "Assemblies", assemblyIdentity: "Assembly identity", assemblyHelp: "This identity belongs to a group of components. Confirm the group name; components and pipe connections remain separate.", assemblyMembers: "Components in this assembly", routeChoices: "Choose the visible route", routeChoice: "Route {number}", routePrompt: "Select a route to preview", polylineJson: "Polyline points (JSON)", saveChanges: "Save changes", approve: "Approve", reject: "Reject",
     resolved: "Resolved", waiveReason: "Waive with reason", rejectReason: "Reason for rejection (optional)",
     resolveReason: "How was this resolved? (optional)", conflictWaiveReason: "Reason for waiving this conflict",
     pageWaiveReason: "Reason for waiving this page", actionSaved: "{operation} saved",
@@ -55,8 +65,11 @@ const I18N = {
     relatedConflicts: "Related conflicts", conflictCount: "{count} unresolved conflicts", reviewConflict: "Review conflict",
     nodeApprovalDoesNotResolve: "Approving this object confirms only its identity and properties. Resolve its relationship conflicts separately.",
     decisionNeeded: "Decision needed", affectedObjects: "Affected objects", modelEvidence: "Why this was flagged",
-    currentInterpretation: "Current interpretation", currentGraph: "Current graph", detectedLine: "detected {style} line", noDirectConnection: "No direct connection is currently recorded",
+    currentInterpretation: "Current interpretation", suggestedInterpretation: "Suggested interpretation", currentGraph: "Current graph", detectedLine: "detected {style} line", noDirectConnection: "No direct connection is currently recorded",
     markNoConnection: "Confirm no direct connection", addAs: "Add as {type}", changeTo: "Change to {type}",
+    confirmType: "Confirm {type}", supportingEvidence: "Supporting evidence", sameLoopEvidence: "Both instruments use loop {loop}",
+    functionFlowEvidence: "Compatible function flow: {from} → {to}", alignedRouteEvidence: "The traced route aligns with both endpoints",
+    legendMatchEvidence: "The visual/legend classification is {type}",
     rejectConnection: "Reject this connection", resolveNoChange: "Mark resolved without graph changes",
     conflictUnsupportedTitle: "Possible false connection", conflictRoleTitle: "Uncertain relationship type",
     conflictCandidateTitle: "Unconfirmed proposed connection", conflictTopologyTitle: "Ambiguous line routing",
@@ -67,12 +80,14 @@ const I18N = {
     mergeActuator: "Merge actuator into valve", suggestedActuation: "Actuator type",
     questionDirectConnection: "Are {nodes} directly connected by a {type}?",
     questionLineMeaning: "What does the {style} line between {nodes} represent?",
+    questionConfirmSuggested: "Confirm that the relationship between {nodes} is a {type}?",
     questionProposedConnection: "Does a direct connection really exist between {nodes}?",
     questionCrossing: "Do these lines cross without connecting, or form a junction?",
     questionEvidence: "Which interpretation of {nodes} matches the printed drawing?",
     questionGenericConflict: "What should the reviewed graph record for {nodes}?",
     evidenceUnsupported: "The proposed relationship is incompatible with the identified engineering-object roles.",
     evidenceRole: "The route is visible, but its endpoints and appearance do not prove a single relationship type.",
+    evidenceSuggested: "The system suggests {type} from the project legend, route, and endpoint semantics. Confirm it against the source drawing.",
     evidenceCandidate: "A deterministic route candidate was found, but the page-level solver could not confirm it.",
     evidenceTopology: "The extracted vector paths can be traced in more than one way through this area.",
     evidenceCrossing: "The geometry does not reliably distinguish a crossing from a connected junction.",
@@ -89,6 +104,15 @@ const I18N = {
     pageRole: "页面类型", approvePage: "批准本页", waive: "豁免", zoomOut: "缩小", zoomIn: "放大",
     fit: "适应窗口", inferenceBackground: "推断视图背景", backgroundFull: "PDF + 标注层",
     backgroundDim: "淡化 PDF", backgroundNone: "仅显示标注层", language: "语言", undo: "撤销",
+    showIssue:"定位问题", issueArea:"问题区域", issuePoint:"检查此处", relatedArea:"相关区域", pageIssue:"页面级问题：未记录精确位置。", locatedIssue:"已在两个窗格中突出标记", offPageIssue:"此问题位于其他页面，请点击定位问题。",
+    reviewScope:"复核范围", decisionQueue:"需要您判断", humanSignoff:"等待人工确认", fullReview:"完整人工复核",
+    findingCategories:"问题分类", identifiers:"编号冲突", symbols:"符号含义", otherFindings:"其他问题", allFindings:"全部问题",
+    searchFindings:"搜索编号、原因或 ID", filterByPage:"按页筛选", nextFinding:"下一个问题 →", findingCount:"{count} 个问题",
+    showingFindings:"显示 {count} 项", decisionHelp:"优先处理所有页面中的明确问题。常规人工确认可切换到单独视图。",
+    signoffHelp:"每个对象都仍需人工确认，包括没有明确问题的项目。", noFindings:"当前筛选下没有待处理问题；完整人工复核可能仍未完成。",
+    sourceLocations:"定位到原图", auditDecision:"记录判断或澄清", decisionNote:"请记录澄清结果，或说明保留原图编号的理由。",
+    decisionRequired:"请先记录判断，再解决此问题。", sourceAudit:"原图审查证据", flaggedConnection:"确认连接路径及含义。",
+    untaggedObject:"未编号的{kind}", conflictVectorTitle:"连接路径需确认", conflictVectorQuestion:"检查 {nodes} 之间的可见路径，包括交叉点和符号接口。",
     finishExport: "完成并导出", reviewQueue: "复核队列", loading: "正在加载…", needsReview: "待复核",
     allItems: "全部项目", allTypes: "全部类型", entities: "实体", connections: "连接", conflicts: "冲突",
     originalSource: "原始图纸", originalPidPage: "原始 P&ID 页面", editableExtraction: "可编辑提取结果",
@@ -100,10 +124,11 @@ const I18N = {
     remaining: "剩余 {count} 项", readyExport: "可以导出", noMatches: "没有符合当前筛选条件的项目。",
     entity: "实体", connection: "连接", conflict: "冲突", graphConflict: "图结构冲突",
     modelConfidence: "模型置信度", review: "复核状态", label: "标签", kind: "种类",
+    suggestedLabel: "候选标签", chooseSuggestedLabel: "请选择图纸中识别到的标签…", enterManually: "手动输入其他标签…",
     equipmentClass: "设备类别", valveType: "阀门类型", actuatorType: "执行机构类型", instrumentFunction: "仪表功能",
     sourceText: "图纸原文", attributesJson: "属性（JSON）", from: "起点", to: "终点", lineType: "线型",
     visualStyle: "检测到的线条外观", styleConfidence: "外观置信度", styleEvidence: "线型来源证据",
-    polylineJson: "折线坐标（JSON）", saveChanges: "保存修改", approve: "批准", reject: "拒绝",
+    conflictInstanceGeometryTitle: "对象身份或位置重叠", conflictInstanceGeometryQuestion: "请核对这些观察结果属于同一符号还是不同设备；它们尚不能证明存在管道连接。", assembly: "成套设备", assemblies: "成套设备", assemblyIdentity: "成套设备标识", assemblyHelp: "此标识属于一组组件。请确认整体名称；组件和管道连接分别保留。", assemblyMembers: "包含的组件", routeChoices: "选择图中实际路线", routeChoice: "路线 {number}", routePrompt: "选择路线以预览", polylineJson: "折线坐标（JSON）", saveChanges: "保存修改", approve: "批准", reject: "拒绝",
     resolved: "已解决", waiveReason: "填写理由并豁免", rejectReason: "拒绝理由（可选）",
     resolveReason: "如何解决此问题？（可选）", conflictWaiveReason: "请输入豁免此冲突的理由",
     pageWaiveReason: "请输入豁免本页的理由", actionSaved: "已保存：{operation}",
@@ -137,8 +162,11 @@ const I18N = {
     relatedConflicts: "相关冲突", conflictCount: "{count} 个未解决冲突", reviewConflict: "查看冲突",
     nodeApprovalDoesNotResolve: "批准此对象只确认其身份和属性；相关连接冲突需要单独处理。",
     decisionNeeded: "需要做出决定", affectedObjects: "涉及的对象", modelEvidence: "为什么被标记",
-    currentInterpretation: "当前解释", currentGraph: "当前图结构", detectedLine: "检测到的{style}", noDirectConnection: "当前图中没有记录直接连接",
+    currentInterpretation: "当前解释", suggestedInterpretation: "建议解释", currentGraph: "当前图结构", detectedLine: "检测到的{style}", noDirectConnection: "当前图中没有记录直接连接",
     markNoConnection: "确认没有直接连接", addAs: "添加为{type}", changeTo: "改为{type}",
+    confirmType: "确认{type}", supportingEvidence: "支持依据", sameLoopEvidence: "两个仪表使用同一回路号 {loop}",
+    functionFlowEvidence: "仪表功能关系合理：{from} → {to}", alignedRouteEvidence: "追踪到的线路与两个端点均对齐",
+    legendMatchEvidence: "图例与视觉判断均指向{type}",
     rejectConnection: "拒绝此连接", resolveNoChange: "不修改图并标记为已解决",
     conflictUnsupportedTitle: "可能的错误连接", conflictRoleTitle: "关系类型不确定",
     conflictCandidateTitle: "尚未确认的候选连接", conflictTopologyTitle: "线路走向不明确",
@@ -149,12 +177,14 @@ const I18N = {
     mergeActuator: "将执行机构合并到阀门", suggestedActuation: "执行机构类型",
     questionDirectConnection: "{nodes} 之间是否确实存在一条{type}？",
     questionLineMeaning: "{nodes} 之间的{style}表示什么关系？",
+    questionConfirmSuggested: "是否确认 {nodes} 之间是{type}关系？",
     questionProposedConnection: "{nodes} 之间是否真的存在直接连接？",
     questionCrossing: "这些线只是交叉通过，还是在此处连接？",
     questionEvidence: "{nodes} 的哪一种解释与原图一致？",
     questionGenericConflict: "复核后的图应当如何记录 {nodes}？",
     evidenceUnsupported: "候选关系与已识别工程对象的角色不兼容。",
     evidenceRole: "线路走向清晰可见，但端点角色和线条外观不足以唯一确定关系类型。",
+    evidenceSuggested: "系统根据项目图例、线路走向和端点工程含义建议判定为{type}；请对照原图确认。",
     evidenceCandidate: "确定性拓扑发现了候选路径，但整页关系求解未能确认它。",
     evidenceTopology: "该区域的矢量路径存在多种可能的连接方式。",
     evidenceCrossing: "现有几何证据无法可靠区分线条交叉与连接节点。",
@@ -211,6 +241,7 @@ const VALUE_LABELS_EN = {
 
 const DESCRIPTIVE_LABELS = {
   en: {
+    showIssue:"Show issue", issueArea:"ISSUE AREA", issuePoint:"CHECK THIS POINT", relatedArea:"RELATED AREA", pageIssue:"Page-level finding: no exact location is recorded.", locatedIssue:"Highlighted in both panes", offPageIssue:"This finding is on another page. Use Show issue.",
     "压缩空气入口": "Compressed air inlet", "压缩空气出口": "Compressed air outlet",
     "仪表空气入口": "Instrument air inlet", "仪表空气出口": "Instrument air outlet",
     "冷却水入口": "Cooling-water inlet", "冷却水出口": "Cooling-water outlet",
@@ -237,7 +268,8 @@ const storedLayout = storedSetting("diagex.review.layout");
 const storedWorkspaceView = storedSetting("diagex.review.workspaceView");
 const app = {
   state: null, page: 0, zoom: 1, selection: null, syncing: false, drawMode: false,
-  pendingEvidence: null,
+  activeViewport: "inferenceViewport",
+  sourceFocus: null, pendingEvidence: null, queueCategory: "all", queueSelection: null, decisionDrafts: {},
   lang: storedSetting("diagex.review.language") === "zh-CN" ? "zh-CN" : "en",
   layout: ["side-by-side", "stacked"].includes(storedLayout) ? storedLayout : (window.matchMedia("(max-width: 1600px)").matches ? "stacked" : "side-by-side"),
   workspaceView: ["comparison", "inventory", "evidence"].includes(storedWorkspaceView) ? storedWorkspaceView : "comparison",
@@ -272,7 +304,12 @@ function bilingualDescription(node) {
 function displayNodeLabel(node) {
   if(!node)return "";
   const raw=String(node.label || node.id || "");
-  if(raw==="unlabelled")return bilingualDescription(node) || displayValue(raw);
+  if(raw==="unlabelled"){
+    const attrs=node.attributes || {}, service=String(attrs.service || "").trim(), reference=String(attrs.drawing_ref || "").trim();
+    if(node.kind==="opc"&&service&&reference)return attrs.direction==="in"?`${reference} → ${service}`:attrs.direction==="out"?`${service} → ${reference}`:`${service} · ${reference}`;
+    if(node.kind==="opc"&&(service||reference))return service||reference;
+    return bilingualDescription(node) || displayValue(raw);
+  }
   if(node.kind==="opc"&&app.lang==="zh-CN"&&containsChinese(node.attributes?.service))return `${node.attributes.service}${node.attributes.direction?`（${displayValue(node.attributes.direction)}）`:""}`;
   if(app.lang==="zh-CN"&&!containsChinese(raw)){
     const source=String(node.source_quote || "").trim(); if(containsChinese(source))return source;
@@ -305,6 +342,37 @@ function nodeMeaning(node) {
 function nodeMeaningHtml(node) {
   const meaning=nodeMeaning(node); if(!meaning.text)return "";
   return `<div class="meaning-summary"><span>${meaning.suggested?t("modelSuggestedMeaning"):t("interpretedMeaning")}</span><strong>${escapeHtml(meaning.text)}</strong></div>`;
+}
+
+function nodeLabelCandidates(node) {
+  const attrs=node?.attributes || {}, values=[
+    ...(attrs.label_candidates || []),
+    ...(attrs.raw_text_candidates || []),
+    attrs.canonical_tag,
+    ...(node?.alternate_readings || []),
+    node?.source_quote
+  ];
+  if(node?.kind==="opc"){
+    const service=String(attrs.service || "").trim(), reference=String(attrs.drawing_ref || "").trim();
+    if(service&&reference)values.unshift(attrs.direction==="in"?`${reference} → ${service}`:attrs.direction==="out"?`${service} → ${reference}`:`${service} · ${reference}`);
+    values.push(service,reference);
+  }
+  const seen=new Set(), result=[];
+  for(const value of values){const text=String(value || "").trim();if(!text||["unlabelled","unlabeled","unknown","none","na"].includes(text.toLowerCase()))continue;const key=text.toUpperCase();if(seen.has(key))continue;seen.add(key);result.push(text);}
+  return result;
+}
+
+function nodeLabelEditorHtml(node) {
+  const candidates=nodeLabelCandidates(node), current=String(node.label || "");
+  if(!candidates.length)return inputField(t("label"),"nodeLabel",current);
+  const selected=candidates.some(value=>value===current)?current:"";
+  const options=[`<option value="">${escapeHtml(t("chooseSuggestedLabel"))}</option>`,...candidates.map(value=>`<option value="${escapeHtml(value)}" ${value===selected?"selected":""}>${escapeHtml(value)}</option>`),`<option value="__custom__">${escapeHtml(t("enterManually"))}</option>`].join("");
+  return `<label class="field">${t("suggestedLabel")}<select id="nodeLabelCandidate">${options}</select></label>${inputField(t("label"),"nodeLabel",current)}`;
+}
+
+function bindNodeLabelEditor() {
+  const select=el("nodeLabelCandidate"), input=el("nodeLabel"); if(!select||!input)return;
+  select.onchange=()=>{if(select.value&&select.value!=="__custom__")input.value=select.value;if(select.value==="__custom__"){input.focus();input.select();}};
 }
 
 function translateReason(reason) {
@@ -345,11 +413,14 @@ function relatedConflicts(targetType, targetId, unresolvedOnly = true) {
   });
 }
 function conflictNodeNames(item) {
-  const names = conflictNodes(item).map(node => displayNodeLabel(node) || node.id);
+  const names = conflictNodes(item).map(reviewNodeName);
   return names.length ? names.join(" ↔ ") : t("affectedObjects").toLowerCase();
 }
 function conflictTitle(item) {
+  if (item?.conflict?.title) return app.lang === "zh-CN" ? item.conflict.title_zh || item.conflict.title : item.conflict.title;
   const type = item?.conflict?.type || "";
+  if (type === "unsupported_vector_route") return t("conflictVectorTitle");
+  if (type === "physical_instance_geometry") return t("conflictInstanceGeometryTitle");
   if (type === "contextual_symbol_uncertainty") return t("conflictCompositeTitle");
   if (type === "unsupported_endpoint_combination") return t("conflictUnsupportedTitle");
   if (type === "endpoint_role_uncertain") return t("conflictRoleTitle");
@@ -368,13 +439,27 @@ function conflictLineStyle(item) {
 }
 function conflictProposedType(item) {
   const edge = conflictEdges(item)[0];
-  return item?.conflict?.proposed_line_type || edge?.line_type || "connection";
+  return item?.conflict?.proposed_line_type || edge?.attributes?.proposed_line_type || edge?.line_type || "connection";
+}
+function conflictSuggestedType(item) {
+  const edge = conflictEdges(item)[0], visual=edge?.attributes?.system_confidence_evidence?.visual_assessment;
+  const proposed = conflictProposedType(item);
+  if(proposed && !["other", "connection"].includes(proposed))return proposed;
+  const visuallyClassified=visual?.legend_class;
+  if(visuallyClassified && !["other", "connection"].includes(visuallyClassified))return visuallyClassified;
+  return proposed && !["other", "connection"].includes(proposed) ? proposed : null;
 }
 function conflictQuestion(item) {
+  if (item?.conflict?.question) return app.lang === "zh-CN" ? item.conflict.question_zh || item.conflict.question : item.conflict.question;
+  if (item?.conflict?.type === "physical_instance_geometry") return t("conflictInstanceGeometryQuestion");
   const type = item?.conflict?.type || "", nodesText = conflictNodeNames(item);
+  if (type === "unsupported_vector_route") return t("conflictVectorQuestion", {nodes:nodesText});
   if (type === "contextual_symbol_uncertainty") return t("questionComposite");
   if (type === "unsupported_endpoint_combination") return t("questionDirectConnection", {nodes:nodesText,type:displayValue(conflictProposedType(item))});
-  if (type === "endpoint_role_uncertain") return t("questionLineMeaning", {nodes:nodesText,style:conflictLineStyle(item)});
+  if (type === "endpoint_role_uncertain") {
+    const suggested = conflictSuggestedType(item);
+    return suggested ? t("questionConfirmSuggested", {nodes:nodesText,type:displayValue(suggested)}) : t("questionLineMeaning", {nodes:nodesText,style:conflictLineStyle(item)});
+  }
   if (["page_graph_uncertain_candidate","page_graph_uncertainty","visual_topology_disagreement","page_graph_missing"].includes(type)) return t("questionProposedConnection", {nodes:nodesText});
   if (type === "crossing_or_junction") return t("questionCrossing");
   if (type.includes("evidence") || type === "rejected_non_connectable_text") return t("questionEvidence", {nodes:nodesText});
@@ -385,7 +470,7 @@ function conflictEvidence(item) {
   const type=item?.conflict?.type || "";
   if(type==="contextual_symbol_uncertainty")return t("evidenceComposite");
   if(type==="unsupported_endpoint_combination")return t("evidenceUnsupported");
-  if(type==="endpoint_role_uncertain")return t("evidenceRole");
+  if(type==="endpoint_role_uncertain"){const suggested=conflictSuggestedType(item);return suggested?t("evidenceSuggested",{type:displayValue(suggested)}):t("evidenceRole");}
   if(type==="page_graph_uncertain_candidate")return t("evidenceCandidate");
   if(type==="page_graph_uncertainty"||type==="visual_topology_disagreement")return t("evidenceTopology");
   if(type==="crossing_or_junction")return t("evidenceCrossing");
@@ -405,7 +490,7 @@ function relatedConflictCards(targetType, targetId) {
 
 function bindRelatedConflictCards(container) {
   container.querySelectorAll("[data-review-conflict]").forEach(button => {
-    button.onclick=()=>{const item=app.state.reviews.conflicts[button.dataset.reviewConflict];const page=item?.conflict?.page_index ?? item?.candidates?.nodes?.[0]?.page_index;if(page!=null)changePage(page);select("conflict",button.dataset.reviewConflict);};
+    button.onclick=()=>select("conflict",button.dataset.reviewConflict,{focus:true});
   });
 }
 
@@ -467,6 +552,180 @@ function setStageSize() {
   }
   for (const id of ["sourceOverlay", "graphOverlay"]) el(id).setAttribute("viewBox", `0 0 ${page.width} ${page.height}`);
   el("zoomLabel").textContent = `${Math.round(app.zoom * 100)}%`;
+  renderIssueHighlight();
+}
+
+function viewportFocus(viewport) {
+  const stage = viewport.querySelector(".stage"), page = pageInfo();
+  const stageLeft = stage?.offsetLeft || 0, stageTop = stage?.offsetTop || 0;
+  return {
+    x: Math.max(0, Math.min(page.width, (viewport.scrollLeft + viewport.clientWidth / 2 - stageLeft) / app.zoom)),
+    y: Math.max(0, Math.min(page.height, (viewport.scrollTop + viewport.clientHeight / 2 - stageTop) / app.zoom))
+  };
+}
+
+function restoreViewportFocus(viewport, focus) {
+  const stage = viewport.querySelector(".stage");
+  const stageLeft = stage?.offsetLeft || 0, stageTop = stage?.offsetTop || 0;
+  viewport.scrollLeft = stageLeft + focus.x * app.zoom - viewport.clientWidth / 2;
+  viewport.scrollTop = stageTop + focus.y * app.zoom - viewport.clientHeight / 2;
+}
+
+function mergeBounds(left, right) {
+  if (!right) return left;
+  if (!left) return {...right};
+  const x=Math.min(left.x,right.x), y=Math.min(left.y,right.y);
+  const x2=Math.max(left.x+left.w,right.x+right.w), y2=Math.max(left.y+left.h,right.y+right.h);
+  return {x,y,w:x2-x,h:y2-y};
+}
+
+function validBounds(value) {
+  if (!value || typeof value !== "object") return null;
+  const x=Number(value.x), y=Number(value.y), w=Number(value.w ?? value.width), h=Number(value.h ?? value.height);
+  return [x,y,w,h].every(Number.isFinite) ? {x,y,w:Math.max(1,w),h:Math.max(1,h)} : null;
+}
+
+function boundsForPoints(points) {
+  const valid=(Array.isArray(points)?points:[]).map(point=>Array.isArray(point)?[Number(point[0]),Number(point[1])]:[Number(point?.x),Number(point?.y)]).filter(point=>point.every(Number.isFinite));
+  if (!valid.length) return null;
+  const xs=valid.map(point=>point[0]), ys=valid.map(point=>point[1]);
+  return {x:Math.min(...xs),y:Math.min(...ys),w:Math.max(1,Math.max(...xs)-Math.min(...xs)),h:Math.max(1,Math.max(...ys)-Math.min(...ys))};
+}
+
+function conflictPageIndex(item) {
+  const conflict=item?.conflict || {}, candidates=[];
+  if (Number.isInteger(conflict.page_index)) candidates.push(conflict.page_index);
+  conflictNodes(item).forEach(node=>{if(Number.isInteger(node.page_index))candidates.push(node.page_index);});
+  conflictEdges(item).forEach(edge=>candidates.push(edgePage(edge)));
+  (conflict.source_locations || []).forEach(location=>candidates.push(location.page_index));
+  (conflict.page_indices || []).forEach(page=>{if(Number.isInteger(page))candidates.push(page);});
+  const unique=[...new Set(candidates)];
+  return unique.includes(app.page) ? app.page : unique[0] ?? null;
+}
+
+function conflictExactBounds(item, pageIndex) {
+  const c=item?.conflict||{};
+  const location=(c.source_locations||[]).find(location=>location.page_index===pageIndex);
+  if(location)return validBounds(location.bbox_global);
+  if(c.page_index!=null&&c.page_index!==pageIndex)return null;
+  for(const key of ["bbox_global","bbox","candidate_bbox","source_bbox"]) {
+    const box=validBounds(c[key]);if(box)return box;
+  }
+  const point=boundsForPoints([c.point,c.intersection,c.crossing_point]);if(point)return point;
+  if(c.x!=null&&c.y!=null&&Number.isFinite(Number(c.x))&&Number.isFinite(Number(c.y)))return {x:Number(c.x),y:Number(c.y),w:1,h:1};
+  for(const key of ["polyline_global","points","route_points"]) {
+    const box=boundsForPoints(c[key]);if(box)return box;
+  }
+  return null;
+}
+function conflictBounds(item, pageIndex) {
+  const exact=conflictExactBounds(item,pageIndex);if(exact)return exact;
+  let bounds=null;
+  conflictNodes(item).filter(node=>node.page_index===pageIndex).forEach(node=>{bounds=mergeBounds(bounds,validBounds(node.bbox_global));});
+  conflictEdges(item).forEach(edge=>{bounds=mergeBounds(bounds,edgeBoundsOnPage(edge,pageIndex));});
+  return bounds;
+}
+function paddedIssueBounds(bounds, zoom, page) {
+  const pad=14/zoom, minSize=72/zoom;
+  const w=Math.max(minSize,bounds.w+2*pad),h=Math.max(minSize,bounds.h+2*pad);
+  const x=Math.max(0,bounds.x+bounds.w/2-w/2),y=Math.max(0,bounds.y+bounds.h/2-h/2);
+  return {x,y,w:Math.min(w,page.width-x),h:Math.min(h,page.height-y)};
+}
+function renderIssueHighlight() {
+  for(const id of ["sourceOverlay","graphOverlay"])el(id)?.querySelector(".issue-spotlight")?.remove();
+  const active=app.selection&&["edge","conflict"].includes(app.selection.type);
+  el("showIssue").disabled=!active;
+  const status=el("issueLocationStatus"); status.classList.toggle("hidden",!active);
+  if(!active||!app.state)return;
+  const page=pageInfo(), region=selectionRegion(app.selection.type,app.selection.id,app.page);
+  const saved=app.sourceFocus;
+  const bounds=saved?.id===app.selection.id&&saved.page_index===app.page?saved.bbox_global:region?.bounds;
+  if(!bounds){status.textContent=t(region?.page!==app.page?"offPageIssue":"pageIssue");return;}
+  status.textContent=t("locatedIssue");
+  const b=paddedIssueBounds(bounds,app.zoom,page), point=bounds.w<=2&&bounds.h<=2;
+  const conflict=app.selection.type==="conflict"?app.state.reviews.conflicts[app.selection.id]:null;
+  const label=t(point?"issuePoint":conflict&&!conflictExactBounds(conflict,app.page)?"relatedArea":"issueArea");
+  for(const id of ["sourceOverlay","graphOverlay"]) {
+    const group=svg("g",{class:"issue-spotlight","pointer-events":"none","data-target-id":app.selection.id});
+    if(id==="sourceOverlay"&&page.rotation_deg)group.setAttribute("transform",`rotate(${-page.rotation_deg} ${page.width/2} ${page.height/2})`);
+    group.append(svg("rect",{x:b.x,y:b.y,width:b.w,height:b.h,class:"issue-halo"}));
+    group.append(svg("rect",{x:b.x,y:b.y,width:b.w,height:b.h,class:"issue-region"}));
+    const edge=app.selection.type==="edge"?edges().find(edge=>edge.id===app.selection.id):null;
+    const routes=edge?[edge]:conflict?conflictEdges(conflict):[];
+    routes.filter(edge=>edgePage(edge)===app.page&&edge.polyline_global?.length>1).forEach(edge=>{
+      const points=edge.polyline_global.map(p=>p.join(",")).join(" ");
+      group.append(svg("polyline",{points,class:"issue-route-halo"}));
+      group.append(svg("polyline",{points,class:"issue-route"}));
+    });
+    if(point){const x=bounds.x,y=bounds.y,r=12/app.zoom;group.append(svg("path",{d:`M ${x-r} ${y} H ${x+r} M ${x} ${y-r} V ${y+r}`,class:"issue-crosshair"}));}
+    const font=12/app.zoom,labelW=(label.length*7+18)/app.zoom,labelH=23/app.zoom,labelY=Math.max(0,b.y-labelH);
+    group.append(svg("rect",{x:b.x,y:labelY,width:labelW,height:labelH,rx:3/app.zoom,class:"issue-label-bg"}));
+    const text=svg("text",{x:b.x+8/app.zoom,y:labelY+16/app.zoom,"font-size":font,class:"issue-label"});text.textContent=label;group.append(text);
+    el(id).append(group);
+  }
+}
+
+function focusBounds(bounds, {minimumZoom=.2, maximumZoom=1.5} = {}) {
+  const page=pageInfo(), viewport=el("inferenceViewport"); if(!page||!bounds||!viewport.clientWidth||!viewport.clientHeight)return;
+  const margin=Math.max(40,Math.min(100,Math.min(viewport.clientWidth,viewport.clientHeight)*.14));
+  const regionWidth=Math.max(24,bounds.w), regionHeight=Math.max(24,bounds.h);
+  const fitZoom=Math.max(.05,Math.min(maximumZoom,(viewport.clientWidth-2*margin)/regionWidth,(viewport.clientHeight-2*margin)/regionHeight));
+  const nextZoom=Math.max(.05,Math.min(maximumZoom,fitZoom));
+  const focus={x:Math.max(0,Math.min(page.width,bounds.x+bounds.w/2)),y:Math.max(0,Math.min(page.height,bounds.y+bounds.h/2))};
+  app.syncing=true; app.zoom=nextZoom; setStageSize();
+  for(const id of ["sourceViewport","inferenceViewport"])restoreViewportFocus(el(id),focus);
+  requestAnimationFrame(()=>{app.syncing=false;});
+}
+
+function edgeBoundsOnPage(edge, pageIndex) {
+  let bounds=edgePage(edge)===pageIndex?boundsForPoints(edgePoints(edge)):null;
+  for(const nodeId of [edge.from_node,edge.to_node]) {
+    const node=nodeById(nodeId);
+    if(node?.page_index===pageIndex)bounds=mergeBounds(bounds,validBounds(node.bbox_global));
+  }
+  return bounds;
+}
+
+function selectionRegion(type, id, preferredPage=null) {
+  if (type === "assembly") { const a = assemblyById(id); return a ? {page:a.page_index,bounds:validBounds(a.bbox_global),minimumZoom:.1,maximumZoom:1} : null; }
+  if(type==="node") {
+    const node=nodeById(id);
+    return node?{page:node.page_index,bounds:validBounds(node.bbox_global),minimumZoom:.45,maximumZoom:1.5}:null;
+  }
+  if(type==="evidence") {
+    const item=evidenceById(id);
+    return item?{page:item.page_index,bounds:validBounds(item.bbox_global),minimumZoom:.45,maximumZoom:1.5}:null;
+  }
+  if(type==="edge") {
+    const edge=edges().find(item=>item.id===id); if(!edge)return null;
+    const endpointPages=[nodeById(edge.from_node)?.page_index,nodeById(edge.to_node)?.page_index].filter(Number.isInteger);
+    const page=endpointPages.includes(preferredPage)?preferredPage:endpointPages.includes(app.page)?app.page:(endpointPages[0]??edgePage(edge));
+    return {page,bounds:edgeBoundsOnPage(edge,page),minimumZoom:.2,maximumZoom:1.15};
+  }
+  if(type==="conflict") {
+    const item=app.state.reviews.conflicts[id]; if(!item)return null;
+    const page=Number.isInteger(preferredPage)?preferredPage:conflictPageIndex(item);
+    return page==null?null:{page,bounds:conflictBounds(item,page),minimumZoom:.2,maximumZoom:1.15};
+  }
+  return null;
+}
+
+function focusSelectionRegion(type, id, preferredPage=null) {
+  const region=selectionRegion(type,id,preferredPage); if(!region||region.page==null)return;
+  if(!region.bounds){if(region.page!==app.page)changePage(region.page,true);fitView();return;}
+  if(region.page!==app.page)changePage(region.page,true);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>focusBounds(region.bounds,region)));
+}
+
+function changeZoom(nextZoom) {
+  const active = el(app.activeViewport) || el("inferenceViewport");
+  const focus = viewportFocus(active), clamped = Math.max(.05, Math.min(2.5, nextZoom));
+  if (clamped === app.zoom) return;
+  app.syncing = true;
+  app.zoom = clamped;
+  setStageSize();
+  for (const id of ["sourceViewport", "inferenceViewport"]) restoreViewportFocus(el(id), focus);
+  requestAnimationFrame(() => { app.syncing = false; });
 }
 
 function syncScroll(from, to) {
@@ -500,7 +759,10 @@ function candidateNodesForEdge(edge) {
   return [...new Set(ids)].map(nodeById).filter(node => node && app.state.reviews.nodes[node.id] !== "rejected");
 }
 
+function assemblyById(id) { return (app.state?.graph?.assemblies || []).find(a => a.id === id); }
+
 function highlightedCandidateIds() {
+  if (app.selection?.type === "assembly") return new Set(assemblyById(app.selection.id)?.member_node_ids || []);
   if (app.selection?.type === "edge") return new Set(candidateNodesForEdge(edges().find(edge => edge.id === app.selection.id) || {}).map(node => node.id));
   if (app.selection?.type === "conflict") {
     const item = app.state.reviews.conflicts[app.selection.id];
@@ -531,6 +793,10 @@ function markDropTarget(overlay, nodeId) {
 
 function renderOverlay() {
   const overlay = el("graphOverlay"); overlay.replaceChildren();
+  if (app.selection?.type === "assembly") {
+    const a = assemblyById(app.selection.id);
+    if (a?.page_index === app.page) { const b = a.bbox_global; overlay.append(svg("rect", {x:b.x,y:b.y,width:b.w,height:b.h,class:"assembly-highlight"})); }
+  }
   const highlighted = highlightedCandidateIds(), highlightedEdges = highlightedCandidateEdgeIds(), conflictFocused = app.selection?.type === "conflict"; let selectedEdgeParts = null;
   edges().filter(edge => edgePage(edge) === app.page).forEach(edge => {
     const points = edgePoints(edge); if (!points.length) return;
@@ -618,9 +884,13 @@ function addVertexHandles(overlay, edge, points, polyline) {
 function roundBox(b) { return { x: Math.round(b.x), y: Math.round(b.y), w: Math.max(1, Math.round(b.w)), h: Math.max(1, Math.round(b.h)) }; }
 
 function renderSourceHighlight() {
-  const overlay = el("sourceOverlay"); overlay.replaceChildren(); if (!app.selection) return;
+  const overlay = el("sourceOverlay"); overlay.replaceChildren(); renderIssueHighlight(); if (!app.selection) return;
   const page = pageInfo(), group = svg("g", { transform: page.rotation_deg ? `rotate(${-page.rotation_deg} ${page.width / 2} ${page.height / 2})` : "" });
-  if (app.selection.type === "node") {
+  if (app.selection.type === "assembly") {
+    const a = assemblyById(app.selection.id); if (!a || a.page_index !== app.page) return;
+    const b = a.bbox_global; group.append(svg("rect", {x:b.x,y:b.y,width:b.w,height:b.h,class:"assembly-highlight"}));
+    a.member_node_ids.map(nodeById).filter(Boolean).forEach(n => { const b = n.bbox_global; group.append(svg("rect", {x:b.x,y:b.y,width:b.w,height:b.h,class:"source-highlight"})); });
+  } else if (app.selection.type === "node") {
     const node = nodeById(app.selection.id); if (!node || node.page_index !== app.page) return;
     const b = node.bbox_global; group.append(svg("rect", { x: b.x, y: b.y, width: b.w, height: b.h, class: "source-highlight" }));
   } else if (app.selection.type === "evidence") {
@@ -634,29 +904,89 @@ function renderSourceHighlight() {
     [points[0], points[points.length - 1]].forEach(point => group.append(svg("circle", { cx:point[0], cy:point[1], r:8, class:"source-route-endpoint" })));
   } else if (app.selection.type === "conflict") {
     const item=app.state.reviews.conflicts[app.selection.id]; if(!item)return;
+    (item.conflict.source_locations||[]).filter(location=>location.page_index===app.page).forEach(location=>{const b=location.bbox_global;if(b)group.append(svg("rect",{x:b.x,y:b.y,width:b.w,height:b.h,class:"source-highlight conflict"}));});
     conflictNodes(item).filter(node=>node.page_index===app.page).forEach(node=>{const b=node.bbox_global;group.append(svg("rect",{x:b.x,y:b.y,width:b.w,height:b.h,class:"source-highlight conflict"}));});
     conflictEdges(item).filter(edge=>edgePage(edge)===app.page).forEach(edge=>{const points=edgePoints(edge);if(points.length)group.append(svg("polyline",{points:points.map(point=>point.join(",")).join(" "),class:"source-conflict-route"}));});
   }
   overlay.append(group);
+  renderIssueHighlight();
 }
 
-function renderQueue() {
-  const filter = el("queueFilter").value, type = el("queueType").value, rows = [...app.state.queue];
-  Object.entries(app.state.reviews.conflicts).forEach(([id, item]) => rows.push({ target_type: "conflict", target_id: id, page_index: item.conflict.page_index ?? item.candidates?.nodes?.[0]?.page_index ?? null, label: item.conflict.type || id, status: item.status, tier: 0, reasons: ["graph conflict"] }));
-  const visible = rows.filter(row => (filter === "all" || row.status === "unreviewed") && (type === "all" || row.target_type === type));
-  const box = el("queue"); box.replaceChildren();
-  visible.forEach(row => {
-    const button = document.createElement("button"); button.className = `queue-item ${app.selection?.id === row.target_id ? "selected" : ""}`;
-    const typeLabel = t(row.target_type === "node" ? "entity" : row.target_type === "edge" ? "connection" : "conflict");
-    const pageLabel = row.page_index == null ? "" : ` · ${t("pageShort", {page: row.page_index + 1})}`;
-    const conflictItem = row.target_type === "conflict" ? app.state.reviews.conflicts[row.target_id] : null;
-    const rowLabel = conflictItem ? conflictTitle(conflictItem) : row.label;
-    const relatedCount = row.target_type === "node" ? relatedConflicts("node",row.target_id).length : row.target_type === "edge" ? relatedConflicts("edge",row.target_id).length : 0;
-    const reason = conflictItem ? conflictQuestion(conflictItem) : [row.reasons.map(translateReason).join(" · "),relatedCount?t("conflictCount",{count:relatedCount}):""].filter(Boolean).join(" · ");
-    button.innerHTML = `<span class="kind"><i class="status-dot ${row.status}"></i>${escapeHtml(typeLabel)}${escapeHtml(pageLabel)}</span><span class="label">${escapeHtml(rowLabel)}</span><span class="reason">${escapeHtml(reason)}</span>`;
-    button.onclick = () => { if (row.page_index != null) changePage(row.page_index); select(row.target_type, row.target_id); }; box.append(button);
+function queueRows() {
+  const scope=el("queueFilter").value;
+  if(scope==="findings")return app.state.findings || [];
+  const rows=[...app.state.queue];
+  Object.entries(app.state.reviews.conflicts).filter(([,item])=>!item.decision_target).forEach(([id,item])=>rows.push({target_type:"conflict",target_id:id,page_index:conflictPageIndex(item),label:conflictTitle(item),status:item.status,reasons:[],conflict_ids:[id]}));
+  return scope==="all"?rows:rows.filter(row=>row.status==="unreviewed");
+}
+function reviewNodeName(node) {
+  if(!node)return t("unlabelled");
+  node=nodeById(node.id)||node;
+  if(node.label && node.label!=="unlabelled")return displayNodeLabel(node);
+  return t("untaggedObject",{kind:node.attributes?.valve_type?displayValue("valve"):nodeMeaning(node).text||displayValue(node.kind)});
+}
+function queueRowText(row) {
+  const item=row.target_type==="conflict"?app.state.reviews.conflicts[row.target_id]:null;
+  const edge=row.target_type==="edge"?edges().find(edge=>edge.id===row.target_id):null;
+  const label=item?conflictTitle(item):edge?[edge.from_node,edge.to_node].map(id=>reviewNodeName(nodeById(id))).join(" → "):row.label;
+  const related=(row.conflict_ids||[]).map(id=>app.state.reviews.conflicts[id]).filter(Boolean);
+  const reason=item?conflictQuestion(item):related.length?[...new Set(related.map(conflictQuestion))].join(" · "):(row.reasons||[]).map(translateReason).join(" · ");
+  return {label,reason};
+}
+function visibleQueueRows() {
+  const type=el("queueType").value, page=el("queuePage").value, query=el("queueSearch").value.trim().toLowerCase();
+  return queueRows().filter(row=>{
+    if(type!=="all"&&row.target_type!==type)return false;
+    if(el("queueFilter").value==="findings"&&app.queueCategory!=="all"&&row.category!==app.queueCategory)return false;
+    const pages=new Set([row.page_index]);
+    for(const id of row.conflict_ids||[]) {
+      const c=app.state.reviews.conflicts[id]?.conflict||{};
+      (c.source_locations||[]).forEach(location=>pages.add(location.page_index));
+      (c.page_indices||[]).forEach(index=>pages.add(index));
+    }
+    if(page!=="all"&&!pages.has(Number(page)))return false;
+    const {label,reason}=queueRowText(row);
+    return !query||[label,reason,row.target_id,...(row.conflict_ids||[]),...(row.reasons||[])].join(" ").toLowerCase().includes(query);
   });
-  if (!visible.length) { const empty = document.createElement("div"); empty.className = "inspector empty"; empty.textContent = t("noMatches"); box.append(empty); }
+}
+function openQueueRow(row) {
+  app.queueSelection=`${row.target_type}:${row.target_id}`;
+  app.inspectorVisible=true; app.workspaceView="comparison"; applyWorkspaceLayout(false);
+  const preferred=el("queuePage").value;
+  select(row.target_type,row.target_id,{focus:true,preferredPage:preferred==="all"?row.page_index:Number(preferred)});
+}
+function nextQueueFinding() {
+  const rows=visibleQueueRows(); if(!rows.length)return;
+  const index=rows.findIndex(row=>`${row.target_type}:${row.target_id}`===app.queueSelection);
+  openQueueRow(rows[(index+1)%rows.length]);
+  el("queue").querySelector(".selected")?.scrollIntoView({block:"nearest"});
+}
+function renderQueue() {
+  const findings=app.state.findings||[], focused=el("queueFilter").value==="findings";
+  el("findingBadge").textContent=t("findingCount",{count:findings.length});
+  el("queueHelp").textContent=t(focused?"decisionHelp":"signoffHelp");
+  const categories=el("queueCategories");categories.replaceChildren();categories.classList.toggle("hidden",!focused);
+  for(const [key,label] of [["all","allFindings"],["identifiers","identifiers"],["symbols","symbols"],["connections","connections"],["other","otherFindings"]]) {
+    const count=key==="all"?findings.length:findings.filter(row=>row.category===key).length;
+    if(!count&&key==="other")continue;
+    const button=document.createElement("button");button.textContent=`${t(label)} ${count}`;button.setAttribute("aria-pressed",String(app.queueCategory===key));
+    button.onclick=()=>{app.queueCategory=key;renderQueue();};categories.append(button);
+  }
+  const visible=visibleQueueRows(), box=el("queue");box.replaceChildren();
+  el("queueCount").textContent=t("showingFindings",{count:visible.length});
+  el("nextFinding").disabled=!visible.length;
+  visible.forEach(row=>{
+    const button=document.createElement("button");button.className=`queue-item ${app.selection?.id===row.target_id&&app.selection?.type===row.target_type?"selected":""}`;
+    button.dataset.targetId=row.target_id;
+    const typeLabel=t(row.category?(row.category==="other"?"otherFindings":row.category):row.target_type==="node"?"entity":row.target_type==="edge"?"connection":row.target_type);
+    const item=row.target_type==="conflict"?app.state.reviews.conflicts[row.target_id]:null;
+    const pages=[...new Set([row.page_index,...(item?.conflict?.source_locations||[]).map(location=>location.page_index)].filter(Number.isInteger))].sort((a,b)=>a-b);
+    const pageLabel=pages.length?` · ${pages.map(page=>t("pageShort",{page:page+1})).join(", ")}`:"";
+    const {label,reason}=queueRowText(row);
+    button.innerHTML=`<span class="kind"><i class="status-dot ${row.status}"></i>${escapeHtml(typeLabel)}${escapeHtml(pageLabel)}</span><span class="label">${escapeHtml(label)}</span><span class="reason">${escapeHtml(reason)}</span>`;
+    button.onclick=()=>openQueueRow(row);box.append(button);
+  });
+  if(!visible.length){const empty=document.createElement("div");empty.className="inspector empty";empty.textContent=t(focused?"noFindings":"noMatches");box.append(empty);}
 }
 
 function setWorkspaceView(view) {
@@ -715,7 +1045,7 @@ function renderInventory() {
     const issueBadges = [degree === 0 ? t("isolated") : "", duplicates.has(node.id) ? t("duplicateTag") : ""].filter(Boolean).map(value => `<span class="issue-chip">${escapeHtml(value)}</span>`).join(" ");
     return `<tr class="${status === "rejected" ? "rejected-row" : ""}"><td>${node.page_index+1}</td><td><strong>${escapeHtml(displayNodeLabel(node) || node.id)}</strong><small>${escapeHtml(node.id)}</small>${issueBadges}</td><td>${escapeHtml(displayValue(node.kind))}</td><td>${escapeHtml(displayValue(nodeSubtype(node)))}</td><td>${degree}</td><td>${escapeHtml(node.source_quote || "—")}</td><td>${escapeHtml(displayValue(status))}</td><td><button data-show-node="${escapeHtml(node.id)}">${t("view")}</button></td></tr>`;
   }).join("") || `<tr><td colspan="8" class="empty-cell">${t("noMatches")}</td></tr>`;
-  el("inventoryRows").querySelectorAll("[data-show-node]").forEach(button => { button.onclick = () => { const node=nodeById(button.dataset.showNode); if(!node)return; setWorkspaceView("comparison"); changePage(node.page_index); select("node",node.id); }; });
+  el("inventoryRows").querySelectorAll("[data-show-node]").forEach(button => { button.onclick = () => { const node=nodeById(button.dataset.showNode); if(!node)return; setWorkspaceView("comparison"); select("node",node.id,{focus:true,preferredPage:node.page_index}); }; });
 }
 
 function renderEvidence() {
@@ -732,7 +1062,7 @@ function renderEvidence() {
     const disposition=item.review.status === "linked" ? `${t("linked")}: ${displayNodeLabel(nodeById(item.review.linked_node_id)) || item.review.linked_node_id}` : item.review.status === "dismissed" ? `${t("dismissed")}: ${displayValue(item.review.disposition)}` : displayValue(item.review.status);
     return `<tr><td>${item.page_index+1}</td><td><strong>${escapeHtml(item.text)}</strong><small>${item.blocking?t("blockingCandidate"):t("nonBlockingCandidate")}</small></td><td>${escapeHtml(displayValue(item.candidate_kind))}</td><td>${escapeHtml(disposition)}</td><td>${escapeHtml(nearby || "—")}</td><td><button data-review-evidence="${escapeHtml(item.id)}">${t("view")}</button></td></tr>`;
   }).join("") || `<tr><td colspan="6" class="empty-cell">${t("noMatches")}</td></tr>`;
-  el("evidenceRows").querySelectorAll("[data-review-evidence]").forEach(button => { button.onclick=()=>{const item=evidenceById(button.dataset.reviewEvidence);if(!item)return;setWorkspaceView("comparison");changePage(item.page_index);select("evidence",item.id);}; });
+  el("evidenceRows").querySelectorAll("[data-review-evidence]").forEach(button => { button.onclick=()=>{const item=evidenceById(button.dataset.reviewEvidence);if(!item)return;setWorkspaceView("comparison");select("evidence",item.id,{focus:true,preferredPage:item.page_index});}; });
 }
 
 function renderDataViews() { if (!app.state) return; renderInventory(); renderEvidence(); }
@@ -800,7 +1130,7 @@ function bindEndpointEditor(container, edge, candidates) {
   container.querySelectorAll("[data-view-node]").forEach(button => {
     button.onclick = () => {
       const node = nodeById(button.dataset.viewNode); if (!node) return;
-      changePage(node.page_index); select("node", node.id);
+      select("node",node.id,{focus:true,preferredPage:node.page_index});
     };
   });
 }
@@ -812,18 +1142,16 @@ async function updateEdgeEndpoint(edgeId, field, nodeId) {
 
 async function applyConflictChoice(conflictId, targetType, targetId, operation, after, reason) {
   await submit(targetType, targetId, operation, after, reason);
-  await submit("conflict", conflictId, "resolve", {}, reason);
+  if (unresolvedConflict(app.state.reviews.conflicts[conflictId])) await submit("conflict", conflictId, "resolve", {}, reason);
 }
 
 async function applyConflictEdgeType(conflictId, edgeId, lineType) {
   const reason=t("selectedCandidate",{value:displayValue(lineType)});
-  await submit("edge",edgeId,"modify",{line_type:lineType},reason);
-  await submit("conflict",conflictId,"resolve",{},reason);
+  await applyConflictChoice(conflictId, "edge", edgeId, "modify", {line_type:lineType}, reason);
 }
 
 async function rejectConflictEdge(conflictId, edgeId) {
-  await submit("edge",edgeId,"reject",{},t("rejectConnection"));
-  await submit("conflict",conflictId,"resolve",{},t("rejectConnection"));
+  await applyConflictChoice(conflictId, "edge", edgeId, "reject", {}, t("rejectConnection"));
 }
 
 async function addConflictRelation(conflictId, lineType) {
@@ -850,13 +1178,31 @@ async function applyContextualMerge(conflictId, conflict, actuation) {
     if(app.state.reviews.edges[edge.id]!=="rejected")await submit("edge",edge.id,"reject",{},reason);
   }
   await submit("conflict",conflictId,"resolve",{},reason);
-  changePage(primary.page_index); select("node",primary.id);
+  select("node",primary.id,{focus:true,preferredPage:primary.page_index});
 }
 
 const HUMAN_LINE_TYPES=["process","signal_electric","signal_pneumatic","instrument_capillary","electrical_power"];
-function lineTypeDecisionButtons(conflictId, edgeId=null) {
-  return `<div class="decision-actions">${HUMAN_LINE_TYPES.map(type=>`<button data-conflict-line-type="${escapeHtml(type)}" ${edgeId?`data-conflict-edge-id="${escapeHtml(edgeId)}"`:""}>${escapeHtml(edgeId?t("changeTo",{type:displayValue(type)}):t("addAs",{type:displayValue(type)}))}</button>`).join("")}
+function lineTypeDecisionButtons(conflictId, edgeId=null, suggestedType=null) {
+  return `<div class="decision-actions">${HUMAN_LINE_TYPES.map(type=>`<button class="${type===suggestedType?"primary":""}" data-conflict-line-type="${escapeHtml(type)}" ${edgeId?`data-conflict-edge-id="${escapeHtml(edgeId)}"`:""}>${escapeHtml(type===suggestedType?t("confirmType",{type:displayValue(type)}):edgeId?t("changeTo",{type:displayValue(type)}):t("addAs",{type:displayValue(type)}))}</button>`).join("")}
     <button class="danger" data-no-conflict-connection="${escapeHtml(conflictId)}">${edgeId?t("rejectConnection"):t("markNoConnection")}</button></div>`;
+}
+
+function relationshipEvidenceHtml(edge, suggestedType) {
+  if (!edge) return "";
+  const evidence=edge.attributes?.system_confidence_evidence || {}, visual=evidence.visual_assessment || null, left=nodeById(edge.from_node), right=nodeById(edge.to_node), facts=[];
+  const loop=node=>String(node?.attributes?.loop_number||node?.attributes?.tag_number||node?.label?.match(/\d{2,6}[A-Z]?$/i)?.[0]||"").replace(/[^A-Z0-9]/gi,"").toUpperCase()||null;
+  const instrumentFunction=node=>node?.attributes?.instrument_function||null;
+  const leftLoop=loop(left), rightLoop=loop(right), leftFunction=instrumentFunction(left), rightFunction=instrumentFunction(right);
+  const pair=evidence.instrument_pair || (left?.kind==="instrument"&&right?.kind==="instrument"?{same_loop:Boolean(leftLoop&&leftLoop===rightLoop),loop_number:leftLoop&&leftLoop===rightLoop?leftLoop:null,functions:[leftFunction,rightFunction],functional_direction:leftFunction==="element"&&["transmitter","indicator","controller","recorder"].includes(rightFunction)?"forward":rightFunction==="element"&&["transmitter","indicator","controller","recorder"].includes(leftFunction)?"reverse":null,compatible:false}:null);
+  if(pair?.same_loop&&pair.loop_number)facts.push(t("sameLoopEvidence",{loop:pair.loop_number}));
+  if(pair?.functional_direction&&Array.isArray(pair.functions)&&pair.functions.filter(Boolean).length===2){
+    const ordered=pair.functional_direction==="reverse"?[pair.functions[1],pair.functions[0]]:pair.functions;
+    facts.push(t("functionFlowEvidence",{from:displayValue(ordered[0]),to:displayValue(ordered[1])}));
+  }
+  if(visual?.route_visible==="yes"&&visual?.endpoint_alignment==="both")facts.push(t("alignedRouteEvidence"));
+  if(suggestedType&&visual?.legend_class===suggestedType)facts.push(t("legendMatchEvidence",{type:displayValue(suggestedType)}));
+  const unique=[...new Set(facts)];
+  return unique.length?`<div class="relationship-evidence"><h5>${t("supportingEvidence")}</h5><ul>${unique.map(fact=>`<li>${escapeHtml(fact)}</li>`).join("")}</ul></div>`:"";
 }
 
 function bindConflictDecisionActions(container, conflictId) {
@@ -875,12 +1221,25 @@ function renderInspector() {
   const box = el("inspector");
   if (!app.selection) { box.className = "inspector empty"; box.textContent = t("selectItem"); return; }
   box.className = "inspector"; const {type, id} = app.selection;
-  if (type === "node") {
+  if (type === "assembly") {
+    const a = assemblyById(id); if (!a) return select(null, null);
+    box.innerHTML = `<h3>${t("assemblyIdentity")}</h3><p>${t("assemblyHelp")}</p>
+      <label class="field">${t("label")}<input id="assemblyLabel" list="assemblyLabels" value="${escapeHtml(a.label || "")}"></label>
+      <datalist id="assemblyLabels">${a.label_candidates.map(v=>`<option value="${escapeHtml(v)}">`).join("")}</datalist>
+      <div class="quick-choices">${a.label_candidates.map(v=>`<button data-assembly-label="${escapeHtml(v)}">${escapeHtml(v)}</button>`).join("")}</div>
+      <h4>${t("assemblyMembers")}</h4>${a.member_node_ids.map(nodeById).filter(Boolean).map(n=>`<button class="wide-choice" data-assembly-member="${escapeHtml(n.id)}">${escapeHtml(displayNodeLabel(n)||n.id)}</button>`).join("")}
+      <div class="actions"><button id="saveAssembly" class="primary">${t("approve")}</button><button id="rejectAssembly">${t("reject")}</button></div>`;
+    box.querySelectorAll("[data-assembly-label]").forEach(b=>b.onclick=()=>{el("assemblyLabel").value=b.dataset.assemblyLabel;});
+    box.querySelectorAll("[data-assembly-member]").forEach(b=>b.onclick=()=>select("node",b.dataset.assemblyMember,{focus:true}));
+    el("saveAssembly").onclick=()=>submit("assembly",id,"modify",{label:el("assemblyLabel").value});
+    el("rejectAssembly").onclick=()=>submit("assembly",id,"reject");
+  } else if (type === "node") {
     const node = nodeById(id); if (!node) return select(null, null); const b = node.bbox_global;
     box.innerHTML = `<h3>${escapeHtml(displayNodeLabel(node) || node.id)}</h3><div class="meta">${escapeHtml(node.id)} · ${t("modelConfidence")} ${escapeHtml(displayValue(node.confidence))} · ${t("review")} ${escapeHtml(displayValue(app.state.reviews.nodes[id]))}</div>
       ${nodeMeaningHtml(node)}
+      ${(node.attributes?.assembly_ids || []).map(aid=>assemblyById(aid)).filter(Boolean).map(a=>`<button data-open-assembly="${escapeHtml(a.id)}">${t("assembly")}: ${escapeHtml(a.label || a.label_candidates.join(" / "))}</button>`).join("")}
       ${relatedConflictCards("node",id)}
-      ${inputField(t("label"), "nodeLabel", node.label)}${selectField(t("kind"), "nodeKind", node.kind, app.state.taxonomy.kinds)}
+      ${nodeLabelEditorHtml(node)}${selectField(t("kind"), "nodeKind", node.kind, app.state.taxonomy.kinds)}
       ${selectField(t("equipmentClass"), "nodeEquipmentClass", (node.attributes || {}).equipment_class || "", ["", ...app.state.taxonomy.equipment_classes])}
       ${selectField(t("valveType"), "nodeValveType", (node.attributes || {}).valve_type || "", ["", ...app.state.taxonomy.valve_types])}
       ${selectField(t("actuatorType"), "nodeActuation", (node.attributes || {}).actuation || "", ["", ...(app.state.taxonomy.actuation_types || [])])}
@@ -889,7 +1248,8 @@ function renderInspector() {
       ${node.source_quote ? `<label class="field">${t("sourceText")}<textarea class="evidence" readonly>${escapeHtml(node.source_quote)}</textarea></label>` : ""}
       <label class="field">${t("attributesJson")}<textarea id="nodeAttrs">${escapeHtml(JSON.stringify(node.attributes || {}, null, 2))}</textarea></label>
       <div class="actions"><button id="saveNode">${t("saveChanges")}</button><button id="approveNode" class="primary">${t("approve")}</button><button id="rejectNode" class="danger">${t("reject")}</button></div>`;
-    bindRelatedConflictCards(box);
+    box.querySelectorAll("[data-open-assembly]").forEach(b=>b.onclick=()=>select("assembly",b.dataset.openAssembly,{focus:true}));
+    bindRelatedConflictCards(box); bindNodeLabelEditor();
     el("saveNode").onclick = async () => { try { const attrs=JSON.parse(el("nodeAttrs").value); const assign=(key,value)=>value?attrs[key]=value:delete attrs[key]; assign("equipment_class",el("nodeEquipmentClass").value); assign("valve_type",el("nodeValveType").value); assign("actuation",el("nodeActuation").value); assign("instrument_function",el("nodeInstrumentFunction").value); await submit("node", id, "modify", { label: el("nodeLabel").value, kind: el("nodeKind").value, bbox_global: { x:+el("nodeX").value, y:+el("nodeY").value, w:+el("nodeW").value, h:+el("nodeH").value }, attributes: attrs }); } catch (error) { toast(error.message, true); } };
     el("approveNode").onclick = () => submit("node", id, "approve"); el("rejectNode").onclick = () => submit("node", id, "reject", {}, prompt(t("rejectReason")) || "");
   } else if (type === "evidence") {
@@ -918,9 +1278,11 @@ function renderInspector() {
     const nodeOptions = nodes().filter(n => app.state.reviews.nodes[n.id] !== "rejected").map(n => [n.id, `${displayNodeLabel(n) || n.id} (${n.id})`]);
     const options = value => nodeOptions.map(([id, label]) => `<option value="${id}" ${id === value ? "selected" : ""}>${escapeHtml(label)}</option>`).join("");
     const candidates = candidateNodesForEdge(edge);
+    const alternatives = edgeAttrs.route_alternatives || [];
     box.innerHTML = `<h3>${escapeHtml((edge.attributes || {}).line_id || edge.id)}</h3><div class="meta">${escapeHtml(edge.id)} · ${t("modelConfidence")} ${escapeHtml(displayValue(edge.confidence))} · ${t("review")} ${escapeHtml(displayValue(app.state.reviews.edges[id]))}</div>
       ${relatedConflictCards("edge",id)}
       <div class="style-summary">${escapeHtml(styleSummary)}${styleEvidence ? `<br>${escapeHtml(t("styleEvidence"))}: ${escapeHtml(styleEvidence)}` : ""}</div>
+      ${alternatives.length ? `<label class="field">${t("routeChoices")}<select id="routeChoice"><option value="">${t("routePrompt")}</option>${alternatives.map((route, index) => `<option value="${escapeHtml(route.id)}">${t("routeChoice", {number:index + 1})}</option>`).join("")}</select></label>` : ""}
       ${endpointEditorHtml(edge, candidates)}
       <label class="field">${t("from")}<select id="edgeFrom">${options(edge.from_node)}</select></label><label class="field">${t("to")}<select id="edgeTo">${options(edge.to_node)}</select></label>
       ${selectField(t("lineType"), "edgeType", edge.line_type || "other", app.state.taxonomy.line_types)}
@@ -929,11 +1291,32 @@ function renderInspector() {
       <div class="actions"><button id="saveEdge">${t("saveChanges")}</button><button id="approveEdge" class="primary">${t("approve")}</button><button id="rejectEdge" class="danger">${t("reject")}</button></div>`;
     bindRelatedConflictCards(box); bindEndpointEditor(box, edge, candidates);
     el("saveEdge").onclick = async () => { try { await submit("edge", id, "modify", { from_node: el("edgeFrom").value, to_node: el("edgeTo").value, line_type: el("edgeType").value, polyline_global: JSON.parse(el("edgePoints").value), attributes: JSON.parse(el("edgeAttrs").value) }); } catch (error) { toast(error.message, true); } };
-    el("approveEdge").onclick = () => submit("edge", id, "approve"); el("rejectEdge").onclick = () => submit("edge", id, "reject", {}, prompt(t("rejectReason")) || "");
+    if (el("routeChoice")) {
+      el("approveEdge").disabled = true;
+      el("routeChoice").onchange = () => {
+        const route = alternatives.find(item => item.id === el("routeChoice").value);
+        el("approveEdge").disabled = !route;
+        if (route) {
+          el("edgeFrom").value = route.from_node;
+          el("edgeTo").value = route.to_node;
+          el("edgePoints").value = JSON.stringify(route.polyline_global, null, 2);
+          el("edgeAttrs").value = JSON.stringify({...edgeAttrs, ...route.attributes, selected_route_candidate_id:route.id}, null, 2);
+        }
+        for (const overlayId of ["graphOverlay", "sourceOverlay"]) {
+          const overlay = el(overlayId);
+          overlay.querySelector(".route-alternative-preview")?.remove();
+          if (route) overlay.append(svg("polyline", {points:route.polyline_global.map(p=>p.join(",")).join(" "),class:"route-alternative-preview source-conflict-route"}));
+        }
+      };
+    }
+    el("approveEdge").onclick = () => submit("edge", id, "approve", alternatives.length ? {route_candidate_id:el("routeChoice").value} : {}); el("rejectEdge").onclick = () => submit("edge", id, "reject", {}, prompt(t("rejectReason")) || "");
   } else if (type === "conflict") {
     const item = app.state.reviews.conflicts[id]; if (!item) return select(null, null);
     const candidates = item.candidates || {nodes: [], edges: [], labels: [], kinds: [], pairs: [], decisions: []};
     const canDecide=unresolvedConflict(item);
+    const auditFinding=id.startsWith("audit-");
+    const locations=item.conflict.source_locations||[];
+    const sourceLinks=locations.length?`<section class="candidate-section"><h4>${t("sourceLocations")}</h4><div class="source-locations">${locations.map((location,index)=>`<button data-source-location="${index}">${escapeHtml(t("pageShort",{page:location.page_index+1}))} · ${escapeHtml(location.label||t("originalSource"))} ↗</button>`).join("")}</div></section>`:"";
     const targetNode = candidates.nodes.find(node => node.id === item.conflict.node_id) || candidates.nodes[0];
     const labels = canDecide && targetNode && candidates.labels.length ? `<section class="candidate-section"><h4>${t("competingLabels")}</h4><div class="quick-choices">${candidates.labels.map(label => `<button data-conflict-label="${escapeHtml(label)}">${escapeHtml(label)}</button>`).join("")}</div></section>` : "";
     const kinds = canDecide && targetNode && candidates.kinds.length ? `<section class="candidate-section"><h4>${t("competingKinds")}</h4><div class="quick-choices">${candidates.kinds.map(kind => `<button data-conflict-kind="${escapeHtml(kind)}">${escapeHtml(displayValue(kind))}</button>`).join("")}</div></section>` : "";
@@ -942,25 +1325,46 @@ function renderInspector() {
     const pairs = candidates.pairs.length ? `<section class="candidate-section"><h4>${t("candidatePairs")}</h4><div class="candidate-list">${candidates.pairs.map(pairSummary).join("")}</div></section>` : "";
     const decisions = canDecide && candidates.decisions.length ? `<div class="quick-choices">${candidates.decisions.map(decision => `<button data-conflict-decision="${escapeHtml(decision)}">${t(decision)}</button>`).join("")}</div>` : "";
     const contextualMerge = canDecide && item.conflict.type==="contextual_symbol_uncertainty" && item.conflict.primary_node_id && (item.conflict.absorbed_node_ids || []).length ? `<section class="candidate-section"><h4>${t("mergeActuator")}</h4>${selectField(t("suggestedActuation"),"contextActuation",item.conflict.suggested_actuation||"other",app.state.taxonomy.actuation_types||["other"])}<button id="mergeContextActuator" class="primary wide-choice">${t("mergeActuator")}</button></section>` : "";
-    const relationship = conflictEdge ? `<section class="relationship-card" data-edge-id="${escapeHtml(conflictEdge.id)}"><h4>${t("currentInterpretation")}</h4><strong>${escapeHtml(displayNodeLabel(nodeById(conflictEdge.from_node))||conflictEdge.from_node)} → ${escapeHtml(displayNodeLabel(nodeById(conflictEdge.to_node))||conflictEdge.to_node)}</strong><span>${escapeHtml(displayValue(conflictEdge.line_type))}${conflictEdge.attributes?.visual_style?` · ${escapeHtml(t("detectedLine",{style:displayValue(conflictEdge.attributes.visual_style)}))}`:""}</span>${canDecide?lineTypeDecisionButtons(id,conflictEdge.id):""}</section>` : RELATION_CONFLICTS.has(item.conflict.type)&&candidates.nodes.length>=2 ? `<section class="relationship-card"><h4>${t("currentGraph")}</h4><strong>${escapeHtml(conflictNodeNames(item))}</strong><span>${escapeHtml(t("noDirectConnection"))}</span>${canDecide?lineTypeDecisionButtons(id):""}</section>` : "";
+    const suggestedType=conflictSuggestedType(item);
+    const relationship = conflictEdge ? `<section class="relationship-card" data-edge-id="${escapeHtml(conflictEdge.id)}"><h4>${t(suggestedType&&suggestedType!==conflictEdge.line_type?"suggestedInterpretation":"currentInterpretation")}</h4><strong>${escapeHtml(displayNodeLabel(nodeById(conflictEdge.from_node))||conflictEdge.from_node)} → ${escapeHtml(displayNodeLabel(nodeById(conflictEdge.to_node))||conflictEdge.to_node)}</strong><span>${escapeHtml(displayValue(suggestedType||conflictEdge.line_type))}${conflictEdge.attributes?.visual_style?` · ${escapeHtml(t("detectedLine",{style:displayValue(conflictEdge.attributes.visual_style)}))}`:""}</span>${relationshipEvidenceHtml(conflictEdge,suggestedType)}${canDecide?lineTypeDecisionButtons(id,conflictEdge.id,suggestedType):""}</section>` : RELATION_CONFLICTS.has(item.conflict.type)&&candidates.nodes.length>=2 ? `<section class="relationship-card"><h4>${t(suggestedType?"suggestedInterpretation":"currentGraph")}</h4><strong>${escapeHtml(conflictNodeNames(item))}</strong><span>${suggestedType?escapeHtml(displayValue(suggestedType)):escapeHtml(t("noDirectConnection"))}</span>${canDecide?lineTypeDecisionButtons(id,null,suggestedType):""}</section>` : "";
     box.innerHTML = `<h3>${escapeHtml(conflictTitle(item))}</h3><div class="meta">${escapeHtml(id)} · ${t("review")} ${escapeHtml(displayValue(item.status))}</div>
       <section class="decision-question"><span>${t("decisionNeeded")}</span><strong>${escapeHtml(conflictQuestion(item))}</strong></section>
-      ${nodeList}${relationship}${contextualMerge}${decisions}${labels}${kinds}${pairs}
-      <section class="model-evidence"><h4>${t("modelEvidence")}</h4><p>${escapeHtml(conflictEvidence(item))}</p></section>
+      ${sourceLinks}${nodeList}${relationship}${contextualMerge}${decisions}${labels}${kinds}${pairs}
+      <section class="model-evidence"><h4>${t(auditFinding?"sourceAudit":"modelEvidence")}</h4><p>${escapeHtml(conflictEvidence(item))}</p></section>
+      ${auditFinding&&canDecide?`<label for="auditDecisionNote">${t("auditDecision")}</label><textarea id="auditDecisionNote" class="audit-note" placeholder="${escapeHtml(t("decisionNote"))}">${escapeHtml(app.decisionDrafts[id]||"")}</textarea>`:""}
       <details><summary>${t("rawDetails")}</summary><pre class="conflict-json">${escapeHtml(JSON.stringify(item.conflict, null, 2))}</pre></details>
-      ${canDecide?`<div class="actions"><button id="resolveConflict">${t("resolveNoChange")}</button><button id="waiveConflict">${t("waiveReason")}</button></div>`:`<div class="resolution-complete">${t("resolutionComplete")}</div>`}`;
+      ${canDecide?`<div class="actions"><button id="resolveConflict">${t("resolveNoChange")}</button><button id="waiveConflict">${t("waiveReason")}</button></div>`:`<div class="resolution-complete">${t("resolutionComplete")}<p>${escapeHtml(item.reason||"")}</p></div>`}`;
+    box.querySelectorAll("[data-source-location]").forEach(button=>{button.onclick=()=>{
+      const location=locations[Number(button.dataset.sourceLocation)];changePage(location.page_index,true);app.sourceFocus={...location,id};renderOverlay();
+      requestAnimationFrame(()=>focusBounds(validBounds(location.bbox_global),{maximumZoom:1.5}));
+    };});
+    if(el("auditDecisionNote"))el("auditDecisionNote").oninput=event=>{app.decisionDrafts[id]=event.target.value;};
     box.querySelectorAll("[data-conflict-label]").forEach(button => { button.onclick = () => applyConflictChoice(id, "node", targetNode.id, "modify", {label: button.dataset.conflictLabel}, t("selectedCandidate", {value: button.dataset.conflictLabel})); });
     box.querySelectorAll("[data-conflict-kind]").forEach(button => { button.onclick = () => applyConflictChoice(id, "node", targetNode.id, "modify", {kind: button.dataset.conflictKind}, t("selectedCandidate", {value: displayValue(button.dataset.conflictKind)})); });
     box.querySelectorAll("[data-conflict-decision]").forEach(button => { button.onclick = () => submit("conflict", id, "resolve", {}, t("selectedCandidate", {value: displayValue(button.dataset.conflictDecision)})); });
     bindConflictDecisionActions(box,id);
     if(el("mergeContextActuator"))el("mergeContextActuator").onclick=()=>applyContextualMerge(id,item.conflict,el("contextActuation").value);
-    box.querySelectorAll("[data-view-conflict-node]").forEach(button=>{button.onclick=()=>{const node=nodeById(button.dataset.viewConflictNode);if(node){changePage(node.page_index);select("node",node.id);}};});
-    if(canDecide){el("resolveConflict").onclick = () => submit("conflict", id, "resolve", {}, t("resolvedWithoutChange"));
+    box.querySelectorAll("[data-view-conflict-node]").forEach(button=>{button.onclick=()=>{const node=nodeById(button.dataset.viewConflictNode);if(node)select("node",node.id,{focus:true,preferredPage:node.page_index});};});
+    if(canDecide){el("resolveConflict").onclick = () => {
+      const reason=auditFinding?(app.decisionDrafts[id]||"").trim():t("resolvedWithoutChange");
+      if(!reason)return toast(t("decisionRequired"),true);
+      return submit("conflict",id,"resolve",{},reason);
+    };
     el("waiveConflict").onclick = () => { const reason = prompt(t("conflictWaiveReason")); if (reason) submit("conflict", id, "waive", {}, reason); };}
   }
 }
 
-function select(type, id) { app.selection = type ? {type, id} : null; renderOverlay(); renderQueue(); renderInspector(); }
+function select(type, id, {focus=false,preferredPage=null} = {}) {
+  app.sourceFocus=null;
+  const conflict=type==="conflict"?app.state.reviews.conflicts[id]:null;
+  if (conflict?.conflict?.assembly_id && assemblyById(conflict.conflict.assembly_id)) return select("assembly", conflict.conflict.assembly_id, {focus:true,preferredPage});
+  if(conflict&&app.workspaceView!=="comparison")setWorkspaceView("comparison");
+  const shouldFocus=focus||Boolean(conflict), region=shouldFocus?selectionRegion(type,id,preferredPage):null;
+  const targetPage=region?.page??(Number.isInteger(preferredPage)?preferredPage:null);
+  if(targetPage!=null&&targetPage!==app.page)changePage(targetPage,true);
+  app.selection = type ? {type, id} : null; renderOverlay(); renderQueue(); renderInspector();
+  if(shouldFocus)focusSelectionRegion(type,id,targetPage);
+}
 
 async function submit(target_type, target_id, operation, after = {}, reason = "") {
   try {
@@ -978,7 +1382,8 @@ function changePage(index, preserveSelection = false) {
 
 function renderProgress() {
   const c = app.state.completion;
-  const remaining = c.unreviewed_pages.length + c.unreviewed_nodes.length + c.unreviewed_edges.length + c.unresolved_conflicts.length + (c.unreviewed_evidence || []).length + (c.invalid_evidence_links || []).length;
+  const separateConflicts = c.unresolved_conflicts.filter(id => !app.state.reviews.conflicts[id]?.decision_target);
+  const remaining = (c.unreviewed_assemblies || []).length + c.unreviewed_pages.length + c.unreviewed_nodes.length + c.unreviewed_edges.length + separateConflicts.length + (c.unreviewed_evidence || []).length + (c.invalid_evidence_links || []).length;
   el("progressBadge").textContent = remaining ? t("remaining", {count: remaining}) : t("readyExport");
   el("finishButton").disabled = !c.complete;
   const warnings = app.state.warnings || []; el("warningBox").classList.toggle("hidden", !warnings.length); el("warningBox").textContent = warnings.map(translateWarning).join("\n");
@@ -1037,32 +1442,51 @@ function populateDataFilters() {
   evidenceKind.value=kinds.includes(selectedEvidence)?selectedEvidence:"all";
 }
 
+function populateQueuePages() {
+  const selected=el("queuePage").value||"all";
+  el("queuePage").replaceChildren();
+  for(const [value,label] of [["all",t("allPages")],...app.state.session.pages.map(page=>[String(page.page_index),t("pageShort",{page:page.page_index+1})])]) {
+    const option=document.createElement("option");option.value=value;option.textContent=label;el("queuePage").append(option);
+  }
+  el("queuePage").value=selected;
+}
+
 async function init() {
   applyLanguage();
   applyWorkspaceLayout(false);
   app.state = await api("/api/state");
   populatePageRoles();
   populateDataFilters();
+  populateQueuePages();
   el("languageSwitch").onchange = () => {
     app.lang = el("languageSwitch").value;
     storeSetting("diagex.review.language", app.lang);
-    applyLanguage(); populatePageRoles(); populateDataFilters(); applyWorkspaceLayout(false); renderAll();
+    applyLanguage(); populatePageRoles(); populateDataFilters(); populateQueuePages(); applyWorkspaceLayout(false); renderAll();
   };
   el("workspaceView").onchange=()=>setWorkspaceView(el("workspaceView").value);
   el("layoutMode").onchange = () => { app.layout = el("layoutMode").value; storeSetting("diagex.review.layout", app.layout); applyWorkspaceLayout(); };
   el("toggleQueue").onclick = () => { app.queueVisible = !app.queueVisible; storeSetting("diagex.review.queueVisible", app.queueVisible); applyWorkspaceLayout(); };
   el("toggleInspector").onclick = () => { app.inspectorVisible = !app.inspectorVisible; storeSetting("diagex.review.inspectorVisible", app.inspectorVisible); applyWorkspaceLayout(); };
+  for (const id of ["sourceViewport", "inferenceViewport"]) {
+    const viewport = el(id);
+    viewport.addEventListener("pointerenter", () => { app.activeViewport = id; });
+    viewport.addEventListener("pointerdown", () => { app.activeViewport = id; });
+  }
   el("sourceViewport").onscroll = () => syncScroll(el("sourceViewport"), el("inferenceViewport")); el("inferenceViewport").onscroll = () => syncScroll(el("inferenceViewport"), el("sourceViewport"));
   el("prevPage").onclick=()=>changePage(app.page-1); el("nextPage").onclick=()=>changePage(app.page+1);
-  el("zoomIn").onclick=()=>{app.zoom=Math.min(2.5,app.zoom+.15);setStageSize();}; el("zoomOut").onclick=()=>{app.zoom=Math.max(.05,app.zoom-.15);setStageSize();}; el("fitView").onclick=fitView;
+  el("showIssue").onclick=()=>{if(app.selection){app.sourceFocus=null;setWorkspaceView("comparison");focusSelectionRegion(app.selection.type,app.selection.id);}};
+  el("zoomIn").onclick=()=>changeZoom(app.zoom+.15); el("zoomOut").onclick=()=>changeZoom(app.zoom-.15); el("fitView").onclick=fitView;
   el("backgroundMode").onchange=()=>{ const img=el("inferenceImage"), mode=el("backgroundMode").value; img.style.opacity=mode==="none"?0:(mode==="dim"?.2:1); };
   el("approvePage").onclick=()=>submit("page",String(app.page),"approve",{role:el("pageRole").value}); el("waivePage").onclick=()=>{const reason=prompt(t("pageWaiveReason"));if(reason)submit("page",String(app.page),"waive",{role:el("pageRole").value},reason);};
+  el("queueSearch").oninput=renderQueue; el("queuePage").onchange=renderQueue; el("nextFinding").onclick=nextQueueFinding;
   el("queueFilter").onchange=renderQueue; el("queueType").onchange=renderQueue; el("addNode").onclick=()=>beginDrawNode(); el("addEdge").onclick=addEdge;
   el("inventorySearch").oninput=renderInventory; el("inventoryPage").onchange=renderInventory; el("inventoryKind").onchange=renderInventory; el("inventoryStatus").onchange=renderInventory;
   el("evidenceSearch").oninput=renderEvidence; el("evidencePage").onchange=renderEvidence; el("evidenceStatus").onchange=renderEvidence; el("evidenceKind").onchange=renderEvidence;
   el("undoButton").onclick=()=>submit("", "", "undo");
   el("finishButton").onclick=async()=>{try{const result=await api("/api/finish",{method:"POST",body:JSON.stringify({expected_revision:app.state.revision})});app.state=result.state;renderAll();toast(t("exportSuccess"));}catch(error){toast(error.message,true);}};
+  app.queueVisible=true;
   changePage(0); fitView(); renderProgress(); renderDataViews(); applyWorkspaceLayout(false);
+  if(visibleQueueRows().length)openQueueRow(visibleQueueRows()[0]);
 }
 
 init().catch(error => toast(t("loadFailed", {message: error.message}), true));

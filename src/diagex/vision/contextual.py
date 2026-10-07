@@ -56,15 +56,18 @@ class ContextCorrection(BaseModel):
     kind: Literal["equipment", "instrument", "opc"] | None = None
     equipment_class: str | None = None
     valve_type: str | None = None
-    actuation: Literal[
-        "manual",
-        "solenoid",
-        "electric_motor",
-        "pneumatic",
-        "hydraulic",
-        "spring",
-        "other",
-    ] | None = None
+    actuation: (
+        Literal[
+            "manual",
+            "solenoid",
+            "electric_motor",
+            "pneumatic",
+            "hydraulic",
+            "spring",
+            "other",
+        ]
+        | None
+    ) = None
     legend_refs: list[str] = Field(default_factory=list)
     confidence: Confidence = "medium"
     evidence: list[str] = Field(default_factory=list)
@@ -144,9 +147,7 @@ def find_contextual_candidates(
     candidates: list[tuple[float, ContextCandidate]] = []
     for glyph in ambiguous:
         nearby = [
-            valve
-            for valve in valves
-            if valve.id != glyph.id and _composite_proximity(glyph, valve)
+            valve for valve in valves if valve.id != glyph.id and _composite_proximity(glyph, valve)
         ]
         if not nearby:
             # Isolated M/S glyphs still need the holistic page+legend pass: M
@@ -208,7 +209,9 @@ def resolve_contextual_page(
     node_refs = {
         f"N{index:03d}": node
         for index, node in enumerate(
-            sorted(page_nodes, key=lambda value: (value.bbox_global.y, value.bbox_global.x, value.id)),
+            sorted(
+                page_nodes, key=lambda value: (value.bbox_global.y, value.bbox_global.x, value.id)
+            ),
             start=1,
         )
     }
@@ -247,7 +250,11 @@ def resolve_contextual_page(
             }
             for ref, entry in legend_refs.items()
         ],
-        "image_order": ["annotated page overview", "candidate detail sheet", "project legend sheet"],
+        "image_order": [
+            "annotated page overview",
+            "candidate detail sheet",
+            "project legend sheet",
+        ],
     }
     invalid: list[str] = []
     for attempt in range(1, 3):
@@ -291,14 +298,21 @@ def resolve_contextual_page(
             invalid.append(str(exc))
             continue
         _report_response(response, reporter)
-        cost_tracker.record(response, step=step + attempt - 1, tile_id=f"context_page_{page_index}", page_index=page_index)
+        cost_tracker.record(
+            response,
+            step=step + attempt - 1,
+            tile_id=f"context_page_{page_index}",
+            page_index=page_index,
+        )
         reporter.on_token_update(total_tokens=cost_tracker.total_tokens())
         try:
             submission = _parse_submission(response)
         except ValueError as exc:
             invalid.append(str(exc))
             if attempt == 2:
-                raise ValueError("contextual symbol response was malformed after one recovery attempt") from exc
+                raise ValueError(
+                    "contextual symbol response was malformed after one recovery attempt"
+                ) from exc
             continue
         result = _validate_submission(
             page_index=page_index,
@@ -322,6 +336,7 @@ def apply_contextual_results(
     nodes = {node.id: node.model_copy(deep=True) for node in objects.graph.nodes}
     conflicts = [dict(value) for value in objects.ambiguities]
     removed: set[str] = set()
+    replacements: dict[str, str] = {}
 
     for result in results:
         conflicts.extend(dict(value) for value in result.conflicts)
@@ -339,6 +354,12 @@ def apply_contextual_results(
                     continue
                 for node in absorbed:
                     removed.add(node.id)
+                    replacements[node.id] = primary.id
+                primary.attributes["assembly_ids"] = sorted(
+                    set(primary.attributes.get("assembly_ids", [])).union(
+                        *(node.attributes.get("assembly_ids", []) for node in absorbed)
+                    )
+                )
                 primary.source_annotation_ids = sorted(
                     set(primary.source_annotation_ids).union(
                         *(node.source_annotation_ids for node in absorbed)
@@ -382,7 +403,18 @@ def apply_contextual_results(
         (node for node_id, node in nodes.items() if node_id not in removed),
         key=lambda node: (node.page_index, node.bbox_global.y, node.bbox_global.x, node.id),
     )
-    graph = objects.graph.model_copy(update={"nodes": final_nodes, "conflicts": conflicts})
+    assemblies = [a.model_copy(deep=True) for a in objects.graph.assemblies]
+    for assembly in assemblies:
+        members = set()
+        for nid in assembly.member_node_ids:
+            while nid in replacements:
+                nid = replacements[nid]
+            if nid in nodes and nid not in removed:
+                members.add(nid)
+        assembly.member_node_ids = sorted(members)
+    graph = objects.graph.model_copy(
+        update={"nodes": final_nodes, "conflicts": conflicts, "assemblies": assemblies}
+    )
     return FusionResult(
         graph=graph,
         ambiguities=conflicts,
@@ -405,14 +437,18 @@ def _validate_submission(
         group = group_refs.get(correction.group_ref)
         primary = node_refs.get(correction.primary_ref)
         if group is None or primary is None or correction.group_ref in seen_groups:
-            result.diagnostics.append(f"rejected unknown or duplicate group {correction.group_ref!r}")
+            result.diagnostics.append(
+                f"rejected unknown or duplicate group {correction.group_ref!r}"
+            )
             continue
         seen_groups.add(correction.group_ref)
         allowed_refs = {ref_by_id[node_id] for node_id in group.node_ids}
         if correction.primary_ref not in allowed_refs or any(
             ref not in allowed_refs for ref in correction.absorbed_refs
         ):
-            result.diagnostics.append(f"rejected out-of-group correction for {correction.group_ref}")
+            result.diagnostics.append(
+                f"rejected out-of-group correction for {correction.group_ref}"
+            )
             continue
         cited = [legend_refs[ref] for ref in correction.legend_refs if ref in legend_refs]
         legend_labels = [str(entry.get("label") or "") for entry in cited]
@@ -424,7 +460,9 @@ def _validate_submission(
             result.conflicts.append(_uncertain_conflict(group, correction, node_refs))
             continue
         if correction.equipment_class and correction.equipment_class not in EQUIPMENT_CLASS_KEYS:
-            result.diagnostics.append(f"rejected unknown equipment class {correction.equipment_class!r}")
+            result.diagnostics.append(
+                f"rejected unknown equipment class {correction.equipment_class!r}"
+            )
             continue
         if correction.valve_type and correction.valve_type not in VALVE_TYPE_KEYS:
             result.diagnostics.append(f"rejected unknown valve type {correction.valve_type!r}")
@@ -491,7 +529,11 @@ def _uncertain_conflict(
     node_refs: dict[str, ReconciledNode],
 ) -> dict[str, Any]:
     nodes_by_ref = {ref: node for ref, node in node_refs.items()}
-    selected = [nodes_by_ref[ref] for ref in (correction.primary_ref, *correction.absorbed_refs) if ref in nodes_by_ref]
+    selected = [
+        nodes_by_ref[ref]
+        for ref in (correction.primary_ref, *correction.absorbed_refs)
+        if ref in nodes_by_ref
+    ]
     return {
         "type": "contextual_symbol_uncertainty",
         "page_index": group.page_index,
@@ -507,7 +549,8 @@ def _uncertain_conflict(
         "suggested_valve_type": correction.valve_type,
         "legend_refs": list(correction.legend_refs),
         "status": "unresolved",
-        "reason": "; ".join(correction.evidence[:4]) or "project legend and local context did not support a safe correction",
+        "reason": "; ".join(correction.evidence[:4])
+        or "project legend and local context did not support a safe correction",
     }
 
 
@@ -516,7 +559,9 @@ def _legend_supports_actuation(actuation: str, entries: list[dict[str, Any]]) ->
         return bool(entries)
     terms = _ACTUATION_LEGEND_TERMS.get(actuation, ())
     text = " ".join(
-        " ".join(str(entry.get(key) or "").casefold() for key in ("label", "description", "symbol_class"))
+        " ".join(
+            str(entry.get(key) or "").casefold() for key in ("label", "description", "symbol_class")
+        )
         for entry in entries
     )
     return bool(terms) and any(term.casefold() in text for term in terms)
@@ -539,9 +584,11 @@ def _is_ambiguous_small_node(node: ReconciledNode) -> bool:
         attrs.get("instrument_function") == "unclassified_instrument"
         or attrs.get("equipment_class") == "unclassified_equipment"
     )
-    return node.kind in {"equipment", "instrument"} and (
-        unclassified or bool(short_glyph)
-    ) and max(node.bbox_global.w, node.bbox_global.h) <= 180
+    return (
+        node.kind in {"equipment", "instrument"}
+        and (unclassified or bool(short_glyph))
+        and max(node.bbox_global.w, node.bbox_global.h) <= 180
+    )
 
 
 def _composite_proximity(glyph: ReconciledNode, valve: ReconciledNode) -> bool:
@@ -568,22 +615,17 @@ def _bbox_union(boxes: list[BBox]) -> BBox:
     return BBox(x=x0, y=y0, w=max(1, x1 - x0), h=max(1, y1 - y0))
 
 
-def _visual_legend_entries(entries: list[dict[str, Any]], *, limit: int = 48) -> list[dict[str, Any]]:
-    values = [
-        entry
-        for entry in entries
-        if entry.get("image_b64") and entry.get("kind") != "line"
-    ]
+def _visual_legend_entries(
+    entries: list[dict[str, Any]], *, limit: int = 48
+) -> list[dict[str, Any]]:
+    values = [entry for entry in entries if entry.get("image_b64") and entry.get("kind") != "line"]
     actuation_terms = {
-        term.casefold()
-        for terms in _ACTUATION_LEGEND_TERMS.values()
-        for term in terms
+        term.casefold() for terms in _ACTUATION_LEGEND_TERMS.values() for term in terms
     }
 
     def priority(entry: dict[str, Any]) -> tuple[int, int, str]:
         text = " ".join(
-            str(entry.get(key) or "").casefold()
-            for key in ("label", "description", "symbol_class")
+            str(entry.get(key) or "").casefold() for key in ("label", "description", "symbol_class")
         )
         is_actuator = any(term in text for term in actuation_terms)
         return (
@@ -605,7 +647,15 @@ def _node_payload(ref: str, node: ReconciledNode) -> dict[str, Any]:
         "attributes": {
             key: value
             for key, value in node.attributes.items()
-            if key in {"equipment_class", "valve_type", "instrument_function", "measured_variable", "actuation", "structural_description"}
+            if key
+            in {
+                "equipment_class",
+                "valve_type",
+                "instrument_function",
+                "measured_variable",
+                "actuation",
+                "structural_description",
+            }
         },
         "source_text": node.source_quote,
     }
@@ -707,7 +757,9 @@ def _parse_submission(response: Any) -> ContextSubmission:
         if block_type == "tool_use":
             name = block.get("name") if isinstance(block, dict) else getattr(block, "name", None)
             if name == _TOOL["name"]:
-                value = block.get("input") if isinstance(block, dict) else getattr(block, "input", None)
+                value = (
+                    block.get("input") if isinstance(block, dict) else getattr(block, "input", None)
+                )
                 return ContextSubmission.model_validate(value or {})
         if block_type == "text":
             value = block.get("text") if isinstance(block, dict) else getattr(block, "text", None)
@@ -727,9 +779,13 @@ def _report_response(response: Any, reporter: ProgressReporter) -> None:
         block_type = block.get("type") if isinstance(block, dict) else getattr(block, "type", None)
         if block_type not in {"text", "thinking", "reasoning"}:
             continue
-        value = block.get(block_type) if isinstance(block, dict) else getattr(block, block_type, None)
+        value = (
+            block.get(block_type) if isinstance(block, dict) else getattr(block, block_type, None)
+        )
         if value:
-            reporter.on_stream_delta(kind="reasoning" if block_type != "text" else "model", text=str(value))
+            reporter.on_stream_delta(
+                kind="reasoning" if block_type != "text" else "model", text=str(value)
+            )
 
 
 def _response_diagnostic(response: Any) -> dict[str, Any]:

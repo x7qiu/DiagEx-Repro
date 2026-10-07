@@ -30,7 +30,7 @@ LineStyleSource = Literal[
     "unknown",
 ]
 
-EVIDENCE_SCHEMA_VERSION = "1.1.0"
+EVIDENCE_SCHEMA_VERSION = "1.2.0"
 
 
 def stable_evidence_id(prefix: str, *parts: Any) -> str:
@@ -58,6 +58,7 @@ class PathEvidence(BaseModel):
     closed: bool = False
     stroke_width: float = 1.0
     stroke_color: list[float] | None = None
+    fill_color: list[float] | None = None
     dashes: str | None = None
     # Visual appearance is deliberately separate from engineering meaning.
     # A dashed line may be electric, pneumatic, capillary, or project-specific;
@@ -81,6 +82,7 @@ class PageEvidence(BaseModel):
     effective_dpi: float
     is_scanned: bool
     rotation_deg: float = 0.0
+    native_coordinate_frame: Literal["legacy", "rendered_page"] = "legacy"
     role: PageRole = "pid"
     role_confidence: EvidenceConfidence = "low"
     role_reason: str = "uncertain page; processed as P&ID"
@@ -225,6 +227,7 @@ def extract_page_evidence(
         effective_dpi=page.effective_dpi,
         is_scanned=page.is_scanned,
         rotation_deg=page.rotation_deg,
+        native_coordinate_frame="rendered_page",
         role=role,
         role_confidence=role_confidence,
         role_reason=reason,
@@ -274,7 +277,8 @@ def _extract_text(pdf_page: fitz.Page, page: DiagramPage) -> list[TextEvidence]:
         block = int(raw[5]) if len(raw) > 5 else None
         line = int(raw[6]) if len(raw) > 6 else None
         word = int(raw[7]) if len(raw) > 7 else None
-        bbox = _bbox_from_floats(x0, y0, x1, y1, sx=sx, sy=sy)
+        rotated = fitz.Rect(x0, y0, x1, y1) * pdf_page.rotation_matrix
+        bbox = _bbox_from_floats(*rotated, sx=sx, sy=sy)
         out.append(
             TextEvidence(
                 id=stable_evidence_id(
@@ -360,7 +364,12 @@ def _extract_paths(pdf_page: fitz.Page, page: DiagramPage) -> list[PathEvidence]
             else:
                 continue
 
-            points = _scaled_points(raw_points, sx=sx, sy=sy)
+            # get_drawings/get_text return unrotated PDF coordinates, whereas
+            # the rendered page and detector boxes include the PDF rotation.
+            rotated_points = [
+                fitz.Point(*_point_xy(value)) * pdf_page.rotation_matrix for value in raw_points
+            ]
+            points = _scaled_points(rotated_points, sx=sx, sy=sy)
             if len(set(points)) < 2:
                 continue
             bbox = _path_bbox(points)
@@ -382,6 +391,7 @@ def _extract_paths(pdf_page: fitz.Page, page: DiagramPage) -> list[PathEvidence]
                     closed=closed,
                     stroke_width=max(0.1, width),
                     stroke_color=stroke_color,
+                    fill_color=list(drawing["fill"]) if drawing.get("fill") is not None else None,
                     dashes=dashes,
                     visual_style=visual_style,
                     style_confidence=style_confidence,

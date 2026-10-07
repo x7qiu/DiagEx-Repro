@@ -67,6 +67,9 @@ def test_http_state_assets_actions_and_path_safety(tmp_path: Path):
         assert b'id="workspaceView"' in body
         assert b'id="inventoryView"' in body
         assert b'id="evidenceView"' in body
+        assert b'id="queueSearch"' in body
+        assert b'id="nextFinding"' in body
+        assert b'<option value="findings"' in body
 
         status, content_type, body = _request(connection, "GET", "/static/app.js")
         assert status == 200
@@ -86,6 +89,7 @@ def test_http_state_assets_actions_and_path_safety(tmp_path: Path):
         assert "电磁执行机构".encode() in body
         assert b"applyContextualMerge" in body
         assert b"applyConflictEdgeType" in body
+        assert b"focusSelectionRegion" in body
 
         status, content_type, body = _request(connection, "GET", "/api/state")
         assert status == 200
